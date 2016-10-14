@@ -16,8 +16,8 @@ If you did not find something that matches your case, <a href="http://stackoverf
 <h2 class="mt-10">When do you plan on releasing Feature X?</h2>
 
 <p>
-Check the <a href="http://www.telerik.com/kendo-angular-ui/roadmap/">Roadmap</a> for the planned items. 
-If the item you need is not present there, <a href="http://kendoui-feedback.telerik.com/forums/555517-kendo-ui-for-angular-2-feedback">check our feedback portal</a>. If someone already posted it there, you can upvote it. If nobody has requested it so far, you can post a new idea. 
+Check the <a href="http://www.telerik.com/kendo-angular-ui/roadmap/">Roadmap </a> for the planned items. 
+If the item you need is not present there, <a href="http://kendoui-feedback.telerik.com/forums/555517-kendo-ui-for-angular-2-feedback">check our UserVoice feedback portal  &nearr;</a>. If someone already posted it there, you can upvote it. If nobody has requested it so far, you can post a new idea. 
 </p>
   
 ## I am Looking for a Commercial-Grade Support
