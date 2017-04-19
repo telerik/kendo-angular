@@ -1,4 +1,4 @@
-# Kendo UI For Angular 2: Community & Support
+# Kendo UI For Angular: Community & Support
 
 A "meta" repository for [Kendo UI for Angular](http://www.telerik.com/kendo-angular-ui/). 
 
