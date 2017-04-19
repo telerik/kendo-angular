@@ -21,7 +21,7 @@ The [milestones](https://github.com/telerik/kendo-angular/milestones) topic pres
   <h2 class="h3">When do you plan on releasing Feature X?</h2>
 
   <p>
-	Check the <a href="{{site.baseurl}}/roadmap/">Roadmap</a> for the planned items.
+	Check the <a href="http://www.telerik.com/kendo-angular-ui/roadmap/">Roadmap</a> for the planned items.
 	If the item you need is not present there, <a href="http://kendoui-feedback.telerik.com/forums/555517-kendo-ui-for-angular-2-feedback">check our feedback portal</a>. If someone has already posted it there, you can upvote it. If nobody has requested it so far, you can post a new idea.
   </p>
 
@@ -45,7 +45,7 @@ The [milestones](https://github.com/telerik/kendo-angular/milestones) topic pres
   <h3 class="h4">Steps</h3>
 
   <ol>
-      <li>Find an example in the <a href="{{site.baseurl}}/components">documentation</a> that looks similar to your case.</li>
+      <li>Find an example in the <a href="http://www.telerik.com/kendo-angular-ui/components/">documentation</a> that looks similar to your case.</li>
       <li>Open it in Plunker by using the <strong>OPEN AS PLUNKER</strong> button.</li>
       <li>Modify the plunk, so that the issue is reproducible in it. Try to include the minimum possible amount of code.</li>
       <li>Save the plunk by using the blue <strong>Save</strong> button at the top.</li>
