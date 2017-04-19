@@ -1,10 +1,10 @@
 # Kendo UI For Angular 2: Community & Support
 
-A "meta" repository for [Kendo UI for Angular 2](http://www.telerik.com/kendo-angular-ui/). 
+A "meta" repository for [Kendo UI for Angular](http://www.telerik.com/kendo-angular-ui/). 
 
-The [issues](https://github.com/telerik/kendo-angular2/issues) section documents the development roadmap and any outstanding open issues. 
+The [issues](https://github.com/telerik/kendo-angular/issues) section documents the development roadmap and any outstanding open issues. 
 
-The [milestones](https://github.com/telerik/kendo-angular2/milestones) topic presents the planned releases.
+The [milestones](https://github.com/telerik/kendo-angular/milestones) topic presents the planned releases.
 
 <h2 id="how-do-i" class="h3">How do I&hellip;?</h2>
 
@@ -28,18 +28,18 @@ The [milestones](https://github.com/telerik/kendo-angular2/milestones) topic pre
   <h2 id="bug-found" class="h3">I think I found a bug</h2>
 
   <p>
-      Review the issues in the <a href="https://github.com/telerik/kendo-angular2/issues">GitHub repository &nearr;</a>.
+      Review the issues in the <a href="https://github.com/telerik/kendo-angular/issues">GitHub repository &nearr;</a>.
       Maybe someone has already reported it and it will be fixed soon.
   </p>
   <p>
-      The problem might have also been fixed. In this case, you will find the issue in <a href="https://github.com/telerik/kendo-angular2/issues?q=is%3Aissue+is%3Aclosed">the closed list &nearr;</a>.
+      The problem might have also been fixed. In this case, you will find the issue in <a href="https://github.com/telerik/kendo-angular/issues?q=is%3Aissue+is%3Aclosed">the closed list &nearr;</a>.
   </p>
 
   <p>If you cannot find your issue, <a href="#bug-reporting">follow the reproduction steps guide below</a>. We will look into it.</p>
 
   <h2 id="bug-reporting" class="h3">I want to report a bug</h2>
 
-  <p>Kendo UI for Angular 2 uses GitHub issues as official bug trackers. The <a href="https://github.com/telerik/kendo-angular2">telerik/kendo-angular2</a>
+  <p>Kendo UI for Angular uses GitHub issues as official bug trackers. The <a href="https://github.com/telerik/kendo-angular">telerik/kendo-angular</a>
       repository is there for that purpose&mdash;it does not contain the actual components source code.</p>
 
   <h3 class="h4">Steps</h3>
@@ -50,7 +50,7 @@ The [milestones](https://github.com/telerik/kendo-angular2/milestones) topic pre
       <li>Modify the plunk, so that the issue is reproducible in it. Try to include the minimum possible amount of code.</li>
       <li>Save the plunk by using the blue <strong>Save</strong> button at the top.</li>
       <li>Copy the link from the address bar of the browser.</li>
-      <li><a href="https://github.com/telerik/kendo-angular2/issues/new">Open a new issue</a> and add the plunker link in the description.</li>
+      <li><a href="https://github.com/telerik/kendo-angular/issues/new">Open a new issue</a> and add the plunker link in the description.</li>
       <li>Provide any additional information necessary for us to reproduce the problem such as browser version, steps to perform, etc.</li>
   </ol>
 
