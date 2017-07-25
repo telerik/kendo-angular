@@ -40,7 +40,7 @@ For bug reports please provide the *STEPS TO REPRODUCE* and if possible a *MINIM
 <!-- Check whether this is still an issue in the most recent package versions -->
 
 Package versions:
-<!-- Paste the @progress dependencies from your package.json file -->
+<!-- Paste the @progress and @angular dependencies from your package.json file -->
 ```json
 
 ```
