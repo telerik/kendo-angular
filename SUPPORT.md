@@ -1,7 +1,3 @@
-# Kendo UI for Angular
-
-Kendo UI for Angular uses GitHub Issues as a bug tracker. This repository is here for that purpose&mdash;it does not contain the actual components source code.
-
 ## How do I&hellip;?
 
 * Check out the [Documentation &nearr;](http://www.telerik.com/kendo-angular-ui/components/) and [FAQ &nearr;](http://www.telerik.com/kendo-angular-ui/components/faq/) pages.
@@ -35,10 +31,4 @@ The problem might have also been fixed. In this case, you will find the issue in
 We might not be able to act on issues **without a runnable demo**.
 
 If you need assistance on troubleshooting or isolating a problem, you can request a remote assistance session through our [Support Ticket](https://www.telerik.com/account/support-tickets) system. Remote Assistance is included in the [DevCraft Ultimate](http://www.telerik.com/purchase/kendo-ui) subscription.
-
-## I need a tailor-made solution
-
-Our aim is to provide the most versatile and proven set of application building blocks. Still, there is some assembly required depending on the desired functionality.
-
-The [Progress Services](https://www.progress.com/services) team is available to assist in building functional blocks or complete applications according to your specification. They will help you make the best out of Kendo UI while freeing you to work on the real business problems.
 
