@@ -17,7 +17,10 @@
 * Documentation issue or request
 
 ## Current behavior
-<!-- Describe how the issue manifests. -->
+<!--
+  * Describe how the issue manifests.
+  * Check whether this is still an issue in the most recent package versions
+-->
 
 ## Expected behavior
 <!-- Describe what the desired behavior would be. -->
@@ -37,7 +40,6 @@ For bug reports please provide the *STEPS TO REPRODUCE* and if possible a *MINIM
 <!-- Describe the motivation or the concrete use case. -->
 
 ## Environment
-<!-- Check whether this is still an issue in the most recent package versions -->
 
 Package versions:
 <!-- Paste the output from "npm ls --depth 0" in the code block below -->
