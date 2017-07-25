@@ -40,8 +40,8 @@ For bug reports please provide the *STEPS TO REPRODUCE* and if possible a *MINIM
 <!-- Check whether this is still an issue in the most recent package versions -->
 
 Package versions:
-<!-- Paste the @progress and @angular dependencies from your package.json file -->
-```json
+<!-- Paste the output from "npm ls --depth 0" in the code block below -->
+```
 
 ```
 
@@ -57,6 +57,7 @@ Browser:
 - Edge version XX
 
 System:
+- TypeScript version: XX <!-- run tsc --version -->
 - Node version: XX  <!-- run "node --version" and "npm --version"-->
 - Platform:  <!-- Mac, Linux, Windows -->
 
