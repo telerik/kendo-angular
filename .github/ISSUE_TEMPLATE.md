@@ -42,7 +42,10 @@ For bug reports please provide the *STEPS TO REPRODUCE* and if possible a *MINIM
 ## Environment
 
 Package versions:
-<!-- Paste the output from "npm ls --depth 0" in the code block below -->
+<!--
+  Paste the output from "npm ls --depth 0" in the code block below.
+  Omit if the problem is reproducible on our demo site.
+-->
 ```
 
 ```
