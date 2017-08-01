@@ -1,25 +1,25 @@
 <!--
-  Please help us process GitHub issues faster by providing the following information.
-  We might not be able to assist with issues missing important information.
+  Please help us process GitHub issues faster by providing the necessary information in the template format that follows.
+  We might not be able to assist with issues which lack important information.
 -->
 
 ## I'm submitting a...
 <!--
-  Please submit 
-  * Feature requests to our UserVoice Portal at https://goo.gl/HsVr7R
-  * Support requests at https://www.telerik.com/account/support-tickets
+  Please submit:
+  * Feature requests to our UserVoice Portal at https://goo.gl/HsVr7R.
+  * Support requests to https://www.telerik.com/account/support-tickets.
 -->
 
-<!--  Leave one of the following options: -->
-* Regression report <!-- A behavior that used to work and stopped working in a new release -->
-* Bug report <!-- Please search for a similar issue before submitting -->
+<!--  Leave one of the following options. -->
+* Regression report <!-- A behavior that used to work and stopped working in a new release. -->
+* Bug report <!-- Please search for a similar issue before you submit a bug report. -->
 * Suggestion for improvement
 * Documentation issue or request
 
 ## Current behavior
 <!--
-  * Describe how the issue manifests.
-  * Check whether this is still an issue in the most recent package versions
+  * Describe the current (faulty) behavior which is caused by the issue.
+  * In the latest package versions, check whether this behavior still represents an issue.
 -->
 
 ## Expected behavior
@@ -27,7 +27,7 @@
 
 ## Minimal reproduction of the problem with instructions
 <!--
-For bug reports please provide the *STEPS TO REPRODUCE* and if possible a *MINIMAL DEMO* of the problem. You can use https://plnkr.co or share your project in a public repository.
+For bug reports, please provide the **STEPS TO REPRODUCE** and, if possible, a **MINIMAL DEMO** of the issue. You can use https://plnkr.co or share your project in a public repository.
 
   1. Find an example in [the documentation](http://www.telerik.com/kendo-angular-ui/components/) that looks similar to your case.
   2. Open it in Plunker by using the **OPEN AS PLUNKER** button.
@@ -36,7 +36,7 @@ For bug reports please provide the *STEPS TO REPRODUCE* and if possible a *MINIM
   5. Copy the link from the address bar of the browser.
 -->
 
-## What is the motivation / use case for changing the behavior?
+## What is the motivation or use case for changing the behavior?
 <!-- Describe the motivation or the concrete use case. -->
 
 ## Environment
@@ -44,14 +44,14 @@ For bug reports please provide the *STEPS TO REPRODUCE* and if possible a *MINIM
 Package versions:
 <!--
   Paste the output from "npm ls --depth 0" in the code block below.
-  Omit if the problem is reproducible on our demo site.
+  Omit this step if the problem is reproducible on our demo site.
 -->
 ```
 
 ```
 
 Browser:
-<!-- Leave only the browsers that you tested with -->
+<!-- Leave only the browsers that you tested the issue with. -->
 - Chrome (desktop) version XX
 - Chrome (Android) version XX
 - Chrome (iOS) version XX
@@ -66,4 +66,4 @@ System:
 - Node version: XX  <!-- run "node --version" and "npm --version"-->
 - Platform:  <!-- Mac, Linux, Windows -->
 
-<!-- Anything else relevant?  -->
+<!-- Add any additional information that might be relevant. -->
