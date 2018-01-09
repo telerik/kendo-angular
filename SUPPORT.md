@@ -1,8 +1,8 @@
 ## How do I...?
 
-1. Check out the [**Components** &nearr;](http://www.telerik.com/kendo-angular-ui/components/) and [**FAQ** &nearr;](http://www.telerik.com/kendo-angular-ui/components/faq/) pages.
-1. Browse the [kendo-ui-angular2 &nearr;](http://stackoverflow.com/questions/tagged/kendo-ui-angular2) questions on Stack Overflow.
-1. If you did not find something that matches your case, [submit a support ticket &nearr;](https://www.telerik.com/account/support-tickets) or ask [on StackOverflow &nearr;](http://stackoverflow.com/questions/ask?tags=kendo-ui-angular2,angular2).
+1. Check out the [**Components** &nearr;](http://www.telerik.com/kendo-angular-ui/components/), or the [**FAQ** &nearr;](http://www.telerik.com/kendo-angular-ui/components/faq/) and [**Troubleshooting** &nearr;](http://www.telerik.com/kendo-angular-ui/components/troubleshooting/) pages.
+1. Browse the [kendo-ui-angular2 &nearr;](http://stackoverflow.com/questions/tagged/kendo-ui-angular2) questions on Stack Overflow. If you haven't found what you are looking for there, pose a question for the Stack Overflow community to follow or answer.
+1. Use our official support channel and [submit a support ticket &nearr;](https://www.telerik.com/account/support-tickets).
 
 ## When do you plan on releasing Feature X?
 
@@ -28,3 +28,9 @@
 We might not be able to act on issues **without a runnable demo**.
 
 If you need assistance on troubleshooting or isolating a problem, you can request a remote assistance session through our [Support Ticket](https://www.telerik.com/account/support-tickets) system. Remote Assistance is included in the [DevCraft Ultimate](http://www.telerik.com/purchase/kendo-ui) subscription.
+
+## I need a tailor-made solution
+
+Our aim is to provide the most versatile and proven set of application building blocks. Still, depending on the functionality you desire, some assembly is required.
+
+The [Progress Services](https://www.progress.com/services) team is available to assist in building functional blocks or complete applications according to your specification. They will help you make the most of Kendo UI while freeing you to work on the real business problems.

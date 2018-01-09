@@ -4,9 +4,9 @@ Kendo UI for Angular uses GitHub Issues as official bug trackers. This repositor
 
 ## How do I...?
 
-1. Check out the [**Components** &nearr;](http://www.telerik.com/kendo-angular-ui/components/) and [**FAQ** &nearr;](http://www.telerik.com/kendo-angular-ui/components/faq/) pages.
-1. Browse the [kendo-ui-angular2 &nearr;](http://stackoverflow.com/questions/tagged/kendo-ui-angular2) questions on Stack Overflow.
-1. If you did not find something that matches your case, [submit a support ticket &nearr;](https://www.telerik.com/account/support-tickets) or ask [on StackOverflow &nearr;](http://stackoverflow.com/questions/ask?tags=kendo-ui-angular2,angular2).
+1. Check out the [**Components** &nearr;](http://www.telerik.com/kendo-angular-ui/components/), or the [**FAQ** &nearr;](http://www.telerik.com/kendo-angular-ui/components/faq/) and [**Troubleshooting** &nearr;](http://www.telerik.com/kendo-angular-ui/components/troubleshooting/) pages.
+1. Browse the [kendo-ui-angular2 &nearr;](http://stackoverflow.com/questions/tagged/kendo-ui-angular2) questions on Stack Overflow. If you haven't found what you are looking for there, pose a question for the Stack Overflow community to follow or answer.
+1. Use our official support channel and [submit a support ticket &nearr;](https://www.telerik.com/account/support-tickets).
 
 ## When do you plan on releasing Feature X?
 
