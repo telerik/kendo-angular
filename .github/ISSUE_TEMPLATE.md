@@ -13,8 +13,7 @@
 <!--  Leave one of the following options. -->
 * Regression report <!-- A behavior that used to work and stopped working in a new release. -->
 * Bug report <!-- Please search for a similar issue before you submit a bug report. -->
-* Suggestion for improvement
-* Documentation issue or request
+* Documentation issue
 
 ## Current behavior
 <!--
@@ -35,9 +34,6 @@ For bug reports, please provide the **STEPS TO REPRODUCE** and, if possible, a *
   4. Save the plunk by using the blue **Save** button at the top.
   5. Copy the link from the address bar of the browser.
 -->
-
-## What is the motivation or use case for changing the behavior?
-<!-- Describe the motivation or the concrete use case. -->
 
 ## Environment
 
