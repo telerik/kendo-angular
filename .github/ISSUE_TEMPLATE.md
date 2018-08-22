@@ -11,9 +11,10 @@
 -->
 
 <!--  Leave one of the following options. -->
-* Regression report <!-- A behavior that used to work and stopped working in a new release. -->
+* Regression report <!-- A behaviour that used to work and stopped working in a new release. -->
 * Bug report <!-- Please search for a similar issue before you submit a bug report. -->
-* Documentation issue
+* Suggestion for improvement <!-- An existing feature or behavior that can be improved. --> 
+* Documentation issue <!-- Missing or outdated documentation content or broken examples. -->
 
 ## Current behavior
 <!--
