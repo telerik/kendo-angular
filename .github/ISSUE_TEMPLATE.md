@@ -6,8 +6,8 @@
 ## I'm submitting a...
 <!--
   Please submit:
-  * Feature requests to our UserVoice Portal at https://goo.gl/HsVr7R.
-  * Support requests to https://www.telerik.com/account/support-tickets.
+  * Feature requests to our UserVoice Portal at https://feedback.telerik.com/kendo-angular-ui
+  * Support requests to https://www.telerik.com/account/support-tickets
 -->
 
 <!--  Leave one of the following options. -->
