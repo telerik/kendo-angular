@@ -1,6 +1,6 @@
 ---
 name: Documentation issue
-about: Missing or outdated documentation content or broken examples.
+about: Share any missing or outdated documentation, and broken links and examples.
 title: ''
 labels: ''
 assignees: ''
@@ -8,15 +8,15 @@ assignees: ''
 ---
 
 **Describe the issue**
- A clear and concise description of the issue and a link to the affected page(s).
+ A clear and concise description of the issue and a link to the affected page.
 
 **Screenshots**
 If applicable, add screenshots to help explain your problem.
 
 **Browser**
- - OS: [e.g. iOS]
- - Browser [e.g. chrome, safari]
- - Version [e.g. 22]
+ - OS: [for example, iOS]
+ - Browser [for example, Chrome, Safari]
+ - Version [for example, 22]
 
 **Additional context**
 Add any other context about the problem here.
