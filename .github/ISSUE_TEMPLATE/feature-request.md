@@ -7,5 +7,5 @@ assignees: ''
 
 ---
 
-**Please, submit requests for new components and features to our UserVoice Portal at
+**Please, submit requests for new components and features to our Feedback Portal at
 https://feedback.telerik.com/kendo-angular-ui**
