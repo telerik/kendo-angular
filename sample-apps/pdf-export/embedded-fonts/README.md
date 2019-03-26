@@ -1,4 +1,6 @@
-# EmbeddedFonts
+# Kendo UI for Angular: PDF Export - Embedded Fonts
+
+This repository holds the source code for the article on [PDF Export - Embedded Fonts](https://www.telerik.com/kendo-angular-ui/components/pdfexport/embedded-fonts/) from the Kendo UI for Angular suite.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.5.
 
