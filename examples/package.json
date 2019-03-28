@@ -1,9 +1,9 @@
 {
-  "name": "embedded-fonts",
+  "name": "examples",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "./bin/serve-project.js",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
