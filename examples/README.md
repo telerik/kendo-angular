@@ -12,7 +12,8 @@ Navigate to `http://localhost:4200/`. The app will automatically reload if you c
 
 ## Creating a New Sample Project
 
-Use `ng generate application <application-name>` to create a new sample application.
+1. Use `ng generate application <application-name>` to create a new sample application.
+1. Add the Kendo UI Default theme to the `styles` section of the application in `angular.json`
 
 ## Further help
 

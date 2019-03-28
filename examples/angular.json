@@ -108,6 +108,112 @@
           }
         }
       }
+    },
+    "integration-jquery": {
+      "root": "projects/integration-jquery/",
+      "sourceRoot": "projects/integration-jquery/src",
+      "projectType": "application",
+      "prefix": "app",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/integration-jquery",
+            "index": "projects/integration-jquery/src/index.html",
+            "main": "projects/integration-jquery/src/main.ts",
+            "polyfills": "projects/integration-jquery/src/polyfills.ts",
+            "tsConfig": "projects/integration-jquery/tsconfig.app.json",
+            "assets": [
+              "projects/integration-jquery/src/favicon.ico",
+              "projects/integration-jquery/src/assets"
+            ],
+            "styles": [
+              {
+                "input": "node_modules/@progress/kendo-theme-default/dist/all.css"
+              },
+              "projects/integration-jquery/src/styles.css"
+            ],
+            "scripts": [],
+            "es5BrowserSupport": true
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/integration-jquery/src/environments/environment.ts",
+                  "with": "projects/integration-jquery/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "integration-jquery:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "integration-jquery:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "integration-jquery:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/integration-jquery/src/test.ts",
+            "polyfills": "projects/integration-jquery/src/polyfills.ts",
+            "tsConfig": "projects/integration-jquery/tsconfig.spec.json",
+            "karmaConfig": "projects/integration-jquery/karma.conf.js",
+            "styles": [
+              {
+                "input": "node_modules/@progress/kendo-theme-default/dist/all.css"
+              },
+              "projects/integration-jquery/src/styles.css"
+            ],
+            "scripts": [],
+            "assets": [
+              "projects/integration-jquery/src/favicon.ico",
+              "projects/integration-jquery/src/assets"
+            ]
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/integration-jquery/tsconfig.app.json",
+              "projects/integration-jquery/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "pdf-embedded-fonts"
