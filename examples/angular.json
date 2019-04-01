@@ -214,6 +214,115 @@
           }
         }
       }
+    },
+    "integration-pwa": {
+      "root": "projects/integration-pwa/",
+      "sourceRoot": "projects/integration-pwa/src",
+      "projectType": "application",
+      "prefix": "app",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/integration-pwa",
+            "index": "projects/integration-pwa/src/index.html",
+            "main": "projects/integration-pwa/src/main.ts",
+            "polyfills": "projects/integration-pwa/src/polyfills.ts",
+            "tsConfig": "projects/integration-pwa/tsconfig.app.json",
+            "assets": [
+              "projects/integration-pwa/src/favicon.ico",
+              "projects/integration-pwa/src/assets",
+              "projects/integration-pwa/src/manifest.json"
+            ],
+            "styles": [
+              {
+                "input": "node_modules/@progress/kendo-theme-default/dist/all.css"
+              },
+              "projects/integration-pwa/src/styles.scss"
+            ],
+            "scripts": [],
+            "es5BrowserSupport": true
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/integration-pwa/src/environments/environment.ts",
+                  "with": "projects/integration-pwa/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "serviceWorker": true,
+              "ngswConfigPath": "projects/integration-pwa/src/ngsw-config.json",
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "3mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "integration-pwa:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "integration-pwa:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "integration-pwa:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/integration-pwa/src/test.ts",
+            "polyfills": "projects/integration-pwa/src/polyfills.ts",
+            "tsConfig": "projects/integration-pwa/tsconfig.spec.json",
+            "karmaConfig": "projects/integration-pwa/karma.conf.js",
+            "styles": [
+              {
+                "input": "node_modules/@progress/kendo-theme-default/dist/all.css"
+              },
+              "projects/integration-pwa/src/styles.scss"
+            ],
+            "scripts": [],
+            "assets": [
+              "projects/integration-pwa/src/favicon.ico",
+              "projects/integration-pwa/src/assets"
+            ]
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/integration-pwa/tsconfig.app.json",
+              "projects/integration-pwa/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "pdf-embedded-fonts"
