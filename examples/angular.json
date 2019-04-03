@@ -561,6 +561,109 @@
           }
         }
       }
+    },
+    "grid-graphql": {
+      "root": "projects/grid-graphql/",
+      "sourceRoot": "projects/grid-graphql/src",
+      "projectType": "application",
+      "prefix": "app",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/grid-graphql",
+            "index": "projects/grid-graphql/src/index.html",
+            "main": "projects/grid-graphql/src/main.ts",
+            "polyfills": "projects/grid-graphql/src/polyfills.ts",
+            "tsConfig": "projects/grid-graphql/tsconfig.app.json",
+            "assets": [
+              "projects/grid-graphql/src/favicon.ico",
+              "projects/grid-graphql/src/assets"
+            ],
+            "styles": [
+              {
+                "input": "node_modules/@progress/kendo-theme-default/dist/all.css"
+              },
+              "projects/grid-graphql/src/styles.css"
+            ],
+            "scripts": [],
+            "es5BrowserSupport": true
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/grid-graphql/src/environments/environment.ts",
+                  "with": "projects/grid-graphql/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "grid-graphql:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "grid-graphql:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "grid-graphql:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/grid-graphql/src/test.ts",
+            "polyfills": "projects/grid-graphql/src/polyfills.ts",
+            "tsConfig": "projects/grid-graphql/tsconfig.spec.json",
+            "karmaConfig": "projects/grid-graphql/karma.conf.js",
+            "styles": [
+              "projects/grid-graphql/src/styles.css"
+            ],
+            "scripts": [],
+            "assets": [
+              "projects/grid-graphql/src/favicon.ico",
+              "projects/grid-graphql/src/assets"
+            ]
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/grid-graphql/tsconfig.app.json",
+              "projects/grid-graphql/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "pdf-embedded-fonts"
