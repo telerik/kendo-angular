@@ -664,6 +664,109 @@
           }
         }
       }
+    },
+    "grid-jsdo": {
+      "root": "projects/grid-jsdo/",
+      "sourceRoot": "projects/grid-jsdo/src",
+      "projectType": "application",
+      "prefix": "app",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/grid-jsdo",
+            "index": "projects/grid-jsdo/src/index.html",
+            "main": "projects/grid-jsdo/src/main.ts",
+            "polyfills": "projects/grid-jsdo/src/polyfills.ts",
+            "tsConfig": "projects/grid-jsdo/tsconfig.app.json",
+            "assets": [
+              "projects/grid-jsdo/src/favicon.ico",
+              "projects/grid-jsdo/src/assets"
+            ],
+            "styles": [
+              {
+                "input": "node_modules/@progress/kendo-theme-default/dist/all.css"
+              },
+              "projects/grid-jsdo/src/styles.css"
+            ],
+            "scripts": [],
+            "es5BrowserSupport": true
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/grid-jsdo/src/environments/environment.ts",
+                  "with": "projects/grid-jsdo/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "grid-jsdo:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "grid-jsdo:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "grid-jsdo:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/grid-jsdo/src/test.ts",
+            "polyfills": "projects/grid-jsdo/src/polyfills.ts",
+            "tsConfig": "projects/grid-jsdo/tsconfig.spec.json",
+            "karmaConfig": "projects/grid-jsdo/karma.conf.js",
+            "styles": [
+              "projects/grid-jsdo/src/styles.css"
+            ],
+            "scripts": [],
+            "assets": [
+              "projects/grid-jsdo/src/favicon.ico",
+              "projects/grid-jsdo/src/assets"
+            ]
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/grid-jsdo/tsconfig.app.json",
+              "projects/grid-jsdo/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "pdf-embedded-fonts"
