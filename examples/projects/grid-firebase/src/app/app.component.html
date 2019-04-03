@@ -1,0 +1,24 @@
+<kendo-grid
+[data]="view | async"
+[height]="470"
+(edit)="editHandler($event)" (cancel)="cancelHandler($event)"
+(save)="saveHandler($event)" (remove)="removeHandler($event)"
+(add)="addHandler($event)"
+>
+<ng-template kendoGridToolbarTemplate>
+  <button kendoGridAddCommand>Add new</button>
+</ng-template>
+<kendo-grid-column field="ProductName" title="Product Name"></kendo-grid-column>
+<kendo-grid-column field="UnitPrice" editor="numeric" title="Price"></kendo-grid-column>
+<kendo-grid-column field="Discontinued" editor="boolean" title="Discontinued"></kendo-grid-column>
+<kendo-grid-column field="UnitsInStock" editor="numeric" title="Units In Stock"></kendo-grid-column>
+<kendo-grid-command-column title="command" width="220">
+  <ng-template kendoGridCellTemplate let-isNew="isNew">
+      <button kendoGridEditCommand [primary]="true">Edit</button>
+      <button kendoGridRemoveCommand>Remove</button>
+      <button kendoGridSaveCommand [disabled]="formGroup?.invalid">{{ isNew ? 'Add' : 'Update' }}</button>
+      <button kendoGridCancelCommand>{{ isNew ? 'Discard changes' : 'Cancel' }}</button>
+  </ng-template>
+</kendo-grid-command-column>
+</kendo-grid>
+<button kendoButton (click)="resetData()">Reset data</button>
