@@ -323,6 +323,141 @@
           }
         }
       }
+    },
+    "integration-i18n": {
+      "root": "projects/integration-i18n/",
+      "sourceRoot": "projects/integration-i18n/src",
+      "projectType": "application",
+      "prefix": "app",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/integration-i18n",
+            "index": "projects/integration-i18n/src/index.html",
+            "main": "projects/integration-i18n/src/main.ts",
+            "polyfills": "projects/integration-i18n/src/polyfills.ts",
+            "tsConfig": "projects/integration-i18n/tsconfig.app.json",
+            "assets": [
+              "projects/integration-i18n/src/favicon.ico",
+              "projects/integration-i18n/src/assets"
+            ],
+            "styles": [
+              {
+                "input": "node_modules/@progress/kendo-theme-default/dist/all.css"
+              },
+              "projects/integration-i18n/src/styles.css"
+            ],
+            "scripts": [],
+            "es5BrowserSupport": true
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/integration-i18n/src/environments/environment.ts",
+                  "with": "projects/integration-i18n/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            },
+            "es": {
+              "aot": true,
+              "i18nFile": "projects/integration-i18n/src/locale/messages.es.xlf",
+              "i18nFormat": "xlf",
+              "i18nLocale": "es"
+            },
+            "production-es": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/integration-i18n/src/environments/environment.ts",
+                  "with": "projects/integration-i18n/src/environments/environment.prod.ts"
+                }
+              ],
+              "aot": true,
+              "i18nFile": "projects/integration-i18n/src/locale/messages.es.xlf",
+              "i18nFormat": "xlf",
+              "i18nLocale": "es",
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "integration-i18n:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "integration-i18n:build:production"
+            },
+            "es": {
+              "browserTarget": "integration-i18n:build:es"
+            },
+            "production-es": {
+              "browserTarget": "integration-i18n:build:production-es"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "integration-i18n:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/integration-i18n/src/test.ts",
+            "polyfills": "projects/integration-i18n/src/polyfills.ts",
+            "tsConfig": "projects/integration-i18n/tsconfig.spec.json",
+            "karmaConfig": "projects/integration-i18n/karma.conf.js",
+            "styles": [
+              "projects/integration-i18n/src/styles.css"
+            ],
+            "scripts": [],
+            "assets": [
+              "projects/integration-i18n/src/favicon.ico",
+              "projects/integration-i18n/src/assets"
+            ]
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/integration-i18n/tsconfig.app.json",
+              "projects/integration-i18n/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "pdf-embedded-fonts"
