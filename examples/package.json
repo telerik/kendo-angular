@@ -24,6 +24,8 @@
     "@angular/service-worker": "^7.2.11",
     "@ngx-translate/core": "^11.0.1",
     "@ngx-translate/http-loader": "^4.0.0",
+    "@progress/jsdo-angular": "^6.0.0",
+    "@progress/jsdo-core": "^6.0.0",
     "@progress/kendo-angular-buttons": "^4.0.0",
     "@progress/kendo-angular-charts": "^3.8.0",
     "@progress/kendo-angular-dateinputs": "2 - 3",
