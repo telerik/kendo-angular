@@ -767,6 +767,109 @@
           }
         }
       }
+    },
+    "chart-websockets": {
+      "root": "projects/chart-websockets/",
+      "sourceRoot": "projects/chart-websockets/src",
+      "projectType": "application",
+      "prefix": "app",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/chart-websockets",
+            "index": "projects/chart-websockets/src/index.html",
+            "main": "projects/chart-websockets/src/main.ts",
+            "polyfills": "projects/chart-websockets/src/polyfills.ts",
+            "tsConfig": "projects/chart-websockets/tsconfig.app.json",
+            "assets": [
+              "projects/chart-websockets/src/favicon.ico",
+              "projects/chart-websockets/src/assets"
+            ],
+            "styles": [
+              {
+                "input": "node_modules/@progress/kendo-theme-default/dist/all.css"
+              },
+              "projects/chart-websockets/src/styles.css"
+            ],
+            "scripts": [],
+            "es5BrowserSupport": true
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/chart-websockets/src/environments/environment.ts",
+                  "with": "projects/chart-websockets/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "chart-websockets:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "chart-websockets:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "chart-websockets:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/chart-websockets/src/test.ts",
+            "polyfills": "projects/chart-websockets/src/polyfills.ts",
+            "tsConfig": "projects/chart-websockets/tsconfig.spec.json",
+            "karmaConfig": "projects/chart-websockets/karma.conf.js",
+            "styles": [
+              "projects/chart-websockets/src/styles.css"
+            ],
+            "scripts": [],
+            "assets": [
+              "projects/chart-websockets/src/favicon.ico",
+              "projects/chart-websockets/src/assets"
+            ]
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/chart-websockets/tsconfig.app.json",
+              "projects/chart-websockets/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "pdf-embedded-fonts"
