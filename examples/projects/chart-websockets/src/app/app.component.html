@@ -1,0 +1,26 @@
+<kendo-chart [transitions]="false">
+  <kendo-chart-series>
+    <kendo-chart-title text="Current temp (&deg;C)"></kendo-chart-title>
+    <kendo-chart-series-item type="scatterLine" [data]="chartValues"
+                             yField="value" xField="time">
+    </kendo-chart-series-item>
+  </kendo-chart-series>
+
+  <kendo-chart-x-axis>
+      <kendo-chart-x-axis-item
+        baseUnit="seconds"
+        baseUnitSteps="seconds"
+        [min]="min"
+        [max]="max">
+      </kendo-chart-x-axis-item>
+  </kendo-chart-x-axis>
+</kendo-chart>
+
+<p>Send a message</p>
+<input #messageInput type="text" class="k-textbox" />
+<button class="k-button" (click)="sendMessage(messageInput.value); messageInput.value = '';">Send</button>
+<hr />
+<h4>Messages:</h4>
+<ul>
+  <li *ngFor="let message of messages" class="message">{{message.text}} - {{message.time | date:'medium'}}</li>
+</ul>
