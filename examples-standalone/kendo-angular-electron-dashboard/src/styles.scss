@@ -1,0 +1,14 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import "./app/shared/custom";
+@import '~bootstrap/scss/bootstrap';
+@import '~@progress/kendo-theme-bootstrap/scss/all';
+@import './app/dashboard.style';
+
+body {
+    margin:0;
+    font-family: 'Open Sans', sans-serif;
+}
+.container {
+    margin:40px;
+}

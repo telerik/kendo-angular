@@ -1,0 +1,102 @@
+SegmentedBar, ActionBar {
+    border-color: transparent;
+    background-color: theme-color(primary);
+    color: white;
+  }
+  
+  .issue-open {
+    background-color: theme-color(success); // #2AC46D;
+  }
+  
+  .issue-closed {
+    background-color: theme-color(danger); //#CF3257;
+  }
+  
+  .tag,.avatar-small {
+    border-radius: 2;
+    border-width: 0;
+    margin: 2;
+  }
+  
+  .tag {
+    height: 16;
+    padding: 2 4;
+    color: white;
+    font-weight: bold;
+    font-size: 10;
+    margin-top: 12;
+    margin-bottom: 16;
+  }
+  
+  .avatar-small {
+    height: 16;
+    width: 16;
+    margin-top: 12;
+    margin-bottom: 16;
+  }
+  
+  .avatar-big {
+    height: 40;
+    width: 40;
+    border-radius: 20;
+    border-width: 0;
+    horizontal-align: left;
+  }
+  
+  .username {
+    color: theme-color(primary);
+    vertical-align: center;
+    margin: 0 12;
+  }
+  
+  .status-image {
+    margin: 16;
+    width: 20;
+    height: 20;
+    vertical-align: top;
+  }
+  
+  .issue-number {
+    horizontal-align: right;
+    vertical-align: top;
+    margin: 16;
+    color: #888888;
+  }
+  
+  .issue-title {
+    margin-top: 16;
+  }
+  
+  .author {
+    color: #888888;
+    font-size: 12;
+  }
+  
+  .status-tag {
+    padding: 2 6;
+    font-size: 10;
+    font-weight: bold;
+    color: white;
+    margin: 20 16;
+    border-radius: 2;
+    border-width: 0;
+    background-color: rgba(100, 100, 100, 0.3);
+    horizontal-align: left;
+  }
+  
+  .title {
+    color: white;
+    margin: 0 16;
+    font-size: 18;
+    font-weight: bold;
+  }
+  
+  .section-title {
+    font-size: 14;
+    color: #888888;
+  }
+  
+  .link-btn {
+    color: theme-color(primary);
+  }
+  
