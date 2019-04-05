@@ -870,6 +870,109 @@
           }
         }
       }
+    },
+    "grid-signalr": {
+      "root": "projects/grid-signalr/",
+      "sourceRoot": "projects/grid-signalr/src",
+      "projectType": "application",
+      "prefix": "app",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/grid-signalr",
+            "index": "projects/grid-signalr/src/index.html",
+            "main": "projects/grid-signalr/src/main.ts",
+            "polyfills": "projects/grid-signalr/src/polyfills.ts",
+            "tsConfig": "projects/grid-signalr/tsconfig.app.json",
+            "assets": [
+              "projects/grid-signalr/src/favicon.ico",
+              "projects/grid-signalr/src/assets"
+            ],
+            "styles": [
+              {
+                "input": "node_modules/@progress/kendo-theme-default/dist/all.css"
+              },
+              "projects/grid-signalr/src/styles.css"
+            ],
+            "scripts": [],
+            "es5BrowserSupport": true
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/grid-signalr/src/environments/environment.ts",
+                  "with": "projects/grid-signalr/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "grid-signalr:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "grid-signalr:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "grid-signalr:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/grid-signalr/src/test.ts",
+            "polyfills": "projects/grid-signalr/src/polyfills.ts",
+            "tsConfig": "projects/grid-signalr/tsconfig.spec.json",
+            "karmaConfig": "projects/grid-signalr/karma.conf.js",
+            "styles": [
+              "projects/grid-signalr/src/styles.css"
+            ],
+            "scripts": [],
+            "assets": [
+              "projects/grid-signalr/src/favicon.ico",
+              "projects/grid-signalr/src/assets"
+            ]
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/grid-signalr/tsconfig.app.json",
+              "projects/grid-signalr/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "pdf-embedded-fonts"
