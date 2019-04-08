@@ -1,0 +1,26 @@
+<h1>Weather forecast</h1>
+
+<p>This component demonstrates fetching data from the server.</p>
+
+<p *ngIf="!forecasts"><em>Loading...</em></p>
+
+<kendo-grid 
+  [kendoGridBinding]="forecasts" 
+  [sortable]="true"
+  [filterable]="true">
+  <kendo-grid-column 
+    field="dateFormatted" 
+    format="{0:d}" 
+    title="Date"></kendo-grid-column>
+  <kendo-grid-column field="temperatureC" title="Temperature C">
+    <ng-template kendoGridCellTemplate let-dataItem>
+      {{ dataItem.temperatureC }}°C
+    </ng-template>
+  </kendo-grid-column>
+  <kendo-grid-column field="summary" title="Summary"></kendo-grid-column>
+  <kendo-grid-column field="temperatureF" title="Temperature F">
+      <ng-template kendoGridCellTemplate let-dataItem>
+        {{ dataItem.temperatureF }}°F
+      </ng-template>
+  </kendo-grid-column>
+</kendo-grid>
