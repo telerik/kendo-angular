@@ -1,0 +1,19 @@
+<h1>Products</h1>
+
+<p>This component demonstrates fetching data from the server.</p>
+
+<kendo-grid
+            [data]="products"
+            [pageSize]="state.take"
+            [skip]="state.skip"
+            [sort]="state.sort"
+            [sortable]="true"
+            [pageable]="true"
+            [scrollable]="'scrollable'"
+            [groupable]="true"
+            [group]="state.group"
+            [filterable]="true"
+            [filter]="state.filter"
+            (dataStateChange)="dataStateChange($event)"
+            [height]="370">
+</kendo-grid>
