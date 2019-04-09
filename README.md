@@ -1,6 +1,6 @@
 # Kendo UI for Angular
 
-Kendo UI for Angular uses GitHub Issues as official bug trackers. This repository is here for that purpose&mdash;it does not contain the actual source code of the components.
+Kendo UI for Angular uses GitHub Issues as an official bug tracker. This repository is here for that purpose&mdash;it does not contain the actual source code of the components.
 
 ## How do I...?
 
