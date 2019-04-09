@@ -1,4 +1,5 @@
-# Kendo UI for Angular - Grid Integration with GraphQL
+# Grid - CRUD operations with GraphQL
+## Kendo UI for Angular
 
 This application shows an example of how one can use editable Kendo UI for Angular Grid with GraphQL queries.
 
@@ -8,6 +9,9 @@ This application shows an example of how one can use editable Kendo UI for Angul
 1. Enter the examples directory by running `cd examples`.
 1. Run `npm install` to install the project dependencies.
 1. Enter the project directory by running `cd projects/grid-graphql`.
+1. In a separate terminal window, setup and run the Server as outlined in the section below.
+1. Run `ng serve grid-graphql`.
+1. Open http://localhost:4200
 
 ### Server setup
 
@@ -18,10 +22,3 @@ cd server
 npm install
 npm start
 ```
-
-### Client setup
-
-Ensure that the server is running before starting the client application.
-
-1. `ng serve grid-graphql`
-1. Open http://localhost:4200

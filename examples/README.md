@@ -1,16 +1,14 @@
 # Example Projects
 
-This folder holds an [Angular CLI](https://github.com/angular/angular-cli) workspace with sample projects from the Kendo UI for Angular [documentation](http://www.telerik.com/kendo-angular-ui/components).
+This folder contains example projects from the [Kendo UI for Angular Documentation](http://www.telerik.com/kendo-angular-ui/components) in a shared [Angular CLI Workspace](https://angular.io/guide/file-structure).
 
-Also, check out the [Standalone Examples](../examples-standalone) 
+Additional sample applications, that can't use the same workspace, can be found in the [examples-standalone](../examples-standalone) folder.
 
-## Starting Sample Projects
+## Starting Projects
 
-To run the sample projects, change into the `projects/<project name>` folder and run `npm start`. Alternatively, run `ng serve <project name>`.
+Instructions for starting each sample project can be found in it's README.md file in the [projects folder](./projects).
 
-Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Creating a New Sample Project
+## Creating a New Project
 
 1. Use `ng generate application <application-name>` to create a new sample application.
 1. Add the Kendo UI Default theme to the `styles` section of the application in `angular.json`

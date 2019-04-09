@@ -1,11 +1,12 @@
-# Kendo UI for Angular - Progressive Web Application
+# Progressive Web Application
+## Kendo UI for Angular - 
 
 This repository demonstrates a PWA based on the <a href="https://angular.io/guide/service-worker-getting-started">official Angular implementation of a service worker</a>.
 
 ## Get Started
 
 1. Clone this repository by using your favorite Git client or by executing ```git clone https://github.com/telerik/kendo-angular.git```.
-1. Enter the project directory by running ```cd examples/projects```.
+1. Enter the project directory by running ```cd examples/projects/integration-pwa```.
 1. Install the node modules by running ```npm install```.
 
 ## Running the Application

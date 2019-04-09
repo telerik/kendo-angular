@@ -1,4 +1,5 @@
-# Kendo UI for Angular - Embedded Fonts in PDF
+## Embedded Fonts in PDF
+# Kendo UI for Angular
 
 This is the sample application for the [PDF Export - Embedded Fonts](https://www.telerik.com/kendo-angular-ui/components/pdfexport/embedded-fonts/) article from the Kendo UI for Angular documentation.
 
