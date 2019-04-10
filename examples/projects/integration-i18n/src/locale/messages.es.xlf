@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
-  <file source-language="en" datatype="plaintext" original="ng2.template">
+  <file source-language="es" datatype="plaintext" original="ng2.template">
     <body>
       <trans-unit id="0fa71630d40c425b9c366afd7f6c3cecc5bef59d" datatype="html">
         <source>increment</source>
@@ -384,7 +384,7 @@
       </trans-unit>
       <trans-unit id="21a04b7b090dac60e0449cb6e435b7e879173c75" datatype="html">
         <source>Filter</source>
-        <target/>
+        <target>Filter</target>
         <context-group purpose="location">
           <context context-type="sourcefile">../node_modules/@progress/kendo-angular-grid/dist/es2015/index.d.ts</context>
           <context context-type="linenumber">34</context>
@@ -644,7 +644,7 @@
       </trans-unit>
       <trans-unit id="781c049cc69efc30bc8053af9ace3cb4b04bd438" datatype="html">
         <source>Loading</source>
-        <target/>
+        <target>Loading</target>
         <context-group purpose="location">
           <context context-type="sourcefile">../node_modules/@progress/kendo-angular-grid/dist/es2015/index.d.ts</context>
           <context context-type="linenumber">112</context>
@@ -654,7 +654,7 @@
       </trans-unit>
       <trans-unit id="3596c6b21d39223adc5c352daec9938474a8cc0d" datatype="html">
         <source>Column Menu</source>
-        <target/>
+        <target>Column Menu</target>
         <context-group purpose="location">
           <context context-type="sourcefile">../node_modules/@progress/kendo-angular-grid/dist/es2015/index.d.ts</context>
           <context context-type="linenumber">115</context>
@@ -664,7 +664,7 @@
       </trans-unit>
       <trans-unit id="9b841399fbb3d81f2401f98b4f4763834b72a1e5" datatype="html">
         <source>Columns</source>
-        <target/>
+        <target>Columns</target>
         <context-group purpose="location">
           <context context-type="sourcefile">../node_modules/@progress/kendo-angular-grid/dist/es2015/index.d.ts</context>
           <context context-type="linenumber">118</context>
@@ -674,7 +674,7 @@
       </trans-unit>
       <trans-unit id="f356cae509dec3dc1b7156326b9a0328a79c62a8" datatype="html">
         <source>Lock</source>
-        <target/>
+        <target>Lock</target>
         <context-group purpose="location">
           <context context-type="sourcefile">../node_modules/@progress/kendo-angular-grid/dist/es2015/index.d.ts</context>
           <context context-type="linenumber">121</context>
@@ -684,7 +684,7 @@
       </trans-unit>
       <trans-unit id="f33355540003068372e39ba7f3def794869ea9f8" datatype="html">
         <source>Unlock</source>
-        <target/>
+        <target>Unlock</target>
         <context-group purpose="location">
           <context context-type="sourcefile">../node_modules/@progress/kendo-angular-grid/dist/es2015/index.d.ts</context>
           <context context-type="linenumber">124</context>
@@ -694,7 +694,7 @@
       </trans-unit>
       <trans-unit id="96beffd8446c5455f3bbdc313c946db32df7dcc2" datatype="html">
         <source>Sort Ascending</source>
-        <target/>
+        <target>Sort Ascending</target>
         <context-group purpose="location">
           <context context-type="sourcefile">../node_modules/@progress/kendo-angular-grid/dist/es2015/index.d.ts</context>
           <context context-type="linenumber">127</context>
@@ -704,7 +704,7 @@
       </trans-unit>
       <trans-unit id="208d0538d4c2537a1cbf456941e34a2884053d52" datatype="html">
         <source>Sort Descending</source>
-        <target/>
+        <target>Sort Descending</target>
         <context-group purpose="location">
           <context context-type="sourcefile">../node_modules/@progress/kendo-angular-grid/dist/es2015/index.d.ts</context>
           <context context-type="linenumber">130</context>
@@ -714,7 +714,7 @@
       </trans-unit>
       <trans-unit id="04600bd6e362cf9da9f7f9c4666eab2c88eb6a90" datatype="html">
         <source>Apply</source>
-        <target/>
+        <target>Apply</target>
         <context-group purpose="location">
           <context context-type="sourcefile">../node_modules/@progress/kendo-angular-grid/dist/es2015/index.d.ts</context>
           <context context-type="linenumber">133</context>
@@ -724,7 +724,7 @@
       </trans-unit>
       <trans-unit id="94d3b472d99994a5cca9930afd4cf0ac2774c382" datatype="html">
         <source>Reset</source>
-        <target/>
+        <target>Reset</target>
         <context-group purpose="location">
           <context context-type="sourcefile">../node_modules/@progress/kendo-angular-grid/dist/es2015/index.d.ts</context>
           <context context-type="linenumber">136</context>
