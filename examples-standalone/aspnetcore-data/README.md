@@ -1,22 +1,12 @@
-# Kendo UI for Angular: ASP.NET Core
+# Kendo UI for Angular Sample Projects: Using the Suite with ASP.NET Core
 
-This repository holds the source code for the article on [Integration with UI for ASP.NET Core](https://www.telerik.com/kendo-angular-ui/components/dataquery/mvc-integration/).
+This sample project demonstrates how to use [Kendo UI for Angular components](https://www.telerik.com/kendo-angular-ui/components) with ASP.NET Core and is based on Microsoft [Angular project template with ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core/spa/angular?tabs=visual-studio&view=aspnetcore-2.0) v.2.1.
 
-The project is based on Microsoft's [Angular project template with ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core/spa/angular?tabs=visual-studio&view=aspnetcore-2.0) version 2.1.
+The demo is referred to in the [Kendo UI for Angular official documentation](https://www.telerik.com/kendo-angular-ui/) in the article on [ASP.NET Core integration](https://www.telerik.com/kendo-angular-ui/components/dataquery/mvc-integration/).
 
-## Get Started
+## Getting Started
 
-1. Clone the sample apps repository locally by using your favorite Git client:
-
-```bash
-git clone https://github.com/telerik/kendo-angular/.git
-```
-
-2. Enter the project directory:
-
-```bash
-cd examples-standalone/aspnetcore-data
-```
-
-3. Run the project with `dotnet run`
-4. Open http://localhost:5000
+1. Clone the sample apps repository locally by using your favorite Git client by running `git clone https://github.com/telerik/kendo-angular/.git`.
+1. Enter the project directory by running `cd examples-standalone/aspnetcore-data`.
+1. Run the project with `dotnet run`.
+1. Open http://localhost:5000.
