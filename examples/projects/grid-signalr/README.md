@@ -1,28 +1,28 @@
-## Grid Integration with SignalR
-## Kendo UI for Angular
+# Kendo UI for Angular Sample Projects: Integrating the Grid with SignalR
 
-This application shows an example of how one can use editable Kendo UI for Angular Grid with GraphQL queries.
-
-For more details, refer to the article on [Consuming SignalR Events](https://www.telerik.com/kendo-angular-ui/components/grid/how-to/consume-signalr-in-grid/).
-
-Based on the following GitHub repository and Egghead lesson:
+This sample project demonstrates how to use an editable [Grid](https://www.telerik.com/kendo-angular-ui/components/grid/) with [SignalR](https://docs.microsoft.com/en-us/aspnet/signalr/overview/getting-started/introduction-to-signalr) and is based on the following GitHub repository and Egghead lesson:
 * [https://github.com/FabianGosebrink/egghead-consuming-signalr-values-in-an-angular-application](https://github.com/FabianGosebrink/egghead-consuming-signalr-values-in-an-angular-application)
 * [Consume ASP.NET Core SignalR values in an Angular Application](https://egghead.io/lessons/angular-consume-asp-net-core-signalr-values-in-an-angular-application)
 
-## Get Started
+The demo is referred to in the [Kendo UI for Angular official documentation](https://www.telerik.com/kendo-angular-ui/components) in the article on [consuming SignalR events](https://www.telerik.com/kendo-angular-ui/components/grid/how-to/consume-signalr-in-grid/).
+
+## Getting Started
 
 1. Clone this repository by using your favorite Git client or by executing `git clone https://github.com/telerik/kendo-angular.git`.
 1. Enter the examples directory by running `cd examples`.
 1. Run `npm install` to install the project dependencies.
 1. Enter the project directory by running `cd projects/grid-signalr`.
-1. In a separate terminal window, setup and run the Server as outlined in the section below.
-1. Run `ng serve grid-signalr`
-1. Open http://localhost:4200 in two browser tabs
-1. Notice updates are synchronized in real-time using the SignalR server
+1. In a separate terminal window, setup and run the Server as outlined in the following section.
+1. Run `ng serve grid-signalr`.
+1. Open http://localhost:4200 in two browser tabs.
 
-### Server setup
+> The updates are synchronized in real-time by using the SignalR server.
 
-The `server` folder contains a SignalR server implemented with .NET Core. To start it, execute:
+## Setting Up the Server
 
-1. Install [.NET Core Runtime](https://dotnet.microsoft.com/download)
-1. Execute `dotnet run` in the "server" folder.
+The `server` folder contains a SignalR server which is implemented with .NET Core.
+
+To start the server:
+
+1. Install [.NET Core Runtime](https://dotnet.microsoft.com/download).
+1. Execute `dotnet run` in the `server` folder.

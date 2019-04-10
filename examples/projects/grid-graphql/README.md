@@ -1,7 +1,6 @@
-# Grid - CRUD operations with GraphQL
-## Kendo UI for Angular
+# Kendo UI for Angular Sample Projects: Setting CRUD Operations for the Grid with GraphQL
 
-This application shows an example of how one can use editable Kendo UI for Angular Grid with GraphQL queries.
+This sample project demonstrates how to use an editable [Grid](https://www.telerik.com/kendo-angular-ui/components/grid/) with [GraphQL](https://graphql.org/) queries.
 
 ## Get Started
 

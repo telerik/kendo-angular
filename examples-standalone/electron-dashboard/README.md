@@ -1,91 +1,74 @@
 [<img src="./logo-kendo.png" width="225" />](https://www.telerik.com/kendo-angular-ui/) [![Angular Logo](./logo-angular.jpg)](https://angular.io/) [![Electron Logo](./logo-electron.jpg)](https://electron.atom.io/)
 
-# Introduction
+# Kendo UI for Angular Sample Projects: Using the Suite with Electron
 
-This project demonstrates how to integrate an Angular application built with [`Kendo UI for Angular` components](https://www.telerik.com/kendo-angular-ui/) in an Electron Desktop application.
+This sample project demonstrates how to use [Kendo UI for Angular components](https://www.telerik.com/kendo-angular-ui/components) in an Electron Desktop application and is based on the https://github.com/maximegris/angular-electron Electron and Angular integration project.
 
-It is based on the following Electron + Angular integration project: https://github.com/maximegris/angular-electron
+## In This Article
 
-# Project configuration
+* [Setting Up the Project](#setting-up-the-project)
+* [Getting Started](#getting-started)
+* [Building for Development](building-for-development)
+* [Managing Your Environment Variables](#managing-your-environment-variables)
+* [Included Commands](#included-commands)
+* [Browser Mode](#vbrowser-mode)
+* [Copyright Notice by maximegris/angular-electron](#copyright-notice-by-maximegrisangular-electron)
 
-Bootstrap and package your project with Angular 5(+) and Electron (Typescript + SASS + Hot Reload) for creating Desktop applications.
+## Setting Up the Project
 
-Currently runs with:
+Bootstrap and package your project with Angular 5 or later and Electron (Typescript, SASS, and Hot Reload) for creating Desktop applications.
 
+Currently, the sample projects runs with:
 - Angular v5.2.5
 - Angular-CLI v1.6.4
 - Electron v1.8.6
 - Electron Builder v20.0.4
 
-With this sample, you can :
-
-- Run your app in a local development environment with Electron & Hot reload
-- Run your app in a production environment
-- Package your app into an executable file for Linux, Windows & Mac
+With this sample project, you can:
+- Run your application in a local development environment with Electron and Hot Reload.
+- Run your application in a production environment.
+- Package your application into an executable file for Linux, Windows, and Mac.
 
 ## Getting Started
 
-Clone the sample apps repository locally and navigate to the project folder:
+1. Clone the repository of the sample application locally by running `git clone https://github.com/telerik/kendo-angular/.git`.
+1. Navigate to the project folder by running `cd examples-standalone/kendo-angular-electron-dashboard`.
+1. Install dependencies with NPM by running `npm install`.
 
-``` bash
-git clone https://github.com/telerik/kendo-angular/.git
-cd examples-standalone/kendo-angular-electron-dashboard
-```
+  > * An issue occurs when `yarn` and `node_modules` are only used in Electron on the backend when the application is built by the packager. To work around the problem, use `npm` as your dependency manager.
+  > * To generate Angular components with Angular-CLI, you have to install `@angular/cli` in an NPM global context. Run `npm install -g @angular/cli`. If you had installed an earlier version of `angular-cli`, follow the instruction in the [Angular-CLI documentation](https://github.com/angular/angular-cli) .
 
-Install dependencies with npm :
+## Building for Development
 
-``` bash
-npm install
-```
+In the terminal window, run `npm start`. Voila! You can use your Angular and Electron application in a local development environment with hot reload!
 
-There is an issue with `yarn` and `node_modules` that are only used in electron on the backend when the application is built by the packager. Please use `npm` as dependencies manager.
+The application code is managed by `main.ts`. In this sample project, the application runs with a simple Angular Application (http://localhost:4200) and an Electron window. The Angular component contains an example of Electron and NodeJS native lib import. You can deactivate **Developer Tools** by commenting `win.webContents.openDevTools();` in `main.ts`.
 
+## Managing Your Environment Variables
 
-If you want to generate Angular components with Angular-cli , you **MUST** install `@angular/cli` in npm global context.  
-Please follow [Angular-cli documentation](https://github.com/angular/angular-cli) if you had installed a previous version of `angular-cli`.
-
-``` bash
-npm install -g @angular/cli
-```
-
-## To build for development
-
-- **in a terminal window** -> npm start  
-
-Voila! You can use your Angular + Electron app in a local development environment with hot reload !
-
-The application code is managed by `main.ts`. In this sample, the app runs with a simple Angular App (http://localhost:4200) and an Electron window.  
-The Angular component contains an example of Electron and NodeJS native lib import.  
-You can desactivate "Developer Tools" by commenting `win.webContents.openDevTools();` in `main.ts`.
-
-## Manage your environment variables
-
-- Using local variables :  `npm start` or `cross-env ENV=local npm start`
-- Using development variables :  `cross-env ENV=dev npm start`
-- Using production variables  :  `cross-env ENV=rod npm start`
+- To use local variables, run `npm start` or `cross-env ENV=local npm start`.
+- To use development variables, run `cross-env ENV=dev npm start`.
+- To use production variables, run `cross-env ENV=rod npm start`.
 
 ## Included Commands
 
 |Command|Description|
 |--|--|
-|`npm run ng:serve`| Execute the app in the browser |
-|`npm run build`| Build the app. Your built files are in the /dist folder. |
-|`npm run build:prod`| Build the app with Angular aot. Your built files are in the /dist folder. |
-|`npm run electron:local`| Builds your application and start electron
-|`npm run electron:linux`| Builds your application and creates an app consumable on linux system |
-|`npm run electron:windows`| On a Windows OS, builds your application and creates an app consumable in windows 32/64 bit systems |
-|`npm run electron:mac`|  On a MAC OS, builds your application and generates a `.app` file of your application that can be run on Mac |
+|`npm run ng:serve`         | Executes the application in the browser. |
+|`npm run build`            | Builds the application. Your built files are in the `/dist` folder. |
+|`npm run build:prod `      | Builds the application with Angular AoT. Your built files are in the `/dist` folder. |
+|`npm run electron:local`   | Builds the application and starts Electron.
+|`npm run electron:linux`   | Builds the application and creates an application that is consumable on the Linux system. |
+|`npm run electron:windows` | On a Windows OS, builds the application and creates an application that is consumable on Windows 32/64 bit systems. |
+|`npm run electron:mac`     | On a MAC OS, builds the application and generates an `.app` file of the application that can be run on Mac. |
 
-**Your application is optimised. Only /dist folder and node dependencies are included in the executable.**
+> Your application is optimized. Only the `/dist` folder and the node dependencies are included in the executable.
 
-## Browser mode
+## Browser Mode
 
-Maybe you want to execute the application in the browser (WITHOUT HOT RELOAD ACTUALLY...) ? You can do it with `npm run ng:serve`.  
-Note that you can't use Electron or NodeJS native libraries in this case. Please check `providers/electron.service.ts` to watch how conditional import of electron/Native libraries is done.
+To execute the application in the browser (WITHOUT HOT RELOAD ACTUALLY...), you can run `npm run ng:serve`. Note that you cannot use Electron or NodeJS native libraries in this case. To watch how conditional import of Electron and Native libraries is done, refer to `providers/electron.service.ts` .
 
-## Copyright Notice(s)
-
-### maximegris/angular-electron
+## Copyright Notice by maximegris/angular-electron
 
 Copyright 2017 - Maxime GRIS
 
