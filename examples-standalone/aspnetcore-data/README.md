@@ -8,5 +8,6 @@ The demo is referred to in the [Kendo UI for Angular official documentation](htt
 
 1. Clone the sample apps repository locally by using your favorite Git client by running `git clone https://github.com/telerik/kendo-angular/.git`.
 1. Enter the project directory by running `cd examples-standalone/aspnetcore-data`.
+1. Enter your Telerik credentials in `nuget.config`
 1. Run the project with `dotnet run`.
 1. Open http://localhost:5000.
