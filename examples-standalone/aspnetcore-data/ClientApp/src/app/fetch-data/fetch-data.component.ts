@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
+import { DataStateChangeEvent, GridDataResult } from '@progress/kendo-angular-grid';
+import { DataSourceRequestState } from '@progress/kendo-data-query';
 import { DataService } from './data.service';
-import { GridDataResult, DataStateChangeEvent } from '@progress/kendo-angular-grid';
-import { DataSourceRequestState, DataResult } from '@progress/kendo-data-query';
 
 @Component({
     selector: 'app-fetch-data',
@@ -15,8 +15,7 @@ export class FetchDataComponent {
     };
 
     constructor(private dataService: DataService) {
-        this.dataService.fetch(this.state).subscribe(r => this.products = r);
-
+        this.dataService.fetch(this.state).subscribe(result => this.products = result);
     }
 
     public dataStateChange(state: DataStateChangeEvent): void {
