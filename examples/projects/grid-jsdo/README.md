@@ -1,6 +1,6 @@
-# Kendo UI for Sample Angular Projects: Binding and Editing the Grid with Progress JSDO
+# Binding and Editing the Grid with Progress JSDO
 
-This sample project demonstrates how to bind and edit the [Grid](https://www.telerik.com/kendo-angular-ui/components/grid/) by using the Progress JSDO.
+This Kendo UI for Angular sample project demonstrates how to bind and edit the [Grid](https://www.telerik.com/kendo-angular-ui/components/grid/) by using the Progress JSDO.
 
 The demo is referred to in the [Kendo UI for Angular official documentation](https://www.telerik.com/kendo-angular-ui/components) in the article on [binding and editing with Progress JSDO](https://www.telerik.com/kendo-angular-ui/components/grid/data-binding/jsdo-crud/).
 

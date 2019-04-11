@@ -1,6 +1,6 @@
-# Kendo UI for Angular Sample Projects: Using the Suite with Progressive Web Applications
+# Using the Suite with Progressive Web Applications
 
-This sample project demonstrates how to use [Kendo UI for Angular components](https://www.telerik.com/kendo-angular-ui/components) with Progressive Web Applications (PWA) and is based on the [official Angular implementation of a service worker](https://angular.io/guide/service-worker-getting-started).
+This Kendo UI for Angular sample project demonstrates how to use [Kendo UI for Angular components](https://www.telerik.com/kendo-angular-ui/components) with Progressive Web Applications (PWA) and is based on the [official Angular implementation of a service worker](https://angular.io/guide/service-worker-getting-started).
 
 ## Getting Started
 

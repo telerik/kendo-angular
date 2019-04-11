@@ -1,8 +1,8 @@
 [<img src="./logo-kendo.png" width="225" />](https://www.telerik.com/kendo-angular-ui/) [![Angular Logo](./logo-angular.jpg)](https://angular.io/) [![Electron Logo](./logo-electron.jpg)](https://electron.atom.io/)
 
-# Kendo UI for Angular Sample Projects: Using the Suite with Electron
+# Using the Suite with Electron
 
-This sample project demonstrates how to use [Kendo UI for Angular components](https://www.telerik.com/kendo-angular-ui/components) in an Electron Desktop application and is based on the https://github.com/maximegris/angular-electron Electron and Angular integration project.
+This Kendo UI for Angular sample project demonstrates how to use [Kendo UI for Angular components](https://www.telerik.com/kendo-angular-ui/components) in an Electron Desktop application and is based on the https://github.com/maximegris/angular-electron Electron and Angular integration project.
 
 ## In This Article
 

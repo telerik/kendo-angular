@@ -1,6 +1,6 @@
-# Kendo UI for Sample Angular Projects: Updating Charts at Real-Time with WebSocket API
+# Updating Charts at Real-Time with WebSocket API
 
- This sample project demonstrates how to update the [Charts](https://www.telerik.com/kendo-angular-ui/components/charts/) at real-time by using [WebSocket API](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API).
+ This Kendo UI for Angular sample project demonstrates how to update the [Charts](https://www.telerik.com/kendo-angular-ui/components/charts/) at real-time by using [WebSocket API](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API).
 
  The demo is referred to in the [Kendo UI for Angular official documentation](https://www.telerik.com/kendo-angular-ui/components) in the article on [using Kendo UI for Angular Charts with WebSockets](https://www.telerik.com/kendo-angular-ui/components/charts/how-to/bind-to-websockets/).
 

@@ -1,6 +1,6 @@
-# Kendo UI for Angular Sample Projects: Setting CRUD Operations for the Grid with Firebase
+# Setting CRUD Operations for the Grid with Firebase
 
-This sample project demonstrates how to set an editable [Grid](https://www.telerik.com/kendo-angular-ui/components/grid/) for CRUD operations by using the real-time [Firebase](https://firebase.google.com/) database by Google.
+This Kendo UI for Angular sample project demonstrates how to set an editable [Grid](https://www.telerik.com/kendo-angular-ui/components/grid/) for CRUD operations by using the real-time [Firebase](https://firebase.google.com/) database by Google.
 
 ## Getting Started
 

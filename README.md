@@ -8,15 +8,13 @@ This repository does not contain the actual source code of the components.
 
 ## In This Article
 
-* [Available support options](#support-options)
-    * [Information on how to use specific features](#how-do-i)
-    * [Queries on future releases](#when-do-you-plan-on-releasing-feature-x)
-    * [Bug discovery](#i-think-i-found-a-bug)
-    * [Bug reports](#i-want-to-report-a-bug)
-    * [Tailor-made solutions](#i-need-a-tailor-made-solution)
-* [Sample projects and applications](#sample-projects)
-    * [Integration projects](#integration-projects)
-    * [Standalone projects](#standalone-projects)
+* [Available Support Options](#support-options)
+    * [Information on How to Use Specific Features](#how-do-i)
+    * [Queries on Future Releases](#when-do-you-plan-on-releasing-feature-x)
+    * [Bug Discovery](#i-think-i-found-a-bug)
+    * [Bug Reports](#i-want-to-report-a-bug)
+    * [Tailor-Made Solutions](#i-need-a-tailor-made-solution)
+* [Sample Projects and Applications](#sample-projects)
 
 ## Support Options
 
@@ -61,23 +59,7 @@ The [Progress Services](https://www.progress.com/services) team is available to 
 
 ## Sample Projects
 
-The kendo-angular repository is a single storing place for all sample applications that are referred in the [official Kendo UI for Angular documentation] and are available as standalone and integration projects.
+The kendo-angular repository is a single storing place for all sample applications that are referred in the [official Kendo UI for Angular documentation]. All currently available sample applications are located under the following folders:
 
-### Integration Projects
-
-* [examples/projects/chart-websockets](https://github.com/telerik/kendo-angular/tree/migrate-cli-samples/examples/projects/chart-websockets)
-* [examples/projects/grid-firebase](https://github.com/telerik/kendo-angular/tree/migrate-cli-samples/examples/projects/grid-firebase)   
-* [examples/projects/grid-graphql](https://github.com/telerik/kendo-angular/tree/migrate-cli-samples/examples/projects/grid-graphql)    
-* [examples/projects/grid-jsdo](https://github.com/telerik/kendo-angular/tree/migrate-cli-samples/examples/projects/grid-jsdo)
-* [examples/projects/grid-signalr](https://github.com/telerik/kendo-angular/tree/migrate-cli-samples/examples/projects/grid-signalr)  
-* [examples/projects/integration-i18n](https://github.com/telerik/kendo-angular/tree/migrate-cli-samples/examples/projects/integration-i18n)
-* [examples/projects/integration-jquery](https://github.com/telerik/kendo-angular/tree/migrate-cli-samples/examples/projects/integration-jquery)
-* [examples/projects/integration-pwa](https://github.com/telerik/kendo-angular/tree/migrate-cli-samples/examples/projects/integration-pwa)
-* [examples/projects/pdf-embedded-fonts](https://github.com/telerik/kendo-angular/tree/migrate-cli-samples/examples/projects/pdf-embedded-fonts)
-
-### Standalone Projects
-
-* [examples-standalone/angular-universal/aspnet_core_sample_application](https://github.com/telerik/kendo-angular/tree/migrate-cli-samples/examples-standalone/angular-universal/aspnet_core_sample_application)
-* [examples-standalone/angular-universal/node_sample_application](https://github.com/telerik/kendo-angular/tree/migrate-cli-samples/examples-standalone/angular-universal/node_sample_application)
-* [examples-standalone/aspnetcore-data](https://github.com/telerik/kendo-angular/tree/migrate-cli-samples/examples-standalone/aspnetcore-data)
-* [examples-standalone/electron-dashboard](https://github.com/telerik/kendo-angular/tree/migrate-cli-samples/examples-standalone/electron-dashboard)
+* [examples/projects/](https://github.com/telerik/kendo-angular/examples/projects)
+* [examples-standalone](https://github.com/telerik/kendo-angular/examples-standalone)
