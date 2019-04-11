@@ -1,6 +1,6 @@
-# Kendo UI for Angular Sample Projects: Integrating the Grid with SignalR
+# Integrating the Grid with SignalR
 
-This sample project demonstrates how to use an editable [Grid](https://www.telerik.com/kendo-angular-ui/components/grid/) with [SignalR](https://docs.microsoft.com/en-us/aspnet/signalr/overview/getting-started/introduction-to-signalr) and is based on the following GitHub repository and Egghead lesson:
+This Kendo UI for Angular sample project demonstrates how to use an editable [Grid](https://www.telerik.com/kendo-angular-ui/components/grid/) with [SignalR](https://docs.microsoft.com/en-us/aspnet/signalr/overview/getting-started/introduction-to-signalr) and is based on the following GitHub repository and Egghead lesson:
 * [https://github.com/FabianGosebrink/egghead-consuming-signalr-values-in-an-angular-application](https://github.com/FabianGosebrink/egghead-consuming-signalr-values-in-an-angular-application)
 * [Consume ASP.NET Core SignalR values in an Angular Application](https://egghead.io/lessons/angular-consume-asp-net-core-signalr-values-in-an-angular-application)
 

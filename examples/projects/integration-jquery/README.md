@@ -1,6 +1,6 @@
-# Kendo UI for Angular Sample Projects: Integrating the Suite with Kendo UI for jQuery
+# Integrating the Suite with Kendo UI for jQuery
 
-This sample project demonstrates how to use [Kendo UI for jQuery components](https://docs.telerik.com/kendo-ui/introduction) in Angular applications.
+This Kendo UI for Angular sample project demonstrates how to use [Kendo UI for jQuery components](https://docs.telerik.com/kendo-ui/introduction) in Angular applications.
 
 The demo is referred to in the [Kendo UI for Angular official documentation](https://www.telerik.com/kendo-angular-ui/components) in the article on [Kendo UI for jQuery integration](https://www.telerik.com/kendo-angular-ui/components/framework/kendo-jquery/).
 

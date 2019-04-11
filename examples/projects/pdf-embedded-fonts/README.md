@@ -1,6 +1,6 @@
-# Kendo UI for Angular Sample Projects: Embedding Fonts in PDF
+# Embedding Fonts in PDF
 
-This sample project demonstrates how to embed fonts in PDF.
+This Kendo UI for Angular sample project demonstrates how to embed fonts in PDF.
 
 The demo is referred to in the [Kendo UI for Angular official documentation](https://www.telerik.com/kendo-angular-ui/components) in the article on [embedding fonts in PDF](https://www.telerik.com/kendo-angular-ui/components/pdfexport/embedded-fonts/).
 

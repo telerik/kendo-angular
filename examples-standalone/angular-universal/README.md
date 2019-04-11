@@ -1,6 +1,6 @@
-# Kendo UI for Angular Sample Projects: Using the Suite with Angular Universal
+# Using the Suite with Angular Universal
 
-These sample projects demonstrate how to use [Kendo UI for Angular components](https://www.telerik.com/kendo-angular-ui/components) with Angular Universal.
+These Kendo UI for Angular sample projects demonstrate how to use [Kendo UI for Angular components](https://www.telerik.com/kendo-angular-ui/components) with Angular Universal.
 
 ## In This Article
 
