@@ -50,20 +50,6 @@ The application code is managed by `main.ts`. In this sample project, the applic
 - To use development variables, run `cross-env ENV=dev npm start`.
 - To use production variables, run `cross-env ENV=rod npm start`.
 
-## Included Commands
-
-|Command|Description|
-|--|--|
-|`npm run ng:serve`         | Executes the application in the browser. |
-|`npm run build`            | Builds the application. Your built files are in the `/dist` folder. |
-|`npm run build:prod `      | Builds the application with Angular AoT. Your built files are in the `/dist` folder. |
-|`npm run electron:local`   | Builds the application and starts Electron.
-|`npm run electron:linux`   | Builds the application and creates an application that is consumable on the Linux system. |
-|`npm run electron:windows` | On a Windows OS, builds the application and creates an application that is consumable on Windows 32/64 bit systems. |
-|`npm run electron:mac`     | On a MAC OS, builds the application and generates an `.app` file of the application that can be run on Mac. |
-
-> Your application is optimized. Only the `/dist` folder and the node dependencies are included in the executable.
-
 ## Browser Mode
 
 To execute the application in the browser (WITHOUT HOT RELOAD ACTUALLY...), you can run `npm run ng:serve`. Note that you cannot use Electron or NodeJS native libraries in this case. To watch how conditional import of Electron and Native libraries is done, refer to `providers/electron.service.ts` .
