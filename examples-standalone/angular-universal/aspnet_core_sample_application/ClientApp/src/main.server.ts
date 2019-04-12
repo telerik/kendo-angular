@@ -9,6 +9,8 @@ export { AppServerModule } from './app/app.server.module';
 
 enableProdMode();
 
+declare var module;
+
 export default createServerRenderer(params => {
   const { AppServerModule, AppServerModuleNgFactory, LAZY_MODULE_MAP } = (module as any).exports;
 

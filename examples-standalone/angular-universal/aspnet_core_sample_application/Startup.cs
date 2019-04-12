@@ -1,11 +1,12 @@
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.SpaServices.AngularCli;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-
 namespace dotnet_angular
 {
+    using Microsoft.AspNetCore.Builder;
+    using Microsoft.AspNetCore.Hosting;
+    using Microsoft.AspNetCore.Mvc;
+    using Microsoft.AspNetCore.SpaServices.AngularCli;
+    using Microsoft.Extensions.Configuration;
+    using Microsoft.Extensions.DependencyInjection;
+
     public class Startup
     {
         public Startup(IConfiguration configuration)
@@ -18,7 +19,7 @@ namespace dotnet_angular
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc();
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
@@ -36,7 +37,9 @@ namespace dotnet_angular
             }
             else
             {
-                app.UseExceptionHandler("/Home/Error");
+                app.UseExceptionHandler("/Error");
+                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+                app.UseHsts();
             }
 
             app.UseStaticFiles();
@@ -58,10 +61,9 @@ namespace dotnet_angular
 
                 spa.UseSpaPrerendering(options =>
                 {
-                    options.BootModulePath = $"{spa.Options.SourcePath}/dist-server/main.bundle.js";
-                    options.BootModuleBuilder = env.IsDevelopment()
-                        ? new AngularCliBuilder(npmScript: "build:ssr")
-                        : null;
+                    options.BootModulePath = $"{spa.Options.SourcePath}/dist-server/main.js";
+                    options.BootModuleBuilder = env.IsDevelopment() ?
+                      new AngularCliBuilder(npmScript: "build:ssr") : null;
                     options.ExcludeUrls = new[] { "/sockjs-node" };
                 });
 

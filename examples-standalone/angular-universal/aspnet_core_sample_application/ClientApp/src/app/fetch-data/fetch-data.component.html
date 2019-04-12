@@ -4,14 +4,16 @@
 
 <p *ngIf="!forecasts"><em>Loading...</em></p>
 
-<kendo-grid 
-  [kendoGridBinding]="forecasts" 
+<kendo-grid
+  [kendoGridBinding]="forecasts"
   [sortable]="true"
   [filterable]="true">
-  <kendo-grid-column 
-    field="dateFormatted" 
-    format="{0:d}" 
-    title="Date"></kendo-grid-column>
+  <kendo-grid-column
+    field="dateFormatted"
+    format="{0:d}"
+    filter="date"
+    title="Date">
+  </kendo-grid-column>
   <kendo-grid-column field="temperatureC" title="Temperature C">
     <ng-template kendoGridCellTemplate let-dataItem>
       {{ dataItem.temperatureC }}°C
