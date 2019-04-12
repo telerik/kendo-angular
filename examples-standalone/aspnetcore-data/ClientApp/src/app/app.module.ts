@@ -14,6 +14,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { DataService } from './fetch-data/data.service';
 
+function getBaseUrl() {
+  return document.getElementsByTagName('base')[0].href;
+}
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,7 +38,10 @@ import { DataService } from './fetch-data/data.service';
     GridModule,
     BrowserAnimationsModule
   ],
-  providers: [DataService],
+  providers: [
+    DataService,
+    { provide: 'BASE_URL', useFactory: getBaseUrl }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
