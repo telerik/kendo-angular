@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, Inject } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { GridDataResult } from '@progress/kendo-angular-grid';
@@ -11,9 +11,7 @@ import {
 
 @Injectable()
 export class DataService {
-    private BASE_URL = 'api/Products';
-
-    constructor(private http: HttpClient) { }
+    constructor(private http: HttpClient, @Inject('BASE_URL') private baseUrl: string) {}
 
     public fetch(state: DataSourceRequestState): Observable<any> {
         const queryStr = `${toDataSourceRequestString(state)}`;
@@ -21,7 +19,7 @@ export class DataService {
 
         return this.http
             // Send the state to the server
-            .get(`${this.BASE_URL}?${queryStr}`).pipe(
+            .get(`${this.baseUrl}api/Products?${queryStr}`).pipe(
               // Process the response
               map(({ data, total }: GridDataResult): GridDataResult => {
                 return {
