@@ -29,7 +29,7 @@ const createFormGroup: Function = (dataItem: any) => new FormGroup({
         [skip]="state.skip"
         [sort]="state.sort"
         [filter]="state.filter"
-        [loading]="view?.pendingData"
+        [loading]="dataService?.pendingData"
         (dataStateChange)="dataStateChange($event)"
         (edit)="editHandler($event)"
         (cancel)="cancelHandler($event)" (save)="saveHandler($event)"
