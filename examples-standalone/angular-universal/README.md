@@ -24,26 +24,15 @@ To run each of the sample applications, follow the listed commands in each secti
 To run the Node-based application, execute the following commands.
 
 ```
-# use npm (or yarn) to install the dependencies
+# use npm to install the dependencies
 npm install
 
-# Development build (SPA / lean Angular).
-npm run build:spa-dev
-# Production build (SPA / lean Angular).
-npm run build:spa-prod
+# a) Build and run the application with Server-Side Rendering
+npm run build:ssr
+npm run serve:ssr
 
-# Start the server (SPA / lean Angular).
-npm run serve:spa
-# Start the server (SPA / lean Angular, with HMR support).
-npm run serve:spa-hmr
-
-# Development build (Universal).
-npm run build:universal-dev
-# Production build (Universal).
-npm run build:universal-prod
-
-# Start the server (Angular Universal).
-npm run serve
+# b) Run the application in development mode
+ng serve
 ```
 
 ### ASP.NET Core-Based Project
