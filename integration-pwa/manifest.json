@@ -1,0 +1,63 @@
+{
+  "dir": "ltr",
+  "lang": "en",
+  "name": "Kendo Angular PWA ",
+  "scope": "/",
+  "display": "fullscreen",
+  "start_url": "http://localhost:8080/",
+  "short_name": "KAPWA",
+  "theme_color": "transparent",
+  "description": "Sample Kendo PWA App",
+  "orientation": "any",
+  "background_color": "transparent",
+  "related_applications": [],
+  "prefer_related_applications": false,
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "16x16 32x32"
+    },
+    {
+      "src": "/assets/app_icon/angularX36.png",
+      "sizes": "36x36",
+      "type": "image/png",
+      "density": "0.75"
+    },
+    {
+      "src": "/assets/app_icon/angularX48.png",
+      "sizes": "48x48",
+      "type": "image/png",
+      "density": "1.0"
+    },
+    {
+      "src": "/assets/app_icon/angularX72.png",
+      "sizes": "72x72",
+      "type": "image/png",
+      "density": "1.5"
+    },
+    {
+      "src": "/assets/app_icon/angularX96.png",
+      "sizes": "96x96",
+      "type": "image/png",
+      "density": "2.0"
+    },
+    {
+      "src": "/assets/app_icon/angularX144.png",
+      "sizes": "144x144",
+      "type": "image/png",
+      "density": "3.0"
+    },
+    {
+      "src": "/assets/app_icon/angularX192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "density": "4.0"
+    },
+    {
+      "src": "/assets/app_icon/angularX512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "density": "4.0"
+    }
+  ]
+}
