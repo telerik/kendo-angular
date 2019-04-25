@@ -1,12 +1,12 @@
 # Example Projects
 
-This folder contains example projects from the [Kendo UI for Angular Documentation](http://www.telerik.com/kendo-angular-ui/components) in a shared [Angular CLI Workspace](https://angular.io/guide/file-structure).
+This folder contains example projects from the [official Kendo UI for Angular documentation](http://www.telerik.com/kendo-angular-ui/components) in a shared [Angular CLI workspace](https://angular.io/guide/file-structure).
 
-Additional sample applications, that can't use the same workspace, can be found in the [examples-standalone](../examples-standalone) folder.
+Additional sample applications that cannot use the same workspace are located in the [`examples-standalone`](../examples-standalone) folder.
 
 ## Starting Projects
 
-Instructions for starting each sample project can be found in it's README.md file in the [projects folder](./projects).
+The instructions for getting up and running with each sample project can be found in its `README.md` file in the [`projects` folder](./projects).
 
 ## Hosted Examples
 
@@ -16,9 +16,9 @@ The following examples are deployed on GitHub pages:
 
 ## Creating a New Project
 
-1. Use `ng generate application <application-name>` to create a new sample application.
-1. Add the Kendo UI Default theme to the `styles` section of the application in `angular.json`
+1. Create a new sample application by running `ng generate application <application-name>`.
+1. In `angular.json`, add the Kendo UI Default theme to the `styles` section of the application.
 
-## Further help
+## Further Help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+To get more help on the Angular CLI, use `ng help` or check out the [Angular CLI `README.md` file](https://github.com/angular/angular-cli/blob/master/README.md).
