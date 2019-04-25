@@ -8,7 +8,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "publish-integration-pwa": "ng build integration-pwa --prod --base-href https://telerik.github.io/kendo-angular/integration-pwa/ && cp index.html 404.html dist && npx ngh"
+    "publish-integration-pwa": "ng build integration-pwa --prod --base-href https://telerik.github.io/kendo-angular/integration-pwa/ && cp static/* dist && npx ngh"
   },
   "private": true,
   "dependencies": {
