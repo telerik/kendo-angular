@@ -8,6 +8,12 @@ Additional sample applications, that can't use the same workspace, can be found 
 
 Instructions for starting each sample project can be found in it's README.md file in the [projects folder](./projects).
 
+## Hosted Examples
+
+The following examples are deployed on GitHub pages:
+
+* [Integrating Kendo UI for Angular with Progressive Web Applications](https://telerik.github.io/kendo-angular/integration-pwa)
+
 ## Creating a New Project
 
 1. Use `ng generate application <application-name>` to create a new sample application.
