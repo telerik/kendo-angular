@@ -10,9 +10,7 @@ The instructions for getting up and running with each sample project can be foun
 
 ## Hosted Examples
 
-The following examples are deployed on GitHub pages:
-
-* [Integrating Kendo UI for Angular with Progressive Web Applications](https://telerik.github.io/kendo-angular/integration-pwa)
+Currently, the example on [integrating Kendo UI for Angular with Progressive Web Applications](https://telerik.github.io/kendo-angular/integration-pwa) is deployed on GitHub pages.
 
 ## Creating a New Project
 
