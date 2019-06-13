@@ -8,4 +8,4 @@ This is commercial software. To use it, you need to agree to the [**Telerik End 
 
 All available Kendo UI commercial licenses may be obtained at http://www.telerik.com/purchase/kendo-ui.
 
-*Copyright © 2019 Progress Software EAD. All rights reserved.*
+*Copyright © 2019 Progress Software Corporation and/or one of its subsidiaries or affiliates. All rights reserved.*
