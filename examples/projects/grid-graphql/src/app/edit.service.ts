@@ -1,11 +1,8 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
-import { HttpClient } from '@angular/common/http';
 import { Apollo } from 'apollo-angular';
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
-import { Subscription } from 'rxjs/Subscription';
-import { tap } from 'rxjs/operators/tap';
-import { map } from 'rxjs/operators/map';
+import { BehaviorSubject } from 'rxjs';
+import { Subscription } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 import { Product } from './model';
 

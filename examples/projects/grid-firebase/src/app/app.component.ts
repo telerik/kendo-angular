@@ -73,7 +73,7 @@ export class AppComponent {
       this.formGroup = undefined;
   }
 
-  public resetData(){
+  public resetData() {
     this.editService.resetData();
   }
 }
