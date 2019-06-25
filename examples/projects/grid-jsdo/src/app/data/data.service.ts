@@ -1,17 +1,14 @@
+import { HttpClient, HttpErrorResponse, HttpHeaders, HttpParams, HttpResponse } from '@angular/common/http';
 import { EventEmitter } from '@angular/core';
-import { HttpClient, HttpResponse, HttpErrorResponse, HttpHeaders, HttpParams } from '@angular/common/http';
-
-import { Observable } from 'rxjs/Observable';
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
-import { tap } from 'rxjs/operators/tap';
-import { map } from 'rxjs/operators/map';
-
 import { process, State } from '@progress/kendo-data-query';
-
-import { DataServiceInterface } from './data-service.interface';
-import { DataServiceConfig, DataServiceRequest, DataProviderService } from './service-config';
-import { ModelDataResult } from './model-data-result';
 import { DataServiceEvent } from './data-service.event';
+import { DataServiceInterface } from './data-service.interface';
+import { ModelDataResult } from './model-data-result';
+import { DataProviderService, DataServiceConfig, DataServiceRequest } from './service-config';
+
+import { Observable, BehaviorSubject } from 'rxjs';
+import { tap, map } from 'rxjs/operators';
+
 
 export abstract class DataService<T> implements DataServiceInterface<T> {
     // in case someone wants to refresh the data with the current state

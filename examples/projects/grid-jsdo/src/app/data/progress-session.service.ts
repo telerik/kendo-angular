@@ -1,14 +1,10 @@
 import { Injectable } from '@angular/core';
-
-import { Observable } from 'rxjs/Observable';
-import { _throw } from 'rxjs/observable/throw';
-import { fromPromise } from 'rxjs/observable/fromPromise';
-import { of } from 'rxjs/observable/of';
-import { map } from 'rxjs/operators/map';
-
 import { progress } from '@progress/jsdo-core';
-
+import { map } from 'rxjs/operators';
 import { DataProviderService } from './service-config';
+
+import { Observable, throwError, from, of } from 'rxjs';
+
 
 @Injectable()
 export class ProgressSessionService {
@@ -35,14 +31,14 @@ export class ProgressSessionService {
         const dataProvider = this.dataProviderService.get(providerName);
 
         if (!dataProvider) {
-            return _throw(new Error(`Error creating JSDO session. Unknown data provider: ${providerName}`));
+            return throwError(new Error(`Error creating JSDO session. Unknown data provider: ${providerName}`));
         }
 
         if (this.createdSessions[providerName]) {
             return of(this.createdSessions[providerName]);
         }
 
-        return fromPromise(progress.data.getSession({
+        return from(progress.data.getSession({
             name: providerName,
             authenticationModel: dataProvider.authenticationModel,
             serviceURI: dataProvider.serviceUri,
