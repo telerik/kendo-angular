@@ -1,22 +1,11 @@
-import { Component, ViewEncapsulation, NgModule, HostBinding } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { ActivatedRoute } from '@angular/router';
-import { GithubService } from './../shared/github.service'
-import { IssuesProcessor } from './../shared/issues-processor.service'
-
-
-import { IssueTypesComponent } from '../charts/issue-types.component';
-import { TypesDistributionComponent } from '../charts/types-distribution.component';
-import { ActiveIssuesComponent } from '../charts/active-issues.component';
-import { StatisticsComponent } from '../charts/statistics.component';
-
+import { Component, ViewEncapsulation, HostBinding } from '@angular/core';
+import { GithubService } from './../shared/github.service';
+import { IssuesProcessor } from './../shared/issues-processor.service';
 import { IssuesModel } from './../shared/issues.model';
-import { ChartsModule } from '@progress/kendo-angular-charts';
-import { ButtonsModule } from '@progress/kendo-angular-buttons';
-import { LayoutModule } from '@progress/kendo-angular-layout';
-import { Observable, Subscription } from 'rxjs/Rx';
 
 import 'hammerjs';
+import { Subscription, of, merge } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Component({
     selector: 'dashboard',
@@ -25,32 +14,35 @@ import 'hammerjs';
     templateUrl: './dashboard.template.html'
 })
 export class DashboardComponent {
-    public isLoading: boolean = true;
+    public isLoading = true;
     public today: Date = new Date();
     public rangeStart: Date;
-    private issues: any;
-    private months: number = 3;
+    public issues: any;
+    private months = 3;
     private data: any;
     private subscription: Subscription;
-    private selectedIndex: number = 0;
+    private selectedIndex = 0;
 
-    @HostBinding('attr.id') get get_id() { return "dashboard"; }
-    @HostBinding('class') get get_class() { return "dashboard"; }
+    @HostBinding('attr.id') get get_id() { return 'dashboard'; }
+    @HostBinding('class') get get_class() { return 'dashboard'; }
 
     constructor(public githubService: GithubService, public issuesProcessor: IssuesProcessor) {
         this.rangeStart = this.issuesProcessor.getMonthsRange(this.months);
 
-        this.subscription = githubService
-            .getGithubIssues({pages: 5})
-            .map(data => {
-                this.data = data;
-                this.isLoading = false;
-                return this.issuesProcessor.process(data, this.months)
-            }, (err) => this.isLoading = false)
-            .merge(Observable.of(new IssuesModel()))
-            .subscribe((data: IssuesModel) => {
-                this.issues = data;
-            });
+        this.subscription =
+          merge(
+            githubService
+              .getGithubIssues({pages: 5})
+              .pipe(map(data => {
+                  this.data = data;
+                  this.isLoading = false;
+                  return this.issuesProcessor.process(data, this.months)
+              }, (err) => this.isLoading = false)),
+              of(new IssuesModel())
+          )
+          .subscribe((data: IssuesModel) => {
+              this.issues = data;
+          });
     }
 
     onFilterClick(months) {

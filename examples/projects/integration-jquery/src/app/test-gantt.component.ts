@@ -11,7 +11,7 @@ declare var kendo: any;
     `
 })
 export class TestGanttComponent implements AfterViewInit, OnDestroy {
-    @ViewChild('gantt') ganttEl: ElementRef;
+    @ViewChild('gantt', { static: true }) ganttEl: ElementRef;
 
     private readonly serviceRoot = 'https://demos.telerik.com/kendo-ui/service';
     private readonly tasksDataSource = new kendo.data.GanttDataSource({

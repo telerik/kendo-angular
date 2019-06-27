@@ -1,22 +1,16 @@
-import { HttpClient, HttpResponse, HttpErrorResponse } from '@angular/common/http';
-
-import { Observable } from 'rxjs/Observable';
-import { _throw } from 'rxjs/observable/throw';
-import { of } from 'rxjs/observable/of';
-import { map } from 'rxjs/operators';
-import { switchMap } from 'rxjs/operators';
-import { catchError } from 'rxjs/operators/catchError';
-
-import { State } from '@progress/kendo-data-query';
-
-import { ModelDataResult } from './model-data-result';
-import { DataService } from './data.service';
-import { ProgressServiceConfig } from './progress-service-config';
-import { DataProviderService } from './service-config';
-import { ProgressSessionService } from './progress-session.service';
-
+import { HttpClient, HttpErrorResponse, HttpResponse } from '@angular/common/http';
+import { DataResult, DataSource, DataSourceOptions } from '@progress/jsdo-angular';
 import { progress } from '@progress/jsdo-core';
-import { DataSource, DataSourceOptions, DataResult } from '@progress/jsdo-angular';
+import { State } from '@progress/kendo-data-query';
+import { DataService } from './data.service';
+import { ModelDataResult } from './model-data-result';
+import { ProgressServiceConfig } from './progress-service-config';
+import { ProgressSessionService } from './progress-session.service';
+import { DataProviderService } from './service-config';
+
+import { Observable, throwError, of } from 'rxjs';
+import { map, switchMap, catchError } from 'rxjs/operators';
+
 
 export class ProgressService<T> extends DataService<T> {
     public jsdoResource: progress.data.JSDO;
@@ -40,7 +34,7 @@ export class ProgressService<T> extends DataService<T> {
         return this.getDataSource().pipe(
             switchMap(dataSource => dataSource.read(this.getFilterOptions(state))),
             map(data => this.parseDSResponse(data)),
-            catchError((error, retry) => _throw(this.getErrorResponse(error)))
+            catchError((error, retry) => throwError(this.getErrorResponse(error)))
         );
     }
 
@@ -113,7 +107,7 @@ export class ProgressService<T> extends DataService<T> {
                 operation(dataSource);
                 return dataSource.saveChanges();
             }),
-            catchError((error, retry) => _throw(this.getErrorResponse(error)))
+            catchError((error, retry) => throwError(this.getErrorResponse(error)))
         );
     }
 

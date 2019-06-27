@@ -1,6 +1,6 @@
 import { Component, Inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { map } from 'rxjs/operators/map';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-fetch-data',

@@ -13,8 +13,8 @@ declare var kendo: any;
     `
 })
 export class TestDatePickerComponent implements AfterViewInit, OnDestroy {
-    @ViewChild('h1Element') el: ElementRef;
-    @ViewChild('datePicker') datePickerEl: ElementRef;
+    @ViewChild('h1Element', { static: true }) el: ElementRef;
+    @ViewChild('datePicker', { static: true }) datePickerEl: ElementRef;
 
     selectedDate: Date = new Date();
 

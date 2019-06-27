@@ -1,11 +1,8 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
-import { HttpClient } from '@angular/common/http';
 import { Apollo } from 'apollo-angular';
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
-import { Subscription } from 'rxjs/Subscription';
-import { tap } from 'rxjs/operators/tap';
-import { map } from 'rxjs/operators/map';
+import { BehaviorSubject } from 'rxjs';
+import { Subscription } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 import { Product } from './model';
 
@@ -18,6 +15,8 @@ import {
 
 @Injectable()
 export class EditService extends BehaviorSubject<Product[]> {
+  private lastData: any;
+
   constructor(private apollo: Apollo) {
     super([]);
   }
@@ -26,6 +25,7 @@ export class EditService extends BehaviorSubject<Product[]> {
 
   public read() {
     if (this.subscription) {
+      super.next(this.lastData);
       return;
     }
 
@@ -36,7 +36,10 @@ export class EditService extends BehaviorSubject<Product[]> {
       .pipe(
         map((changes: any) => <Product[]> changes.data.products),
       )
-      .subscribe(data => super.next(data));
+      .subscribe(data => {
+        super.next(data);
+        this.lastData = data;
+      });
   }
 
   public save(data: Product, isNew?: boolean): void {

@@ -1,6 +1,5 @@
-import { Component, ViewEncapsulation, HostBinding, HostListener, ViewChild } from '@angular/core';
 import { animate, state, style, transition, trigger } from '@angular/animations';
-import { Observable } from 'rxjs/Rx';
+import { Component, HostBinding, HostListener, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -25,7 +24,7 @@ import { Router } from '@angular/router';
     ],
 })
 export class MainMenuComponent {
-    private year = new Date().getFullYear();
+    public year = new Date().getFullYear();
     public navState: string;
     constructor(private router: Router) {
         if ( window.innerWidth < 768 ) {

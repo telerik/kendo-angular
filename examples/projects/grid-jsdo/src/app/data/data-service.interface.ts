@@ -1,8 +1,8 @@
 import { EventEmitter } from '@angular/core';
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { State } from '@progress/kendo-data-query';
-import { ModelDataResult } from './model-data-result';
+import { BehaviorSubject } from 'rxjs';
 import { DataServiceEvent } from './data-service.event';
+import { ModelDataResult } from './model-data-result';
 
 export interface DataServiceInterface<T> {
     errors: BehaviorSubject<Error>;
