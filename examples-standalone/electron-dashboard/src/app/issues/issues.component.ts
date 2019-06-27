@@ -1,13 +1,7 @@
-import { Component, ViewEncapsulation, NgModule, HostBinding } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { MarkdownComponent } from '../markdown/markdown.component';
-import { Http, Headers } from '@angular/http';
-import { Observable, Subject } from 'rxjs/Rx';
+import { Component, HostBinding, ViewEncapsulation } from '@angular/core';
 import { GithubService } from './../shared/github.service';
 import { IssuesProcessor } from './../shared/issues-processor.service';
-import { GridModule } from '@progress/kendo-angular-grid';
-import { ButtonsModule } from '@progress/kendo-angular-buttons';
-import { LabelClass } from './label.directive';
+import { Http } from '@angular/http';
 
 @Component({
     selector: 'issues',
@@ -39,12 +33,12 @@ export class IssuesComponent {
 
     constructor(public http: Http, public githubService: GithubService, public issuesProcessor: IssuesProcessor) {
 
-        githubService.getGithubIssues({pages: 12}).subscribe((data: any[]) => {
+        githubService.getGithubIssues({pages: 5}).subscribe((data: any[]) => {
             data = data.reduce((agg, curr) => [...agg, ...curr], []).filter(issue => issue.pull_request ? false : true);
             this.allIssues = data;
             this.applyPaging(this.issuesProcessor.filterByMonth(this.allIssues, this.months))
             this.isLoading = false;
-        },(err) => this.isLoading = false);
+        },() => this.isLoading = false);
     }
 
     onFilterClick(e) {
@@ -53,7 +47,6 @@ export class IssuesComponent {
         this.months = e;
         this.range = this.dateRange();
         this.applyPaging(this.issuesProcessor.filterByMonth(this.allIssues, e));
-        
     }
 
     onPageChange(e) {
@@ -78,6 +71,6 @@ export class IssuesComponent {
         return {
             to: new Date(),
             from: this.issuesProcessor.getMonthsRange(this.months)
-        }
+        };
     }
 }

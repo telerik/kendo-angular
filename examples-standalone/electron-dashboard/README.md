@@ -19,8 +19,8 @@ This Kendo UI for Angular sample project demonstrates how to use [Kendo UI for A
 Bootstrap and package your project with Angular 5 or later and Electron (Typescript, SASS, and Hot Reload) for creating Desktop applications.
 
 Currently, the sample projects runs with:
-- Angular v5.2.5
-- Angular-CLI v1.6.4
+- Angular v7.x
+- Angular-CLI
 - Electron v1.8.6
 - Electron Builder v20.0.4
 
