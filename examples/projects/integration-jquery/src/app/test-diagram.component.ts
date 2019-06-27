@@ -11,7 +11,7 @@ declare var kendo: any;
     `
 })
 export class TestDiagramComponent implements AfterViewInit, OnDestroy {
-    @ViewChild('diagram') diagramEl: ElementRef;
+    @ViewChild('diagram', { static: true }) diagramEl: ElementRef;
 
     constructor(private hostEl: ElementRef) {}
 

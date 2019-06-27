@@ -39,7 +39,7 @@ declare var kendo: any;
 })
 export class TestSplitterComponent {
     // splitter
-    @ViewChild('splitter') splitterEl: ElementRef;
+    @ViewChild('splitter', { static: true }) splitterEl: ElementRef;
 
     constructor(private hostEl: ElementRef) {
         this.loadProducts();

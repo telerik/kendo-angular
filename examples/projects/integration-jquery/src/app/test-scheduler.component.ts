@@ -11,7 +11,7 @@ declare var kendo: any;
     `
 })
 export class TestSchedulerComponent implements AfterViewInit, OnDestroy {
-    @ViewChild('scheduler') schedulerEl: ElementRef;
+    @ViewChild('scheduler', { static: true }) schedulerEl: ElementRef;
 
     constructor(private hostEl: ElementRef) {}
 

@@ -15,7 +15,7 @@ declare var kendo: any;
     `
 })
 export class TestEditorComponent implements AfterViewInit, OnDestroy {
-    @ViewChild('editor') editorEl: ElementRef;
+    @ViewChild('editor', { static: true }) editorEl: ElementRef;
 
     public value: string;
 
