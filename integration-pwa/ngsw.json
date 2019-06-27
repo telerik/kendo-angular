@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1556176343662,
+  "timestamp": 1561636764338,
   "index": "https://telerik.github.io/kendo-angular/integration-pwa/index.html",
   "assetGroups": [
     {
@@ -73,7 +73,7 @@
     "https://telerik.github.io/kendo-angular/integration-pwa/assets/login-right-bg.png": "657495c9cb2fd673c468a9b0afbec8dd60e25838",
     "https://telerik.github.io/kendo-angular/integration-pwa/assets/noConnection.png": "ac66318b4d07496f76b01b4c5749b68c4c494631",
     "https://telerik.github.io/kendo-angular/integration-pwa/favicon.ico": "84161b857f5c547e3699ddfbffc6d8d737542e01",
-    "https://telerik.github.io/kendo-angular/integration-pwa/index.html": "0a139a2e313e69d10524f59526bd42dd6a72d39a"
+    "https://telerik.github.io/kendo-angular/integration-pwa/index.html": "6788414943ca418ce4a500998e12a3db9b9df4e8"
   },
   "navigationUrls": [
     {
