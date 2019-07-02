@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { GridDataResult, PageChangeEvent } from '@progress/kendo-angular-grid';
 
 @Component({
-    selector: 'test-grid',
+    selector: 'app-test-grid',
     template: `
         <hr />
         <p>Kendo for Angular Grid:</p>

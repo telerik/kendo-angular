@@ -4,27 +4,28 @@ import { TypesDistributionComponent } from '../charts/types-distribution.compone
 import { ActiveIssuesComponent } from '../charts/active-issues.component';
 
 @Component({
-    selector: 'statistics',
+    selector: 'app-statistics',
     template: `
         <div class="row">
             <div class="col-md-12">
                 <div *ngIf="loading" class="card" style="height: 400px">
-                    <loading-spinner>
-                    </loading-spinner>
+                    <app-loading-spinner>
+                    </app-loading-spinner>
                 </div>
-                <active-issues
+                <app-active-issues
                     *ngIf="!loading && issues.active.length"
                     [data]="issues.groupedIssues"
                     [months]="months"
                     [issues]="issues"
                     [closeRate]="issues.closeRate.average"
-                    [active]="issues.active"></active-issues>
+                    [active]="issues.active"></app-active-issues>
             </div>
             <div *ngIf="!loading && issues.active.length" class="col-md-4">
-                <issue-types [data]="issues.issueTypes"></issue-types>
+                <app-issue-types [data]="issues.issueTypes"></app-issue-types>
             </div>
             <div *ngIf="!loading && issues.active.length" class="col-md-8">
-                <types-distribution [data]="issues.typesDistribution" [months]="months" *ngIf="issues.active.length"></types-distribution>
+                <app-types-distribution [data]="issues.typesDistribution" [months]="months" *ngIf="issues.active.length">
+                </app-types-distribution>
             </div>
         </div>
 

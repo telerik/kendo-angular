@@ -4,7 +4,7 @@ import { GithubService } from './../shared/github.service';
 import { IssuesProcessor } from './../shared/issues-processor.service';
 
 @Component({
-    selector: 'issues',
+    selector: 'app-issues',
     encapsulation: ViewEncapsulation.None,
     providers: [
     GithubService,

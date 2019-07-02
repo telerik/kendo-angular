@@ -5,7 +5,7 @@ import { GridDataResult, PageChangeEvent } from '@progress/kendo-angular-grid';
 declare var kendo: any;
 
 @Component({
-    selector: 'test-slider',
+    selector: 'app-test-slider',
     template: `
         <p>Kendo UI for Angular Splitter with nested Angular components:</p>
         <div #splitter>
@@ -37,7 +37,7 @@ declare var kendo: any;
         </div>
     `
 })
-export class TestSplitterComponent {
+export class TestSplitterComponent implements AfterViewInit, OnDestroy {
     constructor(private hostEl: ElementRef) {
         this.loadProducts();
     }

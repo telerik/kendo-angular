@@ -1,7 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, OnChanges } from '@angular/core';
 
 @Component({
-    selector: 'types-distribution',
+    selector: 'app-types-distribution',
     template: `
         <div class="card">
             <h4 class="card-header">Types Distribution</h4>
@@ -36,7 +36,9 @@ import { Component, Input, OnInit } from '@angular/core';
                         ></kendo-chart-series-item>
                     </kendo-chart-series>
                     <kendo-chart-value-axis>
-                        <kendo-chart-value-axis-item [line]="{visible: false}" [labels]="{step: 2, skip: 2}" [majorGridLines]="{step: 2, skip: 2, color: '#F0F2F2'}">
+                        <kendo-chart-value-axis-item
+                          [line]="{visible: false}" [labels]="{step: 2, skip: 2}"
+                          [majorGridLines]="{step: 2, skip: 2, color: '#F0F2F2'}">
                         </kendo-chart-value-axis-item>
                     </kendo-chart-value-axis>
                 </kendo-chart>
@@ -44,7 +46,7 @@ import { Component, Input, OnInit } from '@angular/core';
         </div>
     `
 })
-export class TypesDistributionComponent implements OnInit {
+export class TypesDistributionComponent implements OnInit, OnChanges {
     private baseUnit;
     @Input() public data;
     @Input() public set months(months) {
@@ -81,6 +83,8 @@ export class TypesDistributionComponent implements OnInit {
         const present = this.visibleSeries.some(series => series.color === newSeries.color);
         if (present) {
             const removeIndex = this.visibleSeries.map(item => item.color).indexOf(newSeries.color);
+            // tslint:disable: no-unused-expression
+            // tslint:disable: no-bitwise
             ~removeIndex && this.visibleSeries.splice(removeIndex, 1);
         } else {
             this.visibleSeries.push(newSeries);

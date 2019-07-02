@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 
 @Component({
-    selector: 'signin',
+    selector: 'app-signin',
     encapsulation: ViewEncapsulation.None,
     templateUrl: './signin.template.html'
 })

@@ -1,14 +1,16 @@
-import { Directive, ElementRef, Renderer, Input } from '@angular/core';
+import { Directive, ElementRef, Renderer2, Input } from '@angular/core';
 
+// tslint:disable-next-line: directive-selector
 @Directive({ selector: '[labelClass]' })
 
+// tslint:disable-next-line: directive-class-suffix
 export class LabelClass {
     @Input() set labelClass(text: string) {
         const color = this.matchColor(text);
-        this.renderer.setElementStyle(this.element.nativeElement, 'backgroundColor', color );
+        this.renderer.setStyle(this.element.nativeElement, 'backgroundColor', color );
     }
 
-    constructor(private element: ElementRef, private renderer: Renderer) {}
+    constructor(private element: ElementRef, private renderer: Renderer2) {}
 
     private matchColor(text: string) {
         const color = this.colors[text.toUpperCase()];

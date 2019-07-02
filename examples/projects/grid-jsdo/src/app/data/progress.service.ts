@@ -30,7 +30,7 @@ export class ProgressService<T> extends DataService<T> {
         this.handleRequest(this.batchRequest(deletedItems, createdItems, updatedItems), { action: 'batch' });
     }
 
-    protected readRequest(state: State): Observable<HttpResponse<Object>> {
+    protected readRequest(state: State): Observable<HttpResponse<object>> {
         return this.getDataSource().pipe(
             switchMap(dataSource => dataSource.read(this.getFilterOptions(state))),
             map(data => this.parseDSResponse(data)),
@@ -82,7 +82,7 @@ export class ProgressService<T> extends DataService<T> {
         } : {};
     }
 
-    protected parseDSResponse(data: DataResult): HttpResponse<Object> {
+    protected parseDSResponse(data: DataResult): HttpResponse<object> {
         return new HttpResponse({
             body: data
         });

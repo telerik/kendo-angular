@@ -1,7 +1,7 @@
 import { Component, Input, ViewChild, HostBinding } from '@angular/core';
 
 @Component({
-    selector: 'issue-types',
+    selector: 'app-issue-types',
     template: `
         <h4 class="card-header">Issue Types</h4>
         <div class="card-body">

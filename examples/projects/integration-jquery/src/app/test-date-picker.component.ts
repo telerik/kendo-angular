@@ -3,7 +3,7 @@ import { Component, ViewChild, ElementRef, AfterViewInit, OnDestroy } from '@ang
 declare var kendo: any;
 
 @Component({
-    selector: 'test-date-picker',
+    selector: 'app-test-date-picker',
     template: `
         <h1 #h1Element>
           {{ selectedDate | date }}

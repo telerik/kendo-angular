@@ -121,7 +121,7 @@ export abstract class DataService<T> implements DataServiceInterface<T> {
         };
         responseType?: 'json';
         withCredentials?: boolean;
-    }): Observable<HttpResponse<Object>> {
+    }): Observable<HttpResponse<object>> {
         options.headers = options.headers || new HttpHeaders();
 
         return this.http.request(method, url, options);
@@ -138,11 +138,11 @@ export abstract class DataService<T> implements DataServiceInterface<T> {
         });
     }
 
-    protected abstract readRequest(state: State): Observable<HttpResponse<Object>>;
+    protected abstract readRequest(state: State): Observable<HttpResponse<object>>;
     protected abstract createRequest(data: any): Observable<any>;
     protected abstract updateRequest(data: any): Observable<any>;
     protected abstract removeRequest(data: any): Observable<any>;
-    protected abstract parseResponse(response: HttpResponse<Object>): ModelDataResult<T>;
+    protected abstract parseResponse(response: HttpResponse<object>): ModelDataResult<T>;
 
     protected getAbsoluteUrl(request: DataServiceRequest): string {
         const dataProvider = this.dataProviderService.get(this.config.dataProviderName);

@@ -1,11 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ProgressServiceFactory } from './data/progress-service-factory';
 import { DataProviderCustomer } from './data/customer.model';
 import { getCustomerConfig } from './data/customer.config';
 import { DataStateChangeEvent, GridComponent } from '@progress/kendo-angular-grid';
 import { FormGroup, FormControl } from '@angular/forms';
 
-const createFormGroup: Function = (dataItem: any) => new FormGroup({
+const createFormGroup: (item: any) => FormGroup = (dataItem: any) => new FormGroup({
   Country: new FormControl(dataItem.Country),
   Name: new FormControl(dataItem.Name),
   Address: new FormControl(dataItem.Address),
@@ -59,7 +59,7 @@ const createFormGroup: Function = (dataItem: any) => new FormGroup({
   `,
   styles: []
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   public state: any = {
     skip: 0,
     take: 20,
