@@ -13,12 +13,12 @@ import { ButtonsModule } from '@progress/kendo-angular-buttons';
 
 
 const config = {
-  apiKey: "AIzaSyB4-_5thshb6BpSoERI9aRfdF5w3weQnCY",
-  authDomain: "api-project-400013235268.firebaseapp.com",
-  databaseURL: "https://api-project-400013235268.firebaseio.com",
-  projectId: "api-project-400013235268",
-  storageBucket: "api-project-400013235268.appspot.com",
-  messagingSenderId: "400013235268"
+  apiKey: 'AIzaSyB4-_5thshb6BpSoERI9aRfdF5w3weQnCY',
+  authDomain: 'api-project-400013235268.firebaseapp.com',
+  databaseURL: 'https://api-project-400013235268.firebaseio.com',
+  projectId: 'api-project-400013235268',
+  storageBucket: 'api-project-400013235268.appspot.com',
+  messagingSenderId: '400013235268'
 };
 
 @NgModule({

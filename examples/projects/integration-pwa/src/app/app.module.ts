@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ServiceWorkerModule } from '@angular/service-worker'
+import { ServiceWorkerModule } from '@angular/service-worker';
 
 // vendor dependencies
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
@@ -32,16 +32,16 @@ import { ActiveIssuesComponent } from './charts/active-issues.component';
 import { TypesDistributionComponent } from './charts/types-distribution.component';
 import { IssueTypesComponent } from './charts/issue-types.component';
 import { StatisticsComponent } from './charts/statistics.component';
-import { LoadingComponent } from './shared/spinner.component'
+import { LoadingComponent } from './shared/spinner.component';
 
-//environment
+// environment
 import { environment } from '../environments/environment';
 
 
 Config.PLATFORM_TARGET = Config.PLATFORMS.WEB;
 
 export function createTranslateLoader(http: HttpClient) {
-    return new TranslateHttpLoader(<any>http, './assets/i18n/', '.json');
+    return new TranslateHttpLoader(http as any, './assets/i18n/', '.json');
 }
 
 @NgModule({

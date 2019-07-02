@@ -49,18 +49,18 @@ export class TypesDistributionComponent implements OnInit {
     @Input() public data;
     @Input() public set months(months) {
         months > 3 ? this.baseUnit = 'months' : this.baseUnit = 'weeks';
-    };
+    }
     public initialGrey = '#A2ACAC';
     public series = [];
     public visibleSeries = [];
 
     public seriesColors = [
-        { label: "SEV: Low", value: "#FF9966", active: false },
-        { label: "SEV: Medium", value: "#BB6ACB", active: false },
-        { label: "SEV: High", value: "#52C3D3", active: false },
-        { label: "Enhancement", value: "#22C85D", active: false },
-        { label: "Feature", value: "#FF6358", active: false },
-        { label: "Others", value: "#2BA7DA", active: false }
+        { label: 'SEV: Low', value: '#FF9966', active: false },
+        { label: 'SEV: Medium', value: '#BB6ACB', active: false },
+        { label: 'SEV: High', value: '#52C3D3', active: false },
+        { label: 'Enhancement', value: '#22C85D', active: false },
+        { label: 'Feature', value: '#FF6358', active: false },
+        { label: 'Others', value: '#2BA7DA', active: false }
     ];
 
     public addSeries(button, toggleLabels) {
@@ -69,7 +69,7 @@ export class TypesDistributionComponent implements OnInit {
                 if (s.value === button.value) {
                     s.active = !s.active;
                 }
-            })
+            });
         }
 
         const newSeries = {
@@ -89,7 +89,7 @@ export class TypesDistributionComponent implements OnInit {
     }
 
     public ngOnInit() {
-        this.addSeries({ label: "SEV: Low", value: '#FF9966', active: false }, true);
+        this.addSeries({ label: 'SEV: Low', value: '#FF9966', active: false }, true);
         this.addSeries({ label: 'Enhancement', value: '#22C85D', active: false }, true);
         this.addSeries({ label: 'Others', value: '#2BA7DA', active: false }, true);
     }

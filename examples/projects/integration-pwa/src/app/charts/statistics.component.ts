@@ -5,19 +5,19 @@ import { ActiveIssuesComponent } from '../charts/active-issues.component';
 
 @Component({
     selector: 'statistics',
-    template: `  
+    template: `
         <div class="row">
             <div class="col-md-12">
                 <div *ngIf="loading" class="card" style="height: 400px">
                     <loading-spinner>
                     </loading-spinner>
                 </div>
-                <active-issues 
+                <active-issues
                     *ngIf="!loading && issues.active.length"
-                    [data]="issues.groupedIssues" 
-                    [months]="months" 
-                    [issues]="issues" 
-                    [closeRate]="issues.closeRate.average" 
+                    [data]="issues.groupedIssues"
+                    [months]="months"
+                    [issues]="issues"
+                    [closeRate]="issues.closeRate.average"
                     [active]="issues.active"></active-issues>
             </div>
             <div *ngIf="!loading && issues.active.length" class="col-md-4">
@@ -34,4 +34,4 @@ export class StatisticsComponent {
     @Input() public issues;
     @Input() public months;
     @Input() public loading;
-};
+}

@@ -48,7 +48,7 @@ export class TestSchedulerComponent implements AfterViewInit, OnDestroy {
                         url: 'https://demos.telerik.com/kendo-ui/service/tasks/destroy',
                         dataType: 'jsonp'
                     },
-                    parameterMap: function (options, operation) {
+                    parameterMap(options, operation) {
                         if (operation !== 'read' && options.models) {
                             return { models: kendo.stringify(options.models) };
                         }

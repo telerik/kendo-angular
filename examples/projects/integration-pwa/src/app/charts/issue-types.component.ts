@@ -46,20 +46,20 @@ export class IssueTypesComponent {
                     }
                 });
             }
-        })
-    };
+        });
+    }
 
     @HostBinding('class') get className() {
         return 'card issue-types';
-    };
+    }
 
     public onHover(event) {
         this.setDonutLegend(event);
-    };
+    }
 
     private setDonutLegend(series) {
         this.hoverColor = series.point.options.color;
         this.donutPercent = Math.round(series.value * 100 || 0) + '%';
         this.donutLabel = series.category;
-    };
+    }
 }

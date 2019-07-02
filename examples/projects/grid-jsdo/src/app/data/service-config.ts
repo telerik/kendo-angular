@@ -2,15 +2,15 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class AppConfigService {
-    static settings: IAppConfigSettings = <IAppConfigSettings>{
-        "dataProviders": {
-            "DataProvider1": {
-                "serviceUri": "https://oemobiledemo.progress.com/OEMobileDemoServices",
-                "catalogUris": ["https://oemobiledemo.progress.com/OEMobileDemoServices/static/CustomerService.json"],
-                "authenticationModel": "Anonymous"
+    static settings: IAppConfigSettings = {
+        dataProviders: {
+            DataProvider1: {
+                serviceUri: 'https://oemobiledemo.progress.com/OEMobileDemoServices',
+                catalogUris: ['https://oemobiledemo.progress.com/OEMobileDemoServices/static/CustomerService.json'],
+                authenticationModel: 'Anonymous'
             }
         }
-    };
+    } as IAppConfigSettings;
 }
 
 export interface IAppConfigSettings {

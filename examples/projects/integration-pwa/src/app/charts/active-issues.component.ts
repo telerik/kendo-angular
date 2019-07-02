@@ -166,6 +166,6 @@ export class ActiveIssuesComponent {
     }
 
     @Input() public set closeRate(rate) {
-        this.bulletData = [{target: 70, current: Math.round(rate * 100)}]
-    };
+        this.bulletData = [{target: 70, current: Math.round(rate * 100)}];
+    }
 }

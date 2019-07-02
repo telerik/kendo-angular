@@ -16,7 +16,7 @@ export class SigninComponent {
     }
 
     @HostBinding('class') protected get appClass(): string {
-        return 'signin'
+        return 'signin';
     }
 
     public onLoginClick() {

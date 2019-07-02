@@ -66,10 +66,10 @@ export class ProgressService<T> extends DataService<T> {
         });
     }
 
-    protected parseResponse(response: HttpResponse<Object>): ModelDataResult<T> {
+    protected parseResponse(response: HttpResponse<any>): ModelDataResult<T> {
         return {
-            data: this.mapData(response.body['data']),
-            total: response.body['total']
+            data: this.mapData(response.body.data),
+            total: response.body.total
         };
     }
 

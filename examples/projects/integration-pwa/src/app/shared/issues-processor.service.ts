@@ -5,15 +5,15 @@ const colors = {
   'SEV: LOW': '#ff9800',
   'SEV: MEDIUM': '#ff5d2a',
   'SEV: HIGH': '#d50000',
-  'ENHANCEMENT': '#00c853',
-  'FEATURE': '#2e7d32',
-  'OTHER': '#1ca8dd',
+  ENHANCEMENT: '#00c853',
+  FEATURE: '#2e7d32',
+  OTHER: '#1ca8dd',
   'PASSED QA': '#57b45b',
-  'BUG': '#cf3257',
+  BUG: '#cf3257',
   'NEEDS QA': '#bc007c',
-  'DOCUMENTATION': '#455a64',
-  'DEMO': '#673ab7',
-  'DELETED': '#f44336',
+  DOCUMENTATION: '#455a64',
+  DEMO: '#673ab7',
+  DELETED: '#f44336',
   'IN PROGRESS': '#ffd600'
 };
 
@@ -49,7 +49,7 @@ export class IssuesProcessor {
     if (name in colors) {
       label.color = colors[name];
     } else {
-      label.color = colors["OTHER"];
+      label.color = colors.OTHER;
     }
     return label;
   }
@@ -59,7 +59,7 @@ export class IssuesProcessor {
       id: user.id,
       name: user.login,
       avatarUrl: user.avatar_url,
-      avatarUrlThumb: user.avatar_url + "&size=60"
+      avatarUrlThumb: user.avatar_url + '&size=60'
     };
   }
 
@@ -125,8 +125,8 @@ export class IssuesProcessor {
     const low = (labels['SEV: Low'] / data.length);
     const medium = labels['SEV: Medium'] / data.length;
     const high = labels['SEV: High'] / data.length;
-    const enhancement = labels['Enhancement'] / data.length;
-    const feature = labels['Feature'] / data.length;
+    const enhancement = labels.Enhancement / data.length;
+    const feature = labels.Feature / data.length;
     const other = 1 - low - medium - high - enhancement - feature;
 
     return [
@@ -150,11 +150,11 @@ export class IssuesProcessor {
           value: 1
         });
         return agg;
-      }, { Others: [], Enhancement: [], 'SEV: Low': [], 'SEV: Medium': [], 'SEV: High': [], 'Feature': [] });
+      }, { Others: [], Enhancement: [], 'SEV: Low': [], 'SEV: Medium': [], 'SEV: High': [], Feature: [] });
   }
 
   cleanupLabels(labels: Array<Label>): string {
-    let filtered = labels.filter(label =>
+    const filtered = labels.filter(label =>
       label.name === 'SEV: Low' ||
       label.name === 'SEV: High' ||
       label.name === 'Feature' ||
@@ -174,10 +174,10 @@ export class IssuesProcessor {
     return this.process(data, 12).active.filter(value => {
       return value.assignee === username;
     });
-  };
+  }
 
   getMonthsRange(months): Date {
-    let since = new Date();
+    const since = new Date();
     since.setMonth(since.getMonth() - months);
     return since;
   }

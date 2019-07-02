@@ -23,9 +23,9 @@ export class TestEditorComponent implements AfterViewInit, OnDestroy {
 
     ngAfterViewInit() {
         kendo.jQuery(this.editorEl.nativeElement).kendoEditor({
-            //Define Editor's options here
+            // Define Editor's options here
             //
-            //Use @Input() properties to expose Editor configuration
+            // Use @Input() properties to expose Editor configuration
             resizable: {
                 content: true,
                 toolbar: true
