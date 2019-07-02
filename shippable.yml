@@ -1,0 +1,19 @@
+language: node_js
+
+env:
+    - PATH=$PATH:node_modules/.bin
+
+branches:
+  only:
+    - ci-build
+
+build:
+  pre_ci_boot:
+    image_name: drydock/u16nodall
+    image_tag: v7.2.4
+
+  ci:
+    - cd examples
+    - shippable_retry npm install --no-audit --ignore-scripts
+    - ng lint
+
