@@ -14,7 +14,9 @@ build:
 
   ci:
     - nvm use 10
-    - cd examples
-    - shippable_retry npm ci --no-audit --ignore-scripts
-    - ng lint
+    - npm config set -g audit false
+    - npm config set -g ignore-scripts true
+    - (cd examples && npm ci && npm run lint)
+    - (cd examples-standalone/angular-universal/node_sample_application && npm ci && ng lint)
+    - (cd examples-standalone/aspnetcore-data/ClientApp && npm ci && ng lint)
 
