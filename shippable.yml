@@ -4,8 +4,8 @@ env:
     - PATH=$PATH:node_modules/.bin
 
 branches:
-  only:
-    - ci-build
+  except:
+    - master
 
 build:
   pre_ci_boot:
