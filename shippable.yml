@@ -15,7 +15,6 @@ build:
   ci:
     - nvm use 10
     - npm config set -g audit false
-    - npm config set -g ignore-scripts true
     #
     # Lint and build examples
     - cd examples && npm ci && npm run lint && npm run build-all && cd -
