@@ -1,4 +1,4 @@
-import { Component, ViewEncapsulation, HostBinding } from '@angular/core';
+import { Component, ViewEncapsulation, HostBinding, OnDestroy } from '@angular/core';
 import { GithubService } from './../shared/github.service';
 import { IssuesProcessor } from './../shared/issues-processor.service';
 import { IssuesModel } from './../shared/issues.model';
@@ -8,17 +8,17 @@ import { Subscription, of, merge } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 @Component({
-    selector: 'dashboard',
+    selector: 'app-dashboard',
     providers: [GithubService, IssuesProcessor],
     encapsulation: ViewEncapsulation.None,
     templateUrl: './dashboard.template.html'
 })
-export class DashboardComponent {
+export class DashboardComponent implements OnDestroy {
     public isLoading = true;
     public today: Date = new Date();
     public rangeStart: Date;
     public issues: any;
-    private months = 3;
+    public months = 3;
     private data: any;
     private subscription: Subscription;
     private selectedIndex = 0;
@@ -36,7 +36,7 @@ export class DashboardComponent {
               .pipe(map(data => {
                   this.data = data;
                   this.isLoading = false;
-                  return this.issuesProcessor.process(data, this.months)
+                  return this.issuesProcessor.process(data, this.months);
               }, (err) => this.isLoading = false)),
               of(new IssuesModel())
           )
@@ -69,16 +69,17 @@ export class DashboardComponent {
                 this.selectedIndex = 0;
                 break;
             case 1 :
-                const assigned = this.issuesProcessor.flatten(this.data).filter(item => item.assignee ? item.assignee.login === 'ggkrustev' : false)
-                this.issues = this.issuesProcessor.process(assigned, this.months)
+                const assigned = this.issuesProcessor.flatten(this.data)
+                  .filter(item => item.assignee ? item.assignee.login === 'ggkrustev' : false);
+                this.issues = this.issuesProcessor.process(assigned, this.months);
                 this.selectedIndex = 1;
                 break;
             case 2 :
                 const created = this.issuesProcessor.flatten(this.data).filter(item => item.user.login === 'ggkrustev');
-                this.issues = this.issuesProcessor.process(created, this.months)
+                this.issues = this.issuesProcessor.process(created, this.months);
                 this.selectedIndex = 2;
                 break;
-            default : this.issues = this.issuesProcessor.process(this.data, this.months);;
+            default : this.issues = this.issuesProcessor.process(this.data, this.months);
         }
     }
 }

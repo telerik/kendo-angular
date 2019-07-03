@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 
 @Component({
-    selector: 'signin',
+    selector: 'app-signin',
     encapsulation: ViewEncapsulation.None,
     templateUrl: './signin.template.html'
 })
@@ -16,7 +16,7 @@ export class SigninComponent {
     }
 
     @HostBinding('class') protected get appClass(): string {
-        return 'signin'
+        return 'signin';
     }
 
     public onLoginClick() {

@@ -10,7 +10,7 @@ declare var kendo: any;
 export class AppComponent  {
     constructor() {
         if (window !== undefined) {
-            (<any>window).$ = kendo.jQuery;
+            (window as any).$ = kendo.jQuery;
         }
     }
 }

@@ -4,7 +4,7 @@ import { AngularFireDatabase } from '@angular/fire/database';
 import { products } from './products';
 
 @Injectable()
-export class EditService{
+export class EditService {
     constructor(public db: AngularFireDatabase) {}
 
     public get(): Observable<any> {
@@ -25,7 +25,7 @@ export class EditService{
         this.db.database.ref('products/' + data.key).remove();
     }
 
-    public resetData(){
+    public resetData() {
         this.db.database.ref('/').set(products);
     }
 }

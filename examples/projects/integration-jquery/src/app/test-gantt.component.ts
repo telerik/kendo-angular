@@ -32,7 +32,7 @@ export class TestGanttComponent implements AfterViewInit, OnDestroy {
                 url: this.serviceRoot + '/GanttTasks/Create',
                 dataType: 'jsonp'
             },
-            parameterMap: function(options, operation) {
+            parameterMap(options, operation) {
                 if (operation !== 'read') {
                     return { models: kendo.stringify(options.models || [options]) };
                 }
@@ -74,7 +74,7 @@ export class TestGanttComponent implements AfterViewInit, OnDestroy {
                 url: this.serviceRoot + '/GanttDependencies/Create',
                 dataType: 'jsonp'
             },
-            parameterMap: function(options, operation) {
+            parameterMap(options, operation) {
                 if (operation !== 'read') {
                     return { models: kendo.stringify(options.models || [options]) };
                 }

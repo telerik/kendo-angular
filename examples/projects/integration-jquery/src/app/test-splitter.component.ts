@@ -5,7 +5,7 @@ import { GridDataResult, PageChangeEvent } from '@progress/kendo-angular-grid';
 declare var kendo: any;
 
 @Component({
-    selector: 'test-slider',
+    selector: 'app-test-slider',
     template: `
         <p>Kendo UI for Angular Splitter with nested Angular components:</p>
         <div #splitter>
@@ -37,21 +37,14 @@ declare var kendo: any;
         </div>
     `
 })
-export class TestSplitterComponent {
-    // splitter
-    @ViewChild('splitter', { static: true }) splitterEl: ElementRef;
-
+export class TestSplitterComponent implements AfterViewInit, OnDestroy {
     constructor(private hostEl: ElementRef) {
         this.loadProducts();
     }
 
-    ngAfterViewInit() {
-        kendo.jQuery(this.splitterEl.nativeElement).kendoSplitter();
-    }
-
-    ngOnDestroy(): void {
-        kendo.destroy(this.hostEl.nativeElement);
-    }
+    // splitter
+    @ViewChild('splitter', { static: true })
+    splitterEl: ElementRef;
 
     // slider
     public showButtons = true;
@@ -68,16 +61,24 @@ export class TestSplitterComponent {
     buttonCount: 5;
     info = true;
     type: 'numeric' | 'input' = 'numeric';
-    pageSizes= true;
-    previousNext= true;
+    pageSizes = true;
+    previousNext = true;
 
-    pageSize= 5;
+    pageSize = 5;
     skip = 0;
     products: any[] = Array(100).fill({}).map((x, idx) => ({
-        'ProductID': idx,
-        'ProductName': 'Product' + idx,
-        'Discontinued': idx % 2 === 0
+        ProductID: idx,
+        ProductName: 'Product' + idx,
+        Discontinued: idx % 2 === 0
     }));
+
+    ngAfterViewInit() {
+        kendo.jQuery(this.splitterEl.nativeElement).kendoSplitter();
+    }
+
+    ngOnDestroy(): void {
+        kendo.destroy(this.hostEl.nativeElement);
+    }
 
     pageChange({ skip, take }: PageChangeEvent): void {
         this.skip = skip;

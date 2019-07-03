@@ -22,11 +22,11 @@ export class AppComponent {
       this.closeEditor(sender);
 
       this.formGroup = new FormGroup({
-          'ProductID': new FormControl(),
-          'ProductName': new FormControl('', Validators.required),
-          'UnitPrice': new FormControl(0),
-          'UnitsInStock': new FormControl('', Validators.compose([Validators.required, Validators.pattern('^[0-9]{1,3}')])),
-          'Discontinued': new FormControl(false)
+          ProductID: new FormControl(),
+          ProductName: new FormControl('', Validators.required),
+          UnitPrice: new FormControl(0),
+          UnitsInStock: new FormControl('', Validators.compose([Validators.required, Validators.pattern('^[0-9]{1,3}')])),
+          Discontinued: new FormControl(false)
       });
 
       sender.addRow(this.formGroup);
@@ -36,13 +36,13 @@ export class AppComponent {
       this.closeEditor(sender);
 
       this.formGroup = new FormGroup({
-          'ProductID': new FormControl(dataItem.ProductID),
-          'ProductName': new FormControl(dataItem.ProductName, Validators.required),
-          'UnitPrice': new FormControl(dataItem.UnitPrice),
-          'UnitsInStock': new FormControl(
+          ProductID: new FormControl(dataItem.ProductID),
+          ProductName: new FormControl(dataItem.ProductName, Validators.required),
+          UnitPrice: new FormControl(dataItem.UnitPrice),
+          UnitsInStock: new FormControl(
                   dataItem.UnitsInStock,
                   Validators.compose([Validators.required, Validators.pattern('^[0-9]{1,3}')])),
-          'Discontinued': new FormControl(dataItem.Discontinued)
+          Discontinued: new FormControl(dataItem.Discontinued)
       });
 
       this.editedRowIndex = rowIndex;

@@ -4,7 +4,7 @@ import { GithubService } from './../shared/github.service';
 import { IssuesProcessor } from './../shared/issues-processor.service';
 
 @Component({
-    selector: 'issues',
+    selector: 'app-issues',
     encapsulation: ViewEncapsulation.None,
     providers: [
     GithubService,
@@ -13,8 +13,8 @@ import { IssuesProcessor } from './../shared/issues-processor.service';
   templateUrl: './issues.template.html'
 })
 export class IssuesComponent {
-    public isLoading: boolean = true;
-    public selectedPeriod: number = 3;
+    public isLoading = true;
+    public selectedPeriod = 3;
     public issues: any;
     public allIssues: any;
     public view: any;
@@ -36,9 +36,9 @@ export class IssuesComponent {
         githubService.getGithubIssues({pages: 5}).subscribe((data: any[]) => {
             data = data.reduce((agg, curr) => [...agg, ...curr], []).filter(issue => issue.pull_request ? false : true);
             this.allIssues = data;
-            this.applyPaging(this.issuesProcessor.filterByMonth(this.allIssues, this.months))
+            this.applyPaging(this.issuesProcessor.filterByMonth(this.allIssues, this.months));
             this.isLoading = false;
-        },() => this.isLoading = false);
+        }, () => this.isLoading = false);
     }
 
     onFilterClick(e) {
@@ -64,7 +64,7 @@ export class IssuesComponent {
         return {
             data: this.issues.slice(skip, skip + take),
             total: this.issues.length
-        }
+        };
     }
 
     dateRange() {

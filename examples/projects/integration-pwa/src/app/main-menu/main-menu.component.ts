@@ -3,7 +3,7 @@ import { Component, HostBinding, HostListener, ViewEncapsulation } from '@angula
 import { Router } from '@angular/router';
 
 @Component({
-    selector: 'main-menu',
+    selector: 'app-main-menu',
     templateUrl: './main-menu.component.html',
     animations: [trigger(
         'toggleNav',

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-    selector: 'test-slider',
+    selector: 'app-test-slider',
     template: `
         <p>Kendo UI for Angular Slider:</p>
         <kendo-slider [min]="min"

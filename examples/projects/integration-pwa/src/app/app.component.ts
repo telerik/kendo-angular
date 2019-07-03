@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-    selector: 'maestro-app',
+    selector: 'app-maestro-app',
     templateUrl: './app.component.html',
 })
 export class AppComponent {}

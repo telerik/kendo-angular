@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { GridDataResult, PageChangeEvent } from '@progress/kendo-angular-grid';
 
 @Component({
-    selector: 'test-grid',
+    selector: 'app-test-grid',
     template: `
         <hr />
         <p>Kendo for Angular Grid:</p>
@@ -29,15 +29,15 @@ export class TestGridComponent {
     buttonCount: 5;
     info = true;
     type: 'numeric' | 'input' = 'numeric';
-    pageSizes= true;
-    previousNext= true;
+    pageSizes = true;
+    previousNext = true;
 
-    pageSize= 5;
+    pageSize = 5;
     skip = 0;
     products: any[] = Array(100).fill({}).map((x, idx) => ({
-        'ProductID': idx,
-        'ProductName': 'Product' + idx,
-        'Discontinued': idx % 2 === 0
+        ProductID: idx,
+        ProductName: 'Product' + idx,
+        Discontinued: idx % 2 === 0
     }));
 
     constructor() {

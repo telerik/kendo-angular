@@ -5,6 +5,7 @@
     "ng": "ng",
     "start": "./bin/serve-project.js",
     "build": "ng build",
+    "build-all": "./bin/build-all.js",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",

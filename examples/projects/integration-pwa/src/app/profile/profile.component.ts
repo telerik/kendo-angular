@@ -7,7 +7,7 @@ import { InputsModule } from '@progress/kendo-angular-inputs';
 import { Router } from '@angular/router';
 
 @Component({
-    selector: 'profile',
+    selector: 'app-profile',
     encapsulation: ViewEncapsulation.None,
     providers: [GithubService],
     templateUrl: './profile.template.html',
@@ -20,16 +20,16 @@ import { Router } from '@angular/router';
     `]
 })
 export class ProfileComponent {
-    public isLoading: boolean = true;
+    public isLoading = true;
     public user: any = {};
-    private profileDialogVisible = false;
-    private deleteDialogVisible = false;
+    public profileDialogVisible = false;
+    public deleteDialogVisible = false;
 
     constructor(public githubService: GithubService, private router: Router) {
         githubService.getGithubUser('ggkrustev').subscribe(data => {
             this.user = data;
             this.isLoading = false;
-        }, (err)=>{
+        }, (err) => {
             this.isLoading = false;
         });
     }

@@ -1,11 +1,12 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnChanges } from '@angular/core';
 import * as marked from 'marked';
 
 @Component({
-    selector: 'markdown',
+    selector: 'app-markdown',
     template: '<div [innerHTML]="convertedData"></div>'
 })
-export class MarkdownComponent {
+export class MarkdownComponent implements OnChanges {
+// tslint:disable-next-line: no-input-rename
     @Input('data') public data: string;
     public convertedData: string;
 

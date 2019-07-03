@@ -16,19 +16,19 @@
 <kendo-tabstrip (select)="onTabSelect($event)">
     <kendo-tabstrip-tab [title]="'All Issues'" [selected]="true">
         <ng-template kendoTabContent>
-            <statistics [loading]="isLoading" [issues]="issues" [months]="months"></statistics>
+            <app-statistics [loading]="isLoading" [issues]="issues" [months]="months"></app-statistics>
         </ng-template>
     </kendo-tabstrip-tab>
 
     <kendo-tabstrip-tab [title]="'Assigned to Me'">
         <ng-template kendoTabContent>
-            <statistics [loading]="isLoading" [issues]="issues" [months]="months"></statistics>
+            <app-statistics [loading]="isLoading" [issues]="issues" [months]="months"></app-statistics>
         </ng-template>
     </kendo-tabstrip-tab>
 
     <kendo-tabstrip-tab [title]="'Created by Me'">
         <ng-template kendoTabContent>
-            <statistics [loading]="isLoading" [issues]="issues" [months]="months"></statistics>
+            <app-statistics [loading]="isLoading" [issues]="issues" [months]="months"></app-statistics>
         </ng-template>
     </kendo-tabstrip-tab>
 </kendo-tabstrip>

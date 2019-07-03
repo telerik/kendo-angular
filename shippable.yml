@@ -1,0 +1,39 @@
+language: node_js
+
+env:
+    - PATH=$PATH:node_modules/.bin
+
+branches:
+  only:
+    - ci-build
+
+build:
+  pre_ci_boot:
+    image_name: drydock/u16nodall
+    image_tag: v7.2.4
+
+  ci:
+    - nvm use 10
+    - npm config set -g audit false
+    #
+    # Lint and build examples
+    - cd examples
+    - npm ci --ignore-scripts
+    - npm run lint
+    - npm run build-all
+    - cd -
+    #
+    # Lint and build Angular Universal Node example
+    - cd examples-standalone/angular-universal/node_sample_application
+    - npm ci --ignore-scripts
+    - npm run lint
+    - npm run build
+    - cd -
+    #
+    # Lint ASP.NET Core client app
+    - cd examples-standalone/aspnetcore-data/ClientApp
+    - npm ci --ignore-scripts
+    - npm run lint
+    - npm run build
+    - cd -
+

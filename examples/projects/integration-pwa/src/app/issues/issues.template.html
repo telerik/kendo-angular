@@ -13,8 +13,8 @@
         </h2>
     </div>
 </div>
-<loading-spinner *ngIf="isLoading">
-</loading-spinner>
+<app-loading-spinner *ngIf="isLoading">
+</app-loading-spinner>
 <div *ngIf="!isLoading && !view">
     <img src="../../assets/noConnection.png">
 </div>
@@ -104,7 +104,7 @@
             </div>
             <div class="col-sm-8">
                 <h4 class="small text-muted">Description</h4>
-                <markdown [data]="dataItem.body"></markdown>
+                <app-markdown [data]="dataItem.body"></app-markdown>
             </div>
         </div>
     </ng-template>
