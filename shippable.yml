@@ -15,9 +15,26 @@ build:
   ci:
     - nvm use 10
     - npm config set -g audit false
+    - npm config set -g ignore-scripts true
     #
     # Lint and build examples
-    - cd examples && npm ci && npm run lint && npm run build-all && cd -
-    - cd examples-standalone/angular-universal/node_sample_application && npm ci && npm run lint && npm run build && cd -
-    - cd examples-standalone/aspnetcore-data/ClientApp && npm ci && npm run lint && npm run build && cd -
+    - cd examples
+    - npm ci
+    - npm run lint
+    - npm run build-all
+    - cd -
+    #
+    # Lint and build Angular Universal Node example
+    - cd examples-standalone/angular-universal/node_sample_application
+    - npm ci
+    - npm run lint
+    - npm run build
+    - cd -
+    #
+    # Lint ASP.NET Core client app
+    - cd examples-standalone/aspnetcore-data/ClientApp
+    - npm ci
+    - npm run lint
+    - npm run build
+    - cd -
 
