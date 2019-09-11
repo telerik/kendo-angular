@@ -1,0 +1,25 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import "./app/shared/custom";
+@import '~bootstrap/scss/functions';
+@import '~bootstrap/scss/variables';
+@import '~bootstrap/scss/mixins';
+@import '~bootstrap/scss/root';
+@import '~bootstrap/scss/reboot';
+@import '~bootstrap/scss/grid';
+@import '~bootstrap/scss/forms';
+@import '~bootstrap/scss/buttons';
+@import '~bootstrap/scss/button-group';
+@import '~bootstrap/scss/nav';
+@import '~bootstrap/scss/card';
+@import '~bootstrap/scss/utilities';
+
+@import './app/dashboard.style';
+
+body {
+    margin:0;
+    font-family: 'Open Sans', sans-serif;
+}
+.container {
+    margin:40px;
+}
