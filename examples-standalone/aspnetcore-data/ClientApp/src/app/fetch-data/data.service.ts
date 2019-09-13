@@ -18,7 +18,7 @@ export class DataService extends BehaviorSubject<any[]> {
         super([]);
     }
 
-    private BASE_URL: string = 'api/Blogs';
+    private BASE_URL = 'api/Blogs';
     private data: any[] = [];
     public state: State = {
         skip: 0,
