@@ -24,7 +24,7 @@ export class FetchDataComponent implements OnInit {
     private editedRowIndex: number;
 
     constructor(private dataService: DataService) {
-       
+
     }
     public ngOnInit(): void {
       this.view = this.dataService;
@@ -80,5 +80,4 @@ export class FetchDataComponent implements OnInit {
       this.editedRowIndex = undefined;
       this.formGroup = undefined;
     }
- 
 }
