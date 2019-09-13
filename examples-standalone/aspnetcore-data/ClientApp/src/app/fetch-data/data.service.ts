@@ -18,31 +18,31 @@ export class DataService extends BehaviorSubject<any[]> {
     super([]);
   }
 
-  private BASE_URL: string = 'api/Blogs';
+  private BASE_URL = 'api/Blogs';
   private data: any[] = [];
   public state: State = {
     skip: 0,
     take: 5,
-    filter: {filters: [], logic: 'or'},
+    filter: { filters: [], logic: 'or' },
     group: [],
     sort: []
   };
 
   public read() {
-      if (this.data.length) {
-        return super.next(this.data);
-      }
-
-      this.fetch()
-        .pipe(
-          tap(data => {
-            this.data = data;
-          })
-        )
-        .subscribe(data => {
-          super.next(data);
-        });
+    if (this.data.length) {
+      return super.next(this.data);
     }
+
+    this.fetch()
+      .pipe(
+        tap(data => {
+          this.data = data;
+        })
+      )
+      .subscribe(data => {
+        super.next(data);
+      });
+  }
 
 
   public fetch(dataItem?: any, action: string = ''): Observable<any> {
@@ -53,14 +53,14 @@ export class DataService extends BehaviorSubject<any[]> {
         const hasGroups = this.state.group && this.state.group.length;
 
         return this.http.get(`${this.BASE_URL}?${queryStr}`).pipe(
-              // Process the response
-              map(({ data, total }: GridDataResult): GridDataResult => {
-                return {
-                    data: hasGroups ? translateDataSourceResultGroups(data) : data,
-                    total: total
-                };
-              }
-            ));
+          // Process the response
+          map(({ data, total }: GridDataResult): GridDataResult => {
+            return {
+              data: hasGroups ? translateDataSourceResultGroups(data) : data,
+              total: total
+            };
+          }
+          ));
       }
       case 'create': {
         return this.http.post(`${this.BASE_URL}/create`, dataItem);
