@@ -15,11 +15,11 @@ export class FetchDataComponent implements OnInit {
     public view: Observable<any>;
     public formGroup: FormGroup;
     public state: State = {
-      skip: 0,
-      take: 5,
-      filter: {filters: [], logic: 'or'},
-      group: [],
-      sort: []
+        skip: 0,
+        take: 5,
+        filter: { filters: [], logic: 'or' },
+        group: [],
+        sort: []
     };
     private editedRowIndex: number;
 
@@ -27,57 +27,57 @@ export class FetchDataComponent implements OnInit {
 
     }
     public ngOnInit(): void {
-      this.view = this.dataService;
-      this.dataService.read();
-      }
+        this.view = this.dataService;
+        this.dataService.read();
+    }
 
     public dataStateChange(state: DataStateChangeEvent): void {
         this.dataService.state = state;
         this.state = state;
         this.dataService.read();
-      }
+    }
 
     public addHandler({ sender }) {
-      this.closeEditor(sender);
+        this.closeEditor(sender);
 
-      this.formGroup = new FormGroup({
-        'blogId': new FormControl(),
-        'url': new FormControl('')
-      });
+        this.formGroup = new FormGroup({
+            'blogId': new FormControl(),
+            'url': new FormControl('')
+        });
 
-      sender.addRow(this.formGroup);
+        sender.addRow(this.formGroup);
     }
 
     public editHandler({ sender, rowIndex, dataItem }) {
-      this.closeEditor(sender);
+        this.closeEditor(sender);
 
-      this.formGroup = new FormGroup({
-        'blogId': new FormControl(dataItem.blogId),
-        'url': new FormControl(dataItem.url)
-      });
+        this.formGroup = new FormGroup({
+            'blogId': new FormControl(dataItem.blogId),
+            'url': new FormControl(dataItem.url)
+        });
 
-      this.editedRowIndex = rowIndex;
+        this.editedRowIndex = rowIndex;
 
-      sender.editRow(rowIndex, this.formGroup);
+        sender.editRow(rowIndex, this.formGroup);
     }
 
     public cancelHandler({ sender, rowIndex }) {
-      this.closeEditor(sender, rowIndex);
+        this.closeEditor(sender, rowIndex);
     }
 
     public saveHandler({ sender, rowIndex, formGroup, isNew }) {
-      const blog: any = formGroup.value;
-      this.dataService.save(blog, isNew);
-      sender.closeRow(rowIndex);
+        const blog: any = formGroup.value;
+        this.dataService.save(blog, isNew);
+        sender.closeRow(rowIndex);
     }
 
     public removeHandler({ dataItem }) {
-      this.dataService.delete(dataItem);
+        this.dataService.delete(dataItem);
     }
 
     private closeEditor(grid, rowIndex = this.editedRowIndex) {
-      grid.closeRow(rowIndex);
-      this.editedRowIndex = undefined;
-      this.formGroup = undefined;
+        grid.closeRow(rowIndex);
+        this.editedRowIndex = undefined;
+        this.formGroup = undefined;
     }
 }
