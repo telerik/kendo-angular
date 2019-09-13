@@ -12,7 +12,7 @@ namespace aspnetcore_data.Controllers
 
         public BlogsController(BloggingContext context)
         {
-  
+
             _context = context;
         }
 
