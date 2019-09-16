@@ -63,10 +63,10 @@ export class DataService extends BehaviorSubject<any[]> {
                     ));
             }
             case 'create': {
-                return this.http.post(`${this.BASE_URL}/create`, dataItem);
+                return this.http.post(`${this.BASE_URL}`, dataItem);
             }
             case 'edit': {
-                return this.http.put(`${this.BASE_URL}/${dataItem.blogId}/edit`, dataItem);
+                return this.http.put(`${this.BASE_URL}/${dataItem.blogId}`, dataItem);
             }
             case 'delete': {
                 const options = {
@@ -74,7 +74,7 @@ export class DataService extends BehaviorSubject<any[]> {
                     body: dataItem,
                 };
 
-                return this.http.delete(`${this.BASE_URL}/${dataItem.blogId}/delete`, options);
+                return this.http.delete(`${this.BASE_URL}/${dataItem.blogId}`, options);
             }
         }
     }

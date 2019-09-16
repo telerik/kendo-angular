@@ -24,7 +24,7 @@ namespace aspnetcore_data.Controllers
             return result;
         }
 
-        [Route("api/Blogs/create")]
+        [Route("api/Blogs")]
         [HttpPost]
         public JsonResult AddBlog([FromBody] Blog request)
         {
@@ -36,7 +36,7 @@ namespace aspnetcore_data.Controllers
 
         }
 
-        [Route("api/Blogs/{id}/delete")]
+        [Route("api/Blogs/{id}")]
         [HttpDelete]
         public JsonResult DeleteBlog([FromBody] Blog request)
         {
@@ -46,7 +46,7 @@ namespace aspnetcore_data.Controllers
             return result;
         }
 
-        [Route("api/Blogs/{id}/edit")]
+        [Route("api/Blogs/{id}")]
         [HttpPut]
 
         public JsonResult Editblog([FromBody] Blog request)
