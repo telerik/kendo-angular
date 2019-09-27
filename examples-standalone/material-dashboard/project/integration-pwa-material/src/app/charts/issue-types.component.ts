@@ -1,4 +1,4 @@
-import { Component, Input, ViewChild, HostBinding } from '@angular/core';
+import { Component, Input, HostBinding } from '@angular/core';
 
 @Component({
     selector: 'app-issue-types',

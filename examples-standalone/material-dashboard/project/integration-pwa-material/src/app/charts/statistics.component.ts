@@ -1,7 +1,4 @@
 import { Component, Input } from '@angular/core';
-import { IssueTypesComponent } from '../charts/issue-types.component';
-import { TypesDistributionComponent } from '../charts/types-distribution.component';
-import { ActiveIssuesComponent } from '../charts/active-issues.component';
 
 @Component({
     selector: 'app-statistics',
