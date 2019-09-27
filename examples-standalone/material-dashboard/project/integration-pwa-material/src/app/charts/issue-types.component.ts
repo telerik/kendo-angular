@@ -3,8 +3,8 @@ import { Component, Input, ViewChild, HostBinding } from '@angular/core';
 @Component({
     selector: 'app-issue-types',
     template: `
-        <h4 class="card-header">Issue Types</h4>
-        <div class="card-body">
+        <h2 class="k-card-header">Issue Types</h2>
+        <div class="k-card-body height-1">
             <kendo-chart (seriesHover)="onHover($event)">
                 <kendo-chart-series>
                     <kendo-chart-series-item
@@ -16,12 +16,15 @@ import { Component, Input, ViewChild, HostBinding } from '@angular/core';
                         [overlay]="false"
                     ></kendo-chart-series-item>
                 </kendo-chart-series>
-                <kendo-chart-legend position="bottom" [labels]="{font: '0.65em Roboto, Arial, sans-serif'}">
+                <kendo-chart-legend position="bottom">
                 </kendo-chart-legend>
             </kendo-chart>
             <div class="comp-label chart-label" [style.color]="hoverColor">
-                <strong>{{donutPercent}}</strong>
-                <small>{{donutLabel}}</small>
+                <div class="issues-count">
+                  {{donutPercent}}
+                  <span class="percentage">%</span>
+                </div>
+                <div class="issues-label">{{donutLabel}}</div>
             </div>
         </div>
     `
@@ -50,7 +53,7 @@ export class IssueTypesComponent {
     }
 
     @HostBinding('class') get className() {
-        return 'card issue-types';
+        return 'k-card issue-types';
     }
 
     public onHover(event) {
@@ -59,7 +62,7 @@ export class IssueTypesComponent {
 
     private setDonutLegend(series) {
         this.hoverColor = series.point.options.color;
-        this.donutPercent = Math.round(series.value * 100 || 0) + '%';
+        this.donutPercent = Math.round(series.value * 100 || 0) + '';
         this.donutLabel = series.category;
     }
 }

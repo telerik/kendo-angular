@@ -24,7 +24,7 @@ export class DashboardComponent implements OnDestroy {
     private selectedIndex = 0;
 
     @HostBinding('attr.id') get get_id() { return 'dashboard'; }
-    @HostBinding('class') get get_class() { return 'dashboard'; }
+    @HostBinding('class') get get_class() { return 'container-fluid'; }
 
     constructor(public githubService: GithubService, public issuesProcessor: IssuesProcessor) {
         this.rangeStart = this.issuesProcessor.getMonthsRange(this.months);

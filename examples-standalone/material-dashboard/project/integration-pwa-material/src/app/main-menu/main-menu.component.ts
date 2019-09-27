@@ -18,16 +18,13 @@ import { Router } from '@angular/router';
             )
         ]
     )],
-    encapsulation: ViewEncapsulation.None,
-    styleUrls: [
-       './../app.style.css'
-    ],
+    encapsulation: ViewEncapsulation.None
 })
 export class MainMenuComponent {
     public year = new Date().getFullYear();
     public navState: string;
     constructor(private router: Router) {
-        if ( window.innerWidth < 768 ) {
+        if ( window.innerWidth < 1200 ) {
             this.navState = 'collapsed';
         } else {
             this.navState = 'expanded';
@@ -44,7 +41,7 @@ export class MainMenuComponent {
 
     @HostListener('window:resize', ['$event'])
     onResize(event) {
-        if ( event.target.innerWidth < 768 ) {
+        if ( event.target.innerWidth < 1200 ) {
             this.navState = 'collapsed';
         } else {
             this.navState = 'expanded';

@@ -10,28 +10,7 @@ import { IssuesProcessor } from './../shared/issues-processor.service';
         GithubService,
         IssuesProcessor
     ],
-    templateUrl: './issues.template.html',
-    styles: [`
-    tbody .k-master-row td {
-    vertical-align: middle;
-    }
-    .badge{
-        display: inline-block; 
-        padding: .25em .4em;
-        font-weight: 500;
-        line-height: 1;
-        text-align: center;
-        white-space: nowrap;
-        vertical-align: initial;
-    }
-    .issues .badge {
-        margin-right: 0.5rem;
-        font-weight: 700;
-        border-radius: .25rem;
-        font-size: .75rem;
-        color: black;
-    }
-  `]
+    templateUrl: './issues.template.html'
 })
 export class IssuesComponent {
     public isLoading = true;
@@ -50,7 +29,7 @@ export class IssuesComponent {
     } = this.dateRange();
 
     @HostBinding('attr.id') get get_id() { return 'issues'; }
-    @HostBinding('class') get get_class() { return 'issues'; }
+    @HostBinding('class') get get_class() { return 'container-fluid'; }
 
     constructor(public http: HttpClient, public githubService: GithubService, public issuesProcessor: IssuesProcessor) {
 

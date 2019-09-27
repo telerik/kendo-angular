@@ -3,17 +3,17 @@ import { Component, Input } from '@angular/core';
 @Component({
     selector: 'app-active-issues',
     template: `
-        <div class="card">
-            <h3 class="card-header">Active Issues</h3>
-            <div class="card-body">
+        <div class="k-card">
+            <h2 class="k-card-header m-0">Active Issues</h2>
+            <div class="k-card-body">
 
                 <div class="row">
 
-                    <div class="col-12 col-lg-6 col-xl pb-4 active-issues">
-                        <span class="comp-label">
-                            <strong>{{ issues.open + issues.closed }}</strong>
-                            <small>Active issues</small>
-                        </span>
+                    <div class="col-sm-12 col-lg-6 col-xl active-issues">
+                        <div class="comp-label">
+                            <div class="issues-count">{{ issues.open + issues.closed }}</div>
+                            <div class="issues-label">Active issues</div>
+                        </div>
                         <kendo-chart style="height: 80px;">
                         <kendo-chart-tooltip format="{0}%"></kendo-chart-tooltip>
                             <kendo-chart-series-defaults type="column"
@@ -46,10 +46,10 @@ import { Component, Input } from '@angular/core';
                         </kendo-chart>
                     </div>
 
-                    <div class="col-12 col-lg-6 col-xl pb-4 text-success closed-issues">
+                    <div class="col-12 col-lg-6 col-xl pb-4 text-danger closed-issues">
                         <span class="comp-label">
-                            <strong>{{ issues.closed }}</strong>
-                            <small>Closed issues</small>
+                            <div class="issues-count">{{ issues.closed }}</div>
+                            <div class="issues-label">Closed issues</div>
                         </span>
                         <kendo-chart style="height: 80px;">
                         <kendo-chart-tooltip format="{0}"></kendo-chart-tooltip>
@@ -59,10 +59,10 @@ import { Component, Input } from '@angular/core';
                                 <kendo-chart-series-item
                                 type="area"
                                 [line]="{style:'smooth'}"
-                                [color]="'#35C473'" 
-                                [data]="data.closed" 
-                                field="count" 
-                                categoryField="date" 
+                                [color]="'#e91e63'"
+                                [data]="data.closed"
+                                field="count"
+                                categoryField="date"
                                 aggregate="count">
                                 </kendo-chart-series-item>
                             </kendo-chart-series>
@@ -82,10 +82,10 @@ import { Component, Input } from '@angular/core';
                         </kendo-chart>
                     </div>
 
-                    <div class="col-12 col-lg-6 col-xl pb-4 text-danger open-issues">
+                    <div class="col-12 col-lg-6 col-xl pb-4 text-success open-issues">
                         <span class="comp-label">
-                            <strong>{{ issues.open }}</strong>
-                            <small>Open issues</small>
+                            <div class="issues-count">{{ issues.open }}</div>
+                            <div class="issues-label">Open issues</div>
                         </span>
                         <kendo-chart style="height: 80px;">
                         <kendo-chart-tooltip format="{0}"></kendo-chart-tooltip>
@@ -95,7 +95,7 @@ import { Component, Input } from '@angular/core';
                                 <kendo-chart-series-item
                                 type="area"
                                 [line]="{style:'smooth'}"
-                                [color]="'#CC3458'"
+                                [color]="'#27c46d'"
                                 [data]="data.open"
                                 field="count"
                                 categoryField="date"
@@ -120,8 +120,8 @@ import { Component, Input } from '@angular/core';
 
                     <div class="col-12 col-lg-6 col-xl pb-4 close-rate">
                         <span class="comp-label">
-                            <strong>{{ issues.closeRate.average | percent:'2.0-0' }}</strong>
-                            <small>Close rate</small>
+                            <div class="issues-count">{{ issues.closeRate.average | percent:'2.0-0' }}</div>
+                            <div class="issues-label">Close rate</div>
                         </span>
                         <p class="m-0 small text-uppercase text-muted">
                             Highest:
@@ -141,7 +141,7 @@ import { Component, Input } from '@angular/core';
                                     [target]="{color: '#FFF'}"
                                     currentField="current"
                                     targetField="target"
-                                    color="#CC3458"
+                                    color="#e91e63"
                                 ></kendo-chart-series-item>
                                 </kendo-chart-series>
 
@@ -158,8 +158,7 @@ import { Component, Input } from '@angular/core';
                 </div>
 
                 <div class="row">
-                    <div class="col-sm-12">
-                        <h3>All issues</h3>
+                    <div class="col-12 all-issues">
                         <kendo-chart>
                             <kendo-chart-tooltip format="{0}"></kendo-chart-tooltip>
                             <kendo-chart-series-defaults [type]="'area'" [stack]="true" [gap]="0.06" [overlay]="false">

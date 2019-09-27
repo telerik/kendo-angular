@@ -1,16 +1,14 @@
-<div class="row">
-    <div class="col-md text-center text-md-right mb-4">
+<div id="header" class="row">
+    <div class="col-sm">
+        <h4 class="d-block">Issues</h4>
+        <h2>{{range.from | date}} - {{range.to | date}}</h2>
+    </div>
+    <div class="col-sm text-sm-right p-0 p-sm-3">
         <kendo-buttongroup [disabled]="isLoading" [selection]="'single'">
             <button kendoRippleContainer kendoButton [disabled]="isLoading" (click)="onFilterClick(3)" [selected]="selectedPeriod === 3 ? true : false">3 Months</button>
             <button kendoRippleContainer kendoButton [disabled]="isLoading" (click)="onFilterClick(6)" [selected]="selectedPeriod === 6 ? true : false">6 Months</button>
             <button kendoRippleContainer kendoButton [disabled]="isLoading" (click)="onFilterClick(12)" [selected]="selectedPeriod === 12 ? true : false">1 Year</button>
         </kendo-buttongroup>
-    </div>
-    <div class="col-md order-md-first text-center text-md-left">
-        <h2>
-            <span class="small text-uppercase text-muted d-block">Issues</span>
-            {{range.from | date}} - {{range.to | date}}
-        </h2>
     </div>
 </div>
 <app-loading-spinner *ngIf="isLoading">
