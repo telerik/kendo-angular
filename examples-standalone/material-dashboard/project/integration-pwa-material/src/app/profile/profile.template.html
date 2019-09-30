@@ -6,8 +6,8 @@
 <div *ngIf="user.id && !isLoading" >
     <div class="row">
         <div class="col-sm">
-            <h4 class="d-block">Account</h4>
-            <h2>{{user.login}} - {{user.name}}</h2>
+            <h4>Account</h4>
+            <p class="h2">{{user.login}} - {{user.name}}</p>
         </div>
         <div class="col-sm text-sm-right">
             <button kendoRippleContainer class="k-button" (click)="onSignOutClick()">Sign out</button>

@@ -1,7 +1,7 @@
 <div id="header" class="row">
     <div class="col-sm">
-        <h4 class="d-block">Issues</h4>
-        <h2>{{range.from | date}} - {{range.to | date}}</h2>
+        <h4>Issues</h4>
+        <p class="h2">{{range.from | date}} - {{range.to | date}}</p>
     </div>
     <div class="col-sm text-sm-right p-0 p-sm-3">
         <kendo-buttongroup [disabled]="isLoading" [selection]="'single'">

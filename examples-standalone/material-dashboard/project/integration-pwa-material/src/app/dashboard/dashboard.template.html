@@ -1,9 +1,7 @@
 <div id="header" class="row">
     <div class="col-sm">
-        <h2>
-            <h4 class="d-block">Statistics</h4>
-            <h2>{{ rangeStart | date }} - {{ today | date }}</h2>
-        </h2>
+        <h4>Statistics</h4>
+        <p class="h2">{{ rangeStart | date }} - {{ today | date }}</p>
     </div>
     <div class="col-sm text-sm-right p-0 p-sm-3">
         <kendo-buttongroup [selection]="'single'">

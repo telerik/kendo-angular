@@ -29,16 +29,22 @@ app-signin {
 
 h1,
 h2,
-h4 {
+h4,
+.h1,
+.h2,
+.h4 {
   font-weight: bold;
 }
 
 h1,
-h4 {
+h4,
+.h1,
+.h4 {
   text-transform: uppercase;
 }
 
-h4 {
+h4,
+.h4 {
   color: rgba($black, 0.5);
   font-weight: bold;
 }
