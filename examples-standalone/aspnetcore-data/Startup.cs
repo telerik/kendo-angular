@@ -5,6 +5,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.EntityFrameworkCore;
+using aspnetcore_data.Models;
+
 
 namespace aspnetcore_data
 {
@@ -27,6 +30,10 @@ namespace aspnetcore_data
             {
                 configuration.RootPath = "ClientApp/dist";
             });
+
+            var connection = @"Data Source=(localdb)\mssqllocaldb;Initial Catalog=Blogging;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+            services.AddDbContext<BloggingContext>(options => options.UseSqlServer(connection));
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
