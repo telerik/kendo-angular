@@ -2,8 +2,7 @@
 
 <p>This component demonstrates fetching data from the server.</p>
 
-<kendo-grid
-            [data]="view | async"
+<kendo-grid [data]="view | async"
             [pageSize]="state.take"
             [skip]="state.skip"
             [sort]="state.sort"

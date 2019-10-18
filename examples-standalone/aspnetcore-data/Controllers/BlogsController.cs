@@ -1,4 +1,4 @@
-using System.Linq;
+﻿using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using Kendo.Mvc.UI;
 using Kendo.Mvc.Extensions;
