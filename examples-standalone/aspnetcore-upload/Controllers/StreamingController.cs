@@ -24,8 +24,6 @@ namespace upload.Controllers
         [HttpPost]
         public async Task<IActionResult> OnPostUploadAsync(List<IFormFile> files)
         {
-            long size = files.Sum(f => f.Length);
-
             foreach (var formFile in files)
             {
                 if (formFile.Length > 0)
@@ -38,11 +36,10 @@ namespace upload.Controllers
                     var fileName = Path.GetFileName(fileContent.FileName.ToString().Trim('"'));
                     var physicalPath = Path.Combine(_webHhostingEnvironment.WebRootPath, "Upload_Directory", fileName);
 
-                    // The files are not actually saved in this demo
-                    //using (var fileStream = new FileStream(physicalPath, FileMode.Create))
-                    //{
-                    //    await formFile.CopyToAsync(fileStream);
-                    //}
+                    using (var fileStream = new FileStream(physicalPath, FileMode.Create))
+                    {
+                        await formFile.CopyToAsync(fileStream);
+                    }
                 }
             }
 
@@ -54,7 +51,6 @@ namespace upload.Controllers
         [HttpPost]
         public ActionResult Async_Remove(string[] fileNames)
         {
-
             if (fileNames != null)
             {
                 foreach (var fullName in fileNames)
@@ -66,8 +62,7 @@ namespace upload.Controllers
 
                     if (System.IO.File.Exists(physicalPath))
                     {
-                        // The files are not actually removed in this demo
-                        //System.IO.File.Delete(physicalPath);
+                        System.IO.File.Delete(physicalPath);
                     }
                 }
             }
