@@ -1,0 +1,50 @@
+#issues {
+  .k-grid {
+    margin-top: 2rem;
+  }
+
+  .badge {
+    margin-right: 0.2rem;
+    font-weight: bold;
+    border-radius: 0.25rem;
+    font-size: 0.75rem;
+  }
+
+  .issue-status {
+    margin-right: 0.2rem;
+    display: inline-block;
+    vertical-align: middle;
+    width: 16px;
+    height: 16px;
+
+    &.issue-closed {
+      background-image: url("assets/issue-closed.png");
+    }
+
+    &.issue-open {
+      background-image: url("assets/issue-open.png");
+    }
+  }
+
+  tbody .k-master-row td {
+    vertical-align: middle;
+  }
+
+  .badge{
+      display: inline-block;
+      padding: .25em .4em;
+      font-weight: 500;
+      line-height: 1;
+      text-align: center;
+      white-space: nowrap;
+      vertical-align: initial;
+  }
+
+  .issues .badge {
+      margin-right: 0.5rem;
+      font-weight: 700;
+      border-radius: .25rem;
+      font-size: .75rem;
+      color: black;
+  }
+}

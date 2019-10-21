@@ -1,0 +1,129 @@
+<app-loading-spinner *ngIf="isLoading">
+</app-loading-spinner>
+<div *ngIf="!isLoading && !user.id">
+    <img class="center" src="../../assets/noConnection.png">
+</div>
+<div *ngIf="user.id && !isLoading" >
+    <div class="row">
+        <div class="col-sm">
+            <h4>Account</h4>
+            <p class="h2">{{user.login}} - {{user.name}}</p>
+        </div>
+        <div class="col-sm text-sm-right">
+            <button kendoRippleContainer class="k-button" (click)="onSignOutClick()">Sign out</button>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-7">
+
+            <div class="k-card" id="profile">
+                <h3 class="k-card-header">Public Profile</h3>
+                <div class="k-card-body">
+
+                    <div class="row">
+                        <div class="col-md-3 text-xs-center">
+                            <img [src]="user.avatar_url" [ngStyle]="{'max-width': '100%'}" class="img-circle mx-auto mb-3" />
+                        </div>
+                        <div class="col-md-9">
+                            <div class="form-group">
+                                <kendo-textbox-container class="custom-width" floatingLabel="Username">
+                                    <input kendoTextBox type="text" id="username" [value]="user.login" />
+                                </kendo-textbox-container>
+                            </div>
+                            <div class="form-group">
+                                <kendo-textbox-container class="custom-width" floatingLabel="Name">
+                                    <input kendoTextBox type="text" id="name" [value]="user.name" />
+                                </kendo-textbox-container>
+                            </div>
+                            <div class="form-group">
+                                <kendo-textbox-container class="custom-width" floatingLabel="Email">
+                                    <input kendoTextBox type="email" id="email" [value]="user.email" />
+                                </kendo-textbox-container>
+                            </div>
+                            <div class="form-group" kendoRippleContainer>
+                                    <input type="checkbox" id="chkboxonly" class="k-checkbox" checked />
+                                    <label class="k-checkbox-label" for="chkboxonly">Keep my email address private</label>
+                            </div>
+                            <div class="form-group">
+                                <kendo-textbox-container class="custom-width" floatingLabel="Company">
+                                    <input kendoTextBox type="text" id="company" [value]="user.company" />
+                                </kendo-textbox-container>
+                            </div>
+                            <div class="form-group">
+                                <kendo-textbox-container class="custom-width" floatingLabel="Location">
+                                    <input kendoTextBox type="text" id="location" [value]="user.location" />
+                                </kendo-textbox-container>
+                            </div>
+                            <div class="form-group" >
+                                <button kendoRippleContainer class="k-button k-primary" (click)="onUpdateClick()">Update profile</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="k-card" id="delete-account">
+                <h3 class="k-card-header">Delete Account</h3>
+                <div class="k-card-body">
+                    <p>You will immediately lose access to your repositories and all other information associated with your account. <strong>This cannot be undone!</strong></p>
+                    <button kendoRippleContainer class="k-button k-primary" style="background-color: red;" (click)="onDeleteClick()">Delete Account</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-5">
+
+            <div class="k-card" id="notifications">
+                <h3 class="k-card-header">Notifications</h3>
+                <div class="k-card-body">
+                    <h4 class="h6">Automatically watch repositories?</h4>
+                    <p class="text-muted">When you are given push access to a repository, automatically receive notifications for it.</p>
+                    <p><kendo-switch></kendo-switch></p>
+                    <h4 class="h6">Receive updates to any conversations via email?</h4>
+                    <p><kendo-switch [checked]="true"></kendo-switch></p>
+                    <h4 class="h6" >Receive updates to any repositories via email?</h4>
+                    <p><kendo-switch [checked]="true"></kendo-switch></p>
+                </div>
+            </div>
+            <div class="k-card" id="password">
+                <h3 class="k-card-header">Update password</h3>
+                <div class="k-card-body">
+                    <div class="form-group">
+                        <kendo-textbox-container class="custom-width" floatingLabel="Old password">
+                            <input kendoTextBox type="password" />
+                        </kendo-textbox-container>
+                    </div>
+                    <div class="form-group">
+                        <kendo-textbox-container class="custom-width" floatingLabel="New password">
+                            <input kendoTextBox type="password" />
+                        </kendo-textbox-container>
+                    </div>
+                    <div class="form-group">
+                        <kendo-textbox-container class="custom-width" floatingLabel="Confirm password">
+                            <input kendoTextBox type="password" />
+                        </kendo-textbox-container>
+                    </div>
+                    <div class="form-group">
+                        <button kendoRippleContainer class="k-button k-primary">Change password</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <kendo-dialog title="Thank you" *ngIf="profileDialogVisible" (close)="onProfileDialogClose()">
+        <p>Your profile has been successfully updated</p>
+        <kendo-dialog-actions>
+            <button kendoRippleContainer class="k-button" (click)="onProfileDialogClose()">OK</button>
+        </kendo-dialog-actions>
+    </kendo-dialog>
+
+    <kendo-dialog title="Are you sure you want to do this?" *ngIf="deleteDialogVisible" (close)="onDeleteDialogClose()">
+        <p>Account deletetion cannot be undone!</p>
+        <kendo-dialog-actions>
+            <button kendoRippleContainer kendoButton (click)="onDeleteDialogClose()">Cancel</button>
+            <button kendoRippleContainer kendoButton (click)="onDeleteDialogClose()" [primary]="true">Delete Account</button>
+        </kendo-dialog-actions>
+    </kendo-dialog>
+
+</div>

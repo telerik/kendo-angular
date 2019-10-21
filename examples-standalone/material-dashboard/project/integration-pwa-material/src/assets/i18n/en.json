@@ -1,0 +1,17 @@
+{
+    "menu": {
+        "home": "Home",
+        "about": "About"
+    },
+    "home": {
+        "title": "Home",
+        "description": "This component is part of a module that was directly imported into the main AppModule."
+    },
+    "about": {
+        "title": "About",
+        "description": "This component was rendered from a lazy-loaded module."
+    },
+    "phone": {
+        "edition": "Phone Edition!"
+    }
+}

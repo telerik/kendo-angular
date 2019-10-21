@@ -1,0 +1,35 @@
+<div id="header" class="row">
+    <div class="col-sm">
+        <h4>Statistics</h4>
+        <p class="h2">{{ rangeStart | date }} - {{ today | date }}</p>
+    </div>
+    <div class="col-sm text-sm-right p-0 p-sm-3">
+        <kendo-buttongroup [selection]="'single'">
+            <button kendoRippleContainer kendoButton [togglable]="true" (click)="onFilterClick(3)" [selected]="true">3 Months</button>
+            <button kendoRippleContainer kendoButton [togglable]="true" (click)="onFilterClick(6)">6 Months</button>
+            <button kendoRippleContainer kendoButton [togglable]="true" (click)="onFilterClick(12)">1 Year</button>
+        </kendo-buttongroup>
+    </div>
+</div>
+
+<div id="statistics">
+  <kendo-tabstrip (select)="onTabSelect($event)">
+      <kendo-tabstrip-tab [title]="'All Issues'" [selected]="true">
+          <ng-template kendoTabContent>
+              <app-statistics [loading]="isLoading" [issues]="issues" [months]="months"></app-statistics>
+          </ng-template>
+      </kendo-tabstrip-tab>
+
+      <kendo-tabstrip-tab [title]="'Assigned to Me'">
+          <ng-template kendoTabContent>
+              <app-statistics [loading]="isLoading" [issues]="issues" [months]="months"></app-statistics>
+          </ng-template>
+      </kendo-tabstrip-tab>
+
+      <kendo-tabstrip-tab [title]="'Created by Me'">
+          <ng-template kendoTabContent>
+              <app-statistics [loading]="isLoading" [issues]="issues" [months]="months"></app-statistics>
+          </ng-template>
+      </kendo-tabstrip-tab>
+  </kendo-tabstrip>
+</div>
