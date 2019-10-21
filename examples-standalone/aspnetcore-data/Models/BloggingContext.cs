@@ -29,8 +29,6 @@ namespace aspnetcore_data.Models
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.HasAnnotation("ProductVersion", "2.2.4-servicing-10062");
-
             modelBuilder.Entity<Blog>(entity =>
             {
                 entity.Property(e => e.Url).IsRequired();
@@ -42,6 +40,10 @@ namespace aspnetcore_data.Models
                     .WithMany(p => p.Post)
                     .HasForeignKey(d => d.BlogId);
             });
+
+            OnModelCreatingPartial(modelBuilder);
         }
+
+        partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
     }
 }
