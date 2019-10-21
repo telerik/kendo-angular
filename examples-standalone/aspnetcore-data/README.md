@@ -11,7 +11,8 @@ The demo is referred to in the [Kendo UI for Angular official documentation](htt
 1. Enter your Telerik credentials in `nuget.config`
 1. Make sure that you have an SQL Server installed.
 1. Create a local Blogging database by executing the following query within SQL Server:
-`
+
+```
 CREATE DATABASE [Blogging]
 GO
 
@@ -40,6 +41,7 @@ INSERT INTO [Blog] (Url) VALUES
 ('http://blogs.msdn.com/webdev'),
 ('http://blogs.msdn.com/visualstudio')
 GO
-`
+```
+
 1. Run the project with `dotnet run`.
 1. Open http://localhost:5000.
