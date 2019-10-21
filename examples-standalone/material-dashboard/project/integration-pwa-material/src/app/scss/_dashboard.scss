@@ -1,0 +1,70 @@
+#dashboard {
+    .k-content {
+        padding: 0;
+        overflow: visible;
+    }
+
+    .height-1 {
+        min-height: 400px;
+    }
+
+    .comp-label {
+        .issues-count {
+            font-size: 3.5rem;
+            font-weight: 200;
+            line-height: 1;
+
+        }
+        .issues-label {
+            font-size: 0.75rem;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        &.label-clickable {
+            cursor: pointer;
+        }
+    }
+
+    #statistics {
+      position: relative;
+    }
+
+    .issue-types {
+      .chart-label {
+        margin: 5px 0 0;
+        white-space: nowrap;
+        text-align: center;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+        .percentage {
+            position: absolute;
+            top: .4rem;
+            right: -15;
+            font-size: 1.5rem;
+        }
+      }
+
+      .comp-label {
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+
+        strong {
+          font-size: 4em;
+          line-height: 1;
+          font-weight: 100;
+          display: block;
+        }
+        small {
+          font-size: 1em;
+          text-transform: uppercase;
+          display: block;
+        }
+      }
+    }
+}
