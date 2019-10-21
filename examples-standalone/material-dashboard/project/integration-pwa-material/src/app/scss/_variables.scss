@@ -1,0 +1,108 @@
+// Options
+//
+// Quickly modify global styling by enabling or disabling optional features.
+
+$enable-flex:               true;
+$enable-rounded:            true;
+$enable-shadows:            true;
+$enable-gradients:          false;
+$enable-transitions:        false;
+$enable-hover-media-query:  false;
+$enable-grid-classes:       true;
+$enable-print-styles:       false;
+
+
+// Colors
+//
+// Grayscale and brand colors for use across Bootstrap.
+
+$primary: #2196F3;
+$secondary: #e10050;
+
+$accent: $primary;
+
+$gray-dark:                 #252830;
+$gray:                      #55595c;
+$gray-light:                #818a91;
+$gray-lighter:              #eceeef;
+$gray-lightest:             #f7f7f9;
+
+$brand-primary:             #2196F3;
+$brand-success:             #27c46d;
+$brand-info:                #52c3d3;
+$brand-warning:             #ff9966;
+$brand-danger:              #e91e63;
+$brand-inverse:             $gray-dark;
+
+
+
+
+// Typography
+//
+// Font, line-height, and color for body text, headings, and more.
+
+$font-family-sans-serif: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+$font-family-serif:      Georgia, "Times New Roman", Times, serif;
+$font-family-monospace:  Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+$font-family-base:       "Roboto", "Helvetica Neue", sans-serif;
+
+// Pixel value used to responsively scale all typography. Applied to the `<html>` element.
+$font-size-root: 14px;
+
+$font-size-base: 0.875rem;
+$font-size-lg:   1.25rem;
+$font-size-sm:   1rem;
+$font-size-xs:   .75rem;
+
+$line-height-base: 1.5;
+
+$h1-font-size: 1.5rem;
+$h2-font-size: 1.25rem;
+$h3-font-size: 0.75rem;
+$h4-font-size: 0.75rem;
+$h5-font-size: 0.75rem;
+$h6-font-size: 0.5rem;
+
+$font-weight-bold: 500;
+
+$card-header-text: 1.25rem;
+// $card-box-shadow: $box-shadow-depth-4;
+$card-spacer-y: 1rem;
+$card-spacer-x: 2rem;
+
+
+// Body
+//
+// Settings for the `<body>` element.
+
+$body-bg:    #f2f2f2;
+$body-color: $gray-dark;
+
+
+// Components
+//
+// Define common padding and border radius sizes and more.
+
+$component-active-color: #fff;
+$component-active-bg:    $brand-primary;
+
+
+// Navs
+
+$nav-bg: white;
+$nav-pills-border-radius:     0;
+$nav-pills-active-link-color: #111111;
+$nav-pills-active-link-bg:    $component-active-bg;
+
+$nav-pills-link-active-color:       $component-active-color !default;
+$nav-pills-link-active-bg:          $component-active-bg !default;
+
+
+// cards
+
+$card-spacer-x:            1.25rem;
+$card-spacer-y:            .75rem;
+$card-border-width:        1px;
+$card-border-color:        #e8e8e8;
+$card-cap-bg:              #ffffff;
+$card-bg:                  #fff;

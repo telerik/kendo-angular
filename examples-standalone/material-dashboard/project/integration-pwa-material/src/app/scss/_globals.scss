@@ -1,0 +1,144 @@
+body {
+  margin:0;
+  background-color: $body-bg;
+  font-size: $font-size-root;
+}
+
+.k-i-loading {
+  font-size: 20vh;
+  color: #111;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -.5em 0 0 -.5em;
+}
+
+app-maestro-app,
+app-main-menu,
+app-dashboard,
+app-issues,
+app-profile,
+app-signin {
+    display: block;
+}
+
+.k-typography {
+  line-height: 1.5;
+}
+
+h1,
+h2,
+h4,
+.h1,
+.h2,
+.h4 {
+  font-weight: bold;
+}
+
+h1,
+h4,
+.h1,
+.h4 {
+  text-transform: uppercase;
+}
+
+h4,
+.h4 {
+  color: rgba($black, 0.5);
+  font-weight: bold;
+}
+
+p {
+  color: black;
+}
+
+.statistics {
+  margin-top: 1rem;
+}
+
+.k-tabstrip > .k-tabstrip-items {
+  position: absolute;
+  width: 100%;
+  justify-content: flex-end;
+  top: 35px;
+  right: 0;
+  z-index: 3;
+}
+
+.k-card {
+  overflow: hidden;
+  margin-top: 2rem;
+  min-height: 500px;
+  position: relative;
+}
+
+.k-card-header {
+  // padding: 0.65rem 1.25rem;
+  font-weight: 400;
+}
+
+small,
+.small {
+  font-size: 70%;
+}
+
+.form-control {
+  box-shadow: none;
+  border: none;
+}
+
+.img-circle {
+  border-radius: 200rem;
+  margin-right: 0.3rem;
+
+  &.img-large {
+    border: 0.2rem solid $accent;
+  }
+}
+
+.navbar {
+  z-index: 1130;
+}
+
+@media (max-width: 768px) {
+  .k-tabstrip > .k-tabstrip-items {
+    position: relative;
+    margin-bottom: 1rem;
+    justify-content: flex-end;
+
+    .k-item .k-link {
+      padding: 7px;
+    }
+  }
+  #side-nav,
+  .content-wrapper {
+    padding-top: 1rem;
+  }
+  .k-tabstrip-items {
+    display: none;
+  }
+  .content-wrapper {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+.k-chart-tooltip p {
+  margin: 0;
+  color: $white;
+}
+
+@media (min-width: 768px) {
+  .content-wrapper {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  small,
+  .small {
+    font-size: 80%;
+  }
+}
