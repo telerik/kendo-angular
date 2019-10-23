@@ -1,0 +1,51 @@
+<div class="row">
+    <div id="top-bar" class="top-bar sticky-top bg-white d-xl-none k-shadow">
+        <span id="nav-toggle" class="nav-toggle d-xl-none"
+            (click)="toggleNav()">
+            <span class="k-icon k-i-hamburger"></span>
+        </span>
+    </div>
+    <div id="nav"
+        class="sticky-top py-3 py-sm-5 k-vbox shadow col-xl-2 d-xl-flex hide"
+        [@toggleNav]="navState"
+        *ngIf="showNav()"
+        >
+
+        <div class="container">
+          <h1 id="app-title" class="mb-0">Issues</h1>
+          <p id="app-subtitle" class="h4 mb-4">Sample Dashboard</p>
+          <hr class="k-hr" />
+          <p class="h4 mt-3 mt-sm-5">Project</p>
+          <ul class="nav nav-pills flex-column">
+              <li class="nav-item" id="dashbaord">
+                  <a [routerLink]=" ['./dashboard'] " class="nav-link" routerLinkActive="active">Dashboard</a>
+              </li>
+              <li class="nav-item" id="issues">
+                  <a [routerLink]=" ['./issues'] " class="nav-link" routerLinkActive="active">Issues</a>
+              </li>
+          </ul>
+          <p class="h4 mt-3 mt-sm-5">Account</p>
+          <ul class="nav nav-pills flex-column">
+              <li class="nav-item" id="profile">
+                  <a [routerLink]=" ['./profile'] " class="nav-link" routerLinkActive="active">My Profile</a>
+              </li>
+              <li class="nav-item" id="signout">
+                  <a [routerLink]=" ['./signin'] " class="nav-link" routerLinkActive="active">Sign Out</a>
+              </li>
+          </ul>
+        </div>
+
+        <div class="container mt-sm-auto">
+          <hr class="k-flex k-hr k-hr-bottom" />
+          <div id="copy">
+              <p>Copyright &copy; {{year}},<br /><a href="http://www.progress.com">Progress Software Corporation</a> and/or its subsidiaries or affiliates.</p>
+              <p>All Rights Reserved.</p>
+          </div>
+        </div>
+
+    </div>
+
+    <main class="content-wrapper col">
+        <router-outlet></router-outlet>
+    </main>
+</div>

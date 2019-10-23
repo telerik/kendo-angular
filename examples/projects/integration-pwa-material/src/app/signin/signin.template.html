@@ -1,0 +1,29 @@
+<div class="signin-form col-xl-3">
+  <div class="k-card">
+    <div class="k-card-block">
+      <div class="k-form">
+        <h1 id="app-title" class="mb-0">Issues</h1>
+        <p id="app-subtitle" class="h4 mb-4">Sample Dashboard</p>
+
+        <hr class="k-hr">
+
+        <div class="form-group mt-4">
+          <kendo-textbox-container class="custom-width" floatingLabel="Email or Username">
+              <input kendoTextBox type="text"/>
+          </kendo-textbox-container>
+        </div>
+        <div class="form-group">
+          <kendo-textbox-container class="custom-width" floatingLabel="Password">
+              <input kendoTextBox type="password"/>
+          </kendo-textbox-container>
+          <p class="text-xs-right small">
+            <a href="#">Forgot it?</a>
+          </p>
+        </div>
+        <div class="form-group mb-0 text-right">
+          <button kendoRippleContainer class="k-button k-primary" (click)="onLoginClick()">Log in</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

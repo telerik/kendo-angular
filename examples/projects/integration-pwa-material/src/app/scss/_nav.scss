@@ -1,0 +1,150 @@
+.top-bar {
+	padding: .25em;
+	font-size: 32px;
+  line-height: 1.01;
+  flex: 0 0 100%;
+  z-index: 1022;
+}
+
+.nav-toggle {
+  padding: 5px;
+  cursor: pointer;
+
+  .k-i-hamburger {
+    font-size: 30px;
+  }
+}
+
+#nav {
+  background-color: $nav-bg;
+  // height: 100vh;
+  top: 38px;
+  height: calc(100vh - 38px);
+  min-height: 600px;
+  // padding: 2rem;
+
+  h1 {
+    color: $primary;
+  }
+
+  #app-subtitle {
+    color: rgba($black, 1);
+    font-weight: 400;
+  }
+
+  #app-title,
+  h4,
+  .h4 {
+    letter-spacing: 2px;
+  }
+
+  .k-hr {
+    background-color: $secondary;
+    height: 2px;
+    width: 2rem;
+    margin: 0;
+
+    &.k-hr-bottom {
+      margin-top: auto;
+      margin-bottom: 1rem;
+    }
+  }
+
+  .nav-link {
+    color: $black;
+    padding: 0.5rem 2rem;
+    margin-left: -2rem;
+    margin-right: -2rem;
+    transition: color 0.2s ease;
+    font-size: $font-size-sm;
+
+    &:hover {
+      color: $primary;
+    }
+
+    &.active {
+      color: $white;
+    }
+  }
+
+  #copy {
+    line-height: 1.5;
+    font-size: 11px;
+  }
+
+  @media (max-width: 1200px) {
+    position: absolute;
+    transition: transform 0.3s ease;
+    position: fixed;
+
+    &.show {
+      transform: translateY(0);
+    }
+
+    &.hide {
+      transform: translateY(-110%);
+    }
+  }
+
+  @media (min-width: 1200px) {
+    height: 100vh;
+    top: 0;
+    min-height: 700px;
+  }
+}
+
+#nav-icon {
+  width: 2rem;
+  height: 1.5rem;
+  position: relative;
+  margin: auto 0;
+  transform: rotate(0deg);
+  transition: 0.5s ease-in-out;
+  cursor: pointer;
+
+  & > span {
+    display: block;
+    position: absolute;
+    height: 0.2rem;
+    width: 100%;
+    background: rgba($black, .8);
+    border-radius: 9px;
+    opacity: 1;
+    left: 0;
+    transform: rotate(0deg);
+    transition: 0.25s ease-in-out;
+  }
+
+  & > span:nth-child(1) {
+    top: .25rem;
+  }
+
+  &.open > span:nth-child(1) {
+    top: 18px;
+    width: 0%;
+    left: 50%;
+  }
+
+  & > span:nth-child(2),
+  & > span:nth-child(3) {
+    top: 0.75rem;
+  }
+
+  &.open > span:nth-child(2) {
+    transform: rotate(45deg);
+  }
+
+  &.open > span:nth-child(3) {
+    transform: rotate(-45deg);
+  }
+
+  & > span:nth-child(4) {
+    top: 1.25rem;
+  }
+
+  &.open > span:nth-child(4) {
+    top: 18px;
+    width: 0%;
+    left: 50%;
+  }
+}
