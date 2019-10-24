@@ -42,6 +42,7 @@
     "@progress/kendo-angular-layout": "^4.0.0",
     "@progress/kendo-angular-pdf-export": "^2.0.0",
     "@progress/kendo-angular-popup": "^3.0.0",
+    "@progress/kendo-angular-ripple": "^2.0.0",
     "@progress/kendo-data-query": "^1.5.1",
     "@progress/kendo-drawing": "^1.5.12",
     "@progress/kendo-theme-bootstrap": "^3.4.2",
