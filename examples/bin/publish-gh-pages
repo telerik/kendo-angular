@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+set -e
+
+rm -rf dist
+ng build integration-pwa --prod --base-href
+ng build integration-pwa-material --prod --base-href
+cp static/* dist
+
+npx ngh
+
