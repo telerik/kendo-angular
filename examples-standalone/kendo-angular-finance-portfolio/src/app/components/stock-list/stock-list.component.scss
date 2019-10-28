@@ -1,0 +1,58 @@
+@import '../../../styles/variables';
+
+.k-grid {
+    border-width: 0;
+
+    td:first-child {
+        text-overflow: unset;
+    }
+
+    .k-grid-header .k-header {
+        vertical-align: middle;
+
+        .grid-header-subtitle {
+            display: block;
+            margin: 0;
+            font-weight: normal;
+            font-size: $grid-header-subtitle;
+        }
+
+        .k-link > .k-icon.k-i-sort-asc-sm {
+            position: absolute;
+            right: 45px;
+            top: 27px;
+        }
+    }
+
+
+
+    .k-grid-content tr td {
+        vertical-align: top;
+    }
+
+    tr.k-state-selected > td {
+        color: inherit;
+    }
+
+    tr.k-state-selected > td.symbol-col {
+        color: $grid-row-selection-bg;
+    }
+
+    .symbol-col {
+        color: $grid-row-selection-bg;
+    }
+
+    th,
+    .symbol-col,
+    .price-col {
+        font-weight: bold;
+    }
+
+    .grid-cell-positive {
+        color: $grid-cell-positive-color;
+    }
+
+    .grid-cell-negative {
+        color: $grid-cell-negative-color;
+    }
+}

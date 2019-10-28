@@ -1,0 +1,18 @@
+<nav class="navbar navbar-expand-lg py-3 header">
+    <div class="container d-flex justify-content-between">
+        <div>
+            <h1 class="mb-0 header-title">Stock watchlist</h1>
+            <kendo-dropdownlist
+                [data]="listItems"
+                [iconClass]="'k-i-arrow-chevron-down'"
+                [style.width.px]="150"
+                [value]="'USD'"
+            >
+                <ng-template kendoDropDownListValueTemplate let-dataItem>
+                    Currency in {{ dataItem }}
+                </ng-template>
+            </kendo-dropdownlist>
+        </div>
+        <div class="profile-image-wrapper"></div>
+    </div>
+</nav>

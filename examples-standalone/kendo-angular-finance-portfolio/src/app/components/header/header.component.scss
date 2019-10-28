@@ -1,0 +1,52 @@
+@import "../../../styles//variables";
+
+.header {
+    background: url('../../../assets/header-bg.svg');
+    height: $header-height;
+
+    h1 {
+        padding-top: $header-title-padding;
+        font-family: $ubunto;
+        font-weight: $font-weight-200;
+        color: $white;
+    }
+
+    .profile-image-wrapper {
+        align-self: center;
+        width: $profile-image-width;
+        height: $profile-image-height;
+        border-radius: 50%;
+        background-image: url('../../../assets/genady.jpg');
+        background-size: cover;
+        background-position: center;
+    }
+}
+
+.k-dropdown {
+    .k-dropdown-wrap .k-input {
+        font-size: $dropdownlist-font-size;
+        padding: 0;
+    }
+    .k-select {
+        color: $white;
+    }
+
+    > :hover {
+        color: $white-50;
+    }
+}
+
+.k-popup {
+    padding: 0;
+
+    .k-list {
+        .k-item.k-state-selected {
+            background: $dropdownlist-item-selected-bg;
+            color: $dropdownlist-item-selected-text;
+        }
+    }
+}
+
+
+
+

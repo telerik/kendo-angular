@@ -1,0 +1,52 @@
+$button-bg: white;
+$splitter-bg: white;
+$splitter-hovered-text: white;
+$splitter-hovered-bg: white;
+$splitter-selected-text: white;
+$splitter-selected-bg: white;
+
+//dropdownlist
+$dropdownlist-bg: transparent;
+$dropdownlist-hovered-bg: transparent;
+$dropdownlist-focused-bg: transparent;
+$dropdownlist-focused-border: transparent;
+$dropdownlist-focused-shadow: none;
+$dropdownlist-hovered-border: none;
+$dropdownlist-border: transparent;
+$dropdownlist-text: rgba(255, 255, 255, .5);
+
+// grid
+$grid-padding-x: 0.8rem;
+$grid-padding-y: 0.8rem;
+$grid-alt-bg: transparent;
+$grid-cell-vertical-border-width: 0;
+$grid-cell-horizontal-border-width: 1px;
+$grid-header-bg: #ECEEEF;
+$grid-header-text: #55595C;
+
+
+
+@import "~@progress/kendo-theme-bootstrap/scss/button";
+@import "~@progress/kendo-theme-bootstrap/scss/grid";
+@import "~@progress/kendo-theme-bootstrap/scss/splitter";
+@import "~@progress/kendo-theme-bootstrap/scss/input";
+@import "~@progress/kendo-theme-bootstrap/scss/checkbox";
+@import "~@progress/kendo-theme-bootstrap/scss/calendar";
+@import "~@progress/kendo-theme-bootstrap/scss/datetime";
+@import "~@progress/kendo-theme-bootstrap/scss/dropdownlist";
+@import "~@progress/kendo-theme-bootstrap/scss/dataviz";
+
+
+.k-splitbar {
+    box-shadow: 5px 5px 5px rgba(black, 0.2);
+    background: none;
+}
+
+.k-splitbar-draggable-vertical .k-resize-handle {
+    display: none;
+}
+
+.k-pane:not(.k-pane-static) {
+    background-color: rgba(#eceeef, 0.5);
+}
+
