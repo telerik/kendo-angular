@@ -73,16 +73,28 @@
                 </ng-template>
             </kendo-grid-column>
 
-            <kendo-grid-column field="volume" title="Volume" [width]="100" media="(min-width: 768px)"></kendo-grid-column>
+            <kendo-grid-column field="volume" title="Volume" [width]="100" media="(min-width: 768px)">
+                <ng-template kendoGridCellTemplate let-dataItem>
+                    {{dataItem.volume | numberFormat}}
+                </ng-template>
+            </kendo-grid-column>
 
             <kendo-grid-column class="grid-avg-volume-col" field="volume_avg" title="Avg Vol" media="(min-width: 768px)">
                 <ng-template kendoGridHeaderTemplate let-dataItem>
                         Avg Vol
                     <span class="grid-header-subtitle">(3 month)</span>
                 </ng-template>
+
+                <ng-template kendoGridCellTemplate let-dataItem>
+                    {{dataItem.volume_avg | numberFormat}}
+                </ng-template>
             </kendo-grid-column>
 
-            <kendo-grid-column field="market_cap" title="Market Cap" media="(min-width: 1200px)"></kendo-grid-column>
+            <kendo-grid-column field="market_cap" title="Market Cap" media="(min-width: 1200px)">
+                <ng-template kendoGridCellTemplate let-dataItem>
+                    {{dataItem.market_cap | numberFormat}}
+                </ng-template>
+            </kendo-grid-column>
 
             <kendo-grid-column class="grid-pe-ratio-col" media="(min-width: 1200px)" field="pe" title="PE Ratio" >
                 <ng-template kendoGridHeaderTemplate let-dataItem>

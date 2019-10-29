@@ -36,8 +36,6 @@ export class StockListComponent {
     public sort: SortDescriptor[] = [];
     public gridView: GridDataResult;
 
-    private favourites: Array<any> = [];
-
     constructor(private stockDataService: StockDataService) {
         this.stockDataService.getDataStream()
             .subscribe(data => this.gridView = data);
