@@ -607,21 +607,44 @@ const products = [
 ];
 
 @Component({
-  selector: 'app-stock-list',
-  templateUrl: './stock-list.component.html',
-  styleUrls: ['./stock-list.component.scss'],
-  encapsulation: ViewEncapsulation.None
+    selector: 'app-stock-list',
+    templateUrl: './stock-list.component.html',
+    styleUrls: ['./stock-list.component.scss'],
+    encapsulation: ViewEncapsulation.None
 })
 export class StockListComponent {
+    // dropdownlist
+    public selected: string;
+
+    public selectedRows: Array<any> = [products[0]];
+    public selectedRow: any = products[0];
+
+    public stockServicesList: Array<string> = [
+        'Financial Services',
+
+    ];
+
+    public listItems: Array<string> = [
+        "X-Small",
+        "Small",
+        "Medium",
+        "Large",
+        "X-Large",
+        "2X-Large"
+    ];
 
     public multiple = false;
     public allowUnsort = true;
+
     public sort: SortDescriptor[] = [{
-      field: 'ProductName',
-      dir: 'asc'
+        field: 'ProductName',
+        dir: 'asc'
     }];
+
     public gridView: GridDataResult;
     public products: any[] = products;
+
+    private favourites: Array<any> = [];
 
     constructor() {
         this.loadProducts();
@@ -637,6 +660,22 @@ export class StockListComponent {
             data: orderBy(this.products, this.sort),
             total: this.products.length
         };
+    }
+
+    // dropdownlist
+    public handleValueChange(value: string, dropdownlist: any): void {
+        this.selected = value;
+        dropdownlist.reset();
+    }
+
+    public selectBy = (args: any) => {
+        this.selectedRow = args.dataItem;
+        return args.dataItem;
+    }
+
+    public addToFavourites(dataItem: any): void {
+        console.log(dataItem);
+        this.favourites.push(dataItem);
     }
 
 }

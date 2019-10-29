@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg py-3 header">
     <div class="container d-flex justify-content-between">
         <div>
-            <h1 class="mb-0 header-title">Stock watchlist</h1>
+            <h1 class="mb-0 header-title">My Stocks Portfolio</h1>
             <kendo-dropdownlist
                 [data]="listItems"
                 [iconClass]="'k-i-arrow-chevron-down'"
@@ -13,9 +13,9 @@
                 </ng-template>
             </kendo-dropdownlist>
         </div>
-        <div class="align-self-center">
-            <div class="profile-image-wrapper"></div>
-            <div class="text-white-50">User 123</div>
+        <div class="profile-wrapper align-self-center" routerLink="/profile">
+            <div class="profile-image"></div>
+            <div class="text-white-50">Test User</div>
         </div>
     </div>
 </nav>

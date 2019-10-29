@@ -11,6 +11,12 @@ import { StocksComponent } from './components/stocks/stocks.component';
 import { LayoutModule } from '@progress/kendo-angular-layout';
 import { GridModule } from '@progress/kendo-angular-grid';
 import { StockListComponent } from './components/stock-list/stock-list.component';
+import { ButtonsModule } from '@progress/kendo-angular-buttons';
+import { NavigationComponent } from './components/navigation/navigation.component';
+import { HeatmapComponent } from './components/heatmap/heatmap.component';
+import { BadgeComponent } from './components/badge/badge.component';
+import { UserProfileComponent } from './components/user-profile/user-profile.component';
+
 
 
 
@@ -22,7 +28,11 @@ import { StockListComponent } from './components/stock-list/stock-list.component
     HeaderComponent,
     FooterComponent,
     StocksComponent,
-    StockListComponent
+    StockListComponent,
+    NavigationComponent,
+    HeatmapComponent,
+    BadgeComponent,
+    UserProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +40,8 @@ import { StockListComponent } from './components/stock-list/stock-list.component
     DropDownsModule,
     BrowserAnimationsModule,
     LayoutModule,
-    GridModule
+    GridModule,
+    ButtonsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -11,18 +11,18 @@ $grid-gutter-width: 32px;
 $grid-column-width: 32px;
 
 $grid-breakpoints: (
-  xs: 0,
-  sm: 576px,
-  md: 768px,
-  lg: 992px,
-  xl: 1200px
+    xs: 0,
+    sm: 576px,
+    md: 768px,
+    lg: 992px,
+    xl: 1200px
 );
 
 $container-max-widths: (
-  sm: 540px,
-  md: 720px,
-  lg: 960px,
-  xl: 1500px
+    sm: 540px,
+    md: 720px,
+    lg: 960px,
+    xl: 1500px
 );
 
 @import "~bootstrap/scss/grid";

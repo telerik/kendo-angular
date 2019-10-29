@@ -7,6 +7,18 @@ $font-weight-200: 200;
 // colors
 $white: #fff;
 $white-50: rgba(255, 255, 255, .5);
+$text-base: #373A3C;
+$border-base: #ddd;
+$active-state-base: #1C7CD5;
+$hover-bg: #e6e6e6;
+$negative-value: #D9534F;
+$positive-value: #5CB85C;
+
+// margins
+$margin-sm: 4px;
+
+// fonts
+$font-size-default: 16px;
 
 
 // header
@@ -19,19 +31,31 @@ $profile-image-margin-top: 2rem;
 // footer
 $footer-padding: 10px;
 $footer-height: 43px;
-$footer-font-size: 16px;
+$footer-font-size: $font-size-default;
 $progress-logo-height: 20px;
 $progress-logo-width: 100px;
 
 // dropdownlist
-$dropdownlist-font-size: 16px;
+$dropdownlist-font-size: $font-size-default;
 $dropdownlist-item-selected-bg: #E9ECEF;
-$dropdownlist-item-selected-text: #1C7CD5;
+$dropdownlist-item-selected-text: $active-state-base;
+
+$dropownlist-add-new-padding: 8px;
+$dropownlist-add-new-width: 125px;
+$dropownlist-add-new-height: 40px;
 
 // grid
 $grid-header-subtitle: 13px;
 $grid-row-selection-bg: #007BFF;
-$grid-cell-positive-color: #5CB85C;
-$grid-cell-negative-color: #D9534F;
-$grid-sorting-icon-margin: 4px;
+$grid-cell-positive-color: $positive-value;
+$grid-cell-negative-color: $negative-value;
+$grid-sorting-icon-margin: $margin-sm;
 $grid-sorting-icon-right-position: 20px;
+
+// buttons
+$nav-button-width: 150px;
+$nav-button-active-bg: $active-state-base;
+
+// badge
+$badge-padding: 10px;
+$badge-height: 22px;

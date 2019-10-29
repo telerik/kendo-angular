@@ -1,5 +1,58 @@
 @import '../../../styles/variables';
 
+.dropdownlist-add-new {
+    .k-dropdown-wrap {
+        border: 1px solid $border-base;
+        background: $white;
+        color: $text-base;
+        padding: $dropownlist-add-new-padding;
+        width: $dropownlist-add-new-width;
+        height: $dropownlist-add-new-height;
+        align-items: center;
+
+        .k-select {
+            .k-icon {
+                color: $text-base;
+
+                &.k-i-arrow-s {
+                    display: none;
+                }
+            }
+        }
+
+        .k-input {
+            .k-icon {
+                &.k-i-plus {
+                    margin-right: 2 * $margin-sm;
+                }
+            }
+        }
+
+        &:hover {
+            border-color: $hover-bg;
+            background-color: $hover-bg;
+        }
+    }
+}
+
+.dropdownlist-services-selector {
+    align-items: center;
+
+    .k-dropdown-wrap {
+        color: $text-base;
+
+        .service-category {
+            font-weight: bold;
+            margin-left: $margin-sm;
+        }
+
+        .k-select .k-icon {
+            color: $text-base;
+        }
+
+    }
+}
+
 .k-grid {
     border-width: 0;
 
@@ -26,7 +79,7 @@
         .grid-header-subtitle + .k-i-sort-desc-sm {
             position: absolute;
             top: 50%;
-            margin-top: - (2* $grid-sorting-icon-margin);
+            margin-top: - #{$grid-sorting-icon-right-position / 2};
             right: $grid-sorting-icon-right-position;
         }
     }
@@ -60,5 +113,10 @@
 
     .grid-cell-negative {
         color: $grid-cell-negative-color;
+    }
+
+    .k-i-star-outline {
+        font-size: 20px;
+        cursor: pointer;
     }
 }

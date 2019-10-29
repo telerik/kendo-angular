@@ -12,7 +12,12 @@
         color: $white;
     }
 
-    .profile-image-wrapper {
+    .profile-wrapper {
+        outline: none;
+        cursor: pointer;
+    }
+
+    .profile-image {
         align-self: center;
         width: $profile-image-width;
         height: $profile-image-height;
