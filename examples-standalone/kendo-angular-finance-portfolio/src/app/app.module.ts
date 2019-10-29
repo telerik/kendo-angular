@@ -17,6 +17,7 @@ import { HeatmapComponent } from './components/heatmap/heatmap.component';
 import { BadgeComponent } from './components/badge/badge.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { StockDataService } from './services/stock-data.service';
+import { RealTimeDataComponent } from './components/real-time-data/real-time-data.component';
 
 @NgModule({
         declarations: [
@@ -28,7 +29,8 @@ import { StockDataService } from './services/stock-data.service';
             NavigationComponent,
             HeatmapComponent,
             BadgeComponent,
-            UserProfileComponent
+            UserProfileComponent,
+            RealTimeDataComponent
         ],
         imports: [
             BrowserModule,

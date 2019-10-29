@@ -1,4 +1,5 @@
 import { Component, ViewEncapsulation } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-header',
@@ -8,4 +9,6 @@ import { Component, ViewEncapsulation } from '@angular/core';
 })
 export class HeaderComponent {
     public listItems: Array<string> = ['USD', 'EUR', 'GBP'];
+
+    constructor(public router: Router) { }
 }
