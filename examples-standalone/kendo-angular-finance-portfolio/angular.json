@@ -9,6 +9,9 @@
         "@schematics/angular:component": {
           "style": "scss",
           "spec": false
+        },
+        "@schematics/angular:service": {
+          "spec": false
         }
       },
       "root": "",

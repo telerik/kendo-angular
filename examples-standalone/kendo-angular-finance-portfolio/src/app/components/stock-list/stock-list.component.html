@@ -37,10 +37,7 @@
     <div class="row">
         <kendo-grid
             [data]="gridView"
-            [sortable]="{
-                allowUnsort: allowUnsort,
-                mode: multiple ? 'multiple' : 'single'
-            }"
+            [sortable]="true"
             [sort]="sort"
             [selectedKeys]="selectedRows"
             [kendoGridSelectBy]="selectBy"
@@ -92,7 +89,7 @@
                 </ng-template>
             </kendo-grid-column>
 
-            <kendo-grid-column field="one_day_chart" title="1 Day Chart" [width]="170"></kendo-grid-column>
+            <kendo-grid-column field="intraday" title="1 Day Chart" [width]="170"></kendo-grid-column>
 
             <kendo-grid-column [width]="30">
                 <ng-template kendoGridCellTemplate let-dataItem>

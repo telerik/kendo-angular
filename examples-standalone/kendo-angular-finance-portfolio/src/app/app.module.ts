@@ -16,34 +16,30 @@ import { NavigationComponent } from './components/navigation/navigation.componen
 import { HeatmapComponent } from './components/heatmap/heatmap.component';
 import { BadgeComponent } from './components/badge/badge.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
-
-
-
-
-
+import { StockDataService } from './services/stock-data.service';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HeaderComponent,
-    FooterComponent,
-    StocksComponent,
-    StockListComponent,
-    NavigationComponent,
-    HeatmapComponent,
-    BadgeComponent,
-    UserProfileComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    DropDownsModule,
-    BrowserAnimationsModule,
-    LayoutModule,
-    GridModule,
-    ButtonsModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
-})
+        declarations: [
+            AppComponent,
+            HeaderComponent,
+            FooterComponent,
+            StocksComponent,
+            StockListComponent,
+            NavigationComponent,
+            HeatmapComponent,
+            BadgeComponent,
+            UserProfileComponent
+        ],
+        imports: [
+            BrowserModule,
+            AppRoutingModule,
+            DropDownsModule,
+            BrowserAnimationsModule,
+            LayoutModule,
+            GridModule,
+            ButtonsModule
+        ],
+        providers: [StockDataService],
+        bootstrap: [AppComponent]
+    })
 export class AppModule { }
