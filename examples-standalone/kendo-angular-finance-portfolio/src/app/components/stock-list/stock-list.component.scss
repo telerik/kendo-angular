@@ -1,6 +1,8 @@
 @import '../../../styles/variables';
 
 .dropdownlist-add-new {
+    padding-left: 0;
+
     .k-dropdown-wrap {
         border: 1px solid $border-base;
         background: $white;

@@ -21,7 +21,7 @@ export class StockListComponent {
 
     public stockServicesList: Array<string> = [
         'Financial Services',
-
+        'Real Estate'
     ];
 
     public listItems: Array<string> = [

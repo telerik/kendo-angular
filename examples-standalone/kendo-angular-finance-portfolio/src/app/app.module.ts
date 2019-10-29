@@ -18,6 +18,7 @@ import { BadgeComponent } from './components/badge/badge.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { StockDataService } from './services/stock-data.service';
 import { RealTimeDataComponent } from './components/real-time-data/real-time-data.component';
+import { StockChartComponent } from './components/stock-chart/stock-chart.component';
 
 @NgModule({
         declarations: [
@@ -30,7 +31,8 @@ import { RealTimeDataComponent } from './components/real-time-data/real-time-dat
             HeatmapComponent,
             BadgeComponent,
             UserProfileComponent,
-            RealTimeDataComponent
+            RealTimeDataComponent,
+            StockChartComponent
         ],
         imports: [
             BrowserModule,

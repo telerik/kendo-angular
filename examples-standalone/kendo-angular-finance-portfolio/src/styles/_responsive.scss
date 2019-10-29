@@ -17,7 +17,11 @@
     }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 769px) {
+    .dropdownlist-add-new {
+        padding-left: 16px !important;
+    }
+
     .k-button-group {
         margin-top: 10px;
     }
