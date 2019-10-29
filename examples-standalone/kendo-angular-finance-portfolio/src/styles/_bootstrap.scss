@@ -21,8 +21,8 @@ $grid-breakpoints: (
 $container-max-widths: (
     sm: 540px,
     md: 720px,
-    lg: 960px,
-    xl: 1500px
+    lg: 992px,
+    xl: 1200px
 );
 
 @import "~bootstrap/scss/grid";

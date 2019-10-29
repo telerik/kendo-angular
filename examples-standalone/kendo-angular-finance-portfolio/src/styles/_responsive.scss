@@ -1,0 +1,28 @@
+@media screen and (max-width: 992px) {
+    .dropdownlist-services-selector {
+        width: 260px !important;
+        max-width: 100%;
+        margin-top: 10px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .dropdownlist-services-selector {
+        margin-top: 0;
+    }
+
+    .k-button-group,
+    .profile-wrapper {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .k-button-group {
+        margin-top: 10px;
+    }
+
+    .profile-wrapper div:last-child {
+        display: none;
+    }
+}

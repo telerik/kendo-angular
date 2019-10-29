@@ -65,9 +65,4 @@ export class StockListComponent {
         this.selectedRow = args.dataItem;
         return args.dataItem;
     }
-
-    public addToFavourites(dataItem: any): void {
-        console.log(dataItem);
-        this.favourites.push(dataItem);
-    }
 }
