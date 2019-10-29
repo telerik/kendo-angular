@@ -1,11 +1,17 @@
+// colors
+$accent: #1C7CD5;
+
+// buttons
 $button-bg: white;
+
+//splitter
 $splitter-bg: white;
 $splitter-hovered-text: white;
 $splitter-hovered-bg: white;
 $splitter-selected-text: white;
 $splitter-selected-bg: white;
 
-//dropdownlist
+// dropdownlist
 $dropdownlist-bg: transparent;
 $dropdownlist-hovered-bg: transparent;
 $dropdownlist-focused-bg: transparent;
@@ -16,8 +22,8 @@ $dropdownlist-border: transparent;
 $dropdownlist-text: rgba(255, 255, 255, .5);
 
 // grid
-$grid-padding-x: 0.8rem;
-$grid-padding-y: 0.8rem;
+$grid-padding-x: 0.4rem;
+$grid-padding-y: 0.4rem;
 $grid-alt-bg: transparent;
 $grid-cell-vertical-border-width: 0;
 $grid-cell-horizontal-border-width: 1px;

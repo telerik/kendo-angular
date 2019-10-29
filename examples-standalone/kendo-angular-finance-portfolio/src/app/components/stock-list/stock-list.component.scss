@@ -17,13 +17,19 @@
             font-size: $grid-header-subtitle;
         }
 
-        .k-link > .k-icon.k-i-sort-asc-sm {
+        .k-link > .k-icon.k-i-sort-asc-sm,
+        .k-link > .k-icon.k-i-sort-desc-sm {
+            margin-left: $grid-sorting-icon-margin;
+        }
+
+        .grid-header-subtitle + .k-icon.k-i-sort-asc-sm,
+        .grid-header-subtitle + .k-i-sort-desc-sm {
             position: absolute;
-            right: 45px;
-            top: 27px;
+            top: 50%;
+            margin-top: - (2* $grid-sorting-icon-margin);
+            right: $grid-sorting-icon-right-position;
         }
     }
-
 
 
     .k-grid-content tr td {

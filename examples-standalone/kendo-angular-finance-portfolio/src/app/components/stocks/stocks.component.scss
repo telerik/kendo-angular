@@ -1,3 +1,9 @@
+@import '../../../styles/variables';
+
 .k-splitter {
     border-width: 0;
+
+    .splitter-upper-pane {
+        background-color: $white;
+    }
 }

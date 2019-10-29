@@ -1,8 +1,9 @@
 @import "../../../styles//variables";
 
 .header {
-    background: url('../../../assets/header-bg.svg');
     height: $header-height;
+    background: url('../../../assets/header-bg.svg');
+    background-position: bottom;
 
     h1 {
         padding-top: $header-title-padding;
@@ -16,7 +17,7 @@
         width: $profile-image-width;
         height: $profile-image-height;
         border-radius: 50%;
-        background-image: url('../../../assets/genady.jpg');
+        background-image: url('../../../assets/user.jpg');
         background-size: cover;
         background-position: center;
     }

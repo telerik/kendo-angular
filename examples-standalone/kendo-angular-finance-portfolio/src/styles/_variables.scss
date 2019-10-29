@@ -10,8 +10,8 @@ $white-50: rgba(255, 255, 255, .5);
 
 
 // header
-$header-height: 160px;
-$header-title-padding: 1rem;
+$header-height: 140px;
+$header-title-padding: .5rem;
 $profile-image-width: 58px;
 $profile-image-height: 58px;
 $profile-image-margin-top: 2rem;
@@ -33,4 +33,5 @@ $grid-header-subtitle: 13px;
 $grid-row-selection-bg: #007BFF;
 $grid-cell-positive-color: #5CB85C;
 $grid-cell-negative-color: #D9534F;
-
+$grid-sorting-icon-margin: 4px;
+$grid-sorting-icon-right-position: 20px;
