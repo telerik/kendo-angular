@@ -14,7 +14,7 @@
             class="dropdownlist-add-new col-3"
             [popupSettings]="{ width: '250px' }"
             (valueChange)="handleValueChange($event, dropdownlist)"
-            >
+        >
             <ng-template kendoDropDownListValueTemplate>
                 <span class="k-icon k-i-plus"></span>
                 Add new
@@ -41,10 +41,13 @@
             [data]="gridView"
             [sortable]="true"
             [sort]="sort"
+            [selectable]="{
+                mode: 'single'
+            }"
             [selectedKeys]="selectedRows"
-            [kendoGridSelectBy]="selectBy"
+            [kendoGridSelectBy]="'symbol'"
             (sortChange)="sortChange($event)"
-            [selectable]="true"
+            (selectionChange)="handleSelectionChange($event)"
         >
             <kendo-grid-checkbox-column [width]="27"></kendo-grid-checkbox-column>
             <kendo-grid-column class="grid-symbol-col" field="symbol" title="Symbol" [width]="80"></kendo-grid-column>

@@ -1,6 +1,6 @@
 import { Component, ViewEncapsulation } from '@angular/core';
 
-import { GridDataResult } from '@progress/kendo-angular-grid';
+import { GridDataResult, SelectionEvent } from '@progress/kendo-angular-grid';
 import { SortDescriptor } from '@progress/kendo-data-query';
 
 import { StockDataService } from 'src/app/services/stock-data.service';
@@ -16,7 +16,7 @@ export class StockListComponent {
     // dropdownlist
     public selected: string;
 
-    public selectedRows: Array<Stock>;
+    public selectedRows: Array<string>;
     public selectedRow: Stock;
 
     public stockServicesList: Array<string> = [
@@ -41,7 +41,7 @@ export class StockListComponent {
             .subscribe(data => this.gridView = data);
 
         this.selectedRow = this.gridView.data[0];
-        this.selectedRows = [this.gridView.data[0]];
+        this.selectedRows = [this.selectedRow.symbol];
     }
 
     public sortChange(sort: SortDescriptor[]): void {
@@ -59,8 +59,12 @@ export class StockListComponent {
         dropdownlist.reset();
     }
 
-    public selectBy = (args: any) => {
-        this.selectedRow = args.dataItem;
-        return args.dataItem;
+    public handleSelectionChange(event: SelectionEvent): void {
+        if (!(event.selectedRows && event.selectedRows.length)) {
+            this.selectedRows = [this.selectedRow.symbol];
+            return;
+        }
+
+        this.selectedRow = event.selectedRows[0].dataItem;
     }
 }
