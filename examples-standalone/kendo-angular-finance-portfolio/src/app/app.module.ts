@@ -20,6 +20,9 @@ import { StockDataService } from './services/stock-data.service';
 import { RealTimeDataComponent } from './components/real-time-data/real-time-data.component';
 import { StockChartComponent } from './components/stock-chart/stock-chart.component';
 import { NumberFormatPipe } from './pipes/number-format.pipe';
+import { ChartsModule } from '@progress/kendo-angular-charts';
+
+import 'hammerjs';
 
 @NgModule({
         declarations: [
@@ -43,7 +46,8 @@ import { NumberFormatPipe } from './pipes/number-format.pipe';
             BrowserAnimationsModule,
             LayoutModule,
             GridModule,
-            ButtonsModule
+            ButtonsModule,
+            ChartsModule
         ],
         providers: [StockDataService],
         bootstrap: [AppComponent]

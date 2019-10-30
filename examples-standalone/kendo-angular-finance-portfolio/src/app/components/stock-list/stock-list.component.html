@@ -103,7 +103,44 @@
                 </ng-template>
             </kendo-grid-column>
 
-            <kendo-grid-column class="grid-one-day-chart" media="(min-width: 992px)" field="intraday" title="1 Day Chart" [width]="170"></kendo-grid-column>
+            <kendo-grid-column class="grid-one-day-chart" media="(min-width: 992px)" field="intraday" title="1 Day Chart" [width]="170" [sortable]="false">
+                <ng-template kendoGridCellTemplate let-dataItem>
+                    <kendo-chart style="height: 50px" [transitions]="false" [renderAs]="'canvas'">
+                        <kendo-chart-value-axis>
+                            <kendo-chart-value-axis-item
+                                [visible]="false"
+                                [majorGridLines]="{ visible: false }"
+                                [axisCrossingValue]="dataItem.change_pct > 0 ? 0 : 10000"
+                            >
+                            </kendo-chart-value-axis-item>
+                        </kendo-chart-value-axis>
+                        <kendo-chart-category-axis>
+                            <kendo-chart-category-axis-item
+                                [visible]="false"
+                                [majorGridLines]="{ visible: false }"
+                            >
+                            </kendo-chart-category-axis-item>
+                        </kendo-chart-category-axis>
+                        <kendo-chart-series>
+                            <kendo-chart-series-item
+                                [type]="'line'"
+                                [data]="dataItem.intraday"
+                                [markers]="{ visible: false }"
+                                [color]="dataItem.change_pct > 0 ? 'green' : 'red'"
+                            >
+                            </kendo-chart-series-item>
+                            <kendo-chart-series-item
+                                [type]="'area'"
+                                [data]="dataItem.intraday"
+                                [markers]="{ visible: false }"
+                                [color]="dataItem.change_pct > 0 ? 'green' : 'red'"
+                                [opacity]="0.2"
+                            >
+                            </kendo-chart-series-item>
+                        </kendo-chart-series>
+                    </kendo-chart>
+                </ng-template>
+            </kendo-grid-column>
         </kendo-grid>
     </div>
 </div>
