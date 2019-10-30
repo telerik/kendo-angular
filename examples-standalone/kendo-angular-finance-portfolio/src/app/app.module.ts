@@ -17,6 +17,10 @@ import { HeatmapComponent } from './components/heatmap/heatmap.component';
 import { BadgeComponent } from './components/badge/badge.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { StockDataService } from './services/stock-data.service';
+import { ChartsModule } from '@progress/kendo-angular-charts';
+import 'hammerjs';
+
+
 
 @NgModule({
         declarations: [
@@ -37,7 +41,8 @@ import { StockDataService } from './services/stock-data.service';
             BrowserAnimationsModule,
             LayoutModule,
             GridModule,
-            ButtonsModule
+            ButtonsModule,
+            ChartsModule
         ],
         providers: [StockDataService],
         bootstrap: [AppComponent]
