@@ -8,12 +8,12 @@
 <div class="container">
     <div class="row py-4 d-flex justify-content-between">
         <kendo-dropdownlist
-            #dropdownlist
             kendoDropDownFilter
-            [data]="listItems"
+            appDropDownListPopupSelector
+            [data]="uncategorizedSymbols"
             class="dropdownlist-add-new col-3"
             [popupSettings]="{ width: '250px' }"
-            (valueChange)="handleValueChange($event, dropdownlist)"
+            (valueChange)="addStockDetails($event)"
         >
             <ng-template kendoDropDownListValueTemplate>
                 <span class="k-icon k-i-plus"></span>

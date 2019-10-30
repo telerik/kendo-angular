@@ -13,8 +13,6 @@ import { Stock } from 'src/app/models/stock';
     encapsulation: ViewEncapsulation.None
 })
 export class StockListComponent {
-    // dropdownlist
-    public selected: string;
 
     public selectedRows: Array<string>;
     public selectedRow: Stock;
@@ -24,14 +22,7 @@ export class StockListComponent {
         'Real Estate'
     ];
 
-    public listItems: Array<string> = [
-        "X-Small",
-        "Small",
-        "Medium",
-        "Large",
-        "X-Large",
-        "2X-Large"
-    ];
+    public uncategorizedSymbols: Array<string>;
 
     public sort: SortDescriptor[] = [];
     public gridView: GridDataResult;
@@ -42,6 +33,8 @@ export class StockListComponent {
 
         this.selectedRow = this.gridView.data[0];
         this.selectedRows = [this.selectedRow.symbol];
+
+        this.uncategorizedSymbols = this.stockDataService.getUncategorizedSymbols();
     }
 
     public sortChange(sort: SortDescriptor[]): void {
@@ -53,10 +46,9 @@ export class StockListComponent {
         this.stockDataService.query({ sort: this.sort });
     }
 
-    // dropdownlist
-    public handleValueChange(value: string, dropdownlist: any): void {
-        this.selected = value;
-        dropdownlist.reset();
+    public addStockDetails(symbol: string): void {
+        this.stockDataService.addToPortfolio(symbol);
+        this.uncategorizedSymbols = this.stockDataService.getUncategorizedSymbols();
     }
 
     public handleSelectionChange(event: SelectionEvent): void {

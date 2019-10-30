@@ -21,6 +21,7 @@ import { RealTimeDataComponent } from './components/real-time-data/real-time-dat
 import { StockChartComponent } from './components/stock-chart/stock-chart.component';
 import { NumberFormatPipe } from './pipes/number-format.pipe';
 import { ChartsModule } from '@progress/kendo-angular-charts';
+import { DropDownListPopupSelectorDirective } from './directives/dropdownlist-popup-selector.directive';
 
 import 'hammerjs';
 
@@ -39,7 +40,8 @@ import '@progress/kendo-ui';
             UserProfileComponent,
             RealTimeDataComponent,
             StockChartComponent,
-            NumberFormatPipe
+            NumberFormatPipe,
+            DropDownListPopupSelectorDirective
         ],
         imports: [
             BrowserModule,
