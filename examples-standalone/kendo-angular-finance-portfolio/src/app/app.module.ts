@@ -24,6 +24,8 @@ import { ChartsModule } from '@progress/kendo-angular-charts';
 
 import 'hammerjs';
 
+import '@progress/kendo-ui';
+
 @NgModule({
         declarations: [
             AppComponent,

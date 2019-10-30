@@ -3,7 +3,20 @@
 .k-splitter {
     border-width: 0;
 
-    .splitter-upper-pane {
+    .k-splitbar {
+        box-shadow: 5px 5px 5px rgba(black, 0.2);
+        background: none;
+    }
+
+    .k-splitbar-draggable-vertical .k-resize-handle {
+        display: none;
+    }
+
+    .k-pane:not(.k-pane-static) {
+        background-color: $body-base-bg;
+    }
+
+    .k-pane.splitter-upper-pane {
         background-color: $white;
     }
 }

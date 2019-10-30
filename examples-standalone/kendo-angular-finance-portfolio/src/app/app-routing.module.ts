@@ -5,7 +5,6 @@ import { HeatmapComponent } from './components/heatmap/heatmap.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { RealTimeDataComponent } from './components/real-time-data/real-time-data.component';
 
-
 const routes: Routes = [
     { path: 'stocks', component: StocksComponent },
     { path: 'heatmap', component: HeatmapComponent },

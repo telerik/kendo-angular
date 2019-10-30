@@ -13,6 +13,7 @@ $active-state-base: #1C7CD5;
 $hover-bg: #e6e6e6;
 $negative-value: #D9534F;
 $positive-value: #5CB85C;
+$body-base-bg: rgba(236, 238, 239, 0.5);
 
 // margins
 $margin-sm: 4px;
@@ -59,3 +60,6 @@ $nav-button-active-bg: $active-state-base;
 // badge
 $badge-padding: 10px;
 $badge-height: 22px;
+
+// heatmap
+$heatmap-base-bg: $body-base-bg;

@@ -45,18 +45,3 @@ $grid-sorting-index-font-size: 20px;
 @import "~@progress/kendo-theme-bootstrap/scss/datetime";
 @import "~@progress/kendo-theme-bootstrap/scss/dropdownlist";
 @import "~@progress/kendo-theme-bootstrap/scss/dataviz";
-
-
-.k-splitbar {
-    box-shadow: 5px 5px 5px rgba(black, 0.2);
-    background: none;
-}
-
-.k-splitbar-draggable-vertical .k-resize-handle {
-    display: none;
-}
-
-.k-pane:not(.k-pane-static) {
-    background-color: rgba(#eceeef, 0.5);
-}
-

@@ -1,0 +1,26 @@
+@import '../../../styles/variables';
+
+body {
+    background: $body-base-bg;
+}
+
+.size-container {
+    margin-bottom: -35px;
+}
+
+.k-widget {
+    &.k-treemap {
+        border-width: 0;
+        background-color: transparent;
+
+        .k-treemap-title {
+            display: none;
+        }
+
+        .k-treemap-tile {
+            background-color: transparent;
+            border-width: 0;
+            margin: 0;
+        }
+    }
+}

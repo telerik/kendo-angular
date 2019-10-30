@@ -1,6 +1,8 @@
 @import "../../../styles//variables";
 
 .footer {
+    position: fixed;
+    bottom: 0;
     padding: $footer-padding;
     background: url('../../../assets/footer-bg.svg');
     background-repeat: no-repeat;

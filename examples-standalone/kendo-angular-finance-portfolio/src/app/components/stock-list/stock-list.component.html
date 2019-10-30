@@ -108,7 +108,7 @@
 
             <kendo-grid-column class="grid-one-day-chart" media="(min-width: 992px)" field="intraday" title="1 Day Chart" [width]="170" [sortable]="false">
                 <ng-template kendoGridCellTemplate let-dataItem>
-                    <kendo-chart style="height: 50px" [transitions]="false" [renderAs]="'canvas'">
+                    <kendo-chart style="height: 50px" [transitions]="false" [renderAs]="'svg'">
                         <kendo-chart-value-axis>
                             <kendo-chart-value-axis-item
                                 [visible]="false"
