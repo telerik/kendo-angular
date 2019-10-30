@@ -33,6 +33,14 @@ export class StockDataService {
         this.data.next(process(stocksInPortfolio, {}));
     }
 
+    public removeFromPortfolio(symbol: string): void {
+        const targetIndex = stocksInPortfolio.findIndex(stock => stock.symbol === symbol);
+        const target = stocksInPortfolio.splice(targetIndex, 1)[0];
+
+        uncategorizedStocks.unshift(target);
+        this.data.next(process(stocksInPortfolio, {}));
+    }
+
     public getUncategorizedSymbols(): string[] {
         return uncategorizedStocks.map(stock => stock.symbol);
     }

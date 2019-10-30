@@ -34,7 +34,9 @@ $grid-header-bg: #ECEEEF;
 $grid-header-text: #55595C;
 $grid-sorting-index-font-size: 20px;
 
-
+// dialog
+$dialog-buttongroup-padding-x: 15px;
+$dialog-buttongroup-padding-y: 15px;
 
 @import "~@progress/kendo-theme-bootstrap/scss/button";
 @import "~@progress/kendo-theme-bootstrap/scss/grid";
@@ -45,3 +47,4 @@ $grid-sorting-index-font-size: 20px;
 @import "~@progress/kendo-theme-bootstrap/scss/datetime";
 @import "~@progress/kendo-theme-bootstrap/scss/dropdownlist";
 @import "~@progress/kendo-theme-bootstrap/scss/dataviz";
+@import "~@progress/kendo-theme-bootstrap/scss/dialog";

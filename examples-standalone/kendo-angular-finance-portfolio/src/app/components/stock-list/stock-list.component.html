@@ -7,19 +7,31 @@
 
 <div class="container">
     <div class="row py-4 d-flex justify-content-between">
-        <kendo-dropdownlist
-            kendoDropDownFilter
-            appDropDownListPopupSelector
-            [data]="uncategorizedSymbols"
-            class="dropdownlist-add-new col-3"
-            [popupSettings]="{ width: '250px' }"
-            (valueChange)="addStockDetails($event)"
-        >
-            <ng-template kendoDropDownListValueTemplate>
-                <span class="k-icon k-i-plus"></span>
-                Add new
-            </ng-template>
-        </kendo-dropdownlist>
+        <div class="col-3 d-flex justify-content-start px-0">
+            <kendo-dropdownlist
+                kendoDropDownFilter
+                appDropDownListPopupSelector
+                [data]="uncategorizedSymbols"
+                class="dropdownlist-add-new mr-3"
+                [popupSettings]="{ width: '250px' }"
+                (valueChange)="addStockToPortfolio($event)"
+            >
+                <ng-template kendoDropDownListValueTemplate>
+                    <span class="k-icon k-i-plus"></span>
+                    Add new
+                </ng-template>
+            </kendo-dropdownlist>
+            <button
+                kendoButton
+                *ngIf="selectedRows.length"
+                class="btn-remove-stock"
+                [look]="'flat'"
+                [icon]="'trash'"
+                (click)="removeStockFromPortfolio()"
+            >
+                Remove
+            </button>
+        </div>
 
         <app-navigation class="col"></app-navigation>
 
@@ -147,3 +159,5 @@
         </kendo-grid>
     </div>
 </div>
+
+<div kendoDialogContainer></div>

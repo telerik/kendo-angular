@@ -2,6 +2,7 @@
 
 .dropdownlist-add-new {
     padding-left: 0;
+    width: auto;
 
     .k-dropdown-wrap {
         border: 1px solid $border-base;
@@ -33,6 +34,35 @@
         &:hover {
             border-color: $hover-bg;
             background-color: $hover-bg;
+        }
+    }
+}
+
+.btn-remove-stock.k-button.k-flat {
+    color: $negative-value;
+    &:focus:after {
+        box-shadow: none;
+    }
+}
+
+.k-dialog {
+    .k-header {
+        &, .k-icon {
+            font-weight: bold;
+        }
+        .k-icon {
+            font-size: 1.25rem;
+        }
+    }
+    .k-content.k-dialog-content {
+        display: flex;
+        align-items: center;
+    }
+    .k-dialog-buttongroup {
+        .k-button {
+            &:focus {
+                box-shadow: none;
+            }
         }
     }
 }

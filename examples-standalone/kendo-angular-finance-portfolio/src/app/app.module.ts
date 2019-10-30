@@ -22,6 +22,7 @@ import { StockChartComponent } from './components/stock-chart/stock-chart.compon
 import { NumberFormatPipe } from './pipes/number-format.pipe';
 import { ChartsModule } from '@progress/kendo-angular-charts';
 import { DropDownListPopupSelectorDirective } from './directives/dropdownlist-popup-selector.directive';
+import { DialogsModule } from '@progress/kendo-angular-dialog';
 
 import 'hammerjs';
 
@@ -51,7 +52,8 @@ import '@progress/kendo-ui';
             LayoutModule,
             GridModule,
             ButtonsModule,
-            ChartsModule
+            ChartsModule,
+            DialogsModule
         ],
         providers: [StockDataService],
         bootstrap: [AppComponent]
