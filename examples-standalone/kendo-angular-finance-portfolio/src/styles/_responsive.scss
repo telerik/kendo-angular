@@ -4,6 +4,15 @@
         max-width: 100%;
         margin-top: 10px;
     }
+
+    .scale-wrap,
+    .scale-blocks {
+        display: none !important;
+    }
+
+    app-navigation {
+        flex-grow: 0;
+    }
 }
 
 @media screen and (max-width: 480px) {
@@ -14,6 +23,10 @@
     .k-button-group,
     .profile-wrapper {
         display: none;
+    }
+
+    .header-title {
+        font-size: 1.8rem;
     }
 }
 

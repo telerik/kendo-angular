@@ -38,6 +38,11 @@ $grid-sorting-index-font-size: 20px;
 $dialog-buttongroup-padding-x: 15px;
 $dialog-buttongroup-padding-y: 15px;
 
+// tooltip
+$tooltip-padding-y: 4px;
+$tooltip-padding-x: 8px;
+$tooltip-bg: $white;
+
 @import "~@progress/kendo-theme-bootstrap/scss/button";
 @import "~@progress/kendo-theme-bootstrap/scss/grid";
 @import "~@progress/kendo-theme-bootstrap/scss/splitter";
@@ -48,3 +53,4 @@ $dialog-buttongroup-padding-y: 15px;
 @import "~@progress/kendo-theme-bootstrap/scss/dropdownlist";
 @import "~@progress/kendo-theme-bootstrap/scss/dataviz";
 @import "~@progress/kendo-theme-bootstrap/scss/dialog";
+@import "~@progress/kendo-theme-bootstrap/scss/tooltip";

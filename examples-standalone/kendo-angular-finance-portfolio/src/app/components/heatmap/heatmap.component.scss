@@ -5,7 +5,22 @@ body {
 }
 
 .size-container {
-    margin-bottom: -35px;
+    margin-bottom: $heatmap-size-container-mb;
+}
+
+.scale-wrap {
+    width: 385px;
+}
+
+.scale-blocks {
+    span {
+        width: 35px;
+        height: 18px;
+    }
+}
+
+.heatmap-container {
+    margin-bottom: 50px;
 }
 
 .k-widget {
@@ -22,5 +37,11 @@ body {
             border-width: 0;
             margin: 0;
         }
+    }
+}
+
+.k-tooltip {
+    .k-tooltip-content {
+        padding: $tooltip-content-padding-x $tooltip-content-padding-y;
     }
 }

@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewChild, AfterViewInit, ViewEncapsulation } from '@angular/core';
+import { Component, ElementRef, ViewChild, AfterViewInit, ViewEncapsulation, OnDestroy } from '@angular/core';
 import { StockDataService } from 'src/app/services/stock-data.service';
 import { Stock } from 'src/app/models/stock';
 
@@ -10,12 +10,15 @@ declare var kendo: any;
     styleUrls: ['./heatmap.component.scss'],
     encapsulation: ViewEncapsulation.None
 })
-export class HeatmapComponent implements AfterViewInit {
+export class HeatmapComponent implements AfterViewInit, OnDestroy {
 
     @ViewChild('heatmap', { static: false }) heatmap: ElementRef;
 
     private data: Array<Stock>;
     private treeData: any;
+
+    private treeMap: any;
+    private tooltip: any;
 
     constructor(service: StockDataService) {
         this.data = service.getAllStocks();
@@ -31,15 +34,15 @@ export class HeatmapComponent implements AfterViewInit {
         this.treeData = [
             {
                 items: [
-                    { value: 2, items: prizeUpItems, color: '#D9534F' },
-                    { value: 3, items: prizeDownItems, color: '#5CB85C'}
+                    { value: 1, items: prizeUpItems },
+                    { value: 2, items: prizeDownItems }
                 ]
             }
         ];
     }
 
     public ngAfterViewInit(): void {
-        kendo.jQuery(this.heatmap.nativeElement).kendoTreeMap({
+        this.treeMap = kendo.jQuery(this.heatmap.nativeElement).kendoTreeMap({
             dataSource: new kendo.data.HierarchicalDataSource({
                 data: this.treeData,
                 schema: {
@@ -50,12 +53,26 @@ export class HeatmapComponent implements AfterViewInit {
             }),
             valueField: 'value',
             textField: 'name',
-            colors: [['#ff0000', '#ff6666'], ['#006400', '#cccccc']],
+            colors: [['#FF9693', '#EC0006'], ['#09E98B', '#00A95B']],
             template: ({ dataItem }) => {
                 return `<div>`
-                + dataItem.name + `<div title="${dataItem.name + ' ' + dataItem.change}%">${ dataItem.change }%</div></div>`;
+                + dataItem.name + `<div>${ dataItem.change }%</div></div>`;
             }
-        });
+        }).data('kendoTreemap');
+        this.tooltip = kendo.jQuery(this.heatmap.nativeElement).kendoTooltip({
+            filter: '.k-leaf',
+            position: 'center',
+            content: (e: any) => {
+                const treemap = kendo.jQuery(this.heatmap.nativeElement).data('kendoTreeMap');
+                const item = treemap.dataItem(e.target.closest('.k-treemap-tile'));
+                return item.name + ': ' + item.value;
+            }
+          }).data('kendoTooltip');
+    }
+
+    public ngOnDestroy(): void {
+        kendo.destroy(this.treeMap);
+        kendo.destroy(this.tooltip);
     }
 
 }
