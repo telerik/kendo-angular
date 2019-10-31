@@ -9,13 +9,13 @@ body {
 }
 
 .scale-wrap {
-    width: 385px;
+    width: $heatmap-scale-wrap-width;
 }
 
 .scale-blocks {
     span {
-        width: 35px;
-        height: 18px;
+        width: $heatmap-scape-block-width;
+        height: $heatmap-scale-block-height;
     }
 }
 

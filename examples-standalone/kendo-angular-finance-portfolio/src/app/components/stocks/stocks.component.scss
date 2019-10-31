@@ -4,7 +4,7 @@
     border-width: 0;
 
     .k-splitbar {
-        box-shadow: 5px 5px 5px rgba(black, 0.2);
+        box-shadow: $splitter-bar-boxshadow;
         background: none;
     }
 

@@ -1,1 +1,60 @@
-<p>user-profile works!</p>
+<div class="container">
+    <div class="row d-flex justify-content-between py-5">
+        <h1>My Portfolio</h1>
+        <span routerLink="/stocks" class="k-icon k-i-close"></span>
+    </div>
+    <div class="d-flex justify-content-between pt-5">
+        <div class="col col-3">
+            <div class="user-profile-wrapper d-flex flex-column align-self-end">
+                <div class="profile-image"></div>
+                <h3 class="pt-4 pb-5">Collin Johnson</h3>
+            </div>
+            <table>
+                <tr>
+                    <td>CURRENT VALUE:</td>
+                    <td class="current-value">$1694.88</td>
+                </tr>
+                <tr>
+                    <td>24H CHANGE:</td>
+                    <td class="green">$20</td>
+                </tr>
+                <tr>
+                    <td>% CHANGE:</td>
+                    <td class="green">+1.2%</td>
+                </tr>
+                <tr>
+                    <td>TOTAL COST:</td>
+                    <td>$9,185</td>
+                </tr>
+                <tr>
+                    <td>TOTAL PROFIT:</td>
+                    <td class="red">$-2,638</td>
+                </tr>
+            </table>
+        </div>
+        <div class="col col-4 user-data">
+            <kendo-grid [data]="gridData" [height]="600" >
+                <kendo-grid-column field="symbol" title="Symbol" class="symbol-col" width="100"></kendo-grid-column>
+                <kendo-grid-column field="name" title="Name"></kendo-grid-column>
+                <kendo-grid-column field="price" title="Price" width="100" format="c2">
+
+                </kendo-grid-column>
+            </kendo-grid>
+        </div>
+        <div class="col col-6">
+            <kendo-chart style="width: 100%; height: 100%;" [plotArea]="{ 'background': 'transparent' }">
+                <kendo-chart-series>
+                    <kendo-chart-series-item
+                        type="pie"
+                        [data]="chartData"
+                        [labels]="seriesLabels"
+                        [overlay]="{ gradient: 'roundedBevel' }"
+                        field="value"
+                        categoryField="category">
+                    </kendo-chart-series-item>
+                </kendo-chart-series>
+                <kendo-chart-legend position="bottom"></kendo-chart-legend>
+            </kendo-chart>
+        </div>
+    </div>
+</div>
