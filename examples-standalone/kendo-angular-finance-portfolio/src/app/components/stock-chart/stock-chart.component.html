@@ -1,1 +1,54 @@
-<p>stock-chart works!</p>
+<div class="container">
+    <div class="row py-4 d-flex justify-content-between align-items-center">
+        <div class="col col-4 d-flex">
+            <kendo-daterange class="daterange-input">
+                <kendo-dateinput kendoDateRangeStartInput [(value)]="range.start"></kendo-dateinput>
+                <kendo-dateinput kendoDateRangeEndInput [(value)]="range.end"></kendo-dateinput>
+            </kendo-daterange>
+        </div>
+
+        <ul class="k-reset d-flex col-4">
+            <li class="ml-3"><a href="#" data-name="1H" data-duration="3600000" class="list-item interval">1H</a></li>
+            <li class="ml-3"><a href="#" data-name="4H" data-duration="14400000" class="list-item interval">4H</a></li>
+            <li class="ml-3"><a href="#" data-name="12H" data-duration="43200000" class="list-item interval">12H</a></li>
+            <li class="ml-3"><a href="#" data-name="1D" data-duration="86400000" class="list-item interval">1D</a></li>
+            <li class="ml-3"><a href="#" data-name="4D" data-duration="345600000" class="list-item interval">4D</a></li>
+            <li class="ml-3"><a href="#" data-name="1W" data-duration="604800000" class="list-item interval">1W</a></li>
+        </ul>
+
+        <div>
+            <kendo-dropdownlist
+                [style.width.px]="120"
+                class="dropdown-list-selection interval"
+                [data]="intervals"
+                [iconClass]="'k-i-arrow-chevron-down'"
+                [value]="'1H'"
+            >
+                <ng-template kendoDropDownListValueTemplate let-dataItem>
+                    Interval: <span class="service-category">{{ dataItem }}</span>
+                </ng-template>
+            </kendo-dropdownlist>
+
+            <kendo-dropdownlist
+                [style.width.px]="140"
+                class="dropdown-list-selection"
+                [data]="charts"
+                [iconClass]="'k-i-arrow-chevron-down'"
+                [value]="'Candle'"
+            >
+                <ng-template kendoDropDownListValueTemplate let-dataItem>
+                    <span class="chart-category d-flex align-items-center">
+                        <img src="../../../assets/{{ dataItem.toLowerCase() }}.png"/>
+                        {{ dataItem }}
+                    </span>
+                </ng-template>
+                <ng-template kendoDropDownListItemTemplate let-dataItem>
+                    <span class="chart-category d-flex align-items-center">
+                        <img src="../../../assets/{{ dataItem.toLowerCase() }}.png"/>
+                        {{ dataItem }}
+                    </span>
+                </ng-template>
+            </kendo-dropdownlist>
+        </div>
+    </div>
+</div>

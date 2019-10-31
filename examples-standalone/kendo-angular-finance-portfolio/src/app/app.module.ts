@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppRoutingModule } from './app-routing.module';
+
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { DropDownsModule } from '@progress/kendo-angular-dropdowns';
@@ -23,6 +23,7 @@ import { NumberFormatPipe } from './pipes/number-format.pipe';
 import { ChartsModule } from '@progress/kendo-angular-charts';
 import { DropDownListPopupSelectorDirective } from './directives/dropdownlist-popup-selector.directive';
 import { DialogsModule } from '@progress/kendo-angular-dialog';
+import { DateInputsModule } from '@progress/kendo-angular-dateinputs';
 
 import 'hammerjs';
 
@@ -53,7 +54,8 @@ import '@progress/kendo-ui';
             GridModule,
             ButtonsModule,
             ChartsModule,
-            DialogsModule
+            DialogsModule,
+            DateInputsModule
         ],
         providers: [StockDataService],
         bootstrap: [AppComponent]
