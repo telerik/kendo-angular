@@ -1,5 +1,6 @@
+import { Subscription } from 'rxjs';
 import { StockDataService } from 'src/app/services/stock-data.service';
-import { Component, ViewEncapsulation } from '@angular/core';
+import { Component, ViewEncapsulation, OnDestroy } from '@angular/core';
 import { Stock } from 'src/app/models/stock';
 
 @Component({
@@ -8,14 +9,14 @@ import { Stock } from 'src/app/models/stock';
     styleUrls: ['./user-profile.component.scss'],
     encapsulation: ViewEncapsulation.None
 })
-export class UserProfileComponent {
+export class UserProfileComponent implements OnDestroy {
     public chartData: any[];
     public gridData: any[];
     public seriesLabels = {
         visible: true,
         content: (args: any) => `${args.category}\n${args.value}`
     };
-    private serviceSubscription: any;
+    private serviceSubscription: Subscription;
 
     constructor(public service: StockDataService) {
         this.serviceSubscription = service.getDataStream().subscribe(data => {
@@ -29,5 +30,9 @@ export class UserProfileComponent {
                 price: item.price
             }));
         });
+    }
+
+    public ngOnDestroy(): void {
+        this.serviceSubscription.unsubscribe();
     }
 }
