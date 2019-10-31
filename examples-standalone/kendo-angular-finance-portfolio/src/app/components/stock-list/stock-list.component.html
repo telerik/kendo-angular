@@ -7,7 +7,7 @@
 
 <div class="container">
     <div class="row py-4 d-flex justify-content-between">
-        <div class="col-3 d-flex justify-content-start px-0">
+        <div class="col col-4 d-flex justify-content-start px-0">
             <kendo-dropdownlist
                 kendoDropDownFilter
                 appDropDownListPopupSelector
@@ -125,6 +125,7 @@
                         style="height: 50px"
                         [transitions]="false"
                         [renderAs]="'svg'"
+                        [chartArea]="{ 'background': 'transparent' }"
                     >
                         <kendo-chart-value-axis>
                             <kendo-chart-value-axis-item
