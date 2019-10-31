@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation, OnDestroy } from '@angular/core';
 import { GridDataResult, PageChangeEvent } from '@progress/kendo-angular-grid';
 
 @Component({
@@ -7,11 +7,12 @@ import { GridDataResult, PageChangeEvent } from '@progress/kendo-angular-grid';
   styleUrls: ['./real-time-data.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class RealTimeDataComponent implements OnInit {
+export class RealTimeDataComponent implements OnInit, OnDestroy {
     public gridView: GridDataResult;
     public data: any[];
     public pageSize = 100;
     public skip = 0;
+    private interval;
 
     constructor() {
         this.data = this.createRandomData(10000);
@@ -19,16 +20,18 @@ export class RealTimeDataComponent implements OnInit {
     }
 
     public ngOnInit() {
-      const interval = setInterval(() => {
+      this.interval = setInterval(() => {
         this.data = this.data.map(item => {
           const change = this.getChange();
           item.change = change;
           item.price = item.price + change;
           return item;
         });
-      }, 2000);
+      }, 500);
+    }
 
-      setTimeout(() => clearInterval(interval), 20000);
+    public ngOnDestroy() {
+        clearInterval(this.interval);
     }
 
     public pageChange(event: PageChangeEvent): void {
