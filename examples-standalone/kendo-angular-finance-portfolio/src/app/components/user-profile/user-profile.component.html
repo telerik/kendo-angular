@@ -1,5 +1,5 @@
 <div class="container">
-    <div class="row d-flex justify-content-between py-5">
+    <div class="row d-flex justify-content-between align-items-center py-5">
         <h1>My Portfolio</h1>
         <span routerLink="/stocks" class="k-icon k-i-close"></span>
     </div>
@@ -33,7 +33,7 @@
             </table>
         </div>
         <div class="col col-4 user-data">
-            <kendo-grid [data]="gridData" [height]="600" >
+            <kendo-grid class="profile-stocks-grid" [data]="gridData" [height]="600">
                 <kendo-grid-column field="symbol" title="Symbol" class="symbol-col" width="100"></kendo-grid-column>
                 <kendo-grid-column field="name" title="Name"></kendo-grid-column>
                 <kendo-grid-column field="price" title="Price" width="100" format="c2">
