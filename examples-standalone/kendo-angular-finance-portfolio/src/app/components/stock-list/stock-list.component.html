@@ -131,7 +131,6 @@
                             <kendo-chart-value-axis-item
                                 [visible]="false"
                                 [majorGridLines]="{ visible: false }"
-                                [axisCrossingValue]="dataItem.change_pct > 0 ? 0 : 10000"
                             >
                             </kendo-chart-value-axis-item>
                         </kendo-chart-value-axis>
@@ -159,6 +158,7 @@
                             >
                             </kendo-chart-series-item>
                         </kendo-chart-series>
+                        <kendo-chart-tooltip></kendo-chart-tooltip>
                     </kendo-chart>
                 </ng-template>
             </kendo-grid-column>
