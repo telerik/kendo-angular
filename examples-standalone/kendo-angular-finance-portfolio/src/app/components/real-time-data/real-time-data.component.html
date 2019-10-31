@@ -1,38 +1,46 @@
-<kendo-grid
-    [data]="gridView"
-    [skip]="skip"
-    [pageSize]="pageSize"
-    scrollable="virtual"
-    [rowHeight]="36"
-    [height]="650"
-    (pageChange)="pageChange($event)"
-    >
-    <kendo-grid-column field="symbol" [width]="80" title="Symbol"></kendo-grid-column>
-    <kendo-grid-column field="name" [width]="130" title="Name"></kendo-grid-column>
-    <kendo-grid-column field="currency" [width]="80" title="Currency"></kendo-grid-column>
-    <kendo-grid-column
-        field="price"
-        [width]="120"
-        format="c2"
-        title="Price">
+<div class="container">
+    <div class="row d-flex justify-content-start pt-5">
+        <div class="back-icon k-icon k-i-arrow-chevron-left" routerLink="/stocks"></div>
+    </div>
+    <div class="row py-5">
+        <kendo-grid
+            [data]="gridView"
+            [skip]="skip"
+            [pageSize]="pageSize"
+            scrollable="virtual"
+            [rowHeight]="36"
+            [height]="650"
+            (pageChange)="pageChange($event)"
+            >
+            <kendo-grid-column field="symbol" [width]="80" title="Symbol"></kendo-grid-column>
+            <kendo-grid-column field="name" [width]="130" title="Name"></kendo-grid-column>
+            <kendo-grid-column field="currency" [width]="80" title="Currency"></kendo-grid-column>
+            <kendo-grid-column
+                field="price"
+                [width]="120"
+                format="c2"
+                title="Price">
+                        <ng-template kendoGridCellTemplate let-dataItem>
+                        <span class="grid-price-cell" [ngClass]="{
+                                'price-up': dataItem.change > 0,
+                                'price-down': dataItem.change < 0
+                            }">{{ dataItem.price }}</span>
+                        </ng-template>
+            </kendo-grid-column>
+            <kendo-grid-column
+                field="change"
+                [width]="120"
+                title="Change">
                 <ng-template kendoGridCellTemplate let-dataItem>
-                <span [ngClass]="{
+                    <span class="grid-price-cell" [ngClass]="{
                         'price-up': dataItem.change > 0,
                         'price-down': dataItem.change < 0
-                    }">{{dataItem.price}}</span>
+                    }">{{ dataItem.change }}
+                    </span>
                 </ng-template>
-    </kendo-grid-column>
-    <kendo-grid-column
-        field="change"
-        [width]="120"
-        title="Change">
-        <ng-template kendoGridCellTemplate let-dataItem>
-        <span [ngClass]="{
-                'price-up': dataItem.change > 0,
-                'price-down': dataItem.change < 0
-            }">{{dataItem.change}}</span>
-        </ng-template>
-    </kendo-grid-column>
-    <kendo-grid-column field="stock_exchange_long" [width]="280" title="Stock Exchange"></kendo-grid-column>
-    <kendo-grid-column field="stock_exchange_short" [width]="80" title="SE Short"></kendo-grid-column>
-</kendo-grid>
+            </kendo-grid-column>
+            <kendo-grid-column field="stock_exchange_long" [width]="280" title="Stock Exchange"></kendo-grid-column>
+            <kendo-grid-column field="stock_exchange_short" [width]="80" title="SE Short"></kendo-grid-column>
+        </kendo-grid>
+    </div>
+</div>

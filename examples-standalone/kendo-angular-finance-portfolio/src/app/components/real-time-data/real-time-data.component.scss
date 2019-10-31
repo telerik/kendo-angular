@@ -1,13 +1,43 @@
-.k-grid tbody td {
-    white-space: nowrap;
-    line-height: 20px;
-    padding: 8px 12px;
+@import '../../../styles/variables';
+
+.k-grid {
+    tbody td {
+        white-space: nowrap;
+        line-height: 20px;
+        padding: 8px 12px;
+    }
+    .grid-price-cell {
+        padding: 4px 12px;
+    }
+
+    .price-up {
+        color: $positive-value;
+    }
+
+    .price-down {
+        color: $negative-value;
+    }
 }
 
-.price-up, .price-up {
-  color: green;
+.price-down,
+.price-up {
+    animation-duration: 800ms;
+    animation-name: blink;
+    animation-iteration-count: 1;
+    animation-direction: alternate;
+    animation-timing-function: ease-in-out;
+ }
+ @keyframes blink {
+    from {
+       opacity: 1;
+    }
+    to {
+       opacity: .4;
+    }
 }
 
-.price-down, .price-down {
-  color: red;
+.back-icon {
+    font-size: 2em;
+    cursor: pointer;
+    outline: none;
 }
