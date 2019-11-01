@@ -70,6 +70,9 @@
                     Price
                     <span class="grid-header-subtitle">(Intraday)</span>
                 </ng-template>
+                <ng-template kendoGridCellTemplate let-dataItem>
+                    {{ dataItem.price | currency: stockDataService.selectedCurrency:'symbol' }}
+                </ng-template>
             </kendo-grid-column>
 
             <kendo-grid-column field="day_change" title="Change" media="(min-width: 768px)">
@@ -90,7 +93,7 @@
 
             <kendo-grid-column field="volume" title="Volume" [width]="100" media="(min-width: 768px)">
                 <ng-template kendoGridCellTemplate let-dataItem>
-                    {{dataItem.volume | numberFormat}}
+                    {{ dataItem.volume | numberFormat }}
                 </ng-template>
             </kendo-grid-column>
 
@@ -101,7 +104,7 @@
                 </ng-template>
 
                 <ng-template kendoGridCellTemplate let-dataItem>
-                    {{dataItem.volume_avg | numberFormat}}
+                    {{ dataItem.volume_avg | numberFormat }}
                 </ng-template>
             </kendo-grid-column>
 

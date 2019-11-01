@@ -6,7 +6,7 @@
                 [data]="listItems"
                 [iconClass]="'k-i-arrow-chevron-down'"
                 [style.width.px]="150"
-                [value]="'USD'"
+                [(value)]="selected"
                 (valueChange)="onCurrencyChange($event)"
             >
                 <ng-template kendoDropDownListValueTemplate let-dataItem>

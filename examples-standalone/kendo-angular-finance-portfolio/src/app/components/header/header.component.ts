@@ -10,6 +10,7 @@ import { StockDataService } from 'src/app/services/stock-data.service';
 })
 export class HeaderComponent {
     public listItems: Array<string> = ['USD', 'EUR', 'GBP'];
+    public selected = this.service.selectedCurrency;
 
     constructor(public router: Router, private service: StockDataService) { }
 

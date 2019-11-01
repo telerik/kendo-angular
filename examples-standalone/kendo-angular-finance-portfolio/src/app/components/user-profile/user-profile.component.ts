@@ -12,6 +12,7 @@ import { Stock } from 'src/app/models';
 export class UserProfileComponent implements OnDestroy {
     public chartData: any[];
     public gridData: any[];
+
     public seriesLabels = {
         visible: true,
         content: (args: any) => `${args.category}\n${args.value}`

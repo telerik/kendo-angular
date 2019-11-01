@@ -12,7 +12,7 @@ import { Stock } from '../models/stock';
 export class StockDataService {
     public data: BehaviorSubject<Stock[]> = new BehaviorSubject(stocksInPortfolio);
 
-    private selectedCurrency = 'USD';
+    public selectedCurrency = 'USD';
 
     public getDataStream(): Observable<Stock[]> {
         return this.data

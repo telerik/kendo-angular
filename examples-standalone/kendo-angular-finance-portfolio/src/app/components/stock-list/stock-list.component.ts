@@ -32,7 +32,7 @@ export class StockListComponent implements OnDestroy {
     private confirmRemoveStockSubscription: Subscription;
 
     constructor(
-        private stockDataService: StockDataService,
+        public stockDataService: StockDataService,
         private dialogService: DialogService
     ) {
         this.stockDataService.getDataStream()
