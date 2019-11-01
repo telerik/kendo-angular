@@ -7,6 +7,8 @@
     background: url('../../../assets/footer-bg.svg');
     background-repeat: no-repeat;
     background-size: cover;
+    background-color: blue;
+    z-index: 999;
     font-size: $footer-font-size;
     color: $white;
 
