@@ -696,7 +696,7 @@ const data: StockIntervalDetails[] = [
 })
 export class StockDetailsComponent implements OnInit {
 
-    @Input() public chartType: 'candle'| 'line' | 'area' = 'line';
+    @Input() public chartType: 'candle' | 'line' | 'area' = 'line';
 
     public stockData: StockIntervalDetails[] = data;
     public volumeValueAxisMax: number;
@@ -733,4 +733,12 @@ export class StockDetailsComponent implements OnInit {
 
         return current.volume >= previous.volume ? '#5CB85C' : '#FF6358';
     }
+
+    public candleChartAggregate = {
+        open: (value: number[]) => value[0],
+        close: (value: number[]) => value[value.length - 1],
+        high: (value: number[]) => Math.max(...value),
+        low: (value: number[]) => Math.min(...value),
+        volume: (value: number[]) => value.reduce((total, current) => total + current, 0)
+    };
 }
