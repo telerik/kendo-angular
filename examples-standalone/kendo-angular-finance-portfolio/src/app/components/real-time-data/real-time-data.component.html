@@ -14,32 +14,37 @@
             >
             <kendo-grid-column field="symbol" [width]="80" title="Symbol"></kendo-grid-column>
             <kendo-grid-column field="name" [width]="130" media="(min-width: 992px)" title="Name"></kendo-grid-column>
-            <kendo-grid-column field="currency" [width]="80" title="Currency"></kendo-grid-column>
+            <kendo-grid-column field="currency" [width]="80" title="Currency">
+                <ng-template kendoGridCellTemplate let-dataItem>
+                    {{ service.selectedCurrency }}
+                </ng-template>
+            </kendo-grid-column>
             <kendo-grid-column
                 field="price"
-                [width]="120"
+                [width]="100"
                 format="c2"
                 title="Price">
                         <ng-template kendoGridCellTemplate let-dataItem>
-                        <span class="grid-price-cell" [ngClass]="{
+                        <span class="grid-price-cell p-0" [ngClass]="{
                                 'price-up': dataItem.change > 0,
                                 'price-down': dataItem.change < 0
-                            }">{{ dataItem.price }}</span>
+                            }">{{ dataItem.price.toFixed(2) | currency: service.selectedCurrency:'symbol' }}</span>
                         </ng-template>
             </kendo-grid-column>
             <kendo-grid-column
                 field="change"
-                [width]="120"
+                [width]="100"
                 title="Change">
                 <ng-template kendoGridCellTemplate let-dataItem>
-                    <span class="grid-price-cell" [ngClass]="{
+                    <span class="grid-price-cell p-0" [ngClass]="{
                         'price-up': dataItem.change > 0,
                         'price-down': dataItem.change < 0
-                    }">{{ dataItem.change }}
+                    }">
+                        {{ dataItem.change > 0 ? ('+' + dataItem.change.toFixed(2)) : dataItem.change.toFixed(2) }}%
                     </span>
                 </ng-template>
             </kendo-grid-column>
-            <kendo-grid-column field="stock_exchange_long" media="(min-width: 992px)" [width]="260" title="Stock Exchange"></kendo-grid-column>
+            <kendo-grid-column field="stock_exchange_long" media="(min-width: 992px)" [width]="200" title="Stock Exchange"></kendo-grid-column>
             <kendo-grid-column field="stock_exchange_short" media="(min-width: 992px)" [width]="80" title="SE Short"></kendo-grid-column>
         </kendo-grid>
     </div>

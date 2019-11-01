@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewEncapsulation, OnDestroy } from '@angular/core';
 import { GridDataResult, PageChangeEvent } from '@progress/kendo-angular-grid';
+import { StockDataService } from 'src/app/services/stock-data.service';
 
 @Component({
   selector: 'app-real-time-data',
@@ -12,9 +13,9 @@ export class RealTimeDataComponent implements OnInit, OnDestroy {
     public data: any[];
     public pageSize = 100;
     public skip = 0;
-    private interval;
+    private interval: any;
 
-    constructor() {
+    constructor(public service: StockDataService) {
         this.data = this.createRandomData(10000);
         this.loadProducts();
     }
@@ -60,17 +61,16 @@ export class RealTimeDataComponent implements OnInit, OnDestroy {
             id: idx + 1,
             symbol: createSymbol(),
             name: lastSymbol + ' Inc.',
-            currency: 'USD',
+            currency: this.service.selectedCurrency,
             price: Math.random() * 100 + 10,
             change: this.getChange(),
             stock_exchange_long: 'New York Stock Exchange',
             stock_exchange_short: 'NYSE'
-        })
-        );
+        }));
     }
 
     private getChange = () => {
-          const rnd = Math.random();
-          return rnd > 0.5 ? rnd > 0.75 ? -Math.random() * 2 : Math.random() * 2 : 0;
-        }
+        const rnd = Math.random();
+        return rnd > 0.5 ? rnd > 0.75 ? -Math.random() * 2 : Math.random() * 2 : 0;
+    }
 }
