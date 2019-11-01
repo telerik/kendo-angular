@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation, Input } from '@angular/core';
 import { StockDataService } from 'src/app/services/stock-data.service';
 import { PlotBand } from '@progress/kendo-angular-charts';
 
@@ -703,6 +703,8 @@ const data: StockIntervalDetails[] = [
     encapsulation: ViewEncapsulation.None
 })
 export class StockDetailsComponent implements OnInit {
+
+    @Input() public chartType: 'candle'| 'line' | 'area' = 'line';
 
     public stockData: StockIntervalDetails[] = data;
     public volumeValueAxisMax: number;

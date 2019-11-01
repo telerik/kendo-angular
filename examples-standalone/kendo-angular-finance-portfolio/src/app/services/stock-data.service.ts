@@ -22,8 +22,7 @@ export class StockDataService {
                     return stocks;
                 }
 
-                return stocks.data.map((item) =>
-                ({...item, price: this.convertCurrency(item) }));
+                return stocks.data.map((item) => ({ ...item, price: this.convertCurrency(item) }));
             }));
     }
 
@@ -32,7 +31,7 @@ export class StockDataService {
         this.data.next(data);
     }
 
-    public getHeatmapStocks(): Array<Stock> {
+    public getHeatmapStocks(): Array<any> {
         return heatmapStocks;
     }
 
@@ -41,7 +40,7 @@ export class StockDataService {
 
         if (this.selectedCurrency === 'USD') { return dataItem.price; }
 
-        return Number((dataItem.price * currency[this.selectedCurrency]).toFixed(3));
+        return Number((dataItem.price * currency[this.selectedCurrency]).toFixed(2));
     }
 
     public changeCurrency(selectedCurrency: string): void {

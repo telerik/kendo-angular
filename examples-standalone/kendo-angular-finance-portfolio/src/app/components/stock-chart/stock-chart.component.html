@@ -38,21 +38,29 @@
                 class="dropdown-list-selection"
                 [data]="charts"
                 [iconClass]="'k-i-arrow-chevron-down'"
-                [value]="'Candle'"
+                [valueField]="'value'"
+                [textField]="'text'"
+                [valuePrimitive]="true"
+                [(value)]="chartType"
             >
                 <ng-template kendoDropDownListValueTemplate let-dataItem>
                     <span class="chart-category selected d-flex align-items-center">
-                        <img src="../../../assets/{{ dataItem.toLowerCase() }}.png"/>
-                        {{ dataItem }}
+                        <img src="../../../assets/{{ dataItem.value }}.png"/>
+                        {{ dataItem.text }}
                     </span>
                 </ng-template>
                 <ng-template kendoDropDownListItemTemplate let-dataItem>
                     <span class="chart-category d-flex align-items-center">
-                        <img src="../../../assets/{{ dataItem.toLowerCase() }}.png"/>
-                        {{ dataItem }}
+                        <img src="../../../assets/{{ dataItem.value }}.png"/>
+                        {{ dataItem.text }}
                     </span>
                 </ng-template>
             </kendo-dropdownlist>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <app-stock-details [chartType]="chartType"></app-stock-details>
         </div>
     </div>
 </div>
