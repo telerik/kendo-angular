@@ -1,15 +1,7 @@
 import { Component, OnInit, ViewEncapsulation, Input } from '@angular/core';
 import { StockDataService } from 'src/app/services/stock-data.service';
 import { PlotBand } from '@progress/kendo-angular-charts';
-
-interface StockIntervalDetails {
-    date: Date;
-    open: number;
-    close: number;
-    high: number;
-    low: number;
-    volume: number;
-}
+import { StockIntervalDetails } from 'src/app/models';
 
 // tslint:disable
 const data: StockIntervalDetails[] = [

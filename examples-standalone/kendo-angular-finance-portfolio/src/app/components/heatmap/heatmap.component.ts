@@ -1,6 +1,6 @@
 import { Component, ElementRef, ViewChild, AfterViewInit, ViewEncapsulation, OnDestroy } from '@angular/core';
 import { StockDataService } from 'src/app/services/stock-data.service';
-import { Stock } from 'src/app/models/stock';
+import { Stock } from 'src/app/models';
 
 declare var kendo: any;
 

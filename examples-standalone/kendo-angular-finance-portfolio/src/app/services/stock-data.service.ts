@@ -2,8 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable, BehaviorSubject } from 'rxjs';
 import { map } from 'rxjs/operators';
 
-import { State, process } from '@progress/kendo-data-query';
-import { GridDataResult } from '@progress/kendo-angular-grid';
+import { orderBy, SortDescriptor } from '@progress/kendo-data-query';
 
 // the two collections are mutated directly, simulating an in-memory db data persistence
 import { stocksInPortfolio, uncategorizedStocks, heatmapStocks } from '../data/stocks';
@@ -11,23 +10,23 @@ import { Stock } from '../models/stock';
 
 @Injectable()
 export class StockDataService {
-    public data: BehaviorSubject<GridDataResult> = new BehaviorSubject(process(stocksInPortfolio, {}));
+    public data: BehaviorSubject<Stock[]> = new BehaviorSubject(stocksInPortfolio);
 
     private selectedCurrency = 'USD';
 
-    public getDataStream(): Observable<any> {
+    public getDataStream(): Observable<Stock[]> {
         return this.data
             .pipe(map((stocks) => {
                 if (this.selectedCurrency === 'USD') {
                     return stocks;
                 }
 
-                return stocks.data.map((item) => ({ ...item, price: this.convertCurrency(item) }));
+                return stocks.map((item) => ({ ...item, price: this.convertCurrency(item) }));
             }));
     }
 
-    public query(state: State): void {
-        const data = process(stocksInPortfolio, state);
+    public query(sort: SortDescriptor[] = []): void {
+        const data = orderBy(stocksInPortfolio, sort);
         this.data.next(data);
     }
 
@@ -45,8 +44,7 @@ export class StockDataService {
 
     public changeCurrency(selectedCurrency: string): void {
         this.selectedCurrency = selectedCurrency;
-
-        this.data.next(process(stocksInPortfolio, {}));
+        this.data.next(stocksInPortfolio);
     }
 
     public addToPortfolio(symbol: string): void {
@@ -54,7 +52,7 @@ export class StockDataService {
         const target = uncategorizedStocks.splice(targetIndex, 1)[0];
 
         stocksInPortfolio.unshift(target);
-        this.data.next(process(stocksInPortfolio, {}));
+        this.data.next(stocksInPortfolio);
     }
 
     public removeFromPortfolio(symbol: string): void {
@@ -62,7 +60,7 @@ export class StockDataService {
         const target = stocksInPortfolio.splice(targetIndex, 1)[0];
 
         uncategorizedStocks.unshift(target);
-        this.data.next(process(stocksInPortfolio, {}));
+        this.data.next(stocksInPortfolio);
     }
 
     public getUncategorizedSymbols(): string[] {

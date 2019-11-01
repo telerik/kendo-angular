@@ -1,7 +1,7 @@
 import { Subscription } from 'rxjs';
 import { StockDataService } from 'src/app/services/stock-data.service';
 import { Component, ViewEncapsulation, OnDestroy } from '@angular/core';
-import { Stock } from 'src/app/models/stock';
+import { Stock } from 'src/app/models';
 
 @Component({
     selector: 'app-user-profile',
@@ -20,11 +20,11 @@ export class UserProfileComponent implements OnDestroy {
 
     constructor(public service: StockDataService) {
         this.serviceSubscription = service.getDataStream().subscribe(data => {
-            this.chartData = data.data.map((item: Stock) => ({
+            this.chartData = data.map((item: Stock) => ({
                 category: item.symbol,
                 value: item.price
             }));
-            this.gridData = data.data.map((item: Stock) => ({
+            this.gridData = data.map((item: Stock) => ({
                 symbol: item.symbol,
                 name: item.name,
                 price: item.price

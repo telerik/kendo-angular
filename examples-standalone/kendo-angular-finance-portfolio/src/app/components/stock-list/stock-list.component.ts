@@ -1,7 +1,7 @@
 import { Component, ViewEncapsulation, OnDestroy } from '@angular/core';
 import { take, filter } from 'rxjs/operators';
 
-import { GridDataResult, SelectionEvent } from '@progress/kendo-angular-grid';
+import { SelectionEvent } from '@progress/kendo-angular-grid';
 import { DialogService, DialogCloseResult } from '@progress/kendo-angular-dialog';
 import { SortDescriptor } from '@progress/kendo-data-query';
 
@@ -27,7 +27,7 @@ export class StockListComponent implements OnDestroy {
     public uncategorizedSymbols: Array<string>;
 
     public sort: SortDescriptor[] = [];
-    public gridView: GridDataResult;
+    public gridView: Stock[];
 
     private confirmRemoveStockSubscription: Subscription;
 
@@ -38,8 +38,10 @@ export class StockListComponent implements OnDestroy {
         this.stockDataService.getDataStream()
             .subscribe(data => this.gridView = data);
 
-        this.selectedRow = this.gridView.data[0];
-        this.selectedRows = [this.selectedRow.symbol];
+        if (this.gridView && this.gridView.length) {
+            this.selectedRow = this.gridView[0];
+            this.selectedRows = [this.selectedRow.symbol];
+        }
 
         this.uncategorizedSymbols = this.stockDataService.getUncategorizedSymbols();
     }
@@ -52,16 +54,13 @@ export class StockListComponent implements OnDestroy {
 
     public sortChange(sort: SortDescriptor[]): void {
         this.sort = sort;
-        this.loadProducts();
-    }
-
-    private loadProducts(): void {
-        this.stockDataService.query({ sort: this.sort });
+        this.stockDataService.query(this.sort);
     }
 
     public addStockToPortfolio(symbol: string): void {
         this.stockDataService.addToPortfolio(symbol);
         this.uncategorizedSymbols = this.stockDataService.getUncategorizedSymbols();
+        this.sort = [];
     }
 
     public removeStockFromPortfolio(): void {
@@ -95,6 +94,7 @@ export class StockListComponent implements OnDestroy {
                 this.stockDataService.removeFromPortfolio(symbol);
                 this.selectedRows = [];
                 this.uncategorizedSymbols = this.stockDataService.getUncategorizedSymbols();
+                this.sort = [];
             });
     }
 
