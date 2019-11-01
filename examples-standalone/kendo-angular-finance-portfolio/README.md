@@ -18,6 +18,7 @@ Used Kendo UI for Angular Components:
 * [Setting Up the Project](#setting-up-the-project)
 * [Getting Started](#getting-started)
 * [Building for Development](building-for-development)
+* [Serve in Production](serve-in-production)
 
 ## Setting Up the Project
 
@@ -41,6 +42,6 @@ Note: This sample project is an Angular CLI project:
 
 In the terminal window, `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Build
+## Serve in Production
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+Run `npm run serve-prod` to run the project in production mode.
