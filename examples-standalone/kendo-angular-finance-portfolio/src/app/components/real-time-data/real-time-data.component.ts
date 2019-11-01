@@ -27,7 +27,7 @@ export class RealTimeDataComponent implements OnInit, OnDestroy {
           item.price = item.price + change;
           return item;
         });
-      }, 500);
+      }, 1000);
     }
 
     public ngOnDestroy() {
