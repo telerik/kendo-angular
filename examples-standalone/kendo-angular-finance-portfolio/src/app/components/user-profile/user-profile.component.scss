@@ -36,8 +36,10 @@ td:last-of-type {
     cursor: pointer;
     outline: none;
 
-    &.k-i-close {
-        font-size: $profile-icon-size;
+    &.icon-close {
+        background: url('../../../assets/cross-out.svg') center no-repeat;
+        width: $profile-icon-size;
+        height: $profile-icon-size;
     }
 }
 

@@ -1,9 +1,9 @@
 <div class="container py-5">
     <div class="row d-flex justify-content-between align-items-center py-5">
         <h1>My Portfolio</h1>
-        <span routerLink="/stocks" class="k-icon k-i-close"></span>
+        <span routerLink="/stocks" class="k-icon icon-close"></span>
     </div>
-    <div class="d-flex justify-content-between pt-5">
+    <div class=" row d-flex justify-content-between pt-5">
         <div class="col col-3">
             <div class="user-profile-wrapper d-flex flex-column align-self-end">
                 <div class="profile-image"></div>
@@ -32,8 +32,8 @@
                 </tr>
             </table>
         </div>
-        <div class="col col-4 user-data">
-            <kendo-grid class="profile-stocks-grid" [data]="gridData" [height]="600">
+        <div class="col user-data">
+            <kendo-grid class="profile-stocks-grid" [data]="gridData">
                 <kendo-grid-column field="symbol" title="Symbol" class="symbol-col" width="100"></kendo-grid-column>
                 <kendo-grid-column field="name" title="Name"></kendo-grid-column>
                 <kendo-grid-column field="price" title="Price" width="100" format="c2">
@@ -41,17 +41,23 @@
                 </kendo-grid-column>
             </kendo-grid>
         </div>
-        <div class="col col-6 pb-5">
-            <kendo-chart style="width: 100%; height: 100%;" [chartArea]="{ 'background': 'transparent' }">
+        <div class="col col-5">
+            <kendo-chart style="width: 100%; height: 100%;"[chartArea]="{ 'background': 'transparent' }">
                 <kendo-chart-series>
+                    <kendo-chart-tooltip>
+                        <ng-template kendoChartSeriesTooltipTemplate let-category="category" let-value="value">
+                            <div>{{ category }}</div><div>{{ value }}</div>
+                        </ng-template>
+                    </kendo-chart-tooltip>
                     <kendo-chart-series-item
                         type="pie"
                         [data]="chartData"
-                        [labels]="seriesLabels"
                         [overlay]="{ gradient: 'roundedBevel' }"
                         field="value"
-                        categoryField="category">
+                        categoryField="category"
+                    >
                     </kendo-chart-series-item>
+
                 </kendo-chart-series>
                 <kendo-chart-legend position="bottom"></kendo-chart-legend>
             </kendo-chart>
