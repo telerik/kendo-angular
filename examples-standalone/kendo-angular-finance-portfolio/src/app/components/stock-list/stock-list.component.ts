@@ -17,7 +17,6 @@ import { Subscription } from 'rxjs';
 })
 export class StockListComponent implements OnDestroy {
     public selectedRows: Array<string>;
-    public selectedRow: Stock;
 
     public stockServicesList: Array<string> = [
         'Financial Services',
@@ -39,8 +38,8 @@ export class StockListComponent implements OnDestroy {
             .subscribe(data => this.gridView = data);
 
         if (this.gridView && this.gridView.length) {
-            this.selectedRow = this.gridView[0];
-            this.selectedRows = [this.selectedRow.symbol];
+            this.stockDataService.selectedStock = this.gridView[0];
+            this.selectedRows = [this.gridView[0].symbol];
         }
 
         this.uncategorizedSymbols = this.stockDataService.getUncategorizedSymbols();
@@ -100,10 +99,10 @@ export class StockListComponent implements OnDestroy {
 
     public handleSelectionChange(event: SelectionEvent): void {
         if (!(event.selectedRows && event.selectedRows.length)) {
-            this.selectedRows = [this.selectedRow.symbol];
+            this.selectedRows = [this.stockDataService.selectedStock.symbol];
             return;
         }
 
-        this.selectedRow = event.selectedRows[0].dataItem;
+        this.stockDataService.selectedStock = event.selectedRows[0].dataItem;
     }
 }

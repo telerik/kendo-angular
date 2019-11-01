@@ -7,12 +7,15 @@ import { orderBy, SortDescriptor } from '@progress/kendo-data-query';
 // the two collections are mutated directly, simulating an in-memory db data persistence
 import { stocksInPortfolio, uncategorizedStocks, heatmapStocks } from '../data/stocks';
 import { Stock } from '../models/stock';
+import { StockIntervalDetails } from '../models';
+import { SelectionRange } from '@progress/kendo-angular-dateinputs';
 
 @Injectable()
 export class StockDataService {
     public data: BehaviorSubject<Stock[]> = new BehaviorSubject(stocksInPortfolio);
 
     public selectedCurrency = 'USD';
+    public selectedStock: Stock;
 
     public getDataStream(): Observable<Stock[]> {
         return this.data
@@ -65,5 +68,9 @@ export class StockDataService {
 
     public getUncategorizedSymbols(): string[] {
         return uncategorizedStocks.map(stock => stock.symbol);
+    }
+
+    public getStockIntervalDetails(symbol: string, range: SelectionRange, interval: number): StockIntervalDetails[] {
+        return [];
     }
 }

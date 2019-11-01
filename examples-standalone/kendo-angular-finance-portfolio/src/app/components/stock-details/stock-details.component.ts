@@ -1,6 +1,8 @@
-import { Component, OnInit, ViewEncapsulation, Input } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation, Input, SimpleChanges } from '@angular/core';
+import { PlotBand, BaseUnit } from '@progress/kendo-angular-charts';
+import { SelectionRange } from '@progress/kendo-angular-dateinputs';
 import { StockDataService } from 'src/app/services/stock-data.service';
-import { PlotBand } from '@progress/kendo-angular-charts';
+
 import { StockIntervalDetails } from 'src/app/models';
 
 // tslint:disable
@@ -688,6 +690,15 @@ const data: StockIntervalDetails[] = [
 ].map(item => ({ ...item, date: new Date(item.date) }))
 // tslint: enable
 
+export type Interval = { unit: BaseUnit, step: number };
+
+const intervalUnitsMap = {
+    minutes: 1,
+    hours: 60,
+    days: 1440,
+    weeks: 10080
+};
+
 @Component({
     selector: 'app-stock-details',
     templateUrl: './stock-details.component.html',
@@ -696,7 +707,11 @@ const data: StockIntervalDetails[] = [
 })
 export class StockDetailsComponent implements OnInit {
 
-    @Input() public chartType: 'candle' | 'line' | 'area' = 'line';
+    @Input() public chartType: 'candle' | 'line' | 'area' = 'candle';
+
+    @Input() public interval: Interval = { unit: 'hours', step: 1 };
+    @Input() public range: SelectionRange = { start: null, end: null };
+    @Input() public symbol: string;
 
     public stockData: StockIntervalDetails[] = data;
     public volumeValueAxisMax: number;
@@ -720,6 +735,13 @@ export class StockDetailsComponent implements OnInit {
 
             return bands;
         }, <PlotBand[]>[]);
+    }
+
+    public ngOnChanges(changes: SimpleChanges): void {
+        if (changes.interval || changes.range || changes.symbol) {
+            const intervalInMinutes = this.interval.step * intervalUnitsMap[this.interval.unit];
+            // this.stockData = this.stockDataService.getStockIntervalDetails(this.symbol, this.range, intervalInMinutes);
+        }
     }
 
     public itemColor = (args: any) => {
