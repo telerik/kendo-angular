@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container py-5">
     <div class="row d-flex justify-content-between align-items-center py-5">
         <h1>My Portfolio</h1>
         <span routerLink="/stocks" class="k-icon k-i-close"></span>
@@ -41,8 +41,8 @@
                 </kendo-grid-column>
             </kendo-grid>
         </div>
-        <div class="col col-6">
-            <kendo-chart style="width: 100%; height: 100%;" [plotArea]="{ 'background': 'transparent' }">
+        <div class="col col-6 pb-5">
+            <kendo-chart style="width: 100%; height: 100%;" [chartArea]="{ 'background': 'transparent' }">
                 <kendo-chart-series>
                     <kendo-chart-series-item
                         type="pie"

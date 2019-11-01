@@ -14,28 +14,28 @@ export class HeatmapComponent implements AfterViewInit, OnDestroy {
 
     @ViewChild('heatmap', { static: false }) heatmap: ElementRef;
 
-    private data: Array<Stock>;
+    private data: Array<any>;
     private treeData: any;
 
     private treeMap: any;
     private tooltip: any;
 
     constructor(service: StockDataService) {
-        this.data = service.getAllStocks();
+        this.data = service.getHeatmapStocks();
 
         const prizeUpItems = this.data
-            .filter((item) => item.change_pct > 0)
-            .map((item) => ({ name: item.symbol, value: item.market_cap, change: item.change_pct }));
+            .filter((item: Stock) => item.change_pct > 0)
+            .map((item: Stock) => ({ name: item.symbol, value: Number(item.market_cap), change: item.change_pct }));
 
         const prizeDownItems = this.data
-            .filter((item) => item.change_pct < 0)
-            .map((item) => ({ name: item.symbol, value: item.market_cap, change: item.change_pct }));
+            .filter((item: Stock) => item.change_pct < 0)
+            .map((item: Stock) => ({ name: item.symbol, value: Number(item.market_cap), change: item.change_pct }));
 
         this.treeData = [
             {
                 items: [
-                    { value: 1, items: prizeUpItems },
-                    { value: 2, items: prizeDownItems }
+                    { value: 1, items: prizeDownItems },
+                    { value: 2, items: prizeUpItems }
                 ]
             }
         ];
@@ -53,7 +53,7 @@ export class HeatmapComponent implements AfterViewInit, OnDestroy {
             }),
             valueField: 'value',
             textField: 'name',
-            colors: [['#FF9693', '#EC0006'], ['#09E98B', '#00A95B']],
+            colors: [['#09E98B', '#00A95B'],['#FF9693', '#EC0006']],
             template: ({ dataItem }) => {
                 return `<div>`
                 + dataItem.name + `<div>${ dataItem.change }%</div></div>`;
@@ -62,6 +62,7 @@ export class HeatmapComponent implements AfterViewInit, OnDestroy {
         this.tooltip = kendo.jQuery(this.heatmap.nativeElement).kendoTooltip({
             filter: '.k-leaf',
             position: 'center',
+            showOn: 'click',
             content: (e: any) => {
                 const treemap = kendo.jQuery(this.heatmap.nativeElement).data('kendoTreeMap');
                 const item = treemap.dataItem(e.target.closest('.k-treemap-tile'));
@@ -74,5 +75,4 @@ export class HeatmapComponent implements AfterViewInit, OnDestroy {
         kendo.destroy(this.treeMap);
         kendo.destroy(this.tooltip);
     }
-
 }

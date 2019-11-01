@@ -1,6 +1,6 @@
 <div class="container">
-    <div class="row d-flex justify-content-start pt-5">
-        <div class="back-icon k-icon k-i-arrow-chevron-left" routerLink="/stocks"></div>
+    <div class="d-flex justify-content-center py-5 align-items-center">
+        <app-navigation></app-navigation>
     </div>
     <div class="row py-5">
         <kendo-grid
@@ -13,7 +13,7 @@
             (pageChange)="pageChange($event)"
             >
             <kendo-grid-column field="symbol" [width]="80" title="Symbol"></kendo-grid-column>
-            <kendo-grid-column field="name" [width]="130" title="Name"></kendo-grid-column>
+            <kendo-grid-column field="name" [width]="130" media="(min-width: 992px)" title="Name"></kendo-grid-column>
             <kendo-grid-column field="currency" [width]="80" title="Currency"></kendo-grid-column>
             <kendo-grid-column
                 field="price"
@@ -39,8 +39,8 @@
                     </span>
                 </ng-template>
             </kendo-grid-column>
-            <kendo-grid-column field="stock_exchange_long" [width]="280" title="Stock Exchange"></kendo-grid-column>
-            <kendo-grid-column field="stock_exchange_short" [width]="80" title="SE Short"></kendo-grid-column>
+            <kendo-grid-column field="stock_exchange_long" media="(min-width: 992px)" [width]="260" title="Stock Exchange"></kendo-grid-column>
+            <kendo-grid-column field="stock_exchange_short" media="(min-width: 992px)" [width]="80" title="SE Short"></kendo-grid-column>
         </kendo-grid>
     </div>
 </div>
