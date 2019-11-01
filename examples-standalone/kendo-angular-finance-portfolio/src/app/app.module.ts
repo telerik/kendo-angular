@@ -19,6 +19,7 @@ import { UserProfileComponent } from './components/user-profile/user-profile.com
 import { StockDataService } from './services/stock-data.service';
 import { RealTimeDataComponent } from './components/real-time-data/real-time-data.component';
 import { StockChartComponent } from './components/stock-chart/stock-chart.component';
+import { StockDetailsComponent } from './components/stock-details/stock-details.component';
 import { NumberFormatPipe } from './pipes/number-format.pipe';
 import { ChartsModule } from '@progress/kendo-angular-charts';
 import { DropDownListPopupSelectorDirective } from './directives/dropdownlist-popup-selector.directive';
@@ -42,6 +43,7 @@ import '@progress/kendo-ui';
             UserProfileComponent,
             RealTimeDataComponent,
             StockChartComponent,
+            StockDetailsComponent,
             NumberFormatPipe,
             DropDownListPopupSelectorDirective
         ],
