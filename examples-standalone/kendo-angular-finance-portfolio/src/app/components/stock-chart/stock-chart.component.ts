@@ -1,9 +1,21 @@
 import { Component } from '@angular/core';
-import { MS_PER_DAY } from '@progress/kendo-date-math';
+import { MS_PER_DAY, getDate, addDays, isEqual } from '@progress/kendo-date-math';
 import { SelectionRange } from '@progress/kendo-angular-dateinputs';
 
-import { Interval } from '../stock-details/stock-details.component';
+import { Interval } from '../../models';
 import { StockDataService } from '../../services/stock-data.service';
+
+const normalizeSelectionRange = (start: Date, end: Date): SelectionRange => {
+    const isTodaySelected = isEqual(getDate(end), getDate(new Date()));
+
+    const normalizedStart = isTodaySelected ? addDays(start, -1) : getDate(start);
+    const normalizedEnd = isTodaySelected ? new Date() : new Date(end.getFullYear(), end.getMonth(), end.getDate(), 23, 59, 59, 999);
+
+    return {
+        start: normalizedStart,
+        end: normalizedEnd
+    };
+};
 
 @Component({
     selector: 'app-stock-chart',
@@ -11,7 +23,7 @@ import { StockDataService } from '../../services/stock-data.service';
     styleUrls: ['./stock-chart.component.scss']
 })
 export class StockChartComponent {
-    public range: SelectionRange = { start: null, end: null };
+    public range: SelectionRange = normalizeSelectionRange(new Date(), new Date());
 
     public timeFilters: Array<{ name: string, duration: number }> = [
         { name: '1H', duration: MS_PER_DAY / 24 },
@@ -21,7 +33,7 @@ export class StockChartComponent {
         { name: '4D', duration: MS_PER_DAY * 4 },
         { name: '1W', duration: MS_PER_DAY * 7 },
     ];
-    public activeTimeFilter = this.timeFilters[0].duration;
+    public activeTimeFilter = this.timeFilters[3].duration;
 
     public intervals: Array<{ name: string, interval: Interval }> = [
         { name: '5M', interval: { unit: 'minutes', step: 5 } },
@@ -57,6 +69,6 @@ export class StockChartComponent {
     }
 
     public handleRangeChange(start: Date, end: Date): void {
-        this.range = { start, end };
+        this.range = normalizeSelectionRange(start, end);
     }
 }

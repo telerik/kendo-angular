@@ -3,12 +3,13 @@ import { Observable, BehaviorSubject } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 import { orderBy, SortDescriptor } from '@progress/kendo-data-query';
+import { SelectionRange } from '@progress/kendo-angular-dateinputs';
+import { MS_PER_MINUTE } from '@progress/kendo-date-math';
 
 // the two collections are mutated directly, simulating an in-memory db data persistence
 import { stocksInPortfolio, uncategorizedStocks, heatmapStocks } from '../data/stocks';
 import { Stock } from '../models/stock';
 import { StockIntervalDetails } from '../models';
-import { SelectionRange } from '@progress/kendo-angular-dateinputs';
 
 @Injectable()
 export class StockDataService {
@@ -70,7 +71,58 @@ export class StockDataService {
         return uncategorizedStocks.map(stock => stock.symbol);
     }
 
-    public getStockIntervalDetails(symbol: string, range: SelectionRange, interval: number): StockIntervalDetails[] {
-        return [];
+    public getStockIntervalDetails(symbol: string, range: SelectionRange, intervalInMinutes: number): StockIntervalDetails[] {
+        const stock = stocksInPortfolio.concat(uncategorizedStocks).find(st => st.symbol === symbol);
+        return this.generateDataForSymbol(stock, intervalInMinutes, range);
+    }
+
+    private generateDataForSymbol(stock: Stock, intervalInMinutes: number, range: SelectionRange): StockIntervalDetails[] {
+        const data: StockIntervalDetails[] = [];
+
+        const minutesPerDay = 1440;
+        const standingPoint = {
+            close: stock.intraday[0],
+            volume: intervalInMinutes >= minutesPerDay ?
+                stock.volume * (intervalInMinutes / minutesPerDay) :
+                stock.volume / intervalInMinutes
+        };
+
+        const intervalInMs = MS_PER_MINUTE * intervalInMinutes;
+        for (let dateInMs = range.start.getTime(), index = 0; dateInMs <= range.end.getTime(); dateInMs += intervalInMs, index++) {
+            const previousInterval = data[index - 1] || standingPoint;
+
+            const random = Math.random() + 0.01;
+            const volatility = 0.03;
+
+            let cngP = 2 * volatility * random;
+            if (cngP > volatility) {
+                cngP -= (2 * volatility);
+            }
+
+            const change = Number(previousInterval.close) * cngP;
+            const newPrice = Number(previousInterval.close) + change;
+            const high = Math.max(newPrice, Number(previousInterval.close));
+            const low = Math.min(newPrice, Number(previousInterval.close));
+
+            data.push({
+                open: Number(previousInterval.close.toFixed(2)),
+                close: Number(newPrice.toFixed(2)),
+                high: Number((high + (0.015 * high)).toFixed(2)),
+                low: Number((low - (0.015 * low)).toFixed(2)),
+                volume: this.getStocksTradeVolume(previousInterval.volume),
+                date: new Date(dateInMs)
+            });
+        }
+
+        return data;
+    }
+
+    private getStocksTradeVolume(oldValue: number): number {
+        const coef = Number.parseFloat((Math.random() * 1).toFixed(2));
+        const newValue = Number.parseFloat((oldValue + (oldValue * coef / 100)).toFixed(0));
+        const diff = newValue - oldValue;
+        const sign = Math.random() >= 0.5 ? 1 : -1;
+
+        return Number((oldValue + (diff * sign)).toFixed(0));
     }
 }
