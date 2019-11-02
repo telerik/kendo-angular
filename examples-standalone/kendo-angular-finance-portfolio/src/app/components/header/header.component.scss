@@ -4,6 +4,7 @@
     height: $header-height;
     background: url('../../../assets/header-bg.svg');
     background-position: bottom;
+    background-repeat: no-repeat;
 
     h1 {
         padding-top: $header-title-padding;
