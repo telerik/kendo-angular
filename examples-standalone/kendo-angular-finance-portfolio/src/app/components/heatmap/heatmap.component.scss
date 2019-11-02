@@ -44,4 +44,22 @@ body {
     .k-tooltip-content {
         padding: $tooltip-content-padding-x $tooltip-content-padding-y;
     }
+
+    .hm-symbol {
+        font-weight: bold;
+        font-size: 16px;
+        color: $active-state-base;
+    }
+
+    .hm-symbol-long-name {
+        margin-bottom: $margin-m;
+    }
+
+    .positive-value {
+        color: $positive-value;
+    }
+
+    .negative-value {
+        color: $negative-value;
+    }
 }

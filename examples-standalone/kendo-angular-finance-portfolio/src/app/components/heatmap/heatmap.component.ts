@@ -1,6 +1,8 @@
 import { Component, ElementRef, ViewChild, AfterViewInit, ViewEncapsulation, OnDestroy } from '@angular/core';
 import { StockDataService } from 'src/app/services/stock-data.service';
 import { Stock } from 'src/app/models';
+import { formatCurrency } from '../../pipes/helpers';
+
 
 declare var kendo: any;
 
@@ -20,16 +22,27 @@ export class HeatmapComponent implements AfterViewInit, OnDestroy {
     private treeMap: any;
     private tooltip: any;
 
-    constructor(service: StockDataService) {
+    constructor(public service: StockDataService) {
         this.data = service.getHeatmapStocks();
 
         const prizeUpItems = this.data
             .filter((item: Stock) => item.change_pct > 0)
-            .map((item: Stock) => ({ name: item.symbol, value: Number(item.market_cap), change: item.change_pct }));
+            .map((item: Stock) => ({
+                symbol: item.symbol,
+                name: item.name,
+                price: formatCurrency(item.price),
+                value: formatCurrency(Number(item.market_cap)),
+                change: item.change_pct
+            }));
 
         const prizeDownItems = this.data
             .filter((item: Stock) => item.change_pct < 0)
-            .map((item: Stock) => ({ name: item.symbol, value: Number(item.market_cap), change: item.change_pct }));
+            .map((item: Stock) => ({
+                symbol: item.symbol,
+                name: item.name,
+                price: formatCurrency(item.price),
+                value: formatCurrency(Number(item.market_cap)),
+                change: item.change_pct }));
 
         this.treeData = [
             {
@@ -52,11 +65,11 @@ export class HeatmapComponent implements AfterViewInit, OnDestroy {
                 }
             }),
             valueField: 'value',
-            textField: 'name',
-            colors: [['#09E98B', '#00A95B'],['#FF9693', '#EC0006']],
+            textField: 'symbol',
+            colors: [['#09E98B', '#00A95B'], ['#FF9693', '#EC0006']],
             template: ({ dataItem }) => {
                 return `<div>`
-                + dataItem.name + `<div>${ dataItem.change }%</div></div>`;
+                + dataItem.symbol + `<div>${ dataItem.change }%</div></div>`;
             }
         }).data('kendoTreemap');
         this.tooltip = kendo.jQuery(this.heatmap.nativeElement).kendoTooltip({
@@ -66,7 +79,30 @@ export class HeatmapComponent implements AfterViewInit, OnDestroy {
             content: (e: any) => {
                 const treemap = kendo.jQuery(this.heatmap.nativeElement).data('kendoTreeMap');
                 const item = treemap.dataItem(e.target.closest('.k-treemap-tile'));
-                return item.name + ': ' + item.value;
+                const cssClass = (value: number): string => {
+                    return value > 0 ? 'positive-value' : 'negative-value';
+                };
+
+                return `
+                    <div class="hm-symbol">${ item.symbol }</div>
+                    <div class="hm-symbol-long-name">${ item.name }</div>
+
+                    <div>
+                        <span class="mr-2">Price: </span>
+                        <span>
+                            ${ item.price }
+                        </span>
+                    </div>
+                    <div>
+                        <span class="mr-2">Change: </span>
+                        <span class="${ cssClass(item.change) }">
+                            ${ (item.change > 0 ? '+' : '') }${ item.change }%
+                        <span>
+                    </div>
+                    <div>
+                        <span class="mr-2">Market Cap: </span><span>${ item.value }<span>
+                    </div>
+                `;
             }
           }).data('kendoTooltip');
     }
