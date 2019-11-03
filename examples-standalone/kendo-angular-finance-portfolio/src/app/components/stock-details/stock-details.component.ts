@@ -4,6 +4,12 @@ import { StockDataService } from 'src/app/services/stock-data.service';
 
 import { StockIntervalDetails, Interval, IntervalUnitsMap } from 'src/app/models';
 
+const currencies = {
+    EUR: '€',
+    USD: '$',
+    GBP: '£'
+};
+
 @Component({
     selector: 'app-stock-details',
     templateUrl: './stock-details.component.html',
@@ -28,6 +34,10 @@ export class StockDetailsComponent implements OnChanges {
         low: (value: number[]) => Math.min(...value),
         volume: (value: number[]) => value.reduce((total, current) => total + current, 0)
     };
+
+    public get currency(): string {
+        return currencies[this.stockDataService.selectedCurrency];
+    }
 
     private previousColumnChartItem: StockIntervalDetails;
 
