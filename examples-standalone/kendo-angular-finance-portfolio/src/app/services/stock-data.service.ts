@@ -88,7 +88,8 @@ export class StockDataService {
         };
 
         const intervalInMs = MS_PER_MINUTE * intervalInMinutes;
-        for (let dateInMs = range.start.getTime(), index = 0; dateInMs <= range.end.getTime(); dateInMs += intervalInMs, index++) {
+        const start = range.start.getTime() + intervalInMs;
+        for (let dateInMs = start, index = 0; dateInMs <= range.end.getTime(); dateInMs += intervalInMs, index++) {
             const previousInterval = data[index - 1] || standingPoint;
 
             const random = Math.random() + 0.01;

@@ -121,8 +121,14 @@
                 [field]="'close'"
                 [categoryField]="'date'"
                 [color]="'#559DE0'"
+                [aggregate]="'avg'"
             >
             </kendo-chart-navigator-series-item>
         </kendo-chart-navigator-series>
+        <kendo-chart-navigator-select
+            [from]="range.start"
+            [to]="range.end"
+        >
+        </kendo-chart-navigator-select>
     </kendo-chart-navigator>
 </kendo-stockchart>

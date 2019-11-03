@@ -17,7 +17,7 @@ const normalizeSelectionRange = (start: Date, end: Date, min: Date, max: Date): 
     }
 
     const normalizedStart = getDate(start);
-    const normalizedEnd = new Date(end.getFullYear(), end.getMonth(), end.getDate(), 23, 59, 59, 999);
+    const normalizedEnd = addDays(end, 1);
 
     return {
         start: dateInRange(normalizedStart, min, max),
