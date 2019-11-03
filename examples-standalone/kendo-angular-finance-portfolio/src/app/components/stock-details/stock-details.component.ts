@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation, Input, SimpleChanges, OnChanges } from '@angular/core';
+import { Component, ViewEncapsulation, Input, SimpleChanges, OnChanges } from '@angular/core';
 import { PlotBand } from '@progress/kendo-angular-charts';
 import { SelectionRange } from '@progress/kendo-angular-dateinputs';
 import { StockDataService } from 'src/app/services/stock-data.service';
@@ -11,7 +11,7 @@ import { StockIntervalDetails, Interval, IntervalUnitsMap } from 'src/app/models
     styleUrls: ['./stock-details.component.scss'],
     encapsulation: ViewEncapsulation.None
 })
-export class StockDetailsComponent implements OnInit, OnChanges {
+export class StockDetailsComponent implements OnChanges {
 
     @Input() public chartType: 'candle' | 'line' | 'area' = 'candle';
 
@@ -33,7 +33,31 @@ export class StockDetailsComponent implements OnInit, OnChanges {
 
     constructor(private stockDataService: StockDataService) { }
 
-    public ngOnInit(): void {
+    public ngOnChanges(changes: SimpleChanges): void {
+        if (changes.interval || changes.range || changes.symbol) {
+            if (!(this.range.start && this.range.end )) {
+                return;
+            }
+
+            const intervalInMinutes = this.interval.step * IntervalUnitsMap[this.interval.unit];
+            this.stockData = this.stockDataService.getStockIntervalDetails(this.symbol, this.range, intervalInMinutes);
+            this.configureChartLayout();
+        }
+    }
+
+    public itemColor = (args: any) => {
+        if (args.index === 0) {
+            return '#5CB85C';
+        }
+
+        const data = args.series.data;
+        const current: StockIntervalDetails = data[args.index];
+        const previous: StockIntervalDetails = data[args.index - 1];
+
+        return current.volume >= previous.volume ? '#5CB85C' : '#FF6358';
+    }
+
+    public configureChartLayout(): void {
         // setting the valueAxis height of the column chart to three times the height of the largest `volume` value
         // (contains the column series in just one third of the chart area)
         this.volumeValueAxisMax = Math.max(...this.stockData.map(stock => stock.volume)) * 3;
@@ -49,24 +73,5 @@ export class StockDetailsComponent implements OnInit, OnChanges {
 
             return bands;
         }, [] as PlotBand[]);
-    }
-
-    public ngOnChanges(changes: SimpleChanges): void {
-        if (changes.interval || changes.range || changes.symbol) {
-            const intervalInMinutes = this.interval.step * IntervalUnitsMap[this.interval.unit];
-            this.stockData = this.stockDataService.getStockIntervalDetails(this.symbol, this.range, intervalInMinutes);
-        }
-    }
-
-    public itemColor = (args: any) => {
-        if (args.index === 0) {
-            return '#5CB85C';
-        }
-
-        const data = args.series.data;
-        const current: StockIntervalDetails = data[args.index];
-        const previous: StockIntervalDetails = data[args.index - 1];
-
-        return current.volume >= previous.volume ? '#5CB85C' : '#FF6358';
     }
 }

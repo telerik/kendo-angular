@@ -2,8 +2,21 @@
     <div class="row py-4 d-flex justify-content-between align-items-center">
         <div class="col col-4 d-flex daterange-input-wrap">
             <kendo-daterange>
-                <kendo-dateinput kendoDateRangeStartInput [value]="range.start" (valueChange)="handleRangeChange($event, range.end)"></kendo-dateinput>
-                <kendo-dateinput kendoDateRangeEndInput [value]="range.end" (valueChange)="handleRangeChange(range.start, $event)"></kendo-dateinput>
+                <kendo-dateinput
+                    kendoDateRangeStartInput
+                    [autoCorrectOn]="'change'"
+                    [(value)]="range.start"
+                    (valueChange)="handleRangeChange($event, range.end)"
+                >
+                </kendo-dateinput>
+                <kendo-dateinput
+                    kendoDateRangeEndInput
+                    [autoCorrectOn]="'change'"
+                    [(value)]="range.end"
+                    (valueChange)="handleRangeChange(range.start, $event)"
+                    [max]="calendarMax"
+                >
+                </kendo-dateinput>
             </kendo-daterange>
         </div>
 
@@ -65,7 +78,7 @@
             <app-stock-details
                 [chartType]="chartType"
                 [interval]="selectedInterval?.interval"
-                [range]="range"
+                [range]="normalizedRange"
                 [symbol]="stockDataService.selectedStock?.symbol"
             >
             </app-stock-details>

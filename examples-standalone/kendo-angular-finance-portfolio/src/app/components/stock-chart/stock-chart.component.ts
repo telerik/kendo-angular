@@ -6,9 +6,13 @@ import { Interval } from '../../models';
 import { StockDataService } from '../../services/stock-data.service';
 
 const normalizeSelectionRange = (start: Date, end: Date): SelectionRange => {
+    if (!(start && end)) {
+        return { start: null, end: null };
+    }
+
     const isTodaySelected = isEqual(getDate(end), getDate(new Date()));
 
-    const normalizedStart = isTodaySelected ? addDays(start, -1) : getDate(start);
+    const normalizedStart = getDate(start);
     const normalizedEnd = isTodaySelected ? new Date() : new Date(end.getFullYear(), end.getMonth(), end.getDate(), 23, 59, 59, 999);
 
     return {
@@ -23,7 +27,9 @@ const normalizeSelectionRange = (start: Date, end: Date): SelectionRange => {
     styleUrls: ['./stock-chart.component.scss']
 })
 export class StockChartComponent {
-    public range: SelectionRange = normalizeSelectionRange(new Date(), new Date());
+    public range: SelectionRange = { start: null, end: null };
+    public normalizedRange: SelectionRange = { start: addDays(new Date(), -1), end: new Date() };
+    public calendarMax = new Date();
 
     public timeFilters: Array<{ name: string, duration: number }> = [
         { name: '1H', duration: MS_PER_DAY / 24 },
@@ -61,14 +67,19 @@ export class StockChartComponent {
         }
 
         this.activeTimeFilter = duration;
+        this.range = { start: null, end: null };
 
-        this.range = {
+        this.normalizedRange = {
             start: new Date(new Date().getTime() - duration),
             end: new Date()
         };
     }
 
     public handleRangeChange(start: Date, end: Date): void {
-        this.range = normalizeSelectionRange(start, end);
+        if (start && end) {
+            this.activeTimeFilter = null;
+        }
+
+        this.normalizedRange = normalizeSelectionRange(start, end);
     }
 }
