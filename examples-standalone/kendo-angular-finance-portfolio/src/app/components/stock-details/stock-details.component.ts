@@ -1,6 +1,7 @@
 import { Component, ViewEncapsulation, Input, SimpleChanges, OnChanges } from '@angular/core';
 import { SelectionRange } from '@progress/kendo-angular-dateinputs';
 import { StockDataService } from 'src/app/services/stock-data.service';
+import { PlotBand } from '@progress/kendo-angular-charts';
 
 import { StockIntervalDetails, Interval, IntervalUnitsMap } from 'src/app/models';
 
@@ -34,6 +35,7 @@ export class StockDetailsComponent implements OnChanges {
         low: (value: number[]) => Math.min(...value),
         volume: (value: number[]) => value.reduce((total, current) => total + current, 0)
     };
+    public categoryPlotBands: PlotBand[];
 
     public get currency(): string {
         return currencies[this.stockDataService.selectedCurrency];
@@ -52,6 +54,7 @@ export class StockDetailsComponent implements OnChanges {
             const intervalInMinutes = this.interval.step * IntervalUnitsMap[this.interval.unit];
             this.stockData = this.stockDataService.getStockIntervalDetails(this.symbol, this.range, intervalInMinutes);
             this.configureVolumeValueAxisHeight();
+            this.composeCategoryPlotBands();
         }
     }
 
@@ -70,5 +73,19 @@ export class StockDetailsComponent implements OnChanges {
         // setting the valueAxis height of the column chart to four times the height of the largest `volume` value
         // (contains the column series in just one fourth of the chart area)
         this.volumeValueAxisMax = Math.max(...this.stockData.map(stock => stock.volume)) * 4;
+    }
+
+    private composeCategoryPlotBands(): void {
+        this.categoryPlotBands = this.stockData.reduce((bands, current, index, allStocks) => {
+            bands.push({
+                from: current.date,
+                to: (allStocks[index + 1] || current).date,
+                color: index % 2 !== 0 ? 'white' : 'lightgrey',
+                // keep the opacity low to avoid hiding the majorGridLines of the value axis
+                opacity: 0.2
+            } as PlotBand);
+
+            return bands;
+        }, [] as PlotBand[]);
     }
 }

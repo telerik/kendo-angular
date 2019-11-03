@@ -29,7 +29,7 @@ const normalizeSelectionRange = (start: Date, end: Date): SelectionRange => {
 })
 export class StockChartComponent {
     public range: SelectionRange = { start: null, end: null };
-    public normalizedRange: SelectionRange = { start: addDays(new Date(), -1), end: new Date() };
+    public normalizedRange: SelectionRange = { start: addDays(new Date(), -4), end: new Date() };
     public calendarMax = new Date();
 
     public timeFilters: Array<{ name: string, duration: number }> = [
@@ -40,7 +40,7 @@ export class StockChartComponent {
         { name: '4D', duration: MS_PER_DAY * 4 },
         { name: '1W', duration: MS_PER_DAY * 7 },
     ];
-    public activeTimeFilter = this.timeFilters[3].duration;
+    public activeTimeFilter = this.timeFilters[4].duration;
 
     public intervals: Array<{ name: string, interval: Interval, duration: number }> = [
         { name: '5M', interval: { unit: 'minutes', step: 5 }, duration: MS_PER_DAY / 24 / 12 },
