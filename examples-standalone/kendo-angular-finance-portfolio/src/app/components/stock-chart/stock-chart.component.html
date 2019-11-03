@@ -42,6 +42,7 @@
                 [textField]="'name'"
                 [valueField]="'interval'"
                 [(value)]="selectedInterval"
+                [itemDisabled]="disableIncompatibleIntervals"
             >
                 <ng-template kendoDropDownListValueTemplate let-dataItem>
                     <span class="service-category"> Interval: {{ dataItem?.name }}</span>

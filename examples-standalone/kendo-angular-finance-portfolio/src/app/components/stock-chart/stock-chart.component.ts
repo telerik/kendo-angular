@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { MS_PER_DAY, getDate, addDays, isEqual } from '@progress/kendo-date-math';
 import { SelectionRange } from '@progress/kendo-angular-dateinputs';
+import { ItemArgs } from '@progress/kendo-angular-dropdowns';
 
 import { Interval } from '../../models';
 import { StockDataService } from '../../services/stock-data.service';
@@ -41,16 +42,16 @@ export class StockChartComponent {
     ];
     public activeTimeFilter = this.timeFilters[3].duration;
 
-    public intervals: Array<{ name: string, interval: Interval }> = [
-        { name: '5M', interval: { unit: 'minutes', step: 5 } },
-        { name: '15M', interval: { unit: 'minutes', step: 15 } },
-        { name: '30M', interval: { unit: 'minutes', step: 30 } },
-        { name: '1H', interval: { unit: 'hours', step: 1 } },
-        { name: '4H', interval: { unit: 'hours', step: 4 } },
-        { name: '1D', interval: { unit: 'days', step: 1 } },
-        { name: '1W', interval: { unit: 'weeks', step: 1 } }
+    public intervals: Array<{ name: string, interval: Interval, duration: number }> = [
+        { name: '5M', interval: { unit: 'minutes', step: 5 }, duration: MS_PER_DAY / 24 / 12 },
+        { name: '15M', interval: { unit: 'minutes', step: 15 }, duration: MS_PER_DAY / 24 / 4 },
+        { name: '30M', interval: { unit: 'minutes', step: 30 }, duration: MS_PER_DAY / 24 / 2 },
+        { name: '1H', interval: { unit: 'hours', step: 1 }, duration: MS_PER_DAY / 24 },
+        { name: '4H', interval: { unit: 'hours', step: 4 }, duration: MS_PER_DAY / 6 },
+        { name: '1D', interval: { unit: 'days', step: 1 }, duration: MS_PER_DAY },
+        { name: '1W', interval: { unit: 'weeks', step: 1 }, duration: MS_PER_DAY * 7 }
     ];
-    public selectedInterval: { name: string, interval: Interval } = this.intervals[3];
+    public selectedInterval: { name: string, interval: Interval, duration: number } = this.intervals[3];
 
     public chartType: 'candle' | 'line' | 'area' = 'candle';
     public charts: Array<{ text: string, value: string }> = [
@@ -59,7 +60,13 @@ export class StockChartComponent {
         { text: 'Area', value: 'area' }
     ];
 
+    private displayedDuration: number = this.activeTimeFilter;
+
     constructor(public stockDataService: StockDataService) { }
+
+    public disableIncompatibleIntervals = (args: ItemArgs): boolean => {
+        return args.dataItem.duration > this.displayedDuration;
+    }
 
     public onTimeFilterClick(duration: number): void {
         if (this.activeTimeFilter === duration) {
@@ -73,13 +80,26 @@ export class StockChartComponent {
             start: new Date(new Date().getTime() - duration),
             end: new Date()
         };
+
+        this.displayedDuration = duration;
+        this.selectFirstCompatibleInterval(duration);
     }
 
     public handleRangeChange(start: Date, end: Date): void {
+        this.normalizedRange = normalizeSelectionRange(start, end);
+
         if (start && end) {
             this.activeTimeFilter = null;
+            this.displayedDuration = this.normalizedRange.end.getTime() - this.normalizedRange.start.getTime();
+            this.selectFirstCompatibleInterval(this.displayedDuration);
+        }
+    }
+
+    public selectFirstCompatibleInterval(displayedDuration: number): void {
+        if (displayedDuration >= this.selectedInterval.duration) {
+            return;
         }
 
-        this.normalizedRange = normalizeSelectionRange(start, end);
+        this.selectedInterval = this.intervals[0];
     }
 }
