@@ -8,9 +8,10 @@ import { RealTimeDataComponent } from './components/real-time-data/real-time-dat
 const routes: Routes = [
     { path: 'stocks', component: StocksComponent },
     { path: 'heatmap', component: HeatmapComponent },
-    { path: 'real-time', component: RealTimeDataComponent},
+    { path: 'real-time', component: RealTimeDataComponent },
     { path: 'profile', component: UserProfileComponent },
-    { path: '', redirectTo: '/stocks', pathMatch: 'full' }
+    { path: '', redirectTo: '/stocks', pathMatch: 'full' },
+    { path: '**', redirectTo: '/stocks', pathMatch: 'full' }
 ];
 
 @NgModule({

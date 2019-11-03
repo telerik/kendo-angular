@@ -1,39 +1,11 @@
 import { Component } from '@angular/core';
-import { MS_PER_DAY, getDate, addDays, addMonths } from '@progress/kendo-date-math';
+import { MS_PER_DAY, addDays, addMonths } from '@progress/kendo-date-math';
 import { SelectionRange } from '@progress/kendo-angular-dateinputs';
 import { ItemArgs } from '@progress/kendo-angular-dropdowns';
 
 import { Interval } from '../../models';
 import { StockDataService } from '../../services/stock-data.service';
-import { dateInRange } from '../../pipes/helpers';
-
-export const isDateInRange = (candidate: Date, min: Date, max: Date): boolean => (
-    !candidate || !((min && min > candidate) || (max && max < candidate))
-);
-
-const normalizeSelectionRange = (start: Date, end: Date, min: Date, max: Date): SelectionRange => {
-    if (!(start && end && isDateInRange(start, min, max) && isDateInRange(end, min, max))) {
-        return { start: null, end: null };
-    }
-
-    const normalizedStart = getDate(start);
-    const normalizedEnd = addDays(end, 1);
-
-    return {
-        start: dateInRange(normalizedStart, min, max),
-        end: dateInRange(normalizedEnd, min, max)
-    };
-};
-
-const rangeAndIntervalCompatible = (rangeDuration: number, intervalDuration: number) => {
-    // disallow the selection of intervals greater than the currently selected range
-    const intervalGreaterThanRange = intervalDuration > rangeDuration;
-
-    // disallow the selection of intervals smaller than 1 hour for ranges greater than 3 days
-    const intervalTooSmallForRange = rangeDuration > (MS_PER_DAY * 3) && intervalDuration < (MS_PER_DAY / 24);
-
-    return !intervalGreaterThanRange && !intervalTooSmallForRange;
-};
+import { normalizeSelectionRange, rangeAndIntervalCompatible } from '../../pipes/helpers';
 
 @Component({
     selector: 'app-stock-chart',
