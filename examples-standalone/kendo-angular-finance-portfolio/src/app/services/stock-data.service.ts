@@ -82,9 +82,9 @@ export class StockDataService {
         const minutesPerDay = 1440;
         const standingPoint = {
             close: stock.intraday[0],
-            volume: intervalInMinutes >= minutesPerDay ?
-                stock.volume * (intervalInMinutes / minutesPerDay) :
-                stock.volume / intervalInMinutes
+            volume: intervalInMinutes < minutesPerDay ?
+                stock.volume / (minutesPerDay / intervalInMinutes) :
+                stock.volume * (intervalInMinutes / minutesPerDay)
         };
 
         const intervalInMs = MS_PER_MINUTE * intervalInMinutes;
@@ -109,7 +109,7 @@ export class StockDataService {
                 close: Number(newPrice.toFixed(2)),
                 high: Number((high + (0.015 * high)).toFixed(2)),
                 low: Number((low - (0.015 * low)).toFixed(2)),
-                volume: this.getStocksTradeVolume(previousInterval.volume),
+                volume: this.getStocksTradeVolume(standingPoint.volume),
                 date: new Date(dateInMs)
             });
         }
@@ -118,8 +118,8 @@ export class StockDataService {
     }
 
     private getStocksTradeVolume(oldValue: number): number {
-        const coef = Number.parseFloat((Math.random() * 1).toFixed(2));
-        const newValue = Number.parseFloat((oldValue + (oldValue * coef / 100)).toFixed(0));
+        const coef = Number.parseFloat((Math.random()).toFixed(2));
+        const newValue = Number.parseFloat((oldValue + (oldValue * coef / 1.5)).toFixed(0));
         const diff = newValue - oldValue;
         const sign = Math.random() >= 0.5 ? 1 : -1;
 
