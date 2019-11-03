@@ -13,3 +13,19 @@ export const formatCurrency = (value: number): any => {
 
     return value;
 };
+
+export const dateInRange = (candidate: Date, min: Date, max: Date): Date => {
+    if (!candidate) {
+        return candidate;
+    }
+
+    if (min && candidate < min) {
+        return min;
+    }
+
+    if (max && candidate > max) {
+        return max;
+    }
+
+    return candidate;
+};

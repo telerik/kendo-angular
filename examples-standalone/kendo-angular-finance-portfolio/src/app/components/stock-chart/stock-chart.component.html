@@ -5,16 +5,19 @@
                 <kendo-dateinput
                     kendoDateRangeStartInput
                     [autoCorrectOn]="'change'"
-                    [(value)]="range.start"
+                    [min]="calendarMin"
+                    [max]="calendarMax"
+                    [(ngModel)]="range.start"
                     (valueChange)="handleRangeChange($event, range.end)"
                 >
                 </kendo-dateinput>
                 <kendo-dateinput
                     kendoDateRangeEndInput
                     [autoCorrectOn]="'change'"
-                    [(value)]="range.end"
-                    (valueChange)="handleRangeChange(range.start, $event)"
+                    [min]="calendarMin"
                     [max]="calendarMax"
+                    [(ngModel)]="range.end"
+                    (valueChange)="handleRangeChange(range.start, $event)"
                 >
                 </kendo-dateinput>
             </kendo-daterange>
