@@ -1,5 +1,4 @@
 import { Component, ViewEncapsulation, Input, SimpleChanges, OnChanges } from '@angular/core';
-import { PlotBand } from '@progress/kendo-angular-charts';
 import { SelectionRange } from '@progress/kendo-angular-dateinputs';
 import { StockDataService } from 'src/app/services/stock-data.service';
 
@@ -21,7 +20,6 @@ export class StockDetailsComponent implements OnChanges {
 
     public stockData: StockIntervalDetails[];
     public volumeValueAxisMax: number;
-    public categoryPlotBands: PlotBand[];
 
     public candleChartAggregate = {
         open: (value: number[]) => value[0],
@@ -31,47 +29,36 @@ export class StockDetailsComponent implements OnChanges {
         volume: (value: number[]) => value.reduce((total, current) => total + current, 0)
     };
 
+    private previousColumnChartItem: StockIntervalDetails;
+
     constructor(private stockDataService: StockDataService) { }
 
     public ngOnChanges(changes: SimpleChanges): void {
         if (changes.interval || changes.range || changes.symbol) {
-            if (!(this.range.start && this.range.end )) {
+            if (!(this.range.start && this.range.end)) {
                 return;
             }
 
             const intervalInMinutes = this.interval.step * IntervalUnitsMap[this.interval.unit];
             this.stockData = this.stockDataService.getStockIntervalDetails(this.symbol, this.range, intervalInMinutes);
-            this.configureChartLayout();
+            this.configureVolumeValueAxisHeight();
         }
     }
 
     public itemColor = (args: any) => {
-        if (args.index === 0) {
-            return '#5CB85C';
+        const current: StockIntervalDetails = args.dataItem;
+        const currentLargerThenPrev = !this.previousColumnChartItem || (current.volume >= this.previousColumnChartItem.volume);
+
+        if (current.volume) {
+            this.previousColumnChartItem = args.dataItem;
         }
 
-        const data = args.series.data;
-        const current: StockIntervalDetails = data[args.index];
-        const previous: StockIntervalDetails = data[args.index - 1];
-
-        return current.volume >= previous.volume ? '#5CB85C' : '#FF6358';
+        return currentLargerThenPrev ? '#5CB85C' : '#FF6358';
     }
 
-    public configureChartLayout(): void {
-        // setting the valueAxis height of the column chart to three times the height of the largest `volume` value
-        // (contains the column series in just one third of the chart area)
-        this.volumeValueAxisMax = Math.max(...this.stockData.map(stock => stock.volume)) * 3;
-
-        this.categoryPlotBands = this.stockData.reduce((bands, current, index, allStocks) => {
-            bands.push({
-                from: current.date,
-                to: (allStocks[index + 1] || current).date,
-                color: index % 2 !== 0 ? 'white' : 'lightgrey',
-                // keep the opacity low to avoid hiding the majorGridLines of the value axis
-                opacity: 0.2
-            } as PlotBand);
-
-            return bands;
-        }, [] as PlotBand[]);
+    public configureVolumeValueAxisHeight(): void {
+        // setting the valueAxis height of the column chart to four times the height of the largest `volume` value
+        // (contains the column series in just one fourth of the chart area)
+        this.volumeValueAxisMax = Math.max(...this.stockData.map(stock => stock.volume)) * 4;
     }
 }
