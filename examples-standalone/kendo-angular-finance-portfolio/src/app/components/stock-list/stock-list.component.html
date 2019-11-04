@@ -34,17 +34,9 @@
 
         <app-navigation class="col"></app-navigation>
 
-        <kendo-dropdownlist
-            class="dropdown-list-selection col-3"
-            [data]="stockServicesList"
-            [iconClass]="'k-i-arrow-chevron-down'"
-            [style.width.px]="250"
-            [value]="'Financial Services'"
-        >
-            <ng-template kendoDropDownListValueTemplate let-dataItem>
-                Sector: <span class="service-category">{{ dataItem }}</span>
-            </ng-template>
-        </kendo-dropdownlist>
+        <div class="col-3">
+            <!-- filter drop-down placeholder -->
+        </div>
     </div>
 
     <div class="row">
