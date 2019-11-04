@@ -18,11 +18,6 @@ import { Subscription } from 'rxjs';
 export class StockListComponent implements OnDestroy {
     public selectedRows: Array<string>;
 
-    public stockServicesList: Array<string> = [
-        'Financial Services',
-        'Real Estate'
-    ];
-
     public uncategorizedSymbols: Array<string>;
 
     public sort: SortDescriptor[] = [];
