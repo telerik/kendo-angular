@@ -2,7 +2,7 @@
 
 # Using Kendo UI for Angular
 
-This Kendo UI for Angular sample project demonstrates how to use [Kendo UI for Angular components](https://www.telerik.com/kendo-angular-ui/components) within a finance prototype application and visualize data.
+This Kendo UI for Angular sample project demonstrates how to use [Kendo UI for Angular components](https://www.telerik.com/kendo-angular-ui/components) within a finance prototype application and visualize data. Currently, [the example is deployed on GitHub pages](https://telerik.github.io/kendo-angular/finance-portfolio).
 
 Used Kendo UI for Angular Components:
  - [Grid Component](https://www.telerik.com/kendo-angular-ui/components/grid/)
