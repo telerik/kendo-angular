@@ -3,15 +3,15 @@ import { GridDataResult, PageChangeEvent } from '@progress/kendo-angular-grid';
 import { StockDataService } from 'src/app/services/stock-data.service';
 
 @Component({
-  selector: 'app-real-time-data',
-  templateUrl: './real-time-data.component.html',
-  styleUrls: ['./real-time-data.component.scss'],
-  encapsulation: ViewEncapsulation.None
+    selector: 'app-real-time-data',
+    templateUrl: './real-time-data.component.html',
+    styleUrls: ['./real-time-data.component.scss'],
+    encapsulation: ViewEncapsulation.None
 })
 export class RealTimeDataComponent implements OnInit, OnDestroy {
     public gridView: GridDataResult;
     public data: any[];
-    public pageSize = 100;
+    public pageSize = 48;
     public skip = 0;
     private interval: any;
 
@@ -21,14 +21,14 @@ export class RealTimeDataComponent implements OnInit, OnDestroy {
     }
 
     public ngOnInit() {
-      this.interval = setInterval(() => {
-        this.data = this.data.map(item => {
-          const change = this.getChange();
-          item.change = change;
-          item.price = item.price + change;
-          return item;
-        });
-      }, 1000);
+        this.interval = setInterval(() => {
+            this.data = this.data.map(item => {
+                const change = this.getChange();
+                item.change = change;
+                item.price = item.price + change;
+                return item;
+            });
+        }, 1500);
     }
 
     public ngOnDestroy() {
@@ -53,20 +53,30 @@ export class RealTimeDataComponent implements OnInit, OnDestroy {
         let lastSymbol = '';
 
         const createSymbol = () => {
-          lastSymbol = '    '.split('').map(char => letters[Math.floor(Math.random() * 26)]).join('');
-          return lastSymbol;
+            lastSymbol = '    '.split('').map(char => letters[Math.floor(Math.random() * 26)]).join('');
+            return lastSymbol;
         };
 
-        return Array(count).fill({}).map((_, idx) => ({
-            id: idx + 1,
-            symbol: createSymbol(),
-            name: lastSymbol + ' Inc.',
-            currency: this.service.selectedCurrency,
-            price: Math.random() * 100 + 10,
-            change: this.getChange(),
-            stock_exchange_long: 'New York Stock Exchange',
-            stock_exchange_short: 'NYSE'
-        }));
+        return Array(count).fill({}).map((_, idx) => {
+            const price = Math.random() * 100 + 10;
+
+            return {
+                id: idx + 1,
+                symbol: createSymbol(),
+                name: lastSymbol + ' Inc.',
+                currency: this.service.selectedCurrency,
+                price,
+                change: this.getChange(),
+                stock_exchange_long: 'New York Stock Exchange',
+                stock_exchange_short: 'NYSE',
+                timezone: 'EDT',
+                timezone_name: 'America/New_York',
+                year_high: (price + price / 3).toFixed(2),
+                year_low: (price - price / 3).toFixed(2),
+                volume: (21774241 * Math.random() * 50).toFixed(0),
+                market_cap: (229956956 * Math.random() * 50).toFixed(0)
+            };
+        });
     }
 
     private getChange = () => {
