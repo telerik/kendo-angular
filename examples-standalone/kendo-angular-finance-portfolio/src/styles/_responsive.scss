@@ -1,0 +1,47 @@
+@media screen and (max-width: 992px) {
+    .dropdown-list-selection {
+        width: 260px !important;
+        max-width: 100%;
+        margin-top: 10px;
+    }
+
+    .scale-wrap,
+    .scale-blocks,
+    .user-data,
+    .daterange-input-wrap {
+        display: none !important;
+    }
+
+    app-navigation {
+        flex-grow: 0 !important;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .dropdown-list-selection {
+        margin-top: 0;
+    }
+
+    .k-button-group,
+    .profile-wrapper {
+        display: none;
+    }
+
+    .header-title {
+        font-size: 1.8rem;
+    }
+}
+
+@media screen and (max-width: 769px) {
+    .dropdownlist-add-new {
+        padding-left: 16px !important;
+    }
+
+    .k-button-group {
+        margin-top: 10px;
+    }
+
+    .profile-wrapper div:last-child {
+        display: none;
+    }
+}

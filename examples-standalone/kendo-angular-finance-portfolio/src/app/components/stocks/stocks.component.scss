@@ -1,0 +1,22 @@
+@import '../../../styles/variables';
+
+.k-splitter {
+    border-width: 0;
+
+    .k-splitbar {
+        box-shadow: $splitter-bar-boxshadow;
+        background: none;
+    }
+
+    .k-splitbar-draggable-vertical .k-resize-handle {
+        display: none;
+    }
+
+    .k-pane:not(.k-pane-static) {
+        background-color: $body-base-bg;
+    }
+
+    .k-pane.splitter-upper-pane {
+        background-color: $white;
+    }
+}
