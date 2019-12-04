@@ -5,7 +5,15 @@
   "projects": {
     "grid-charts-integration": {
       "projectType": "application",
-      "schematics": {},
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss",
+          "spec": false
+        },
+        "@schematics/angular:service": {
+          "spec": false
+        }
+      },
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
@@ -124,5 +132,11 @@
       }
     }
   },
-  "defaultProject": "grid-charts-integration"
+  "defaultProject": "grid-charts-integration",
+  "schematics": {
+    "@schematics/angular:component": {
+      "styleext": "scss",
+      "styletext": "scss"
+    }
+  }
 }

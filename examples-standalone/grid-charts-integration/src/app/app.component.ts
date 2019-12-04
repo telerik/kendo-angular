@@ -15,6 +15,7 @@ import { getChartStack, getChartType } from './utils';
 
 @Component({
     selector: "app-root",
+    styleUrls: ['./app.component.scss'],
     template: `
     <header>
         <nav class="navbar navbar-expand-lg py-3 header">
@@ -46,21 +47,73 @@ import { getChartStack, getChartType } from './utils';
             (selectionChange)="onSelectionChange()"
         >
             <kendo-grid-checkbox-column
-            [showSelectAll]="true"
+            [showSelectAll]="true" [width]="27"
             ></kendo-grid-checkbox-column>
-            <kendo-grid-column field="symbol" title="Symbol"></kendo-grid-column>
-            <kendo-grid-column field="price" title="Price"></kendo-grid-column>
-            <kendo-grid-column field="pe" title="PE Ratio"></kendo-grid-column>
-            <kendo-grid-column field="volume" title="Volume">
+
+            <kendo-grid-column class="grid-symbol-col" field="symbol" title="Symbol" [width]="80"></kendo-grid-column>
+            <kendo-grid-column field="name" title="Name" [width]="140"></kendo-grid-column>
+
+            <kendo-grid-column class="price-col" field="price" title="Price" [width]="80">
+                <ng-template kendoGridHeaderTemplate let-dataItem>
+                    Price
+                    <span class="grid-header-subtitle">(Intraday)</span>
+                </ng-template>
+                <ng-template kendoGridCellTemplate let-dataItem>
+                    {{ dataItem.price | currency: 'USD' }}
+                </ng-template>
+            </kendo-grid-column>
+
+            <kendo-grid-column field="day_change" title="Change" media="(min-width: 768px)">
+                <ng-template kendoGridCellTemplate let-dataItem>
+                    <span [ngClass]="{ 'grid-cell-positive' : dataItem.day_change > 0, 'grid-cell-negative' : dataItem.day_change < 0 }">
+                        {{ dataItem.day_change > 0 ? ('+' + dataItem.day_change) : dataItem.day_change }}
+                    </span>
+                </ng-template>
+            </kendo-grid-column>
+
+            <kendo-grid-column field="change_pct" title="%Change" media="(min-width: 768px)">
+                <ng-template kendoGridCellTemplate let-dataItem>
+                    <span [ngClass]="{ 'grid-cell-positive' : dataItem.change_pct > 0, 'grid-cell-negative' : dataItem.change_pct < 0 }">
+                        {{ dataItem.change_pct > 0 ? ('+' + dataItem.change_pct) : dataItem.change_pct }}%
+                    </span>
+                </ng-template>
+            </kendo-grid-column>
+
+            <kendo-grid-column field="volume" title="Volume" [width]="100" media="(min-width: 768px)">
                 <ng-template kendoGridCellTemplate let-dataItem>
                     {{ dataItem.volume | numberFormat }}
                 </ng-template>
             </kendo-grid-column>
-            <kendo-grid-column title="1 Day Price Chart">
-            <ng-template kendoGridCellTemplate let-dataItem>
-                <day-chart [data]="dataItem.intraday" [changePct]="dataItem.change_pct">
-                </day-chart>
-            </ng-template>
+
+            <kendo-grid-column class="grid-avg-volume-col" field="volume_avg" title="Avg Vol" media="(min-width: 768px)">
+                <ng-template kendoGridHeaderTemplate let-dataItem>
+                        Avg Vol
+                    <span class="grid-header-subtitle">(3 month)</span>
+                </ng-template>
+
+                <ng-template kendoGridCellTemplate let-dataItem>
+                    {{ dataItem.volume_avg | numberFormat }}
+                </ng-template>
+            </kendo-grid-column>
+
+            <kendo-grid-column field="market_cap" title="Market Cap" media="(min-width: 1200px)">
+                <ng-template kendoGridCellTemplate let-dataItem>
+                    {{dataItem.market_cap | numberFormat}}
+                </ng-template>
+            </kendo-grid-column>
+
+            <kendo-grid-column class="grid-pe-ratio-col" media="(min-width: 1200px)" field="pe" title="PE Ratio" >
+                <ng-template kendoGridHeaderTemplate let-dataItem>
+                        PE Ratio
+                    <span class="grid-header-subtitle">(TTM)</span>
+                </ng-template>
+            </kendo-grid-column>
+
+            <kendo-grid-column class="grid-one-day-chart" media="(min-width: 992px)" field="intraday" title="1 Day Chart" [width]="170" [sortable]="false">
+                <ng-template kendoGridCellTemplate let-dataItem>
+                    <day-chart [data]="dataItem.intraday" [changePct]="dataItem.change_pct">
+                    </day-chart>
+                </ng-template>
             </kendo-grid-column>
         </kendo-grid>
 
