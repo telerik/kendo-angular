@@ -20,6 +20,8 @@ import { WindowComponent } from './common/window.component';
 import { SelectSeriesComponent } from './common/select-series.component';
 import { SelectChartTypeComponent } from './common/select-chart-type.component';
 
+import { NumberFormatPipe } from './pipes/number-format.pipe';
+
 import 'hammerjs';
 
 @NgModule({
@@ -43,7 +45,8 @@ import 'hammerjs';
         DayChartComponent,
         WindowComponent,
         SelectSeriesComponent,
-        SelectChartTypeComponent
+        SelectChartTypeComponent,
+        NumberFormatPipe
     ],
     entryComponents: [
         StocksChartComponent,

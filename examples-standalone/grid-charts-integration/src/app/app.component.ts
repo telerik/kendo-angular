@@ -20,7 +20,7 @@ import { getChartStack, getChartType } from './utils';
         Select rows and right click the Grid in order to choose the desired Chart
         and generate it.
       </h3>
-  
+
       <kendo-grid
         [data]="gridData"
         [selectable]="selectableSettings"
@@ -36,7 +36,11 @@ import { getChartStack, getChartType } from './utils';
         <kendo-grid-column field="symbol" title="Symbol"></kendo-grid-column>
         <kendo-grid-column field="price" title="Price"></kendo-grid-column>
         <kendo-grid-column field="pe" title="PE Ratio"></kendo-grid-column>
-        <kendo-grid-column field="volume" title="Volume"></kendo-grid-column>
+        <kendo-grid-column field="volume" title="Volume">
+            <ng-template kendoGridCellTemplate let-dataItem>
+                {{ dataItem.volume | numberFormat }}
+            </ng-template>
+        </kendo-grid-column>
         <kendo-grid-column title="1 Day Price Chart">
           <ng-template kendoGridCellTemplate let-dataItem>
             <day-chart [data]="dataItem.intraday" [changePct]="dataItem.change_pct">
@@ -44,10 +48,10 @@ import { getChartStack, getChartType } from './utils';
           </ng-template>
         </kendo-grid-column>
       </kendo-grid>
-  
+
       <kendo-contextmenu #gridmenu [items]="items" (select)="onSelect($event)">
       </kendo-contextmenu>
-  
+
       <kendo-window
         title="Stock Portfolio Details"
         *ngIf="opened"
@@ -57,7 +61,7 @@ import { getChartStack, getChartType } from './utils';
         [width]="500"
         [height]="650"
       >
-        <window 
+        <window
           [data]="mySelection"
           [chartConfiguration]="chartConfiguration"
         ></window>
