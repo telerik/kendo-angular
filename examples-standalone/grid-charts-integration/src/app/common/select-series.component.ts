@@ -1,4 +1,5 @@
 import { Component, Input, Output, EventEmitter } from "@angular/core";
+import { tryParse } from 'selenium-webdriver/http';
 
 @Component({
     selector: "select-series",
@@ -17,7 +18,6 @@ import { Component, Input, Output, EventEmitter } from "@angular/core";
       >
       </kendo-multiselect>
     </div>
-
   `
 })
 export class SelectSeriesComponent {
