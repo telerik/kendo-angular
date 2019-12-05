@@ -1,202 +1,31 @@
-@import '../styles/variables';
+@import "../styles/variables";
 
-.dropdownlist-add-new {
-    padding-left: 0;
-    width: auto;
-
-    .k-dropdown-wrap {
-        border: 1px solid $border-base;
-        background: $white;
-        color: $text-base;
-        padding: $dropownlist-add-new-padding;
-        width: $dropownlist-add-new-width;
-        height: $dropownlist-add-new-height;
-        align-items: center;
-
-        .k-select {
-            .k-icon {
-                color: $text-base;
-
-                &.k-i-arrow-s {
-                    display: none;
-                }
-            }
-        }
-
-        .k-input {
-            .k-icon {
-                &.k-i-plus {
-                    margin-right: 2 * $margin-sm;
-                }
-            }
-        }
-
-        &:hover {
-            border-color: $hover-bg;
-            background-color: $hover-bg;
-        }
-    }
-}
-
-.btn-remove-stock.k-button.k-flat {
-    color: $negative-value;
-    &:focus:after {
-        box-shadow: none;
-    }
-}
-
-.k-dialog {
-    .k-header {
-        &, .k-icon {
-            font-weight: bold;
-        }
-        .k-icon {
-            font-size: 1.25rem;
-        }
-    }
-    .k-content.k-dialog-content {
-        display: flex;
-        align-items: center;
-    }
-    .k-dialog-buttongroup {
-        .k-button {
-            &:focus {
-                box-shadow: none;
-            }
-        }
-    }
-}
-
-.dropdown-list-selection {
-    align-items: center;
-
-    .k-dropdown-wrap {
-        color: $text-base;
-
-        .service-category {
-            font-weight: bold;
-            margin-left: $margin-sm;
-        }
-
-        .k-select .k-icon {
-            color: $text-base;
-        }
-
-    }
-}
-
-.k-grid {
-    margin-bottom: 100px;
-    border-width: 0;
-
-    td:first-child {
-        text-overflow: unset;
-    }
-
-    .k-grid-header .k-header {
-        vertical-align: middle;
-
-        .grid-header-subtitle {
-            display: block;
-            margin: 0;
-            font-weight: normal;
-            font-size: $grid-header-subtitle;
-        }
-
-        .k-link > .k-icon.k-i-sort-asc-sm,
-        .k-link > .k-icon.k-i-sort-desc-sm {
-            margin-left: $grid-sorting-icon-margin;
-        }
-
-        .grid-header-subtitle + .k-icon.k-i-sort-asc-sm,
-        .grid-header-subtitle + .k-i-sort-desc-sm {
-            position: absolute;
-            top: 50%;
-            margin-top: - #{$grid-sorting-icon-right-position / 2};
-            right: $grid-sorting-icon-right-position;
-        }
-    }
-
-
-    .k-grid-content tr td {
-        vertical-align: top;
-    }
-
-    tr.k-state-selected > td {
-        color: inherit;
-    }
-
-    tr.k-state-selected > td.symbol-col {
-        color: $grid-row-selection-bg;
-    }
-
-    .symbol-col {
-        color: $grid-row-selection-bg;
-    }
-
-    th,
-    .symbol-col,
-    .price-col {
-        font-weight: bold;
-    }
-
-    .grid-cell-positive {
-        color: $grid-cell-positive-color;
-    }
-
-    .grid-cell-negative {
-        color: $grid-cell-negative-color;
-    }
-}
-
-.header {
-  height: 140px;
-  background: url(../assets/header-bg.svg) bottom no-repeat;
-
-  h1 {
-    padding-top: .5rem;
-    font-family: Ubuntu,sans-serif;
-    font-weight: 200;
-    color: #fff;
-  }
-
-  .profile-wrapper {
-    outline: 0;
-    cursor: pointer;
-  }
-
-  .profile-image {
-    align-self: center;
-    width: 58px;
-    height: 58px;
-    border-radius: 50%;
-    background-image: url(../assets/user.jpg);
-    background-size: cover;
-    background-position: center;
-  }
-}
-
-main {
-  padding: 50px 0;
-  min-height: 100vh;
-  background-color: rgba(236,238,239,.5);
-}
-
-.footer {
+.redirect-buttons {
+  padding: $redirect-buttons-padding;
   position: fixed;
-  bottom: 0;
-  padding: 10px;
-  background: url(../assets/footer-bg.svg) 0 0/cover no-repeat #00f;
-  z-index: 999;
-  font-size: 16px;
-  color: #fff;
+  right: $redirect-buttons-right;
+  bottom: $redirect-buttons-bottom;
+  border-radius: $redirect-buttons-border-radius;
+  background-color: $white;
+  box-shadow: $redirect-buttons-shadow;
 
-  .progress-logo {
-    width: 100px;
-    height: 20px;
-    vertical-align: middle;
-    background-image: url(../assets/progress-logo.svg);
-    background-position: center;
-    background-repeat: no-repeat;
+  > a {
+    display: block;
+    margin-bottom: 15px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .k-icon {
+    margin: -3px 8px 0 0;
+  }
+}
+
+@media (max-width: 767px) {
+  .redirect-buttons {
+    position: relative;
+    right: auto;
   }
 }

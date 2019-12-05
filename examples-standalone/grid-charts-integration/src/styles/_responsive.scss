@@ -1,0 +1,15 @@
+@media screen and (max-width: 480px) {
+    .profile-wrapper {
+        display: none;
+    }
+
+    .header-title {
+        font-size: 1.8rem;
+    }
+}
+
+@media screen and (max-width: 769px) {
+    .profile-wrapper div:last-child {
+        display: none;
+    }
+}

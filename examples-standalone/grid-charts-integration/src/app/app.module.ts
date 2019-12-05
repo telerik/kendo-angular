@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, ElementRef } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
@@ -10,10 +10,14 @@ import { PopupModule } from '@progress/kendo-angular-popup';
 import { ContextMenuModule } from '@progress/kendo-angular-menu';
 import { DropDownsModule } from '@progress/kendo-angular-dropdowns';
 import { InputsModule } from '@progress/kendo-angular-inputs';
+import { NotificationModule, NOTIFICATION_CONTAINER } from '@progress/kendo-angular-notification';
 
 import { ScatterBubbleChartComponent } from './charts/scatter-bubble-chart.component';
 import { PieDonutStockComponent } from './charts/pie-donut-chart.component';
 import { AppComponent } from './app.component';
+import { HeaderComponent } from './components/header/header.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { StockListComponent } from './components/stock-list/stock-list.component';
 import { StocksChartComponent } from './charts/stocks-chart.component';
 import { DayChartComponent } from './charts/day-chart.component';
 import { WindowComponent } from './common/window.component';
@@ -23,6 +27,7 @@ import { SelectChartTypeComponent } from './common/select-chart-type.component';
 import { NumberFormatPipe } from './pipes/number-format.pipe';
 
 import 'hammerjs';
+
 
 @NgModule({
     imports: [
@@ -35,10 +40,13 @@ import 'hammerjs';
         DropDownsModule,
         PopupModule,
         ContextMenuModule,
-        InputsModule
+        InputsModule,
+        NotificationModule
     ],
     declarations: [
         AppComponent,
+        HeaderComponent,
+        FooterComponent,
         StocksChartComponent,
         PieDonutStockComponent,
         ScatterBubbleChartComponent,
@@ -46,7 +54,8 @@ import 'hammerjs';
         WindowComponent,
         SelectSeriesComponent,
         SelectChartTypeComponent,
-        NumberFormatPipe
+        NumberFormatPipe,
+        StockListComponent
     ],
     entryComponents: [
         StocksChartComponent,

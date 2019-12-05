@@ -31,6 +31,7 @@
     "@progress/kendo-angular-intl": "^2.0.0",
     "@progress/kendo-angular-l10n": "^2.0.0",
     "@progress/kendo-angular-menu": "^2.0.0",
+    "@progress/kendo-angular-notification": "^2.0.0",
     "@progress/kendo-angular-pdf-export": "^2.0.0",
     "@progress/kendo-angular-popup": "^3.0.0",
     "@progress/kendo-data-query": "^1.0.0",
