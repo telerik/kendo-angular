@@ -1,4 +1,4 @@
-import { NgModule, ElementRef } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
@@ -10,7 +10,6 @@ import { PopupModule } from '@progress/kendo-angular-popup';
 import { ContextMenuModule } from '@progress/kendo-angular-menu';
 import { DropDownsModule } from '@progress/kendo-angular-dropdowns';
 import { InputsModule } from '@progress/kendo-angular-inputs';
-import { NotificationModule } from '@progress/kendo-angular-notification';
 import { ButtonsModule } from '@progress/kendo-angular-buttons';
 
 import { ScatterBubbleChartComponent } from './charts/scatter-bubble/scatter-bubble-chart.component';
@@ -26,11 +25,12 @@ import { SelectSeriesComponent } from './common/select-series.component';
 import { SelectChartTypeComponent } from './common/select-chart-type.component';
 import { SelectChartTypeBtnGroupComponent } from './common/select-chart-type-btngroup.component';
 import { SelectSeriesBtnGroupComponent } from './common/select-series-btn-group.component';
+import { ActionButtonsComponent } from './components/action-buttons/action-buttons.component';
 
 import { NumberFormatPipe } from './pipes/number-format.pipe';
 
 import 'hammerjs';
-import { ActionButtonsComponent } from './components/action-buttons/action-buttons.component';
+
 @NgModule({
     imports: [
         BrowserModule,
@@ -43,7 +43,6 @@ import { ActionButtonsComponent } from './components/action-buttons/action-butto
         PopupModule,
         ContextMenuModule,
         InputsModule,
-        NotificationModule,
         ButtonsModule,
         ExcelModule
     ],
