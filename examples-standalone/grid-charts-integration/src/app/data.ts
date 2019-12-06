@@ -1,8 +1,8 @@
 export const series: Object[] = [
     { field: "price", title: "Price" },
     { field: "pe", title: "PE Ratio" },
-    { field: "volume", title: "Volumne" },
-    { field: "volume_avg", title: "Avg Volumne" },
+    { field: "volume", title: "Volume" },
+    { field: "volume_avg", title: "Avg Volume" },
     { field: "market_cap", title: "Market Cap" },
     { field: "day_change", title: "Day Change" },
     { field: "change_pct", title: "% Change" }
