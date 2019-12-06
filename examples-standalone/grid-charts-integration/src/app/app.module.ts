@@ -30,6 +30,7 @@ import { SelectSeriesBtnGroupComponent } from './common/select-series-btn-group.
 import { NumberFormatPipe } from './pipes/number-format.pipe';
 
 import 'hammerjs';
+import { ActionButtonsComponent } from './components/action-buttons/action-buttons.component';
 @NgModule({
     imports: [
         BrowserModule,
@@ -60,7 +61,8 @@ import 'hammerjs';
         NumberFormatPipe,
         StockListComponent,
         SelectChartTypeBtnGroupComponent,
-        SelectSeriesBtnGroupComponent
+        SelectSeriesBtnGroupComponent,
+        ActionButtonsComponent
     ],
     entryComponents: [
         StocksChartComponent,
