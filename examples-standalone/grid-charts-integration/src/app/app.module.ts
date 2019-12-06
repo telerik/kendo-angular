@@ -13,14 +13,14 @@ import { InputsModule } from '@progress/kendo-angular-inputs';
 import { NotificationModule } from '@progress/kendo-angular-notification';
 import { ButtonsModule } from '@progress/kendo-angular-buttons';
 
-import { ScatterBubbleChartComponent } from './charts/scatter-bubble-chart.component';
-import { PieDonutStockComponent } from './charts/pie-donut-chart.component';
+import { ScatterBubbleChartComponent } from './charts/scatter-bubble/scatter-bubble-chart.component';
+import { PieDonutStockComponent } from './charts/pie-donut/pie-donut-chart.component';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { StockListComponent } from './components/stock-list/stock-list.component';
-import { StocksChartComponent } from './charts/stocks-chart.component';
-import { DayChartComponent } from './charts/day-chart.component';
+import { StocksChartComponent } from './charts/common/stocks-chart.component';
+import { DayChartComponent } from './charts/day/day-chart.component';
 import { WindowComponent } from './common/window.component';
 import { SelectSeriesComponent } from './common/select-series.component';
 import { SelectChartTypeComponent } from './common/select-chart-type.component';
