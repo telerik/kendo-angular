@@ -17,34 +17,38 @@ export const seriesTypes: any = {
 };
 
 export const menuItems: Object[] = [
-    {
-      text: "Bar",
-      items: [{ text: "Bar" }, { text: "Stack Bar" }, { text: "100% Stack Bar" }]
-    },
-    {
-      text: "Column",
-      items: [
-        { text: "Column" },
-        { text: "Stack Column" },
-        { text: "100% Stack Column" }
-      ]
-    },
-    {
-      text: "Area",
-      items: [
-        { text: "Area" },
-        { text: "Stack Area" },
-        { text: "100% Stack Area" }
-      ]
-    },
-    {
-      text: "Pie",
-      items: [{ text: "Pie" }, { text: "Donut" }]
-    },
-    { text: "Line" },
-    { text: "Radar" },
-    { text: "Scatter" },
-    { text: "Bubble" }
+    {text:'Charts', items:[{
+        text: "Bar",
+        items: [{ text: "Bar" }, { text: "Stack Bar" }, { text: "100% Stack Bar" }]
+      },
+      {
+        text: "Column",
+        items: [
+          { text: "Column" },
+          { text: "Stack Column" },
+          { text: "100% Stack Column" }
+        ]
+      },
+      {
+        text: "Area",
+        items: [
+          { text: "Area" },
+          { text: "Stack Area" },
+          { text: "100% Stack Area" }
+        ]
+      },
+      {
+        text: "Pie",
+        items: [{ text: "Pie" }, { text: "Donut" }]
+      },
+      { text: "Line" },
+      { text: "Radar" },
+      { text: "Scatter" },
+      { text: "Bubble" }
+    ],
+    icon: 'k-icon k-i-validation-data'},
+    {text: 'Export Excel', icon:'k-icon k-i-excel'}
+
   ];
 
 export const stocksInPortfolio = [

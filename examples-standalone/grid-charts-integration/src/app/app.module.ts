@@ -3,14 +3,15 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 
-import { GridModule } from '@progress/kendo-angular-grid';
+import { GridModule, ExcelModule } from '@progress/kendo-angular-grid';
 import { ChartsModule } from '@progress/kendo-angular-charts';
 import { WindowModule } from '@progress/kendo-angular-dialog';
 import { PopupModule } from '@progress/kendo-angular-popup';
 import { ContextMenuModule } from '@progress/kendo-angular-menu';
 import { DropDownsModule } from '@progress/kendo-angular-dropdowns';
 import { InputsModule } from '@progress/kendo-angular-inputs';
-import { NotificationModule, NOTIFICATION_CONTAINER } from '@progress/kendo-angular-notification';
+import { NotificationModule } from '@progress/kendo-angular-notification';
+import { ButtonsModule } from '@progress/kendo-angular-buttons';
 
 import { ScatterBubbleChartComponent } from './charts/scatter-bubble-chart.component';
 import { PieDonutStockComponent } from './charts/pie-donut-chart.component';
@@ -29,10 +30,6 @@ import { SelectSeriesBtnGroupComponent } from './common/select-series-btn-group.
 import { NumberFormatPipe } from './pipes/number-format.pipe';
 
 import 'hammerjs';
-import { ButtonsModule } from '@progress/kendo-angular-buttons';
-
-
-
 @NgModule({
     imports: [
         BrowserModule,
@@ -46,7 +43,8 @@ import { ButtonsModule } from '@progress/kendo-angular-buttons';
         ContextMenuModule,
         InputsModule,
         NotificationModule,
-        ButtonsModule
+        ButtonsModule,
+        ExcelModule
     ],
     declarations: [
         AppComponent,

@@ -8,6 +8,7 @@
 </div>
 
 <kendo-grid
+    #grid
     [data]="gridData"
     [selectable]="selectableSettings"
     [height]="500"
@@ -85,9 +86,65 @@
             </day-chart>
         </ng-template>
     </kendo-grid-column>
+    <kendo-grid-excel fileName="Stocks.xlsx" [fetchData]="allData">
+        <kendo-excelexport-column field="symbol" title="Symbol"></kendo-excelexport-column>
+        <kendo-excelexport-column field="Name" title="Name"></kendo-excelexport-column>
+        <kendo-excelexport-column field="price_col" title="Price"></kendo-excelexport-column>
+        <kendo-excelexport-column field="day_change" title="Change"></kendo-excelexport-column>
+        <kendo-excelexport-column field="change_pct" title="% Change"></kendo-excelexport-column>
+        <kendo-excelexport-column field="volume" title="Volume"></kendo-excelexport-column>
+        <kendo-excelexport-column field="volume_avg" title="Average Volume"></kendo-excelexport-column>
+        <kendo-excelexport-column field="market_cap" title="Market Capital"></kendo-excelexport-column>
+        <kendo-excelexport-column field="pe" title="PE Ratio"></kendo-excelexport-column>
+    </kendo-grid-excel>
 </kendo-grid>
 
-<kendo-contextmenu #gridmenu [items]="items" (select)="onSelect($event)">
+<kendo-contextmenu #gridmenu [items]="items" (select)="onSelect($event)" (popupClose)="$event.preventDefault()">
+    <ng-template kendoMenuItemTemplate let-item="item">
+        <span *ngIf="item.text === 'Bar' || item.text === 'Column'" style="width: 25px; ">
+            <svg id="bar" viewBox="0 0 70 70">
+                <path d="M12,60H9V29h3ZM24,36H21V60h3ZM36,20H33V60h3ZM48,33H45V60h3ZM60,21H57V60h3ZM6,36H3V60H6Zm12-3H15V60h3Zm12-4H27V60h3Zm12-3H39V60h3Zm12,2H51V60h3ZM66,15H63V60h3Z"></path>
+            </svg>
+        </span>
+        <span *ngIf="item.text === 'Area'" style="width: 25px; ">
+            <svg id="area" viewBox="0 0 70 70">
+                <defs>
+                    <linearGradient id="gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stop-color="#ffab09"></stop>
+                        <stop offset="70%" stop-color="#ff6358"></stop>
+                        <stop offset="100%" stop-color="#dd3169"></stop>
+                    </linearGradient>
+                </defs>
+                <path d="M53.85,27.68l-13.05-9L28.74,33.72l-12.92-7L3,39.59V60H67V13.44ZM16.18,29.23l13.08,7L41.2,21.35l12.95,9L65,18.56v6L53.81,34.81l-13.06-6-12,13L15.91,36.89,5,43.26V40.41ZM53.73,41l-13-1L28.81,48.89l-12.9-4L5,50.38V45.57l11.09-6.47,13.19,5.07,12-13,12.94,6L65,27.27v6.19Z"></path>
+            </svg>
+        </span>
+        <span *ngIf="item.text === 'Pie'" style="width: 25px; ">
+            <svg id="pie" viewBox="0 0 70 70">
+                <path d="M39,6.55A25.76,25.76,0,0,1,61,44.3L39,31.57ZM7.53,49.34h0Zm54.95,0c-.31.59-.64,1.17-1,1.74a31,31,0,0,1-53,0c-.35-.57-.68-1.15-1-1.74h0A31,31,0,0,1,35,4l1,0v30Zm-53.21-1L34,34.05V6A29,29,0,0,0,9.26,48.33Zm50.5,1.75L35,35.78,10.24,50.08a29,29,0,0,0,49.52,0Z"></path>
+            </svg>
+        </span>
+        <span *ngIf="item.text === 'Line'" style="width: 25px; ">
+            <svg id="line" viewBox="0 0 70 70">
+                <path d="M66,10a4,4,0,0,0-4,4,4,4,0,0,0,.62,2.12l-6.71,8.39a3.9,3.9,0,0,0-4.54.5l-6.62-5.67A4,4,0,0,0,45,18a4,4,0,1,0-7,2.67L30.75,33.42a3.88,3.88,0,0,0-3.82.18l-7.14-6.35A4,4,0,0,0,20,26a4,4,0,1,0-7.36,2.16L5.87,37.48A4,4,0,0,0,4,37a4,4,0,1,0,3.35,1.84l6.78-9.32a3.9,3.9,0,0,0,4.55-.57L25.54,35A4,4,0,0,0,25,37a4,4,0,1,0,7.3-2.26l7.41-13A3.85,3.85,0,0,0,43.62,21l6.62,5.67A4,4,0,0,0,50,28a4,4,0,0,0,8,0,4,4,0,0,0-.62-2.12l6.71-8.39A4,4,0,0,0,66,18a4,4,0,0,0,0-8ZM4,43a2,2,0,1,1,2-2A2,2,0,0,1,4,43ZM14,26a2,2,0,1,1,2,2A2,2,0,0,1,14,26ZM29,39a2,2,0,1,1,2-2A2,2,0,0,1,29,39ZM41,20a2,2,0,1,1,2-2A2,2,0,0,1,41,20ZM54,30a2,2,0,1,1,2-2A2,2,0,0,1,54,30ZM66,16a2,2,0,1,1,2-2A2,2,0,0,1,66,16Zm0,27a4,4,0,0,0-2.68,1.05l-5.4-2.31a4,4,0,1,0-7.69.55l-6,3.41A4,4,0,0,0,37,48a4,4,0,0,0,.22,1.25l-5.88,2.52a4,4,0,0,0-5.63,1l-6.1-3A4,4,0,0,0,20,48a4,4,0,0,0-8,0,4,4,0,0,0,.24,1.31L6.17,53.65A4,4,0,1,0,8,57a4,4,0,0,0-.48-1.86L13.35,51a3.94,3.94,0,0,0,4.94.29L25,54.64c0,.12,0,.24,0,.36a4,4,0,1,0,7.65-1.62l5.67-2.43A4,4,0,0,0,45,48a3.91,3.91,0,0,0,0-.4L51.33,44a3.94,3.94,0,0,0,5.73-.42l5.16,2.21A4,4,0,0,0,62,47a4,4,0,1,0,4-4ZM4,59a2,2,0,1,1,2-2A2,2,0,0,1,4,59Zm12-9a2,2,0,1,1,2-2A2,2,0,0,1,16,50Zm13,7a2,2,0,1,1,2-2A2,2,0,0,1,29,57Zm12-7a2,2,0,1,1,2-2A2,2,0,0,1,41,50Zm13-7a2,2,0,1,1,2-2A2,2,0,0,1,54,43Zm12,6a2,2,0,1,1,2-2A2,2,0,0,1,66,49Z"></path>
+            </svg>
+        </span>
+        <span *ngIf="item.text === 'Radar'" style="width: 25px; ">
+            <svg id="radar" viewBox="0 0 70 70">
+                <path d="M35,2.67,7,18.83V51.17L35,67.33,63,51.17V18.83Zm1,2.89L60,19.41,52,24,36,14.79Zm1.9,32.27L40,39l-2.42,1.4ZM39,36.13l2-1.83v3Zm-1.69,6.79L42,40.2l8,4.62L36,52.87ZM43,38.46v-6l3-2.71,5-2.88V43.08ZM36,17.1l14,8.08-1.92,1.11-11.36.46L36,26.34ZM19,30l7.68,8.6L19,43.08Zm8.53,10.42,3.91,10.95L20,44.82Zm-5.77-16.3L34,17.1v9.24l-.36.21ZM34,5.56v9.24L18.79,23.58l-2.41-.48L10,19.41ZM9,21.14l4.22,2.44L17,27.81V44.24L9,48.86Zm1,29.44L18,46l14.48,8.36L34,58.59v5.85ZM36,64.44V55.21L52,46l8,4.62ZM61,48.86l-8-4.62V25.76l8-4.62Z"></path>
+            </svg>
+        </span>
+        <span *ngIf="item.text === 'Scatter'" style="width: 25px; ">
+            <svg id="scatter" viewBox="0 0 70 70">
+                <path d="M19,42a4,4,0,1,1,4-4A4,4,0,0,1,19,42Zm0-6a2,2,0,1,0,2,2A2,2,0,0,0,19,36Zm8-2a4,4,0,1,1,4-4A4,4,0,0,1,27,34Zm0-6a2,2,0,1,0,2,2A2,2,0,0,0,27,28Zm9-3a4,4,0,1,1,4-4A4,4,0,0,1,36,25Zm0-6a2,2,0,1,0,2,2A2,2,0,0,0,36,19ZM47,29a4,4,0,1,1,4-4A4,4,0,0,1,47,29Zm0-6a2,2,0,1,0,2,2A2,2,0,0,0,47,23ZM27,51a4,4,0,1,1,4-4A4,4,0,0,1,27,51Zm0-6a2,2,0,1,0,2,2A2,2,0,0,0,27,45ZM64,21a4,4,0,1,1,4-4A4,4,0,0,1,64,21Zm0-6a2,2,0,1,0,2,2A2,2,0,0,0,64,15ZM6,61a4,4,0,1,1,4-4A4,4,0,0,1,6,61Zm0-6a2,2,0,1,0,2,2A2,2,0,0,0,6,55Zm11-3a4,4,0,1,1,4-4A4,4,0,0,1,17,52Zm0-6a2,2,0,1,0,2,2A2,2,0,0,0,17,46Zm13-3a4,4,0,1,1,4-4A4,4,0,0,1,30,43Zm0-6a2,2,0,1,0,2,2A2,2,0,0,0,30,37Zm8-3a4,4,0,1,1,4-4A4,4,0,0,1,38,34Zm0-6a2,2,0,1,0,2,2A2,2,0,0,0,38,28ZM49,39a4,4,0,1,1,4-4A4,4,0,0,1,49,39Zm0-6a2,2,0,1,0,2,2A2,2,0,0,0,49,33Zm9-2a4,4,0,1,1,4-4A4,4,0,0,1,58,31Zm0-6a2,2,0,1,0,2,2A2,2,0,0,0,58,25Z"></path>
+            </svg>
+        </span>
+        <span *ngIf="item.text === 'Bubble'" style="width: 25px; ">
+            <svg id="bubble" viewBox="0 0 70 70">
+                <path d="M62.5,28A3.5,3.5,0,1,0,66,31.5,3.5,3.5,0,0,0,62.5,28Zm0,5A1.5,1.5,0,1,1,64,31.5,1.5,1.5,0,0,1,62.5,33ZM18,46a7,7,0,1,0,7,7A7,7,0,0,0,18,46Zm0,12a5,5,0,1,1,5-5A5,5,0,0,1,18,58Zm3-30.5A6.5,6.5,0,1,0,14.5,34,6.5,6.5,0,0,0,21,27.5Zm-11,0A4.5,4.5,0,1,1,14.5,32,4.51,4.51,0,0,1,10,27.5ZM21.5,37A3.5,3.5,0,1,0,25,40.5,3.5,3.5,0,0,0,21.5,37Zm0,5A1.5,1.5,0,1,1,23,40.5,1.5,1.5,0,0,1,21.5,42Zm32-23A4.5,4.5,0,1,0,49,14.5,4.5,4.5,0,0,0,53.5,19Zm0-7A2.5,2.5,0,1,1,51,14.5,2.5,2.5,0,0,1,53.5,12ZM53,31.76c0-.09,0-.17,0-.26A14.5,14.5,0,1,0,30,43.24c0,.09,0,.17,0,.26A14.5,14.5,0,1,0,53,31.76ZM46.5,55A2.5,2.5,0,1,1,49,52.5,2.5,2.5,0,0,1,46.5,55Zm4-.57A4.5,4.5,0,1,0,43.65,56,12.5,12.5,0,0,1,32,44.47a14.46,14.46,0,0,0,20.7-10.34,12.47,12.47,0,0,1-2.2,20.3Z"></path>
+            </svg>
+        </span>
+        <div class="menu-item">{{ item.text }}</div>
+    </ng-template>
 </kendo-contextmenu>
 
 <kendo-window
