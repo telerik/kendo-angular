@@ -12,19 +12,19 @@ import { DropDownsModule } from '@progress/kendo-angular-dropdowns';
 import { InputsModule } from '@progress/kendo-angular-inputs';
 import { ButtonsModule } from '@progress/kendo-angular-buttons';
 
-import { ScatterBubbleChartComponent } from './charts/scatter-bubble/scatter-bubble-chart.component';
-import { PieDonutStockComponent } from './charts/pie-donut/pie-donut-chart.component';
+import { ScatterBubbleChartComponent } from './components/charts/scatter-bubble/scatter-bubble-chart.component';
+import { PieDonutStockComponent } from './components/charts/pie-donut/pie-donut-chart.component';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { StockListComponent } from './components/stock-list/stock-list.component';
-import { StocksChartComponent } from './charts/common/stocks-chart.component';
-import { DayChartComponent } from './charts/day/day-chart.component';
-import { WindowComponent } from './common/window.component';
-import { SelectSeriesComponent } from './common/select-series.component';
-import { SelectChartTypeComponent } from './common/select-chart-type.component';
-import { SelectChartTypeBtnGroupComponent } from './common/select-chart-type-btngroup.component';
-import { SelectSeriesBtnGroupComponent } from './common/select-series-btn-group.component';
+import { StocksChartComponent } from './components/charts/common/stocks-chart.component';
+import { DayChartComponent } from './components/charts/day/day-chart.component';
+import { WindowComponent } from './components/common/window/window.component';
+import { SelectSeriesComponent } from './components/common/select-series/select-series.component';
+import { SelectChartTypeComponent } from './components/common/select-chart-type/select-chart-type.component';
+import { SelectChartTypeBtnGroupComponent } from './components/common/select-chart-type-btngroup/select-chart-type-btngroup.component';
+import { SelectSeriesBtnGroupComponent } from './components/common/select-series-btn-group/select-series-btn-group.component';
 import { ActionButtonsComponent } from './components/action-buttons/action-buttons.component';
 
 import { NumberFormatPipe } from './pipes/number-format.pipe';

@@ -1,0 +1,14 @@
+<div style="width: 100%; padding-top: 10px">
+	<span>Selected series:</span>
+	<kendo-multiselect
+		style="width: 100%"
+		[data]="data"
+		[valuePrimitive]="true"
+		[textField]="'title'"
+		[valueField]="'field'"
+		[value]="selectedSeries"
+		(valueChange)="onChange($event)"
+		[placeholder]="'Select the desired series'"
+	>
+	</kendo-multiselect>
+</div>
