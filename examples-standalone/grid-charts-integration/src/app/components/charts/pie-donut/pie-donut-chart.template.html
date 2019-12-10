@@ -5,7 +5,7 @@
             [categoryField]="'symbol'">
             <kendo-chart-series-item-tooltip>
                 <ng-template let-dataItem="dataItem" let-value="value">
-                    {{ dataItem.symbol + " " + getTitle(selectedSeries) + ": " + value }}
+                    {{dataItem.symbol}} {{getTitle(selectedSeries)}}: {{value}}
                 </ng-template>
             </kendo-chart-series-item-tooltip>
         </kendo-chart-series-item>

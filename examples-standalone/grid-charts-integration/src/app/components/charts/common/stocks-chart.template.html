@@ -3,12 +3,12 @@
         <kendo-chart #chart>
             <kendo-chart-title text="Details per Stock"></kendo-chart-title>
             <kendo-chart-series>
-                <kendo-chart-series-item *ngFor="let serie of selectedSeries" [type]="chartConfiguration.seriesType"
-                    [stack]="chartConfiguration.stack" [gap]="2" [spacing]="0.25" [data]="data" [field]="serie" [name]="getTitle(serie)"
+                <kendo-chart-series-item *ngFor="let series of selectedSeries" [type]="chartConfiguration.seriesType"
+                    [stack]="chartConfiguration.stack" [gap]="2" [spacing]="0.25" [data]="data" [field]="series" [name]="getTitle(series)"
                     [categoryField]="'symbol'">
                     <kendo-chart-series-item-tooltip>
                         <ng-template let-value="value">
-                            {{ getTitle(serie) + ": " + value }}
+                            {{getTitle(series)}}: {{value}}
                         </ng-template>
                     </kendo-chart-series-item-tooltip>
                 </kendo-chart-series-item>

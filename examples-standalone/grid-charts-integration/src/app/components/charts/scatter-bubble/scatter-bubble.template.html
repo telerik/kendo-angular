@@ -5,11 +5,11 @@
         </kendo-chart-x-axis-item>
     </kendo-chart-x-axis>
     <kendo-chart-series>
-        <kendo-chart-series-item *ngFor="let serie of selectedSeries" [data]="stockData" [type]="chartConfiguration.seriesType"
-            [xField]="'index'" [yField]="serie" [name]="getTitle(serie)" [sizeField]="serie" [negativeValues]="{ visible: true }">
+        <kendo-chart-series-item *ngFor="let series of selectedSeries" [data]="stockData" [type]="chartConfiguration.seriesType"
+            [xField]="'index'" [yField]="series" [name]="getTitle(series)" [sizeField]="series" [negativeValues]="{ visible: true }">
             <kendo-chart-series-item-tooltip>
                 <ng-template let-dataItem="dataItem" let-value="value">
-                    {{ dataItem.symbol + " " + getTitle(serie) + ": " + dataItem[serie] }}
+                    {{dataItem.symbol}} {{getTitle(series)}}: {{dataItem[series]}}
                 </ng-template>
             </kendo-chart-series-item-tooltip>
         </kendo-chart-series-item>
