@@ -1,4 +1,4 @@
-import { Component, Input } from "@angular/core";
+import { Component, Input, ViewEncapsulation } from "@angular/core";
 import { series, seriesTypes } from "../../../data";
 import { Stock, ChartConfig } from "../../../model";
 import { getChartStack, getTitle, getChartType } from "../../../utils";
@@ -6,7 +6,18 @@ import { saveAs } from '@progress/kendo-file-saver';
 
 @Component({
     selector: "stocks",
-    templateUrl: './stocks-chart.template.html'
+    templateUrl: './stocks-chart.template.html',
+    styles: [`
+    kendo-drawer-content { 
+        padding: 20px;
+        display: flex;
+    }
+
+    kendo-drawer{
+        padding: 20px;
+    }
+    `],
+    encapsulation: ViewEncapsulation.None
 })
 export class StocksChartComponent {
     @Input() public data: Stock[];
@@ -16,6 +27,7 @@ export class StocksChartComponent {
     public selectedSeries: string[] = ["price", "pe"];
     public seriesTypes: string[] = seriesTypes.simpleSeries;
     public getTitle = getTitle;
+    public expanded: boolean = false;
 
     public onValueChange(chartName: string) {
         this.chartConfiguration.stack = getChartStack(chartName);

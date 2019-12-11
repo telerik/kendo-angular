@@ -1,5 +1,14 @@
-<div class="row">
-    <div class="col-8">
+
+<kendo-drawer-container>
+    <kendo-drawer #drawer [mode]="'push'" position="end" [(expanded)]="expanded">
+        <ng-template kendoDrawerTemplate>
+            <h3> Configuration</h3>
+            <select-chart-type [data]="seriesTypes" [chartName]="chartConfiguration.chartName" (valueChange)="onValueChange($event)"></select-chart-type>
+            <select-series [data]="series" (valueChange)="selectedSeries = $event"></select-series>
+        </ng-template>
+    </kendo-drawer>
+
+    <kendo-drawer-content>
         <kendo-chart #chart>
             <kendo-chart-title text="Details per Stock"></kendo-chart-title>
             <kendo-chart-series>
@@ -26,24 +35,7 @@
             <kendo-chart-legend position="bottom" orientation="horizontal">
             </kendo-chart-legend>
         </kendo-chart>
-    </div>
-
-    <div class="col-4">
-        <select-series [data]="series" (valueChange)="selectedSeries = $event"></select-series>
-
-        <select-chart-type [data]="seriesTypes" [chartName]="chartConfiguration.chartName" (valueChange)="onValueChange($event)"></select-chart-type>
-
-        <button kendoButton [icon]="'image-export'" (click)="exportChart(chart)">
-            Export as Image
-        </button>
-    </div>
-</div>
-<div class="row">
-    <div class="col-12">
-        <select-series-btn-group [data]="series" (valueChange)="selectedSeries = $event">
-        </select-series-btn-group>
-
-        <select-chart-type-btn-group [data]="seriesTypes" [chartName]="chartConfiguration.chartName" (valueChange)="onValueChange($event)">
-        </select-chart-type-btn-group>
-    </div>
-</div>
+        <button kendoButton [iconClass]="'k-i-menu k-icon'" (click)="drawer.toggle()"></button>
+        <button kendoButton [iconClass]="'k-i-download k-icon'" (click)="exportChart(chart)"></button>
+    </kendo-drawer-content>
+</kendo-drawer-container>

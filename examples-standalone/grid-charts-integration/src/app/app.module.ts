@@ -23,13 +23,13 @@ import { DayChartComponent } from './components/charts/day/day-chart.component';
 import { WindowComponent } from './components/common/window/window.component';
 import { SelectSeriesComponent } from './components/common/select-series/select-series.component';
 import { SelectChartTypeComponent } from './components/common/select-chart-type/select-chart-type.component';
-import { SelectChartTypeBtnGroupComponent } from './components/common/select-chart-type-btngroup/select-chart-type-btngroup.component';
-import { SelectSeriesBtnGroupComponent } from './components/common/select-series-btn-group/select-series-btn-group.component';
 import { ActionButtonsComponent } from './components/action-buttons/action-buttons.component';
 
 import { NumberFormatPipe } from './pipes/number-format.pipe';
 
 import 'hammerjs';
+import { LayoutModule } from '@progress/kendo-angular-layout';
+
 
 @NgModule({
     imports: [
@@ -44,7 +44,8 @@ import 'hammerjs';
         ContextMenuModule,
         InputsModule,
         ButtonsModule,
-        ExcelModule
+        ExcelModule,
+        LayoutModule
     ],
     declarations: [
         AppComponent,
@@ -59,8 +60,6 @@ import 'hammerjs';
         SelectChartTypeComponent,
         NumberFormatPipe,
         StockListComponent,
-        SelectChartTypeBtnGroupComponent,
-        SelectSeriesBtnGroupComponent,
         ActionButtonsComponent
     ],
     entryComponents: [

@@ -30,6 +30,7 @@
     "@progress/kendo-angular-inputs": "^6.0.0",
     "@progress/kendo-angular-intl": "^2.0.0",
     "@progress/kendo-angular-l10n": "^2.0.0",
+    "@progress/kendo-angular-layout": "^4.1.5",
     "@progress/kendo-angular-menu": "^2.0.0",
     "@progress/kendo-angular-notification": "^2.0.0",
     "@progress/kendo-angular-pdf-export": "^2.0.0",

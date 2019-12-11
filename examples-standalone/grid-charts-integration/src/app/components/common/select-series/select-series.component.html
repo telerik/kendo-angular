@@ -1,7 +1,8 @@
-<div style="width: 100%; padding-top: 10px">
-	<span>Selected series:</span>
-	<kendo-multiselect
-		style="width: 100%"
+<label>
+    Series:
+    <kendo-multiselect
+        kendoMultiSelectSummaryTag
+        [autoClose]="false"
 		[data]="data"
 		[valuePrimitive]="true"
 		[textField]="'title'"
@@ -9,6 +10,10 @@
 		[value]="selectedSeries"
 		(valueChange)="onChange($event)"
 		[placeholder]="'Select the desired series'"
-	>
+    >
+        <ng-template kendoMultiSelectGroupTagTemplate let-dataItems>
+            <span class="k-icon k-i-arrow-s"></span>
+            {{ dataItems.length }} series selected
+        </ng-template>
 	</kendo-multiselect>
-</div>
+</label>
