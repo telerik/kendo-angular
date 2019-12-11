@@ -99,7 +99,7 @@
     </kendo-grid-excel>
 </kendo-grid>
 
-<kendo-contextmenu #gridmenu [items]="items" (select)="onSelect($event)">
+<kendo-contextmenu #gridmenu [items]="items" (select)="onSelect($event)" [openOnClick]="{toggle:'click'}">
     <ng-template kendoMenuItemTemplate let-item="item" let-index="index">
         <span *ngIf="item.iconClass" [ngClass]="item.iconClass" class="chart-png"></span>
         <div class="menu-item">{{ item.text }}</div>

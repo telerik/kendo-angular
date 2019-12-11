@@ -65,8 +65,7 @@ export class StockListComponent {
     public onSelect(e: ContextMenuSelectEvent): void {
         if (e.item.text === 'Export Excel') {
             this.grid.saveAsExcel();
-            this.gridContextMenu.hide();
-        } else if (e.item.text === 'Charts') {
+        } else if (e.item.text === 'Charts' || e.item.items !== undefined) {
             return
         } else {
             this.chartConfiguration = {
