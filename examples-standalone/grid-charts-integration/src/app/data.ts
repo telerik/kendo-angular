@@ -19,7 +19,8 @@ export const seriesTypes: any = {
 export const menuItems: Object[] = [
     {text:'Charts', items:[{
         text: "Bar",
-        items: [{ text: "Bar" }, { text: "Stack Bar" }, { text: "100% Stack Bar" }]
+        items: [{ text: "Bar" }, { text: "Stack Bar" }, { text: "100% Stack Bar" }],
+        iconClass: 'icon-bar'
       },
       {
         text: "Column",
@@ -27,7 +28,8 @@ export const menuItems: Object[] = [
           { text: "Column" },
           { text: "Stack Column" },
           { text: "100% Stack Column" }
-        ]
+        ],
+        iconClass: 'icon-column'
       },
       {
         text: "Area",
@@ -35,20 +37,21 @@ export const menuItems: Object[] = [
           { text: "Area" },
           { text: "Stack Area" },
           { text: "100% Stack Area" }
-        ]
+        ],
+        iconClass: 'icon-area'
       },
       {
         text: "Pie",
-        items: [{ text: "Pie" }, { text: "Donut" }]
+        items: [{ text: "Pie" }, { text: "Donut" }],
+        iconClass: 'icon-pie'
       },
-      { text: "Line" },
-      { text: "Radar" },
-      { text: "Scatter" },
-      { text: "Bubble" }
+      { text: "Line", iconClass: 'icon-line' },
+      { text: "Radar", iconClass: 'icon-radar' },
+      { text: "Scatter", iconClass: 'icon-scatter' },
+      { text: "Bubble", iconClass: 'icon-bubble' }
     ],
     icon: 'k-icon k-i-validation-data'},
     {text: 'Export Excel', icon:'k-icon k-i-excel'}
-
   ];
 
 export const stocksInPortfolio = [

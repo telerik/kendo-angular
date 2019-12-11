@@ -63,10 +63,11 @@ export class StockListComponent {
     }
 
     public onSelect(e: ContextMenuSelectEvent): void {
-        this.gridContextMenu.hide();
-
         if (e.item.text === 'Export Excel') {
             this.grid.saveAsExcel();
+            this.gridContextMenu.hide();
+        } else if (e.item.text === 'Charts') {
+            return
         } else {
             this.chartConfiguration = {
                 chartName: e.item.text,
@@ -76,6 +77,7 @@ export class StockListComponent {
             if (!this.opened) {
                 this.opened = true;
             }
+            this.gridContextMenu.hide();
         }
     }
 
@@ -89,5 +91,4 @@ export class StockListComponent {
     public close() {
         this.opened = false;
     }
-
 }

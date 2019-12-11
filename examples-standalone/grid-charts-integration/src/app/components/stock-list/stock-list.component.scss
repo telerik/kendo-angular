@@ -1,73 +1,124 @@
 @import '../../../styles/variables';
 
 .k-grid {
-  margin-bottom: 100px;
-  border-width: 0;
+    margin-bottom: 100px;
+    border-width: 0;
 
-  td:first-child {
-      text-overflow: unset;
-  }
+    td:first-child {
+        text-overflow: unset;
+    }
 
-  .k-grid-header .k-header {
-      vertical-align: middle;
+    .k-grid-header .k-header {
+        vertical-align: middle;
 
-      .grid-header-subtitle {
-          display: block;
-          margin: 0;
-          font-weight: normal;
-          font-size: $grid-header-subtitle;
-      }
+        .grid-header-subtitle {
+            display: block;
+            margin: 0;
+            font-weight: normal;
+            font-size: $grid-header-subtitle;
+        }
 
-      .k-link > .k-icon.k-i-sort-asc-sm,
-      .k-link > .k-icon.k-i-sort-desc-sm {
-          margin-left: $grid-sorting-icon-margin;
-      }
+        .k-link>.k-icon.k-i-sort-asc-sm,
+        .k-link>.k-icon.k-i-sort-desc-sm {
+            margin-left: $grid-sorting-icon-margin;
+        }
 
-      .grid-header-subtitle + .k-icon.k-i-sort-asc-sm,
-      .grid-header-subtitle + .k-i-sort-desc-sm {
-          position: absolute;
-          top: 50%;
-          margin-top: - #{$grid-sorting-icon-right-position / 2};
-          right: $grid-sorting-icon-right-position;
-      }
-  }
+        .grid-header-subtitle+.k-icon.k-i-sort-asc-sm,
+        .grid-header-subtitle+.k-i-sort-desc-sm {
+            position: absolute;
+            top: 50%;
+            margin-top: - #{$grid-sorting-icon-right-position / 2};
+            right: $grid-sorting-icon-right-position;
+        }
+    }
 
 
-  .k-grid-content tr td {
-      vertical-align: top;
-  }
+    .k-grid-content tr td {
+        vertical-align: top;
+    }
 
-  tr.k-state-selected > td {
-      color: inherit;
-  }
+    tr.k-state-selected>td {
+        color: inherit;
+    }
 
-  tr.k-state-selected > td.symbol-col {
-      color: $grid-row-selection-bg;
-  }
+    tr.k-state-selected>td.symbol-col {
+        color: $grid-row-selection-bg;
+    }
 
-  .symbol-col {
-      color: $grid-row-selection-bg;
-  }
+    .symbol-col {
+        color: $grid-row-selection-bg;
+    }
 
-  th,
-  .symbol-col,
-  .price-col {
-      font-weight: bold;
-  }
+    th,
+    .symbol-col,
+    .price-col {
+        font-weight: bold;
+    }
 
-  .grid-cell-positive {
-      color: $grid-cell-positive-color;
-  }
+    .grid-cell-positive {
+        color: $grid-cell-positive-color;
+    }
 
-  .grid-cell-negative {
-      color: $grid-cell-negative-color;
-  }
+    .grid-cell-negative {
+        color: $grid-cell-negative-color;
+    }
 }
 
 .k-custom-notification {
-  margin: $notification-margin 0;
+    margin: $notification-margin 0;
 }
 
 .menu-item {
-    margin-left: 4px;
+    margin-left: 10px;
+}
+
+.chart-png {
+    width: 20px;
+    height: 20px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-bottom: 3px;
+}
+
+.k-menu-group .k-item>.k-link {
+    padding: 3px 40px 3px 10px;
+}
+
+.k-animation-container .k-menu.k-context-menu .k-item>.k-state-active,
+.k-animation-container .k-item>.k-state-active {
+    background-color: initial;
+    color: initial;
+}
+
+.icon-bar {
+    background-image: url('../../../assets/charts-png/bar.png');
+}
+
+.icon-column {
+    background-image: url('../../../assets/charts-png/column.png');
+}
+
+.icon-area {
+    background-image: url('../../../assets/charts-png/area.png');
+}
+
+.icon-scatter {
+    background-image: url('../../../assets/charts-png/scatter.png');
+}
+
+.icon-bubble {
+    background-image: url('../../../assets/charts-png/bubble.png');
+}
+
+.icon-pie {
+    background-image: url('../../../assets/charts-png/pie.png');
+}
+
+.icon-radar {
+    background-image: url('../../../assets/charts-png/radar.png');
+}
+
+.icon-line {
+    background-image: url('../../../assets/charts-png/line.png');
 }
