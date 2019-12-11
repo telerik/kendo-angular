@@ -8,3 +8,16 @@ body {
   font-family: $roboto;
   background: $body-base-bg;
 }
+
+kendo-drawer{
+    padding: 20px;
+}
+
+.drawer-content{
+    display: flex;
+    padding: 20px;
+}
+
+.k-chart{
+    width: 100%;
+}

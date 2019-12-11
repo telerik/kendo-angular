@@ -1,4 +1,3 @@
-
 <kendo-drawer-container>
     <kendo-drawer #drawer [mode]="'push'" position="end" [(expanded)]="expanded">
         <ng-template kendoDrawerTemplate>
@@ -9,33 +8,35 @@
     </kendo-drawer>
 
     <kendo-drawer-content>
-        <kendo-chart #chart>
-            <kendo-chart-title text="Details per Stock"></kendo-chart-title>
-            <kendo-chart-series>
-                <kendo-chart-series-item *ngFor="let series of selectedSeries" [type]="chartConfiguration.seriesType"
-                    [stack]="chartConfiguration.stack" [gap]="2" [spacing]="0.25" [data]="data" [field]="series" [name]="getTitle(series)"
-                    [categoryField]="'symbol'">
-                    <kendo-chart-series-item-tooltip>
-                        <ng-template let-value="value">
-                            {{getTitle(series)}}: {{value}}
-                        </ng-template>
-                    </kendo-chart-series-item-tooltip>
-                </kendo-chart-series-item>
-            </kendo-chart-series>
+        <div class="drawer-content">
+            <kendo-chart #chart>
+                <kendo-chart-title text="Details per Stock"></kendo-chart-title>
+                <kendo-chart-series>
+                    <kendo-chart-series-item *ngFor="let series of selectedSeries" [type]="chartConfiguration.seriesType"
+                        [stack]="chartConfiguration.stack" [gap]="2" [spacing]="0.25" [data]="data" [field]="series"
+                        [name]="getTitle(series)" [categoryField]="'symbol'">
+                        <kendo-chart-series-item-tooltip>
+                            <ng-template let-value="value">
+                                {{getTitle(series)}}: {{value}}
+                            </ng-template>
+                        </kendo-chart-series-item-tooltip>
+                    </kendo-chart-series-item>
+                </kendo-chart-series>
 
-            <kendo-chart-category-axis>
-                <kendo-chart-category-axis-item [labels]="{ rotation: 'auto' }">
-                </kendo-chart-category-axis-item>
-            </kendo-chart-category-axis>
+                <kendo-chart-category-axis>
+                    <kendo-chart-category-axis-item [labels]="{ rotation: 'auto' }">
+                    </kendo-chart-category-axis-item>
+                </kendo-chart-category-axis>
 
-            <kendo-chart-value-axis>
-                <kendo-chart-value-axis-item [labels]="{ rotation: 'auto' }">
-                </kendo-chart-value-axis-item>
-            </kendo-chart-value-axis>
-            <kendo-chart-legend position="bottom" orientation="horizontal">
-            </kendo-chart-legend>
-        </kendo-chart>
-        <button kendoButton [iconClass]="'k-i-menu k-icon'" (click)="drawer.toggle()"></button>
-        <button kendoButton [iconClass]="'k-i-download k-icon'" (click)="exportChart(chart)"></button>
+                <kendo-chart-value-axis>
+                    <kendo-chart-value-axis-item [labels]="{ rotation: 'auto' }">
+                    </kendo-chart-value-axis-item>
+                </kendo-chart-value-axis>
+                <kendo-chart-legend position="bottom" orientation="horizontal">
+                </kendo-chart-legend>
+            </kendo-chart>
+            <button kendoButton [iconClass]="'k-i-menu k-icon'" (click)="drawer.toggle()"></button>
+            <button kendoButton [iconClass]="'k-i-download k-icon'" (click)="exportChart(chart)"></button>
+        </div>
     </kendo-drawer-content>
 </kendo-drawer-container>

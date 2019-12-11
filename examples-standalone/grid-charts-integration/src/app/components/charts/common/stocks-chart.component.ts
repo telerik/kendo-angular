@@ -6,18 +6,7 @@ import { saveAs } from '@progress/kendo-file-saver';
 
 @Component({
     selector: "stocks",
-    templateUrl: './stocks-chart.template.html',
-    styles: [`
-    kendo-drawer-content { 
-        padding: 20px;
-        display: flex;
-    }
-
-    kendo-drawer{
-        padding: 20px;
-    }
-    `],
-    encapsulation: ViewEncapsulation.None
+    templateUrl: './stocks-chart.template.html'
 })
 export class StocksChartComponent {
     @Input() public data: Stock[];
