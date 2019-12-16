@@ -1,4 +1,4 @@
-import { Component, Input, ViewEncapsulation } from "@angular/core";
+import { Component, Input } from "@angular/core";
 import { series, seriesTypes } from "../../../data";
 import { Stock, ChartConfig } from "../../../model";
 import { getChartStack, getTitle, getChartType } from "../../../utils";

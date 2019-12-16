@@ -29,8 +29,11 @@
                 <kendo-chart-legend position="right" orientation="vertical">
                 </kendo-chart-legend>
             </kendo-chart>
-            <button kendoButton [iconClass]="'k-i-menu k-icon'" (click)="drawer.toggle()"></button>
-            <button kendoButton [iconClass]="'k-i-download k-icon'" (click)="exportChart(chart)"></button>
+
+            <div class="window-icon-buttons">
+                <button kendoButton [iconClass]="'k-i-menu k-icon'" (click)="drawer.toggle()"></button>
+                <button kendoButton [iconClass]="'k-i-download k-icon'" (click)="exportChart(chart)"></button>
+            </div>
         </div>
     </kendo-drawer-content>
 </kendo-drawer-container>

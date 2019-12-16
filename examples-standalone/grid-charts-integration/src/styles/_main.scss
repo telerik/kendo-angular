@@ -9,15 +9,31 @@ body {
   background: $body-base-bg;
 }
 
-kendo-drawer{
+.k-drawer-content,
+.k-drawer-wrapper {
     padding: 20px;
 }
 
-.drawer-content{
-    display: flex;
-    padding: 20px;
+.k-drawer-content {
+    position: relative;
 }
 
-.k-chart{
-    width: 100%;
+.k-drawer-wrapper {
+    .k-multiselect {
+        .k-multiselect-wrap {
+            padding: 0;
+        }
+    }
+}
+
+.window-icon-buttons {
+    position: absolute;
+    top: 26px;
+    right: 35px;
+
+    > button {
+        &:first-child {
+            margin-right: 5px;
+        }
+    }
 }
