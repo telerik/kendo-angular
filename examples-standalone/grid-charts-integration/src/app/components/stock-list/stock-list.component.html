@@ -1,25 +1,16 @@
 <div class="k-custom-notification">
-  <div class="k-widget k-notification k-notification-info">
-    <div class="k-notification-wrap">
-      <span class="k-icon k-i-info"></span>
-      <div class="k-notification-content">Select rows and right click the Grid in order to choose the desired Chart and generate it.</div>
+    <div class="k-widget k-notification k-notification-info">
+        <div class="k-notification-wrap">
+            <span class="k-icon k-i-info"></span>
+            <div class="k-notification-content">Select rows and right click the Grid in order to choose the desired
+                Chart and generate it.</div>
+        </div>
     </div>
-  </div>
 </div>
 
-<kendo-grid
-    #grid
-    [data]="gridData"
-    [selectable]="selectableSettings"
-    [height]="500"
-    [kendoGridSelectBy]="selectBy"
-    [selectedKeys]="mySelection"
-    (cellClick)="onCellClick($event)"
-    (selectionChange)="onSelectionChange()"
->
-    <kendo-grid-checkbox-column
-    [showSelectAll]="true" [width]="30"
-    ></kendo-grid-checkbox-column>
+<kendo-grid #grid [data]="gridData" [selectable]="selectableSettings" [height]="500" [kendoGridSelectBy]="selectBy"
+    [selectedKeys]="mySelection" (cellClick)="onCellClick($event)" (selectionChange)="onSelectionChange()">
+    <kendo-grid-checkbox-column [showSelectAll]="true" [width]="30"></kendo-grid-checkbox-column>
 
     <kendo-grid-column class="grid-symbol-col" field="symbol" title="Symbol" [width]="80"></kendo-grid-column>
     <kendo-grid-column field="name" title="Name" [width]="140"></kendo-grid-column>
@@ -58,7 +49,7 @@
 
     <kendo-grid-column class="grid-avg-volume-col" field="volume_avg" title="Avg Vol" media="(min-width: 768px)">
         <ng-template kendoGridHeaderTemplate let-dataItem>
-                Avg Vol
+            Avg Vol
             <span class="grid-header-subtitle">(3 month)</span>
         </ng-template>
 
@@ -73,14 +64,15 @@
         </ng-template>
     </kendo-grid-column>
 
-    <kendo-grid-column class="grid-pe-ratio-col" media="(min-width: 1200px)" field="pe" title="PE Ratio" >
+    <kendo-grid-column class="grid-pe-ratio-col" media="(min-width: 1200px)" field="pe" title="PE Ratio">
         <ng-template kendoGridHeaderTemplate let-dataItem>
-                PE Ratio
+            PE Ratio
             <span class="grid-header-subtitle">(TTM)</span>
         </ng-template>
     </kendo-grid-column>
 
-    <kendo-grid-column class="grid-one-day-chart" media="(min-width: 992px)" field="intraday" title="1 Day Chart" [width]="170" [sortable]="false">
+    <kendo-grid-column class="grid-one-day-chart" media="(min-width: 992px)" field="intraday" title="1 Day Chart"
+        [width]="170" [sortable]="false">
         <ng-template kendoGridCellTemplate let-dataItem>
             <day-chart [data]="dataItem.intraday" [changePct]="dataItem.change_pct">
             </day-chart>
@@ -106,17 +98,7 @@
     </ng-template>
 </kendo-contextmenu>
 
-<kendo-window
-    title="Stock Portfolio Details"
-    *ngIf="opened"
-    (close)="close()"
-    [top]="150"
-    [minWidth]="250"
-    [width]="700"
-    [height]="550"
->
-    <window
-    [data]="mySelection"
-    [chartConfiguration]="chartConfiguration"
-    ></window>
+<kendo-window title="Stock Portfolio Details" *ngIf="opened" (close)="close()" [top]="150" [minWidth]="250" [width]="700"
+    [height]="550">
+    <window [data]="mySelection" [chartConfiguration]="chartConfiguration"></window>
 </kendo-window>

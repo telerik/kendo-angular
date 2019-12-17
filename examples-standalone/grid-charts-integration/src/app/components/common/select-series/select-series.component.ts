@@ -2,7 +2,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
     selector: 'select-series',
-	templateUrl: './select-series.component.html'
+    templateUrl: './select-series.component.html'
 })
 export class SelectSeriesComponent {
     @Input() public data: string[];

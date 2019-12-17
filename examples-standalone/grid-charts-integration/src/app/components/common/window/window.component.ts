@@ -3,7 +3,7 @@ import { Stock, ChartConfig } from '../../../model';
 
 @Component({
     selector: 'window',
-	templateUrl: './window.component.html'
+    templateUrl: './window.component.html'
 })
 export class WindowComponent {
     @Input() public data: Stock[];
@@ -25,7 +25,7 @@ export class WindowComponent {
         }
     }
 
-    public isSimpleChart(): boolean{
+    public isSimpleChart(): boolean {
         if (this.chartConfiguration.seriesType !== 'pie' && this.chartConfiguration.seriesType !== 'donut' &&
             this.chartConfiguration.seriesType !== 'scatter' && this.chartConfiguration.seriesType !== 'bubble') {
             return true;
