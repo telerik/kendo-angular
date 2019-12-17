@@ -1,8 +1,8 @@
-import { Component, Input } from "@angular/core";
+import { Component, Input } from '@angular/core';
 import { Stock, ChartConfig } from '../../../model';
 
 @Component({
-    selector: "window",
+    selector: 'window',
 	templateUrl: './window.component.html'
 })
 export class WindowComponent {

@@ -1,11 +1,11 @@
-import { Component, Input } from "@angular/core";
-import { Stock, ChartConfig } from "../../../model";
-import { series, seriesTypes } from "../../../data";
-import { getTitle, getChartType } from "../../../utils";
+import { Component, Input } from '@angular/core';
+import { Stock, ChartConfig } from '../../../model';
+import { series, seriesTypes } from '../../../data';
+import { getTitle, getChartType } from '../../../utils';
 import { saveAs } from '@progress/kendo-file-saver';
 
 @Component({
-    selector: "scatter-bubble-charts",
+    selector: 'scatter-bubble-charts',
     templateUrl: './scatter-bubble.template.html'
 })
 export class ScatterBubbleChartComponent {
@@ -19,7 +19,7 @@ export class ScatterBubbleChartComponent {
 
     public stockData: Stock[] = [];
     public series: Object[] = series;
-    public selectedSeries: string[] = ["price", "pe"];
+    public selectedSeries: string[] = ['price', 'pe'];
     public seriesTypes: string[] = seriesTypes.complexSeries;
     public getTitle = getTitle;
 

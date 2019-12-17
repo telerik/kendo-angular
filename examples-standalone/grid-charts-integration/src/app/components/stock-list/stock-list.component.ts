@@ -2,16 +2,16 @@ import {
     Component,
     ViewChild,
     ViewEncapsulation
-} from "@angular/core";
+} from '@angular/core';
 
 import { ContextMenuSelectEvent } from '@progress/kendo-angular-menu';
-import { Stock, ChartConfig } from "../../model";
-import { stocksInPortfolio } from "../../data";
+import { Stock, ChartConfig } from '../../model';
+import { stocksInPortfolio } from '../../data';
 
-import { ContextMenuComponent } from "@progress/kendo-angular-menu";
-import { SelectableSettings, CellClickEvent, GridComponent } from "@progress/kendo-angular-grid";
+import { ContextMenuComponent } from '@progress/kendo-angular-menu';
+import { SelectableSettings, CellClickEvent, GridComponent } from '@progress/kendo-angular-grid';
 
-import { menuItems } from "../../data";
+import { menuItems } from '../../data';
 import { getChartStack, getChartType } from '../../utils';
 
 @Component({
@@ -22,8 +22,8 @@ import { getChartStack, getChartType } from '../../utils';
 })
 export class StockListComponent {
 
-    @ViewChild("gridmenu", { static: false }) public gridContextMenu: ContextMenuComponent;
-    @ViewChild("grid", { static: false }) public grid: GridComponent;
+    @ViewChild('gridmenu', { static: false }) public gridContextMenu: ContextMenuComponent;
+    @ViewChild('grid', { static: false }) public grid: GridComponent;
     public items: Object[] = menuItems;
     public opened: boolean = false;
     public chartConfiguration: ChartConfig;
@@ -31,7 +31,7 @@ export class StockListComponent {
     public gridData: Stock[] = stocksInPortfolio;
     public selectableSettings: SelectableSettings = {
         checkboxOnly: false,
-        mode: "multiple"
+        mode: 'multiple'
     };
     public mySelection: Stock[] = stocksInPortfolio.slice(0, 4);
 
@@ -40,7 +40,7 @@ export class StockListComponent {
     }
 
     public onCellClick(e: CellClickEvent): void {
-        if (e.type === "contextmenu") {
+        if (e.type === 'contextmenu') {
             const originalEvent = e.originalEvent;
             originalEvent.preventDefault();
             this.gridContextMenu.show({

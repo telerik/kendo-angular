@@ -1,54 +1,54 @@
 export const series: Object[] = [
-    { field: "price", title: "Price" },
-    { field: "pe", title: "PE Ratio" },
-    { field: "volume", title: "Volume" },
-    { field: "volume_avg", title: "Avg Volume" },
-    { field: "market_cap", title: "Market Cap" },
-    { field: "day_change", title: "Day Change" },
-    { field: "change_pct", title: "% Change" }
+    { field: 'price', title: 'Price' },
+    { field: 'pe', title: 'PE Ratio' },
+    { field: 'volume', title: 'Volume' },
+    { field: 'volume_avg', title: 'Avg Volume' },
+    { field: 'market_cap', title: 'Market Cap' },
+    { field: 'day_change', title: 'Day Change' },
+    { field: 'change_pct', title: '% Change' }
 ];
 
 export const seriesTypes: any = {
     simpleSeries: [
-        "Bar", "Stack Bar", "100% Stack Bar", "Column", "Stack Column", "100% Stack Column", "Area", "Stack Area", "100% Stack Area", 'Line', "Radar"
+        'Bar', 'Stack Bar', '100% Stack Bar', 'Column', 'Stack Column', '100% Stack Column', 'Area', 'Stack Area', '100% Stack Area', 'Line', 'Radar'
     ],
-    complexSeries: ["Scatter", "Bubble"],
-    circularSeries: ["Pie", "Donut"]
+    complexSeries: ['Scatter', 'Bubble'],
+    circularSeries: ['Pie', 'Donut']
 };
 
 export const menuItems: Object[] = [
     {text:'Charts', items:[{
-        text: "Bar",
-        items: [{ text: "Bar" }, { text: "Stack Bar" }, { text: "100% Stack Bar" }],
+        text: 'Bar',
+        items: [{ text: 'Bar' }, { text: 'Stack Bar' }, { text: '100% Stack Bar' }],
         iconClass: 'icon-bar'
       },
       {
-        text: "Column",
+        text: 'Column',
         items: [
-          { text: "Column" },
-          { text: "Stack Column" },
-          { text: "100% Stack Column" }
+          { text: 'Column' },
+          { text: 'Stack Column' },
+          { text: '100% Stack Column' }
         ],
         iconClass: 'icon-column'
       },
       {
-        text: "Area",
+        text: 'Area',
         items: [
-          { text: "Area" },
-          { text: "Stack Area" },
-          { text: "100% Stack Area" }
+          { text: 'Area' },
+          { text: 'Stack Area' },
+          { text: '100% Stack Area' }
         ],
         iconClass: 'icon-area'
       },
       {
-        text: "Pie",
-        items: [{ text: "Pie" }, { text: "Donut" }],
+        text: 'Pie',
+        items: [{ text: 'Pie' }, { text: 'Donut' }],
         iconClass: 'icon-pie'
       },
-      { text: "Line", iconClass: 'icon-line' },
-      { text: "Radar", iconClass: 'icon-radar' },
-      { text: "Scatter", iconClass: 'icon-scatter' },
-      { text: "Bubble", iconClass: 'icon-bubble' }
+      { text: 'Line', iconClass: 'icon-line' },
+      { text: 'Radar', iconClass: 'icon-radar' },
+      { text: 'Scatter', iconClass: 'icon-scatter' },
+      { text: 'Bubble', iconClass: 'icon-bubble' }
     ],
     icon: 'k-icon k-i-validation-data'},
     {text: 'Export Excel', icon:'k-icon k-i-excel'}
@@ -56,8 +56,8 @@ export const menuItems: Object[] = [
 
 export const stocksInPortfolio = [
     {
-        symbol: "AAN",
-        name: "Aaron's, Inc.",
+        symbol: 'AAN',
+        name: 'Aaron\'s, Inc.',
         price: 76.61,
         day_change: -1.18,
         change_pct: -1.52,
@@ -147,8 +147,8 @@ export const stocksInPortfolio = [
         ]
     },
     {
-        symbol: "AAPL",
-        name: "Apple Inc.",
+        symbol: 'AAPL',
+        name: 'Apple Inc.',
         price: 246.58,
         day_change: 2.49,
         change_pct: 1.02,
@@ -238,8 +238,8 @@ export const stocksInPortfolio = [
         ]
     },
     {
-        symbol: "ACN",
-        name: "Accenture plc",
+        symbol: 'ACN',
+        name: 'Accenture plc',
         price: 183.07,
         day_change: -0.77,
         change_pct: -0.42,
@@ -329,8 +329,8 @@ export const stocksInPortfolio = [
         ]
     },
     {
-        symbol: "ADBE",
-        name: "Adobe Inc.",
+        symbol: 'ADBE',
+        name: 'Adobe Inc.',
         price: 270.98,
         day_change: 2.93,
         change_pct: 1.09,
@@ -420,8 +420,8 @@ export const stocksInPortfolio = [
         ]
     },
     {
-        symbol: "AGM",
-        name: "Federal Agricultural Mortgage Corporation",
+        symbol: 'AGM',
+        name: 'Federal Agricultural Mortgage Corporation',
         price: 84.57,
         day_change: 0.17,
         change_pct: 0.2,
@@ -495,8 +495,8 @@ export const stocksInPortfolio = [
         ]
     },
     {
-        symbol: "AMZN",
-        name: "Amazon.com, Inc.",
+        symbol: 'AMZN',
+        name: 'Amazon.com, Inc.',
         price: 1779.99,
         day_change: 17.78,
         change_pct: 1.01,
@@ -586,8 +586,8 @@ export const stocksInPortfolio = [
         ]
     },
     {
-        symbol: "ASML",
-        name: "ASML Holding N.V.",
+        symbol: 'ASML',
+        name: 'ASML Holding N.V.',
         price: 263.99,
         day_change: 1.26,
         change_pct: 0.48,
@@ -674,8 +674,8 @@ export const stocksInPortfolio = [
         ]
     },
     {
-        symbol: "AVGO",
-        name: "Broadcom Inc.",
+        symbol: 'AVGO',
+        name: 'Broadcom Inc.',
         price: 289.82,
         day_change: 5.87,
         change_pct: 2.07,
@@ -765,8 +765,8 @@ export const stocksInPortfolio = [
         ]
     },
     {
-        symbol: "BNPQY",
-        name: "BNP Paribas SA",
+        symbol: 'BNPQY',
+        name: 'BNP Paribas SA',
         price: 26.43,
         day_change: 0.43,
         change_pct: 1.65,
@@ -851,8 +851,8 @@ export const stocksInPortfolio = [
         ]
     },
     {
-        symbol: "CACC",
-        name: "Credit Acceptance Corporation",
+        symbol: 'CACC',
+        name: 'Credit Acceptance Corporation',
         price: 439.2,
         day_change: -0.69,
         change_pct: -0.16,
