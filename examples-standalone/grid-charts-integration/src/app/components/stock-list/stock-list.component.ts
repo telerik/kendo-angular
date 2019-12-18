@@ -21,13 +21,12 @@ import { getChartStack, getChartType } from '../../utils';
     encapsulation: ViewEncapsulation.None
 })
 export class StockListComponent {
-
     @ViewChild('gridmenu', { static: false }) public gridContextMenu: ContextMenuComponent;
     @ViewChild('grid', { static: false }) public grid: GridComponent;
+
     public items: Object[] = menuItems;
     public opened: boolean = false;
     public chartConfiguration: ChartConfig;
-
     public gridData: Stock[] = stocksInPortfolio;
     public selectableSettings: SelectableSettings = {
         checkboxOnly: false,

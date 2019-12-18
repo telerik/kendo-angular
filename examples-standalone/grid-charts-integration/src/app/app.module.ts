@@ -31,8 +31,6 @@ import 'hammerjs';
 import { LayoutModule } from '@progress/kendo-angular-layout';
 import { TooltipModule } from '@progress/kendo-angular-tooltip';
 
-
-
 @NgModule({
     imports: [
         BrowserModule,
