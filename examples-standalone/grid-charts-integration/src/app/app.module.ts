@@ -29,6 +29,8 @@ import { NumberFormatPipe } from './pipes/number-format.pipe';
 
 import 'hammerjs';
 import { LayoutModule } from '@progress/kendo-angular-layout';
+import { TooltipModule } from '@progress/kendo-angular-tooltip';
+
 
 
 @NgModule({
@@ -45,7 +47,8 @@ import { LayoutModule } from '@progress/kendo-angular-layout';
         InputsModule,
         ButtonsModule,
         ExcelModule,
-        LayoutModule
+        LayoutModule,
+        TooltipModule
     ],
     declarations: [
         AppComponent,

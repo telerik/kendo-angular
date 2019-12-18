@@ -35,6 +35,7 @@
     "@progress/kendo-angular-notification": "^2.0.0",
     "@progress/kendo-angular-pdf-export": "^2.0.0",
     "@progress/kendo-angular-popup": "^3.0.0",
+    "@progress/kendo-angular-tooltip": "^2.1.0",
     "@progress/kendo-data-query": "^1.0.0",
     "@progress/kendo-drawing": "^1.5.12",
     "@progress/kendo-file-saver": "^1.0.7",
