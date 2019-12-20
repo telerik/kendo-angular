@@ -1,5 +1,5 @@
-<stocks *ngIf="isSimpleChart()" [data]="data" [chartConfiguration]="chartConfiguration">
-</stocks>
+<stocks-component *ngIf="isSimpleChart()" [data]="data" [chartConfiguration]="chartConfiguration">
+</stocks-component>
 
 <pie-donut-stocks *ngIf="isCircularChart()" [data]="data" [chartConfiguration]="chartConfiguration">
 </pie-donut-stocks>

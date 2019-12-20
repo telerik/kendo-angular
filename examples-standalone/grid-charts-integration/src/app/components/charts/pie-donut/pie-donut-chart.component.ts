@@ -3,6 +3,7 @@ import { Stock, ChartConfig } from '../../../model';
 import { series, seriesTypes } from '../../../data';
 import { getTitle, getChartType } from '../../../utils';
 import { saveAs } from '@progress/kendo-file-saver';
+import { ChartComponent } from '@progress/kendo-angular-charts';
 
 @Component({
     selector: 'pie-donut-stocks',
@@ -12,18 +13,18 @@ export class PieDonutStockComponent {
     @Input() public data: Stock[];
     @Input() public chartConfiguration: ChartConfig;
 
-    public selectedSeries: string = 'price';
-    public series: Object[] = series;
+    public selectedSeries = 'price';
+    public series: object[] = series;
     public seriesTypes: string[] = seriesTypes.circularSeries;
     public getTitle = getTitle;
 
-    public onValueChange(chartName) {
+    public onValueChange(chartName: string) {
         this.chartConfiguration.seriesType = getChartType(chartName);
     }
 
-    public exportChart(chart): void {
-        chart.exportImage().then((dataURI) => {
-            saveAs(dataURI, 'chart.png');
+    public exportChart(chart: ChartComponent): void {
+        chart.exportImage().then((data) => {
+            saveAs(data, 'chart.png');
         });
     }
 }

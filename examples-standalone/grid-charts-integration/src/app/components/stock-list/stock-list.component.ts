@@ -24,8 +24,8 @@ export class StockListComponent {
     @ViewChild('gridmenu', { static: false }) public gridContextMenu: ContextMenuComponent;
     @ViewChild('grid', { static: false }) public grid: GridComponent;
 
-    public items: Object[] = menuItems;
-    public opened: boolean = false;
+    public items: object[] = menuItems;
+    public opened = false;
     public chartConfiguration: ChartConfig;
     public gridData: Stock[] = stocksInPortfolio;
     public selectableSettings: SelectableSettings = {
@@ -57,21 +57,23 @@ export class StockListComponent {
         if (this.opened) {
             setTimeout(() => {
                 this.mySelection = [...this.mySelection];
-            })
+            });
         }
     }
 
     public onSelect(e: ContextMenuSelectEvent): void {
+        if (e.item.text === 'Charts' || e.item.items !== undefined) {
+            return;
+        }
+
         if (e.item.text === 'Export Excel') {
             this.grid.saveAsExcel();
-        } else if (e.item.text === 'Charts' || e.item.items !== undefined) {
-            return
         } else {
             this.chartConfiguration = {
                 chartName: e.item.text,
                 seriesType: getChartType(e.item.text),
                 stack: getChartStack(e.item.text)
-            }
+            };
             if (!this.opened) {
                 this.opened = true;
             }

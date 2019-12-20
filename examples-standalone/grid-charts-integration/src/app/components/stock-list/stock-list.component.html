@@ -100,5 +100,5 @@
 
 <kendo-window title="Stock Portfolio Details" *ngIf="opened" (close)="close()" [top]="150" [minWidth]="250" [width]="700"
     [height]="550">
-    <window [data]="mySelection" [chartConfiguration]="chartConfiguration"></window>
+    <window-component [data]="mySelection" [chartConfiguration]="chartConfiguration"></window-component>
 </kendo-window>

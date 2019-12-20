@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 
 @Component({
     selector: 'app-root',
-    styleUrls: ['./app.component.scss'],
     template: `
         <app-header></app-header>
 
@@ -16,6 +15,4 @@ import { Component } from '@angular/core';
         <app-footer></app-footer>
     `
 })
-export class AppComponent {
-
-}
+export class AppComponent {}

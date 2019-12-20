@@ -1,4 +1,4 @@
-export const series: Object[] = [
+export const series: object[] = [
     { field: 'price', title: 'Price' },
     { field: 'pe', title: 'PE Ratio' },
     { field: 'volume', title: 'Volume' },
@@ -16,7 +16,7 @@ export const seriesTypes: any = {
     circularSeries: ['Pie', 'Donut']
 };
 
-export const menuItems: Object[] = [
+export const menuItems: object[] = [
     {
         text: 'Charts', items: [{
             text: 'Bar',

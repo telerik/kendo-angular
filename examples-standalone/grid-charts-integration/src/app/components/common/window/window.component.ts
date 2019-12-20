@@ -2,7 +2,7 @@ import { Component, Input } from '@angular/core';
 import { Stock, ChartConfig } from '../../../model';
 
 @Component({
-    selector: 'window',
+    selector: 'window-component',
     templateUrl: './window.component.html'
 })
 export class WindowComponent {
@@ -10,27 +10,15 @@ export class WindowComponent {
     @Input() public chartConfiguration: ChartConfig;
 
     public isBubbleOrSeriesChart(): boolean {
-        if (this.chartConfiguration.seriesType === 'scatter' || this.chartConfiguration.seriesType === 'bubble') {
-            return true;
-        } else {
-            return false;
-        }
+        return this.chartConfiguration.seriesType === 'scatter' || this.chartConfiguration.seriesType === 'bubble';
     }
 
     public isCircularChart(): boolean {
-        if (this.chartConfiguration.seriesType === 'pie' || this.chartConfiguration.seriesType === 'donut') {
-            return true;
-        } else {
-            return false;
-        }
+        return this.chartConfiguration.seriesType === 'pie' || this.chartConfiguration.seriesType === 'donut';
     }
 
     public isSimpleChart(): boolean {
-        if (this.chartConfiguration.seriesType !== 'pie' && this.chartConfiguration.seriesType !== 'donut' &&
-            this.chartConfiguration.seriesType !== 'scatter' && this.chartConfiguration.seriesType !== 'bubble') {
-            return true;
-        } else {
-            return false;
-        }
+        return this.chartConfiguration.seriesType !== 'pie' && this.chartConfiguration.seriesType !== 'donut' &&
+        this.chartConfiguration.seriesType !== 'scatter' && this.chartConfiguration.seriesType !== 'bubble';
     }
 }

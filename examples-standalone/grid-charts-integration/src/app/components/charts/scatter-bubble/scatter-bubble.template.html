@@ -31,8 +31,8 @@
             </kendo-chart>
 
             <div class="window-icon-buttons">
-                <button kendoButton [iconClass]="'k-i-menu k-icon'" (click)="drawer.toggle()"></button>
-                <button kendoButton [iconClass]="'k-i-download k-icon'" (click)="exportChart(chart)"></button>
+                <button kendoButton [iconClass]="'k-i-download k-icon'" title="Export as PNG" (click)="exportChart(chart)"></button>
+                <button kendoButton [iconClass]="'k-i-gear k-icon'" title="Configuration" (click)="drawer.toggle()"></button>
             </div>
         </div>
     </kendo-drawer-content>

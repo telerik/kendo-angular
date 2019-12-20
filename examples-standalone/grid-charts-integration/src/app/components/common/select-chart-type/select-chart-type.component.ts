@@ -5,7 +5,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
     templateUrl: './select-chart-type.component.html'
 })
 export class SelectChartTypeComponent {
-    @Input() public data: Object[];
+    @Input() public data: object[];
     @Input() public chartName: string;
     @Output() public valueChange = new EventEmitter<string>();
 
