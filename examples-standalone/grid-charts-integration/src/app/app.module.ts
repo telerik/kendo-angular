@@ -11,6 +11,8 @@ import { ContextMenuModule } from '@progress/kendo-angular-menu';
 import { DropDownsModule } from '@progress/kendo-angular-dropdowns';
 import { InputsModule } from '@progress/kendo-angular-inputs';
 import { ButtonsModule } from '@progress/kendo-angular-buttons';
+import { LayoutModule } from '@progress/kendo-angular-layout';
+import { TooltipModule } from '@progress/kendo-angular-tooltip';
 
 import { ScatterBubbleChartComponent } from './components/charts/scatter-bubble/scatter-bubble-chart.component';
 import { PieDonutStockComponent } from './components/charts/pie-donut/pie-donut-chart.component';
@@ -28,8 +30,6 @@ import { ActionButtonsComponent } from './components/action-buttons/action-butto
 import { NumberFormatPipe } from './pipes/number-format.pipe';
 
 import 'hammerjs';
-import { LayoutModule } from '@progress/kendo-angular-layout';
-import { TooltipModule } from '@progress/kendo-angular-tooltip';
 
 @NgModule({
     imports: [

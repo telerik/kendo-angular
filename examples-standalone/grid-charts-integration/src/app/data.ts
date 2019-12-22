@@ -1,4 +1,6 @@
-export const series: object[] = [
+import { Stock } from './model';
+
+export const series: Array<{ field: string, title: string }>= [
     { field: 'price', title: 'Price' },
     { field: 'pe', title: 'PE Ratio' },
     { field: 'volume', title: 'Volume' },
@@ -56,7 +58,7 @@ export const menuItems: object[] = [
     { text: 'Export Excel', icon: 'k-icon k-i-excel' }
 ];
 
-export const stocksInPortfolio = [
+export const stocksInPortfolio: Stock[] = [
     {
         symbol: 'AAN',
         name: 'Aaron\'s, Inc.',
