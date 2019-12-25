@@ -16,6 +16,7 @@ import { TestGridComponent } from './test-grid.component';
 import { TestSchedulerComponent } from './test-scheduler.component';
 import { TestSliderComponent } from './test-slider.component';
 import { TestSplitterComponent } from './test-splitter.component';
+import { TestSpreadsheetComponent } from './test-spreadsheet.component';
 
 import '@progress/kendo-ui';
 
@@ -29,6 +30,7 @@ const appRoutes: Routes = [
   { path: 'k1-diagram', component: TestDiagramComponent },
   { path: 'k2-grid', component: TestGridComponent },
   { path: 'k1-splitter', component: TestSplitterComponent },
+  { path: 'k1-spreadsheet', component: TestSpreadsheetComponent },
   { path: '', redirectTo: '/k1-date-picker', pathMatch: 'full' },
   { path: '**', component: TestDatePickerComponent }
 ];
@@ -44,7 +46,8 @@ const appRoutes: Routes = [
     TestGridComponent,
     TestSchedulerComponent,
     TestSliderComponent,
-    TestSplitterComponent
+    TestSplitterComponent,
+    TestSpreadsheetComponent
   ],
   imports: [
     BrowserModule,
