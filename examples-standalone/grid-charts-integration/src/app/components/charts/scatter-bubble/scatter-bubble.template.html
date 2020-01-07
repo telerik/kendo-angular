@@ -1,0 +1,39 @@
+<kendo-drawer-container>
+    <kendo-drawer #drawer [mode]="'push'" position="end" [(expanded)]="expanded">
+        <ng-template kendoDrawerTemplate>
+            <h3> Configuration</h3>
+            <select-chart-type [data]="seriesTypes" [chartName]="chartConfiguration.chartName" (valueChange)="onValueChange($event)"></select-chart-type>
+            <select-series [data]="series" (valueChange)="selectedSeries = $event;"></select-series>
+        </ng-template>
+    </kendo-drawer>
+
+    <kendo-drawer-content>
+        <div class="drawer-content">
+            <kendo-chart #chart>
+                <kendo-chart-title text="Details per Stock"></kendo-chart-title>
+                <kendo-chart-x-axis>
+                    <kendo-chart-x-axis-item [max]="stockData.length - 1" [majorUnit]="1" [labels]="{ content: labelContent, rotation: 'auto' }">
+                    </kendo-chart-x-axis-item>
+                </kendo-chart-x-axis>
+                <kendo-chart-series>
+                    <kendo-chart-series-item *ngFor="let series of selectedSeries" [data]="stockData" [type]="chartConfiguration.seriesType"
+                        [xField]="'index'" [yField]="series" [name]="getTitle(series)" [sizeField]="series"
+                        [negativeValues]="{ visible: true }">
+                        <kendo-chart-series-item-tooltip>
+                            <ng-template let-dataItem="dataItem" let-value="value">
+                                {{dataItem.symbol}} {{getTitle(series)}}: {{dataItem[series]}}
+                            </ng-template>
+                        </kendo-chart-series-item-tooltip>
+                    </kendo-chart-series-item>
+                </kendo-chart-series>
+                <kendo-chart-legend position="right" orientation="vertical">
+                </kendo-chart-legend>
+            </kendo-chart>
+
+            <div class="window-icon-buttons">
+                <button kendoButton [iconClass]="'k-i-download k-icon'" title="Export as PNG" (click)="exportChart(chart)"></button>
+                <button kendoButton [iconClass]="'k-i-gear k-icon'" title="Configuration" (click)="drawer.toggle()"></button>
+            </div>
+        </div>
+    </kendo-drawer-content>
+</kendo-drawer-container>

@@ -1,0 +1,43 @@
+@import "./bootstrap";
+@import "./typography";
+@import "./variables";
+@import "./kendo";
+@import "./responsive";
+
+body {
+  font-family: $roboto;
+  background: $body-base-bg;
+}
+
+.k-drawer-content,
+.k-drawer-wrapper {
+    padding: 20px;
+}
+
+.k-drawer-content {
+    position: relative;
+}
+
+.k-drawer-wrapper {
+    .k-multiselect {
+        .k-multiselect-wrap {
+            padding: 0;
+        }
+    }
+}
+
+.window-icon-buttons {
+    position: absolute;
+    top: 26px;
+    right: 35px;
+
+    > button {
+        &:first-child {
+            margin-right: 5px;
+        }
+    }
+}
+
+.charts-height {
+    height: 50px;
+}

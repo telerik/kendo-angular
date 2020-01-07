@@ -1,0 +1,28 @@
+@import "../../../styles//variables";
+
+.header {
+    height: $header-height;
+    background: url('../../../assets/header-bg.svg');
+    background-position: bottom;
+    background-repeat: no-repeat;
+
+    h1 {
+        font-family: $ubunto;
+        font-weight: $font-weight-200;
+        color: $white;
+    }
+
+    .profile-wrapper {
+        outline: none;
+    }
+
+    .profile-image {
+        align-self: center;
+        width: $profile-image-width;
+        height: $profile-image-height;
+        border-radius: 50%;
+        background-image: url('../../../assets/user.jpg');
+        background-size: cover;
+        background-position: center;
+    }
+}

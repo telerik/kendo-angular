@@ -1,0 +1,11 @@
+<label>
+    Series:
+    <kendo-multiselect kendoMultiSelectSummaryTag [clearButton]="false" [autoClose]="false" [data]="data"
+        [valuePrimitive]="true" [textField]="'title'" [valueField]="'field'" [value]="selectedSeries" (valueChange)="onChange($event)"
+        [placeholder]="'Select the desired series'">
+        <ng-template kendoMultiSelectGroupTagTemplate let-dataItems>
+            <span class="k-icon k-i-arrow-s"></span>
+            {{ dataItems.length }} series selected
+        </ng-template>
+    </kendo-multiselect>
+</label>
