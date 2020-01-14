@@ -23,6 +23,7 @@ export class ScatterBubbleChartComponent {
     public selectedSeries: string[] = ['price', 'pe'];
     public seriesTypes: string[] = seriesTypes.complexSeries;
     public getTitle = getTitle;
+    public expanded = false;
 
     constructor() {
         this.labelContent = this.labelContent.bind(this);
