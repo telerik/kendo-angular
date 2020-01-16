@@ -35,5 +35,7 @@ done
 cp static/* dist
 
 # Deploy to GH Pages using angular-cli-ghpages
-npx ngh
+if [[ "$BRANCH" == "master" ]]; then
+  npx ngh
+fi;
 
