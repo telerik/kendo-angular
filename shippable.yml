@@ -37,4 +37,4 @@ build:
     - npm run lint
     - npm run build
     - cd -
-    - ./examples/bin/publish-gh-pages
+    - cd examples && ./bin/publish-gh-pages
