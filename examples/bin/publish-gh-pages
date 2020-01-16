@@ -3,7 +3,7 @@
 # Builds example projects and deploys them to GH Pages
 
 WORKSPACE_PROJECTS=(integration-pwa integration-pwa-material)
-STANDALONE_PROJECTS=(kendo-angular-finance-portfolio grid-charts-integration)
+STANDALONE_PROJECTS=(finance-portfolio grid-charts-integration)
 
 set -e
 

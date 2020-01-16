@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "kendo-angular-finance-portfolio": {
+    "finance-portfolio": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -21,7 +21,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/kendo-angular-finance-portfolio",
+            "outputPath": "dist/finance-portfolio",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -66,18 +66,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "kendo-angular-finance-portfolio:build"
+            "browserTarget": "finance-portfolio:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "kendo-angular-finance-portfolio:build:production"
+              "browserTarget": "finance-portfolio:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "kendo-angular-finance-portfolio:build"
+            "browserTarget": "finance-portfolio:build"
           }
         },
         "lint": {
@@ -93,5 +93,5 @@
         }
       }
     }},
-  "defaultProject": "kendo-angular-finance-portfolio"
+  "defaultProject": "finance-portfolio"
 }
