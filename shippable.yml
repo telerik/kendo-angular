@@ -37,4 +37,16 @@ build:
     - npm run lint
     - npm run build
     - cd -
+    - ssh-add $SHIPPABLEKENDOANGULARPUSH_PRIVATE_KEY_PATH
     - cd examples && ./bin/publish-gh-pages
+resources:
+  - name: shippable-kendo-angular-push
+    type: integration
+    integration: shippable-kendo-angular
+jobs:
+  - name: kendo-angular_runCI
+    type: runCI
+    steps:
+      - IN: shippable-kendo-angular-push
+        switch: off
+
