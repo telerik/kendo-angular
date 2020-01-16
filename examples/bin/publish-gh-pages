@@ -14,7 +14,7 @@ rm -rf dist
 for PROJECT in "${WORKSPACE_PROJECTS[@]}"
 do
   echo Building ${PROJECT}
-  ng build ${PROJECT} --prod --base-href
+  node --max_old_space_size=6144 ./node_modules/.bin/ng build ${PROJECT} --prod --base-href
 done
 
 # Standalone Projects
@@ -25,7 +25,7 @@ do
   echo Building ${PROJECT}
   npm ci
   rm -rf dist
-  ng build --prod --base-href
+  node --max_old_space_size=6144 ./node_modules/.bin/ng build --prod --base-href
   mv dist/${PROJECT} ../../examples/dist
 
   popd > /dev/null
