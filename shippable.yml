@@ -48,5 +48,4 @@ jobs:
     type: runCI
     steps:
       - IN: shippable-kendo-angular-push
-        switch: off
 
