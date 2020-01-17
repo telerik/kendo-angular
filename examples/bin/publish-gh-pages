@@ -36,6 +36,9 @@ cp static/* dist
 
 # Deploy to GH Pages using angular-cli-ghpages
 if [[ "$BRANCH" == "master" ]]; then
+  echo "Configuring git ..."
+  git config user.name "kendo-bot"
+  git config user.email "kendouiteam@progress.com"
   npx ngh -S
 fi;
 
