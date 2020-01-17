@@ -39,6 +39,6 @@ if [[ "$BRANCH" == "master" ]]; then
   echo "Configuring git ..."
   git config user.name "kendo-bot"
   git config user.email "kendouiteam@progress.com"
-  npx ngh -S
+  npx ngh
 fi;
 
