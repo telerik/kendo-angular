@@ -12,6 +12,7 @@ import { ChartComponent } from '@progress/kendo-angular-charts';
 export class PieDonutStockComponent {
     @Input() public data: Stock[];
     @Input() public chartConfiguration: ChartConfig;
+    public expanded = false;
 
     public selectedSeries = 'price';
     public series: object[] = series;

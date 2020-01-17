@@ -1,10 +1,41 @@
 #!/usr/bin/env bash
+
+# Builds example projects and deploys them to GH Pages
+
+WORKSPACE_PROJECTS=(integration-pwa integration-pwa-material)
+STANDALONE_PROJECTS=(finance-portfolio grid-charts-integration)
+
 set -e
 
+# Workspace Projects
+npm ci
 rm -rf dist
-ng build integration-pwa --prod --base-href
-ng build integration-pwa-material --prod --base-href
+
+for PROJECT in "${WORKSPACE_PROJECTS[@]}"
+do
+  echo Building ${PROJECT}
+  node --max_old_space_size=6144 ./node_modules/.bin/ng build ${PROJECT} --prod --base-href
+done
+
+# Standalone Projects
+for PROJECT in "${STANDALONE_PROJECTS[@]}"
+do
+  pushd ../examples-standalone/${PROJECT} > /dev/null
+
+  echo Building ${PROJECT}
+  npm ci
+  rm -rf dist
+  node --max_old_space_size=6144 ./node_modules/.bin/ng build --prod --base-href
+  mv dist/${PROJECT} ../../examples/dist
+
+  popd > /dev/null
+done
+
+# Copy static assets
 cp static/* dist
 
-npx ngh
+# Deploy to GH Pages using angular-cli-ghpages
+if [[ "$BRANCH" == "master" ]]; then
+  npx ngh
+fi;
 
