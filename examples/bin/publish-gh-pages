@@ -36,7 +36,6 @@ cp static/* dist
 
 # Deploy to GH Pages using angular-cli-ghpages
 if [[ "$BRANCH" == "master" ]]; then
-  ssh -T git@github.com -v
   npx ngh -S
 fi;
 
