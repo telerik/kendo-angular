@@ -40,6 +40,6 @@ if [[ "$BRANCH" == "master" ]]; then
   git config --global user.name "kendo-bot"
   git config --global user.email "kendouiteam@progress.com"
   git config --list
-  npx ngh -S
+  unset TRAVIS && npx ngh -S
 fi;
 
