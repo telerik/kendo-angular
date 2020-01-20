@@ -1,7 +1,11 @@
 language: node_js
 
 env:
-    - PATH=$PATH:node_modules/.bin
+  global:
+    - PATH=$PATH:./node_modules/.bin
+    - secure: uW+a9ILOBWyyu0PhcoEjyu1vvfWc1q3rQi7Rj69rLKhg1tia9zEFiLWxY3pTO6TsrgUuH+SD1zzElVppV3kkbwL1FQ4lgACOB+p76y+c2VD+A7StLgNkWnoUSy7YRyMCZRg/7DUsw+oLOvQcUfubZqdLKRLfJca4ebfGD5utc8cfVO7HjqhFN/teFJ/7LDyTNsbpAi0oOzH0UNMyyREoi+o/Qgfqv5ByLPiiJA2bKvxBQs1CeiN4qWPWR21LDrEehLLnZZ7c/5wMh15LlYBPdxGn2pSK+0Yy9V6YrX0YQkqaXLMyOvlp53VfDlWj8LyRV0JZZoVewh9RXxPCbyvKKQ==
+
+
 
 branches:
   except:
