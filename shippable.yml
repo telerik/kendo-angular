@@ -5,7 +5,6 @@ env:
 
 branches:
   except:
-    - master
     - gh-pages
 
 build:
