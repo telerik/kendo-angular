@@ -41,7 +41,7 @@ build:
     - npm run build
     - cd -
     - ssh-add $SHIPPABLEKENDOANGULARPUSH_PRIVATE_KEY_PATH
-    - git remote set-url --push origin git@github.com:telerik/kendo-angular.git
+    - git remote set-url origin git@github.com:telerik/kendo-angular.git
     - cd examples && ./bin/publish-gh-pages
 resources:
   - name: shippable-kendo-angular-push
