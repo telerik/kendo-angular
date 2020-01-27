@@ -35,5 +35,10 @@
                 <button kendoButton [iconClass]="'k-i-gear k-icon'" title="Configuration" (click)="drawer.toggle()"></button>
             </div>
         </div>
+
+        <div kendoTooltip class="window-icon-buttons" [offset]="1">
+            <button kendoButton [iconClass]="'k-i-download k-icon'" title="Export as PNG" (click)="exportChart(chart)"></button>
+            <button kendoButton [iconClass]="'k-i-gear k-icon'" title="Configuration" (click)="drawer.toggle()"></button>
+        </div>
     </kendo-drawer-content>
 </kendo-drawer-container>
