@@ -23,7 +23,7 @@
             </kendo-daterange>
         </div>
 
-        <ul class="k-reset d-flex col-3">
+        <ul class="k-reset d-flex col-12 col-sm-8 col-md-6 col-lg-3 justify-content-center justify-content-sm-start">
             <li class="ml-3" *ngFor="let filter of timeFilters">
                 <span
                     [ngClass]="{ 'active': activeTimeFilter === filter.duration }"
@@ -35,7 +35,7 @@
             </li>
         </ul>
 
-        <div class="col-4">
+        <div class="col-12 col-sm-4 col-md-6 col-lg-4 text-center text-sm-right mt-3 mt-sm-0">
             <kendo-dropdownlist
                 class="dropdown-list-selection interval"
                 [style.width.px]="135"
