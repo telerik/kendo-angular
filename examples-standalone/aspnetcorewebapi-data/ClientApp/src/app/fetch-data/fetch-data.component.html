@@ -1,0 +1,34 @@
+<h1>Products</h1>
+
+<p>This component demonstrates fetching data from the server.</p>
+
+<kendo-grid [data]="view | async"
+            [pageSize]="state.take"
+            [skip]="state.skip"
+            [sort]="state.sort"
+            [filter]="state.filter"
+            [group]="state.group"
+            [groupable]="true"
+            [filterable]="true"
+            [sortable]="true"
+            [pageable]="true"
+            [scrollable]="'scrollable'"
+            (dataStateChange)="dataStateChange($event)"
+            [height]="400"
+            (edit)="editHandler($event)" (cancel)="cancelHandler($event)"
+            (save)="saveHandler($event)" (remove)="removeHandler($event)"
+            (add)="addHandler($event)">
+  <ng-template kendoGridToolbarTemplate>
+    <button kendoGridAddCommand>Add new</button>
+  </ng-template>
+  <kendo-grid-column field="blogId" title="Blog Id" [editable]="false" [filter]="'numeric'"></kendo-grid-column>
+  <kendo-grid-column field="url" title="Blog URL"></kendo-grid-column>
+  <kendo-grid-command-column title="command" width="220">
+    <ng-template kendoGridCellTemplate let-isNew="isNew">
+      <button kendoGridEditCommand [primary]="true">Edit</button>
+      <button kendoGridRemoveCommand>Remove</button>
+      <button kendoGridSaveCommand [disabled]="formGroup?.invalid">{{ isNew ? 'Add' : 'Update' }}</button>
+      <button kendoGridCancelCommand>{{ isNew ? 'Discard changes' : 'Cancel' }}</button>
+    </ng-template>
+  </kendo-grid-command-column>
+</kendo-grid>
