@@ -1,4 +1,4 @@
-# Using the Suite with ASP.NET Core
+# Using the Suite with ASP.NET Web Api
 
 This Kendo UI for Angular sample project demonstrates how to use [Kendo UI for Angular components](https://www.telerik.com/kendo-angular-ui/components) with ASP.NET Web Api and is based on Microsoft [Angular project template with ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core/client-side/spa/angular?view=aspnetcore-3.0&tabs=visual-studio) v.3.1. The project features a Grid that can perform CRUD and data operations server-side.
 
