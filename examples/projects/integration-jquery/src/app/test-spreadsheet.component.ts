@@ -11,7 +11,7 @@ declare var kendo: any;
     `
 })
 export class TestSpreadsheetComponent implements AfterViewInit, OnDestroy {
-    @ViewChild('spreadsheet', { static: false }) spreadsheetEl: ElementRef;
+    @ViewChild('spreadsheet') spreadsheetEl: ElementRef;
 
     constructor(private hostEl: ElementRef) {}
 
