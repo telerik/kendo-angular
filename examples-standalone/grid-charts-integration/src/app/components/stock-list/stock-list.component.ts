@@ -21,8 +21,8 @@ import { getChartStack, getChartType } from '../../utils';
     encapsulation: ViewEncapsulation.None
 })
 export class StockListComponent {
-    @ViewChild('gridmenu', { static: false }) public gridContextMenu: ContextMenuComponent;
-    @ViewChild('grid', { static: false }) public grid: GridComponent;
+    @ViewChild('gridmenu') public gridContextMenu: ContextMenuComponent;
+    @ViewChild('grid') public grid: GridComponent;
 
     public items: object[] = menuItems;
     public opened = false;
