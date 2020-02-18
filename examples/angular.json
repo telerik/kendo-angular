@@ -28,10 +28,7 @@
               },
               "projects/pdf-embedded-fonts/src/styles.scss"
             ],
-            "scripts": [
-                "../../node_modules/jquery/dist/jquery.min.js",
-                "src/assets/kendo.custom.min.js"
-            ],
+            "scripts": [],
             "es5BrowserSupport": true
           },
           "configurations": {
