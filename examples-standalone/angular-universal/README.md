@@ -12,8 +12,8 @@ These Kendo UI for Angular sample projects demonstrate how to use [Kendo UI for 
 
 ## Getting Started
 
-1. Clone this repository by using your favorite Git client or by executing `git clone https://github.com/telerik/kendo-angular-universal-demo.git`.
-1. Enter the project directory by running `cd kendo-angular-universal-demo`.
+1. Clone this repository by using your favorite Git client or by executing `git clone https://github.com/telerik/kendo-angular.git`.
+1. Enter the project directory by running `cd kendo-angular/angular-universal`.
 
 ## Running the Applications
 
