@@ -8,7 +8,7 @@ declare var $: any;
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.css']
 })
-export class AppComponent implements AfterViewInit{
+export class AppComponent implements AfterViewInit {
     title = 'integration-jquery-partial';
     @ViewChild('pivot', { static: false }) pivot;
 
@@ -38,8 +38,8 @@ export class AppComponent implements AfterViewInit{
                             Discontinued: { caption: 'Discontinued' }
                         },
                         measures: {
-                            'Sum': { field: 'UnitPrice', format: '{0:c}', aggregate: 'sum' },
-                            'Average': { field: 'UnitPrice', format: '{0:c}', aggregate: 'average' }
+                            Sum: { field: 'UnitPrice', format: '{0:c}', aggregate: 'sum' },
+                            Average: { field: 'UnitPrice', format: '{0:c}', aggregate: 'average' }
                         }
                     }
                 },
