@@ -1,4 +1,4 @@
-import { Component, ViewChild, AfterViewInit } from '@angular/core';
+import { Component, ViewChild, AfterViewInit, ElementRef, OnDestroy } from '@angular/core';
 import { products } from './products';
 
 declare var $: any;
@@ -8,11 +8,12 @@ declare var $: any;
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.css']
 })
-export class AppComponent implements AfterViewInit {
-    title = 'integration-jquery-partial';
+export class AppComponent implements AfterViewInit, OnDestroy {
     @ViewChild('pivot', { static: false }) pivot;
 
     public pivotGrid;
+
+    constructor(private elementRef: ElementRef) { }
 
     ngAfterViewInit() {
         this.pivotGrid = $(this.pivot.nativeElement).kendoPivotGrid({
@@ -48,5 +49,9 @@ export class AppComponent implements AfterViewInit {
                 measures: ['Sum']
             }
         }).data('kendoPivotGrid');
+    }
+
+    ngOnDestroy(): void {
+        $.destroy(this.elementRef.nativeElement);
     }
 }
