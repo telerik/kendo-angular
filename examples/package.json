@@ -48,6 +48,7 @@
     "@progress/kendo-drawing": "^1.6.0",
     "@progress/kendo-theme-bootstrap": "^4.10.2",
     "@progress/kendo-theme-default": "^4.12.2",
+    "@progress/kendo-theme-material": "^3.10.2",
     "@progress/kendo-ui": "^2020.1.115",
     "apollo-angular": "^1.8.0",
     "apollo-angular-link-http": "^1.9.0",

@@ -247,9 +247,6 @@
               "projects/integration-pwa/src/manifest.json"
             ],
             "styles": [
-              {
-                "input": "node_modules/@progress/kendo-theme-default/dist/all.css"
-              },
               "projects/integration-pwa/src/styles.scss"
             ],
             "scripts": [],
@@ -313,9 +310,6 @@
             "tsConfig": "projects/integration-pwa/tsconfig.spec.json",
             "karmaConfig": "projects/integration-pwa/karma.conf.js",
             "styles": [
-              {
-                "input": "node_modules/@progress/kendo-theme-default/dist/all.css"
-              },
               "projects/integration-pwa/src/styles.scss"
             ],
             "scripts": [],
@@ -362,7 +356,7 @@
             ],
             "styles": [
               {
-                "input": "node_modules/@progress/kendo-theme-default/dist/all.css"
+                "input": "node_modules/@progress/kendo-theme-material/dist/all.css"
               },
               "projects/integration-pwa-material/src/styles.scss"
             ],
@@ -428,7 +422,7 @@
             "karmaConfig": "projects/integration-pwa-material/karma.conf.js",
             "styles": [
               {
-                "input": "node_modules/@progress/kendo-theme-default/dist/all.css"
+                "input": "node_modules/@progress/kendo-theme-material/dist/all.css"
               },
               "projects/integration-pwa-material/src/styles.scss"
             ],
