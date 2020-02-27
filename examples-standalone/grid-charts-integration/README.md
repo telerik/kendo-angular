@@ -1,6 +1,6 @@
 # Integrating the Grid with Charts
 
-This Kendo UI for Angular sample project demonstrates how to integrate the Grid with Charts. The project features a Grid which allows to select its rows. Right clicking the Grid content will open a context menu which lists all available Chart types. Selecting a Chart type opens a Window where the desired Chart is rendered. The Window provides further configuration options for the Chart and an export functionality. Currently, [the example is deployed on GitHub pages](http://telerik.github.io/kendo-angular/grid-charts-integration/).
+This Kendo UI for Angular sample project demonstrates how to integrate the Grid with Charts. The project features a Grid which allows to select its rows. Right clicking the Grid content will open a context menu which lists all available Chart types. Selecting a Chart type opens a Window where the desired Chart is rendered. The Window provides further configuration options for the Chart and an export functionality. Currently, [the example is deployed on GitHub pages](https://telerik.github.io/kendo-angular/grid-charts-integration/).
 
 ## Getting Started
 
