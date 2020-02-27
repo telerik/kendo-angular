@@ -31,7 +31,7 @@ const appRoutes: Routes = [
   { path: 'k2-grid', component: TestGridComponent },
   { path: 'k1-splitter', component: TestSplitterComponent },
   { path: 'k1-spreadsheet', component: TestSpreadsheetComponent },
-  { path: '', redirectTo: '/k1-date-picker', pathMatch: 'full' },
+  { path: '', redirectTo: '/k1-diagram', pathMatch: 'full' },
   { path: '**', component: TestDatePickerComponent }
 ];
 
