@@ -35,6 +35,9 @@ MIT
 @angular/forms
 MIT
 
+@angular/localize
+MIT
+
 @angular/platform-browser
 MIT
 
@@ -62,7 +65,7 @@ This is commercial software. To use it, you need to agree to the [**Telerik End 
 
 All available Kendo UI commercial licenses may be obtained at http://www.telerik.com/purchase/kendo-ui.
 
-*Copyright © 2019 Progress Software Corporation and/or one of its subsidiaries or affiliates. All rights reserved.*
+*Copyright © 2020 Progress Software Corporation and/or one of its subsidiaries or affiliates. All rights reserved.*
 
 
 @progress/kendo-angular-charts
@@ -80,7 +83,7 @@ This is commercial software. To use it, you need to agree to the [**Telerik End 
 
 All available Kendo UI commercial licenses may be obtained at http://www.telerik.com/purchase/kendo-ui.
 
-*Copyright © 2019 Progress Software Corporation and/or one of its subsidiaries or affiliates. All rights reserved.*
+*Copyright © 2020 Progress Software Corporation and/or one of its subsidiaries or affiliates. All rights reserved.*
 
 
 @progress/kendo-angular-dateinputs
@@ -98,7 +101,7 @@ This is commercial software. To use it, you need to agree to the [**Telerik End 
 
 All available Kendo UI commercial licenses may be obtained at http://www.telerik.com/purchase/kendo-ui.
 
-*Copyright © 2019 Progress Software Corporation and/or one of its subsidiaries or affiliates. All rights reserved.*
+*Copyright © 2020 Progress Software Corporation and/or one of its subsidiaries or affiliates. All rights reserved.*
 
 
 @progress/kendo-angular-dropdowns
@@ -113,7 +116,7 @@ This is commercial software. To use it, you need to agree to the [**Telerik End 
 
 All available Kendo UI commercial licenses may be obtained at http://www.telerik.com/purchase/kendo-ui.
 
-*Copyright © 2019 Progress Software Corporation and/or one of its subsidiaries or affiliates. All rights reserved.*
+*Copyright © 2020 Progress Software Corporation and/or one of its subsidiaries or affiliates. All rights reserved.*
 
 
 @progress/kendo-angular-excel-export
@@ -128,7 +131,7 @@ This is commercial software. To use it, you need to agree to the [**Telerik End 
 
 All available Kendo UI commercial licenses may be obtained at http://www.telerik.com/purchase/kendo-ui.
 
-*Copyright © 2019 Progress Software Corporation and/or one of its subsidiaries or affiliates. All rights reserved.*
+*Copyright © 2020 Progress Software Corporation and/or one of its subsidiaries or affiliates. All rights reserved.*
 
 
 @progress/kendo-angular-grid
@@ -143,7 +146,7 @@ This is commercial software. To use it, you need to agree to the [**Telerik End 
 
 All available Kendo UI commercial licenses may be obtained at http://www.telerik.com/purchase/kendo-ui.
 
-*Copyright © 2019 Progress Software Corporation and/or one of its subsidiaries or affiliates. All rights reserved.*
+*Copyright © 2020 Progress Software Corporation and/or one of its subsidiaries or affiliates. All rights reserved.*
 
 
 @progress/kendo-angular-inputs
@@ -158,7 +161,7 @@ This is commercial software. To use it, you need to agree to the [**Telerik End 
 
 All available Kendo UI commercial licenses may be obtained at http://www.telerik.com/purchase/kendo-ui.
 
-*Copyright © 2019 Progress Software Corporation and/or one of its subsidiaries or affiliates. All rights reserved.*
+*Copyright © 2020 Progress Software Corporation and/or one of its subsidiaries or affiliates. All rights reserved.*
 
 
 @progress/kendo-angular-intl
@@ -179,7 +182,7 @@ This is commercial software. To use it, you need to agree to the [**Telerik End 
 
 All available Kendo UI commercial licenses may be obtained at http://www.telerik.com/purchase/kendo-ui.
 
-*Copyright © 2019 Progress Software Corporation and/or one of its subsidiaries or affiliates. All rights reserved.*
+*Copyright © 2020 Progress Software Corporation and/or one of its subsidiaries or affiliates. All rights reserved.*
 
 
 @progress/kendo-angular-pdf-export
@@ -194,7 +197,7 @@ This is commercial software. To use it, you need to agree to the [**Telerik End 
 
 All available Kendo UI commercial licenses may be obtained at http://www.telerik.com/purchase/kendo-ui.
 
-*Copyright © 2019 Progress Software Corporation and/or one of its subsidiaries or affiliates. All rights reserved.*
+*Copyright © 2020 Progress Software Corporation and/or one of its subsidiaries or affiliates. All rights reserved.*
 
 
 @progress/kendo-angular-popup
@@ -209,7 +212,7 @@ This is commercial software. To use it, you need to agree to the [**Telerik End 
 
 All available Kendo UI commercial licenses may be obtained at http://www.telerik.com/purchase/kendo-ui.
 
-*Copyright © 2019 Progress Software Corporation and/or one of its subsidiaries or affiliates. All rights reserved.*
+*Copyright © 2020 Progress Software Corporation and/or one of its subsidiaries or affiliates. All rights reserved.*
 
 
 @progress/kendo-angular-ripple
@@ -239,7 +242,7 @@ This is commercial software. To use it, you need to agree to the [**Telerik End 
 
 All available Kendo UI commercial licenses may be obtained at http://www.telerik.com/purchase/kendo-ui.
 
-*Copyright © 2019 Progress Software EAD. All rights reserved.*
+*Copyright © 2019 Progress Software Corporation and/or one of its subsidiaries or affiliates. All rights reserved.*
 
 
 @progress/kendo-file-saver
@@ -274,9 +277,9 @@ This project has been released under the [Apache License, version 2.0](https://w
 @progress/kendo-ripple
 SEE LICENSE IN LICENSE.md
 
-@progress/kendo-theme-default
+@progress/kendo-theme-material
 Apache-2.0
-# Kendo UI Default Theme
+# Kendo UI Material Theme
 
 This package is part of the following suites:
 
@@ -292,7 +295,7 @@ All available Kendo UI commercial licenses may be obtained at http://www.telerik
 
 If you do not own a commercial license, the usage of this software shall be governed by the [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0).
 
-*Copyright © 2019 Progress Software EAD. All rights reserved.*
+*Copyright © 2020 Progress Software Corporation and/or one of its subsidiaries or affiliates. All rights reserved.*
 
 
 @telerik/kendo-draggable
@@ -1123,6 +1126,31 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
 
+regenerator-runtime
+MIT
+MIT License
+
+Copyright (c) 2014-present, Facebook, Inc.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+
 rxjs
 Apache-2.0
                                Apache License
@@ -1392,7 +1420,7 @@ zone.js
 MIT
 The MIT License
 
-Copyright (c) 2016-2018 Google, Inc.
+Copyright (c) 2010-2019 Google LLC. http://angular.io/license
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
