@@ -14,7 +14,7 @@ declare var kendo: any;
 })
 export class HeatmapComponent implements AfterViewInit, OnDestroy {
 
-    @ViewChild('heatmap', { static: false }) heatmap: ElementRef;
+    @ViewChild('heatmap') heatmap: ElementRef;
 
     private data: Array<any>;
     private treeData: any;

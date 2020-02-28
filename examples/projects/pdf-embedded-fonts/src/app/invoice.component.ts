@@ -82,6 +82,8 @@ export class InvoiceComponent {
   @Input()
   public data: InvoiceRow[] = [];
 
+  public rightAlign: any = { 'text-align': 'right' };
+
   private aggregates: any[] = [{
     field: 'qty', aggregate: 'sum'
   }, {

@@ -13,6 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "aot": true,
             "outputPath": "dist/pdf-embedded-fonts",
             "index": "projects/pdf-embedded-fonts/src/index.html",
             "main": "projects/pdf-embedded-fonts/src/main.ts",
@@ -53,6 +54,10 @@
                   "type": "initial",
                   "maximumWarning": "2mb",
                   "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb"
                 }
               ]
             }
@@ -119,6 +124,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "aot": true,
             "outputPath": "dist/integration-jquery",
             "index": "projects/integration-jquery/src/index.html",
             "main": "projects/integration-jquery/src/main.ts",
@@ -159,6 +165,10 @@
                   "type": "initial",
                   "maximumWarning": "10mb",
                   "maximumError": "15mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb"
                 }
               ]
             }
@@ -225,6 +235,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "aot": true,
             "outputPath": "dist/integration-pwa",
             "index": "projects/integration-pwa/src/index.html",
             "main": "projects/integration-pwa/src/main.ts",
@@ -236,9 +247,6 @@
               "projects/integration-pwa/src/manifest.json"
             ],
             "styles": [
-              {
-                "input": "node_modules/@progress/kendo-theme-default/dist/all.css"
-              },
               "projects/integration-pwa/src/styles.scss"
             ],
             "scripts": [],
@@ -268,6 +276,10 @@
                   "type": "initial",
                   "maximumWarning": "3mb",
                   "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb"
                 }
               ]
             }
@@ -298,9 +310,6 @@
             "tsConfig": "projects/integration-pwa/tsconfig.spec.json",
             "karmaConfig": "projects/integration-pwa/karma.conf.js",
             "styles": [
-              {
-                "input": "node_modules/@progress/kendo-theme-default/dist/all.css"
-              },
               "projects/integration-pwa/src/styles.scss"
             ],
             "scripts": [],
@@ -334,6 +343,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "aot": true,
             "outputPath": "dist/integration-pwa-material",
             "index": "projects/integration-pwa-material/src/index.html",
             "main": "projects/integration-pwa-material/src/main.ts",
@@ -346,7 +356,7 @@
             ],
             "styles": [
               {
-                "input": "node_modules/@progress/kendo-theme-default/dist/all.css"
+                "input": "node_modules/@progress/kendo-theme-material/dist/all.css"
               },
               "projects/integration-pwa-material/src/styles.scss"
             ],
@@ -377,6 +387,10 @@
                   "type": "initial",
                   "maximumWarning": "3mb",
                   "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb"
                 }
               ]
             }
@@ -408,7 +422,7 @@
             "karmaConfig": "projects/integration-pwa-material/karma.conf.js",
             "styles": [
               {
-                "input": "node_modules/@progress/kendo-theme-default/dist/all.css"
+                "input": "node_modules/@progress/kendo-theme-material/dist/all.css"
               },
               "projects/integration-pwa-material/src/styles.scss"
             ],
@@ -434,6 +448,14 @@
       }
     },
     "integration-i18n": {
+      "i18n": {
+        "locales": {
+          "es": {
+            "translation": "projects/integration-i18n/src/locale/messages.es.xlf",
+            "baseHref": ""
+          }
+        }
+      },
       "root": "projects/integration-i18n/",
       "sourceRoot": "projects/integration-i18n/src",
       "projectType": "application",
@@ -443,6 +465,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "aot": true,
             "outputPath": "dist/integration-i18n",
             "index": "projects/integration-i18n/src/index.html",
             "main": "projects/integration-i18n/src/main.ts",
@@ -483,17 +506,32 @@
                   "type": "initial",
                   "maximumWarning": "2mb",
                   "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb"
                 }
               ]
             },
             "es": {
               "aot": true,
+              "budgets": [
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb"
+                }
+              ],
               "outputPath": "dist/kendo-i18n-sample-es",
               "i18nFile": "projects/integration-i18n/src/locale/messages.es.xlf",
-              "i18nFormat": "xlf",
               "i18nLocale": "es"
             },
             "production-es": {
+              "budgets": [
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb"
+                }
+              ],
               "fileReplacements": [
                 {
                   "replace": "projects/integration-i18n/src/environments/environment.ts",
@@ -501,9 +539,9 @@
                 }
               ],
               "aot": true,
-              "i18nFile": "projects/integration-i18n/src/locale/messages.es.xlf",
-              "i18nFormat": "xlf",
-              "i18nLocale": "es",
+            "localize": [
+              "es"
+            ],
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
@@ -579,6 +617,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "aot": true,
             "outputPath": "dist/grid-firebase",
             "index": "projects/grid-firebase/src/index.html",
             "main": "projects/grid-firebase/src/main.ts",
@@ -619,6 +658,10 @@
                   "type": "initial",
                   "maximumWarning": "2mb",
                   "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb"
                 }
               ]
             }
@@ -682,6 +725,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "aot": true,
             "outputPath": "dist/grid-graphql",
             "index": "projects/grid-graphql/src/index.html",
             "main": "projects/grid-graphql/src/main.ts",
@@ -722,6 +766,10 @@
                   "type": "initial",
                   "maximumWarning": "2mb",
                   "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb"
                 }
               ]
             }
@@ -785,6 +833,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "aot": true,
             "outputPath": "dist/grid-jsdo",
             "index": "projects/grid-jsdo/src/index.html",
             "main": "projects/grid-jsdo/src/main.ts",
@@ -825,6 +874,10 @@
                   "type": "initial",
                   "maximumWarning": "2mb",
                   "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb"
                 }
               ]
             }
@@ -888,6 +941,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "aot": true,
             "outputPath": "dist/chart-websockets",
             "index": "projects/chart-websockets/src/index.html",
             "main": "projects/chart-websockets/src/main.ts",
@@ -928,6 +982,10 @@
                   "type": "initial",
                   "maximumWarning": "2mb",
                   "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb"
                 }
               ]
             }
@@ -991,6 +1049,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "aot": true,
             "outputPath": "dist/grid-signalr",
             "index": "projects/grid-signalr/src/index.html",
             "main": "projects/grid-signalr/src/main.ts",
@@ -1031,6 +1090,10 @@
                   "type": "initial",
                   "maximumWarning": "2mb",
                   "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb"
                 }
               ]
             }

@@ -15,11 +15,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   ],
   imports: [
     BrowserAnimationsModule,
-    BrowserModule.withServerTransition({ appId: 'my-app' }),
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
-      { path: 'lazy', loadChildren: './lazy/lazy.module#LazyModule' },
-      { path: 'lazy/nested', loadChildren: './lazy/lazy.module#LazyModule' }
+      { path: 'lazy', loadChildren: () => import('./lazy/lazy.module').then(m => m.LazyModule) },
+      { path: 'lazy/nested', loadChildren: () => import('./lazy/lazy.module').then(m => m.LazyModule) }
     ]),
     TransferHttpCacheModule,
     GridModule
