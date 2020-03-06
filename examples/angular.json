@@ -522,8 +522,9 @@
                 }
               ],
               "outputPath": "dist/kendo-i18n-sample-es",
-              "i18nFile": "projects/integration-i18n/src/locale/messages.es.xlf",
-              "i18nLocale": "es"
+              "localize": [
+                "es"
+              ]
             },
             "production-es": {
               "budgets": [
@@ -539,9 +540,9 @@
                 }
               ],
               "aot": true,
-            "localize": [
-              "es"
-            ],
+              "localize": [
+                "es"
+              ],
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
