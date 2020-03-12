@@ -5,3 +5,8 @@
   [removeUrl]="'api/Remove'"
   >
 </kendo-upload>
+<h1>Select files for chunk uploading.</h1>
+<kendo-upload [saveUrl]="'api/Chunk/Upload'"
+              [removeUrl]="'api/Remove'"
+              [chunkable]="chunkSettings">
+</kendo-upload>

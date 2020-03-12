@@ -22,7 +22,7 @@
     "@angular/platform-server": "8.0.0",
     "@angular/router": "8.0.0",
     "@nguniversal/module-map-ngfactory-loader": "8.0.0-rc.1",
-    "@progress/kendo-angular-upload": "^5.1.0",
+    "@progress/kendo-angular-upload": "^5.2.0",
     "aspnet-prerendering": "^3.0.1",
     "bootstrap": "^4.3.1",
     "core-js": "^2.6.5",
@@ -31,8 +31,8 @@
     "popper.js": "^1.14.3",
     "rxjs": "^6.4.0",
     "zone.js": "~0.9.1",
-    "@progress/kendo-angular-common": "^1.0.0",
-    "@progress/kendo-angular-l10n": "^2.0.0",
+    "@progress/kendo-angular-common": "^1.2.2",
+    "@progress/kendo-angular-l10n": "^2.0.1",
     "@progress/kendo-theme-default": "latest"
   },
   "devDependencies": {
