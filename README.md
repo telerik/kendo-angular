@@ -61,5 +61,5 @@ The [Progress Services](https://www.progress.com/services) team is available to 
 
 The kendo-angular repository is a single storing place for all sample applications that are referred in the [official Kendo UI for Angular documentation]. All currently available sample applications are located under the following folders:
 
-* [examples/projects/](https://github.com/telerik/kendo-angular/examples/projects)
-* [examples-standalone](https://github.com/telerik/kendo-angular/examples-standalone)
+* [examples/projects/](https://github.com/telerik/kendo-angular/tree/master/examples/projects)
+* [examples-standalone](https://github.com/telerik/kendo-angular/tree/master/examples-standalone)
