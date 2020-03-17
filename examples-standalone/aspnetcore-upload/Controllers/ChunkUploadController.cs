@@ -104,7 +104,7 @@ namespace aspnetcore_upload.Controllers
             return Content("");
         }
 
-        [Route("api/Remove")]
+        [Route("api/Chunk/Remove")]
         [HttpPost]
         public ActionResult Async_Remove(string[] fileNames)
         {

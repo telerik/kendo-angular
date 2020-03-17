@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Net.Http.Headers;
-using System.Runtime.Serialization;
-using System.Runtime.Serialization.Json;
-using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -47,7 +42,7 @@ namespace upload.Controllers
                 }
             }
 
-            // Return an empty string to signify successs
+            // Return an empty string to signify success
             return Content("");
         }
 
@@ -76,3 +71,4 @@ namespace upload.Controllers
         }
     }
 }
+
