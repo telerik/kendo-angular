@@ -1,12 +1,38 @@
-<h1>Select files for uploading.</h1>
+<div class="example-wrapper">
+    <div class="row">
+        <div class="component">
+            <h3>Upload</h3>
+            <kendo-upload [saveUrl]="'api/Upload'" [removeUrl]="'api/Remove'"> </kendo-upload>
+        </div>
+    </div>
 
-<kendo-upload
-  [saveUrl]="'api/Upload'"
-  [removeUrl]="'api/Remove'"
-  >
-</kendo-upload>
-<h1>Select files for chunk uploading.</h1>
-<kendo-upload [saveUrl]="'api/Chunk/Upload'"
-              [removeUrl]="'api/Remove'"
-              [chunkable]="chunkSettings">
-</kendo-upload>
+    <div class="row">
+        <div class="component">
+            <h3>Chunk Upload</h3>
+            <kendo-upload [saveUrl]="'api/Chunk/Upload'" [removeUrl]="'api/Remove'" [chunkable]="chunkSettings"> </kendo-upload>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="component">
+            <h3>File Select</h3>
+            <div class="example-config">
+                <p>Valid: {{ myForm.valid }}</p>
+                <p>Submitted: {{ submitted }}</p>
+            </div>
+            <form [formGroup]="myForm" novalidate (ngSubmit)="save(myForm.value, myForm.valid)" class="my-form">
+                <label class="form-label">Username:</label>
+                <input type="text" formControlName="username" class="k-textbox" style="width: 100%" />
+                <p class="form-hint" [hidden]="myForm.controls.username.valid || (myForm.controls.username.pristine && !submitted)">
+                    Username is required and should be minimum 4 characters.
+                </p>
+                <label class="form-label">Avatar:</label>
+                <kendo-fileselect formControlName="avatar" [multiple]="false"> </kendo-fileselect>
+                <p class="form-hint" [hidden]="myForm.controls.avatar.valid || (myForm.controls.avatar.pristine && !submitted)">
+                    Avatar is required.
+                </p>
+                <button type="submit" class="k-button k-primary" style="margin: 1em 0;">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
