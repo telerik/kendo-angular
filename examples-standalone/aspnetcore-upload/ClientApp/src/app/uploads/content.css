@@ -1,0 +1,12 @@
+.component {
+    width: 100%;
+}
+
+.row {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.info {
+    padding: 0 20px;
+}

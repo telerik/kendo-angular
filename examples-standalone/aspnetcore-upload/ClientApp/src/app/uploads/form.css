@@ -21,13 +21,3 @@
     border-radius: 0.25rem;
     padding: 16px;
 }
-
-.component {
-    width: 550px;
-    margin-top: 15px;
-}
-
-.row {
-    display: flex;
-    justify-content: space-evenly;
-}

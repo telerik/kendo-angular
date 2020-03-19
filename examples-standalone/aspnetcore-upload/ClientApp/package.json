@@ -22,8 +22,10 @@
     "@angular/platform-server": "8.0.0",
     "@angular/router": "8.0.0",
     "@nguniversal/module-map-ngfactory-loader": "8.0.0-rc.1",
-    "@progress/kendo-angular-common": "^1.2.2",
-    "@progress/kendo-angular-l10n": "^2.0.1",
+    "@progress/kendo-angular-buttons": "^5.3.0",
+    "@progress/kendo-angular-common": "^1.0.0",
+    "@progress/kendo-angular-l10n": "^2.0.0",
+    "@progress/kendo-angular-layout": "^4.2.3",
     "@progress/kendo-angular-upload": "^5.2.1",
     "@progress/kendo-theme-default": "latest",
     "aspnet-prerendering": "^3.0.1",
@@ -33,7 +35,8 @@
     "oidc-client": "^1.9.0",
     "popper.js": "^1.14.3",
     "rxjs": "^6.4.0",
-    "zone.js": "~0.9.1"
+    "zone.js": "~0.9.1",
+    "@progress/kendo-angular-popup": "^3.0.0"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^0.800.6",
