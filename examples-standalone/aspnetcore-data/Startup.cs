@@ -29,7 +29,9 @@ namespace aspnetcore_data
                 configuration.RootPath = "ClientApp/dist";
             });
 
-            var connection = @"Data Source=(localdb)\mssqllocaldb;Initial Catalog=Blogging;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+            string path = System.Environment.CurrentDirectory;
+            string connection = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=" + path + "\\App_Data\\Blogging.mdf;Integrated Security=True";
+            
             services.AddDbContext<BloggingContext>(options => options.UseSqlServer(connection));
 
         }
