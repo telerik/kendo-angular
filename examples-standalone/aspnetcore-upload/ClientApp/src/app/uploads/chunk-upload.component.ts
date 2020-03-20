@@ -23,7 +23,14 @@ import { ChunkSettings } from '@progress/kendo-angular-upload';
                 </p>
             </div>
             <div class="component info">
-                <kendo-upload [saveUrl]="'api/Chunk/Upload'" [removeUrl]="'api/Chunk/Remove'" [chunkable]="chunkSettings"> </kendo-upload>
+
+                <kendo-upload
+                    [saveUrl]="'api/Chunk/Upload'"
+                    [removeUrl]="'api/Chunk/Remove'"
+                    [chunkable]="chunkSettings"
+                >
+                </kendo-upload>
+
             </div>
         </div>
     `,

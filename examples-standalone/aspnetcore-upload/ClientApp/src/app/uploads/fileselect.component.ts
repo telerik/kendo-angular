@@ -31,7 +31,13 @@ import { HttpClient } from '@angular/common/http';
                         Username is required and should be minimum 4 characters.
                     </p>
                     <label class="form-label">Avatar:</label>
-                    <kendo-fileselect formControlName="avatar" [multiple]="false"> </kendo-fileselect>
+
+                    <kendo-fileselect
+                        formControlName="avatar"
+                        [multiple]="false"
+                    >
+                    </kendo-fileselect>
+
                     <p class="form-hint" [hidden]="myForm.controls.avatar.valid || (myForm.controls.avatar.pristine && !submitted)">
                         Avatar is required.
                     </p>
@@ -50,7 +56,8 @@ export class FileSelectComponent {
     public submitted = false;
     public userName: string;
 
-    constructor(private fb: FormBuilder, public http: HttpClient) {
+    constructor(private fb: FormBuilder, private http: HttpClient) {
+
         this.myForm = this.fb.group({
             username: [this.userName, [Validators.required, Validators.minLength(4)]],
             avatar: [this.myFiles, [Validators.required]]
@@ -62,7 +69,7 @@ export class FileSelectComponent {
 
         if (valid) {
             console.log('Everything is OK!');
-            this.http.post(`api/Submit/Form`, _value);
+            this.http.post(`api/Submit`, _value).subscribe()
         }
     }
 }

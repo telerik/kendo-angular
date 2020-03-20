@@ -1,18 +1,16 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
 
 namespace aspnetcore_upload.Controllers
 {
-    public interface IForm
-    {
-        string username { get; set; }
-        string avatar { get; set; }
-    }
     public class FileSelectController : Controller
     {
-        [Route("api/Submit/Form")]
+        [Route("api/Submit")]
         [HttpPost]
-        public ActionResult OnSubmit(IForm form)
+        public ActionResult OnSubmit(List<IFormFile> form)
         {
+
             // Return an empty string to signify success
             return Content("");
         }
