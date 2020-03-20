@@ -13,7 +13,7 @@ import { ChunkSettings } from '@progress/kendo-angular-upload';
                 <p>
                     The <a href="https://www.telerik.com/kendo-angular-ui/components/uploads/api/ChunkSettings/">ChunkSettings</a> parameter
                     enables you to specify the size of each chunk, number of attempts to retry uploading a failed chunk, pause and later
-                    resumed the process.
+                    resume the process.
                 </p>
                 <p>
                     For more information check the
