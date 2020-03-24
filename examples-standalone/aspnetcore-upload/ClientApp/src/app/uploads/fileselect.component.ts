@@ -25,17 +25,9 @@ import { HttpClient } from '@angular/common/http';
                     <p>Submitted: {{ submitted }}</p>
                 </div>
                 <form [formGroup]="myForm" novalidate (ngSubmit)="save(myForm.value, myForm.valid)" class="my-form">
-                    <label class="form-label">Username:</label>
-                    <input type="text" formControlName="username" class="k-textbox" style="width: 100%" />
-                    <p class="form-hint" [hidden]="myForm.controls.username.valid || (myForm.controls.username.pristine && !submitted)">
-                        Username is required and should be minimum 4 characters.
-                    </p>
                     <label class="form-label">Avatar:</label>
 
-                    <kendo-fileselect
-                        formControlName="avatar"
-                        [multiple]="false"
-                    >
+                    <kendo-fileselect formControlName="avatar">
                     </kendo-fileselect>
 
                     <p class="form-hint" [hidden]="myForm.controls.avatar.valid || (myForm.controls.avatar.pristine && !submitted)">
@@ -54,21 +46,23 @@ export class FileSelectComponent {
     public myForm: FormGroup;
     public myFiles: Array<any>;
     public submitted = false;
-    public userName: string;
 
     constructor(private fb: FormBuilder, private http: HttpClient) {
-
         this.myForm = this.fb.group({
-            username: [this.userName, [Validators.required, Validators.minLength(4)]],
             avatar: [this.myFiles, [Validators.required]]
         });
     }
 
-    save(_value: any, valid: boolean) {
+    save(value: any, valid: boolean) {
         this.submitted = true;
 
         if (valid) {
-            this.http.post(`api/Submit`, _value).subscribe(() => {
+            const formData = new FormData();
+            value.avatar.forEach(file => {
+                formData.append('files', file);
+            });
+
+            this.http.post(`api/Submit`, formData).subscribe(() => {
                 console.log('Everything is OK!');
             }),
                 err => {
