@@ -1,0 +1,19 @@
+<div class="custom-toolbar">
+    <button kendoButton icon="menu" look="flat" (click)="drawer.toggle()"></button>
+    <span class="components">Components</span>
+</div>
+<kendo-drawer-container>
+    <kendo-drawer
+        #drawer
+        [items]="items"
+        [mode]="'push'"
+        [autoCollapse]="false"
+        [mini]="true"
+        [expanded]="true"
+        (select)="onSelect($event)"
+    >
+    </kendo-drawer>
+    <kendo-drawer-content>
+        <layout-component [selectedItem]="selected"></layout-component>
+    </kendo-drawer-content>
+</kendo-drawer-container>

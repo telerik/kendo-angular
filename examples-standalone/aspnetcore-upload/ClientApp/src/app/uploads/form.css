@@ -1,0 +1,23 @@
+.form-hint {
+    color: red;
+    font-size: 0.8em;
+    margin-top: 0.5em;
+}
+
+.form-label {
+    display: block;
+    margin: 0.8em 0 0.2em;
+}
+
+.example-config {
+    margin: 0 0 20px;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.03);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.my-form {
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    border-radius: 0.25rem;
+    padding: 16px;
+}
