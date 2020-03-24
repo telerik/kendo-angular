@@ -68,8 +68,12 @@ export class FileSelectComponent {
         this.submitted = true;
 
         if (valid) {
-            console.log('Everything is OK!');
-            this.http.post(`api/Submit`, _value).subscribe()
+            this.http.post(`api/Submit`, _value).subscribe(() => {
+                console.log('Everything is OK!');
+            }),
+                err => {
+                    console.log(err);
+                };
         }
     }
 }
