@@ -16,11 +16,7 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.SpaServices.Extensions" Version="3.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.0.0" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.0.0">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
-    <PackageReference Include="Telerik.UI.for.AspNet.Core" Version="2019.3.1016-Internal" />
+    <PackageReference Include="Telerik.UI.for.AspNet.Core" Version="2020.1.219" />
   </ItemGroup>
 
   <ItemGroup>
