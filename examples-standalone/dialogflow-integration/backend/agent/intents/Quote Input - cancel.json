@@ -1,0 +1,42 @@
+{
+  "id": "993bb82c-d55f-4d4b-af74-98a6fa23a252",
+  "parentId": "85e4456f-8442-48c4-a008-d43b03d1b4d7",
+  "rootParentId": "85e4456f-8442-48c4-a008-d43b03d1b4d7",
+  "name": "Quote Input - Cancel",
+  "auto": true,
+  "contexts": [
+    "QuoteInput-followup"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "QuoteInput.QuoteInput-cancel",
+      "affectedContexts": [
+        {
+          "name": "QuoteInput-cancel-followup",
+          "parameters": {},
+          "lifespan": 2
+        }
+      ],
+      "parameters": [],
+      "messages": [
+        {
+          "type": 0,
+          "lang": "en",
+          "condition": "",
+          "speech": "Do you want to see the other car insurance policies?"
+        }
+      ],
+      "defaultResponsePlatforms": {},
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": true,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

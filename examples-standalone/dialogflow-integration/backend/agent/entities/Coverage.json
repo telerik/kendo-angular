@@ -1,0 +1,9 @@
+{
+  "id": "63aa7f7c-84c5-4d2c-8934-b24b21a5f641",
+  "name": "Coverage",
+  "isOverridable": true,
+  "isEnum": false,
+  "isRegexp": false,
+  "automatedExpansion": false,
+  "allowFuzzyExtraction": false
+}

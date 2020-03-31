@@ -1,0 +1,61 @@
+{
+  "id": "a29270c4-a740-44f7-80e0-3bf247c4533b",
+  "parentId": "85e4456f-8442-48c4-a008-d43b03d1b4d7",
+  "rootParentId": "85e4456f-8442-48c4-a008-d43b03d1b4d7",
+  "name": "Quote Input - Correction - Start Date",
+  "auto": true,
+  "contexts": [
+    "QuoteInput-followup"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "QuoteInput.QuoteInput-custom",
+      "affectedContexts": [
+        {
+          "name": "QuoteInput-followup",
+          "parameters": {},
+          "lifespan": 5
+        }
+      ],
+      "parameters": [
+        {
+          "id": "bf5035dc-9f34-45d5-9fe6-d6fe89c53983",
+          "required": true,
+          "dataType": "@sys.date",
+          "name": "StartDate",
+          "value": "$StartDate",
+          "prompts": [
+            {
+              "lang": "en",
+              "value": "When do you want your insurance to start?"
+            }
+          ],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": [],
+          "isList": false
+        }
+      ],
+      "messages": [
+        {
+          "type": 0,
+          "lang": "en",
+          "condition": "",
+          "speech": []
+        }
+      ],
+      "defaultResponsePlatforms": {},
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": true,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

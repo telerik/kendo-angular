@@ -1,0 +1,74 @@
+[
+  {
+    "id": "237bc58a-85c0-4ef6-911a-e285edf1def0",
+    "data": [
+      {
+        "text": "Four",
+        "alias": "Payments",
+        "meta": "@sys.number",
+        "userDefined": false
+      },
+      {
+        "text": " Payments",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "047f694a-4da5-42c6-a44b-fc881d225cac",
+    "data": [
+      {
+        "text": "Three",
+        "alias": "Payments",
+        "meta": "@sys.number",
+        "userDefined": false
+      },
+      {
+        "text": " Payments",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "8127ed7d-b0d8-44f2-ba3e-8670d7abc592",
+    "data": [
+      {
+        "text": "Two",
+        "alias": "Payments",
+        "meta": "@sys.number",
+        "userDefined": false
+      },
+      {
+        "text": " Payments",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "a75ea217-2490-4b5b-8582-6d7742e0401c",
+    "data": [
+      {
+        "text": "One",
+        "alias": "Payments",
+        "meta": "@sys.number",
+        "userDefined": false
+      },
+      {
+        "text": " Payment",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  }
+]

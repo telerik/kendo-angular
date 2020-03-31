@@ -1,0 +1,48 @@
+{
+  "id": "81d5df69-127c-44e3-be9c-a54efd98bec8",
+  "parentId": "fe2f35b5-0e85-4956-939a-187855af52fb",
+  "rootParentId": "85e4456f-8442-48c4-a008-d43b03d1b4d7",
+  "name": "Quote Input - Payments - Cancel",
+  "auto": true,
+  "contexts": [
+    "QuoteInput-Payments-followup",
+    "QuoteInput-followup"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "QuoteInput.QuoteInput-yes.QuoteInput-yes-custom.QuoteInput-Payments-cancel",
+      "affectedContexts": [
+        {
+          "name": "QuoteInput-followup",
+          "parameters": {},
+          "lifespan": 5
+        },
+        {
+          "name": "QuoteInput-Payments-followup",
+          "parameters": {},
+          "lifespan": 0
+        }
+      ],
+      "parameters": [],
+      "messages": [
+        {
+          "type": 0,
+          "lang": "en",
+          "condition": "",
+          "speech": []
+        }
+      ],
+      "defaultResponsePlatforms": {},
+      "speech": []
+    }
+  ],
+  "priority": 750000,
+  "webhookUsed": true,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

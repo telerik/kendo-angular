@@ -1,0 +1,26 @@
+[
+  {
+    "id": "053138cf-e706-4ac8-a37d-2f73f4cc6bdd",
+    "data": [
+      {
+        "text": "What else do you have?",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "ea8263be-26f2-47a3-99fb-09cba93606ea",
+    "data": [
+      {
+        "text": "See other car insurance policies",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  }
+]

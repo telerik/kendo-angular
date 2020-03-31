@@ -1,0 +1,63 @@
+{
+  "id": "253fbac5-44b2-44bb-9387-c295a130502e",
+  "parentId": "85e4456f-8442-48c4-a008-d43b03d1b4d7",
+  "rootParentId": "85e4456f-8442-48c4-a008-d43b03d1b4d7",
+  "name": "Quote Input - Confirm",
+  "auto": true,
+  "contexts": [
+    "QuoteInput-followup"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "QuoteInput.QuoteInput-yes",
+      "affectedContexts": [
+        {
+          "name": "QuoteInput-yes-followup",
+          "parameters": {},
+          "lifespan": 5
+        },
+        {
+          "name": "QuoteInput-followup",
+          "parameters": {},
+          "lifespan": 5
+        }
+      ],
+      "parameters": [],
+      "messages": [
+        {
+          "type": 0,
+          "lang": "en",
+          "condition": "",
+          "speech": "What payment plan do you prefer?"
+        },
+        {
+          "type": 0,
+          "lang": "en",
+          "condition": "",
+          "speech": "If your annual insurance cost is too high, we can offer you to pay in monthly instalments."
+        },
+        {
+          "type": 0,
+          "lang": "en",
+          "condition": "",
+          "speech": "A monthly payment plan would mean that you may pay more for your car insurance as you will be charged interest on each payment."
+        }
+      ],
+      "defaultResponsePlatforms": {},
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": true,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [
+    {
+      "name": "ConfirmQuote"
+    }
+  ],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

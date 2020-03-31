@@ -1,0 +1,49 @@
+{
+  "id": "fb3aa9cf-86fa-4085-915d-6061c7f780a3",
+  "name": "Quote Details",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "affectedContexts": [
+        {
+          "name": "QuoteDetails",
+          "parameters": {},
+          "lifespan": 5
+        }
+      ],
+      "parameters": [
+        {
+          "id": "f59e1bf6-6f53-43c9-8aee-28069c5a21d4",
+          "required": true,
+          "dataType": "@Coverage",
+          "name": "Coverage",
+          "value": "$Coverage",
+          "prompts": [
+            {
+              "lang": "en",
+              "value": "What type of coverage would you like?"
+            }
+          ],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": [],
+          "isList": false
+        }
+      ],
+      "messages": [],
+      "defaultResponsePlatforms": {},
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": true,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

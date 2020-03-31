@@ -1,0 +1,61 @@
+{
+  "id": "c84b6e83-dd92-4bf6-99f5-b4951e0f7ed2",
+  "parentId": "85e4456f-8442-48c4-a008-d43b03d1b4d7",
+  "rootParentId": "85e4456f-8442-48c4-a008-d43b03d1b4d7",
+  "name": "Quote Input - Correction - Car Cost",
+  "auto": true,
+  "contexts": [
+    "QuoteInput-followup"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "QuoteInput.QuoteInput-custom",
+      "affectedContexts": [
+        {
+          "name": "QuoteInput-followup",
+          "parameters": {},
+          "lifespan": 5
+        }
+      ],
+      "parameters": [
+        {
+          "id": "19915284-83aa-4f47-b421-e496bce667a5",
+          "required": true,
+          "dataType": "@sys.number",
+          "name": "Worth",
+          "value": "$Worth",
+          "prompts": [
+            {
+              "lang": "en",
+              "value": "How much is your car currently worth?"
+            }
+          ],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": [],
+          "isList": false
+        }
+      ],
+      "messages": [
+        {
+          "type": 0,
+          "lang": "en",
+          "condition": "",
+          "speech": []
+        }
+      ],
+      "defaultResponsePlatforms": {},
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": true,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

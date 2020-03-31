@@ -1,0 +1,122 @@
+[
+  {
+    "id": "07779d84-7404-45dc-b874-0af420cd2bc9",
+    "data": [
+      {
+        "text": "stop",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 3,
+    "updated": 0
+  },
+  {
+    "id": "c0c65edd-07cf-4e94-8dc2-a14301a6801b",
+    "data": [
+      {
+        "text": "stop it",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "accce91b-fc7c-4562-a5ed-9cca4f79e7a5",
+    "data": [
+      {
+        "text": "never mind",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "3fae808e-9025-4705-9bf8-1f910e080535",
+    "data": [
+      {
+        "text": "just forget about it",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 1,
+    "updated": 0
+  },
+  {
+    "id": "c557840c-00ab-4421-8933-d70b3d1cdd63",
+    "data": [
+      {
+        "text": "do nothing",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "dff7635d-6b66-4562-b71b-0624523fe84b",
+    "data": [
+      {
+        "text": "skip",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 2,
+    "updated": 0
+  },
+  {
+    "id": "cb884c9e-b6d5-41f4-a514-b63af40ce5a1",
+    "data": [
+      {
+        "text": "cancel that",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 5,
+    "updated": 0
+  },
+  {
+    "id": "732fcbbe-b9de-4132-9ab9-8a1e2ec7df2f",
+    "data": [
+      {
+        "text": "forget that",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "dc734849-11b5-44fb-b9c3-e4b0b306e6e4",
+    "data": [
+      {
+        "text": "cancel",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "7a141c71-995a-49d6-9a5d-64334df9a24b",
+    "data": [
+      {
+        "text": "dismiss",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  }
+]
