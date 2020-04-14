@@ -4,7 +4,7 @@ This Kendo UI for Angular sample project demonstrates how to integrate the Grid 
 
 ## Getting Started
 
-1. Clone the sample apps repository locally by using your favorite Git client by running `git clone https://github.com/telerik/kendo-angular/.git`.
+1. Clone the sample apps repository locally by using your favorite Git client by running `git clone https://github.com/telerik/kendo-angular/`.
 1. Enter the project directory by running `cd examples-standalone/grid-charts-integration`.
 1. Install the node modules with `npm install`.
 1. Run the project with `ng serve`.
