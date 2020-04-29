@@ -33,7 +33,7 @@ Note: This sample project is an Angular CLI project:
 
 ## Getting Started
 
-1. Clone the repository of the sample application locally by running `git clone https://github.com/telerik/kendo-angular/`.
+1. Clone the repository of the sample application locally by running `git clone https://github.com/telerik/kendo-angular.git`.
 1. Navigate to the project folder by running `cd examples-standalone/finance-portfolio`.
 1. Install dependencies with NPM by running `npm install`.
 
