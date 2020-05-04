@@ -32,7 +32,6 @@ import { TypesDistributionComponent } from './charts/types-distribution.componen
 import { IssueTypesComponent } from './charts/issue-types.component';
 import { StatisticsComponent } from './charts/statistics.component';
 import { LoadingComponent } from './shared/spinner.component';
-import { ActionButtonsComponent } from './action-buttons/action-buttons.component';
 
 export function createTranslateLoader(http: Http) {
     return new TranslateHttpLoader(<any>http, './assets/i18n/', '.json');
@@ -52,8 +51,7 @@ export function createTranslateLoader(http: Http) {
         TypesDistributionComponent,
         IssueTypesComponent,
         StatisticsComponent,
-        LoadingComponent,
-        ActionButtonsComponent
+        LoadingComponent
     ],
     imports: [
         AppRoutingModule,
