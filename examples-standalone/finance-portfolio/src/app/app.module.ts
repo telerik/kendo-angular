@@ -27,6 +27,7 @@ import { HeatmapComponent } from './components/heatmap/heatmap.component';
 import { BadgeComponent } from './components/badge/badge.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { RealTimeDataComponent } from './components/real-time-data/real-time-data.component';
+import { ActionButtonsComponent } from './components/action-buttons/action-buttons.component';
 
 import { StockDataService } from './services/stock-data.service';
 
@@ -48,7 +49,8 @@ import { DropDownListPopupSelectorDirective } from './directives/dropdownlist-po
         StockChartComponent,
         StockDetailsComponent,
         NumberFormatPipe,
-        DropDownListPopupSelectorDirective
+        DropDownListPopupSelectorDirective,
+        ActionButtonsComponent
     ],
     imports: [
         BrowserModule,
