@@ -11,12 +11,13 @@
     <!-- Set this to true if you enable server-side prerendering -->
     <BuildServerSideRenderer>false</BuildServerSideRenderer>
     <RootNamespace>aspnetcore_data</RootNamespace>
+    <AssemblyName>e</AssemblyName>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.SpaServices.Extensions" Version="3.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.0.0" />
-    <PackageReference Include="Telerik.UI.for.AspNet.Core" Version="2020.1.219" />
+    <PackageReference Include="Telerik.UI.for.AspNet.Core" Version="2020.2.513" />
   </ItemGroup>
 
   <ItemGroup>

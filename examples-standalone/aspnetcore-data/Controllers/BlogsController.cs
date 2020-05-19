@@ -20,7 +20,7 @@ namespace aspnetcore_data.Controllers
         [HttpGet]
         public JsonResult GetProducts([DataSourceRequest] DataSourceRequest request)
         {
-            var result = Json(this._context.Blog.ToDataSourceResult(request));
+            var result = Json(this._context.Blog.ToList().ToDataSourceResult(request));
             return result;
         }
 
