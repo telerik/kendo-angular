@@ -1,0 +1,28 @@
+<kendo-chat
+[messages]="feed | async"
+[user]="user"
+(sendMessage)="sendMessage($event)"
+>
+<ng-template kendoChatAttachmentTemplate let-att>
+  <ng-container [ngSwitch]="att.type">
+
+    <quote-card *ngSwitchCase="'quote'"
+      [quote]="att">
+    </quote-card>
+
+    <payment-plan-card *ngSwitchCase="'payment_plan'"
+      [plan]="att">
+    </payment-plan-card>
+
+    <kendo-chat-hero-card *ngSwitchDefault
+      imageUrl="{{ att.images[0]?.url }}"
+      [title]="att.title"
+      [subtitle]="att.subtitle"
+      [actions]="att.buttons"
+      (executeAction)="heroAction($event)"
+    >
+    </kendo-chat-hero-card>
+
+  </ng-container>
+</ng-template>
+</kendo-chat>

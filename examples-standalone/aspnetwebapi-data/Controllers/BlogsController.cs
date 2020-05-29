@@ -22,7 +22,7 @@ namespace aspnetwebapi_data.Controllers
         [HttpGet]
         public DataSourceResult GetProducts([DataSourceRequest] DataSourceRequest request)
         {
-            var result = this._context.Blog.ToDataSourceResult(request);
+            var result = this._context.Blog.ToList().ToDataSourceResult(request);
             return result;
         }
 
