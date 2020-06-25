@@ -13,17 +13,17 @@
   },
   "private": true,
   "dependencies": {
-    "@angular/animations": "~9.0.1",
-    "@angular/common": "~9.0.1",
-    "@angular/compiler": "~9.0.1",
-    "@angular/core": "~9.0.1",
+    "@angular/animations": "~10.0.0",
+    "@angular/common": "~10.0.0",
+    "@angular/compiler": "~10.0.0",
+    "@angular/core": "~10.0.0",
     "@angular/fire": "^5.2.1",
-    "@angular/forms": "~9.0.1",
-    "@angular/localize": "~9.0.1",
-    "@angular/platform-browser": "~9.0.1",
-    "@angular/platform-browser-dynamic": "~9.0.1",
-    "@angular/router": "~9.0.1",
-    "@angular/service-worker": "^9.0.1",
+    "@angular/forms": "~10.0.0",
+    "@angular/localize": "~10.0.0",
+    "@angular/platform-browser": "~10.0.0",
+    "@angular/platform-browser-dynamic": "~10.0.0",
+    "@angular/router": "~10.0.0",
+    "@angular/service-worker": "^10.0.0",
     "@aspnet/signalr": "^1.1.4",
     "@ngx-translate/core": "^11.0.1",
     "@ngx-translate/http-loader": "^4.0.0",
@@ -64,13 +64,13 @@
     "marked": "^0.6.3",
     "rxjs": "~6.5.4",
     "tslib": "^1.10.0",
-    "zone.js": "~0.10.2"
+    "zone.js": "~0.10.3"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "~0.900.2",
-    "@angular/cli": "~9.0.2",
-    "@angular/compiler-cli": "~9.0.1",
-    "@angular/language-service": "~9.0.1",
+    "@angular-devkit/build-angular": "~0.1000.0",
+    "@angular/cli": "~10.0.0",
+    "@angular/compiler-cli": "~10.0.0",
+    "@angular/language-service": "~10.0.0",
     "@progress/kendo-angular-messages": "^1.18.0",
     "@types/jasmine": "~2.8.8",
     "@types/jasminewd2": "~2.0.6",
@@ -86,7 +86,7 @@
     "karma-jasmine-html-reporter": "^0.2.2",
     "protractor": "~5.4.2",
     "ts-node": "~7.0.0",
-    "tslint": "~5.18.0",
-    "typescript": "~3.7.5"
+    "tslint": "~6.1.0",
+    "typescript": "~3.9.5"
   }
 }
