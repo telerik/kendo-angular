@@ -130,8 +130,7 @@
       ]
     },
     "use-lifecycle-interface": true,
-    "use-pipe-transform-interface": true
-  },
+    "use-pipe-transform-interface": true,
     "variable-name": {
       "options": [
         "ban-keywords",
@@ -149,7 +148,7 @@
         "check-typecast"
       ]
     }
-},
+  },
   "rulesDirectory": [
     "codelyzer"
   ]
