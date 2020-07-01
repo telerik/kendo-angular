@@ -14,7 +14,7 @@ projects.forEach(name => {
   console.log(`Building ${name}`);
 
   const dir = path.join(projectsDir, name);
-  const cmd = `ng build --no-progress ${name}`;
+  const cmd = `node --max_old_space_size=8192 ../../node_modules/@angular/cli/bin/ng build --no-progress ${name}`;
   execSync(cmd, { stdio: 'inherit', windowsHide: true, cwd: dir });
 
   console.log('Success.\n');
