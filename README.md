@@ -28,7 +28,7 @@ Kendo UI for Angular provides the following support options.
 
 ### When do you plan on releasing Feature X?
 
-1. Check the [Roadmap](http://www.telerik.com/kendo-angular-ui/roadmap/) for the planned items.
+1. Check the [Roadmap](https://www.telerik.com/support/whats-new/kendo-ui/roadmap#angular-roadmap) for the planned items.
 1. If the item you need is not present there, [check our feedback portal](https://feedback.telerik.com/kendo-angular-ui). If someone has already posted it there, you can upvote it. If nobody has requested it so far, you can post a new idea.
 
 ### I think I found a bug
