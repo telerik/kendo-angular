@@ -40,11 +40,11 @@ Kendo UI for Angular provides the following support options.
 ### I want to report a bug
 
 1. Find an example in [the documentation](http://www.telerik.com/kendo-angular-ui/components/) that looks similar to your case.
-1. Open it in Plunker by using the **OPEN AS PLUNKER** button.
-1. Modify the plunk, so that the issue is reproducible in it. Try to include the minimum possible amount of code.
-1. Save the plunk by using the blue **Save** button at the top.
+1. Open it in StackBlitz by using the **Edit in StackBlitz** button.
+1. Modify the example, so that the issue is reproducible in it. Try to include the minimum possible amount of code.
+1. Save the example by using the blue **Fork** button at the top.
 1. Copy the link from the address bar of the browser.
-1. [Open a new issue](https://github.com/telerik/kendo-angular/issues/new) and add the plunker link in the description.
+1. [Open a new issue](https://github.com/telerik/kendo-angular/issues/new) and add the StackBlitz link in the description.
 1. Provide any additional information necessary for us to reproduce the problem&mdash;for example, browser version, steps to perform, etc.
 
 We might not be able to act on issues **without a runnable demo**.
