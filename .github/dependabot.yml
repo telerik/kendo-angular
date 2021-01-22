@@ -1,0 +1,98 @@
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: "/examples"
+    reviewers:
+      - "tsvetomir"
+    schedule:
+      interval: monthly
+      time: "02:00"
+    open-pull-requests-limit: 3
+  - package-ecosystem: npm
+    directory: "/examples-standalone/angular-universal/aspnet_core_sample_application/ClientApp"
+    reviewers:
+      - "tsvetomir"
+    schedule:
+      interval: monthly
+      time: "03:00"
+    open-pull-requests-limit: 3
+  - package-ecosystem: npm
+    directory: "/examples-standalone/angular-universal/node_sample_application"
+    reviewers:
+      - "tsvetomir"
+    schedule:
+      interval: monthly
+      time: "04:00"
+    open-pull-requests-limit: 3
+  - package-ecosystem: npm
+    directory: "/examples-standalone/aspnetcore-data/ClientApp"
+    reviewers:
+      - "tsvetomir"
+    schedule:
+      interval: monthly
+      time: "05:00"
+    open-pull-requests-limit: 3
+  - package-ecosystem: npm
+    directory: "/examples-standalone/aspnetcore-upload/ClientApp"
+    reviewers:
+      - "tsvetomir"
+    schedule:
+      interval: monthly
+      time: "04:00"
+    open-pull-requests-limit: 3
+  - package-ecosystem: npm
+    directory: "/examples-standalone/aspnetwebapi-data/ClientApp"
+    reviewers:
+      - "tsvetomir"
+    schedule:
+      interval: monthly
+      time: "04:00"
+    open-pull-requests-limit: 3
+  - package-ecosystem: npm
+    directory: "/examples-standalone/dialogflow-integration/backend/webhook/functions"
+    reviewers:
+      - "tsvetomir"
+    schedule:
+      interval: monthly
+      time: "04:00"
+    open-pull-requests-limit: 3
+  - package-ecosystem: npm
+    directory: "/examples-standalone/dialogflow-integration/backend/server"
+    reviewers:
+      - "tsvetomir"
+    schedule:
+      interval: monthly
+      time: "04:00"
+    open-pull-requests-limit: 3
+  - package-ecosystem: npm
+    directory: "/examples-standalone/dialogflow-integration/client"
+    reviewers:
+      - "tsvetomir"
+    schedule:
+      interval: monthly
+      time: "04:00"
+    open-pull-requests-limit: 3
+  - package-ecosystem: npm
+    directory: "/examples-standalone/electron-dashboard"
+    reviewers:
+      - "tsvetomir"
+    schedule:
+      interval: monthly
+      time: "04:00"
+    open-pull-requests-limit: 3
+  - package-ecosystem: npm
+    directory: "/examples-standalone/finance-portfolio"
+    reviewers:
+      - "tsvetomir"
+    schedule:
+      interval: monthly
+      time: "04:00"
+    open-pull-requests-limit: 3
+  - package-ecosystem: npm
+    directory: "/examples-standalone/grid-charts-integration"
+    reviewers:
+      - "tsvetomir"
+    schedule:
+      interval: monthly
+      time: "04:00"
+    open-pull-requests-limit: 3
