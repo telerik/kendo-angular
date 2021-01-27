@@ -2,30 +2,41 @@ version: 2
 updates:
   - package-ecosystem: npm
     directory: "/examples"
+    allow:
+      - dependency-name: "@progress"
     reviewers:
       - "tsvetomir"
     schedule:
       interval: monthly
       time: "02:00"
     open-pull-requests-limit: 3
+
   - package-ecosystem: npm
     directory: "/examples-standalone/angular-universal/aspnet_core_sample_application/ClientApp"
+    allow:
+      - dependency-name: "@progress"
     reviewers:
       - "tsvetomir"
     schedule:
       interval: monthly
       time: "03:00"
     open-pull-requests-limit: 3
+
   - package-ecosystem: npm
     directory: "/examples-standalone/angular-universal/node_sample_application"
+    allow:
+      - dependency-name: "@progress"
     reviewers:
       - "tsvetomir"
     schedule:
       interval: monthly
       time: "04:00"
     open-pull-requests-limit: 3
+
   - package-ecosystem: npm
     directory: "/examples-standalone/aspnetcore-data/ClientApp"
+    allow:
+      - dependency-name: "@progress"
     reviewers:
       - "tsvetomir"
     schedule:
@@ -34,62 +45,85 @@ updates:
     open-pull-requests-limit: 3
   - package-ecosystem: npm
     directory: "/examples-standalone/aspnetcore-upload/ClientApp"
+    allow:
+      - dependency-name: "@progress"
     reviewers:
       - "tsvetomir"
     schedule:
       interval: monthly
       time: "04:00"
     open-pull-requests-limit: 3
+
   - package-ecosystem: npm
     directory: "/examples-standalone/aspnetwebapi-data/ClientApp"
+    allow:
+      - dependency-name: "@progress"
     reviewers:
       - "tsvetomir"
     schedule:
       interval: monthly
       time: "04:00"
     open-pull-requests-limit: 3
+
   - package-ecosystem: npm
     directory: "/examples-standalone/dialogflow-integration/backend/webhook/functions"
+    allow:
+      - dependency-name: "@progress"
     reviewers:
       - "tsvetomir"
     schedule:
       interval: monthly
       time: "04:00"
     open-pull-requests-limit: 3
+
   - package-ecosystem: npm
     directory: "/examples-standalone/dialogflow-integration/backend/server"
+    allow:
+      - dependency-name: "@progress"
     reviewers:
       - "tsvetomir"
     schedule:
       interval: monthly
       time: "04:00"
     open-pull-requests-limit: 3
+
   - package-ecosystem: npm
     directory: "/examples-standalone/dialogflow-integration/client"
+    allow:
+      - dependency-name: "@progress"
     reviewers:
       - "tsvetomir"
     schedule:
       interval: monthly
       time: "04:00"
     open-pull-requests-limit: 3
+
   - package-ecosystem: npm
     directory: "/examples-standalone/electron-dashboard"
+    allow:
+      - dependency-name: "@progress"
     reviewers:
       - "tsvetomir"
     schedule:
       interval: monthly
       time: "04:00"
     open-pull-requests-limit: 3
+
   - package-ecosystem: npm
     directory: "/examples-standalone/finance-portfolio"
+    allow:
+      - dependency-name: "@progress"
     reviewers:
       - "tsvetomir"
     schedule:
       interval: monthly
       time: "04:00"
     open-pull-requests-limit: 3
+
   - package-ecosystem: npm
     directory: "/examples-standalone/grid-charts-integration"
+    allow:
+      - dependency-name: "@progress"
     reviewers:
       - "tsvetomir"
     schedule:
