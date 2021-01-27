@@ -3,7 +3,7 @@ updates:
   - package-ecosystem: npm
     directory: "/examples"
     allow:
-      - dependency-name: "@progress"
+      - dependency-name: "@progress*"
     reviewers:
       - "tsvetomir"
     schedule:
@@ -14,7 +14,7 @@ updates:
   - package-ecosystem: npm
     directory: "/examples-standalone/angular-universal/aspnet_core_sample_application/ClientApp"
     allow:
-      - dependency-name: "@progress"
+      - dependency-name: "@progress*"
     reviewers:
       - "tsvetomir"
     schedule:
@@ -25,7 +25,7 @@ updates:
   - package-ecosystem: npm
     directory: "/examples-standalone/angular-universal/node_sample_application"
     allow:
-      - dependency-name: "@progress"
+      - dependency-name: "@progress*"
     reviewers:
       - "tsvetomir"
     schedule:
@@ -36,7 +36,7 @@ updates:
   - package-ecosystem: npm
     directory: "/examples-standalone/aspnetcore-data/ClientApp"
     allow:
-      - dependency-name: "@progress"
+      - dependency-name: "@progress*"
     reviewers:
       - "tsvetomir"
     schedule:
@@ -46,7 +46,7 @@ updates:
   - package-ecosystem: npm
     directory: "/examples-standalone/aspnetcore-upload/ClientApp"
     allow:
-      - dependency-name: "@progress"
+      - dependency-name: "@progress*"
     reviewers:
       - "tsvetomir"
     schedule:
@@ -57,7 +57,7 @@ updates:
   - package-ecosystem: npm
     directory: "/examples-standalone/aspnetwebapi-data/ClientApp"
     allow:
-      - dependency-name: "@progress"
+      - dependency-name: "@progress*"
     reviewers:
       - "tsvetomir"
     schedule:
@@ -68,7 +68,7 @@ updates:
   - package-ecosystem: npm
     directory: "/examples-standalone/dialogflow-integration/backend/webhook/functions"
     allow:
-      - dependency-name: "@progress"
+      - dependency-name: "@progress*"
     reviewers:
       - "tsvetomir"
     schedule:
@@ -79,7 +79,7 @@ updates:
   - package-ecosystem: npm
     directory: "/examples-standalone/dialogflow-integration/backend/server"
     allow:
-      - dependency-name: "@progress"
+      - dependency-name: "@progress*"
     reviewers:
       - "tsvetomir"
     schedule:
@@ -90,7 +90,7 @@ updates:
   - package-ecosystem: npm
     directory: "/examples-standalone/dialogflow-integration/client"
     allow:
-      - dependency-name: "@progress"
+      - dependency-name: "@progress*"
     reviewers:
       - "tsvetomir"
     schedule:
@@ -101,7 +101,7 @@ updates:
   - package-ecosystem: npm
     directory: "/examples-standalone/electron-dashboard"
     allow:
-      - dependency-name: "@progress"
+      - dependency-name: "@progress*"
     reviewers:
       - "tsvetomir"
     schedule:
@@ -112,7 +112,7 @@ updates:
   - package-ecosystem: npm
     directory: "/examples-standalone/finance-portfolio"
     allow:
-      - dependency-name: "@progress"
+      - dependency-name: "@progress*"
     reviewers:
       - "tsvetomir"
     schedule:
@@ -123,7 +123,7 @@ updates:
   - package-ecosystem: npm
     directory: "/examples-standalone/grid-charts-integration"
     allow:
-      - dependency-name: "@progress"
+      - dependency-name: "@progress*"
     reviewers:
       - "tsvetomir"
     schedule:
