@@ -5,7 +5,7 @@ updates:
     allow:
       - dependency-name: "@progress*"
     reviewers:
-      - "tsvetomir"
+      - "@telerik/kendo-angular-reviewers"
     schedule:
       interval: monthly
       time: "02:00"
@@ -16,7 +16,7 @@ updates:
     allow:
       - dependency-name: "@progress*"
     reviewers:
-      - "tsvetomir"
+      - "@telerik/kendo-angular-reviewers"
     schedule:
       interval: monthly
       time: "03:00"
@@ -27,7 +27,7 @@ updates:
     allow:
       - dependency-name: "@progress*"
     reviewers:
-      - "tsvetomir"
+      - "@telerik/kendo-angular-reviewers"
     schedule:
       interval: monthly
       time: "04:00"
@@ -38,7 +38,7 @@ updates:
     allow:
       - dependency-name: "@progress*"
     reviewers:
-      - "tsvetomir"
+      - "@telerik/kendo-angular-reviewers"
     schedule:
       interval: monthly
       time: "05:00"
@@ -48,7 +48,7 @@ updates:
     allow:
       - dependency-name: "@progress*"
     reviewers:
-      - "tsvetomir"
+      - "@telerik/kendo-angular-reviewers"
     schedule:
       interval: monthly
       time: "04:00"
@@ -59,7 +59,7 @@ updates:
     allow:
       - dependency-name: "@progress*"
     reviewers:
-      - "tsvetomir"
+      - "@telerik/kendo-angular-reviewers"
     schedule:
       interval: monthly
       time: "04:00"
@@ -70,7 +70,7 @@ updates:
     allow:
       - dependency-name: "@progress*"
     reviewers:
-      - "tsvetomir"
+      - "@telerik/kendo-angular-reviewers"
     schedule:
       interval: monthly
       time: "04:00"
@@ -81,7 +81,7 @@ updates:
     allow:
       - dependency-name: "@progress*"
     reviewers:
-      - "tsvetomir"
+      - "@telerik/kendo-angular-reviewers"
     schedule:
       interval: monthly
       time: "04:00"
@@ -92,7 +92,7 @@ updates:
     allow:
       - dependency-name: "@progress*"
     reviewers:
-      - "tsvetomir"
+      - "@telerik/kendo-angular-reviewers"
     schedule:
       interval: monthly
       time: "04:00"
@@ -103,7 +103,7 @@ updates:
     allow:
       - dependency-name: "@progress*"
     reviewers:
-      - "tsvetomir"
+      - "@telerik/kendo-angular-reviewers"
     schedule:
       interval: monthly
       time: "04:00"
@@ -114,7 +114,7 @@ updates:
     allow:
       - dependency-name: "@progress*"
     reviewers:
-      - "tsvetomir"
+      - "@telerik/kendo-angular-reviewers"
     schedule:
       interval: monthly
       time: "04:00"
@@ -125,7 +125,7 @@ updates:
     allow:
       - dependency-name: "@progress*"
     reviewers:
-      - "tsvetomir"
+      - "@telerik/kendo-angular-reviewers"
     schedule:
       interval: monthly
       time: "04:00"
