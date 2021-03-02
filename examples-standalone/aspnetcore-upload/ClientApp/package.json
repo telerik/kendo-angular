@@ -26,8 +26,10 @@
     "@progress/kendo-angular-common": "^1.0.0",
     "@progress/kendo-angular-l10n": "^2.0.0",
     "@progress/kendo-angular-layout": "^4.2.3",
+    "@progress/kendo-angular-popup": "^3.0.0",
     "@progress/kendo-angular-upload": "^5.2.1",
-    "@progress/kendo-theme-default": "latest",
+    "@progress/kendo-licensing": "^1.1.4",
+    "@progress/kendo-theme-default": "^4.35.0",
     "aspnet-prerendering": "^3.0.1",
     "bootstrap": "^4.3.1",
     "core-js": "^2.6.5",
@@ -35,8 +37,7 @@
     "oidc-client": "^1.9.0",
     "popper.js": "^1.14.3",
     "rxjs": "^6.4.0",
-    "zone.js": "~0.9.1",
-    "@progress/kendo-angular-popup": "^3.0.0"
+    "zone.js": "~0.9.1"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^0.800.6",

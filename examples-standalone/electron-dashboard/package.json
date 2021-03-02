@@ -52,7 +52,9 @@
     "@progress/kendo-angular-popup": "^3.0.0",
     "@progress/kendo-data-query": "^1.5.1",
     "@progress/kendo-drawing": "^1.5.12",
+    "@progress/kendo-licensing": "^1.1.4",
     "@progress/kendo-theme-bootstrap": "^3.4.2",
+    "@progress/kendo-theme-default": "^4.35.0",
     "bootstrap": "^4.3.1",
     "hammerjs": "^2.0.8",
     "install": "^0.10.4",
@@ -77,8 +79,8 @@
     "@angular/router": "^7.0.0",
     "@ngx-translate/core": "11.0.1",
     "@ngx-translate/http-loader": "4.0.0",
-    "@types/jasmine": "^3.3.12",
-    "@types/jasminewd2": "2.0.2",
+    "@types/jasmine": "^3.5.14",
+    "@types/jasminewd2": "^2.0.8",
     "@types/node": "^11.13.7",
     "codelyzer": "^5.0.0",
     "copyfiles": "1.2.0",
@@ -105,9 +107,12 @@
     "rxjs": "^6.4.0",
     "ts-node": "4.1.0",
     "tslint": "^5.16.0",
-    "typescript": "~3.2.4",
+    "typescript": "3.2",
     "wait-on": "^2.1.0",
     "webdriver-manager": "12.0.6",
     "zone.js": "0.8.26"
+  },
+  "peerDependencies": {
+    "typescript": "3.2"
   }
 }

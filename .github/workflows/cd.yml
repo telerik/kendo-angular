@@ -1,0 +1,52 @@
+# Builds and publishes examples to GH pages
+name: CD
+
+on:
+  push:
+    branches:
+      - master
+
+defaults:
+  run:
+    working-directory: ./examples
+
+env:
+  NODE_OPTIONS: --max_old_space_size=6144
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Use NodeJS v10
+        uses: actions/setup-node@v2
+        with:
+          node-version: '10'
+
+      - name: Check out repository
+        uses: actions/checkout@v2
+
+      - name: Install modules
+        run: npm ci
+
+      - name: Activate Kendo UI license
+        run: npx kendo-ui-license activate
+        env:
+          KENDO_UI_LICENSE: ${{ secrets.KENDO_UI_LICENSE }}
+
+      - name: Lint examples
+        run: npm run lint
+
+      - name: Build examples
+        run: |
+          npm run lint
+          npm run build-all
+
+      - name: Publish to GH Pages
+        run: ./bin/publish-gh-pages
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+
+      - name: Cleanup
+        run: git clean -xdf
+

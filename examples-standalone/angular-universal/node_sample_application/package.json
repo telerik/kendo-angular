@@ -40,12 +40,13 @@
     "@progress/kendo-angular-popup": "^3.0.0",
     "@progress/kendo-data-query": "^1.0.0",
     "@progress/kendo-drawing": "^1.1.2",
-    "@progress/kendo-theme-default": "latest",
+    "@progress/kendo-licensing": "^1.1.4",
+    "@progress/kendo-theme-default": "^4.35.0",
     "express": "^4.15.2",
+    "hammerjs": "^2.0.0",
     "rxjs": "~6.5.4",
     "tslib": "^2.0.0",
-    "zone.js": "~0.10.2",
-    "hammerjs": "^2.0.0"
+    "zone.js": "~0.10.2"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.1000.0",
