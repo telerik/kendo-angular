@@ -7,7 +7,7 @@ on:
 
 jobs:
   build:
-    runs-on: kendo
+    runs-on: self-hosted
 
     steps:
       - name: Check out repository
