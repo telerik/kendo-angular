@@ -1,0 +1,53 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - '**'
+
+jobs:
+  build:
+    runs-on: kendo
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v2
+
+      - name: Local NPM config
+        run: npm config set -g audit false
+
+      - name: Lint and build examples
+        run: |
+          npm ci --ignore-scripts
+          npx kendo-ui-license activate
+          npm run lint
+          npm run build-all
+        env:
+          KENDO_UI_LICENSE: ${{ secrets.KENDO_UI_LICENSE }}
+        working-directory: ./examples
+
+      - name: Lint and build Angular Universal Node example
+        run: |
+          npm ci --ignore-scripts
+          npx kendo-ui-license activate
+          npm run lint
+          npm run build
+        env:
+          KENDO_UI_LICENSE: ${{ secrets.KENDO_UI_LICENSE }}
+        working-directory: ./examples-standalone/angular-universal/node_sample_application
+
+      - name: Lint ASP.NET Core client app
+        run: |
+          npm ci --ignore-scripts
+          npx kendo-ui-license activate
+          npm run lint
+          npm run build
+        env:
+          KENDO_UI_LICENSE: ${{ secrets.KENDO_UI_LICENSE }}
+        working-directory: ./examples-standalone/aspnetcore-data/ClientApp
+
+      - name: Publish to GH Pages
+        run: cd examples && ./bin/publish-gh-pages
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+
