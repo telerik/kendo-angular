@@ -13,9 +13,6 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v2
 
-      - name: Local NPM config
-        run: npm config set -g audit false
-
       - name: Lint and build examples
         run: |
           npm ci --ignore-scripts
