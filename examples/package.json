@@ -48,7 +48,7 @@
     "@progress/kendo-angular-ripple": "^2.0.3",
     "@progress/kendo-data-query": "^1.5.4",
     "@progress/kendo-drawing": "^1.9.3",
-    "@progress/kendo-licensing": "^1.1.0",
+    "@progress/kendo-licensing": "^1.1.4",
     "@progress/kendo-theme-bootstrap": "^4.24.0",
     "@progress/kendo-theme-default": "^4.26.0",
     "@progress/kendo-theme-material": "^3.22.0",

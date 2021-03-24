@@ -41,6 +41,7 @@
     "@progress/kendo-angular-popup": "^3.0.0",
     "@progress/kendo-data-query": "^1.5.1",
     "@progress/kendo-drawing": "^1.5.12",
+    "@progress/kendo-licensing": "^1.1.4",
     "@progress/kendo-theme-default": "^3.7.0",
     "aspnet-prerendering": "^3.0.1",
     "babel-cli": "^6.26.0",
