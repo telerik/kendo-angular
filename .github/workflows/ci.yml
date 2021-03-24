@@ -13,7 +13,7 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v2
 
-      - name: Lint and build examples
+      - name: Build general examples
         run: |
           npm ci --ignore-scripts
           npx kendo-ui-license activate
@@ -23,7 +23,7 @@ jobs:
           KENDO_UI_LICENSE: ${{ secrets.KENDO_UI_LICENSE }}
         working-directory: ./examples
 
-      - name: Lint and build Angular Universal Node example
+      - name: Build Angular Universal Node example
         run: |
           npm ci --ignore-scripts
           npx kendo-ui-license activate
@@ -33,7 +33,7 @@ jobs:
           KENDO_UI_LICENSE: ${{ secrets.KENDO_UI_LICENSE }}
         working-directory: ./examples-standalone/angular-universal/node_sample_application
 
-      - name: Lint ASP.NET Core client app
+      - name: Build ASP.NET Core Data client app
         run: |
           npm ci --ignore-scripts
           npx kendo-ui-license activate
@@ -42,6 +42,66 @@ jobs:
         env:
           KENDO_UI_LICENSE: ${{ secrets.KENDO_UI_LICENSE }}
         working-directory: ./examples-standalone/aspnetcore-data/ClientApp
+
+      - name: Build ASP.NET Core Upload client app
+        run: |
+          npm ci --ignore-scripts
+          npx kendo-ui-license activate
+          npm run lint
+          npm run build
+        env:
+          KENDO_UI_LICENSE: ${{ secrets.KENDO_UI_LICENSE }}
+        working-directory: ./examples-standalone/aspnetcore-upload/ClientApp
+
+      - name: Build ASP.NET Web API client app
+        run: |
+          npm ci --ignore-scripts
+          npx kendo-ui-license activate
+          npm run lint
+          npm run build
+        env:
+          KENDO_UI_LICENSE: ${{ secrets.KENDO_UI_LICENSE }}
+        working-directory: ./examples-standalone/aspnetwebapi-data/ClientApp
+
+      - name: Build Dialogflow app
+        run: |
+          npm ci --ignore-scripts
+          npx kendo-ui-license activate
+          npm run lint
+          npm run build
+        env:
+          KENDO_UI_LICENSE: ${{ secrets.KENDO_UI_LICENSE }}
+        working-directory: ./examples-standalone/dialogflow-integration/client
+
+      - name: Build Electron dashboard app
+        run: |
+          npm ci --ignore-scripts
+          npx kendo-ui-license activate
+          npm run lint
+          npm run build
+        env:
+          KENDO_UI_LICENSE: ${{ secrets.KENDO_UI_LICENSE }}
+        working-directory: ./examples-standalone/electron-dashboard
+
+      - name: Build Finance portfolio app
+        run: |
+          npm ci --ignore-scripts
+          npx kendo-ui-license activate
+          npm run lint
+          npm run build
+        env:
+          KENDO_UI_LICENSE: ${{ secrets.KENDO_UI_LICENSE }}
+        working-directory: ./examples-standalone/finance-portfolio
+
+      - name: Buil Grid & Charts integration app
+        run: |
+          npm ci --ignore-scripts
+          npx kendo-ui-license activate
+          npm run lint
+          npm run build
+        env:
+          KENDO_UI_LICENSE: ${{ secrets.KENDO_UI_LICENSE }}
+        working-directory: ./examples-standalone/grid-charts-integration
 
       - name: Publish to GH Pages
         run: cd examples && ./bin/publish-gh-pages
