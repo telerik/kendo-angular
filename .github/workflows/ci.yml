@@ -32,6 +32,15 @@ jobs:
         env:
           KENDO_UI_LICENSE: ${{ secrets.KENDO_UI_LICENSE }}
         working-directory: ./examples-standalone/angular-universal/node_sample_application
+      - name: Build Angular Universal ASP.NET core example
+        run: |
+          npm ci --ignore-scripts
+          npx kendo-ui-license activate
+          npm run lint
+          npm run build
+        env:
+          KENDO_UI_LICENSE: ${{ secrets.KENDO_UI_LICENSE }}
+        working-directory: ./examples-standalone/angular-universal/aspnet_core_sample_application/ClientApp
 
       - name: Build ASP.NET Core Data client app
         run: |
