@@ -54,6 +54,7 @@
     "@progress/kendo-drawing": "^1.5.12",
     "@progress/kendo-licensing": "^1.1.4",
     "@progress/kendo-theme-bootstrap": "^3.4.2",
+    "@progress/kendo-theme-default": "^4.35.0",
     "bootstrap": "^4.3.1",
     "hammerjs": "^2.0.8",
     "install": "^0.10.4",

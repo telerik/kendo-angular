@@ -27,7 +27,7 @@
     "@progress/kendo-angular-l10n": "^2.0.0",
     "@progress/kendo-angular-popup": "^3.0.0",
     "@progress/kendo-licensing": "^1.1.4",
-    "@progress/kendo-theme-default": "latest",
+    "@progress/kendo-theme-default": "^4.35.0",
     "rxjs": "~6.5.4",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.2"

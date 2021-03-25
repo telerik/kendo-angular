@@ -36,7 +36,7 @@
     "@progress/kendo-data-query": "^1.5.1",
     "@progress/kendo-drawing": "^1.0.0",
     "@progress/kendo-licensing": "^1.1.4",
-    "@progress/kendo-theme-default": "latest",
+    "@progress/kendo-theme-default": "^4.35.0",
     "aspnet-prerendering": "^3.0.1",
     "bootstrap": "^4.3.1",
     "core-js": "^3.3.3",
