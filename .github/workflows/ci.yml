@@ -28,49 +28,42 @@ jobs:
         run: |
           npm ci --ignore-scripts
           npm run lint
-          npm run build
 
       - name: Build Angular Universal ASP.NET core example
         working-directory: ./examples-standalone/angular-universal/aspnet_core_sample_application/ClientApp
         run: |
           npm ci --ignore-scripts
           npm run lint
-          npm run build
 
       - name: Build ASP.NET Core Data client app
         working-directory: ./examples-standalone/aspnetcore-data/ClientApp
         run: |
           npm ci --ignore-scripts
           npm run lint
-          npm run build
 
       - name: Build ASP.NET Core Upload client app
         working-directory: ./examples-standalone/aspnetcore-upload/ClientApp
         run: |
           npm ci --ignore-scripts
           npm run lint
-          npm run build
 
       - name: Build ASP.NET Web API client app
         working-directory: ./examples-standalone/aspnetwebapi-data/ClientApp
         run: |
           npm ci --ignore-scripts
           npm run lint
-          npm run build
 
       - name: Build Dialogflow app
         working-directory: ./examples-standalone/dialogflow-integration/client
         run: |
           npm ci --ignore-scripts
           npm run lint
-          npm run build
 
       - name: Build Electron dashboard app
         working-directory: ./examples-standalone/electron-dashboard
         run: |
           npm ci --ignore-scripts
           npm run lint
-          npm run build
 
       - name: Build Finance portfolio app
         working-directory: ./examples-standalone/finance-portfolio
@@ -78,19 +71,23 @@ jobs:
           npm ci --ignore-scripts
           npx kendo-ui-license activate
           npm run lint
-          npm run build
         env:
           KENDO_UI_LICENSE: ${{ secrets.KENDO_UI_LICENSE }}
 
-      - name: Buil Grid & Charts integration app
+      - name: Build Grid & Charts integration app
         working-directory: ./examples-standalone/grid-charts-integration
         run: |
           npm ci --ignore-scripts
           npx kendo-ui-license activate
           npm run lint
-          npm run build
         env:
           KENDO_UI_LICENSE: ${{ secrets.KENDO_UI_LICENSE }}
+
+      - name: Build all
+        working-directory: ./examples
+        run: |
+            npm ci --ignore-scripts
+            npm run build-all
 
       - name: Publish to GH Pages
         working-directory: ./examples
