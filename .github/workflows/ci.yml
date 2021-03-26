@@ -13,16 +13,6 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v2
 
-      - name: Build general examples
-        working-directory: ./examples
-        run: |
-          npm ci --ignore-scripts
-          npx kendo-ui-license activate
-          npm run lint
-          npm run build-all
-        env:
-          KENDO_UI_LICENSE: ${{ secrets.KENDO_UI_LICENSE }}
-
       - name: Build Angular Universal Node example
         working-directory: ./examples-standalone/angular-universal/node_sample_application
         run: |
@@ -83,11 +73,16 @@ jobs:
         env:
           KENDO_UI_LICENSE: ${{ secrets.KENDO_UI_LICENSE }}
 
-      - name: Build all
+      - name: Build general examples
         working-directory: ./examples
         run: |
-            npm ci --ignore-scripts
-            npm run build-all
+          npm ci --ignore-scripts
+          npx kendo-ui-license activate
+          npm run lint
+          npm run build-all
+        env:
+          KENDO_UI_LICENSE: ${{ secrets.KENDO_UI_LICENSE }}
+
 
       - name: Publish to GH Pages
         working-directory: ./examples
