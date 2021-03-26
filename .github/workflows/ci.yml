@@ -89,9 +89,3 @@ jobs:
       - name: Create PR
         run: git diff || true
 
-      - name: Publish to GH Pages
-        working-directory: ./examples
-        run: ./bin/publish-gh-pages
-        env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
-
