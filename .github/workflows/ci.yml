@@ -57,6 +57,7 @@ jobs:
         working-directory: ./examples-standalone/electron-dashboard
         run: |
           npm ci --ignore-scripts || npm install
+          npm rebuild node-sass
           NODE_OPTIONS=--max_old_space_size=3000 npm run build
 
       - name: Build Finance portfolio app
