@@ -2,8 +2,9 @@ name: CI
 
 on:
   push:
-    branches:
-      - '**'
+    branches-ignore:
+      - master
+      - release-*
 
 jobs:
   build:

@@ -1,0 +1,35 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - master
+      - release-*
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v2
+
+      - name: Set env
+        run: echo "NODE_OPTIONS=--max_old_space_size=2048" >> $GITHUB_ENV
+
+      - name: Build general examples
+        working-directory: ./examples
+        run: |
+          npm ci --ignore-scripts || npm install
+          npx kendo-ui-license activate
+          npm run lint
+          npm run build-all
+        env:
+          KENDO_UI_LICENSE: ${{ secrets.KENDO_UI_LICENSE }}
+
+      - name: Publish to GH Pages
+        working-directory: ./examples
+        run: ./bin/publish-gh-pages
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+
