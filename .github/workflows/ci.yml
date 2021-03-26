@@ -47,20 +47,20 @@ jobs:
         working-directory: ./examples-standalone/dialogflow-integration/client
         run: |
           npm ci --ignore-scripts || npm install
-          npm run lint
+          npm run build
 
       - name: Build Electron dashboard app
         working-directory: ./examples-standalone/electron-dashboard
         run: |
           npm ci --ignore-scripts || npm install
-          npm run lint
+          npm run build
 
       - name: Build Finance portfolio app
         working-directory: ./examples-standalone/finance-portfolio
         run: |
           npm ci --ignore-scripts || npm install
           npx kendo-ui-license activate
-          npm run lint
+          npm run build
         env:
           KENDO_UI_LICENSE: ${{ secrets.KENDO_UI_LICENSE }}
 
