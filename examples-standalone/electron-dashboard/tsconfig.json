@@ -16,6 +16,10 @@
       "es2015",
       "dom"
     ],
+    "type": [
+      "jasmine",
+      "node"
+    ],
     "module": "es2015",
     "baseUrl": "./"
   }
