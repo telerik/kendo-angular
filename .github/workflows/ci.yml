@@ -76,14 +76,12 @@ jobs:
         working-directory: ./examples-standalone/finance-portfolio
         run: |
           npm ci
-          npx kendo-ui-license activate
           npm run build
 
       - name: Build Grid & Charts integration app
         working-directory: ./examples-standalone/grid-charts-integration
         run: |
           npm ci
-          npx kendo-ui-license activate
           npm run lint
 
       - name: Cleanup
