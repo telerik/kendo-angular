@@ -34,14 +34,6 @@ jobs:
         env:
           KENDO_UI_LICENSE: ${{ secrets.KENDO_UI_LICENSE }}
 
-      - name: Lint examples
-        run: npm run lint
-
-      - name: Build examples
-        run: |
-          npm run lint
-          npm run build-all
-
       - name: Publish to GH Pages
         run: ./bin/publish-gh-pages
         env:
