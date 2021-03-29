@@ -35,11 +35,9 @@ done
 cp static/* dist
 
 # Deploy to GH Pages using angular-cli-ghpages
-if [[ "$BRANCH" == "master" ]]; then
-  echo "Configuring git ..."
-  git config --global user.name "kendo-bot"
-  git config --global user.email "kendouiteam@progress.com"
-  git config --list
-  unset TRAVIS && npx ngh -S
-fi;
+echo "Configuring git ..."
+git config --global user.name "kendo-bot"
+git config --global user.email "kendouiteam@progress.com"
+git config --list
+npx ngh -S
 
