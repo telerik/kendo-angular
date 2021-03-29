@@ -82,7 +82,7 @@ jobs:
         working-directory: ./examples-standalone/grid-charts-integration
         run: |
           npm ci
-          npm run lint
+#          npm run lint
 
       - name: Cleanup
         run: git clean -xdf
