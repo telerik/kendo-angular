@@ -18,6 +18,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Use NodeJS v10
+        uses: actions/setup-node@v2
+        with:
+          node-version: '10'
+
       - name: Check out repository
         uses: actions/checkout@v2
 
