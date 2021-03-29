@@ -1,0 +1,89 @@
+# Builds and tests example applications
+name: CI
+
+on:
+  push:
+    branches-ignore:
+      - master
+
+env:
+  NODE_OPTIONS: --max_old_space_size=6144
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Use NodeJS v12
+        uses: actions/setup-node@v2
+        with:
+          node-version: '12'
+
+      - name: Check out repository
+        uses: actions/checkout@v2
+
+      - name: Build general examples
+        working-directory: ./examples
+        run: |
+          npm ci
+          npm run lint
+          npm run build-all
+
+      - name: Build Angular Universal Node example
+        working-directory: ./examples-standalone/angular-universal/node_sample_application
+        run: |
+          npm ci
+          npm run lint
+
+      - name: Build Angular Universal ASP.NET core example
+        working-directory: ./examples-standalone/angular-universal/aspnet_core_sample_application/ClientApp
+        run: |
+          npm ci
+          npm run lint
+
+      - name: Build ASP.NET Core Data client app
+        working-directory: ./examples-standalone/aspnetcore-data/ClientApp
+        run: |
+          npm ci
+          npm run lint
+
+      - name: Build ASP.NET Core Upload client app
+        working-directory: ./examples-standalone/aspnetcore-upload/ClientApp
+        run: |
+          npm ci
+#          npm run lint
+
+      - name: Build ASP.NET Web API client app
+        working-directory: ./examples-standalone/aspnetwebapi-data/ClientApp
+        run: |
+          npm ci
+          npm run lint
+
+      - name: Build Dialogflow app
+        working-directory: ./examples-standalone/dialogflow-integration/client
+        run: |
+          npm ci
+          npm run build
+
+      - name: Build Electron dashboard app
+        working-directory: ./examples-standalone/electron-dashboard
+        run: |
+          npm ci
+          npm rebuild node-sass
+          npm run build
+
+      - name: Build Finance portfolio app
+        working-directory: ./examples-standalone/finance-portfolio
+        run: |
+          npm ci
+          npm run build
+
+      - name: Build Grid & Charts integration app
+        working-directory: ./examples-standalone/grid-charts-integration
+        run: |
+          npm ci
+#          npm run lint
+
+      - name: Cleanup
+        run: git clean -xdf
+

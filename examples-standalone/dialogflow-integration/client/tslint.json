@@ -27,6 +27,7 @@
       true,
       "element",
       "app",
+      "payment-plan-card",
       "kebab-case"
     ],
     "eofline": true,
