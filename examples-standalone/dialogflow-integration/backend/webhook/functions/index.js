@@ -328,11 +328,11 @@ function quoteDetails(agent) {
 function payments(agent) {
   const context = agent.context.get('quoteinput-followup');
   const params = context.parameters;
-  const premium = params.Premium;
+  const worth = params.Worth;
   const count = params.Payments;
 
   const rows = [];
-  const value = round(premium / count, 2);
+  const value = round(worth / count, 2);
   for (let i = 0; i < count; i++) {
     rows.push({ text: `Payment #${ i + 1 }`, value: value });
   }
@@ -342,7 +342,7 @@ function payments(agent) {
     attachments: [{
       type: 'payment_plan',
       rows: rows,
-      premium: premium
+      premium: worth
     }],
     suggestedActions: [{
       type: 'postBack',
