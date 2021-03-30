@@ -1,22 +1,28 @@
 {
   "name": "dialogflowFirebaseFulfillment",
   "description": "This is the default fulfillment for a Dialogflow agents using Cloud Functions for Firebase",
-  "version": "0.0.1",
+  "version": "0.2.0",
   "private": true,
   "license": "Apache Version 2.0",
-  "author": "Google Inc.",
+  "author": "Progress Software",
   "engines": {
-    "node": "8"
+    "node": "12"
   },
   "scripts": {
-    "start": "firebase serve --only functions:dialogflowFirebaseFulfillment",
-    "deploy": "firebase deploy --only functions:dialogflowFirebaseFulfillment"
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
   },
   "dependencies": {
-    "actions-on-google": "^2.2.0",
-    "firebase-admin": "^5.13.1",
-    "firebase-functions": "^2.0.2",
-    "dialogflow": "^0.6.0",
-    "dialogflow-fulfillment": "^0.5.0"
+    "actions-on-google": "^2.13.0",
+    "firebase-admin": "^9.6.0",
+    "firebase-functions": "^3.13.2",
+    "dialogflow": "^1.2.0",
+    "dialogflow-fulfillment": "^0.6.1"
+  },
+  "devDependencies": {
+    "firebase-functions-test": "^0.2.0"
   }
 }
