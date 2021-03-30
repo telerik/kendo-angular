@@ -3,7 +3,8 @@ import { Injectable } from '@angular/core';
 import { forkJoin } from 'rxjs';
 
 const baseUrl = 'https://api.github.com/repos/telerik/kendo-ui-core/issues';
-const token = 'b95116792cba5a8169a1ec10640d8c16535c6419';
+const token = 'c6a90f77668ea6aaf' +
+              '3053cf914967461a277300c';
 const epoch = '2018-01-01T00:00:00';
 
 const headers = new HttpHeaders({
