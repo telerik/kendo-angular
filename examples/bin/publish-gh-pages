@@ -35,9 +35,5 @@ done
 cp static/* dist
 
 # Deploy to GH Pages using angular-cli-ghpages
-echo "Configuring git ..."
-git config --global user.name "kendo-bot"
-git config --global user.email "kendouiteam@progress.com"
-git config --list
-npx ngh -S
+npx ngh -S --name="kendo-bot" --email="kendouiteam@progress.com"
 
