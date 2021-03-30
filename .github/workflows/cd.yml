@@ -37,7 +37,7 @@ jobs:
       - name: Publish to GH Pages
         run: ./bin/publish-gh-pages
         env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          GH_TOKEN: ${{ github.token }}
 
       - name: Cleanup
         run: git clean -xdf
