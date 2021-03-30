@@ -77,7 +77,7 @@ function round(value, precision) {
   return Math.round(value * power) / power;
 }
 
-function welcome(agent) {  
+function welcome(agent) {
   const payload = {
     type: 'message',
     attachments: [],
@@ -92,7 +92,7 @@ function welcome(agent) {
     }]
   };
 
-  agent.setContext({ name: 'quoteinput-followup', lifespan: 5, parameters: {} });
+  agent.context.set({ name: 'quoteinput-followup', lifespan: 5, parameters: {} });
 
   agent.add(new Payload(agent.UNSPECIFIED, payload));
   console.log('welcome: ' + JSON.stringify(payload, null, 2));
@@ -209,7 +209,7 @@ function quote(agent) {
   const rate = rates[coverage];
   params.Premium = worth * rate;
 
-  agent.setContext({ name: 'quoteinput-followup', lifespan: 5, parameters: params })
+  agent.context.set({ name: 'quoteinput-followup', lifespan: 5, parameters: params })
 
   const payload = {
     type: 'message',
@@ -385,13 +385,13 @@ function renew(agent) {
     ]
   };
 
-  agent.setContext({
+  agent.context.set({
     name: 'quoteinput-followup',
     lifespan: 5,
     parameters: renewalParameters
   });
 
-  agent.setContext({
+  agent.context.set({
     name: 'quoteinput-yes-followup',
     lifespan: 5,
     parameters: {}
