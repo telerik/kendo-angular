@@ -194,7 +194,7 @@ function getQuote(agent) {
 }
 
 function quote(agent) {
-  const context = agent.getContext('quoteinput-followup');
+  const context = agent.context.get('quoteinput-followup');
   const params = context.parameters;
 
   const worth = params.Worth;
@@ -297,7 +297,7 @@ function quoteCancel(agent) {
 }
 
 function quoteEnd(agent) {
-  const context = agent.getContext('quoteinput-followup');
+  const context = agent.context.get('quoteinput-followup');
 
   agent.add('Congratulations! Your car insurance is confirmed!');
   agent.add('A confirmation message has been sent to your e-mail.');
@@ -307,7 +307,7 @@ function quoteEnd(agent) {
 }
 
 function quoteDetails(agent) {
-  const context = agent.getContext('quotedetails');
+  const context = agent.context.get('quotedetails');
   const params = context.parameters;
   const coverage = params.Coverage;
 
@@ -326,7 +326,7 @@ function quoteDetails(agent) {
 }
 
 function payments(agent) {
-  const context = agent.getContext('quoteinput-followup');
+  const context = agent.context.get('quoteinput-followup');
   const params = context.parameters;
   const premium = params.Premium;
   const count = params.Payments;
