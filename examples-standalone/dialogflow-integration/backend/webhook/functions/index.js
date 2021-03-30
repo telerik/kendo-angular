@@ -334,15 +334,15 @@ function payments(agent) {
   const rows = [];
   const value = round(premium / count, 2);
   for (let i = 0; i < count; i++) {
-    rows.push({ text: `Payment #${ i + 1 }`, value });
+    rows.push({ text: `Payment #${ i + 1 }`, value: value });
   }
 
   const payload = {
     type: 'message',
     attachments: [{
       type: 'payment_plan',
-      rows,
-      premium
+      rows: rows,
+      premium: premium
     }],
     suggestedActions: [{
       type: 'postBack',
