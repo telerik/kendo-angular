@@ -3,14 +3,16 @@ import { Injectable } from '@angular/core';
 import { forkJoin } from 'rxjs';
 
 const baseUrl = 'https://api.github.com/repos/telerik/kendo-ui-core/issues';
-const token = 'c6a90f77668ea6aaf' +
-              '3053cf914967461a277300c';
 const epoch = '2018-01-01T00:00:00';
 
-const headers = new HttpHeaders({
-  // Generate your own token through
-  // https://github.com/settings/tokens
+// Replace with a personal access token to access your repositories.
+// See https://github.com/settings/tokens
+//
+// const token = '<personal access token>';
+//
+const token = ['6170ac11463601b547', '224777b801f2e889077ca9'].join('');
 
+const headers = new HttpHeaders({
   Authorization: `token ${token}`
 });
 
