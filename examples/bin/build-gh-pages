@@ -34,6 +34,3 @@ done
 # Copy static assets
 cp static/* dist
 
-# Deploy to GH Pages using angular-cli-ghpages
-npx ngh -S --name="kendo-bot" --email="kendouiteam@progress.com"
-
