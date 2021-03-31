@@ -42,6 +42,8 @@ jobs:
         with:
           github_token: ${{ github.token }}
           publish_dir: ./examples/dist
+          user_name: 'kendo-bot'
+          user_email: 'kendouiteam@progress.com'
 
       - name: Cleanup
         run: git clean -xdf
