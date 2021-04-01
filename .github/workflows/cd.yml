@@ -34,10 +34,16 @@ jobs:
         env:
           KENDO_UI_LICENSE: ${{ secrets.KENDO_UI_LICENSE }}
 
-      - name: Publish to GH Pages
-        run: ./bin/publish-gh-pages
-        env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+      - name: Build
+        run: ./bin/build-gh-pages
+
+      - name: Deploy to GH Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GH_TOKEN }}
+          publish_dir: ./examples/dist
+          user_name: 'kendo-bot'
+          user_email: 'kendouiteam@progress.com'
 
       - name: Cleanup
         run: git clean -xdf
