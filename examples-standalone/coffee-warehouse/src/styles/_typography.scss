@@ -1,0 +1,54 @@
+@font-face {
+    font-family: "Roboto";
+    src: url("fonts/Roboto-Regular.ttf") format("truetype");
+}
+body {
+    font-family: "Roboto", sans-serif;
+}
+
+h1 {
+    font-size: 1.25rem;
+    font-weight: 400;
+}
+h2 {
+    font-size: 1.0rem;;
+    font-weight: 200;
+}
+h3 {
+    font-size: 1.25rem;
+    font-weight: 400;
+}
+h4 {
+    font-size: 1.25rem;
+}
+h5 {
+    font-size: 1.25rem;
+}
+p {
+    font-size: 1rem;
+}
+a {
+    font-size: 1rem;
+}
+
+@media (min-width: 480px) {
+    h1 {
+        font-size: 1.5rem;
+        font-weight: 400;
+    }
+    h2 {
+        font-size: 1.25rem;;
+        font-weight: 200;
+    }
+}
+
+@media (min-width: 768px) {
+    h1 {
+        font-size: 1.75rem;
+        font-weight: 400;
+    }
+    h2 {
+        font-size: 1.75rem;;
+        font-weight: 200;
+    }
+}

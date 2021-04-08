@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1251.922" height="749.632" viewBox="0 0 1251.922 749.632">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.525" y1="0.12" x2="0.494" y2="1.03" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#5777ea"/>
+      <stop offset="1" stop-color="#282f89" stop-opacity="0.725"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-2" x1="0.241" y1="-0.292" x2="0.494" y2="1.03" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#3a55da" stop-opacity="0.294"/>
+      <stop offset="1" stop-color="#282f89" stop-opacity="0.725"/>
+    </linearGradient>
+  </defs>
+  <g id="Group_91" data-name="Group 91" transform="translate(0 -142.953)">
+    <path id="bg" d="M-896.357,33.675c-18.9-8.486-39.67-4.928-56.368,9.657l-125.242,109.4c-17.005,14.854-38.21,18.255-57.356,9.2L-1367.356,52.2a50.629,50.629,0,0,0-21.721-4.985h-297.051c-16.05,0-31.535,7.923-43.493,22.252L-1920,297.6V733.327H-668.078V136.147Z" transform="translate(1920 159.257)" opacity="0.237" fill="url(#linear-gradient)"/>
+    <path id="bg-2" data-name="bg" d="M-988.882,291.8c-17.225,15.667-38.86,19.224-58.307,9.585l-323.7-160.445a49.814,49.814,0,0,0-22.209-5.334h-301.774a51.079,51.079,0,0,1-27.771-8.5L-1920,0V696.1H-668.078V0Z" transform="translate(1920 142.953)" fill="url(#linear-gradient-2)"/>
+  </g>
+</svg>
