@@ -1,9 +1,9 @@
 <div class="card-container grid">
-    <h3 class="card-title">Team efficency</h3>
+    <h3 class="card-title">{{customMsgService.translate('teamEfficiency')}}</h3>
     <div class="card-buttons">
         <kendo-buttongroup selection="single">
-            <button kendoButton [toggleable]="true" [selected]="true" (click)="selectedChart = 'Trend'">Trend</button>
-            <button kendoButton [toggleable]="true" (click)="selectedChart = 'Volume'">Volume</button>
+            <button kendoButton [toggleable]="true" [selected]="true" (click)="selectedChart = 'Trend'">{{customMsgService.translate('trend')}}</button>
+            <button kendoButton [toggleable]="true" (click)="selectedChart = 'Volume'">{{customMsgService.translate('volume')}}</button>
         </kendo-buttongroup>
     </div>
     <div class="card-ranges">
@@ -34,7 +34,7 @@
                     [baseUnit]="'months'"
                     [min]="dateRange.start"
                     [max]="dateRange.end"
-                    [labels]="{ format: 'MMMM yyyy' }"
+                    [labels]="{ format: 'MMMM yyyy', rotation: 'auto' }"
                 >
                 </kendo-chart-category-axis-item>
             </kendo-chart-category-axis>

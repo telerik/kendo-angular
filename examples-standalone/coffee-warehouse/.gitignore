@@ -13,6 +13,9 @@ main.js
 #prettier configuration
 /.prettierrc
 
+#license
+/kendo-ui-license.txt
+
 # IDEs and editors
 /.idea
 .editorconfig

@@ -1,12 +1,14 @@
 import { Component, ViewEncapsulation } from '@angular/core';
 import { IntlService } from '@progress/kendo-angular-intl';
+import { MessageService } from '@progress/kendo-angular-l10n';
+import { CustomMessagesService } from 'src/app/services/custom-messages.service';
 import { orders } from '../../../data/orders';
 
 @Component({
     selector: 'chart-component',
     encapsulation: ViewEncapsulation.None,
-    templateUrl:'./chart.component.html',
-    styleUrls:['./chart.component.scss']
+    templateUrl: './chart.component.html',
+    styleUrls: ['./chart.component.scss']
 })
 export class ChartComponent {
     public selectedChart: 'Trend' | 'Volume' = 'Trend';
@@ -44,7 +46,11 @@ export class ChartComponent {
         }
     ];
 
-    constructor(public intl: IntlService) {}
+    public customMsgService: CustomMessagesService;
+
+    constructor(public intl: IntlService, public messages: MessageService) {
+        this.customMsgService = <CustomMessagesService>this.messages;
+    }
 
     public fromDate(date: Date) {
         this.dateRange.start = date;

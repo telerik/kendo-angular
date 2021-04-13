@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, LOCALE_ID } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -30,9 +30,13 @@ import { SchedulerComponent } from './components/planning/scheduler.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { HeaderComponent } from './header/header.component';
 
-import {CustomMessageService} from './services/message.service';
+import { CustomMessagesService } from './services/custom-messages.service';
 
 import 'hammerjs';
+
+import '@progress/kendo-angular-intl/locales/en/all';
+import '@progress/kendo-angular-intl/locales/es/all';
+import '@progress/kendo-angular-intl/locales/fr/all';
 
 @NgModule({
     declarations: [
@@ -69,7 +73,10 @@ import 'hammerjs';
         InputsModule,
         DropDownsModule
     ],
-    providers:    [{ provide: MessageService, useClass: CustomMessageService }],
+    providers: [
+        { provide: MessageService, useClass: CustomMessagesService },
+        { provide: LOCALE_ID, useValue: 'en-US' }
+    ],
     bootstrap: [AppComponent]
 })
 export class AppModule {}

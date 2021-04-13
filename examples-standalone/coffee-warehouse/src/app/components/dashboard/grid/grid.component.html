@@ -1,9 +1,9 @@
 <div class="card-container grid">
-    <h3 class="card-title">Team Members</h3>
+    <h3 class="card-title">{{customMsgService.translate('teamMembers')}}</h3>
     <div class="card-buttons">
         <kendo-buttongroup selection="single">
-            <button kendoButton [toggleable]="true" [selected]="true" (click)="onTeamChange(25)">My Team</button>
-            <button kendoButton [toggleable]="true" (click)="onTeamChange(100)">All Teams</button>
+            <button kendoButton [toggleable]="true" [selected]="true" (click)="onTeamChange(25)">{{customMsgService.translate('myTeam')}}</button>
+            <button kendoButton [toggleable]="true" (click)="onTeamChange(100)">{{customMsgService.translate('allTeams')}}</button>
         </kendo-buttongroup>
     </div>
     <div class="card-component">
@@ -21,10 +21,10 @@
             [columnMenu]="{ filter: true }"
         >
             <ng-template kendoGridToolbarTemplate>
-                <kendo-textbox placeholder="Search in all columns..." kendoTextBox (input)="onFilter($event.target.value)"></kendo-textbox>
+                <kendo-textbox [placeholder]="customMsgService.translate('gridSearch')" kendoTextBox (input)="onFilter($event.target.value)"></kendo-textbox>
                 <kendo-grid-spacer></kendo-grid-spacer>
-                <button kendoGridExcelCommand type="button" icon="file-excel">Export to Excel</button>
-                <button kendoGridPDFCommand icon="file-pdf">Export to PDF</button>
+                <button kendoGridExcelCommand type="button" icon="file-excel">{{customMsgService.translate('exportExcel')}}</button>
+                <button kendoGridPDFCommand icon="file-pdf"> {{customMsgService.translate('exportPdf')}}</button>
             </ng-template>
             <kendo-grid-checkbox-column
                 [width]="45"
@@ -34,22 +34,22 @@
                 [columnMenu]="false"
                 showSelectAll="true"
             ></kendo-grid-checkbox-column>
-            <kendo-grid-column-group title="Employee" [columnMenu]="false">
-                <kendo-grid-column field="fullName" title="Contact Name" [width]="220">
+            <kendo-grid-column-group [title]="customMsgService.translate('employee')" [columnMenu]="false">
+                <kendo-grid-column field="fullName" [title]="customMsgService.translate('contactName')" [width]="220">
                     <ng-template kendoGridCellTemplate let-dataItem>
                         <div class="customer-photo" [ngStyle]="{ 'background-image': photoURL(dataItem) }"></div>
                         <div class="customer-name">{{ dataItem.fullName }}</div>
                     </ng-template>
                 </kendo-grid-column>
-                <kendo-grid-column field="jobTitle" title="Job Title" [width]="220"> </kendo-grid-column>
-                <kendo-grid-column field="country" title="Country" [width]="100" [class]="{ 'text-center': true }" [resizable]="false">
+                <kendo-grid-column field="jobTitle" [title]="customMsgService.translate('jobTitle')" [width]="220"> </kendo-grid-column>
+                <kendo-grid-column field="country" [title]="customMsgService.translate('country')" [width]="100" [class]="{ 'text-center': true }" [resizable]="false">
                     <ng-template kendoGridCellTemplate let-dataItem>
                         <img class="flag" [src]="flagURL(dataItem)" width="30" />
                     </ng-template>
                 </kendo-grid-column>
                 <kendo-grid-column
                     field="isOnline"
-                    title="Status"
+                    [title]="customMsgService.translate('status')"
                     [width]="100"
                     [class]="{ 'text-center': true }"
                     [resizable]="false"
@@ -61,13 +61,13 @@
                     </ng-template>
                 </kendo-grid-column>
             </kendo-grid-column-group>
-            <kendo-grid-column-group title="Performance" [columnMenu]="false">
-                <kendo-grid-column field="rating" title="Rating" [width]="110" [resizable]="false" filter="numeric">
+            <kendo-grid-column-group [title]="customMsgService.translate('performance')" [columnMenu]="false">
+                <kendo-grid-column field="rating" [title]="customMsgService.translate('rating')" [width]="110" [resizable]="false" filter="numeric">
                     <ng-template kendoGridCellTemplate let-dataItem>
                         <kendo-rating [value]="dataItem.rating" [max]="5"></kendo-rating>
                     </ng-template>
                 </kendo-grid-column>
-                <kendo-grid-column field="target" title="Engagement" [width]="230" [resizable]="false" filter="numeric">
+                <kendo-grid-column field="target" [title]="customMsgService.translate('engagement')" [width]="230" [resizable]="false" filter="numeric">
                     <ng-template kendoGridCellTemplate let-dataItem>
                         <kendo-sparkline
                             type="bar"
@@ -89,15 +89,15 @@
                         </kendo-sparkline>
                     </ng-template>
                 </kendo-grid-column>
-                <kendo-grid-column field="budget" title="Budget" [width]="100" filter="numeric">
+                <kendo-grid-column field="budget" [title]="customMsgService.translate('budget')" [width]="100" filter="numeric">
                     <ng-template kendoGridCellTemplate let-dataItem>
                         <span [ngClass]="{ 'red text-bold': dataItem.budget < 0 }">{{ dataItem.budget | currency }}</span>
                     </ng-template>
                 </kendo-grid-column>
             </kendo-grid-column-group>
-            <kendo-grid-column-group title="Contacts" [columnMenu]="false">
-                <kendo-grid-column field="phone" title="Phone" [width]="130"> </kendo-grid-column>
-                <kendo-grid-column field="address" title="Address" [width]="200"> </kendo-grid-column>
+            <kendo-grid-column-group [title]="customMsgService.translate('contacts')" [columnMenu]="false">
+                <kendo-grid-column field="phone" [title]="customMsgService.translate('phone')" [width]="130"> </kendo-grid-column>
+                <kendo-grid-column field="address" [title]="customMsgService.translate('address')" [width]="200"> </kendo-grid-column>
             </kendo-grid-column-group>
 
             <kendo-grid-pdf fileName="Employees.pdf" [repeatHeaders]="true"></kendo-grid-pdf>

@@ -1,54 +1,36 @@
-import { Component, EventEmitter, Input, Output, ViewEncapsulation } from '@angular/core';
+import { Component, EventEmitter, Inject, Input, LOCALE_ID, Output } from '@angular/core';
+import { CldrIntlService, IntlService } from '@progress/kendo-angular-intl';
 import { MessageService } from '@progress/kendo-angular-l10n';
-import { CustomMessageService } from './../services/message.service';
+import { CustomMessagesService } from '../services/custom-messages.service';
+import {locales} from "./../data/locales"
 
 @Component({
     selector: 'header-component',
-    encapsulation: ViewEncapsulation.None,
-    template: `
-        <div class="header header-bg">
-            <div class="nav-container">
-                <div class="menu-button">
-                    <span class="k-icon hamburger-icon" (click)="onButtonClick()"></span>
-                </div>
-
-                <div class="title">
-                    <h1>Coffee Warehouse</h1>
-                    <span class="vl"></span>
-                    <h2></h2>
-                </div>
-
-                <div class="settings">
-                    <span>Language</span>
-                    <kendo-dropdownlist
-                        [data]="languages"
-                        textField="text"
-                        valueField="lang"
-                        [value]="selectedLang"
-                        (valueChange)="changeLanguage($event)"
-                    >
-                    </kendo-dropdownlist>
-                </div>
-            </div>
-        </div>
-    `
+    templateUrl:'./header.commponent.html'
 })
 export class HeaderComponent {
     @Output() public toggle = new EventEmitter();
     @Input() public selectedPage: string;
 
-    public selectedLang = { text: 'English', lang: 'en-US' };
-    public languages = [
-        { text: 'English', lang: 'en-US' },
-        { text: 'French', lang: 'fr' },
-        { text: 'Spanish', lang: 'es' }
-    ];
+    public customMsgService: CustomMessagesService;
+    public selectedLanguage = { locale: 'English', localeId: 'en-US' };
+    public locales = locales;
 
-    // constructor(public messages: MessageService) {}
+    constructor(public messages: MessageService, @Inject(LOCALE_ID) public localeId: string, public intlService: IntlService) {
+        this.localeId = this.selectedLanguage.localeId;
+        this.setLocale(this.localeId);
+
+        this.customMsgService = <CustomMessagesService>this.messages;
+        this.customMsgService.language = this.selectedLanguage.localeId;
+    }
 
     public changeLanguage(item) {
-        // const svc = <CustomMessageService>this.messages;
-        // svc.language = item.lang;
+        this.customMsgService.language = item.localeId;
+        this.setLocale(item.localeId);
+    }
+
+    public setLocale(locale) {
+        (<CldrIntlService>this.intlService).localeId = locale;
     }
 
     public onButtonClick() {
