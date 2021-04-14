@@ -1,4 +1,6 @@
-export const employees = [
+import {Employee} from "src/app/models/employee.model"
+
+export const employees: Employee[] = [
   {
     teamId: 3,
     id: "848e6002-8a92-447d-951b-1ffd5e695578",

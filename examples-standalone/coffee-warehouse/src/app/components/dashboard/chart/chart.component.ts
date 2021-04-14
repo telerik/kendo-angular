@@ -2,7 +2,7 @@ import { Component, ViewEncapsulation } from '@angular/core';
 import { IntlService } from '@progress/kendo-angular-intl';
 import { MessageService } from '@progress/kendo-angular-l10n';
 import { CustomMessagesService } from 'src/app/services/custom-messages.service';
-import { orders } from '../../../data/orders';
+import { orders } from 'src/app/data/orders';
 
 @Component({
     selector: 'chart-component',

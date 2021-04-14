@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { MessageService } from '@progress/kendo-angular-l10n';
+
 import { enComponentMessages, enCustomMessages } from '../messages/en-US';
 import { esComponentMessages, esCustomMessages } from '../messages/es';
 import { frComponentMessages, frCustomMessages } from '../messages/fr';

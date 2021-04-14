@@ -1,4 +1,6 @@
-export const orders = [{
+import {Order} from "src/app/models/order.model"
+
+export const orders: Order[] = [{
     "customerCompanyName": "Richter Supermarkt",
     "customerContactName": "Michael Holz",
     "orderTotal": 2490.5,

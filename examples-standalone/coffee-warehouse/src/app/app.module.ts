@@ -24,9 +24,8 @@ import { ChartComponent } from './components/dashboard/chart/chart.component';
 import { GridComponent } from './components/dashboard/grid/grid.component';
 import { RatingComponent } from './components/dashboard/grid/rating.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
-import { CardComponent } from './components/planning/card.component';
+import { CardComponent } from './components/planning/cards/card.component';
 import { PlanningComponent } from './components/planning/planning.component';
-import { SchedulerComponent } from './components/planning/scheduler.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { HeaderComponent } from './header/header.component';
 
@@ -48,7 +47,6 @@ import '@progress/kendo-angular-intl/locales/fr/all';
         DashboardComponent,
         CardComponent,
         PlanningComponent,
-        SchedulerComponent,
         ProfileComponent,
         HeaderComponent
     ],

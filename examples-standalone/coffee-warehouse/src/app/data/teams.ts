@@ -1,4 +1,6 @@
-export const teams = [
+import {Team} from "src/app/models/team.model"
+
+export const teams: Team[] = [
   {
     teamID: 1,
     teamName: "Tiger Team",

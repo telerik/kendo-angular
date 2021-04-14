@@ -3,9 +3,10 @@ import { Component, ViewEncapsulation, ViewChild } from '@angular/core';
 import { DataBindingDirective } from '@progress/kendo-angular-grid';
 import { MessageService } from '@progress/kendo-angular-l10n';
 import { process } from '@progress/kendo-data-query';
+import { Employee } from 'src/app/models/employee.model';
 import { CustomMessagesService } from 'src/app/services/custom-messages.service';
-import { employees } from '../../../data/employees';
-import { images } from '../../../data/images';
+import { employees } from 'src/app/data/employees';
+import { images } from 'src/app/data/images';
 
 @Component({
     selector: 'grid-component',
@@ -16,7 +17,7 @@ import { images } from '../../../data/images';
 export class GridComponent {
     @ViewChild(DataBindingDirective) dataBinding: DataBindingDirective;
 
-    public gridData: any[] = employees;
+    public gridData: Employee[] = employees;
     public gridView: any[];
 
     public mySelection: string[] = [];
@@ -31,7 +32,7 @@ export class GridComponent {
         this.gridView = this.gridData.slice(25, 50);
     }
 
-    public onTeamChange(pageSize: number) {
+    public onTeamChange(pageSize: number): void {
         pageSize === 25
             ? (this.gridView = this.gridData.slice(pageSize, pageSize * 2))
             : (this.gridView = this.gridData.slice(0, pageSize));
@@ -54,7 +55,7 @@ export class GridComponent {
         this.dataBinding.skip = 0;
     }
 
-    public getField = (args) => {
+    public getField = (args: Employee) => {
         return `${args.fullName}_${args.jobTitle}_${args.budget}_${args.phone}_${args.address}`;
     };
 

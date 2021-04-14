@@ -1,5 +1,5 @@
 import { Component, ViewEncapsulation } from '@angular/core';
-import { DrawerComponent, DrawerItem, DrawerMode, DrawerSelectEvent } from '@progress/kendo-angular-layout';
+import { DrawerComponent, DrawerItem, DrawerSelectEvent } from '@progress/kendo-angular-layout';
 
 @Component({
     encapsulation: ViewEncapsulation.None,
@@ -8,7 +8,7 @@ import { DrawerComponent, DrawerItem, DrawerMode, DrawerSelectEvent } from '@pro
     template: `
         <header-component (toggle)="toggleDrawer(drawer)" [selectedPage]="selected"></header-component>
         <kendo-drawer-container>
-            <kendo-drawer #drawer [items]="items" mode="push" [mini]="true" [expanded]="false" (select)="onSelect($event)"> </kendo-drawer>
+            <kendo-drawer #drawer [items]="items" mode="push" [mini]="true" [expanded]="true" (select)="onSelect($event)"> </kendo-drawer>
             <kendo-drawer-content>
                 <my-content [selectedItem]="selected"></my-content>
             </kendo-drawer-content>
@@ -16,19 +16,19 @@ import { DrawerComponent, DrawerItem, DrawerMode, DrawerSelectEvent } from '@pro
     `
 })
 export class AppComponent {
-    public selected = 'Dashboard';
+    public selected: string = 'Dashboard';
 
-    toggleDrawer(drawer: DrawerComponent) {
+    public toggleDrawer(drawer: DrawerComponent): void {
         drawer.toggle();
     }
 
     public items: Array<DrawerItem> = [
-        { text: 'Dashboard', icon: 'k-i-home', selected: true },
+        { text: 'Dashboard', icon: 'k-i-grid', selected: true },
         { separator: true },
         { text: 'Planning', icon: 'k-i-calendar' },
         { text: 'Profile', icon: 'k-i-user' },
         { separator: true },
-        { text: 'Info', icon: 'k-i-info' }
+        { text: 'Info', icon: 'k-i-information' }
     ];
 
     public onSelect(ev: DrawerSelectEvent): void {

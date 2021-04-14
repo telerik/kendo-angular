@@ -1,0 +1,26 @@
+<div style="display: table; table-layout: fixed">
+    <kendo-card
+        *ngFor="let card of cards"
+        (click)="onCardClick(card)"
+        style="border-width: 0px; cursor: pointer; display: table-cell"
+        [ngClass]="{ 'card-opacity': card.selected }"
+    >
+        <kendo-card-header class="k-vbox" style="border: 0">
+            <kendo-avatar
+                width="40px"
+                height="40px"
+                [ngStyle]="{ 'background-image': fetchAvatar(card), 'border-color': setCardColor(card) }"
+                [shape]="'circle'"
+                class="employee-photo"
+                style="border-width: 3px"
+            ></kendo-avatar>
+
+            <div style="display: table-cell">
+                <h1 kendoCardTitle [ngStyle]="{ color: setCardColor(card) }">
+                    {{ card.fullName }}
+                </h1>
+                <p kendoCardSubtitle>{{ card.jobTitle }}</p>
+            </div>
+        </kendo-card-header>
+    </kendo-card>
+</div>
