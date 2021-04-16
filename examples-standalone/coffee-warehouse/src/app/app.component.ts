@@ -10,7 +10,7 @@ import { DrawerComponent, DrawerItem, DrawerSelectEvent } from '@progress/kendo-
         <kendo-drawer-container>
             <kendo-drawer #drawer [items]="items" mode="push" [mini]="true" [expanded]="true" (select)="onSelect($event)"> </kendo-drawer>
             <kendo-drawer-content>
-                <my-content [selectedItem]="selected"></my-content>
+                <content [selectedItem]="selected"></content>
             </kendo-drawer-content>
         </kendo-drawer-container>
     `

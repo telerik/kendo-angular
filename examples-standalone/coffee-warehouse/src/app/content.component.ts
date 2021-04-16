@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-    selector: 'my-content',
+    selector: 'content',
     template: `
         <div *ngIf="selectedItem === 'Dashboard'">
             <dashboard-component></dashboard-component>
