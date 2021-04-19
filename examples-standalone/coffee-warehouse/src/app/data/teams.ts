@@ -20,5 +20,10 @@ export const teams: Team[] = [
     teamID: 4,
     teamName: "Ocean Team",
     teamColor: "#28B4C8"
+  },
+  {
+    teamID: 5,
+    teamName: "Purple Team",
+    teamColor: "#aa46be"
   }
 ];

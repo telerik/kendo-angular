@@ -4,10 +4,10 @@ import { Component, Input } from '@angular/core';
     selector: 'content',
     template: `
         <div *ngIf="selectedItem === 'Dashboard'">
-            <dashboard-component></dashboard-component>
+            <dashboard-component class="dashboard-page main-content"></dashboard-component>
         </div>
         <div *ngIf="selectedItem === 'Planning'">
-            <planning-component></planning-component>
+            <planning-component class="planning-page main-content"></planning-component>
         </div>
         <div id="Attachments" *ngIf="selectedItem === 'Profile'">
             <profile-component></profile-component>

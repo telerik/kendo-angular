@@ -14,7 +14,7 @@ import { Team } from 'src/app/models/team.model';
 export class CardComponent {
     @Output() public toggleEvents: EventEmitter<Employee> = new EventEmitter();
 
-    public cards: Employee[] = employees.slice(1, 5);
+    public cards: Employee[] = employees.slice(1, 6);
 
     public images = images;
 
