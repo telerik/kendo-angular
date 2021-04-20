@@ -4,15 +4,17 @@ import { Component, Input } from '@angular/core';
     selector: 'content',
     template: `
         <div *ngIf="selectedItem === 'Dashboard'">
-            <dashboard-component class="dashboard-page main-content"></dashboard-component>
+            <dashboard-component></dashboard-component>
         </div>
         <div *ngIf="selectedItem === 'Planning'">
-            <planning-component class="planning-page main-content"></planning-component>
+            <planning-component></planning-component>
         </div>
         <div id="Attachments" *ngIf="selectedItem === 'Profile'">
             <profile-component></profile-component>
         </div>
-        <div id="Favourites" *ngIf="selectedItem === 'Info'">Angular Marketing</div>
+        <div id="Favourites" *ngIf="selectedItem === 'Info'">
+            <info-component></info-component>
+        </div>
     `
 })
 export class ContentComponent {

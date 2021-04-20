@@ -19,7 +19,7 @@ export const frCustomMessages = {
     buyNow: 'Acheter maintenant',
     getSource: 'Récupérer le code source sur GitHub',
     demoInfo:
-        "Cette application de démonstration est construite à l'aide des composants KendoReact suivants et du thème par défaut KendoReact.",
+        "Cette application de démonstration est construite à l'aide des composants Kendo UI for Angular suivants et du thème par défaut KendoReact.",
     firstName: 'Prénom',
     middleName: 'Deuxième nom',
     lastName: 'Nom de famille',

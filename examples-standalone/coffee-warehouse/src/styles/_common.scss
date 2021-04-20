@@ -408,7 +408,7 @@ a {
         padding-top: 40px;
         margin: 0 auto;
         position: relative;
-        max-width: 820px;
+        max-width: 1040px;
     }
 
     .kendoka {
@@ -423,7 +423,6 @@ a {
         h1 {
             font-size: 48px;
             font-weight: bold;
-            color: $react-color;
         }
 
         h2 {
@@ -534,7 +533,7 @@ a {
     }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1370px) {
     .info-page {
         .content {
             padding: 120px 40px 0;

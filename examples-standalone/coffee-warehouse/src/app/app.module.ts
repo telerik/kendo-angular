@@ -27,6 +27,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { CardComponent } from './components/planning/cards/card.component';
 import { PlanningComponent } from './components/planning/planning.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { InfoComponent } from './components/info/info.component';
 import { HeaderComponent } from './header/header.component';
 
 import { CustomMessagesService } from './services/custom-messages.service';
@@ -48,7 +49,8 @@ import '@progress/kendo-angular-intl/locales/fr/all';
         CardComponent,
         PlanningComponent,
         ProfileComponent,
-        HeaderComponent
+        HeaderComponent,
+        InfoComponent
     ],
     imports: [
         BrowserModule,

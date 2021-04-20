@@ -18,7 +18,7 @@ export const enCustomMessages = {
     startFreeTrial: 'Start Free Trial',
     buyNow: 'Buy Now',
     getSource: 'Get the source code on GitHub',
-    demoInfo: 'This demo application is built using the following KendoReact components and the KendoReact Default Theme.',
+    demoInfo: 'This demo application is built using the following Kendo UI for Angular components.',
     firstName: 'First Name',
     middleName: 'Middle Name',
     lastName: 'Last Name',
