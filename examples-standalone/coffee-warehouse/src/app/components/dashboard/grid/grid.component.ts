@@ -5,14 +5,14 @@ import { MessageService } from '@progress/kendo-angular-l10n';
 import { process } from '@progress/kendo-data-query';
 import { Employee } from 'src/app/models/employee.model';
 import { CustomMessagesService } from 'src/app/services/custom-messages.service';
-import { employees } from 'src/app/data/employees';
-import { images } from 'src/app/data/images';
+import { employees } from 'src/app/resources/employees';
+import { images } from 'src/app/resources/images';
 
 @Component({
     selector: 'grid-component',
-    encapsulation: ViewEncapsulation.None,
     styleUrls: ['./grid.component.scss'],
-    templateUrl: './grid.component.html'
+    templateUrl: './grid.component.html',
+    encapsulation: ViewEncapsulation.None
 })
 export class GridComponent {
     @ViewChild(DataBindingDirective) dataBinding: DataBindingDirective;

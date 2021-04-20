@@ -1,15 +1,15 @@
 import { Component, EventEmitter, Output, ViewEncapsulation } from '@angular/core';
-import { teams } from 'src/app/data/teams';
-import { employees } from 'src/app/data/employees';
-import { images } from 'src/app/data/images';
+import { teams } from 'src/app/resources/teams';
+import { employees } from 'src/app/resources/employees';
+import { images } from 'src/app/resources/images';
 import { Employee } from 'src/app/models/employee.model';
 import { Team } from 'src/app/models/team.model';
 
 @Component({
     selector: 'card-component',
     templateUrl: './card.component.html',
-    encapsulation: ViewEncapsulation.None,
-    styleUrls: ['./card.styles.scss']
+    styleUrls: ['./card.styles.scss'],
+    encapsulation: ViewEncapsulation.None
 })
 export class CardComponent {
     @Output() public toggleEvents: EventEmitter<Employee> = new EventEmitter();

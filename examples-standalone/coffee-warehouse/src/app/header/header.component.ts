@@ -2,7 +2,7 @@ import { Component, EventEmitter, Inject, Input, LOCALE_ID, Output } from '@angu
 import { CldrIntlService, IntlService } from '@progress/kendo-angular-intl';
 import { MessageService } from '@progress/kendo-angular-l10n';
 import { CustomMessagesService } from '../services/custom-messages.service';
-import { locales } from 'src/app/data/locales';
+import { locales } from 'src/app/resources/locales';
 
 @Component({
     selector: 'header-component',

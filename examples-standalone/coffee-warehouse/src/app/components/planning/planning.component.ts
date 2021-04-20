@@ -5,8 +5,8 @@ import { CustomMessagesService } from 'src/app/services/custom-messages.service'
 import { CreateFormGroupArgs, EventStyleArgs, EditMode } from '@progress/kendo-angular-scheduler';
 import { FormGroup, FormBuilder } from '@angular/forms';
 
-import { sampleData } from 'src/app/data/events';
-import { teams } from 'src/app/data/teams';
+import { sampleData } from 'src/app/resources/events';
+import { teams } from 'src/app/resources/teams';
 import { Team } from 'src/app/models/team.model';
 import { Employee } from 'src/app/models/employee.model';
 import { Event } from 'src/app/models/event.model';
@@ -14,8 +14,8 @@ import { Event } from 'src/app/models/event.model';
 @Component({
     selector: 'planning-component',
     templateUrl: './planning.component.html',
-    encapsulation: ViewEncapsulation.None,
-    styleUrls: ['./planning.component.scss']
+    styleUrls: ['./planning.component.scss'],
+    encapsulation: ViewEncapsulation.None
 })
 export class PlanningComponent {
     public data: Event[];

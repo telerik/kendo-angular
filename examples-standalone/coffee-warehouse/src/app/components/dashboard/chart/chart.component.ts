@@ -2,13 +2,13 @@ import { Component, ViewEncapsulation } from '@angular/core';
 import { IntlService } from '@progress/kendo-angular-intl';
 import { MessageService } from '@progress/kendo-angular-l10n';
 import { CustomMessagesService } from 'src/app/services/custom-messages.service';
-import { orders } from 'src/app/data/orders';
+import { orders } from 'src/app/resources/orders';
 
 @Component({
     selector: 'chart-component',
-    encapsulation: ViewEncapsulation.None,
     templateUrl: './chart.component.html',
-    styleUrls: ['./chart.component.scss']
+    styleUrls: ['./chart.component.scss'],
+    encapsulation: ViewEncapsulation.None
 })
 export class ChartComponent {
     public selectedChart: 'Trend' | 'Volume' = 'Trend';
