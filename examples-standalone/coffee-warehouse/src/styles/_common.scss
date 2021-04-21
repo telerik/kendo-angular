@@ -16,7 +16,7 @@ a {
     background-color: $background-color;
 
     .k-drawer {
-        box-shadow: 0 0 10px rgba(0,0,0,.2);
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
         border-right-width: 0 !important;
     }
 
@@ -44,7 +44,6 @@ a {
     }
 
     .card-title {
-
     }
 
     .card-buttons {
@@ -60,23 +59,22 @@ a {
     .chart-tooltip {
         text-align: center;
         font-size: 15px;
-        font-weight:bold
+        font-weight: bold;
     }
 
     .card-ranges .k-i-calendar {
         color: #656565;
         cursor: pointer;
-        margin-right: 5px
+        margin-right: 5px;
     }
 
     .card-ranges {
         .k-daterangepicker {
-            .k-textbox-container, .k-floating-label-container {
+            .k-textbox-container,
+            .k-floating-label-container {
                 padding-top: 0;
                 min-width: 105px;
             }
-
-
 
             .k-label {
                 display: none;
@@ -116,21 +114,16 @@ a {
             grid-row: 1;
         }
     }
-
- }
+}
 
 @media (min-width: 768px) {
     .card-container {
         margin: 25px;
         border-radius: 5px;
-        box-shadow: 0 0 10px rgba(0,0,0,.2);
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 
         &.grid {
             grid-template-columns: repeat(3, 1fr);
-        }
-
-        .card-title {
-
         }
 
         .card-buttons {
@@ -152,8 +145,8 @@ a {
 }
 
 // Header
-.header-bg{
-    background-image:  url('./../assets/header-bg.png');
+.header-bg {
+    background-image: url('./../assets/header-bg.png');
 }
 
 .header {
@@ -177,7 +170,7 @@ a {
     }
 
     .hamburger-icon {
-        background-image:  url('./../assets/hamburger-icon.svg');
+        background-image: url('./../assets/hamburger-icon.svg');
         background-repeat: no-repeat;
         width: 20px;
         cursor: pointer;
@@ -270,7 +263,7 @@ a {
     .card-container {
         grid-template-columns: repeat(1, 1fr);
     }
-    .card-title{
+    .card-title {
         grid-column: 1 / -1;
     }
     .k-hbox {
@@ -379,7 +372,7 @@ a {
     }
 }
 
- @media (min-width: 768px) {
+@media (min-width: 768px) {
     .profile-page {
         .k-form {
             margin: 0 auto;
@@ -389,16 +382,20 @@ a {
             padding: 0;
         }
     }
- }
-
+}
 
 // Info page
 .info-page {
-    background-color: $info-background;
+    background-color: #06163e;
+    background-image: url('../assets/info-bg.jpg');
     color: $white;
+    background-repeat: no-repeat;
 
-    h1, h2, h3, .component-link {
-        font-family: Metric,Helvetica,Arial,sans-serif;
+    h1,
+    h2,
+    h3,
+    .component-link {
+        font-family: Metric, Helvetica, Arial, sans-serif;
     }
     a:not(.k-button) {
         color: $link-color;
@@ -479,7 +476,7 @@ a {
 
     .package-title a {
         font-size: 17px;
-        color: #CCCCCC;
+        color: #cccccc;
         text-transform: uppercase;
     }
 
@@ -492,9 +489,10 @@ a {
     }
 
     .footer {
-        background-image: url('../assets/info-background.svg');
+        background-image: url('../assets/info-waves.svg');
         background-repeat: no-repeat;
         height: 320px;
+        background-size: cover;
     }
 }
 
@@ -553,9 +551,6 @@ a {
             -webkit-columns: 4;
             column-count: 4;
             padding: 0;
-        }
-        .footer {
-            background-size: cover;
         }
     }
 }
