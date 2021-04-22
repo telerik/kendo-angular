@@ -77,7 +77,7 @@ import '@progress/kendo-angular-intl/locales/fr/all';
         DateInputsModule,
         InputsModule,
         DropDownsModule,
-        RouterModule.forRoot(drawerRoutes)
+        RouterModule.forRoot(drawerRoutes, { relativeLinkResolution: 'legacy' })
     ],
     providers: [
         { provide: MessageService, useClass: CustomMessagesService },
