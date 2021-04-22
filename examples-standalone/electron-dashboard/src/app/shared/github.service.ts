@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Headers, Http, Response } from '@angular/http';
+import { HttpHeaders, HttpClient, HttpResponse } from '@angular/common/http';
 import { forkJoin } from 'rxjs';
 import { map } from 'rxjs/operators';
 
@@ -7,13 +7,13 @@ const baseUrl = 'https://api.github.com/repos/telerik/kendo-ui-core/issues';
 
 @Injectable()
 export class GithubService {
-    private headers = new Headers({
+    private headers = new HttpHeaders({
         // Generate your own token through
         // https://github.com/settings/tokens
 
-        'Authorization': "token b95116792cba5a8169a1ec10640d8c16535c6419"
+        'Authorization': "token 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"
     });
-    constructor(public http: Http) { }
+    constructor(public http: HttpClient) { }
 
     getGithubIssues(pages) {
         return forkJoin(this.getIssuesUrls(pages));
@@ -37,7 +37,6 @@ export class GithubService {
     getIssuesPerPage(skip, take) {
         let page = (take + skip) / take;
 
-        console.log(skip, take, page)
         return this.http.get(`${baseUrl}?state=all&page=${page}&per_page=${take}`, { headers: this.headers })
             .pipe(map(this.handleResponse));
     }
@@ -52,7 +51,7 @@ export class GithubService {
             .pipe(map(this.handleResponse));
     }
 
-    handleResponse(res: Response): any {
-        return res.json();
+    handleResponse(res: HttpResponse<any>): HttpResponse<any> {
+        return res;
     }
 }

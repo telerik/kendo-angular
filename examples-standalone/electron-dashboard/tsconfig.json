@@ -1,22 +1,29 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "importHelpers": true,
     "outDir": "./dist/out-tsc",
+    "module": "es2020",
     "sourceMap": true,
     "declaration": false,
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "target": "es2015",
+    "allowJs": true,
+    "target": "es5",
     "typeRoots": [
       "node_modules/@types"
     ],
     "lib": [
+      "es2017",
+      "es2016",
       "es2015",
       "dom"
-    ],
-    "module": "es2015",
-    "baseUrl": "./"
-  }
+    ]
+  },
+  "include": [
+    "src/**/*.d.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }

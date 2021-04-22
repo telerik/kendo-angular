@@ -26,7 +26,7 @@ export class ProfileComponent {
     private deleteDialogVisible = false;
 
     constructor(public githubService: GithubService, private router: Router) {
-        githubService.getGithubUser('ggkrustev').subscribe(data => {
+        githubService.getGithubUser('svetq').subscribe(data => {
             this.user = data;
             this.isLoading = false;
         }, (err)=>{
