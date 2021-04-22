@@ -1,37 +1,33 @@
 import { Component, ViewEncapsulation } from '@angular/core';
-import { DrawerComponent, DrawerItem, DrawerSelectEvent } from '@progress/kendo-angular-layout';
+import { Router } from '@angular/router';
+import { DrawerComponent, DrawerSelectEvent } from '@progress/kendo-angular-layout';
 
 @Component({
-    encapsulation: ViewEncapsulation.None,
     selector: 'app-root',
-    styleUrls: ['./styles.scss'],
-    template: `
-        <header-component (toggle)="toggleDrawer(drawer)" [selectedPage]="selected"></header-component>
-        <kendo-drawer-container>
-            <kendo-drawer #drawer [items]="items" mode="push" [mini]="true" [expanded]="true" (select)="onSelect($event)"> </kendo-drawer>
-            <kendo-drawer-content>
-                <content [selectedItem]="selected"></content>
-            </kendo-drawer-content>
-        </kendo-drawer-container>
-    `
+    templateUrl: './app.component.html'
 })
 export class AppComponent {
     public selected: string = 'Dashboard';
+
+    constructor(private router: Router) {
+        this.router.navigate(['dashboard']);
+    }
 
     public toggleDrawer(drawer: DrawerComponent): void {
         drawer.toggle();
     }
 
-    public items: Array<DrawerItem> = [
-        { text: 'Dashboard', icon: 'k-i-grid', selected: true },
+    public items: Array<any> = [
+        { text: 'Dashboard', icon: 'k-i-grid', selected: true, path: 'dashboard' },
         { separator: true },
-        { text: 'Planning', icon: 'k-i-calendar' },
-        { text: 'Profile', icon: 'k-i-user' },
+        { text: 'Planning', icon: 'k-i-calendar', path: 'planning' },
+        { text: 'Profile', icon: 'k-i-user', path: 'profile' },
         { separator: true },
-        { text: 'Info', icon: 'k-i-information' }
+        { text: 'Info', icon: 'k-i-information', path: 'info' }
     ];
 
     public onSelect(ev: DrawerSelectEvent): void {
+        this.router.navigate([ev.item.path]);
         this.selected = ev.item.text;
     }
 }

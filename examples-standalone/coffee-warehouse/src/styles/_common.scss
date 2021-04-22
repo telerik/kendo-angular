@@ -328,6 +328,7 @@ a {
     .k-form .k-form-field {
         display: block;
         padding: 0 15px;
+        margin-top: 1.5rem;
     }
 
     .k-form-field:first-of-type .k-form-field-wrap {
@@ -338,12 +339,8 @@ a {
         margin: 0 auto 1rem;
     }
 
-    .k-form.k-form-horizontal .k-label {
-        width: 100%;
-    }
-
     hr {
-        margin-top: 1rem;
+        margin-top: 2rem;
         opacity: 0.2;
     }
 
@@ -364,10 +361,6 @@ a {
 
         .k-form-field:first-of-type .k-avatar {
             margin: 0;
-        }
-
-        .k-form.k-form-horizontal .k-label {
-            width: 25%;
         }
     }
 }
