@@ -29,7 +29,7 @@ With this sample project, you can:
 
 ## Getting Started
 
-1. Clone the repository of the sample application locally by running `git clone https://github.com/telerik/kendo-angular/`.
+1. Clone the repository of the sample application locally by running `git clone https://github.com/telerik/kendo-angular.git`.
 1. Navigate to the project folder by running `cd examples-standalone/electron-dashboard`.
 1. Install dependencies with NPM by running `npm install`.
 
