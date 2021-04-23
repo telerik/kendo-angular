@@ -8,21 +8,19 @@ This Kendo UI for Angular sample project demonstrates how to use [Kendo UI for A
 
 * [Setting Up the Project](#setting-up-the-project)
 * [Getting Started](#getting-started)
-* [Building for Development](building-for-development)
-* [Managing Your Environment Variables](#managing-your-environment-variables)
+* [Building for Development](#to-build-for-development)
 * [Included Commands](#included-commands)
-* [Browser Mode](#vbrowser-mode)
-* [Copyright Notice by maximegris/angular-electron](#copyright-notice-by-maximegrisangular-electron)
+* [Debug with VsCode](#debug-with-vscode)
+* [E2E Testing](#e2e-testing)
 
 ## Setting Up the Project
 
 Bootstrap and package your project with Angular 5 or later and Electron (Typescript, SASS, and Hot Reload) for creating Desktop applications.
 
 Currently, the sample projects runs with:
-- Angular v7.x
-- Angular-CLI
-- Electron v1.8.6
-- Electron Builder v20.0.4
+- Angular v11.2.8
+- Electron v12.0.2
+- Electron Builder v22.10.5
 
 With this sample project, you can:
 - Run your application in a local development environment with Electron and Hot Reload.
@@ -31,35 +29,74 @@ With this sample project, you can:
 
 ## Getting Started
 
-1. Clone the repository of the sample application locally by running `git clone https://github.com/telerik/kendo-angular/.git`.
-1. Navigate to the project folder by running `cd examples-standalone/kendo-angular-electron-dashboard`.
+1. Clone the repository of the sample application locally by running `git clone https://github.com/telerik/kendo-angular/`.
+1. Navigate to the project folder by running `cd examples-standalone/electron-dashboard`.
 1. Install dependencies with NPM by running `npm install`.
 
-  > * An issue occurs when `yarn` and `node_modules` are only used in Electron on the backend when the application is built by the packager. To work around the problem, use `npm` as your dependency manager.
-  > * To generate Angular components with Angular-CLI, you have to install `@angular/cli` in an NPM global context. Run `npm install -g @angular/cli`. If you had installed an earlier version of `angular-cli`, follow the instruction in the [Angular-CLI documentation](https://github.com/angular/angular-cli) .
+There is an issue with `yarn` and `node_modules` when the application is built by the packager. Please use `npm` as dependencies manager.
 
-## Building for Development
 
-In the terminal window, run `npm start`. Voila! You can use your Angular and Electron application in a local development environment with hot reload!
+If you want to generate Angular components with Angular-cli , you **MUST** install `@angular/cli` in npm global context.
+Please follow [Angular-cli documentation](https://github.com/angular/angular-cli) if you had installed a previous version of `angular-cli`.
 
-The application code is managed by `main.ts`. In this sample project, the application runs with a simple Angular Application (http://localhost:4200) and an Electron window. The Angular component contains an example of Electron and NodeJS native lib import. You can deactivate **Developer Tools** by commenting `win.webContents.openDevTools();` in `main.ts`.
+``` bash
+npm install -g @angular/cli
+```
+## To build for development
 
-## Managing Your Environment Variables
+- **in a terminal window** -> npm start
 
-- To use local variables, run `npm start` or `cross-env ENV=local npm start`.
-- To use development variables, run `cross-env ENV=dev npm start`.
-- To use production variables, run `cross-env ENV=rod npm start`.
+Voila! You can use your Angular + Electron app in a local development environment with hot reload!
 
-## Browser Mode
+The application code is managed by `main.ts`. In this sample, the app runs with a simple Angular App (http://localhost:4200) and an Electron window.
+The Angular component contains an example of Electron and NodeJS native lib import.
+You can disable "Developer Tools" by commenting `win.webContents.openDevTools();` in `main.ts`.
 
-To execute the application in the browser (WITHOUT HOT RELOAD ACTUALLY...), you can run `npm run ng:serve`. Note that you cannot use Electron or NodeJS native libraries in this case. To watch how conditional import of Electron and Native libraries is done, refer to `providers/electron.service.ts` .
+## Use Electron / NodeJS libraries
 
-## Copyright Notice by maximegris/angular-electron
+This sample project runs in both modes (web and electron). To make this work, **you have to import your dependencies the right way**. Please check `providers/electron.service.ts` to watch how conditional import of libraries has to be done when using electron / NodeJS / 3rd party libraries in renderer context (i.e. Angular).
 
-Copyright 2017 - Maxime GRIS
+## Use "web" 3rd party libraries (like angular, material, bootstrap, ...)
 
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+3rd party librairies used in electron's renderer process (like angular) have to be added in `devDependencies` of `package.json`. They are already added in your final package during webpack's compilation phase. Otherwise it will significantly increase the size of your final package... not so cool :(
 
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+## Browser mode
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+Maybe you only want to execute the application in the browser with hot reload? Just run `npm run ng:serve:web`.
+
+## Included Commands
+
+|Command|Description|
+|--|--|
+|`npm run ng:serve`| Execute the app in the browser |
+|`npm run build`| Build the app. Your built files are in the /dist folder. |
+|`npm run build:prod`| Build the app with Angular aot. Your built files are in the /dist folder. |
+|`npm run electron:local`| Builds your application and start electron
+|`npm run electron:build`| Builds your application and creates an app consumable based on your operating system |
+
+**Your application is optimised. Only /dist folder and node dependencies are included in the executable.**
+
+## You want to use a specific lib (like rxjs) in electron main thread ?
+
+YES! You can do it! Just by importing your library in npm dependencies section (not **devDependencies**) with `npm install --save`. It will be loaded by electron during build phase and added to your final package. Then use your library by importing it in `main.ts` file. Quite simple, isn't it?
+
+## Debug with VsCode
+
+[VsCode](https://code.visualstudio.com/) debug configuration is available! In order to use it, you need the extension [Debugger for Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome).
+
+Then set some breakpoints in your application's source code.
+
+Finally from VsCode press **Ctrl+Shift+D** and select **Application Debug** and press **F5**.
+
+Please note that Hot reload is only available in Renderer process.
+
+## E2E Testing
+
+E2E Test scripts can be found in `e2e` folder.
+
+|Command|Description|
+|--|--|
+|`npm run e2e`| Execute end to end tests |
+
+Note: To make it work behind a proxy, you can add this proxy exception in your terminal  
+`export {no_proxy,NO_PROXY}="127.0.0.1,localhost"`

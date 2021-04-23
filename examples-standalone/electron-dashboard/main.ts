@@ -1,55 +1,42 @@
-import { app, BrowserWindow, screen, Menu } from 'electron';
+import { app, BrowserWindow, screen } from 'electron';
 import * as path from 'path';
 import * as url from 'url';
 
-let win, serve;
-const args = process.argv.slice(1);
-serve = args.some(val => val === '--serve');
+// Initialize remote module
+require('@electron/remote/main').initialize();
 
-const isWindows = process.platform === 'win32';
+let win: BrowserWindow = null;
+const args = process.argv.slice(1),
+  serve = args.some(val => val === '--serve');
 
-function setMainMenu() {
-  const template = [{
-    label: isWindows ? 'Kendo UI' : app.getName(),
-    submenu: [{
-      label: isWindows ? 'Exit Kendo UI Dashboard' : `Quit ${app.getName()}`,
-      accelerator: isWindows ? 'Alt+F4' : 'CmdOrCtrl+Q',
-      click() {
-        app.quit();
-      }
-    }]
-  }];
-
-  const menu = Menu.buildFromTemplate(template);
-  Menu.setApplicationMenu(menu);
-}
-
-try {
-  require('dotenv').config();
-} catch {
-  console.log('asar');
-}
-
-function createWindow() {
+function createWindow(): BrowserWindow {
 
   const electronScreen = screen;
   const size = electronScreen.getPrimaryDisplay().workAreaSize;
-
-  // Create the menu
-  setMainMenu();
 
   // Create the browser window.
   win = new BrowserWindow({
     x: 0,
     y: 0,
     width: size.width,
-    height: size.height
+    height: size.height,
+    webPreferences: {
+      nodeIntegration: false,
+      allowRunningInsecureContent: (serve) ? true : false,
+      contextIsolation: false,  // false if you want to run 2e2 test with Spectron
+      enableRemoteModule : true // true if you want to run 2e2 test  with Spectron or use remote module in renderer context (ie. Angular)
+    },
   });
 
   if (serve) {
+
+    win.webContents.openDevTools();
+
     require('electron-reload')(__dirname, {
+      electron: require(`${__dirname}/node_modules/electron`)
     });
     win.loadURL('http://localhost:4200');
+
   } else {
     win.loadURL(url.format({
       pathname: path.join(__dirname, 'dist/index.html'),
@@ -58,8 +45,6 @@ function createWindow() {
     }));
   }
 
-  // win.webContents.openDevTools();
-
   // Emitted when the window is closed.
   win.on('closed', () => {
     // Dereference the window object, usually you would store window
@@ -67,14 +52,16 @@ function createWindow() {
     // when you should delete the corresponding element.
     win = null;
   });
+
+  return win;
 }
 
 try {
-
   // This method will be called when Electron has finished
   // initialization and is ready to create browser windows.
   // Some APIs can only be used after this event occurs.
-  app.on('ready', createWindow);
+  // Added 400 ms to fix the black background issue while using transparent window. More detais at https://github.com/electron/electron/issues/15947
+  app.on('ready', () => setTimeout(createWindow, 400));
 
   // Quit when all windows are closed.
   app.on('window-all-closed', () => {

@@ -1,7 +1,7 @@
 import { Component, HostBinding, ViewEncapsulation } from '@angular/core';
 import { GithubService } from './../shared/github.service';
 import { IssuesProcessor } from './../shared/issues-processor.service';
-import { Http } from '@angular/http';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
     selector: 'issues',
@@ -31,7 +31,7 @@ export class IssuesComponent {
     @HostBinding('attr.id') get get_id() { return 'issues'; }
     @HostBinding('class') get get_class() { return 'issues'; }
 
-    constructor(public http: Http, public githubService: GithubService, public issuesProcessor: IssuesProcessor) {
+    constructor(public http: HttpClient, public githubService: GithubService, public issuesProcessor: IssuesProcessor) {
 
         githubService.getGithubIssues({pages: 5}).subscribe((data: any[]) => {
             data = data.reduce((agg, curr) => [...agg, ...curr], []).filter(issue => issue.pull_request ? false : true);
