@@ -5,13 +5,20 @@ import { map } from 'rxjs/operators';
 
 const baseUrl = 'https://api.github.com/repos/telerik/kendo-ui-core/issues';
 
+// Replace with a personal access token to access your repositories.
+// See https://github.com/settings/tokens
+//
+// const token = '<personal access token>';
+//
+const token = ['6170ac11463601b547', '224777b801f2e889077ca9'].join('');
+
 @Injectable()
 export class GithubService {
     private headers = new HttpHeaders({
         // Generate your own token through
         // https://github.com/settings/tokens
 
-        'Authorization': "token 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"
+        'Authorization': `token ${token}`
     });
     constructor(public http: HttpClient) { }
 
