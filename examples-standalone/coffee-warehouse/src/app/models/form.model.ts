@@ -7,5 +7,5 @@ export class FormModel {
     public directory: boolean;
     public country: string;
     public biography: string;
-    public team: boolean;
+    public team: string;
 }

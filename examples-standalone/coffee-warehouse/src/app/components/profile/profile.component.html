@@ -1,43 +1,52 @@
 <div class="profile-page main-content">
     <div class="card-container">
         <div class="card-component">
-            <form class="k-form k-form-horizontal" style="max-width: 700px" [formGroup]="form">
+            <form class="k-form k-form-horizontal" style="max-width: 700px" [formGroup]="formGroup">
                 <fieldset class="k-form-fieldset">
                     <kendo-formfield orientation="horizontal">
-                        <label class="k-label"><kendo-avatar initials="EG" width="80px" height="80px" shape="circle"></kendo-avatar></label>
-                        <kendo-upload [saveUrl]="uploadSaveUrl" [removeUrl]="uploadRemoveUrl" formControlName="avatar"> </kendo-upload>
+                        <label class="k-label"
+                            ><kendo-avatar imageSrc="./../../../assets/user.jpg" width="80px" height="80px" shape="circle"></kendo-avatar
+                        ></label>
+                        <kendo-fileselect
+                            (select)="selectAvatar($event)"
+                            [showFileList]="false"
+                            formControlName="avatar"
+                            [multiple]="false"
+                            [restrictions]="fileRestrictions"
+                        >
+                        </kendo-fileselect>
                     </kendo-formfield>
 
                     <kendo-formfield orientation="horizontal">
-                        <kendo-label class="k-label" [for]="firstName" text="Frist Name"></kendo-label>
+                        <kendo-label class="k-label" [for]="firstName" [text]="customMsgService.translate('firstName')"></kendo-label>
                         <kendo-textbox formControlName="firstName" [clearButton]="true" #firstName required></kendo-textbox>
                         <kendo-formerror>Error: First Name is required</kendo-formerror>
                     </kendo-formfield>
 
                     <kendo-formfield orientation="horizontal">
-                        <kendo-label [for]="lastName" text="Last Name"></kendo-label>
+                        <kendo-label [for]="lastName" [text]="customMsgService.translate('lastName')"></kendo-label>
                         <kendo-textbox formControlName="lastName" [clearButton]="true" #lastName required></kendo-textbox>
                         <kendo-formerror>Error: Last Name is required</kendo-formerror>
                     </kendo-formfield>
 
                     <kendo-formfield orientation="horizontal">
-                        <kendo-label [for]="email" text="Email Address"></kendo-label>
+                        <kendo-label [for]="email" [text]="customMsgService.translate('email')"></kendo-label>
                         <kendo-textbox formControlName="email" [clearButton]="true" #email required></kendo-textbox>
-                        <kendo-formerror *ngIf="form.controls.email.errors?.required">Error: Email is required</kendo-formerror>
-                        <kendo-formerror *ngIf="form.controls.email.errors?.email">Error: Not valid email format</kendo-formerror>
+                        <kendo-formerror *ngIf="formGroup.controls.email.errors?.required">Error: Email is required</kendo-formerror>
+                        <kendo-formerror *ngIf="formGroup.controls.email.errors?.email">Error: Not valid email format</kendo-formerror>
                     </kendo-formfield>
 
                     <kendo-formfield orientation="horizontal">
-                        <kendo-label [for]="phoneNumber" text="Phone Number"></kendo-label>
+                        <kendo-label [for]="phoneNumber" [text]="customMsgService.translate('phone')"></kendo-label>
                         <kendo-maskedtextbox #phoneNumber formControlName="phoneNumber" [mask]="phoneNumberMask"></kendo-maskedtextbox>
                         <kendo-formerror>
-                            <div *ngIf="form.controls.phoneNumber.errors">Error: Not a valid phone number format</div>
-                            <div *ngIf="form.controls.phoneNumber.errors?.required">Error: Phone number is required</div>
+                            <div *ngIf="formGroup.controls.phoneNumber.errors">Error: Not a valid phone number format</div>
+                            <div *ngIf="formGroup.controls.phoneNumber.errors?.required">Error: Phone number is required</div>
                         </kendo-formerror>
                     </kendo-formfield>
 
                     <kendo-formfield orientation="horizontal">
-                        <kendo-label [for]="country" text="Country"></kendo-label>
+                        <kendo-label [for]="country" [text]="customMsgService.translate('country')"></kendo-label>
                         <kendo-autocomplete
                             #country
                             [data]="countries"
@@ -49,7 +58,7 @@
                     </kendo-formfield>
 
                     <kendo-formfield orientation="horizontal">
-                        <kendo-label [for]="biography" text="Short Biography"></kendo-label>
+                        <kendo-label [for]="biography" [text]="customMsgService.translate('biography')"></kendo-label>
                         <kendo-editor #biography formControlName="biography">
                             <kendo-toolbar>
                                 <kendo-toolbar-button kendoEditorBoldButton></kendo-toolbar-button>
@@ -72,19 +81,19 @@
                     </kendo-formfield>
 
                     <kendo-formfield orientation="horizontal">
-                        <kendo-label [for]="directory" text="Icnlude in public directory"></kendo-label>
+                        <kendo-label [for]="directory" [text]="customMsgService.translate('directory')"></kendo-label>
                         <kendo-switch #directory formControlName="directory"> </kendo-switch>
                         <kendo-formerror>Error: This field is required</kendo-formerror>
                     </kendo-formfield>
                     <kendo-formfield orientation="horizontal">
-                        <label class="k-label">Team</label>
+                        <label class="k-label">{{ customMsgService.translate('team') }}</label>
                         <ul class="k-radio-list k-list-horizontal">
                             <li class="k-radio-item">
-                                <input type="radio" #tigerTeam value="tiger" kendoRadioButton formControlName="team" checked="true" />
+                                <input type="radio" #tigerTeam value="tiger" kendoRadioButton formControlName="team" />
                                 <kendo-label class="k-radio-label" [for]="tigerTeam" text="Tiger Team"></kendo-label>
                             </li>
                             <li class="k-radio-item">
-                                <input type="radio" #lemonTeam value="lemon" kendoRadioButton formControlName="team" [checked]="true" />
+                                <input type="radio" #lemonTeam value="lemon" kendoRadioButton formControlName="team" />
                                 <kendo-label class="k-radio-label" [for]="lemonTeam" text="Lemon Team"></kendo-label>
                             </li>
                             <li class="k-radio-item">
@@ -99,8 +108,10 @@
                     </kendo-formfield>
                     <hr />
                     <div class="k-form-buttons">
-                        <button kendoButton (click)="clearForm()">Cancel</button>
-                        <button kendoButton [primary]="true" [disabled]="this.form.invalid" (click)="submitForm()">Save Changes</button>
+                        <button kendoButton (click)="clearForm()">{{ customMsgService.translate('cancel') }}</button>
+                        <button kendoButton [primary]="true" [disabled]="this.formGroup.invalid" (click)="submitForm()">
+                            {{ customMsgService.translate('saveChanges') }}
+                        </button>
                     </div>
                 </fieldset>
             </form>

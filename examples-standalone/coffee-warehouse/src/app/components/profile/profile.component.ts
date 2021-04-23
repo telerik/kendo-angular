@@ -1,19 +1,25 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { Validators, FormGroup, FormControl } from '@angular/forms';
+
 import { countries } from 'src/app/resources/countries';
 import { FormModel } from 'src/app/models/form.model';
-import { Router } from '@angular/router';
+
+import { SelectEvent, FileRestrictions } from '@progress/kendo-angular-upload';
+import { CustomMessagesService } from 'src/app/services/custom-messages.service';
+import { MessageService } from '@progress/kendo-angular-l10n';
 @Component({
     selector: 'profile-component',
     templateUrl: './profile.component.html'
 })
 export class ProfileComponent {
-    public form: FormGroup;
+    public formGroup: FormGroup;
     public countries = countries;
     public phoneNumberMask: string = '(+9) 0000-000-00-00';
-
-    uploadSaveUrl = 'saveUrl'; // should represent an actual API endpoint
-    uploadRemoveUrl = 'removeUrl'; // should represent an actual API endpoint
+    public fileRestrictions: FileRestrictions = {
+        allowedExtensions: ['.png, .jpeg, .jpg']
+    };
+    public avatars: NodeList;
 
     public formValue: FormModel | null = {
         avatar: null,
@@ -24,20 +30,27 @@ export class ProfileComponent {
         directory: true,
         country: 'Bulgaria',
         biography: '',
-        team: null
+        team: 'lemon'
     };
 
-    constructor(public router: Router) {
+    public customMsgService: CustomMessagesService;
+
+    constructor(public router: Router, public msgService: MessageService) {
         this.setFormValues();
+        this.customMsgService = <CustomMessagesService>this.msgService;
+    }
+
+    ngAfterViewInit() {
+        this.setAvatar();
     }
 
     public setFormValues() {
         const form = localStorage.getItem('form');
         if (form) {
-            this.formValue = JSON.parse(localStorage.getItem('form'));
+            this.formValue = JSON.parse(form);
         }
 
-        this.form = new FormGroup({
+        this.formGroup = new FormGroup({
             avatar: new FormControl(),
             firstName: new FormControl(this.formValue.firstName, [Validators.required]),
             lastName: new FormControl(this.formValue.lastName, [Validators.required]),
@@ -50,13 +63,38 @@ export class ProfileComponent {
         });
     }
 
+    public setAvatar() {
+        this.avatars = document.querySelectorAll('.k-avatar .k-avatar-image');
+        const avatarImg = localStorage.getItem('avatar');
+        if (avatarImg) {
+            this.avatars.forEach((avatar: HTMLElement) => {
+                avatar.style['background-image'] = `url("${avatarImg}")`;
+            });
+        }
+    }
+
     public submitForm(): void {
-        this.form.markAllAsTouched();
-        const formValues = JSON.stringify(this.form.value);
+        this.formGroup.markAllAsTouched();
+        const formValues = JSON.stringify(this.formGroup.value);
         localStorage.setItem('form', formValues);
     }
 
     public clearForm(): void {
         this.setFormValues();
+    }
+
+    public selectAvatar(ev: SelectEvent): void {
+        const avatars = this.avatars;
+        let reader = new FileReader();
+        const file = ev.files[0];
+        if (file.rawFile) {
+            reader.onloadend = function () {
+                avatars.forEach((avatar: HTMLElement) => {
+                    avatar.style['background-image'] = `url("${this.result}")`;
+                    localStorage.setItem('avatar', this.result.toString());
+                });
+            };
+            reader.readAsDataURL(file.rawFile);
+        }
     }
 }

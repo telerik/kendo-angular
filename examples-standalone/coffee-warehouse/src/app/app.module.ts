@@ -23,7 +23,7 @@ import { LayoutModule } from '@progress/kendo-angular-layout';
 import { SchedulerModule } from '@progress/kendo-angular-scheduler';
 import { ButtonsModule } from '@progress/kendo-angular-buttons';
 import { EditorModule } from '@progress/kendo-angular-editor';
-import { UploadModule } from '@progress/kendo-angular-upload';
+import { FileSelectModule } from '@progress/kendo-angular-upload';
 import { ChartsModule } from '@progress/kendo-angular-charts';
 import { IntlModule } from '@progress/kendo-angular-intl';
 import { DateInputsModule } from '@progress/kendo-angular-dateinputs';
@@ -70,7 +70,7 @@ import '@progress/kendo-angular-intl/locales/fr/all';
         SchedulerModule,
         ButtonsModule,
         EditorModule,
-        UploadModule,
+        FileSelectModule,
         HttpClientModule,
         ChartsModule,
         IntlModule,

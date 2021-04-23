@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable, Output } from '@angular/core';
 import { MessageService } from '@progress/kendo-angular-l10n';
 
 import { enComponentMessages, enCustomMessages } from '../messages/en-US';
@@ -18,12 +18,14 @@ const customMsgs = {
 };
 
 @Injectable() export class CustomMessagesService extends MessageService {
+    @Output() public localeChange = new EventEmitter();
     private localeId;
 
     public set language(value: string) {
         const locale = componentMsgs[value];
         if (locale) {
             this.localeId = value;
+            this.localeChange.emit()
             this.notify();
         }
     }
