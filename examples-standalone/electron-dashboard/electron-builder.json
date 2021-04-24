@@ -1,24 +1,43 @@
 {
-  "productName": "kendo-ui-dashboard",
+  "productName": "angular-electron",
   "directories": {
-    "output": "app-builds"
+    "output": "release/"
   },
+  "files": [
+    "**/*",
+    "!**/*.ts",
+    "!.github",
+    "!.vscode",
+    "!.code-workspace",
+    "!.npmrc",
+    "!*.md",
+    "!package.json",
+    "!package-lock.json",
+    "!src/",
+    "!e2e/",
+    "!hooks/",
+    "!_config.yml",
+    "!angular.json",
+    "!tsconfig*.json",
+    "!tslint.json",
+    "!.eslintrc.json",
+    "!karma.conf.js",
+    "!angular.webpack.js",
+    "!*.map"
+  ],
   "win": {
-    "icon": "dist",
-    "target": [
-      "portable"
-    ]
+    "icon": "dist/assets/icons",
+    "target": ["portable"]
+  },
+  "portable": {
+    "splashImage": "dist/assets/icons/electron.bmp"
   },
   "mac": {
-    "icon": "dist",
-    "target": [
-      "dmg"
-    ]
+    "icon": "dist/assets/icons",
+    "target": ["dmg"]
   },
   "linux": {
-    "icon": "dist",
-    "target": [
-      "AppImage"
-    ]
+    "icon": "dist/assets/icons",
+    "target": ["AppImage"]
   }
 }

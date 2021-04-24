@@ -6,11 +6,18 @@
     "baseUrl": "",
     "types": []
   },
+  "include": [
+    "main.ts",
+    "polyfills.ts",
+    "app/**/*.ts",
+    "environments/**/*.ts"
+  ],
   "exclude": [
-    "test.ts",
-    "**/*.spec.ts",
-    "dist",
-    "app-builds",
-    "node_modules"
-  ]
+    "**/*.spec.ts"
+  ],
+  "angularCompilerOptions": {
+    "fullTemplateTypeCheck": true,
+    "strictInjectionParameters": true,
+    "preserveWhitespaces": true
+  }
 }
