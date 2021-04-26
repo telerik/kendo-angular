@@ -8,6 +8,7 @@ import { FormModel } from 'src/app/models/form.model';
 import { SelectEvent, FileRestrictions } from '@progress/kendo-angular-upload';
 import { CustomMessagesService } from 'src/app/services/custom-messages.service';
 import { MessageService } from '@progress/kendo-angular-l10n';
+
 @Component({
     selector: 'profile-component',
     templateUrl: './profile.component.html'
@@ -17,7 +18,7 @@ export class ProfileComponent {
     public countries = countries;
     public phoneNumberMask: string = '(+9) 0000-000-00-00';
     public fileRestrictions: FileRestrictions = {
-        allowedExtensions: ['.png, .jpeg, .jpg']
+        allowedExtensions: ['.png', '.jpeg', '.jpg']
     };
     public avatars: NodeList;
 

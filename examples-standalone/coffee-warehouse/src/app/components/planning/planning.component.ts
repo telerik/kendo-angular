@@ -46,7 +46,7 @@ export class PlanningComponent {
         }
     }
 
-    public setEventBg(args: EventStyleArgs): Object {
+    public setEventStyles(args: EventStyleArgs): Object {
         const team = teams.find((team: Team) => team.teamID === args.event.dataItem.teamID);
         return { backgroundColor: team.teamColor };
     }

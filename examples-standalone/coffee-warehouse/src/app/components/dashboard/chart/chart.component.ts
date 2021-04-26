@@ -3,6 +3,7 @@ import { IntlService } from '@progress/kendo-angular-intl';
 import { MessageService } from '@progress/kendo-angular-l10n';
 import { CustomMessagesService } from 'src/app/services/custom-messages.service';
 import { orders } from 'src/app/resources/orders';
+import { Order } from 'src/app/models/order.model';
 
 @Component({
     selector: 'chart-component',
@@ -12,7 +13,7 @@ import { orders } from 'src/app/resources/orders';
 })
 export class ChartComponent {
     public selectedChart: 'Trend' | 'Volume' = 'Trend';
-    public orders = orders;
+    public orders: Order[] = orders;
 
     public dateRange: any = {
         start: new Date(2020, 0, 1),

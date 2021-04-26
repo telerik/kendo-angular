@@ -14,7 +14,7 @@ export class AppComponent {
     public customMsgService: CustomMessagesService;
 
     constructor(private router: Router, public msgService: MessageService) {
-        this.router.navigate(['profile']);
+        this.router.navigate(['dashboard']);
         this.customMsgService = <CustomMessagesService>this.msgService;
     }
 

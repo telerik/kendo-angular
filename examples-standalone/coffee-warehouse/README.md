@@ -35,7 +35,7 @@ Currently, the sample project runs with:
 ## Building for Development
 
 1. In the terminal window, tun the project with `ng serve` for a dev server.
-1.  Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+1. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 ## Serve in Production
 

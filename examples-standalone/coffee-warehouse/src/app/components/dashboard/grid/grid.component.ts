@@ -32,6 +32,7 @@ export class GridComponent {
         this.gridView = this.gridData.slice(25, 50);
     }
 
+    // Update Grid collection during changing My Team/All Team
     public onTeamChange(pageSize: number): void {
         pageSize === 25
             ? (this.gridView = this.gridData.slice(pageSize, pageSize * 2))
