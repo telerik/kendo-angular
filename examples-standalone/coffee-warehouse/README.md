@@ -1,11 +1,42 @@
-# Integrating the Grid with Charts
+[<img src="./src/assets/logo-kendo.png" width="225" />](https://www.telerik.com/kendo-angular-ui/) [![Angular Logo](./src/assets/logo-angular.png)](https://angular.io/)
 
-This Kendo UI for Angular sample project demonstrates how to integrate the Grid with Charts. The project features a Grid which allows to select its rows. Right clicking the Grid content will open a context menu which lists all available Chart types. Selecting a Chart type opens a Window where the desired Chart is rendered. The Window provides further configuration options for the Chart and an export functionality. Currently, [the example is deployed on GitHub pages](https://telerik.github.io/kendo-angular/coffee-warehouse/).
+# Using Kendo UI for Angular
+
+This Kendo UI for Angular sample project demonstrates how to use [Kendo UI for Angular components](https://www.telerik.com/kendo-angular-ui/components) within a coffee warehouse prototype application and visualize data. Currently, [the example is deployed on GitHub pages](https://telerik.github.io/kendo-angular/finance-portfolio).
+
+Used Kendo UI for Angular Components:
+ - [Grid Component](https://www.telerik.com/kendo-angular-ui/components/grid/)
+ - [Charts](https://www.telerik.com/kendo-angular-ui/components/charts/)
+ - [Scheduler](https://www.telerik.com/kendo-angular-ui/components/scheduler/)
+ - [DateInputs](https://www.telerik.com/kendo-angular-ui/components/dateinputs/)
+ - [Inputs](https://www.telerik.com/kendo-angular-ui/components/inputs/)
+ - [DropDonws](https://www.telerik.com/kendo-angular-ui/components/dropdowns/)
+ - [Buttons](https://www.telerik.com/kendo-angular-ui/components/buttons/button/)
+
+## In This Article
+
+* [Setting Up the Project](#setting-up-the-project)
+* [Getting Started](#getting-started)
+* [Building for Development](building-for-development)
+* [Serve in Production](serve-in-production)
+
+## Setting Up the Project
+
+Currently, the sample project runs with:
+- Angular v11
+- Angular-CLI v11
 
 ## Getting Started
 
-1. Clone the sample apps repository locally by using your favorite Git client by running `git clone https://github.com/telerik/kendo-angular.git`.
-1. Enter the project directory by running `cd examples-standalone/coffee-warehouse`.
-1. Install the node modules with `npm install`.
-1. Run the project with `ng serve`.
-1. Open http://localhost:4200.
+1. Clone the repository of the sample application locally by running `git clone https://github.com/telerik/kendo-angular.git`.
+1. Navigate to the project folder by running `cd examples-standalone/coffee-warehouse`.
+1. Install dependencies with NPM by running `npm install`.
+
+## Building for Development
+
+1. In the terminal window, tun the project with `ng serve` for a dev server.
+1.  Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+
+## Serve in Production
+
+Run `npm run serve-prod` to run the project in production mode.
