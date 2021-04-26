@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Inject, Input, LOCALE_ID, Output } from '@angular/core';
+import { Component, EventEmitter, Inject, Input, LOCALE_ID, Output, ViewEncapsulation } from '@angular/core';
 import { CldrIntlService, IntlService } from '@progress/kendo-angular-intl';
 import { MessageService } from '@progress/kendo-angular-l10n';
 import { CustomMessagesService } from '../services/custom-messages.service';
@@ -6,7 +6,9 @@ import { locales } from 'src/app/resources/locales';
 
 @Component({
     selector: 'header-component',
-    templateUrl: './header.commponent.html'
+    templateUrl: './header.commponent.html',
+    encapsulation: ViewEncapsulation.None,
+    styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
     @Output() public toggle = new EventEmitter();
@@ -16,6 +18,22 @@ export class HeaderComponent {
 
     public selectedLanguage = { locale: 'English', localeId: 'en-US' };
     public locales = locales;
+    public popupSettings = { width: '150' };
+    public themes = [
+        {
+            href: 'https://unpkg.com/@progress/kendo-theme-default/dist/all.css',
+            text: 'Default'
+        },
+        {
+            href: 'https://unpkg.com/@progress/kendo-theme-bootstrap/dist/all.css',
+            text: 'Bootstrap'
+        },
+        {
+            href: 'https://unpkg.com/@progress/kendo-theme-material/dist/all.css',
+            text: 'Material'
+        }
+    ];
+    public selectedTheme = this.themes[0];
 
     constructor(public messages: MessageService, @Inject(LOCALE_ID) public localeId: string, public intlService: IntlService) {
         this.localeId = this.selectedLanguage.localeId;
@@ -23,6 +41,12 @@ export class HeaderComponent {
 
         this.customMsgService = <CustomMessagesService>this.messages;
         this.customMsgService.language = this.selectedLanguage.localeId;
+    }
+
+    public changeTheme(theme) {
+        this.selectedTheme = theme;
+        const themeEl: any = document.getElementById('theme');
+        themeEl.href = theme.href;
     }
 
     public changeLanguage(item): void {

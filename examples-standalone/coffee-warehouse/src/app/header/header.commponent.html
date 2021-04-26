@@ -18,7 +18,24 @@
                 valueField="localeId"
                 [value]="selectedLanguage"
                 (valueChange)="changeLanguage($event)"
+                [popupSettings]="popupSettings"
+                [ngClass]="{'material-bg':selectedTheme.text==='Material'}"
             >
+            </kendo-dropdownlist>
+
+            <kendo-dropdownlist
+                [data]="themes"
+                textField="text"
+                valueField="href"
+                [value]="selectedTheme"
+                (valueChange)="changeTheme($event)"
+                [popupSettings]="popupSettings"
+                style="width: 60px"
+                [ngClass]="{'material-bg':selectedTheme.text==='Material'}"
+            >
+                <ng-template kendoDropDownListValueTemplate let-dataItem>
+                    <span class="k-icon k-i-palette"></span>
+                </ng-template>
             </kendo-dropdownlist>
         </div>
 

@@ -17,7 +17,10 @@ a {
 
     .k-drawer {
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-        border-right-width: 0 !important;
+
+        &.k-drawer-start {
+            border-right-width: 0;
+        }
     }
 
     &.k-drawer-push .k-drawer {
@@ -41,9 +44,6 @@ a {
         grid-template-columns: repeat(1, 1fr);
         column-gap: 10px;
         row-gap: 1em;
-    }
-
-    .card-title {
     }
 
     .card-buttons {
@@ -387,6 +387,7 @@ a {
     background-image: url('../assets/info-bg.jpg');
     color: $white;
     background-repeat: no-repeat;
+    opacity: 0.9;
 
     h1,
     h2,
