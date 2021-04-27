@@ -1,17 +1,19 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MessageService } from '@progress/kendo-angular-l10n';
-import { DrawerComponent, DrawerSelectEvent } from '@progress/kendo-angular-layout';
+import { DrawerComponent, DrawerMode, DrawerSelectEvent } from '@progress/kendo-angular-layout';
 import { CustomMessagesService } from './services/custom-messages.service';
 
 @Component({
     selector: 'app-root',
     templateUrl: './app.component.html'
 })
-export class AppComponent {
+export class AppComponent implements OnInit, OnDestroy {
     public selected: string = 'Dashboard';
     public items: Array<any>;
     public customMsgService: CustomMessagesService;
+    public mode: DrawerMode = 'push';
+    public mini: boolean = true;
 
     constructor(private router: Router, public msgService: MessageService) {
         this.router.navigate(['dashboard']);
@@ -20,10 +22,30 @@ export class AppComponent {
 
     ngOnInit() {
         this.items = this.drawerItems();
+        this.setDrawerConfig();
 
         this.customMsgService.localeChange.subscribe(() => {
             this.items = this.drawerItems();
         });
+
+        window.addEventListener('resize', () => {
+            this.setDrawerConfig();
+        });
+    }
+
+    ngOnDestroy() {
+        window.removeEventListener('resize', () => {});
+    }
+
+    public setDrawerConfig() {
+        const pageWidth = window.innerWidth;
+        if (pageWidth <= 770) {
+            this.mode = 'overlay';
+            this.mini = false;
+        } else {
+            this.mode = 'push';
+            this.mini = true;
+        }
     }
 
     public drawerItems() {

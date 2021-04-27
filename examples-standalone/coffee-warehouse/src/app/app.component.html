@@ -1,6 +1,6 @@
 <header-component (toggle)="toggleDrawer(drawer)" [selectedPage]="selected"></header-component>
 <kendo-drawer-container>
-    <kendo-drawer #drawer [items]="items" mode="push" [mini]="true" [expanded]="true" (select)="onSelect($event)"> </kendo-drawer>
+    <kendo-drawer #drawer [items]="items" [mode]="mode" [mini]="mini" [expanded]="true" (select)="onSelect($event)"> </kendo-drawer>
     <kendo-drawer-content>
         <router-outlet></router-outlet>
     </kendo-drawer-content>
