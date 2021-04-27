@@ -74,13 +74,14 @@ export class ProfileComponent {
         }
     }
 
-    public submitForm(): void {
+    public saveChanges(): void {
         this.formGroup.markAllAsTouched();
         const formValues = JSON.stringify(this.formGroup.value);
         localStorage.setItem('form', formValues);
+        this.router.navigate(['/'])
     }
 
-    public clearForm(): void {
+    public cancelChanges(): void {
         this.setFormValues();
     }
 

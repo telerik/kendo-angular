@@ -44,7 +44,7 @@
     "@progress/kendo-data-query": "^1.5.4",
     "@progress/kendo-date-math": "^1.5.2",
     "@progress/kendo-drawing": "^1.10.0",
-    "@progress/kendo-licensing": "^1.0.2",
+    "@progress/kendo-licensing": "^1.1.4",
     "@progress/kendo-recurrence": "^1.0.1",
     "@progress/kendo-theme-bootstrap": "^4.34.0",
     "@progress/kendo-theme-default": "^4.37.0",

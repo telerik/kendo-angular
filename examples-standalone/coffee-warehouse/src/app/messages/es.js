@@ -19,7 +19,7 @@ export const esCustomMessages = {
     buyNow: 'Comprar ahora',
     getSource: 'Obtenga el código fuente en GitHub',
     demoInfo:
-        'Esta aplicación de demostración está construida utilizando los siguientes componentes de Kendo UI for Angular y el tema predeterminado de KendoReact.',
+        'Esta aplicación de demostración está construida utilizando los siguientes componentes de Kendo UI for Angular.',
     firstName: 'Primer nombre',
     middleName: 'Segundo nombre',
     lastName: 'Apellido',

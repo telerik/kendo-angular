@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { NavigationStart, Router } from '@angular/router';
 import { MessageService } from '@progress/kendo-angular-l10n';
 import { DrawerComponent, DrawerMode, DrawerSelectEvent } from '@progress/kendo-angular-layout';
 import { CustomMessagesService } from './services/custom-messages.service';
@@ -16,12 +16,25 @@ export class AppComponent implements OnInit, OnDestroy {
     public mini: boolean = true;
 
     constructor(private router: Router, public msgService: MessageService) {
-        this.router.navigate(['dashboard']);
         this.customMsgService = <CustomMessagesService>this.msgService;
     }
 
     ngOnInit() {
-        this.items = this.drawerItems();
+        // Update Drawer selected state when change router path
+        this.router.events.subscribe((route: NavigationStart) => {
+            if (route instanceof NavigationStart) {
+                this.items = this.drawerItems().map((item) => {
+                    if (item.path && item.path === route.url) {
+                        item.selected = true;
+                        return item;
+                    } else {
+                        item.selected = false;
+                        return item;
+                    }
+                });
+            }
+        });
+
         this.setDrawerConfig();
 
         this.customMsgService.localeChange.subscribe(() => {
@@ -50,11 +63,11 @@ export class AppComponent implements OnInit, OnDestroy {
 
     public drawerItems() {
         return [
-            { text: this.customMsgService.translate('dashboard'), icon: 'k-i-grid', selected: true, path: 'dashboard' },
-            { text: this.customMsgService.translate('planning'), icon: 'k-i-calendar', path: 'planning' },
-            { text: this.customMsgService.translate('profile'), icon: 'k-i-user', path: 'profile' },
+            { text: this.customMsgService.translate('dashboard'), icon: 'k-i-grid', path: '/', selected: true },
+            { text: this.customMsgService.translate('planning'), icon: 'k-i-calendar', path: '/planning', selected: false },
+            { text: this.customMsgService.translate('profile'), icon: 'k-i-user', path: '/profile', selected: false },
             { separator: true },
-            { text: this.customMsgService.translate('info'), icon: 'k-i-information', path: 'info' }
+            { text: this.customMsgService.translate('info'), icon: 'k-i-information', path: '/info', selected: false }
         ];
     }
 

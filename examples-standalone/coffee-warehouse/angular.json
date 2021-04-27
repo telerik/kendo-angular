@@ -21,6 +21,12 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "allowedCommonJsDependencies": [
+              "hammerjs",
+              "@progress/kendo-angular-intl/locales/en/all",
+              "@progress/kendo-angular-intl/locales/es/all",
+              "@progress/kendo-angular-intl/locales/fr/all"
+            ],
             "outputPath": "dist/coffee-warehouse",
             "index": "src/index.html",
             "main": "src/main.ts",

@@ -225,7 +225,7 @@
                     <div class="k-form-buttons">
                         <button
                             kendoButton
-                            (click)="clearForm()"
+                            (click)="cancelChanges()"
                         >
                             {{ customMsgService.translate('cancel') }}
                         </button>
@@ -233,7 +233,7 @@
                             kendoButton
                             [primary]="true"
                             [disabled]="this.formGroup.invalid"
-                            (click)="submitForm()"
+                            (click)="saveChanges()"
                         >
                             {{ customMsgService.translate('saveChanges') }}
                         </button>

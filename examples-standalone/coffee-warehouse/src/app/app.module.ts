@@ -32,7 +32,7 @@ import { DropDownsModule } from '@progress/kendo-angular-dropdowns';
 import { MessageService } from '@progress/kendo-angular-l10n';
 
 const drawerRoutes = [
-    { path: 'dashboard', component: DashboardComponent },
+    { path: '', component: DashboardComponent },
     { path: 'planning', component: PlanningComponent },
     { path: 'profile', component: ProfileComponent },
     { path: 'info', component: InfoComponent }
@@ -77,7 +77,7 @@ import '@progress/kendo-angular-intl/locales/fr/all';
         DateInputsModule,
         InputsModule,
         DropDownsModule,
-        RouterModule.forRoot(drawerRoutes, { relativeLinkResolution: 'legacy' })
+        RouterModule.forRoot(drawerRoutes)
     ],
     providers: [
         { provide: MessageService, useClass: CustomMessagesService },
