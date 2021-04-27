@@ -269,6 +269,12 @@ a {
     .card-container {
         grid-template-columns: repeat(1, 1fr);
     }
+    
+    .k-card-header {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
     .card-title {
         grid-column: 1 / -1;
     }
@@ -465,6 +471,7 @@ a {
         column-count: 2;
         margin-top: 40px;
         padding: 0 15px;
+        text-align: center;
 
         ul {
             list-style: none;
