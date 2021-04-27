@@ -78,6 +78,12 @@ jobs:
           npm ci
           npm run build
 
+      - name: Build Coffee warehouse app
+        working-directory: ./examples-standalone/coffee-warehouse
+        run: |
+          npm ci
+          npm run build
+
       - name: Build Grid & Charts integration app
         working-directory: ./examples-standalone/grid-charts-integration
         run: |
