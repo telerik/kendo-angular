@@ -1,6 +1,6 @@
 export class Employee {
     public teamId: number;
-	public id: string;
+    public id: string;
     public fullName: string;
     public jobTitle: string;
     public country: string;

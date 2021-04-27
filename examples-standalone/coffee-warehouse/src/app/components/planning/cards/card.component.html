@@ -13,13 +13,14 @@
                 [shape]="'circle'"
                 class="employee-photo"
                 style="border-width: 3px"
-            ></kendo-avatar>
+            >
+            </kendo-avatar>
 
             <div style="display: table-cell">
                 <h1 kendoCardTitle [ngStyle]="{ color: setCardColor(card) }">
                     {{ card.fullName }}
                 </h1>
-                <p kendoCardSubtitle>{{ card.jobTitle }}</p>
+                <p kendoCardSubtitle> {{ card.jobTitle }} </p>
             </div>
         </kendo-card-header>
     </kendo-card>

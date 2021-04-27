@@ -1,7 +1,11 @@
 <div class="planning-page main-content">
     <div class="card-container grid">
         <h3 class="card-title">{{ customMsgService.translate('teamCalendar') }}</h3>
-        <card-component class="card-component" (toggleEvents)="toggleEvents($event)"></card-component>
+        <card-component
+            class="card-component"
+            (toggleEvents)="toggleEvents($event)"
+        >
+        </card-component>
 
         <div class="card-component">
             <kendo-scheduler
@@ -30,24 +34,34 @@
                     <form class="k-form k-form-vertical" [formGroup]="formGroup">
                         <fieldset class="k-form-fieldset">
                             <kendo-formfield orientation="vertical">
-                                <span>Start</span>
-                                <kendo-datetimepicker [popupSettings]="{ appendTo: 'root' }" [formControl]="formGroup.get('start')">
+                                <span> Start </span>
+                                <kendo-datetimepicker
+                                    [popupSettings]="{ appendTo: 'root' }"
+                                    [formControl]="formGroup.get('start')"
+                                >
                                 </kendo-datetimepicker>
                             </kendo-formfield>
 
                             <kendo-formfield orientation="vertical">
-                                <span>End</span>
-                                <kendo-datetimepicker [popupSettings]="{ appendTo: 'root' }" [formControl]="formGroup.get('end')">
+                                <span> End </span>
+                                <kendo-datetimepicker
+                                    [popupSettings]="{ appendTo: 'root' }"
+                                    [formControl]="formGroup.get('end')"
+                                >
                                 </kendo-datetimepicker>
                             </kendo-formfield>
 
                             <kendo-formfield orientation="vertical">
-                                <span>Title</span>
-                                <kendo-textbox placeholder="Title" [formControl]="formGroup.get('title')"></kendo-textbox>
+                                <span> Title </span>
+                                <kendo-textbox
+                                    placeholder="Title"
+                                    [formControl]="formGroup.get('title')"
+                                >
+                            </kendo-textbox>
                             </kendo-formfield>
 
                             <kendo-formfield>
-                                <span>Description</span>
+                                <span> Description </span>
                                 <kendo-textarea
                                     [rows]="2"
                                     placeholder="Add description to the event"
@@ -58,12 +72,16 @@
 
                             <kendo-formfield>
                                 <kendo-label class="k-checkbox-label" text="All Day Event">
-                                    <input type="checkbox" kendoCheckBox [formControl]="formGroup.get('isAllDay')" />
+                                    <input
+                                        type="checkbox"
+                                        kendoCheckBox
+                                        [formControl]="formGroup.get('isAllDay')"
+                                    />
                                 </kendo-label>
                             </kendo-formfield>
 
                             <kendo-formfield>
-                                <span>Team</span>
+                                <span> Team </span>
                                 <kendo-dropdownlist
                                     [data]="teams"
                                     [valuePrimitive]="true"

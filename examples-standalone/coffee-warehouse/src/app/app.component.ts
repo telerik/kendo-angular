@@ -51,7 +51,6 @@ export class AppComponent implements OnInit, OnDestroy {
     public drawerItems() {
         return [
             { text: this.customMsgService.translate('dashboard'), icon: 'k-i-grid', selected: true, path: 'dashboard' },
-            { separator: true },
             { text: this.customMsgService.translate('planning'), icon: 'k-i-calendar', path: 'planning' },
             { text: this.customMsgService.translate('profile'), icon: 'k-i-user', path: 'profile' },
             { separator: true },

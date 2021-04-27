@@ -1,4 +1,4 @@
-import { Component, ViewEncapsulation, ViewChild } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 
 import { DataBindingDirective } from '@progress/kendo-angular-grid';
 import { MessageService } from '@progress/kendo-angular-l10n';
@@ -10,9 +10,7 @@ import { images } from 'src/app/resources/images';
 
 @Component({
     selector: 'grid-component',
-    styleUrls: ['./grid.component.scss'],
     templateUrl: './grid.component.html',
-    encapsulation: ViewEncapsulation.None
 })
 export class GridComponent {
     @ViewChild(DataBindingDirective) dataBinding: DataBindingDirective;

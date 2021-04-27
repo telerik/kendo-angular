@@ -1,4 +1,4 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import { Component } from '@angular/core';
 import { IntlService } from '@progress/kendo-angular-intl';
 import { MessageService } from '@progress/kendo-angular-l10n';
 import { CustomMessagesService } from 'src/app/services/custom-messages.service';
@@ -8,8 +8,6 @@ import { Order } from 'src/app/models/order.model';
 @Component({
     selector: 'chart-component',
     templateUrl: './chart.component.html',
-    styleUrls: ['./chart.component.scss'],
-    encapsulation: ViewEncapsulation.None
 })
 export class ChartComponent {
     public selectedChart: 'Trend' | 'Volume' = 'Trend';

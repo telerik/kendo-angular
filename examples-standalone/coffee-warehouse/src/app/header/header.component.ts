@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Inject, Input, LOCALE_ID, Output, ViewEncapsulation } from '@angular/core';
+import { Component, EventEmitter, Inject, Input, LOCALE_ID, Output } from '@angular/core';
 import { CldrIntlService, IntlService } from '@progress/kendo-angular-intl';
 import { MessageService } from '@progress/kendo-angular-l10n';
 import { CustomMessagesService } from '../services/custom-messages.service';
@@ -7,8 +7,6 @@ import { locales } from 'src/app/resources/locales';
 @Component({
     selector: 'header-component',
     templateUrl: './header.commponent.html',
-    encapsulation: ViewEncapsulation.None,
-    styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
     @Output() public toggle = new EventEmitter();

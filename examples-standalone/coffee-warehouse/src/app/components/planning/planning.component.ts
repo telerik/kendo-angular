@@ -1,4 +1,4 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import { Component } from '@angular/core';
 import { MessageService } from '@progress/kendo-angular-l10n';
 import { CustomMessagesService } from 'src/app/services/custom-messages.service';
 
@@ -13,9 +13,7 @@ import { Event } from 'src/app/models/event.model';
 
 @Component({
     selector: 'planning-component',
-    templateUrl: './planning.component.html',
-    styleUrls: ['./planning.component.scss'],
-    encapsulation: ViewEncapsulation.None
+    templateUrl: './planning.component.html'
 })
 export class PlanningComponent {
     public data: Event[];

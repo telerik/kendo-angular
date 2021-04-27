@@ -5,13 +5,13 @@
         </div>
 
         <div class="title">
-            <h1>{{ this.customMsgService.translate('warehouse') }}</h1>
+            <h1> {{ this.customMsgService.translate('warehouse') }} </h1>
             <span class="vl"></span>
-            <h2>{{ this.customMsgService.translate(selectedPage.toLowerCase()) }}</h2>
+            <h2> {{ this.customMsgService.translate(selectedPage.toLowerCase()) }} </h2>
         </div>
 
         <div class="settings">
-            <span>{{ this.customMsgService.translate('language') }}</span>
+            <span> {{ this.customMsgService.translate('language') }} </span>
             <kendo-dropdownlist
                 [data]="locales"
                 textField="locale"
@@ -30,8 +30,8 @@
                 [value]="selectedTheme"
                 (valueChange)="changeTheme($event)"
                 [popupSettings]="popupSettings"
-                style="width: 60px"
                 [ngClass]="{'material-bg':selectedTheme.text==='Material'}"
+                style="width: 60px"
             >
                 <ng-template kendoDropDownListValueTemplate let-dataItem>
                     <span class="k-icon k-i-palette"></span>
@@ -39,6 +39,10 @@
             </kendo-dropdownlist>
         </div>
 
-        <kendo-avatar imageSrc="./../../assets/user.jpg" shape="circle"></kendo-avatar>
+        <kendo-avatar
+            imageSrc="./../../assets/user.jpg"
+            shape="circle"
+        >
+        </kendo-avatar>
     </div>
 </div>
