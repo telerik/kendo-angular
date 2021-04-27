@@ -269,7 +269,7 @@ a {
     .card-container {
         grid-template-columns: repeat(1, 1fr);
     }
-    
+
     .k-card-header {
         padding-left: 10px;
         padding-right: 10px;
@@ -467,7 +467,6 @@ a {
     }
 
     .section-3 {
-        -webkit-columns: 2;
         column-count: 2;
         margin-top: 40px;
         padding: 0 15px;
@@ -538,19 +537,9 @@ a {
     }
 }
 
-@media (min-width: 768px) {
-    .info-page {
-        .section-3 {
-            -webkit-columns: 2;
-            column-count: 2;
-        }
-    }
-}
-
 @media (min-width: 992px) {
     .info-page {
         .section-3 {
-            -webkit-columns: 3;
             column-count: 3;
         }
     }
@@ -573,7 +562,7 @@ a {
             padding: 0;
         }
         .section-3 {
-            -webkit-columns: 4;
+            text-align: left;
             column-count: 4;
             padding: 0;
         }
