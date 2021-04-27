@@ -17,10 +17,16 @@ a {
 
     .k-drawer {
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        z-index: 2;
 
         &.k-drawer-start {
             border-right-width: 0;
         }
+    }
+
+    .k-drawer-content {
+        overflow-x: auto;
+        z-index: 1;
     }
 
     &.k-drawer-push .k-drawer {
@@ -69,6 +75,8 @@ a {
     }
 
     .card-ranges {
+        white-space: nowrap;
+
         .k-daterangepicker {
             .k-textbox-container,
             .k-floating-label-container {
@@ -128,8 +136,6 @@ a {
 
         .card-buttons {
             text-align: center;
-            grid-column: 2 / 3;
-            grid-row: 1;
         }
 
         .card-ranges {
@@ -140,6 +146,16 @@ a {
         .card-component {
             grid-column-start: 1;
             grid-column-end: -1;
+        }
+    }
+}
+
+@media (min-width: 900px) {
+    .card-container {
+        .card-buttons {
+            text-align: center;
+            grid-column: 2 / 3;
+            grid-row: 1;
         }
     }
 }
@@ -229,10 +245,6 @@ a {
 
 // Dashboard page
 .dashboard-page {
-    .card-container:last-of-type {
-        padding-top: 0;
-    }
-
     .k-grid-toolbar .k-textbox {
         margin-bottom: 10px;
     }
@@ -240,6 +252,8 @@ a {
 
 @media (min-width: 480px) {
     .dashboard-page {
+        min-width: 480px;
+
         .k-grid-toolbar .k-textbox {
             margin-bottom: 0;
             float: left;
@@ -288,6 +302,8 @@ a {
 
 @media (min-width: 480px) {
     .planning-page {
+        min-width: 530px;
+
         .card-container {
             grid-template-columns: repeat(2, 1fr);
         }
@@ -359,6 +375,8 @@ a {
 
 @media (min-width: 480px) {
     .profile-page {
+        min-width: 480px;
+
         .k-form .k-form-field {
             display: flex;
         }
@@ -455,8 +473,9 @@ a {
     }
 
     .section-3 {
-        -webkit-columns: 2;
-        column-count: 2;
+        text-align: center;
+        -webkit-columns: 1;
+        column-count: 1;
         margin-top: 40px;
         padding: 0 15px;
 
@@ -496,6 +515,8 @@ a {
 
 @media (min-width: 480px) {
     .info-page {
+        min-width: 430px;
+
         .content {
             padding: 40px 40px 0;
         }
@@ -522,6 +543,20 @@ a {
                 }
             }
         }
+    }
+}
+
+@media (min-width: 768px) {
+    .info-page {
+        .section-3 {
+            -webkit-columns: 2;
+            column-count: 2;
+        }
+    }
+}
+
+@media (min-width: 992px) {
+    .info-page {
         .section-3 {
             -webkit-columns: 3;
             column-count: 3;
