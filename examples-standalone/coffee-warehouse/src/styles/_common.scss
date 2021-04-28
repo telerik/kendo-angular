@@ -266,8 +266,16 @@ a {
 }
 // Planning page
 .planning-page {
-    .card-container {
+    .card-container,
+    .personal-card {
         grid-template-columns: repeat(1, 1fr);
+    }
+
+    .personal-card {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        grid-row-gap: 1em;
+        row-gap: 1em;
     }
 
     .k-card-header {
@@ -300,8 +308,13 @@ a {
 
 @media (min-width: 480px) {
     .planning-page {
-        .card-container {
+        .card-container,
+        .personal-card {
             grid-template-columns: repeat(2, 1fr);
+        }
+
+        .k-hbox {
+            padding-left: 0;
         }
     }
 }
@@ -309,7 +322,6 @@ a {
 @media (min-width: 768px) {
     .planning-page {
         .k-hbox {
-            padding: 0;
             border-width: 0;
         }
     }
@@ -320,12 +332,32 @@ a {
         .card-container {
             grid-template-columns: repeat(3, 1fr);
         }
+
+        .personal-card {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+}
+
+@media (min-width: 1130px) {
+    .planning-page {
+        .personal-card {
+            grid-template-columns: repeat(3, 1fr);
+        }
     }
 }
 
 @media (min-width: 1360px) {
     .planning-page {
         .card-container {
+            grid-template-columns: repeat(5, 1fr);
+        }
+    }
+}
+
+@media (min-width: 1770px) {
+    .planning-page {
+        .personal-card {
             grid-template-columns: repeat(5, 1fr);
         }
     }
