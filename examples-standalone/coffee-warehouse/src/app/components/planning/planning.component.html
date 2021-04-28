@@ -1,11 +1,11 @@
 <div class="planning-page main-content">
     <div class="card-container grid">
         <h3 class="card-title">{{ customMsgService.translate('teamCalendar') }}</h3>
-        <card-component
+        <app-card-component
             class="card-component personal-card"
             (toggleEvents)="toggleEvents($event)"
         >
-        </card-component>
+        </app-card-component>
 
         <div class="card-component">
             <kendo-scheduler

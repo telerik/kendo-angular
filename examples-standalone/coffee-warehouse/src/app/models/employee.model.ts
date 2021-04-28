@@ -12,5 +12,5 @@ export class Employee {
     public address: string;
     public imgId: number;
     public gender: string;
-    public selected: boolean = false;
+    public selected = false;
 }

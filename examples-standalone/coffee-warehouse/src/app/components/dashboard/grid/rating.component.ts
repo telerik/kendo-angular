@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
-    selector: 'kendo-rating',
+    selector: 'app-kendo-rating',
     template: ` <span *ngFor="let item of stars" [ngClass]="ratingIcon(item)"></span> `,
     styles: [
         `

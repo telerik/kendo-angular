@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 
 import { DataBindingDirective } from '@progress/kendo-angular-grid';
 import { MessageService } from '@progress/kendo-angular-l10n';
@@ -9,10 +9,10 @@ import { employees } from 'src/app/resources/employees';
 import { images } from 'src/app/resources/images';
 
 @Component({
-    selector: 'grid-component',
+    selector: 'app-grid-component',
     templateUrl: './grid.component.html',
 })
-export class GridComponent {
+export class GridComponent implements OnInit {
     @ViewChild(DataBindingDirective) dataBinding: DataBindingDirective;
 
     public gridData: Employee[] = employees;
@@ -23,7 +23,7 @@ export class GridComponent {
     public customMsgService: CustomMessagesService;
 
     constructor(public msgService: MessageService) {
-        this.customMsgService = <CustomMessagesService>this.msgService;
+        this.customMsgService = this.msgService as CustomMessagesService;
     }
 
     public ngOnInit(): void {
@@ -56,7 +56,7 @@ export class GridComponent {
 
     public getField = (args: Employee) => {
         return `${args.fullName}_${args.jobTitle}_${args.budget}_${args.phone}_${args.address}`;
-    };
+    }
 
     public photoURL(dataItem: any): string {
         const code: string = dataItem.imgId + dataItem.gender;

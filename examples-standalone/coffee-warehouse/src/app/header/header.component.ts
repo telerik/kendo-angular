@@ -5,8 +5,8 @@ import { CustomMessagesService } from '../services/custom-messages.service';
 import { locales } from 'src/app/resources/locales';
 
 @Component({
-    selector: 'header-component',
-    templateUrl: './header.commponent.html',
+    selector: 'app-header-component',
+    templateUrl: './header.commponent.html'
 })
 export class HeaderComponent {
     @Output() public toggle = new EventEmitter();
@@ -37,7 +37,7 @@ export class HeaderComponent {
         this.localeId = this.selectedLanguage.localeId;
         this.setLocale(this.localeId);
 
-        this.customMsgService = <CustomMessagesService>this.messages;
+        this.customMsgService = this.messages as CustomMessagesService;
         this.customMsgService.language = this.selectedLanguage.localeId;
     }
 
@@ -53,7 +53,7 @@ export class HeaderComponent {
     }
 
     public setLocale(locale): void {
-        (<CldrIntlService>this.intlService).localeId = locale;
+        (this.intlService as CldrIntlService).localeId = locale;
     }
 
     public onButtonClick(): void {

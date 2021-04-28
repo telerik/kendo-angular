@@ -6,7 +6,7 @@ import { orders } from 'src/app/resources/orders';
 import { Order } from 'src/app/models/order.model';
 
 @Component({
-    selector: 'chart-component',
+    selector: 'app-chart-component',
     templateUrl: './chart.component.html',
 })
 export class ChartComponent {
@@ -48,7 +48,7 @@ export class ChartComponent {
     public customMsgService: CustomMessagesService;
 
     constructor(public intl: IntlService, public messages: MessageService) {
-        this.customMsgService = <CustomMessagesService>this.messages;
+        this.customMsgService = this.messages as CustomMessagesService;
     }
 
     public fromDate(date: Date) {

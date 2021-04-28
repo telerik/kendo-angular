@@ -9,14 +9,14 @@ import { CustomMessagesService } from './services/custom-messages.service';
     templateUrl: './app.component.html'
 })
 export class AppComponent implements OnInit, OnDestroy {
-    public selected: string = 'Dashboard';
+    public selected = 'Dashboard';
     public items: Array<any>;
     public customMsgService: CustomMessagesService;
     public mode: DrawerMode = 'push';
-    public mini: boolean = true;
+    public mini = true;
 
     constructor(private router: Router, public msgService: MessageService) {
-        this.customMsgService = <CustomMessagesService>this.msgService;
+        this.customMsgService = this.msgService as CustomMessagesService;
     }
 
     ngOnInit() {

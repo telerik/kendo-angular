@@ -17,7 +17,8 @@ const customMsgs = {
     ['fr']: frCustomMessages
 };
 
-@Injectable() export class CustomMessagesService extends MessageService {
+@Injectable()
+export class CustomMessagesService extends MessageService {
     @Output() public localeChange = new EventEmitter();
     private localeId;
 
@@ -25,7 +26,7 @@ const customMsgs = {
         const locale = componentMsgs[value];
         if (locale) {
             this.localeId = value;
-            this.localeChange.emit()
+            this.localeChange.emit();
             this.notify();
         }
     }

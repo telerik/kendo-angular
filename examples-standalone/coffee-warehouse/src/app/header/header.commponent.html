@@ -20,6 +20,7 @@
                 (valueChange)="changeLanguage($event)"
                 [popupSettings]="popupSettings"
                 [ngClass]="{'material-bg':selectedTheme.text==='Material'}"
+                class="ddl-locale"
             >
             </kendo-dropdownlist>
 
@@ -31,7 +32,7 @@
                 (valueChange)="changeTheme($event)"
                 [popupSettings]="popupSettings"
                 [ngClass]="{'material-bg':selectedTheme.text==='Material'}"
-                style="width: 60px"
+                class="ddl-theme"
             >
                 <ng-template kendoDropDownListValueTemplate let-dataItem>
                     <span class="k-icon k-i-palette"></span>

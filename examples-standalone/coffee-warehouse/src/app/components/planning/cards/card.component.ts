@@ -6,7 +6,7 @@ import { Employee } from 'src/app/models/employee.model';
 import { Team } from 'src/app/models/team.model';
 
 @Component({
-    selector: 'card-component',
+    selector: 'app-card-component',
     templateUrl: './card.component.html',
 })
 export class CardComponent {
@@ -17,13 +17,13 @@ export class CardComponent {
     public images = images;
 
     public setCardColor(card: Employee): string {
-        const team = teams.find((team: Team) => team.teamID === card.teamId);
-        return team.teamColor;
+        const currentTeam = teams.find((team: Team) => team.teamID === card.teamId);
+        return currentTeam.teamColor;
     }
 
     public onCardClick(card: Employee): void {
-        const employee = this.cards.find((employee) => employee.id === card.id);
-        employee.selected = !employee.selected;
+        const currentEmployee = this.cards.find((employee) => employee.id === card.id);
+        currentEmployee.selected = !currentEmployee.selected;
         this.toggleEvents.emit(card);
     }
 

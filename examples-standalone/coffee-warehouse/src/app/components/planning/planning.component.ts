@@ -12,7 +12,7 @@ import { Employee } from 'src/app/models/employee.model';
 import { Event } from 'src/app/models/event.model';
 
 @Component({
-    selector: 'planning-component',
+    selector: 'app-planning-component',
     templateUrl: './planning.component.html'
 })
 export class PlanningComponent {
@@ -25,7 +25,7 @@ export class PlanningComponent {
     public events: Event[] = sampleData;
 
     constructor(public msgService: MessageService, private formBuilder: FormBuilder) {
-        this.customMsgService = <CustomMessagesService>this.msgService;
+        this.customMsgService = this.msgService as CustomMessagesService;
         this.createFormGroup = this.createFormGroup.bind(this);
         this.data = this.events.slice();
     }
@@ -35,7 +35,7 @@ export class PlanningComponent {
     }
 
     public filterEvents(id, selected): Event[] {
-        let cloneData = this.data.slice();
+        const cloneData = this.data.slice();
 
         if (selected) {
             return cloneData.filter((event: Event) => event.teamID !== id);
@@ -44,9 +44,9 @@ export class PlanningComponent {
         }
     }
 
-    public setEventStyles(args: EventStyleArgs): Object {
-        const team = teams.find((team: Team) => team.teamID === args.event.dataItem.teamID);
-        return { backgroundColor: team.teamColor };
+    public setEventStyles(args: EventStyleArgs): object {
+        const currentTeam = teams.find((team: Team) => team.teamID === args.event.dataItem.teamID);
+        return { backgroundColor: currentTeam.teamColor };
     }
 
     public createFormGroup(args: CreateFormGroupArgs): FormGroup {

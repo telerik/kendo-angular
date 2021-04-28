@@ -34,6 +34,7 @@
     "@progress/kendo-angular-l10n": "^3.0.0",
     "@progress/kendo-angular-label": "^3.0.2",
     "@progress/kendo-angular-layout": "^6.1.4",
+    "@progress/kendo-angular-notification": "^3.0.0",
     "@progress/kendo-angular-pdf-export": "^3.0.0",
     "@progress/kendo-angular-popup": "^4.0.0",
     "@progress/kendo-angular-progressbar": "^2.0.0",

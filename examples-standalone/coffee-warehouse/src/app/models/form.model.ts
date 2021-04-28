@@ -1,5 +1,5 @@
 export class FormModel {
-    public avatar?: number;
+    public avatar?: any[];
     public firstName: string;
     public lastName: string;
     public email: string;
