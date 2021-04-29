@@ -2,16 +2,20 @@
 
 # Using Kendo UI for Angular
 
-This Kendo UI for Angular sample project demonstrates how to use [Kendo UI for Angular components](https://www.telerik.com/kendo-angular-ui/components) within a coffee warehouse prototype application and visualize data. Currently, [the example is deployed on GitHub pages](https://telerik.github.io/kendo-angular/finance-portfolio).
+This Kendo UI for Angular sample project demonstrates how to use [Kendo UI for Angular components](https://www.telerik.com/kendo-angular-ui/components) within a coffee warehouse prototype application and visualize data. Currently, [the example is deployed on GitHub pages](https://telerik.github.io/kendo-angular/coffee-warehouse).
 
 Used Kendo UI for Angular Components:
- - [Grid Component](https://www.telerik.com/kendo-angular-ui/components/grid/)
- - [Charts](https://www.telerik.com/kendo-angular-ui/components/charts/)
- - [Scheduler](https://www.telerik.com/kendo-angular-ui/components/scheduler/)
- - [DateInputs](https://www.telerik.com/kendo-angular-ui/components/dateinputs/)
- - [Inputs](https://www.telerik.com/kendo-angular-ui/components/inputs/)
- - [DropDonws](https://www.telerik.com/kendo-angular-ui/components/dropdowns/)
  - [Buttons](https://www.telerik.com/kendo-angular-ui/components/buttons/button/)
+ - [Charts](https://www.telerik.com/kendo-angular-ui/components/charts/)
+ - [DateInputs](https://www.telerik.com/kendo-angular-ui/components/dateinputs/)
+ - [DropDonws](https://www.telerik.com/kendo-angular-ui/components/dropdowns/)
+ - [Editor](https://www.telerik.com/kendo-angular-ui/components/editor/)
+ - [Grid](https://www.telerik.com/kendo-angular-ui/components/grid/)
+ - [Inputs](https://www.telerik.com/kendo-angular-ui/components/inputs/)
+ - [Layout](https://www.telerik.com/kendo-angular-ui/components/layout/)
+ - [Notification](https://www.telerik.com/kendo-angular-ui/components/notification/)
+ - [Scheduler](https://www.telerik.com/kendo-angular-ui/components/scheduler/)
+ - [Uploads](https://www.telerik.com/kendo-angular-ui/components/uploads/)
 
 ## In This Article
 
