@@ -1,0 +1,49 @@
+<div class="header header-bg">
+    <div class="nav-container">
+        <div class="menu-button">
+            <span class="k-icon hamburger-icon" (click)="onButtonClick()"></span>
+        </div>
+
+        <div class="title">
+            <h1> {{ this.customMsgService.translate('warehouse') }} </h1>
+            <span class="vl"></span>
+            <h2> {{ this.customMsgService.translate(selectedPage.toLowerCase()) }} </h2>
+        </div>
+
+        <div class="settings">
+            <span> {{ this.customMsgService.translate('language') }} </span>
+            <kendo-dropdownlist
+                [data]="locales"
+                textField="locale"
+                valueField="localeId"
+                [value]="selectedLanguage"
+                (valueChange)="changeLanguage($event)"
+                [popupSettings]="popupSettings"
+                [ngClass]="{'material-bg':selectedTheme.text==='Material'}"
+                class="ddl-locale"
+            >
+            </kendo-dropdownlist>
+
+            <kendo-dropdownlist
+                [data]="themes"
+                textField="text"
+                valueField="href"
+                [value]="selectedTheme"
+                (valueChange)="changeTheme($event)"
+                [popupSettings]="popupSettings"
+                [ngClass]="{'material-bg':selectedTheme.text==='Material'}"
+                class="ddl-theme"
+            >
+                <ng-template kendoDropDownListValueTemplate let-dataItem>
+                    <span class="k-icon k-i-palette"></span>
+                </ng-template>
+            </kendo-dropdownlist>
+        </div>
+
+        <kendo-avatar
+            imageSrc="./../../assets/user.jpg"
+            shape="circle"
+        >
+        </kendo-avatar>
+    </div>
+</div>

@@ -1,0 +1,16 @@
+<app-header-component (toggle)="toggleDrawer(drawer)" [selectedPage]="selected"></app-header-component>
+<kendo-drawer-container>
+    <kendo-drawer
+        #drawer
+        [items]="items"
+        [mode]="mode"
+        [mini]="mini"
+        [expanded]="true"
+        [animation]="false"
+        (select)="onSelect($event)"
+    >
+    </kendo-drawer>
+    <kendo-drawer-content>
+        <router-outlet></router-outlet>
+    </kendo-drawer-content>
+</kendo-drawer-container>

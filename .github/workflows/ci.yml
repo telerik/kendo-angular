@@ -29,6 +29,12 @@ jobs:
           npm run lint
           npm run build-all
 
+      - name: Build Coffee warehouse app
+        working-directory: ./examples-standalone/coffee-warehouse
+        run: |
+          npm ci
+          npm run build
+
       - name: Build Angular Universal Node example
         working-directory: ./examples-standalone/angular-universal/node_sample_application
         run: |

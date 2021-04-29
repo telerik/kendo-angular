@@ -1,0 +1,116 @@
+<div class="planning-page main-content">
+    <div class="card-container grid">
+        <h3 class="card-title">{{ customMsgService.translate('teamCalendar') }}</h3>
+        <app-card-component
+            class="card-component personal-card"
+            (toggleEvents)="toggleEvents($event)"
+        >
+        </app-card-component>
+
+        <div class="card-component">
+            <kendo-scheduler
+                [kendoSchedulerBinding]="data"
+                [kendoSchedulerReactiveEditing]="createFormGroup"
+                [selectedDate]="selectedDate"
+                [selectedViewIndex]="1"
+                [timezone]="'Etc/UTC'"
+                style="height: 600px"
+                startTime="08:00"
+                endTime="19:00"
+                [eventStyles]="setEventStyles"
+            >
+                <kendo-scheduler-day-view> </kendo-scheduler-day-view>
+                <kendo-scheduler-work-week-view scrollTime="12:00"> </kendo-scheduler-work-week-view>
+                <kendo-scheduler-week-view> </kendo-scheduler-week-view>
+                <kendo-scheduler-month-view> </kendo-scheduler-month-view>
+
+                <ng-template
+                    kendoSchedulerEditDialogTemplate
+                    autoFocusedElement=".title input"
+                    let-formGroup="formGroup"
+                    let-isNew="isNew"
+                    let-editMode="editMode"
+                >
+                    <form class="k-form k-form-vertical" [formGroup]="formGroup">
+                        <fieldset class="k-form-fieldset">
+                            <kendo-formfield orientation="vertical">
+                                <span> Start </span>
+                                <kendo-datetimepicker
+                                    [popupSettings]="{ appendTo: 'root' }"
+                                    [formControl]="formGroup.get('start')"
+                                >
+                                </kendo-datetimepicker>
+                            </kendo-formfield>
+
+                            <kendo-formfield orientation="vertical">
+                                <span> End </span>
+                                <kendo-datetimepicker
+                                    [popupSettings]="{ appendTo: 'root' }"
+                                    [formControl]="formGroup.get('end')"
+                                >
+                                </kendo-datetimepicker>
+                            </kendo-formfield>
+
+                            <kendo-formfield orientation="vertical">
+                                <span> Title </span>
+                                <kendo-textbox
+                                    placeholder="Title"
+                                    [formControl]="formGroup.get('title')"
+                                >
+                            </kendo-textbox>
+                            </kendo-formfield>
+
+                            <kendo-formfield>
+                                <span> Description </span>
+                                <kendo-textarea
+                                    [rows]="2"
+                                    placeholder="Add description to the event"
+                                    [formControl]="formGroup.get('description')"
+                                >
+                                </kendo-textarea>
+                            </kendo-formfield>
+
+                            <kendo-formfield>
+                                <kendo-label class="k-checkbox-label" text="All Day Event">
+                                    <input
+                                        type="checkbox"
+                                        kendoCheckBox
+                                        [formControl]="formGroup.get('isAllDay')"
+                                    />
+                                </kendo-label>
+                            </kendo-formfield>
+
+                            <kendo-formfield>
+                                <span> Team </span>
+                                <kendo-dropdownlist
+                                    [data]="teams"
+                                    [valuePrimitive]="true"
+                                    valueField="teamID"
+                                    textField="teamName"
+                                    [formControl]="formGroup.get('teamID')"
+                                >
+                                    <ng-template kendoDropDownListValueTemplate let-dataItem>
+                                        <span class="k-team-mark" [ngStyle]="{ 'background-color': dataItem.teamColor }"></span>&nbsp;{{
+                                            dataItem?.teamName
+                                        }}
+                                    </ng-template>
+                                    <ng-template kendoDropDownListItemTemplate let-dataItem>
+                                        <span class="k-team-mark" [ngStyle]="{ 'background-color': dataItem.teamColor }"></span>
+                                        {{ dataItem.teamName }}
+                                    </ng-template>
+                                </kendo-dropdownlist>
+                            </kendo-formfield>
+                        </fieldset>
+                    </form>
+
+                    <!-- Separate form for recurrence editor -->
+                    <form [formGroup]="formGroup" style="margin-top: 35px">
+                        <div *ngIf="isEditingSeries(editMode)">
+                            <kendo-recurrence-editor [formControl]="formGroup.get('recurrenceRule')"> </kendo-recurrence-editor>
+                        </div>
+                    </form>
+                </ng-template>
+            </kendo-scheduler>
+        </div>
+    </div>
+</div>
