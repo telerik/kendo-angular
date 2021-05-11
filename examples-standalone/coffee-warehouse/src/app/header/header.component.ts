@@ -19,15 +19,15 @@ export class HeaderComponent {
     public popupSettings = { width: '150' };
     public themes = [
         {
-            href: 'https://unpkg.com/@progress/kendo-theme-default/dist/all.css',
+            href: 'assets/kendo-theme-default/dist/all.css',
             text: 'Default'
         },
         {
-            href: 'https://unpkg.com/@progress/kendo-theme-bootstrap/dist/all.css',
+            href: 'assets/kendo-theme-bootstrap/dist/all.css',
             text: 'Bootstrap'
         },
         {
-            href: 'https://unpkg.com/@progress/kendo-theme-material/dist/all.css',
+            href: 'assets/kendo-theme-material/dist/all.css',
             text: 'Material'
         }
     ];

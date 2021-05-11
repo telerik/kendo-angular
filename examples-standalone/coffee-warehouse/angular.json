@@ -35,7 +35,22 @@
             "aot": true,
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              {
+                "glob": "**/*",
+                "input": "node_modules/@progress/kendo-theme-bootstrap/dist",
+                "output": "/assets/kendo-theme-bootstrap/dist"
+              },
+              {
+                "glob": "**/*",
+                "input": "node_modules/@progress/kendo-theme-default/dist",
+                "output": "/assets/kendo-theme-default/dist"
+              },
+              {
+                "glob": "**/*",
+                "input": "node_modules/@progress/kendo-theme-material/dist",
+                "output": "/assets/kendo-theme-material/dist"
+              }
             ],
             "styles": [
               "src/styles/main.scss"
