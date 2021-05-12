@@ -29,13 +29,10 @@ jobs:
       - name: Install modules
         run: npm ci
 
-      - name: Activate Kendo UI license
-        run: npx kendo-ui-license activate
-        env:
-          KENDO_UI_LICENSE: ${{ secrets.KENDO_UI_LICENSE }}
-
       - name: Build
         run: ./bin/build-gh-pages
+        env:
+          KENDO_UI_LICENSE: ${{ secrets.KENDO_UI_LICENSE }}
 
       - name: Deploy to GH Pages
         uses: peaceiris/actions-gh-pages@v3
