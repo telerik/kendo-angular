@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "progress": true,
+            "progress": false,
             "extractCss": true,
             "outputPath": "dist",
             "index": "src/index.html",
@@ -80,7 +80,7 @@
               {
                 "input": "node_modules/@progress/kendo-theme-default/dist/all.css"
               },
-              "styles.css"
+              "src/styles.css"
             ],
             "scripts": [],
             "assets": [

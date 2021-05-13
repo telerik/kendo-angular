@@ -23,6 +23,7 @@ namespace aspnetcore_data
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
             {
@@ -31,9 +32,8 @@ namespace aspnetcore_data
 
             string path = System.Environment.CurrentDirectory;
             string connection = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=" + path + "\\App_Data\\Blogging.mdf;Integrated Security=True";
-            
-            services.AddDbContext<BloggingContext>(options => options.UseSqlServer(connection));
 
+            services.AddDbContext<BloggingContext>(options => options.UseSqlServer(connection));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
