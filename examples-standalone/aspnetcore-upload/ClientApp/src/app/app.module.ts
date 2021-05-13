@@ -6,7 +6,7 @@ import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { DrawerComponent } from './drawer/drawer.component';
-import { UploadsModule } from '@progress/kendo-angular-upload';
+import { UploadsModule, UploadModule } from '@progress/kendo-angular-upload';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LayoutModule } from '@progress/kendo-angular-layout';
 
@@ -27,7 +27,8 @@ import { ButtonsModule } from '@progress/kendo-angular-buttons';
         UploadsModule,
         BrowserAnimationsModule,
         LayoutModule,
-        ButtonsModule
+        ButtonsModule,
+        UploadModule
     ],
     providers: [],
     bootstrap: [AppComponent]

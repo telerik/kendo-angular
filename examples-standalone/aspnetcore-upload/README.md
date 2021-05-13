@@ -1,6 +1,6 @@
 # Using Kendo UI for Angular Upload component with ASP.NET Core
 
-This Kendo UI for Angular sample project demonstrates how to use the [Kendo UI for Angular Upload component](https://www.telerik.com/kendo-angular-ui/components/Upload) with ASP.NET Core and is based on Microsoft [Angular project template with ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core/client-side/spa/angular?view=aspnetcore-3.0&tabs=visual-studio) v.3.0. The project features a simple Kendo UI for Angular Upload component that allows to select a file(s) to be written on disk and then to be removed.
+This Kendo UI for Angular sample project demonstrates how to use the [Kendo UI for Angular Upload component](https://www.telerik.com/kendo-angular-ui/components/Upload) with ASP.NET Core and is based on Microsoft [Angular project template with ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core/client-side/spa/angular?view=aspnetcore-5.0&tabs=visual-studio) v.5.0. The project features a simple Kendo UI for Angular Upload component that allows to select a file(s) to be written on disk and then to be removed.
 
 ## Getting Started
 
