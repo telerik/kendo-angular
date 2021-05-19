@@ -32,12 +32,22 @@ a {
     .k-drawer-item {
         user-select: none;
     }
+
+    .k-drawer-content {
+        overflow: hidden;
+    }
 }
 
 .card-container {
     background-color: $white;
     padding: 40px 0;
     text-align: center;
+
+    .card-header-wrapper {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 1rem;
+    }
 
     &.grid {
         display: grid;
@@ -150,6 +160,18 @@ a {
             text-align: center;
             grid-column: 2 / 3;
             grid-row: 1;
+        }
+    }
+}
+
+@media (max-width: 900px) {
+    .card-header-wrapper {
+        flex-direction: column;
+
+        .card-buttons,
+        .card-ranges {
+            margin-top: 1rem;
+            text-align: left;
         }
     }
 }
@@ -597,6 +619,29 @@ a {
             text-align: left;
             column-count: 4;
             padding: 0;
+        }
+    }
+}
+
+
+// IE11 Adjustments
+@media all and (-ms-high-contrast:none) {
+    .k-drawer-container {
+        &.k-drawer-push .k-drawer {
+            position: static;
+            height: auto;
+        }
+    }
+
+    .planning-page {
+        .card-title {
+            margin-bottom: 1rem;
+            text-align: left;
+        }
+
+        .personal-card {
+            display: block;
+            margin-bottom: 1rem;
         }
     }
 }
