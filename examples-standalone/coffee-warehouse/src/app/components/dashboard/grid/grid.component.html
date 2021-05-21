@@ -1,23 +1,25 @@
-<div class="card-container grid">
-    <h3 class="card-title"> {{ customMsgService.translate('teamMembers') }} </h3>
-    <div class="card-buttons">
-        <kendo-buttongroup selection="single">
-            <button
-                kendoButton
-                [toggleable]="true"
-                [selected]="true"
-                (click)="onTeamChange(25)"
-            >
-                {{ customMsgService.translate('myTeam') }}
-            </button>
-            <button
-                kendoButton
-                [toggleable]="true"
-                (click)="onTeamChange(100)"
-            >
-                {{ customMsgService.translate('allTeams') }}
-            </button>
-        </kendo-buttongroup>
+<div class="card-container">
+    <div class="card-header-wrapper">
+        <h3 class="card-title"> {{ customMsgService.translate('teamMembers') }} </h3>
+        <div class="card-buttons">
+            <kendo-buttongroup selection="single">
+                <button
+                    kendoButton
+                    [toggleable]="true"
+                    [selected]="true"
+                    (click)="onTeamChange(25)"
+                >
+                    {{ customMsgService.translate('myTeam') }}
+                </button>
+                <button
+                    kendoButton
+                    [toggleable]="true"
+                    (click)="onTeamChange(100)"
+                >
+                    {{ customMsgService.translate('allTeams') }}
+                </button>
+            </kendo-buttongroup>
+        </div>
     </div>
 
     <div class="card-component">
