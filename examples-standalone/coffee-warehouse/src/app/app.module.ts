@@ -6,15 +6,14 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
-import { ChartComponent } from './components/dashboard/chart/chart.component';
-import { GridComponent } from './components/dashboard/grid/grid.component';
-import { RatingComponent } from './components/dashboard/grid/rating.component';
+import { RatingComponent } from './components/team/rating.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { CardComponent } from './components/planning/cards/card.component';
 import { PlanningComponent } from './components/planning/planning.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { InfoComponent } from './components/info/info.component';
 import { HeaderComponent } from './header/header.component';
+import { TeamComponent } from './components/team/team.component';
 import { CustomMessagesService } from './services/custom-messages.service';
 
 import { ExcelModule, GridModule, PDFModule } from '@progress/kendo-angular-grid';
@@ -33,7 +32,8 @@ import { NotificationModule } from '@progress/kendo-angular-notification';
 import { MessageService } from '@progress/kendo-angular-l10n';
 
 const drawerRoutes = [
-    { path: '', component: DashboardComponent },
+    { path: '', component: TeamComponent },
+    { path: 'dashboard', component: DashboardComponent },
     { path: 'planning', component: PlanningComponent },
     { path: 'profile', component: ProfileComponent },
     { path: 'info', component: InfoComponent }
@@ -48,15 +48,14 @@ import '@progress/kendo-angular-intl/locales/fr/all';
 @NgModule({
     declarations: [
         AppComponent,
-        ChartComponent,
-        GridComponent,
         RatingComponent,
         DashboardComponent,
         CardComponent,
         PlanningComponent,
         ProfileComponent,
         HeaderComponent,
-        InfoComponent
+        InfoComponent,
+        TeamComponent
     ],
     imports: [
         BrowserModule,
