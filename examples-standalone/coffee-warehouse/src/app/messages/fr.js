@@ -28,7 +28,7 @@ export const frCustomMessages = {
     country: 'Pays',
     biography: 'Biographie courte',
     public: 'Inclure dans le répertoire public',
-    team: 'équipe',
+    team: 'Équipe',
     employee: 'Employé',
     contactName: 'Nom du contact',
     jobTitle: 'Titre du poste',

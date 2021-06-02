@@ -9,7 +9,7 @@ import { CustomMessagesService } from './services/custom-messages.service';
     templateUrl: './app.component.html'
 })
 export class AppComponent implements OnInit, OnDestroy {
-    public selected = 'Dashboard';
+    public selected = 'Team';
     public items: Array<any>;
     public customMsgService: CustomMessagesService;
     public mode: DrawerMode = 'push';
@@ -63,7 +63,8 @@ export class AppComponent implements OnInit, OnDestroy {
 
     public drawerItems() {
         return [
-            { text: this.customMsgService.translate('dashboard'), icon: 'k-i-grid', path: '/', selected: true },
+            { text: this.customMsgService.translate('team'), icon: 'k-i-grid', path: '/', selected: true },
+            { text: this.customMsgService.translate('dashboard'), icon: 'k-i-chart-line-markers', path: '/dashboard', selected: false },
             { text: this.customMsgService.translate('planning'), icon: 'k-i-calendar', path: '/planning', selected: false },
             { text: this.customMsgService.translate('profile'), icon: 'k-i-user', path: '/profile', selected: false },
             { separator: true },

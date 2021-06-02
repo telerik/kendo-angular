@@ -451,6 +451,7 @@ a {
 .info-page {
     background-color: #06163e;
     background-image: url('../assets/info-bg.jpg');
+    background-position: right 0px top 0px;
     color: $white;
     background-repeat: no-repeat;
     opacity: 0.9;
@@ -470,13 +471,6 @@ a {
         margin: 0 auto;
         position: relative;
         max-width: 1040px;
-    }
-
-    .kendoka {
-        text-align: center;
-        img {
-            max-width: 280px;
-        }
     }
 
     .section-1 {
@@ -565,11 +559,6 @@ a {
         .content {
             padding: 40px 40px 0;
         }
-        .kendoka {
-            img {
-                max-width: 348px;
-            }
-        }
 
         .section-1 {
             h1 {
@@ -604,12 +593,6 @@ a {
         .content {
             padding: 120px 40px 0;
         }
-        .kendoka {
-            position: absolute;
-            right: 0;
-            top: 2em;
-            text-align: left;
-        }
         .section-1,
         .section-2 {
             text-align: left;
@@ -623,9 +606,8 @@ a {
     }
 }
 
-
 // IE11 Adjustments
-@media all and (-ms-high-contrast:none) {
+@media all and (-ms-high-contrast: none) {
     .k-drawer-container {
         &.k-drawer-push .k-drawer {
             position: static;
