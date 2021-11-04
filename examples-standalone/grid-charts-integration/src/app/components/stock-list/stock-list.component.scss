@@ -1,3 +1,4 @@
+@use "sass:math";
 @import '../../../styles/variables';
 
 .k-grid {
@@ -27,7 +28,7 @@
         .grid-header-subtitle+.k-i-sort-desc-sm {
             position: absolute;
             top: 50%;
-            margin-top: - #{$grid-sorting-icon-right-position / 2};
+            margin-top: - math.div($grid-sorting-icon-right-position, 2);
             right: $grid-sorting-icon-right-position;
         }
     }

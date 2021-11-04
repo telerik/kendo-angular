@@ -3,14 +3,14 @@ import { Stock, ChartConfig } from '../../../model';
 import { series, seriesTypes } from '../../../data';
 import { getTitle, getChartType } from '../../../utils';
 import { saveAs } from '@progress/kendo-file-saver';
-import { ChartComponent } from '@progress/kendo-angular-charts';
+import { ChartComponent, SeriesType } from '@progress/kendo-angular-charts';
 
 @Component({
     selector: 'scatter-bubble-charts',
     templateUrl: './scatter-bubble.template.html'
 })
 export class ScatterBubbleChartComponent {
-    @Input() public chartConfiguration: ChartConfig;
+    @Input() public chartConfiguration: ChartConfig = { seriesType: 'pie', stack: false };
     @Input() public set data(value: Stock[]) {
         this.stockData = value.map((item, index) => {
             item.index = index;
@@ -38,7 +38,7 @@ export class ScatterBubbleChartComponent {
     }
 
     public onValueChange(chartName: string) {
-        this.chartConfiguration.seriesType = getChartType(chartName);
+        this.chartConfiguration.seriesType = getChartType(chartName) as SeriesType;
     }
 
     public exportChart(chart: ChartComponent): void {

@@ -5,7 +5,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
     templateUrl: './select-series.component.html'
 })
 export class SelectSeriesComponent {
-    @Input() public data: string[];
+    @Input() public data: object[] = [];
     @Output() public valueChange = new EventEmitter<string[]>();
 
     public selectedSeries: string[] = ['price', 'pe'];

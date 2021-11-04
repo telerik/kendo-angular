@@ -13,6 +13,7 @@ import { SelectableSettings, CellClickEvent, GridComponent } from '@progress/ken
 
 import { menuItems } from '../../data';
 import { getChartStack, getChartType } from '../../utils';
+import { SeriesType } from '@progress/kendo-angular-charts';
 
 @Component({
     selector: 'app-stock-list',
@@ -21,12 +22,12 @@ import { getChartStack, getChartType } from '../../utils';
     encapsulation: ViewEncapsulation.None
 })
 export class StockListComponent {
-    @ViewChild('gridmenu') public gridContextMenu: ContextMenuComponent;
-    @ViewChild('grid') public grid: GridComponent;
+    @ViewChild('gridmenu') public gridContextMenu: ContextMenuComponent | undefined;
+    @ViewChild('grid') public grid: GridComponent | undefined;
 
     public items: object[] = menuItems;
     public opened = false;
-    public chartConfiguration: ChartConfig;
+    public chartConfiguration: ChartConfig = { seriesType: 'line', stack: false };
     public gridData: Stock[] = stocksInPortfolio;
     public selectableSettings: SelectableSettings = {
         checkboxOnly: false,
@@ -42,7 +43,7 @@ export class StockListComponent {
         if (e.type === 'contextmenu') {
             const originalEvent = e.originalEvent;
             originalEvent.preventDefault();
-            this.gridContextMenu.show({
+            this.gridContextMenu?.show({
                 left: originalEvent.pageX,
                 top: originalEvent.pageY
             });
@@ -67,17 +68,17 @@ export class StockListComponent {
         }
 
         if (e.item.text === 'Export Excel') {
-            this.grid.saveAsExcel();
+            this.grid?.saveAsExcel();
         } else {
             this.chartConfiguration = {
                 chartName: e.item.text,
-                seriesType: getChartType(e.item.text),
+                seriesType: getChartType(e.item.text) as SeriesType,
                 stack: getChartStack(e.item.text)
             };
             if (!this.opened) {
                 this.opened = true;
             }
-            this.gridContextMenu.hide();
+            this.gridContextMenu?.hide();
         }
     }
 

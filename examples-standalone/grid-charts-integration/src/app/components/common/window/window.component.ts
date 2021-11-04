@@ -6,8 +6,9 @@ import { Stock, ChartConfig } from '../../../model';
     templateUrl: './window.component.html'
 })
 export class WindowComponent {
-    @Input() public data: Stock[];
-    @Input() public chartConfiguration: ChartConfig;
+    @Input() public data: Stock[] = [];
+    @Input() public chartConfiguration: ChartConfig = { seriesType: 'line', stack: false };
+    ;
 
     public isBubbleOrSeriesChart(): boolean {
         return this.chartConfiguration.seriesType === 'scatter' || this.chartConfiguration.seriesType === 'bubble';

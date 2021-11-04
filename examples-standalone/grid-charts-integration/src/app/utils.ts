@@ -2,7 +2,11 @@ import { series } from './data';
 import { SeriesStack } from '@progress/kendo-angular-charts';
 
 export function getTitle(fieldName: string): string {
-    return series.find((item: any) => item.field === fieldName).title;
+    let foundItem = series.find((item: any) => item.field === fieldName);
+    if (foundItem) {
+        return foundItem.title;
+    }
+    return '';
 }
 
 export function getChartStack(chartTitle: string): boolean | SeriesStack {
