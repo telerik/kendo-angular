@@ -3,7 +3,7 @@ import { MS_PER_DAY, addDays, addMonths } from '@progress/kendo-date-math';
 import { SelectionRange } from '@progress/kendo-angular-dateinputs';
 import { ItemArgs } from '@progress/kendo-angular-dropdowns';
 
-import { Interval } from '../../models';
+import { defaultRange, Interval } from '../../models';
 import { StockDataService } from '../../services/stock-data.service';
 import { normalizeSelectionRange, rangeAndIntervalCompatible } from '../../pipes/helpers';
 
@@ -13,7 +13,7 @@ import { normalizeSelectionRange, rangeAndIntervalCompatible } from '../../pipes
     styleUrls: ['./stock-chart.component.scss']
 })
 export class StockChartComponent {
-    public range: SelectionRange = { start: null, end: null };
+    public range: SelectionRange = defaultRange;
     public normalizedRange: SelectionRange = { start: addDays(new Date(), -4), end: new Date() };
 
     public calendarMin = addMonths(new Date(), -6);
@@ -27,7 +27,7 @@ export class StockChartComponent {
         { name: '4D', duration: MS_PER_DAY * 4 },
         { name: '1W', duration: MS_PER_DAY * 7 }
     ];
-    public activeTimeFilter = this.timeFilters[4].duration;
+    public activeTimeFilter: number = this.timeFilters[4].duration;
 
     public intervals: Array<{ name: string, interval: Interval, duration: number }> = [
         { name: '5M', interval: { unit: 'minutes', step: 5 }, duration: MS_PER_DAY / 24 / 12 },
@@ -61,7 +61,7 @@ export class StockChartComponent {
         }
 
         this.activeTimeFilter = duration;
-        this.range = { start: null, end: null };
+        this.range = defaultRange;
 
         this.normalizedRange = {
             start: new Date(new Date().getTime() - duration),
@@ -76,7 +76,7 @@ export class StockChartComponent {
         this.normalizedRange = normalizeSelectionRange(start, end, this.calendarMin, this.calendarMax);
 
         if (this.normalizedRange.start && this.normalizedRange.end) {
-            this.activeTimeFilter = null;
+            this.activeTimeFilter = 0;
             this.displayedDuration = this.normalizedRange.end.getTime() - this.normalizedRange.start.getTime();
             this.selectFirstCompatibleInterval(this.displayedDuration);
         }

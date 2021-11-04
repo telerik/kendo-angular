@@ -15,8 +15,11 @@ import { StockIntervalDetails } from '../models';
 export class StockDataService {
     public data: BehaviorSubject<Stock[]> = new BehaviorSubject(stocksInPortfolio);
 
-    public selectedCurrency = 'USD';
-    public selectedStock: Stock;
+    public selectedCurrency: 'USD' | 'EUR' | 'GBP' = 'USD';
+    public selectedStock: Stock = {
+        symbol: '', name: '', price: 0, day_change: 0, change_pct: 0,
+        volume: 0, volume_avg: 0, market_cap: 0, pe: 0, intraday: [0]
+    };
 
     public getDataStream(): Observable<Stock[]> {
         return this.data
@@ -46,7 +49,7 @@ export class StockDataService {
         return Number((dataItem.price * currency[this.selectedCurrency]).toFixed(2));
     }
 
-    public changeCurrency(selectedCurrency: string): void {
+    public changeCurrency(selectedCurrency: any): void {
         this.selectedCurrency = selectedCurrency;
         this.data.next(stocksInPortfolio);
     }
@@ -73,7 +76,7 @@ export class StockDataService {
 
     public getStockIntervalDetails(symbol: string, range: SelectionRange, intervalInMinutes: number): StockIntervalDetails[] {
         const stock = stocksInPortfolio.concat(uncategorizedStocks).find(st => st.symbol === symbol);
-        return this.generateDataForSymbol(stock, intervalInMinutes, range);
+        return this.generateDataForSymbol(stock as Stock, intervalInMinutes, range);
     }
 
     private generateDataForSymbol(stock: Stock, intervalInMinutes: number, range: SelectionRange): StockIntervalDetails[] {
@@ -106,7 +109,7 @@ export class StockDataService {
             const low = Math.min(newPrice, Number(previousInterval.close));
 
             data.push({
-                open: Number(previousInterval.close.toFixed(2)),
+                open: Number(previousInterval.close?.toFixed(2)),
                 close: Number(newPrice.toFixed(2)),
                 high: Number((high + (0.015 * high)).toFixed(2)),
                 low: Number((low - (0.015 * low)).toFixed(2)),

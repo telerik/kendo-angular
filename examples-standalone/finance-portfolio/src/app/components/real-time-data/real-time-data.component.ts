@@ -9,7 +9,7 @@ import { StockDataService } from 'src/app/services/stock-data.service';
     encapsulation: ViewEncapsulation.None
 })
 export class RealTimeDataComponent implements OnInit, OnDestroy {
-    public gridView: GridDataResult;
+    public gridView: GridDataResult = { data: [], total: 0 };
     public data: any[];
     public pageSize = 48;
     public skip = 0;

@@ -14,7 +14,7 @@ declare var kendo: any;
 })
 export class HeatmapComponent implements AfterViewInit, OnDestroy {
 
-    @ViewChild('heatmap') heatmap: ElementRef;
+    @ViewChild('heatmap') heatmap: ElementRef | undefined;
 
     private data: Array<any>;
     private treeData: any;
@@ -55,7 +55,7 @@ export class HeatmapComponent implements AfterViewInit, OnDestroy {
     }
 
     public ngAfterViewInit(): void {
-        this.treeMap = kendo.jQuery(this.heatmap.nativeElement).kendoTreeMap({
+        this.treeMap = kendo.jQuery(this.heatmap?.nativeElement).kendoTreeMap({
             dataSource: new kendo.data.HierarchicalDataSource({
                 data: this.treeData,
                 schema: {
@@ -67,17 +67,17 @@ export class HeatmapComponent implements AfterViewInit, OnDestroy {
             valueField: 'value',
             textField: 'symbol',
             colors: [['#09E98B', '#00A95B'], ['#FF9693', '#EC0006']],
-            template: ({ dataItem }) => {
+            template: (item: any) => {
                 return `<div>`
-                + dataItem.symbol + `<div>${ dataItem.change }%</div></div>`;
+                + item.dataItem.symbol + `<div>${ item.dataItem.change }%</div></div>`;
             }
         }).data('kendoTreemap');
-        this.tooltip = kendo.jQuery(this.heatmap.nativeElement).kendoTooltip({
+        this.tooltip = kendo.jQuery(this.heatmap?.nativeElement).kendoTooltip({
             filter: '.k-leaf',
             position: 'center',
             showOn: 'click',
             content: (e: any) => {
-                const treemap = kendo.jQuery(this.heatmap.nativeElement).data('kendoTreeMap');
+                const treemap = kendo.jQuery(this.heatmap?.nativeElement).data('kendoTreeMap');
                 const item = treemap.dataItem(e.target.closest('.k-treemap-tile'));
                 const cssClass = (value: number): string => {
                     return value > 0 ? 'positive-value' : 'negative-value';

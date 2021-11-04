@@ -3,7 +3,7 @@ import { SelectionRange } from '@progress/kendo-angular-dateinputs';
 import { StockDataService } from 'src/app/services/stock-data.service';
 import { PlotBand } from '@progress/kendo-angular-charts';
 
-import { StockIntervalDetails, Interval, IntervalUnitsMap } from 'src/app/models';
+import { StockIntervalDetails, Interval, IntervalUnitsMap, defaultRange } from 'src/app/models';
 
 const currencies = {
     EUR: '€',
@@ -22,11 +22,11 @@ export class StockDetailsComponent implements OnChanges {
     @Input() public chartType: 'candle' | 'line' | 'area' = 'candle';
 
     @Input() public interval: Interval = { unit: 'hours', step: 1 };
-    @Input() public range: SelectionRange = { start: null, end: null };
-    @Input() public symbol: string;
+    @Input() public range: SelectionRange = defaultRange;
+    @Input() public symbol: string = 'EUR';
 
-    public stockData: StockIntervalDetails[];
-    public volumeValueAxisMax: number;
+    public stockData: StockIntervalDetails[] = [];
+    public volumeValueAxisMax: number = 100;
 
     public candleChartAggregate = {
         open: (value: number[]) => value[0],
@@ -35,18 +35,18 @@ export class StockDetailsComponent implements OnChanges {
         low: (value: number[]) => Math.min(...value),
         volume: (value: number[]) => value.reduce((total, current) => total + current, 0)
     };
-    public categoryPlotBands: PlotBand[];
+    public categoryPlotBands: PlotBand[] = [];
 
     public get currency(): string {
         return currencies[this.stockDataService.selectedCurrency];
     }
 
-    private previousColumnChartItem: StockIntervalDetails;
+    private previousColumnChartItem: StockIntervalDetails = { volume: 100 };
 
     constructor(private stockDataService: StockDataService) { }
 
     public ngOnChanges(changes: SimpleChanges): void {
-        if (changes.interval || changes.range || changes.symbol) {
+        if (changes['interval'] || changes['range'] || changes['symbol']) {
             if (!(this.range.start && this.range.end)) {
                 return;
             }

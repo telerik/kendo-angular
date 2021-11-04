@@ -10,8 +10,8 @@ import { Stock } from 'src/app/models';
     encapsulation: ViewEncapsulation.None
 })
 export class UserProfileComponent implements OnDestroy {
-    public chartData: any[];
-    public gridData: any[];
+    public chartData: any[] = [];
+    public gridData: any[] = [];
 
     public seriesLabels = {
         visible: true,

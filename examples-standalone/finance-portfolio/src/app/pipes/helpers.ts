@@ -1,5 +1,6 @@
 import { getDate, addDays, MS_PER_DAY } from '@progress/kendo-date-math';
 import { SelectionRange } from '@progress/kendo-angular-dateinputs';
+import { defaultRange } from '../models';
 
 export const formatCurrency = (value: number): any => {
     if (value >= 1000000000) {
@@ -39,7 +40,7 @@ export const isDateInRange = (candidate: Date, min: Date, max: Date): boolean =>
 
 export const normalizeSelectionRange = (start: Date, end: Date, min: Date, max: Date): SelectionRange => {
     if (!(start && end && isDateInRange(start, min, max) && isDateInRange(end, min, max))) {
-        return { start: null, end: null };
+        return defaultRange;
     }
 
     const normalizedStart = getDate(start);
