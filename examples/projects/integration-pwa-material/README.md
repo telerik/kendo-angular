@@ -11,7 +11,7 @@ This Kendo UI for Angular sample project demonstrates how to use [Kendo UI for A
 ## Running the Application
 
 1. Build the application in production mode to be able to access the service worker.
-1. Access the service worker by running `ng build integration-pwa-material --prod`.
+1. Access the service worker by running `ng build integration-pwa-material --configuration production`.
 2. Enter the newly created `dist` folder by running `cd dist/integration-pwa-material`.
 3. Run the server in a disabled cache mode by running `npx http-server -c -1`.
 
