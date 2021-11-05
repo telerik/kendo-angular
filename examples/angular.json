@@ -104,18 +104,6 @@
               "projects/pdf-embedded-fonts/src/assets"
             ]
           }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "projects/pdf-embedded-fonts/tsconfig.app.json",
-              "projects/pdf-embedded-fonts/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
-          }
         }
       }
     },
@@ -220,18 +208,6 @@
               "projects/integration-jquery/src/assets"
             ]
           }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "projects/integration-jquery/tsconfig.app.json",
-              "projects/integration-jquery/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
-          }
         }
       }
     },
@@ -329,18 +305,6 @@
             "assets": [
               "projects/integration-pwa/src/favicon.ico",
               "projects/integration-pwa/src/assets"
-            ]
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "projects/integration-pwa/tsconfig.app.json",
-              "projects/integration-pwa/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
             ]
           }
         }
@@ -448,18 +412,6 @@
             "assets": [
               "projects/integration-pwa-material/src/favicon.ico",
               "projects/integration-pwa-material/src/assets"
-            ]
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "projects/integration-pwa-material/tsconfig.app.json",
-              "projects/integration-pwa-material/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
             ]
           }
         }
@@ -612,18 +564,6 @@
               "projects/integration-i18n/src/assets"
             ]
           }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "projects/integration-i18n/tsconfig.app.json",
-              "projects/integration-i18n/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
-          }
         }
       }
     },
@@ -722,18 +662,6 @@
             "assets": [
               "projects/grid-firebase/src/favicon.ico",
               "projects/grid-firebase/src/assets"
-            ]
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "projects/grid-firebase/tsconfig.app.json",
-              "projects/grid-firebase/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
             ]
           }
         }
@@ -836,18 +764,6 @@
               "projects/grid-graphql/src/assets"
             ]
           }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "projects/grid-graphql/tsconfig.app.json",
-              "projects/grid-graphql/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
-          }
         }
       }
     },
@@ -946,18 +862,6 @@
             "assets": [
               "projects/grid-jsdo/src/favicon.ico",
               "projects/grid-jsdo/src/assets"
-            ]
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "projects/grid-jsdo/tsconfig.app.json",
-              "projects/grid-jsdo/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
             ]
           }
         }
@@ -1060,18 +964,6 @@
               "projects/chart-websockets/src/assets"
             ]
           }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "projects/chart-websockets/tsconfig.app.json",
-              "projects/chart-websockets/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
-          }
         }
       }
     },
@@ -1170,18 +1062,6 @@
             "assets": [
               "projects/grid-signalr/src/favicon.ico",
               "projects/grid-signalr/src/assets"
-            ]
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "projects/grid-signalr/tsconfig.app.json",
-              "projects/grid-signalr/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
             ]
           }
         }
@@ -1290,19 +1170,6 @@
             "scripts": [
               "node_modules/jquery/dist/jquery.min.js",
               "projects/integration-jquery-partial/src/assets/kendo.custom.min.js"
-            ]
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "projects/integration-jquery-partial/tsconfig.app.json",
-              "projects/integration-jquery-partial/tsconfig.spec.json",
-              "projects/integration-jquery-partial/e2e/tsconfig.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
             ]
           }
         },
