@@ -18,7 +18,7 @@ import { invoiceData } from './invoice-data';
   styles: [`
     @font-face {
       font-family: 'DejaVu Sans';
-      src: url('assets/DejaVuSans.ttf') format('truetype');
+      src: url('/assets/DejaVuSans.ttf') format('truetype');
     }
 
     kendo-pdf-export {
