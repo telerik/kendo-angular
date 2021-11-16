@@ -41,7 +41,7 @@
                 <kendo-textbox
                     [placeholder]="customMsgService.translate('gridSearch')"
                     kendoTextBox
-                    (input)="onFilter($event.target.value)"
+                    (valueChange)="onFilter($event)"
                 >
                 </kendo-textbox>
                 <kendo-grid-spacer></kendo-grid-spacer>
@@ -56,7 +56,7 @@
                 [class]="{ 'text-center': true }"
                 [resizable]="false"
                 [columnMenu]="false"
-                showSelectAll="true"
+                [showSelectAll]="true"
             >
             </kendo-grid-checkbox-column>
             <kendo-grid-column-group [title]="customMsgService.translate('employee')" [columnMenu]="false">
@@ -134,7 +134,7 @@
                                 }
                             }"
                         >
-                            <kendo-chart-area opacity="0" [width]="200"></kendo-chart-area>
+                            <kendo-chart-area [opacity]="0" [width]="200"></kendo-chart-area>
                             <kendo-chart-value-axis>
                                 <kendo-chart-value-axis-item [min]="0" [max]="130"> </kendo-chart-value-axis-item>
                             </kendo-chart-value-axis>

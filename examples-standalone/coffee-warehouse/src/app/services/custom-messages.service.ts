@@ -5,13 +5,13 @@ import { enComponentMessages, enCustomMessages } from '../messages/en-US';
 import { esComponentMessages, esCustomMessages } from '../messages/es';
 import { frComponentMessages, frCustomMessages } from '../messages/fr';
 
-const componentMsgs = {
+const componentMsgs: any = {
     ['en-US']: enComponentMessages,
     ['es']: esComponentMessages,
     ['fr']: frComponentMessages
 };
 
-const customMsgs = {
+const customMsgs: any = {
     ['en-US']: enCustomMessages,
     ['es']: esCustomMessages,
     ['fr']: frCustomMessages
@@ -20,7 +20,7 @@ const customMsgs = {
 @Injectable()
 export class CustomMessagesService extends MessageService {
     @Output() public localeChange = new EventEmitter();
-    private localeId;
+    private localeId: string = 'en-US';
 
     public set language(value: string) {
         const locale = componentMsgs[value];
@@ -42,7 +42,7 @@ export class CustomMessagesService extends MessageService {
         }
     }
 
-    public get(key: string): string {
+    public override get(key: string): string {
         return this.messages[key];
     }
 

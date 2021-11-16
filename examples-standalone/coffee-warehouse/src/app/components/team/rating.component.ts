@@ -12,10 +12,10 @@ import { Component, OnInit, Input } from '@angular/core';
     ]
 })
 export class RatingComponent implements OnInit {
-    @Input() public value: number;
-    @Input() public max: number;
+    @Input() public value: number = 0;
+    @Input() public max?: number;
 
-    public stars: number[];
+    public stars: number[] = [];
 
     public ngOnInit(): void {
         this.stars = new Array(this.max).fill(1).map((item, index) => item + index);

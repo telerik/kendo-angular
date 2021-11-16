@@ -10,14 +10,14 @@ import { locales } from 'src/app/resources/locales';
 })
 export class HeaderComponent {
     @Output() public toggle = new EventEmitter();
-    @Input() public selectedPage: string;
+    @Input() public selectedPage?: string;
 
     public customMsgService: CustomMessagesService;
 
     public selectedLanguage = { locale: 'English', localeId: 'en-US' };
     public locales = locales;
     public popupSettings = { width: '150' };
-    public themes = [
+    public themes: {href: string, text: string}[] = [
         {
             href: 'assets/kendo-theme-default/dist/all.css',
             text: 'Default'
@@ -41,18 +41,18 @@ export class HeaderComponent {
         this.customMsgService.language = this.selectedLanguage.localeId;
     }
 
-    public changeTheme(theme) {
+    public changeTheme(theme: {href: string, text: string}) {
         this.selectedTheme = theme;
         const themeEl: any = document.getElementById('theme');
         themeEl.href = theme.href;
     }
 
-    public changeLanguage(item): void {
+    public changeLanguage(item: any): void {
         this.customMsgService.language = item.localeId;
         this.setLocale(item.localeId);
     }
 
-    public setLocale(locale): void {
+    public setLocale(locale: any): void {
         (this.intlService as CldrIntlService).localeId = locale;
     }
 
