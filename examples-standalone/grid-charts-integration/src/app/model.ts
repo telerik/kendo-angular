@@ -1,4 +1,4 @@
-import { SeriesStack } from '@progress/kendo-angular-charts';
+import { SeriesStack, SeriesType } from '@progress/kendo-angular-charts';
 
 export interface Stock {
     symbol: string;
@@ -9,13 +9,13 @@ export interface Stock {
     volume: number;
     volume_avg: number;
     market_cap: number;
-    pe: number;
+    pe: number | null;
     intraday: number[];
     index?: number;
 }
 
 export interface ChartConfig {
-    seriesType: string;
-    chartName: string;
-    stack: boolean | SeriesStack;
+    seriesType: SeriesType;
+    chartName?: string;
+    stack: string | boolean | SeriesStack;
 }

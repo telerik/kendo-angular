@@ -23,8 +23,8 @@ Used Kendo UI for Angular Components:
 ## Setting Up the Project
 
 Currently, the sample project runs with:
-- Angular v8.x
-- Angular-CLI v8.x
+- Angular v13
+- Angular-CLI v13
 
 Note: This sample project is an Angular CLI project:
  - Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.

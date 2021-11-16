@@ -3,15 +3,15 @@ import { series, seriesTypes } from '../../../data';
 import { Stock, ChartConfig } from '../../../model';
 import { getChartStack, getTitle, getChartType } from '../../../utils';
 import { saveAs } from '@progress/kendo-file-saver';
-import { ChartComponent } from '@progress/kendo-angular-charts';
+import { ChartComponent, Series, SeriesType } from '@progress/kendo-angular-charts';
 
 @Component({
     selector: 'stocks-component',
     templateUrl: './stocks-chart.template.html'
 })
 export class StocksChartComponent {
-    @Input() public data: Stock[];
-    @Input() public chartConfiguration: ChartConfig;
+    @Input() public data: Stock[] = [];
+    @Input() public chartConfiguration: ChartConfig = { seriesType: 'line', stack: false };
 
     public series: object[] = series;
     public selectedSeries: string[] = ['price', 'pe'];
@@ -21,7 +21,7 @@ export class StocksChartComponent {
 
     public onValueChange(chartName: string) {
         this.chartConfiguration.stack = getChartStack(chartName);
-        this.chartConfiguration.seriesType = getChartType(chartName);
+        this.chartConfiguration.seriesType = getChartType(chartName) as SeriesType;
     }
 
     public exportChart(chart: ChartComponent): void {

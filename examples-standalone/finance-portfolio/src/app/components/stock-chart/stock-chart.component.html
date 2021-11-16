@@ -81,9 +81,9 @@
         <div class="col">
             <app-stock-details
                 [chartType]="chartType"
-                [interval]="selectedInterval?.interval"
+                [interval]="selectedInterval.interval"
                 [range]="normalizedRange"
-                [symbol]="stockDataService.selectedStock?.symbol"
+                [symbol]="stockDataService.selectedStock?.symbol!"
             >
             </app-stock-details>
         </div>

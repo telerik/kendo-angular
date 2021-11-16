@@ -7,7 +7,7 @@ import { Subscription } from 'rxjs';
 })
 export class DropDownListPopupSelectorDirective implements AfterViewInit, OnDestroy {
 
-    private valueChangeSubscription: Subscription;
+    private valueChangeSubscription: Subscription | undefined;
 
     private keyDownHandler = (event: KeyboardEvent) => {
         if (!this.dropdownlist.isOpen) {

@@ -16,14 +16,14 @@ import { Subscription } from 'rxjs';
     encapsulation: ViewEncapsulation.None
 })
 export class StockListComponent implements OnDestroy {
-    public selectedRows: Array<string>;
+    public selectedRows: Array<string> = [];
 
     public uncategorizedSymbols: Array<string>;
 
     public sort: SortDescriptor[] = [];
-    public gridView: Stock[];
+    public gridView: Stock[] = [];
 
-    private confirmRemoveStockSubscription: Subscription;
+    private confirmRemoveStockSubscription: Subscription | undefined;
 
     constructor(
         public stockDataService: StockDataService,
