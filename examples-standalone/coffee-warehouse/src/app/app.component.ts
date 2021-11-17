@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { NavigationStart, Router } from '@angular/router';
+import { NavigationStart, Router, RouterEvent } from '@angular/router';
 import { MessageService } from '@progress/kendo-angular-l10n';
 import { DrawerComponent, DrawerMode, DrawerSelectEvent } from '@progress/kendo-angular-layout';
 import { CustomMessagesService } from './services/custom-messages.service';
@@ -10,7 +10,7 @@ import { CustomMessagesService } from './services/custom-messages.service';
 })
 export class AppComponent implements OnInit, OnDestroy {
     public selected = 'Team';
-    public items: Array<any>;
+    public items: Array<any> = [];
     public customMsgService: CustomMessagesService;
     public mode: DrawerMode = 'push';
     public mini = true;
@@ -21,7 +21,7 @@ export class AppComponent implements OnInit, OnDestroy {
 
     ngOnInit() {
         // Update Drawer selected state when change router path
-        this.router.events.subscribe((route: NavigationStart) => {
+        this.router.events.subscribe((route: any) => {
             if (route instanceof NavigationStart) {
                 this.items = this.drawerItems().map((item) => {
                     if (item.path && item.path === route.url) {

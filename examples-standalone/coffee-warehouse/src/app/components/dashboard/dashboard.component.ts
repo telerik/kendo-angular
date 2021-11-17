@@ -67,8 +67,8 @@ export class DashboardComponent {
         });
     }
 
-    public fetchData(team) {
-        return this.orders.map((dataItem) => {
+    public fetchData(team: number) {
+        return this.orders.map((dataItem: any) => {
             if (dataItem.teamID === team && dataItem.orderDate >= this.dateRange.start && dataItem.orderDate < this.dateRange.end) {
                 return dataItem.orderTotal;
             }

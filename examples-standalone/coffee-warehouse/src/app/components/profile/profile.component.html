@@ -38,16 +38,16 @@
                     <kendo-formfield orientation="horizontal">
                         <kendo-label [for]="email" [text]="customMsgService.translate('email')"> </kendo-label>
                         <kendo-textbox formControlName="email" [clearButton]="true" #email required> </kendo-textbox>
-                        <kendo-formerror *ngIf="formGroup.controls.email.errors?.required"> Error: Email is required </kendo-formerror>
-                        <kendo-formerror *ngIf="formGroup.controls.email.errors?.email"> Error: Not valid email format </kendo-formerror>
+                        <kendo-formerror *ngIf="formGroup.controls['email'].errors && formGroup.controls['email'].errors['required']"> Error: Email is required </kendo-formerror>
+                        <kendo-formerror *ngIf="formGroup.controls['email'].errors && formGroup.controls['email'].errors['email']"> Error: Not valid email format </kendo-formerror>
                     </kendo-formfield>
 
                     <kendo-formfield orientation="horizontal">
                         <kendo-label [for]="phoneNumber" [text]="customMsgService.translate('phone')"> </kendo-label>
                         <kendo-maskedtextbox #phoneNumber formControlName="phoneNumber" [mask]="phoneNumberMask"> </kendo-maskedtextbox>
                         <kendo-formerror>
-                            <div *ngIf="formGroup.controls.phoneNumber.errors">Error: Not a valid phone number format</div>
-                            <div *ngIf="formGroup.controls.phoneNumber.errors?.required">Error: Phone number is required</div>
+                            <div *ngIf="formGroup.controls['phoneNumber'].errors">Error: Not a valid phone number format</div>
+                            <div *ngIf="formGroup.controls['phoneNumber'].errors && formGroup.controls['phoneNumber'].errors['required']">Error: Phone number is required</div>
                         </kendo-formerror>
                     </kendo-formfield>
 

@@ -13,10 +13,10 @@ import { images } from 'src/app/resources/images';
     templateUrl: './team.component.html'
 })
 export class TeamComponent implements OnInit {
-    @ViewChild(DataBindingDirective) dataBinding: DataBindingDirective;
+    @ViewChild(DataBindingDirective) dataBinding?: DataBindingDirective;
 
     public gridData: Employee[] = employees;
-    public gridView: any[];
+    public gridView: any[] = [];
 
     public mySelection: string[] = [];
 
@@ -51,7 +51,7 @@ export class TeamComponent implements OnInit {
             }
         }).data;
 
-        this.dataBinding.skip = 0;
+        this.dataBinding? this.dataBinding.skip = 0 : null;
     }
 
     public getField = (args: Employee) => {

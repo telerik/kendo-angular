@@ -14,13 +14,13 @@ import { NotificationService } from '@progress/kendo-angular-notification';
     templateUrl: './profile.component.html'
 })
 export class ProfileComponent implements AfterViewInit {
-    public formGroup: FormGroup;
+    public formGroup: FormGroup = new FormGroup({});
     public countries = countries;
     public phoneNumberMask = '(+9) 0000-000-00-00';
     public fileRestrictions: FileRestrictions = {
         allowedExtensions: ['.png', '.jpeg', '.jpg']
     };
-    public avatars: NodeList;
+    public avatars?: NodeList;
 
     public formValue: FormModel | null = {
         avatar: [''],
@@ -52,15 +52,15 @@ export class ProfileComponent implements AfterViewInit {
         }
 
         this.formGroup = new FormGroup({
-            avatar: new FormControl(this.formValue.avatar, [Validators.required]),
-            firstName: new FormControl(this.formValue.firstName, [Validators.required]),
-            lastName: new FormControl(this.formValue.lastName, [Validators.required]),
-            email: new FormControl(this.formValue.email, [Validators.required, Validators.email]),
-            phoneNumber: new FormControl(this.formValue.phoneNumber, [Validators.required]),
-            directory: new FormControl(this.formValue.directory),
-            country: new FormControl(this.formValue.country),
-            biography: new FormControl(this.formValue.biography),
-            team: new FormControl(this.formValue.team)
+            avatar: new FormControl(this.formValue?.avatar, [Validators.required]),
+            firstName: new FormControl(this.formValue?.firstName, [Validators.required]),
+            lastName: new FormControl(this.formValue?.lastName, [Validators.required]),
+            email: new FormControl(this.formValue?.email, [Validators.required, Validators.email]),
+            phoneNumber: new FormControl(this.formValue?.phoneNumber, [Validators.required]),
+            directory: new FormControl(this.formValue?.directory),
+            country: new FormControl(this.formValue?.country),
+            biography: new FormControl(this.formValue?.biography),
+            team: new FormControl(this.formValue?.team)
         });
     }
 
@@ -68,7 +68,7 @@ export class ProfileComponent implements AfterViewInit {
         this.avatars = document.querySelectorAll('.k-avatar .k-avatar-image');
         const avatarImg = localStorage.getItem('avatar');
         if (avatarImg) {
-            this.avatars.forEach((avatar: HTMLElement) => {
+            this.avatars.forEach((avatar: any) => {
                 avatar.style['background-image'] = `url("${avatarImg}")`;
             });
         }
@@ -94,8 +94,8 @@ export class ProfileComponent implements AfterViewInit {
         this.setFormValues();
     }
 
-    public isFileAllowed(file): boolean {
-        return this.fileRestrictions.allowedExtensions.includes(file.extension);
+    public isFileAllowed(file: any): boolean {
+        return <boolean>this.fileRestrictions.allowedExtensions?.includes(file.extension);
     }
 
     public selectAvatar(ev: SelectEvent): void {
@@ -104,9 +104,9 @@ export class ProfileComponent implements AfterViewInit {
         const file = ev.files[0];
         if (file.rawFile && this.isFileAllowed(file)) {
             reader.onloadend = function() {
-                avatars.forEach((avatar: HTMLElement) => {
+                avatars?.forEach((avatar: any) => {
                     avatar.style['background-image'] = `url("${this.result}")`;
-                    localStorage.setItem('avatar', this.result.toString());
+                    localStorage.setItem('avatar', (<string>this.result).toString());
                 });
             };
             reader.readAsDataURL(file.rawFile);

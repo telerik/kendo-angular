@@ -16,19 +16,19 @@ export class CardComponent {
 
     public images = images;
 
-    public setCardColor(card: Employee): string {
-        const currentTeam = teams.find((team: Team) => team.teamID === card.teamId);
-        return currentTeam.teamColor;
+    public setCardColor(card: Employee): string | undefined{
+        const currentTeam: Team | undefined = teams.find((team: Team) => team.teamID === card.teamId);
+        return currentTeam?.teamColor;
     }
 
     public onCardClick(card: Employee): void {
-        const currentEmployee = this.cards.find((employee) => employee.id === card.id);
+        const currentEmployee: Employee = <Employee>this.cards.find((employee) => employee.id === card.id);
         currentEmployee.selected = !currentEmployee.selected;
         this.toggleEvents.emit(card);
     }
 
     public fetchAvatar(card: Employee): string {
-        const imgURL = `${card.imgId}${card.gender}`;
+        const imgURL: string = `${card.imgId}${card.gender}`;
         return this.images[imgURL];
     }
 }

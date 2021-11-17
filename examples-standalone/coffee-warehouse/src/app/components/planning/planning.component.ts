@@ -18,7 +18,7 @@ import { Event } from 'src/app/models/event.model';
 export class PlanningComponent {
     public data: Event[];
     public selectedDate: Date = new Date('2013-06-27T00:00:00Z');
-    public formGroup: FormGroup;
+    public formGroup: FormGroup = new FormGroup({});
     public customMsgService: CustomMessagesService;
     public teams = teams;
 
@@ -34,7 +34,7 @@ export class PlanningComponent {
         this.data = [...this.filterEvents(employee.teamId, employee.selected)];
     }
 
-    public filterEvents(id, selected): Event[] {
+    public filterEvents(id: number, selected: boolean): Event[] {
         const cloneData = this.data.slice();
 
         if (selected) {
@@ -45,8 +45,8 @@ export class PlanningComponent {
     }
 
     public setEventStyles(args: EventStyleArgs): object {
-        const currentTeam = teams.find((team: Team) => team.teamID === args.event.dataItem.teamID);
-        return { backgroundColor: currentTeam.teamColor };
+        const currentTeam: Team | undefined = teams.find((team: Team) => team.teamID === args.event.dataItem.teamID);
+        return { backgroundColor: currentTeam?.teamColor };
     }
 
     public createFormGroup(args: CreateFormGroupArgs): FormGroup {
