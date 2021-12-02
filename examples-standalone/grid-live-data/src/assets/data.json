@@ -1,0 +1,59 @@
+[
+    {
+      "id": 0,
+      "stock": "AAPL",
+      "currency": "USD",
+      "amount": 103.5,
+      "priceHistory":[125,124,155,200, 60, 122]
+    },
+    {
+      "id": 1,
+      "stock": "MSFT",
+      "currency": "USD",
+      "amount": 206.2
+      ,
+      "priceHistory":[125,124,155,200, 60, 122]
+    },
+    {
+      "id": 2,
+      "stock": "AMZN",
+      "currency": "USD",
+      "amount": 2268.16
+      ,
+      "priceHistory":[125,124,155,200, 60, 122]
+    },
+    {
+      "id": 3,
+      "stock": "FB",
+      "currency": "USD",
+      "amount": 233.71
+      ,
+      "priceHistory":[125,124,155,200, 60, 122]
+    },
+    {
+      "id": 4,
+      "stock": "GOOGL",
+      "currency": "USD",
+      "amount": 2393.57
+      ,
+      "priceHistory":[125,124,155,200, 60, 122]
+    },
+    {
+      "id": 5,
+      "stock": "BRK.B",
+      "currency": "USD",
+      "amount": 292.52
+      ,
+      "priceHistory":[125,124,155,200, 60, 122]
+    },
+    {
+      "id": 6,
+      "stock": "PRGS",
+      "currency": "USD",
+      "amount": 52.52
+      ,
+      "priceHistory":[125,124,155,200, 60, 122]
+    }
+  
+  ]
+  
