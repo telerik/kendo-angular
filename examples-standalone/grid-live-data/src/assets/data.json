@@ -1,59 +1,92 @@
 [
     {
-      "id": 0,
-      "stock": "AAPL",
-      "currency": "USD",
-      "amount": 103.5,
-      "priceHistory":[125,124,155,200, 60, 122]
+        "id": 0,
+        "currency": "Bitcoin",
+        "symbol": "BTC",
+        "volume": 35666661.25,
+        "lastPrice": 48500.51,
+        "low": 48500.51,
+        "high": 48500.51
     },
     {
-      "id": 1,
-      "stock": "MSFT",
-      "currency": "USD",
-      "amount": 206.2
-      ,
-      "priceHistory":[125,124,155,200, 60, 122]
+        "id": 1,
+        "currency": "Ethereum",
+        "symbol": "ETH",
+        "volume": 23655030.562,
+        "lastPrice": 4062.86,
+        "low": 4062.86,
+        "high": 4062.86
     },
     {
-      "id": 2,
-      "stock": "AMZN",
-      "currency": "USD",
-      "amount": 2268.16
-      ,
-      "priceHistory":[125,124,155,200, 60, 122]
+        "id": 2,
+        "currency": "Binance Coin",
+        "symbol": "BNB",
+        "volume": 3264922.281,
+        "lastPrice": 558.61,
+        "low": 558.61,
+        "high":558.61
     },
     {
-      "id": 3,
-      "stock": "FB",
-      "currency": "USD",
-      "amount": 233.71
-      ,
-      "priceHistory":[125,124,155,200, 60, 122]
+        "id": 3,
+        "currency": "Monero",
+        "symbol": "XMR",
+        "volume": 184472.910,
+        "lastPrice": 191.65,
+        "low": 191.65,
+        "high": 191.65
     },
     {
-      "id": 4,
-      "stock": "GOOGL",
-      "currency": "USD",
-      "amount": 2393.57
-      ,
-      "priceHistory":[125,124,155,200, 60, 122]
+        "id": 4,
+        "currency": "Solana",
+        "symbol": "SOL",
+        "volume": 3746119.481,
+        "lastPrice": 183.81,
+        "low": 183.81,
+        "high": 183.81
     },
     {
-      "id": 5,
-      "stock": "BRK.B",
-      "currency": "USD",
-      "amount": 292.52
-      ,
-      "priceHistory":[125,124,155,200, 60, 122]
+        "id": 5,
+        "currency": "Cardano",
+        "symbol": "ADA",
+        "volume": 2715338.923,
+        "lastPrice": 1.31,
+        "low": 1.31,
+        "high": 1.31
     },
     {
-      "id": 6,
-      "stock": "PRGS",
-      "currency": "USD",
-      "amount": 52.52
-      ,
-      "priceHistory":[125,124,155,200, 60, 122]
+        "id": 6,
+        "currency": "Litecoin",
+        "symbol": "LTC",
+        "volume": 2008256054,
+        "lastPrice": 146.66,
+        "low":146.66,
+        "high": 146.66
+    },
+    {
+        "id": 7,
+        "currency": "Bitcoin Cash",
+        "symbol": "BCH",
+        "volume": 14444760.540,
+        "lastPrice": 437.38,
+        "low": 437.38,
+        "high": 437.38
+    },
+    {
+        "id": 8,
+        "currency": "Polkadot",
+        "symbol": "DOT",
+        "volume": 1954195.798,
+        "lastPrice": 26.85,
+        "low": 26.85,
+        "high": 26.85
+    },
+    {
+        "id": 9,
+        "currency": "Maker",
+        "symbol": "MKR",
+        "volume": 153769.593,
+        "lastPrice": 2415.72,
+        "low": 2415.72,
+        "high": 2415.72
     }
-  
-  ]
-  
+]

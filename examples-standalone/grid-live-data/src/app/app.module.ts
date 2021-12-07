@@ -6,12 +6,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { GridModule } from '@progress/kendo-angular-grid';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ChartsModule } from '@progress/kendo-angular-charts';
-import 'hammerjs';
-
-
-
-
 
 @NgModule({
   declarations: [
@@ -23,7 +17,6 @@ import 'hammerjs';
     HttpClientModule,
     GridModule,
     BrowserAnimationsModule,
-    ChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

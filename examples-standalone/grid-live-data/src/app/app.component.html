@@ -1,12 +1,8 @@
-
-<kendo-grid [kendoGridBinding]="(rowData$ | async)!">
-    <kendo-grid-column field="id" title="ID"> </kendo-grid-column>
-    <kendo-grid-column field="stock" title="Stock"> </kendo-grid-column>
-    <kendo-grid-column field="currency" title="Currency"> </kendo-grid-column>
-    <kendo-grid-column field="amount" title="Amount"> </kendo-grid-column>
-    <kendo-grid-column field="priceHistory" title ="Chart">
-        <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex">
-            <kendo-sparkline style="width:150px;" [data]="dataItem.priceHistory"> </kendo-sparkline>
-        </ng-template>
-      </kendo-grid-column>
+<kendo-grid [kendoGridBinding]="(gridData | async)!" [rowClass]="rowCallback">
+    <kendo-grid-column field="currency" title="Ticker"> </kendo-grid-column>
+    <kendo-grid-column field="lastPrice" title="LAST" format="c"> </kendo-grid-column>
+    <kendo-grid-column class="priceColumn" field="high" title="HIGH" format="c">
+    </kendo-grid-column>
+    <kendo-grid-column class="priceColumn" field="low" title="LOW" format="c"> </kendo-grid-column>
+    <kendo-grid-column field="volume" title="VOL" format="c"> </kendo-grid-column>
 </kendo-grid>

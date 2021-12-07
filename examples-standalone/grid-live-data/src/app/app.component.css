@@ -1,0 +1,6 @@
+.price-down .priceColumn{
+  color: red;
+}
+.price-up .priceColumn{
+  color: green;
+}
