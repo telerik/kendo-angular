@@ -4,3 +4,16 @@
 .price-up .priceColumn{
   color: green;
 }
+.coin-logo{
+    height:22px;
+    width:22px;
+}
+.currency{
+    margin-top: 3px;
+    margin-left: 5px;
+}
+
+.currency-container {
+    display: flex;
+    align-items: center;
+  }

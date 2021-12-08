@@ -1,5 +1,14 @@
 <kendo-grid [kendoGridBinding]="(gridData | async)!" [rowClass]="rowCallback">
-    <kendo-grid-column field="currency" title="Ticker"> </kendo-grid-column>
+    <kendo-grid-column field="currency" title="Ticker">
+        <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex">
+        <div class="currency-container">
+            <img class="coin-logo" src="../assets/coinslogo/{{ dataItem.currency}}.png" alt="coin logo">
+            <span class="currency">
+              {{ dataItem.currency }}
+            </span>
+        </div>
+          </ng-template>
+         </kendo-grid-column>
     <kendo-grid-column field="lastPrice" title="LAST" format="c"> </kendo-grid-column>
     <kendo-grid-column class="priceColumn" field="high" title="HIGH" format="c">
     </kendo-grid-column>
