@@ -17,7 +17,7 @@ export class AppComponent {
     }
 
     public rowCallback = (context: RowClassArgs) => {
-        if (context.dataItem.high > 0) {
+        if (context.dataItem.change_24h > 0) {
             return { 'price-up': true };
         } else {
             return { 'price-down': true };

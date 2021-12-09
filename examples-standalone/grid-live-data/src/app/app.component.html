@@ -1,17 +1,22 @@
 <kendo-grid [kendoGridBinding]="(gridData | async)!" [rowClass]="rowCallback">
-    <kendo-grid-column field="currency" title="Ticker">
+    <kendo-grid-column field="id" title="#" [width]="35"> </kendo-grid-column>
+    <kendo-grid-column field="currency" title="Crypto currency">
         <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex">
         <div class="currency-container">
             <img class="coin-logo" src="../assets/coinslogo/{{ dataItem.currency}}.png" alt="coin logo">
             <span class="currency">
               {{ dataItem.currency }}
             </span>
+            <span class="crypto-symbol">{{dataItem.symbol}}</span>
         </div>
           </ng-template>
          </kendo-grid-column>
-    <kendo-grid-column field="lastPrice" title="LAST" format="c"> </kendo-grid-column>
-    <kendo-grid-column class="priceColumn" field="high" title="HIGH" format="c">
+    <kendo-grid-column field="currentPrice" title="Price" format="c"> </kendo-grid-column>
+    <kendo-grid-column class="priceColumn" field="change_24h" title="24h%">
+        <ng-template kendoGridCellTemplate let-dataItem>
+           <span> {{dataItem.change_24h | number}}%</span>
+         </ng-template>
     </kendo-grid-column>
-    <kendo-grid-column class="priceColumn" field="low" title="LOW" format="c"> </kendo-grid-column>
-    <kendo-grid-column field="volume" title="VOL" format="c"> </kendo-grid-column>
+
+    <kendo-grid-column field="volume" title="Market Cap" format="c"> </kendo-grid-column>
 </kendo-grid>

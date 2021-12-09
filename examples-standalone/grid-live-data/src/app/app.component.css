@@ -11,9 +11,14 @@
 .currency{
     margin-top: 3px;
     margin-left: 5px;
+    margin-right: 5px;
 }
 
 .currency-container {
     display: flex;
     align-items: center;
+  }
+  .crypto-symbol{
+    font-weight: bold;
+    color: #959595;
   }

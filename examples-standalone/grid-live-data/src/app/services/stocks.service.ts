@@ -31,16 +31,16 @@ export class StocksService {
     updateRandomRowWithData(row: Stock): Stock {
         const shouldUpdateData = Math.random() < 0.3;
         if (shouldUpdateData) {
-            let lowDelta = Math.floor(30 * Math.random()) / 10;
-            lowDelta *= Math.round(Math.random()) ? 1 : -1;
+            let changePrice = Math.floor(30 * Math.random()) / 10;
+            changePrice *= Math.round(Math.random()) ? 2 : -0.09;
 
-            let highDelta = Math.floor(30 * Math.random()) / 10;
-            highDelta *= Math.round(Math.random()) ? 1 : -1;
+            let changePercentage = Math.floor(30 * Math.random()) / 10;
+            changePercentage *= Math.round(Math.random()) ? 1 : -1;
 
-            const highValue = row.high + Math.floor(highDelta);
-            const lowValue = row.low + Math.floor(lowDelta);
+            const percentageValue = row.change_24h + changePercentage;
+            const priceValue = row.currentPrice + changePrice;
 
-            let newRow = { ...row, high: highValue, low: lowValue };
+            let newRow = { ...row, change_24h: percentageValue, currentPrice: priceValue };
 
             return newRow;
         } else {
@@ -54,7 +54,6 @@ export interface Stock {
     currency: string;
     symbol: string;
     volume: number;
-    lastPrice: number;
-    low: number;
-    high: number;
+    currentPrice: number;
+    change_24h: number;
 }
