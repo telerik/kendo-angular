@@ -1,7 +1,7 @@
 <kendo-grid [kendoGridBinding]="(gridData | async)!" [rowClass]="rowCallback">
     <kendo-grid-column field="id" title="#" [width]="35"> </kendo-grid-column>
     <kendo-grid-column field="currency" title="Crypto currency">
-        <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex">
+        <ng-template kendoGridCellTemplate let-dataItem>
             <div class="currency-container">
                 <img class="coin-logo" src="../assets/coinslogo/{{ dataItem.currency }}.png" alt="coin logo" />
                 <span class="currency">
@@ -11,7 +11,13 @@
             </div>
         </ng-template>
     </kendo-grid-column>
-    <kendo-grid-column field="currentPrice" title="Price" format="c"> </kendo-grid-column>
+    <kendo-grid-column field="currentPrice" title="Price">
+        <ng-template kendoGridCellTemplate let-dataItem>
+                <span [@positiveState]="dataItem.currentPrice > prevDataItem.currentPrice ? true : false" [@negativeState]="dataItem.currentPrice < prevDataItem.currentPrice ? true : false">
+                    {{ dataItem.currentPrice | currency}}
+                </span>
+        </ng-template>
+         </kendo-grid-column>
     <kendo-grid-column class="priceColumn" field="change_24h" title="24h%">
         <ng-template kendoGridCellTemplate let-dataItem>
             <span> {{ dataItem.change_24h | number }}% </span>
