@@ -1,24 +1,27 @@
-.price-down .priceColumn{
-  color: red;
+.price-down .priceColumn,
+.arrow-down {
+    color: #f31700;
 }
-.price-up .priceColumn{
-  color: green;
+
+.price-up .priceColumn,
+.arrow-up {
+    color: #37b400;
 }
-.coin-logo{
-    height:22px;
-    width:22px;
+
+.coin-logo {
+    height: 22px;
+    width: 22px;
 }
-.currency{
-    margin-top: 3px;
-    margin-left: 5px;
-    margin-right: 5px;
+.currency {
+    margin: 3px 5px 0px 5px;
+    color: #4b5ffa;
+    font-weight: bold;
 }
 
 .currency-container {
     display: flex;
     align-items: center;
-  }
-  .crypto-symbol{
-    font-weight: bold;
+}
+.crypto-symbol {
     color: #959595;
-  }
+}

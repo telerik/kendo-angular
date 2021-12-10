@@ -9,7 +9,7 @@ export class StocksService {
     private stocksUrl: string = 'assets/data.json';
     private immutableData!: Stock[];
     public updateFreq: number = 1000;
-    public data: Stock[] = [];
+    public previousData: Stock[] = [];
 
     constructor(private http: HttpClient) {}
 
@@ -17,11 +17,12 @@ export class StocksService {
         return new Observable<Stock[]>((observer) => {
             this.http.get<Stock[]>(this.stocksUrl).subscribe((data: Stock[]) => {
                 this.immutableData = data;
+                this.previousData = data;
                 observer.next(this.immutableData);
 
                 setInterval(() => {
-                    this.data = this.immutableData.slice();
                     this.immutableData = this.immutableData.map((row: Stock) => this.updateRandomRowWithData(row));
+
                     observer.next(this.immutableData);
                 }, this.updateFreq);
             });
@@ -30,6 +31,7 @@ export class StocksService {
 
     updateRandomRowWithData(row: Stock): Stock {
         const shouldUpdateData = Math.random() < 0.3;
+
         if (shouldUpdateData) {
             let changePrice = Math.floor(30 * Math.random()) / 10;
             changePrice *= Math.round(Math.random()) ? 2 : -0.09;
@@ -40,8 +42,13 @@ export class StocksService {
             const percentageValue = row.change_24h + changePercentage;
             const priceValue = row.currentPrice + changePrice;
 
-            let newRow = { ...row, change_24h: percentageValue, currentPrice: priceValue };
+            let newRow = {
+                ...row,
+                change_24h: percentageValue,
+                currentPrice: priceValue
+            };
 
+            this.previousData = [...this.immutableData];
             return newRow;
         } else {
             return row;
