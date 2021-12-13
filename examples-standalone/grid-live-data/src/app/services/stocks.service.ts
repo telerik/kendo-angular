@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 export class StocksService {
     private stocksUrl: string = 'assets/data.json';
     private immutableData!: Stock[];
-    public updateFreq: number = 1000;
+    public updateFreq: number = 5000;
     public previousData: Stock[] = [];
 
     constructor(private http: HttpClient) {}
