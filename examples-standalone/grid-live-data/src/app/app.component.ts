@@ -14,14 +14,14 @@ import { trigger, style, animate, transition, keyframes } from '@angular/animati
             transition('void => *', []),
             transition('* => void', []),
             transition('* => *', [
-                animate(1600, keyframes([style({ color: '#32CD32', offset: 0.0 }), style({ color: 'inherit', offset: 1.0 })]))
+                animate(1500, keyframes([style({ color: '#32CD32', offset: 0.0 }), style({ color: 'inherit', offset: 1.0 })]))
             ])
         ]),
         trigger('negativeState', [
             transition('void => *', []),
             transition('* => void', []),
             transition('* => *', [
-                animate(1600, keyframes([style({ color: '#FF0000', offset: 0.0 }), style({ color: 'inherit', offset: 1.0 })]))
+                animate(1500, keyframes([style({ color: '#FF0000', offset: 0.0 }), style({ color: 'inherit', offset: 1.0 })]))
             ])
         ])
     ]

@@ -8,8 +8,12 @@ import { Observable } from 'rxjs';
 export class StocksService {
     private stocksUrl: string = 'assets/data.json';
     private immutableData!: Stock[];
-    public updateFreq: number = 5000;
     public previousData: Stock[] = [];
+
+    private cardsUrl: string = 'assets/cardsData.json';
+    private cardsData!: Stock[];
+
+    public updateFreq: number = 2000;
 
     constructor(private http: HttpClient) {}
 
@@ -28,6 +32,20 @@ export class StocksService {
             });
         });
     }
+
+    getCards(): Observable<Stock[]> {
+      return new Observable<Stock[]>((observer) => {
+          this.http.get<Stock[]>(this.cardsUrl).subscribe((data: Stock[]) => {
+              this.cardsData = data;
+              observer.next(this.cardsData);
+              setInterval(() => {
+                this.cardsData = this.cardsData.map((row: Stock) => this.updateRandomRowWithData(row));
+
+                  observer.next(this.cardsData);
+              }, this.updateFreq);
+          });
+      });
+  }
 
     updateRandomRowWithData(row: Stock): Stock {
         const shouldUpdateData = Math.random() < 0.3;

@@ -1,0 +1,25 @@
+.container {
+    padding-bottom: 16px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 24px;
+}
+
+.price {
+    position: absolute;
+    right: 0;
+    padding-right: 18px;
+}
+
+.card {
+    flex-shrink: 0.3;
+}
+
+.negative{
+    color: #f31700;
+}
+
+.positive {
+    color: #37b400;
+}

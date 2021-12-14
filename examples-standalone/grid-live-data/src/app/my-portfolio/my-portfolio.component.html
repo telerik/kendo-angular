@@ -1,0 +1,26 @@
+<p style="font-weight: 500; font-size: 24px; color: #626880">My portfolio</p>
+<div class="container">
+    <kendo-card width="300px" class="card" *ngFor="let card of cryptoCards">
+        <kendo-card-header class="k-hstack">
+            <kendo-avatar
+                width="40px"
+                height="40px"
+                [imageSrc]="getImg(card)"
+                shape="circle"
+                style="background-color: transparent"
+            ></kendo-avatar>
+            <div>
+                <h1 kendoCardTitle style="font-weight: bold">
+                    {{ card.symbol }}
+                    <span class="price">{{ intl.formatNumber(card.currentPrice, 'c') }}</span>
+                </h1>
+                <p kendoCardSubtitle>
+                    {{ card.currency }}
+                    <span class="price" [ngClass]="{ 'negative': card.change_24h < 0, 'positive': card.change_24h > 0 }">
+                        {{ intl.formatNumber(card.change_24h, 'n2') }} %</span
+                    >
+                </p>
+            </div>
+        </kendo-card-header>
+    </kendo-card>
+</div>
