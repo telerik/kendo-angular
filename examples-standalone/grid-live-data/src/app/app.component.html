@@ -1,4 +1,5 @@
 <app-header></app-header>
+<div >
 <my-portfolio></my-portfolio>
 <kendo-grid [kendoGridBinding]="(gridData | async)!" [rowClass]="rowCallback">
     <kendo-grid-column field="id" title="#" [width]="35"> </kendo-grid-column>
@@ -30,3 +31,5 @@
 
     <kendo-grid-column field="volume" title="Market Cap" format="c"> </kendo-grid-column>
 </kendo-grid>
+<app-main-panel></app-main-panel>
+</div>

@@ -1,0 +1,68 @@
+
+<p style="font-weight: 500; font-size: 24px; color: #626880">My cards</p>
+<div class="right-panel">
+    <div class="card">
+        <kendo-card class="panel-card" width="360px">
+            <kendo-card-body>
+                <p class="card-text">Balance</p>
+                <p class="card-balance-currency">$430,933</p>
+
+                <p></p
+            ></kendo-card-body>
+
+            <kendo-card-body>
+                <p class="card-text">Monthly profit</p>
+                <p class="card-profit-currency">$12,649</p>
+                <kendo-chip label="+10%" icon="arrow-60-up"> </kendo-chip>
+            </kendo-card-body>
+        </kendo-card>
+    </div>
+    <p style="font-weight: 500; font-size: 24px; color: #626880">Recent transactions</p>
+    <div class="transaction-card-container">
+        <kendo-card width="380px" class="transaction-card" *ngFor="let card of transactionCards">
+            <kendo-card-header class="k-hstack">
+                <kendo-avatar
+                    width="40px"
+                    height="40px"
+                    [imageSrc]="getImg(card, null)"
+                    shape="circle"
+                    style="background-color: transparent"
+                ></kendo-avatar>
+                <div>
+                    <h1 kendoCardTitle style="font-weight: bold">
+                        {{ card.symbol }}
+                        <span *ngIf="card.status === 'Buy'; else recieve" class="price">{{ card.amount }}$</span>
+                    </h1>
+                    <p kendoCardSubtitle>
+                        {{ card.status }} {{card.deduction}}
+                        <span  class="price">
+                            {{ card.stamp }}</span
+                        >
+                        <ng-template #recieve>
+                            <span class="price">+{{ card.amount }} {{card.symbol}}</span>
+                          </ng-template>
+                    </p>
+                </div>
+            </kendo-card-header>
+        </kendo-card>
+    </div>
+
+    <p style="font-weight: 500; font-size: 24px; color: #626880">News Feed</p>
+    <div class="transaction-card-container">
+        <kendo-card width="420px" class="transaction-card" *ngFor="let news of newsFeedData">
+            <kendo-card-header class="k-hstack">
+                <div>
+                    <h1 kendoCardTitle class="news-feed" style="font-weight: bold">
+                      {{news.title}}
+                    </h1>
+                </div>
+                <kendo-avatar
+                width="80px"
+                height="60px"
+                [imageSrc]="getImg(null, news)"
+                shape="rounded"
+                style="background-color: transparent; border-radius: 5px;"
+            ></kendo-avatar>
+            </kendo-card-header>
+        </kendo-card>
+    </div>

@@ -1,0 +1,142 @@
+.right-panel {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 32px 32px 60px;
+
+    position: absolute;
+    width: 450px;
+    height: 1200px;
+    left: 1393px;
+    top: 57px;
+
+    position:absolute;
+    top: 200px;
+
+    background: #f8f9fc;
+}
+    .panel-card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 16px;
+    border-radius: 20px;
+    position: static;
+    width: 463px;
+    height: 200px;
+    left: 0px;
+    top: 0px;
+
+    background: radial-gradient(44.65% 148.96% at 31.52% 49.82%, #4c5ffa 0%, #b5a9ff 100%);
+
+    /* Inside Auto Layout */
+
+    flex: none;
+    order: 0;
+    align-self: stretch;
+    flex-grow: 1;
+    margin: 0px 0px;
+}
+.card-balance-currency {
+    position: absolute;
+    top: 82px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 33px;
+    line-height: 48px;
+    /* identical to box height, or 114% */
+
+    display: flex;
+    align-items: center;
+    text-transform: uppercase;
+
+    /* $component-text-white */
+
+    color: #ffffff;
+}
+
+.card-profit-currency {
+    position: absolute;
+    top: 155px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 33px;
+    line-height: 48px;
+    /* identical to box height, or 114% */
+
+    display: flex;
+    align-items: center;
+    text-transform: uppercase;
+
+    /* $component-text-white */
+
+    color: #ffffff;
+}
+
+.card-text {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 15px;
+
+    /* identical to box height, or 140% */
+
+    display: flex;
+    align-items: center;
+    text-transform: capitalize;
+
+    /* $component-text-white */
+
+    color: #ffffff;
+}
+kendo-chip {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 8px 12px;
+
+    position: absolute;
+    top: -5px;
+    left: 200px;
+    color: #ffffff !important;
+    background: rgba(75, 95, 250, 0.5);
+    border-radius: 25px;
+
+    /* Inside Auto Layout */
+
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    margin: 0px 0px;
+}
+
+
+.symbol {
+    margin: 3px 5px 0px 5px;
+    color: black;
+    font-weight: bold;
+}
+.transaction-card{
+    border:0;
+    background-color: inherit;
+}
+.transaction-card > .k-card-header{
+    border-width: 0 0 0px;
+}
+.news-feed{
+    font-family: Roboto;
+font-style: normal;
+font-weight: normal;
+font-size: 18px;
+line-height: 28px;
+/* or 156% */
+
+display: flex;
+align-items: center;
+
+/* $component-text */
+
+color: #424242;
+}

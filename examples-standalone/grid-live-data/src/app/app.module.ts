@@ -11,13 +11,18 @@ import { LayoutModule } from '@progress/kendo-angular-layout';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header/header.component';
+
 import { MyPortfolioComponent } from './my-portfolio/my-portfolio.component';
+import { MainPanelComponent } from './main-panel/main-panel/main-panel.component';
+import { ButtonsModule } from '@progress/kendo-angular-buttons';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    MyPortfolioComponent
+    MyPortfolioComponent,
+    MainPanelComponent
   ],
   imports: [
     BrowserModule,
@@ -28,6 +33,7 @@ import { MyPortfolioComponent } from './my-portfolio/my-portfolio.component';
     IndicatorsModule,
     IconsModule,
     LayoutModule,
+    ButtonsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

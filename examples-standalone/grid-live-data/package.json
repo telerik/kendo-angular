@@ -40,7 +40,7 @@
     "@progress/kendo-angular-treeview": "^5.0.0",
     "@progress/kendo-data-query": "^1.0.0",
     "@progress/kendo-drawing": "^1.1.2",
-    "@progress/kendo-licensing": "^1.2.1",
+    "@progress/kendo-licensing": "^1.0.2",
     "@progress/kendo-svg-icons": "^0.1.2",
     "@progress/kendo-theme-default": "latest",
     "hammerjs": "^2.0.0",
