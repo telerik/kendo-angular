@@ -39,7 +39,7 @@
 }
 .card-balance-currency {
     position: absolute;
-    top: 82px;
+    top:210px;
     font-family: Roboto;
     font-style: normal;
     font-weight: bold;
@@ -58,7 +58,7 @@
 
 .card-profit-currency {
     position: absolute;
-    top: 155px;
+    top: 280px;
     font-family: Roboto;
     font-style: normal;
     font-weight: bold;
