@@ -4,13 +4,13 @@
     align-items: flex-start;
     padding: 32px 32px 60px;
 
-    position: absolute;
+    /* position: absolute; */
     width: 450px;
     height: 1200px;
     left: 1393px;
     top: 57px;
 
-    position:absolute;
+    /* position:absolute; */
     top: 200px;
 
     background: #f8f9fc;

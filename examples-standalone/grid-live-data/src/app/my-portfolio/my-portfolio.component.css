@@ -2,8 +2,9 @@
     padding-bottom: 16px;
     display: flex;
     flex-direction: row;
-    align-items: flex-start;
+    flex-wrap: wrap;
     gap: 24px;
+    justify-content: flex-start;
 }
 
 .price {
@@ -16,7 +17,7 @@
     flex-shrink: 0.3;
 }
 
-.negative{
+.negative {
     color: #f31700;
 }
 

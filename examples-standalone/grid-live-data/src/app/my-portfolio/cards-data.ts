@@ -1,4 +1,4 @@
-[
+export const cards = [
   {
       "id": 0,
       "currency": "Bitcoin",
@@ -16,14 +16,6 @@
       "change_24h": 94.4
   },
   {
-      "id": 3,
-      "currency": "Monero",
-      "symbol": "XMR",
-      "volume": 184472.910,
-      "currentPrice": 191.65,
-      "change_24h": -11.04
-  },
-  {
       "id": 4,
       "currency": "Solana",
       "symbol": "SOL",
@@ -38,13 +30,5 @@
       "volume": 2715338.923,
       "currentPrice": 1.31,
       "change_24h": -4.56
-  },
-  {
-      "id": 6,
-      "currency": "Litecoin",
-      "symbol": "LTC",
-      "volume": 2008256054,
-      "currentPrice": 146.66,
-      "change_24h": 146.66
   }
 ]

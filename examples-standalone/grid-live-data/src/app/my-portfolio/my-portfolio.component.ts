@@ -1,7 +1,8 @@
 import { Component, Input, ViewEncapsulation } from '@angular/core';
 import { IntlService } from '@progress/kendo-angular-intl';
 import { Observable } from 'rxjs';
-import { Stock, StocksService } from '../services/stocks.service';
+import { Stock } from '../services/stocks.service';
+import { cards } from './cards-data';
 
 @Component({
     selector: 'my-portfolio',
@@ -11,13 +12,9 @@ import { Stock, StocksService } from '../services/stocks.service';
 })
 export class MyPortfolioComponent {
     @Input() data!: Observable<Stock[]>;
-    public cryptoCards: any;
+    public cryptoCards: Stock[] = cards;
 
-    constructor(private stockService: StocksService, public intl: IntlService) {
-        this.stockService.getCards().subscribe((data) => {
-            this.cryptoCards = data;
-        });
-    }
+    constructor(public intl: IntlService) {}
 
     public getImg(card: any) {
         return `../../assets/coinslogo/${card.currency}.png`;

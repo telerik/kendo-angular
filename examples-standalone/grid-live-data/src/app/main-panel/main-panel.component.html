@@ -1,6 +1,6 @@
-
-<p style="font-weight: 500; font-size: 24px; color: #626880">My cards</p>
 <div class="right-panel">
+<p style="font-weight: 500; font-size: 24px; color: #626880">My cards</p>
+
     <div class="card">
         <kendo-card class="panel-card" width="360px">
             <kendo-card-body>
@@ -34,13 +34,11 @@
                         <span *ngIf="card.status === 'Buy'; else recieve" class="price">{{ card.amount }}$</span>
                     </h1>
                     <p kendoCardSubtitle>
-                        {{ card.status }} {{card.deduction}}
-                        <span  class="price">
-                            {{ card.stamp }}</span
-                        >
+                        {{ card.status }} {{ card.deduction }}
+                        <span class="price"> {{ card.stamp }}</span>
                         <ng-template #recieve>
-                            <span class="price">+{{ card.amount }} {{card.symbol}}</span>
-                          </ng-template>
+                            <span class="price">+{{ card.amount }} {{ card.symbol }}</span>
+                        </ng-template>
                     </p>
                 </div>
             </kendo-card-header>
@@ -53,16 +51,17 @@
             <kendo-card-header class="k-hstack">
                 <div>
                     <h1 kendoCardTitle class="news-feed" style="font-weight: bold">
-                      {{news.title}}
+                        {{ news.title }}
                     </h1>
                 </div>
                 <kendo-avatar
-                width="80px"
-                height="60px"
-                [imageSrc]="getImg(null, news)"
-                shape="rounded"
-                style="background-color: transparent; border-radius: 5px;"
-            ></kendo-avatar>
+                    width="80px"
+                    height="60px"
+                    [imageSrc]="getImg(null, news)"
+                    shape="rounded"
+                    style="background-color: transparent; border-radius: 5px"
+                ></kendo-avatar>
             </kendo-card-header>
         </kendo-card>
     </div>
+</div>
