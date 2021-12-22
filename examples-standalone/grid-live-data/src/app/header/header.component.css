@@ -1,58 +1,18 @@
-kendo-appbar {
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    padding: 12px 48px;
-
-    position: static;
-    width: 1920px;
-    left: calc(50% - 1920px / 2);
-    top: 0%;
-    bottom: 0%;
-
+.appbar {
+    width: 100%;
     background: linear-gradient(90deg, #6626ed 0%, #4b5ffa 100%);
-    border-radius: 0px;
-
-    /* Inside Auto Layout */
-
-    flex: none;
-    order: 0;
-    flex-grow: 1;
-    margin: 0px 0px;
 }
-kendo-badge {
+
+.badge {
     position: absolute;
-    width: 10px;
-    height: 10px;
-    left: 17px;
-    top: 2px;
+    left: 20px;
 }
+
 .title {
-    position: static;
-    width: 157px;
-    height: 20px;
-    left: 0px;
-    top: calc(50% - 20px / 2);
-
-    font-family: Helvetica Neue;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 28px;
+    font-family: Helvetica Neue, sans-serif;
+    font-weight: 700;
     line-height: 20px;
-    /* identical to box height, or 71% */
-
-    display: flex;
-    align-items: center;
-
-    /* $component-text-white */
-
     color: #ffffff;
-
-    /* Inside Auto Layout */
-
-    flex: none;
-    order: 0;
-    flex-grow: 0;
     margin: 0px 10px;
 }
 
