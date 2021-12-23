@@ -7,6 +7,10 @@
     justify-content: flex-start;
 }
 
+.k-card-header{
+  border-style: none;
+}
+
 .price {
     position: absolute;
     right: 0;
