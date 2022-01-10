@@ -1,8 +1,8 @@
-<p style="font-weight: 500; font-size: 24px; color: #626880">Total portfolio</p>
+<p class="total-portfolio-title">Total portfolio</p>
 <kendo-chart [style.height.px]="250">
     <kendo-chart-tooltip format="${0}"> </kendo-chart-tooltip>
     <kendo-chart-category-axis>
-        <kendo-chart-category-axis-item [categories]="['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']"> </kendo-chart-category-axis-item>
+        <kendo-chart-category-axis-item [categories]="categories"> </kendo-chart-category-axis-item>
     </kendo-chart-category-axis>
 
     <kendo-chart-series>
@@ -10,8 +10,8 @@
             type="area"
             color="#4B5FFA"
             [opacity]="0.3"
-            [data]="[300, 246, 340, 212, 240, 156, 250]"
-            [line]="{ width: 2, style: 'smooth', color: '#4B5FFA' }"
+            [data]="seriesData"
+            [line]="lineStyle"
         >
         </kendo-chart-series-item>
     </kendo-chart-series>
