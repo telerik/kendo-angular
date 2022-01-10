@@ -18,29 +18,35 @@ import { TotalPortfolioComponent } from './total-portfolio/total-portfolio.compo
 import { MyPortfolioComponent } from './my-portfolio/my-portfolio.component';
 import { MainPanelComponent } from './main-panel/main-panel.component';
 import { GridComponent } from './grid/grid.component';
+import { BalanceComponent } from './main-panel/balance/balance.component';
+import { TransactionsComponent } from './main-panel/transactions/transactions.component';
+import { NewsComponent } from './main-panel/news/news.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HeaderComponent,
-    MyPortfolioComponent,
-    MainPanelComponent,
-    GridComponent,
-    TotalPortfolioComponent
-  ],
-  imports: [
-    BrowserModule,
-    HttpClientModule,
-    GridModule,
-    BrowserAnimationsModule,
-    NavigationModule,
-    IndicatorsModule,
-    IconsModule,
-    LayoutModule,
-    ButtonsModule,
-    ChartsModule,
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        HeaderComponent,
+        MyPortfolioComponent,
+        MainPanelComponent,
+        GridComponent,
+        TotalPortfolioComponent,
+        BalanceComponent,
+        TransactionsComponent,
+        NewsComponent
+    ],
+    imports: [
+        BrowserModule,
+        HttpClientModule,
+        GridModule,
+        BrowserAnimationsModule,
+        NavigationModule,
+        IndicatorsModule,
+        IconsModule,
+        LayoutModule,
+        ButtonsModule,
+        ChartsModule,
+    ],
+    providers: [],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }

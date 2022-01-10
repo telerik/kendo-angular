@@ -17,8 +17,8 @@
                 <p kendoCardSubtitle>
                     {{ card.currency }}
                     <span class="price" [ngClass]="{ 'negative': card.change_24h < 0, 'positive': card.change_24h > 0 }">
-                        {{ intl.formatNumber(card.change_24h, 'n2') }} %</span
-                    >
+                        {{ intl.formatNumber(card.change_24h, 'n2') }} %
+                    </span>
                 </p>
             </div>
         </kendo-card-header>

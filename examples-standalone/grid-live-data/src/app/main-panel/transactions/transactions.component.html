@@ -1,0 +1,27 @@
+<p class="right-panel-title">Recent transactions</p>
+<div class="card-container">
+    <kendo-card width="380px" class="transaction-card" *ngFor="let card of transactionCards">
+        <kendo-card-header class="k-hstack">
+            <kendo-avatar
+                width="40px"
+                height="40px"
+                [imageSrc]="getCardImg(card)"
+                shape="circle"
+                style="background-color: transparent"
+            ></kendo-avatar>
+            <div>
+                <h1 kendoCardTitle>
+                    {{ card.symbol }}
+                    <span *ngIf="card.status === 'Buy'; else recieve" class="price">{{ card.amount }}$</span>
+                </h1>
+                <p kendoCardSubtitle>
+                    {{ card.status }} {{ card.deduction }}
+                    <span class="price"> {{ card.stamp }}</span>
+                    <ng-template #recieve>
+                        <span class="price">+{{ card.amount }} {{ card.symbol }}</span>
+                    </ng-template>
+                </p>
+            </div>
+        </kendo-card-header>
+    </kendo-card>
+</div>

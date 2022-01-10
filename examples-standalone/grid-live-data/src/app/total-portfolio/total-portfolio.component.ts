@@ -1,11 +1,10 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import { Component } from '@angular/core';
 import { SeriesLine } from '@progress/kendo-angular-charts';
 
 @Component({
     selector: 'total-portfolio',
     templateUrl: './total-portfolio.component.html',
-    styleUrls: ['./total-portfolio.component.css'],
-    encapsulation: ViewEncapsulation.None
+    styleUrls: ['./total-portfolio.component.css']
 })
 export class TotalPortfolioComponent {
     public categories: Array<string> = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];

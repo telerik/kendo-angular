@@ -1,3 +1,9 @@
+.grid-section-title {
+    font-weight: 500;
+    font-size: 24px;
+    color: #626880;
+}
+
 .price-down .priceColumn,
 .arrow-down {
     color: #f31700;

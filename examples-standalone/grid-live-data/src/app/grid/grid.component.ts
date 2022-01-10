@@ -1,4 +1,4 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import { Component } from '@angular/core';
 import { RowClassArgs } from '@progress/kendo-angular-grid';
 import { Observable } from 'rxjs';
 import { trigger, style, animate, transition, keyframes } from '@angular/animations';
@@ -8,7 +8,6 @@ import { Stock, StocksService } from '../services/stocks.service';
     selector: 'grid',
     templateUrl: './grid.component.html',
     styleUrls: ['./grid.component.css'],
-    encapsulation: ViewEncapsulation.None,
     animations: [
         trigger('positiveState', [
             transition('void => *', []),

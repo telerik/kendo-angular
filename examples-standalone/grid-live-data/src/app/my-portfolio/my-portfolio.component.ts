@@ -12,11 +12,12 @@ import { cards } from './cards-data';
 })
 export class MyPortfolioComponent {
     @Input() data!: Observable<Stock[]>;
+
     public cryptoCards: Stock[] = cards;
 
     constructor(public intl: IntlService) {}
 
-    public getImg(card: any) {
+    public getImg(card: any): string {
         return `../../assets/coinslogo/${card.currency}.png`;
     }
 }
