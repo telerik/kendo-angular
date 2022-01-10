@@ -4,28 +4,46 @@
     background: #f8f9fc;
 }
 
+.right-panel-title {
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 30px;
+    color: #626880;
+}
+
 .panel-card {
     line-height: 1;
     padding: 16px;
     border-radius: 20px;
     background: radial-gradient(44.65% 148.96% at 31.52% 49.82%, #4c5ffa 0%, #b5a9ff 100%);
 }
+
+.card-balance-text {
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 28px;
+    color: #ffffff;
+}
+
 .card-balance-currency {
-    font-weight: bold;
-    font-size: 33px;
+    font-size: 42px;
+    font-weight: 700;
+    line-height: 48px;
+    color: #ffffff;
+}
+
+.card-profit-text {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 20px;
     color: #ffffff;
 }
 
 .card-profit-currency {
     display: inline-block;
-    font-weight: bold;
-    font-size: 33px;
-    color: #ffffff;
-}
-
-.card-text {
-    font-weight: normal;
-    font-size: 15px;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 36px;
     color: #ffffff;
 }
 
@@ -57,6 +75,7 @@ kendo-chip {
 
 .news-feed-card > .k-card-header{
   padding-left: 0px;
+  color: #424242;
 }
 
 .k-card-body p {
@@ -67,4 +86,5 @@ kendo-chip {
     font-weight: normal;
     font-size: 18px;
     color: #424242;
+    margin-right: 20px;
 }
