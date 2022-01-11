@@ -65,4 +65,3 @@ export const accountTransactions = [
         deduction: '-953.43$'
     }
 ];
-  
