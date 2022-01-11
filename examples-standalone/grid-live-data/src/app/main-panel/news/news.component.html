@@ -1,0 +1,17 @@
+<p class="right-panel-title">News Feed</p>
+<div class="card-container">
+    <kendo-card width="420px" class="news-feed-card" *ngFor="let news of newsFeedData">
+        <kendo-card-header class="k-hstack">
+            <h1 kendoCardTitle class="news-feed">
+                {{ news.title }}
+            </h1>
+            <kendo-avatar
+                width="112px"
+                height="60px"
+                [imageSrc]="getNewsImg(news)"
+                shape="rounded"
+                style="background-color: transparent; border-radius: 5px"
+            ></kendo-avatar>
+        </kendo-card-header>
+    </kendo-card>
+</div>

@@ -1,0 +1,21 @@
+.appbar {
+    width: 100%;
+    background: linear-gradient(90deg, #6626ed 0%, #4b5ffa 100%);
+}
+
+.badge {
+    position: absolute;
+    left: 20px;
+}
+
+.title {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-weight: 700;
+    line-height: 20px;
+    color: #ffffff;
+    margin: 0px 10px;
+}
+
+.k-appbar-separator {
+    color: #ffffff;
+}

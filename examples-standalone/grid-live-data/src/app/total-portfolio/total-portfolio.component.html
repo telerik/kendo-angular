@@ -1,0 +1,18 @@
+<p class="total-portfolio-title">Total portfolio</p>
+<kendo-chart [style.height.px]="250">
+    <kendo-chart-tooltip format="${0}"> </kendo-chart-tooltip>
+    <kendo-chart-category-axis>
+        <kendo-chart-category-axis-item [categories]="categories"> </kendo-chart-category-axis-item>
+    </kendo-chart-category-axis>
+
+    <kendo-chart-series>
+        <kendo-chart-series-item
+            type="area"
+            color="#4B5FFA"
+            [opacity]="0.3"
+            [data]="seriesData"
+            [line]="lineStyle"
+        >
+        </kendo-chart-series-item>
+    </kendo-chart-series>
+</kendo-chart>
