@@ -3,7 +3,7 @@
 # Builds example projects and deploys them to GH Pages
 
 WORKSPACE_PROJECTS=(integration-pwa integration-pwa-material)
-STANDALONE_PROJECTS=(finance-portfolio grid-charts-integration coffee-warehouse grid-live-demo)
+STANDALONE_PROJECTS=(finance-portfolio grid-charts-integration coffee-warehouse grid-live-data)
 
 set -e
 
