@@ -2,8 +2,13 @@
 <kendo-chart [style.height.px]="250">
     <kendo-chart-tooltip format="${0}"> </kendo-chart-tooltip>
     <kendo-chart-category-axis>
-        <kendo-chart-category-axis-item [categories]="categories"> </kendo-chart-category-axis-item>
+        <kendo-chart-category-axis-item [categories]="categories" [labels]="categoryAxisLabels">
+        </kendo-chart-category-axis-item>
     </kendo-chart-category-axis>
+    <kendo-chart-value-axis>
+        <kendo-chart-value-axis-item [labels]="valueAxisLabels">
+        </kendo-chart-value-axis-item>
+      </kendo-chart-value-axis>
 
     <kendo-chart-series>
         <kendo-chart-series-item

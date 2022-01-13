@@ -11,6 +11,6 @@ export class TransactionsComponent {
     public transactionCards: Transactions[] = accountTransactions;
 
     public getCardImg(card: Transactions): string {
-        return `../../assets/coinslogo/${card.currency}.png`;
+        return `assets/coinslogo/${card.currency}.png`;
     }
 }

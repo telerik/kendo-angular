@@ -1,10 +1,9 @@
 <p class="grid-section-title">Explore the market</p>
 <kendo-grid [kendoGridBinding]="(gridData | async)!" [rowClass]="rowCallback">
-    <kendo-grid-column field="id" title="#" [width]="35"> </kendo-grid-column>
     <kendo-grid-column field="currency" title="Crypto currency">
         <ng-template kendoGridCellTemplate let-dataItem>
             <div class="currency-container">
-                <img class="coin-logo" src="../assets/coinslogo/{{ dataItem.currency }}.png" alt="coin logo" />
+                <img class="coin-logo" src="assets/coinslogo/{{ dataItem.currency }}.png" alt="coin logo" />
                 <span class="currency">
                     {{ dataItem.currency }}
                 </span>

@@ -21,6 +21,7 @@ import { GridComponent } from './grid/grid.component';
 import { BalanceComponent } from './main-panel/balance/balance.component';
 import { TransactionsComponent } from './main-panel/transactions/transactions.component';
 import { NewsComponent } from './main-panel/news/news.component';
+import { ActionButtonsComponent } from './action-buttons/action-buttons.component';
 
 @NgModule({
     declarations: [
@@ -32,7 +33,8 @@ import { NewsComponent } from './main-panel/news/news.component';
         TotalPortfolioComponent,
         BalanceComponent,
         TransactionsComponent,
-        NewsComponent
+        NewsComponent,
+        ActionButtonsComponent
     ],
     imports: [
         BrowserModule,

@@ -10,11 +10,11 @@
                 style="background-color: transparent"
             ></kendo-avatar>
             <div>
-                <h1 kendoCardTitle>
+                <h1 kendoCardTitle class="card-title">
                     {{ card.symbol }}
                     <span *ngIf="card.status === 'Buy'; else recieve" class="price">{{ card.amount }}$</span>
                 </h1>
-                <p kendoCardSubtitle>
+                <p kendoCardSubtitle class="k-card-subtitle">
                     {{ card.status }} {{ card.deduction }}
                     <span class="price"> {{ card.stamp }}</span>
                     <ng-template #recieve>
