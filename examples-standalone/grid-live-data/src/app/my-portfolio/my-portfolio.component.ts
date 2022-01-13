@@ -18,6 +18,11 @@ export class MyPortfolioComponent {
     constructor(public intl: IntlService) {}
 
     public getImg(card: any): string {
-        return `../../assets/coinslogo/${card.currency}.png`;
+        return `assets/coinslogo/${card.currency}.png`;
+    }
+
+    public getPriceChange(card: Stock): number {
+        const  priceChange = (card.currentPrice * card.change_24h/100)/(1 + card.change_24h/100);
+        return priceChange;
     }
 }
