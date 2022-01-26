@@ -10,6 +10,7 @@ import { IconsModule } from '@progress/kendo-angular-icons';
 import { LayoutModule } from '@progress/kendo-angular-layout';
 import { ChartsModule } from '@progress/kendo-angular-charts';
 import { ButtonsModule } from '@progress/kendo-angular-buttons';
+import { TooltipsModule } from '@progress/kendo-angular-tooltip';
 import 'hammerjs';
 
 import { AppComponent } from './app.component';
@@ -21,7 +22,6 @@ import { GridComponent } from './grid/grid.component';
 import { BalanceComponent } from './main-panel/balance/balance.component';
 import { TransactionsComponent } from './main-panel/transactions/transactions.component';
 import { NewsComponent } from './main-panel/news/news.component';
-import { ActionButtonsComponent } from './action-buttons/action-buttons.component';
 
 @NgModule({
     declarations: [
@@ -33,8 +33,7 @@ import { ActionButtonsComponent } from './action-buttons/action-buttons.componen
         TotalPortfolioComponent,
         BalanceComponent,
         TransactionsComponent,
-        NewsComponent,
-        ActionButtonsComponent
+        NewsComponent
     ],
     imports: [
         BrowserModule,
@@ -47,6 +46,7 @@ import { ActionButtonsComponent } from './action-buttons/action-buttons.componen
         LayoutModule,
         ButtonsModule,
         ChartsModule,
+        TooltipsModule,
     ],
     providers: [],
     bootstrap: [AppComponent]

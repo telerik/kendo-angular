@@ -1,5 +1,6 @@
 .appbar {
     width: 100%;
+    min-width: 820px;
     background: linear-gradient(90deg, #6626ed 0%, #4b5ffa 100%);
 }
 
@@ -18,4 +19,9 @@
 
 .k-appbar-separator {
     color: #ffffff;
+}
+
+.docs-icon{
+    color: white;
+    font-size: 25px;
 }
