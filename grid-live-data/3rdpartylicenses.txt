@@ -73,6 +73,9 @@ SEE LICENSE IN LICENSE.md
 @progress/kendo-angular-progressbar
 SEE LICENSE IN LICENSE.md
 
+@progress/kendo-angular-tooltip
+SEE LICENSE IN LICENSE.md
+
 @progress/kendo-angular-treeview
 SEE LICENSE IN LICENSE.md
 
