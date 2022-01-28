@@ -1,0 +1,8 @@
+.body {
+    display: flex;
+    font-family: Roboto, sans-serif;
+}
+
+.portfolio {
+    margin: 0px 25px;
+}
