@@ -1,0 +1,55 @@
+<div class="example-config">
+    <div class="row">
+        <div class="col m-2">
+            <button kendoButton (click)="loadProducts()">Load 100000 Items</button>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col m-2">
+            <ul class="k-radio-list">
+                <li class="k-radio-item">
+                    <input kendoRadioButton type="radio" #virtual [(ngModel)]="mode" value="virtual" (change)="changeMode(mode)" />
+                    <kendo-label [for]="virtual" text="Virtual Scrolling"></kendo-label>
+                </li>
+                <li class="k-radio-item">
+                    <input kendoRadioButton type="radio" #paging [(ngModel)]="mode" value="paging" (change)="changeMode(mode)" />
+                    <kendo-label [for]="paging" text="Paging"></kendo-label>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<kendo-grid
+    *ngIf="isVirtual"
+    [data]="gridView"
+    [skip]="state.skip"
+    [pageSize]="state.take"
+    scrollable="virtual"
+    [rowHeight]="36"
+    [height]="420"
+    [sortable]="true"
+    [sort]="state.sort"
+    [virtualColumns]="true"
+    (dataStateChange)="onChange($event)"
+>
+    <kendo-grid-column *ngFor="let column of columns" [field]="column.field" [title]="column.title" [width]="column.width">
+    </kendo-grid-column>
+</kendo-grid>
+
+<kendo-grid
+    *ngIf="!isVirtual"
+    [data]="gridView"
+    [skip]="state.skip"
+    [pageSize]="state.take"
+    [pageable]="true"
+    [height]="420"
+    [sortable]="true"
+    [sort]="state.sort"
+    [virtualColumns]="true"
+    (dataStateChange)="onChange($event)"
+>
+    <kendo-grid-column *ngFor="let column of columns" [field]="column.field" [title]="column.title" [width]="column.width">
+    </kendo-grid-column>
+</kendo-grid>

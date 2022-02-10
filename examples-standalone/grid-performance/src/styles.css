@@ -1,0 +1,10 @@
+/* You can add global styles to this file, and also import other style files */
+body {
+    font-family: 'RobotoRegular', Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    margin: 0;
+}
+
+.k-radio-item .k-label{
+  cursor: pointer;
+}
