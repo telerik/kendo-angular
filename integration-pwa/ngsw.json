@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1643373314191,
+  "timestamp": 1644840261046,
   "index": "/index.html",
   "assetGroups": [
     {
@@ -79,7 +79,7 @@
     "/assets/login-right-bg.png": "657495c9cb2fd673c468a9b0afbec8dd60e25838",
     "/assets/noConnection.png": "ac66318b4d07496f76b01b4c5749b68c4c494631",
     "/favicon.ico": "84161b857f5c547e3699ddfbffc6d8d737542e01",
-    "/index.html": "8d439f3d8a4964d902c5f15777d4a759de35406d"
+    "/index.html": "0ac93a31686921999bbfddd2ef91d522e4585a91"
   },
   "navigationUrls": [
     {
