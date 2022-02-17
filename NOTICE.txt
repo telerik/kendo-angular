@@ -1,29 +1,71 @@
-Progress Kendo UI for Angular 2021
+Progress Kendo UI for Angular 2022
 
-Copyright © 2016-2021 Progress Software Corporation and/or one of its
+Copyright (c) 2016-2022 Progress Software Corporation and/or one of its
 subsidiaries or affiliates. All rights reserved.
 
 Portions of the Product include certain open source and commercial third-party
 components listed below ("Third-Party Components"). The authors of the
 Third-Party Components require Progress Software Corporation ("PSC") to
 include the following notices and additional licensing terms as a condition of
-PSC's use of such Third-Party Components.  You acknowledge that the authors
+PSC's use of such Third-Party Components. You acknowledge that the authors
 of the Third-Party Components have no obligation to provide support to you for
-the Third-Party Components or the Product.  You hereby undertake to comply with
-all licenses related to the applicable Third-Party Components.  Notwithstanding
+the Third-Party Components or the Product. You hereby undertake to comply with
+all licenses related to the applicable Third-Party Components. Notwithstanding
 anything to the contrary, to the extent that any of the terms and conditions of
 the Product Agreement conflict, vary, or are in addition to the terms and
 conditions of the aforementioned third-party licenses for these technologies,
 such terms and conditions are offered by Progress alone and not by any other
 party.
 
+-------------------------------------------------------------------------
+SUMMARY OF COMPONENTS:
 
-1. Special Notices Regarding Open Source Third-Party Components incorporated in
+VendorName | ComponentName | VersionName | LicenseType
+
+DefinitelyTyped.org | @types/prosemirror-commands | 1.0.4 - Open Source | MIT-style License
+DefinitelyTyped.org | @types/prosemirror-dropcursor | 1.0.1 - Open Source | MIT-style License
+DefinitelyTyped.org | @types/prosemirror-gapcursor | 1.0.2 - Open Source | MIT-style License
+DefinitelyTyped.org | @types/prosemirror-history | 1.0.2 - Open Source | MIT-style License
+DefinitelyTyped.org | @types/prosemirror-inputrules | 1.0.2 - Open Source | MIT-style License
+DefinitelyTyped.org | @types/prosemirror-keymap | 1.0.2 - Open Source | MIT-style License
+DefinitelyTyped.org | @types/prosemirror-model | 1.11.2 - Open Source | MIT-style License
+DefinitelyTyped.org | @types/prosemirror-schema-list | 1.0.2 - Open Source | MIT-style License
+DefinitelyTyped.org | @types/prosemirror-state | 1.2.4 - Open Source | MIT-style License
+DefinitelyTyped.org | @types/prosemirror-tables | 0.9.1 - Open Source | MIT-style License
+DefinitelyTyped.org | @types/prosemirror-transform | 1.2.9 - Open Source | MIT-style License
+DefinitelyTyped.org | @types/prosemirror-view | 1.11.4 - Open Source | MIT-style License
+Isaac Z. Schlueter | glob | 7.1.3 - Open Source | ISC-style License
+Jorik Tangelder (Eight Media) | HammerJS | 2.0.8 - Open Source | MIT-style License
+Matt Mueller | cheerio | 0.22 - Open Source | MIT-style License
+Progress Software Corporation | Kendo UI Licensing CLI | 1.1 - Proprietary | 
+Progress Software Corporation | jszip-esm | 1.0.0 - Open Source | MIT-style License
+Progress Software Corporation | pako-esm | 1.0.0 - Open Source | MIT-style License
+ProseMirror | prosemiror-inputrules | 1.0.1 - Open Source | MIT-style License
+ProseMirror | prosemirror-commands | 1.0.7 - Open Source | MIT-style License
+ProseMirror | prosemirror-cursor | 1.0.1 - Open Source | MIT-style License
+ProseMirror | prosemirror-gapcursor | 1.0.2 - Open Source | MIT-style License
+ProseMirror | prosemirror-history | 1.0.2 - Open Source | MIT-style License
+ProseMirror | prosemirror-keymap | 1.0.1 - Open Source | MIT-style License
+ProseMirror | prosemirror-model | 1.6.1 - Open Source | MIT-style License
+ProseMirror | prosemirror-schema-list | 1.0.1 - Open Source | MIT-style License
+ProseMirror | prosemirror-state | 1.2.2 - Open Source | MIT-style License
+ProseMirror | prosemirror-tables | 0.7.10 - Open Source | MIT-style License
+ProseMirror | prosemirror-transform | 1.1.3 - Open Source | MIT-style License
+ProseMirror | prosemirror-view | 1.5.2 - Open Source | MIT-style License
+Quildreen Motta | Data.Task | 3.1.2 - Open Source | MIT-style License
+Scott Sauyet and Michael Hurley | ramda | 0.23.0 - Open Source | MIT-style License
+TsLib | TsLib | 1.9.3 - Open Source | Apache Software License Version 2.0
+Tsvetomir Tsonev | xlf-translate | 2.0.4 - Open Source | BSD-style License
+Unicode Inc. | CLDR | 37 - Open Source | Unicode, Inc. License Agreement - Data Files and Software
+Vitaly Puzrin | js-yaml | 3.14.0 - Open Source | MIT-style License
+-------------------------------------------------------------------------
+
+1.	Special Notices Regarding Open-Source Third-Party Components incorporated into
 the Product:
 
-(1)  The Apache Software License, Version 2.0:
+(1) 	The Apache Software License, Version 2.0:
 
-Progress Kendo UI for Angular 2021 incorporates tslib v1.9.3.  Such technology
+Progress Kendo UI for Angular 2022 incorporates TsLib v1.9.3. Such technology
 is subject to the following terms and conditions: Apache Software License Version 2.0.
 
                                  Apache License
@@ -246,44 +288,44 @@ is subject to the following terms and conditions: Apache Software License Versio
    and limitations under the License.
    -------------------------------------------------------------------------
 
-(2) BSD-Style Licenses:
+(2) 	BSD-Style Licenses:
 
-(a) Progress Kendo UI for Angular 2021 incorporates xlf-translate v2.0.4. Such
+(a) Progress Kendo UI for Angular 2022 incorporates xlf-translate v2.0.4.  Such
 technology is subject to the following terms and conditions:
 
-    BSD 3-Clause License
+   BSD 3-Clause License
 
-    Copyright (c) 2017, Tsvetomir Tsonev
-    All rights reserved.
+   Copyright (c) 2017, Tsvetomir Tsonev
+   All rights reserved.
 
-    Redistribution and use in source and binary forms, with or without
-    modification, are permitted provided that the following conditions are met:
+   Redistribution and use in source and binary forms, with or without
+   modification, are permitted provided that the following conditions are met:
 
-    * Redistributions of source code must retain the above copyright notice, this
-      list of conditions and the following disclaimer.
+   * Redistributions of source code must retain the above copyright notice, this
+   list of conditions and the following disclaimer.
 
-    * Redistributions in binary form must reproduce the above copyright notice,
-      this list of conditions and the following disclaimer in the documentation
-      and/or other materials provided with the distribution.
+   * Redistributions in binary form must reproduce the above copyright notice,
+   this list of conditions and the following disclaimer in the documentation
+   and/or other materials provided with the distribution.
 
-    * Neither the name of the copyright holder nor the names of its
-      contributors may be used to endorse or promote products derived from
-      this software without specific prior written permission.
+   * Neither the name of the copyright holder nor the names of its
+   contributors may be used to endorse or promote products derived from
+   this software without specific prior written permission.
 
-    THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
-    AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
-    IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
-    DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
-    FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
-    DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
-    SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
-    CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
-    OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-    OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+   THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+   AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+   IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+   DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
+   FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+   DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+   SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+   CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+   OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+   OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-(3) The ISC License:
+(3) 	The ISC License:
 
-(a) Progress Kendo UI for Angular 2021 incorporates glob v7.1.3.  Such technology
+(a) Progress Kendo UI for Angular 2022 incorporates glob v7.1.3.  Such technology
 is subject to the following terms and conditions:
 
     The ISC License
@@ -308,9 +350,9 @@ is subject to the following terms and conditions:
     under a Creative Commons Attribution-ShareAlike 4.0 International License
     https://creativecommons.org/licenses/by-sa/4.0/
 
-(4) MIT-Style Licenses:
+(4)	MIT-Style Licenses:
 
-(a) Progress Kendo UI for Angular 2021 incorporates HammerJS v2.0.8.  Such
+(a) Progress Kendo UI for Angular 2022 incorporates HammerJS v2.0.8.  Such
 technology is subject to the following terms and conditions:
 
    The MIT License (MIT)
@@ -335,7 +377,7 @@ technology is subject to the following terms and conditions:
    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
    SOFTWARE.
 
-(b) Progress Kendo UI for Angular 2021 incorporates prosemirror-commands v1*,
+(b) Progress Kendo UI for Angular 2022 incorporates prosemirror-commands v1*,
 prosemirror-cursor v1*, prosemirror-gapcursor v1*, prosemirror-history v1*,
 prosemirror-inputrules v1*, prosemirror-keymap v1*, prosemirror-model v1*,
 prosemirror-schema-list v1*, prosemirror-state v1*, prosemirror-tables v0.7*,
@@ -362,39 +404,36 @@ subject to the following terms and conditions:
    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
    THE SOFTWARE.
 
-(c) Progress Kendo UI for Angular 2021 incorporates cheerio v0.2.2. Such
-technology is subject to the following terms and conditions:
+(c) Progress Kendo UI for Angular 2022 incorporates cheerio v0.2.2.  Such technology is subject to the following terms and conditions:
 
-    MIT License
+   MIT License
 
-    Copyright (c) 2016 Matt Mueller
+   Copyright (c) 2016 Matt Mueller
 
-    Permission is hereby granted, free of charge, to any person obtaining a copy
-    of this software and associated documentation files (the "Software"), to deal
-    in the Software without restriction, including without limitation the rights
-    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-    copies of the Software, and to permit persons to whom the Software is
-    furnished to do so, subject to the following conditions:
+   Permission is hereby granted, free of charge, to any person obtaining a copy
+   of this software and associated documentation files (the "Software"), to deal
+   in the Software without restriction, including without limitation the rights
+   to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+   copies of the Software, and to permit persons to whom the Software is
+   furnished to do so, subject to the following conditions:
 
-    The above copyright notice and this permission notice shall be included in all
-    copies or substantial portions of the Software.
+   The above copyright notice and this permission notice shall be included in all
+   copies or substantial portions of the Software.
 
-    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-    SOFTWARE.
+   THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+   IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+   FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+   AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+   LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+   SOFTWARE.
 
-(d) Progress Kendo UI for Angular 2021 incorporates @types/prosemirror-commands v1*,
-@types/prosemirror-dropcursor v1*, @types/prosemirror-gapcursor v1*,
-@types/prosemirror-history v1*, @types/prosemirror-inputrules v1*,
-@types/prosemirror-keymap v1*, @types/prosemirror-model v1*,
-@types/prosemirror-schema-list v1*, @types/prosemirror-state v1*,
-@types/prosemirror-tables v0.9*,  @types/prosemirror-transform v1*, and
-@types/prosemirror-view v1*. Such technologies are subject to the following terms
-and conditions:
+(d) Progress Kendo UI for Angular 2022 incorporates @types/prosemirror-commands v1*,
+@types/prosemirror-dropcursor v1*, @types/prosemirror-gapcursor v1*, @types/prosemirror-history v1*,
+@types/prosemirror-inputrules v1*, @types/prosemirror-keymap v1*, @types/prosemirror-model v1*,
+@types/prosemirror-schema-list v1*, @types/prosemirror-state v1*, @types/prosemirror-tables v0.9*,
+@types/prosemirror-transform v1*, and @types/prosemirror-view v1*.  Such technologies are
+subject to the following terms and conditions: 
 
     This project is licensed under the MIT license.
     Copyrights are respective of each contributor listed at the beginning of each
@@ -418,7 +457,7 @@ and conditions:
     OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
     SOFTWARE.
 
-(e) Progress Kendo UI for Angular 2021 incorporates pako-esm v1.0.0. Such
+(e) Progress Kendo UI for Angular 2022 incorporates pako-esm v1.0.0.  Such
 technology is subject to the following terms and conditions:
 
   Copyright © 2020 Progress Software Corporation and/or one of its subsidiaries
@@ -444,7 +483,7 @@ technology is subject to the following terms and conditions:
   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
   THE SOFTWARE.
 
-(f) Progress Kendo UI for Angular 2021 incorporates jszip-esm v1.0.0. Such
+(f) Progress Kendo UI for Angular 2022 incorporates jszip-esm v1.0.0.  Such
 technology is subject to the following terms and conditions:
 
     Copyright © 2020 Progress Software Corporation and/or one of its subsidiaries
@@ -471,7 +510,7 @@ technology is subject to the following terms and conditions:
     OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
     THE SOFTWARE.
 
-(g) Progress Kendo UI for Angular 2021 incorporates data.task v3.1.2. Such
+(g) Progress Kendo UI for Angular 2022 incorporates data.task v3.1.2.  Such
 technology is subject to the following terms and conditions:
 
     The MIT License
@@ -496,7 +535,7 @@ technology is subject to the following terms and conditions:
     OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
     THE SOFTWARE.
 
-(h) Progress Kendo UI for Angular 2021 incorporates ramda v0.23. Such technology
+(h) Progress Kendo UI for Angular 2022 incorporates ramda v0.23.  Such technology
 is subject to the following terms and conditions:
 
     The MIT License (MIT)
@@ -521,7 +560,7 @@ is subject to the following terms and conditions:
     OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
     THE SOFTWARE.
 
-(i) Progress Kendo UI for Angular 2021 incorporates js-yaml v3.14.0. Such
+(i) Progress Kendo UI for Angular 2022 incorporates js-yaml v3.14.0.  Such
 technology is subject to the following terms and conditions:
 
     (The MIT License)
@@ -546,10 +585,9 @@ technology is subject to the following terms and conditions:
     OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
     THE SOFTWARE.
 
+(5)	UNICODE, INC. LICENSE AGREEMENT - DATA FILES AND SOFTWARE:
 
-(5) UNICODE, INC. LICENSE AGREEMENT - DATA FILES AND SOFTWARE:
-
-Progress Kendo UI for Angular 2021 incorporates Unicode CLDR Database v37.
+Progress Kendo UI for Angular 2022 incorporates Unicode CLDR Database v33.
 Such technology is subject to the following terms and conditions:
 
    UNICODE, INC. LICENSE AGREEMENT - DATA FILES AND SOFTWARE
@@ -600,15 +638,17 @@ Such technology is subject to the following terms and conditions:
    written authorization of the copyright holder.
 
 2. Special Notices Regarding Commercially Licensed Third-Party Components
-incorporated in the Product:
+incorporated into the Product:  NONE
 
-(a) Progress Kendo UI for Angular 2021 incorporates Kendo UI Licensing CLI v1.1
-from Progress Software Corporation. For third-party component information, see
-the product’s NOTICE.txt file.
+3. Special Notices Regarding Progress Products incorporated into the Product:  
+
+(a) Progress Kendo UI for Angular 2022 incorporates Kendo UI Licensing CLI v1.1
+from Progress Software Corporation. See NOTICE.txt text file within product for
+third-party license information.
 
 NOTICE FROM PROGRESS SOFTWARE CORPORATION: Additional notices may be included in
 the release notes or other documentation that accompanies updates received in
 connection with support of the Product.
 
 
-Updated 3/2/2021
+Updated 1/6/2022

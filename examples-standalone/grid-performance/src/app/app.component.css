@@ -1,0 +1,18 @@
+.example-config {
+    margin: 0 0 20px;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.03);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.k-grid tbody td {
+    white-space: nowrap;
+    line-height: 20px;
+    padding: 8px 12px;
+}
+
+input[type='radio'] {
+    margin-right: 5px;
+}
+
+
