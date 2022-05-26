@@ -1,17 +1,20 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 import { AppComponent } from './app.component';
 import { ButtonsModule } from '@progress/kendo-angular-buttons';
-import { GridModule } from '@progress/kendo-angular-grid';
+import { DropDownsModule } from '@progress/kendo-angular-dropdowns';
 
 @NgModule({
     declarations: [
         AppComponent
     ],
     imports: [
+        BrowserAnimationsModule,
         BrowserModule,
         ButtonsModule,
-        GridModule
+        DropDownsModule
     ],
     providers: [],
     bootstrap: [
