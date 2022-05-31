@@ -104,6 +104,15 @@
               "projects/pdf-embedded-fonts/src/assets"
             ]
           }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "projects/pdf-embedded-fonts//**/*.ts",
+              "projects/pdf-embedded-fonts//**/*.html"
+            ]
+          }
         }
       }
     },
@@ -208,6 +217,15 @@
               "projects/integration-jquery/src/assets"
             ]
           }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "projects/integration-jquery//**/*.ts",
+              "projects/integration-jquery//**/*.html"
+            ]
+          }
         }
       }
     },
@@ -305,6 +323,15 @@
             "assets": [
               "projects/integration-pwa/src/favicon.ico",
               "projects/integration-pwa/src/assets"
+            ]
+          }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "projects/integration-pwa//**/*.ts",
+              "projects/integration-pwa//**/*.html"
             ]
           }
         }
@@ -412,6 +439,15 @@
             "assets": [
               "projects/integration-pwa-material/src/favicon.ico",
               "projects/integration-pwa-material/src/assets"
+            ]
+          }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "projects/integration-pwa-material//**/*.ts",
+              "projects/integration-pwa-material//**/*.html"
             ]
           }
         }
@@ -564,6 +600,15 @@
               "projects/integration-i18n/src/assets"
             ]
           }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "projects/integration-i18n//**/*.ts",
+              "projects/integration-i18n//**/*.html"
+            ]
+          }
         }
       }
     },
@@ -662,6 +707,15 @@
             "assets": [
               "projects/grid-firebase/src/favicon.ico",
               "projects/grid-firebase/src/assets"
+            ]
+          }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "projects/grid-firebase//**/*.ts",
+              "projects/grid-firebase//**/*.html"
             ]
           }
         }
@@ -764,6 +818,15 @@
               "projects/grid-graphql/src/assets"
             ]
           }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "projects/grid-graphql//**/*.ts",
+              "projects/grid-graphql//**/*.html"
+            ]
+          }
         }
       }
     },
@@ -862,6 +925,15 @@
             "assets": [
               "projects/grid-jsdo/src/favicon.ico",
               "projects/grid-jsdo/src/assets"
+            ]
+          }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "projects/grid-jsdo//**/*.ts",
+              "projects/grid-jsdo//**/*.html"
             ]
           }
         }
@@ -964,6 +1036,15 @@
               "projects/chart-websockets/src/assets"
             ]
           }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "projects/chart-websockets//**/*.ts",
+              "projects/chart-websockets//**/*.html"
+            ]
+          }
         }
       }
     },
@@ -1062,6 +1143,15 @@
             "assets": [
               "projects/grid-signalr/src/favicon.ico",
               "projects/grid-signalr/src/assets"
+            ]
+          }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "projects/grid-signalr//**/*.ts",
+              "projects/grid-signalr//**/*.html"
             ]
           }
         }
@@ -1183,6 +1273,15 @@
             "production": {
               "devServerTarget": "integration-jquery-partial:serve:production"
             }
+          }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "projects/integration-jquery-partial/**/*.ts",
+              "projects/integration-jquery-partial/**/*.html"
+            ]
           }
         }
       }
