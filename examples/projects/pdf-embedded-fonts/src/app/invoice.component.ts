@@ -32,16 +32,16 @@ import { InvoiceRow } from './invoice-row';
             Total
           </ng-template>
         </kendo-grid-column>
-        <kendo-grid-column field="unitPrice" format="{0:c}" title="Price" width="120"
+        <kendo-grid-column field="unitPrice" format="{0:c}" title="Price" [width]="120"
                             [style]="rightAlign" [footerStyle]="rightAlign">
         </kendo-grid-column>
-        <kendo-grid-column field="qty" title="Pcs." width="120"
+        <kendo-grid-column field="qty" title="Pcs." [width]="120"
                             [style]="rightAlign" [footerStyle]="rightAlign">
           <ng-template kendoGridFooterTemplate let-column="column">
             {{ totals[column.field].sum }}
           </ng-template>
         </kendo-grid-column>
-        <kendo-grid-column field="total" format="{0:c}" title="Total" width="120"
+        <kendo-grid-column field="total" format="{0:c}" title="Total" [width]="120"
                             [style]="rightAlign" [footerStyle]="rightAlign">
           <ng-template kendoGridFooterTemplate let-column="column">
             {{ totals[column.field].sum | kendoNumber:'c' }}
