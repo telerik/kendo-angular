@@ -25,7 +25,8 @@
             ],
             "styles": [
               {
-                "input": "node_modules/@progress/kendo-theme-default/dist/all.css"
+                "input": "node_modules/@progress/kendo-theme-default/dist/all.css",
+                "inject": true
               },
               "projects/pdf-embedded-fonts/src/styles.scss"
             ],
@@ -42,7 +43,6 @@
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
-              "extractCss": true,
               "namedChunks": false,
               "aot": true,
               "extractLicenses": true,
@@ -88,7 +88,8 @@
             "karmaConfig": "projects/pdf-embedded-fonts/karma.conf.js",
             "styles": [
               {
-                "input": "node_modules/@progress/kendo-theme-default/dist/all.css"
+                "input": "node_modules/@progress/kendo-theme-default/dist/all.css",
+                "inject": true
               },
               "projects/pdf-embedded-fonts/src/styles.scss"
             ],
@@ -135,7 +136,8 @@
             ],
             "styles": [
               {
-                "input": "node_modules/@progress/kendo-theme-default/dist/all.css"
+                "input": "node_modules/@progress/kendo-theme-default/dist/all.css",
+                "inject": true
               },
               "projects/integration-jquery/src/styles.css"
             ],
@@ -152,7 +154,6 @@
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
-              "extractCss": true,
               "namedChunks": false,
               "aot": true,
               "extractLicenses": true,
@@ -198,7 +199,8 @@
             "karmaConfig": "projects/integration-jquery/karma.conf.js",
             "styles": [
               {
-                "input": "node_modules/@progress/kendo-theme-default/dist/all.css"
+                "input": "node_modules/@progress/kendo-theme-default/dist/all.css",
+                "inject": true
               },
               "projects/integration-jquery/src/styles.css"
             ],
@@ -260,7 +262,6 @@
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
-              "extractCss": true,
               "namedChunks": false,
               "aot": true,
               "extractLicenses": true,
@@ -353,7 +354,8 @@
             ],
             "styles": [
               {
-                "input": "node_modules/@progress/kendo-theme-material/dist/all.css"
+                "input": "node_modules/@progress/kendo-theme-material/dist/all.css",
+                "inject": true
               },
               "projects/integration-pwa-material/src/styles.scss"
             ],
@@ -370,7 +372,6 @@
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
-              "extractCss": true,
               "namedChunks": false,
               "aot": true,
               "extractLicenses": true,
@@ -418,7 +419,8 @@
             "karmaConfig": "projects/integration-pwa-material/karma.conf.js",
             "styles": [
               {
-                "input": "node_modules/@progress/kendo-theme-material/dist/all.css"
+                "input": "node_modules/@progress/kendo-theme-material/dist/all.css",
+                "inject": true
               },
               "projects/integration-pwa-material/src/styles.scss"
             ],
@@ -473,7 +475,8 @@
             ],
             "styles": [
               {
-                "input": "node_modules/@progress/kendo-theme-default/dist/all.css"
+                "input": "node_modules/@progress/kendo-theme-default/dist/all.css",
+                "inject": true
               },
               "projects/integration-i18n/src/styles.css"
             ],
@@ -490,7 +493,6 @@
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
-              "extractCss": true,
               "namedChunks": false,
               "aot": true,
               "extractLicenses": true,
@@ -541,7 +543,6 @@
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
-              "extractCss": true,
               "namedChunks": false,
               "extractLicenses": true,
               "vendorChunk": false,
@@ -625,7 +626,8 @@
             ],
             "styles": [
               {
-                "input": "node_modules/@progress/kendo-theme-default/dist/all.css"
+                "input": "node_modules/@progress/kendo-theme-default/dist/all.css",
+                "inject": true
               },
               "projects/grid-firebase/src/styles.css"
             ],
@@ -642,7 +644,6 @@
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
-              "extractCss": true,
               "namedChunks": false,
               "aot": true,
               "extractLicenses": true,
@@ -732,7 +733,8 @@
             ],
             "styles": [
               {
-                "input": "node_modules/@progress/kendo-theme-default/dist/all.css"
+                "input": "node_modules/@progress/kendo-theme-default/dist/all.css",
+                "inject": true
               },
               "projects/grid-graphql/src/styles.css"
             ],
@@ -749,7 +751,6 @@
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
-              "extractCss": true,
               "namedChunks": false,
               "aot": true,
               "extractLicenses": true,
@@ -839,7 +840,8 @@
             ],
             "styles": [
               {
-                "input": "node_modules/@progress/kendo-theme-default/dist/all.css"
+                "input": "node_modules/@progress/kendo-theme-default/dist/all.css",
+                "inject": true
               },
               "projects/grid-jsdo/src/styles.css"
             ],
@@ -856,7 +858,6 @@
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
-              "extractCss": true,
               "namedChunks": false,
               "aot": true,
               "extractLicenses": true,
@@ -946,7 +947,8 @@
             ],
             "styles": [
               {
-                "input": "node_modules/@progress/kendo-theme-default/dist/all.css"
+                "input": "node_modules/@progress/kendo-theme-default/dist/all.css",
+                "inject": true
               },
               "projects/chart-websockets/src/styles.css"
             ],
@@ -963,7 +965,6 @@
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
-              "extractCss": true,
               "namedChunks": false,
               "aot": true,
               "extractLicenses": true,
@@ -1053,7 +1054,8 @@
             ],
             "styles": [
               {
-                "input": "node_modules/@progress/kendo-theme-default/dist/all.css"
+                "input": "node_modules/@progress/kendo-theme-default/dist/all.css",
+                "inject": true
               },
               "projects/grid-signalr/src/styles.css"
             ],
@@ -1070,7 +1072,6 @@
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
-              "extractCss": true,
               "namedChunks": false,
               "aot": true,
               "extractLicenses": true,
@@ -1159,14 +1160,15 @@
               "projects/integration-jquery-partial/src/assets"
             ],
             "styles": [
-                {
-                  "input": "node_modules/@progress/kendo-theme-default/dist/all.css"
-                },
-                "projects/integration-jquery-partial/src/styles.css"
-              ],
+              {
+                "input": "node_modules/@progress/kendo-theme-default/dist/all.css",
+                "inject": true
+              },
+              "projects/integration-jquery-partial/src/styles.css"
+            ],
             "scripts": [
-                "node_modules/jquery/dist/jquery.min.js",
-                "projects/integration-jquery-partial/src/assets/kendo.custom.min.js"
+              "node_modules/jquery/dist/jquery.min.js",
+              "projects/integration-jquery-partial/src/assets/kendo.custom.min.js"
             ]
           },
           "configurations": {
@@ -1180,7 +1182,6 @@
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
-              "extractCss": true,
               "namedChunks": false,
               "aot": true,
               "extractLicenses": true,
@@ -1225,14 +1226,15 @@
               "projects/integration-jquery-partial/src/assets"
             ],
             "styles": [
-                {
-                  "input": "node_modules/@progress/kendo-theme-default/dist/all.css"
-                },
-                "projects/integration-jquery-partial/src/styles.css"
-              ],
+              {
+                "input": "node_modules/@progress/kendo-theme-default/dist/all.css",
+                "inject": true
+              },
+              "projects/integration-jquery-partial/src/styles.css"
+            ],
             "scripts": [
-                "node_modules/jquery/dist/jquery.min.js",
-                "projects/integration-jquery-partial/src/assets/kendo.custom.min.js"
+              "node_modules/jquery/dist/jquery.min.js",
+              "projects/integration-jquery-partial/src/assets/kendo.custom.min.js"
             ]
           }
         },
