@@ -20,6 +20,7 @@ import { InputsModule } from '@progress/kendo-angular-inputs';
 import { ButtonsModule } from '@progress/kendo-angular-buttons';
 import { LayoutModule } from '@progress/kendo-angular-layout';
 import { RippleModule } from '@progress/kendo-angular-ripple';
+import { LabelModule } from "@progress/kendo-angular-label";
 
 // Components
 import { MainMenuComponent } from './main-menu/main-menu.component';
@@ -27,7 +28,7 @@ import { SigninComponent } from './signin/signin.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ProfileComponent } from './profile/profile.component';
 import { IssuesComponent } from './issues/issues.component';
-import { LabelClass } from './issues/label.directive';
+import { LabelDirective } from './issues/label.directive';
 import { MarkdownComponent } from './markdown/markdown.component';
 import { ActiveIssuesComponent } from './charts/active-issues.component';
 import { TypesDistributionComponent } from './charts/types-distribution.component';
@@ -47,7 +48,7 @@ export function createTranslateLoader(http: HttpClient) {
 
 @NgModule({
     declarations: [
-        LabelClass,
+        LabelDirective,
         AppComponent,
         MainMenuComponent,
         SigninComponent,
@@ -69,6 +70,7 @@ export function createTranslateLoader(http: HttpClient) {
         GridModule,
         DialogModule,
         InputsModule,
+        LabelModule,
         ButtonsModule,
         LayoutModule,
         BrowserAnimationsModule,

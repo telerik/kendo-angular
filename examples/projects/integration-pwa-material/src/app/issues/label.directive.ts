@@ -1,10 +1,10 @@
 import { Directive, ElementRef, Renderer2, Input } from '@angular/core';
 
 // tslint:disable-next-line: directive-selector
-@Directive({ selector: '[labelClass]' })
+@Directive({ selector: '[appLabelClass]' })
 
 // tslint:disable-next-line: directive-class-suffix
-export class LabelClass {
+export class LabelDirective {
     @Input() set labelClass(text: string) {
         const color = this.matchColor(text);
         this.renderer.setStyle(this.element.nativeElement, 'backgroundColor', color );
