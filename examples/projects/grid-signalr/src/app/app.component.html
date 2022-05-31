@@ -1,5 +1,5 @@
 <form (ngSubmit)="addTodo()" [formGroup]="form">
-  <input class="k-textbox" type="text" formControlName="todoValue">
+  <kendo-textbox formControlName="todoValue"></kendo-textbox>
   <button [disabled]="form.invalid">Add Todo</button>
 </form>
 
@@ -8,16 +8,16 @@
   [pageSize]="5"
   [filterable]="true"
   [sortable]="true">
-  <kendo-grid-column field="id" width="350" title="ID"></kendo-grid-column>
+  <kendo-grid-column field="id" [width]="350" title="ID"></kendo-grid-column>
   <kendo-grid-column field="value" title="Task"></kendo-grid-column>
-  <kendo-grid-column field="done" filter="boolean" title="Status" width="200">
+  <kendo-grid-column field="done" filter="boolean" title="Status" [width]="200">
     <ng-template kendoGridCellTemplate let-dataItem>
       <input type="checkbox" disabled="disabled" checked="{{ dataItem.done ? 'checked': undefined }}" />
     </ng-template>>
   </kendo-grid-column>
   <kendo-grid-column>
     <ng-template kendoGridCellTemplate let-dataItem>
-        <button class="k-button k-primary" [disabled]="dataItem.done" (click)="markAsDone(dataItem)">Mark as done</button>
+        <button kendoButton themeColor="primary" [disabled]="dataItem.done" (click)="markAsDone(dataItem)">Mark as done</button>
     </ng-template>
   </kendo-grid-column>
 </kendo-grid>
