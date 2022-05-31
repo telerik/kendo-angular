@@ -6,6 +6,9 @@ dist
 # dependencies
 node_modules
 
+# cache
+.angular
+
 # IDE - VSCode
 .vscode/*
 !.vscode/settings.json
