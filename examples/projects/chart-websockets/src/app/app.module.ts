@@ -6,6 +6,8 @@ import { ChartsModule } from '@progress/kendo-angular-charts';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import 'hammerjs';
 import { WebSocketService } from './websocket.service';
+import { InputsModule } from '@progress/kendo-angular-inputs';
+import { ButtonsModule } from '@progress/kendo-angular-buttons';
 
 @NgModule({
   declarations: [
@@ -13,6 +15,8 @@ import { WebSocketService } from './websocket.service';
   ],
   imports: [
     BrowserModule,
+    InputsModule,
+    ButtonsModule,
     ChartsModule,
     BrowserAnimationsModule
   ],
