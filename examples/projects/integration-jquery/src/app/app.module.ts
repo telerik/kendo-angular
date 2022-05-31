@@ -19,6 +19,7 @@ import { TestSplitterComponent } from './test-splitter.component';
 import { TestSpreadsheetComponent } from './test-spreadsheet.component';
 
 import '@progress/kendo-ui';
+import { ButtonsModule } from '@progress/kendo-angular-buttons';
 
 const appRoutes: Routes = [
   { path: 'other', component: OtherComponent },
@@ -54,6 +55,7 @@ const appRoutes: Routes = [
     FormsModule,
     HttpClientModule,
     GridModule,
+    ButtonsModule,
     InputsModule,
     RouterModule.forRoot(appRoutes, { relativeLinkResolution: 'legacy' })
   ],
