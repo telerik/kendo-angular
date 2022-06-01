@@ -1,7 +1,7 @@
 {
-  "extends": "../../.eslintrc.json",
+  "root": true,
   "ignorePatterns": [
-    "!**/*"
+    "projects/**/*"
   ],
   "overrides": [
     {
@@ -10,11 +10,14 @@
       ],
       "parserOptions": {
         "project": [
-          "projects/pdf-embedded-fonts//tsconfig.app.json",
-          "projects/pdf-embedded-fonts//tsconfig.spec.json"
+          "tsconfig.json"
         ],
         "createDefaultProgram": true
       },
+      "extends": [
+        "plugin:@angular-eslint/recommended",
+        "plugin:@angular-eslint/template/process-inline-templates"
+      ],
       "rules": {
         "@angular-eslint/directive-selector": [
           "error",
@@ -37,6 +40,9 @@
     {
       "files": [
         "*.html"
+      ],
+      "extends": [
+        "plugin:@angular-eslint/template/recommended"
       ],
       "rules": {}
     }
