@@ -41,7 +41,7 @@
     </kendo-grid-column>
     <kendo-grid-column field="labels" title="Labels" media="sm">
         <ng-template kendoGridCellTemplate let-dataItem>
-            <span *ngFor="let label of dataItem.labels" class="badge" [labelClass]="label.name">
+            <span *ngFor="let label of dataItem.labels" class="badge" [appLabelClass]="label.name">
                 {{ label.name }}
             </span>
         </ng-template>
@@ -96,7 +96,7 @@
         <div class="row my-4">
             <div class="col-sm-2">
                 <h4 class="small text-muted">Labels</h4>
-                <span *ngFor="let label of dataItem.labels" class="badge" [labelClass]="label.name">
+                <span *ngFor="let label of dataItem.labels" class="badge" [appLabelClass]="label.name">
                     {{ label.name }}
                 </span>
             </div>

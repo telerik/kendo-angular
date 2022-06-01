@@ -13,7 +13,6 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "aot": true,
             "outputPath": "dist/pdf-embedded-fonts",
             "index": "projects/pdf-embedded-fonts/src/index.html",
             "main": "projects/pdf-embedded-fonts/src/main.ts",
@@ -25,11 +24,18 @@
             ],
             "styles": [
               {
-                "input": "node_modules/@progress/kendo-theme-default/dist/all.css"
+                "input": "node_modules/@progress/kendo-theme-default/dist/all.css",
+                "inject": true
               },
               "projects/pdf-embedded-fonts/src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [],
+            "vendorChunk": true,
+            "extractLicenses": false,
+            "buildOptimizer": false,
+            "sourceMap": true,
+            "optimization": false,
+            "namedChunks": true
           },
           "configurations": {
             "production": {
@@ -42,9 +48,7 @@
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
-              "extractCss": true,
               "namedChunks": false,
-              "aot": true,
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,
@@ -60,7 +64,8 @@
                 }
               ]
             }
-          }
+          },
+          "defaultConfiguration": ""
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
@@ -88,7 +93,8 @@
             "karmaConfig": "projects/pdf-embedded-fonts/karma.conf.js",
             "styles": [
               {
-                "input": "node_modules/@progress/kendo-theme-default/dist/all.css"
+                "input": "node_modules/@progress/kendo-theme-default/dist/all.css",
+                "inject": true
               },
               "projects/pdf-embedded-fonts/src/styles.scss"
             ],
@@ -100,14 +106,11 @@
           }
         },
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@angular-eslint/builder:lint",
           "options": {
-            "tsConfig": [
-              "projects/pdf-embedded-fonts/tsconfig.app.json",
-              "projects/pdf-embedded-fonts/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
+            "lintFilePatterns": [
+              "projects/pdf-embedded-fonts//**/*.ts",
+              "projects/pdf-embedded-fonts//**/*.html"
             ]
           }
         }
@@ -123,7 +126,6 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "aot": true,
             "outputPath": "dist/integration-jquery",
             "index": "projects/integration-jquery/src/index.html",
             "main": "projects/integration-jquery/src/main.ts",
@@ -135,11 +137,18 @@
             ],
             "styles": [
               {
-                "input": "node_modules/@progress/kendo-theme-default/dist/all.css"
+                "input": "node_modules/@progress/kendo-theme-default/dist/all.css",
+                "inject": true
               },
               "projects/integration-jquery/src/styles.css"
             ],
-            "scripts": []
+            "scripts": [],
+            "vendorChunk": true,
+            "extractLicenses": false,
+            "buildOptimizer": false,
+            "sourceMap": true,
+            "optimization": false,
+            "namedChunks": true
           },
           "configurations": {
             "production": {
@@ -152,9 +161,7 @@
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
-              "extractCss": true,
               "namedChunks": false,
-              "aot": true,
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,
@@ -170,7 +177,8 @@
                 }
               ]
             }
-          }
+          },
+          "defaultConfiguration": ""
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
@@ -198,7 +206,8 @@
             "karmaConfig": "projects/integration-jquery/karma.conf.js",
             "styles": [
               {
-                "input": "node_modules/@progress/kendo-theme-default/dist/all.css"
+                "input": "node_modules/@progress/kendo-theme-default/dist/all.css",
+                "inject": true
               },
               "projects/integration-jquery/src/styles.css"
             ],
@@ -210,14 +219,11 @@
           }
         },
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@angular-eslint/builder:lint",
           "options": {
-            "tsConfig": [
-              "projects/integration-jquery/tsconfig.app.json",
-              "projects/integration-jquery/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
+            "lintFilePatterns": [
+              "projects/integration-jquery//**/*.ts",
+              "projects/integration-jquery//**/*.html"
             ]
           }
         }
@@ -233,7 +239,6 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "aot": true,
             "outputPath": "dist/integration-pwa",
             "index": "projects/integration-pwa/src/index.html",
             "main": "projects/integration-pwa/src/main.ts",
@@ -247,7 +252,13 @@
             "styles": [
               "projects/integration-pwa/src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [],
+            "vendorChunk": true,
+            "extractLicenses": false,
+            "buildOptimizer": false,
+            "sourceMap": true,
+            "optimization": false,
+            "namedChunks": true
           },
           "configurations": {
             "production": {
@@ -260,9 +271,7 @@
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
-              "extractCss": true,
               "namedChunks": false,
-              "aot": true,
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,
@@ -280,7 +289,8 @@
                 }
               ]
             }
-          }
+          },
+          "defaultConfiguration": ""
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
@@ -317,14 +327,11 @@
           }
         },
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@angular-eslint/builder:lint",
           "options": {
-            "tsConfig": [
-              "projects/integration-pwa/tsconfig.app.json",
-              "projects/integration-pwa/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
+            "lintFilePatterns": [
+              "projects/integration-pwa//**/*.ts",
+              "projects/integration-pwa//**/*.html"
             ]
           }
         }
@@ -340,7 +347,6 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "aot": true,
             "outputPath": "dist/integration-pwa-material",
             "index": "projects/integration-pwa-material/src/index.html",
             "main": "projects/integration-pwa-material/src/main.ts",
@@ -353,11 +359,18 @@
             ],
             "styles": [
               {
-                "input": "node_modules/@progress/kendo-theme-material/dist/all.css"
+                "input": "node_modules/@progress/kendo-theme-material/dist/all.css",
+                "inject": true
               },
               "projects/integration-pwa-material/src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [],
+            "vendorChunk": true,
+            "extractLicenses": false,
+            "buildOptimizer": false,
+            "sourceMap": true,
+            "optimization": false,
+            "namedChunks": true
           },
           "configurations": {
             "production": {
@@ -370,9 +383,7 @@
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
-              "extractCss": true,
               "namedChunks": false,
-              "aot": true,
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,
@@ -390,7 +401,8 @@
                 }
               ]
             }
-          }
+          },
+          "defaultConfiguration": ""
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
@@ -418,7 +430,8 @@
             "karmaConfig": "projects/integration-pwa-material/karma.conf.js",
             "styles": [
               {
-                "input": "node_modules/@progress/kendo-theme-material/dist/all.css"
+                "input": "node_modules/@progress/kendo-theme-material/dist/all.css",
+                "inject": true
               },
               "projects/integration-pwa-material/src/styles.scss"
             ],
@@ -430,14 +443,11 @@
           }
         },
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@angular-eslint/builder:lint",
           "options": {
-            "tsConfig": [
-              "projects/integration-pwa-material/tsconfig.app.json",
-              "projects/integration-pwa-material/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
+            "lintFilePatterns": [
+              "projects/integration-pwa-material//**/*.ts",
+              "projects/integration-pwa-material//**/*.html"
             ]
           }
         }
@@ -461,7 +471,6 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "aot": true,
             "outputPath": "dist/integration-i18n",
             "index": "projects/integration-i18n/src/index.html",
             "main": "projects/integration-i18n/src/main.ts",
@@ -473,11 +482,18 @@
             ],
             "styles": [
               {
-                "input": "node_modules/@progress/kendo-theme-default/dist/all.css"
+                "input": "node_modules/@progress/kendo-theme-default/dist/all.css",
+                "inject": true
               },
               "projects/integration-i18n/src/styles.css"
             ],
-            "scripts": []
+            "scripts": [],
+            "vendorChunk": true,
+            "extractLicenses": false,
+            "buildOptimizer": false,
+            "sourceMap": true,
+            "optimization": false,
+            "namedChunks": true
           },
           "configurations": {
             "production": {
@@ -490,9 +506,7 @@
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
-              "extractCss": true,
               "namedChunks": false,
-              "aot": true,
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,
@@ -509,7 +523,6 @@
               ]
             },
             "es": {
-              "aot": true,
               "budgets": [
                 {
                   "type": "anyComponentStyle",
@@ -534,20 +547,19 @@
                   "with": "projects/integration-i18n/src/environments/environment.prod.ts"
                 }
               ],
-              "aot": true,
               "localize": [
                 "es"
               ],
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
-              "extractCss": true,
               "namedChunks": false,
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true
             }
-          }
+          },
+          "defaultConfiguration": ""
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
@@ -590,14 +602,11 @@
           }
         },
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@angular-eslint/builder:lint",
           "options": {
-            "tsConfig": [
-              "projects/integration-i18n/tsconfig.app.json",
-              "projects/integration-i18n/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
+            "lintFilePatterns": [
+              "projects/integration-i18n//**/*.ts",
+              "projects/integration-i18n//**/*.html"
             ]
           }
         }
@@ -613,7 +622,6 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "aot": true,
             "outputPath": "dist/grid-firebase",
             "index": "projects/grid-firebase/src/index.html",
             "main": "projects/grid-firebase/src/main.ts",
@@ -625,11 +633,18 @@
             ],
             "styles": [
               {
-                "input": "node_modules/@progress/kendo-theme-default/dist/all.css"
+                "input": "node_modules/@progress/kendo-theme-default/dist/all.css",
+                "inject": true
               },
               "projects/grid-firebase/src/styles.css"
             ],
-            "scripts": []
+            "scripts": [],
+            "vendorChunk": true,
+            "extractLicenses": false,
+            "buildOptimizer": false,
+            "sourceMap": true,
+            "optimization": false,
+            "namedChunks": true
           },
           "configurations": {
             "production": {
@@ -642,9 +657,7 @@
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
-              "extractCss": true,
               "namedChunks": false,
-              "aot": true,
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,
@@ -660,7 +673,8 @@
                 }
               ]
             }
-          }
+          },
+          "defaultConfiguration": ""
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
@@ -697,14 +711,11 @@
           }
         },
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@angular-eslint/builder:lint",
           "options": {
-            "tsConfig": [
-              "projects/grid-firebase/tsconfig.app.json",
-              "projects/grid-firebase/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
+            "lintFilePatterns": [
+              "projects/grid-firebase//**/*.ts",
+              "projects/grid-firebase//**/*.html"
             ]
           }
         }
@@ -720,7 +731,6 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "aot": true,
             "outputPath": "dist/grid-graphql",
             "index": "projects/grid-graphql/src/index.html",
             "main": "projects/grid-graphql/src/main.ts",
@@ -732,11 +742,18 @@
             ],
             "styles": [
               {
-                "input": "node_modules/@progress/kendo-theme-default/dist/all.css"
+                "input": "node_modules/@progress/kendo-theme-default/dist/all.css",
+                "inject": true
               },
               "projects/grid-graphql/src/styles.css"
             ],
-            "scripts": []
+            "scripts": [],
+            "vendorChunk": true,
+            "extractLicenses": false,
+            "buildOptimizer": false,
+            "sourceMap": true,
+            "optimization": false,
+            "namedChunks": true
           },
           "configurations": {
             "production": {
@@ -749,9 +766,7 @@
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
-              "extractCss": true,
               "namedChunks": false,
-              "aot": true,
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,
@@ -767,7 +782,8 @@
                 }
               ]
             }
-          }
+          },
+          "defaultConfiguration": ""
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
@@ -804,14 +820,11 @@
           }
         },
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@angular-eslint/builder:lint",
           "options": {
-            "tsConfig": [
-              "projects/grid-graphql/tsconfig.app.json",
-              "projects/grid-graphql/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
+            "lintFilePatterns": [
+              "projects/grid-graphql//**/*.ts",
+              "projects/grid-graphql//**/*.html"
             ]
           }
         }
@@ -827,7 +840,6 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "aot": true,
             "outputPath": "dist/grid-jsdo",
             "index": "projects/grid-jsdo/src/index.html",
             "main": "projects/grid-jsdo/src/main.ts",
@@ -839,11 +851,18 @@
             ],
             "styles": [
               {
-                "input": "node_modules/@progress/kendo-theme-default/dist/all.css"
+                "input": "node_modules/@progress/kendo-theme-default/dist/all.css",
+                "inject": true
               },
               "projects/grid-jsdo/src/styles.css"
             ],
-            "scripts": []
+            "scripts": [],
+            "vendorChunk": true,
+            "extractLicenses": false,
+            "buildOptimizer": false,
+            "sourceMap": true,
+            "optimization": false,
+            "namedChunks": true
           },
           "configurations": {
             "production": {
@@ -856,9 +875,7 @@
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
-              "extractCss": true,
               "namedChunks": false,
-              "aot": true,
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,
@@ -874,7 +891,8 @@
                 }
               ]
             }
-          }
+          },
+          "defaultConfiguration": ""
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
@@ -911,14 +929,11 @@
           }
         },
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@angular-eslint/builder:lint",
           "options": {
-            "tsConfig": [
-              "projects/grid-jsdo/tsconfig.app.json",
-              "projects/grid-jsdo/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
+            "lintFilePatterns": [
+              "projects/grid-jsdo//**/*.ts",
+              "projects/grid-jsdo//**/*.html"
             ]
           }
         }
@@ -934,7 +949,6 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "aot": true,
             "outputPath": "dist/chart-websockets",
             "index": "projects/chart-websockets/src/index.html",
             "main": "projects/chart-websockets/src/main.ts",
@@ -946,11 +960,18 @@
             ],
             "styles": [
               {
-                "input": "node_modules/@progress/kendo-theme-default/dist/all.css"
+                "input": "node_modules/@progress/kendo-theme-default/dist/all.css",
+                "inject": true
               },
               "projects/chart-websockets/src/styles.css"
             ],
-            "scripts": []
+            "scripts": [],
+            "vendorChunk": true,
+            "extractLicenses": false,
+            "buildOptimizer": false,
+            "sourceMap": true,
+            "optimization": false,
+            "namedChunks": true
           },
           "configurations": {
             "production": {
@@ -963,9 +984,7 @@
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
-              "extractCss": true,
               "namedChunks": false,
-              "aot": true,
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,
@@ -981,7 +1000,8 @@
                 }
               ]
             }
-          }
+          },
+          "defaultConfiguration": ""
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
@@ -1018,14 +1038,11 @@
           }
         },
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@angular-eslint/builder:lint",
           "options": {
-            "tsConfig": [
-              "projects/chart-websockets/tsconfig.app.json",
-              "projects/chart-websockets/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
+            "lintFilePatterns": [
+              "projects/chart-websockets//**/*.ts",
+              "projects/chart-websockets//**/*.html"
             ]
           }
         }
@@ -1041,7 +1058,6 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "aot": true,
             "outputPath": "dist/grid-signalr",
             "index": "projects/grid-signalr/src/index.html",
             "main": "projects/grid-signalr/src/main.ts",
@@ -1053,11 +1069,18 @@
             ],
             "styles": [
               {
-                "input": "node_modules/@progress/kendo-theme-default/dist/all.css"
+                "input": "node_modules/@progress/kendo-theme-default/dist/all.css",
+                "inject": true
               },
               "projects/grid-signalr/src/styles.css"
             ],
-            "scripts": []
+            "scripts": [],
+            "vendorChunk": true,
+            "extractLicenses": false,
+            "buildOptimizer": false,
+            "sourceMap": true,
+            "optimization": false,
+            "namedChunks": true
           },
           "configurations": {
             "production": {
@@ -1070,9 +1093,7 @@
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
-              "extractCss": true,
               "namedChunks": false,
-              "aot": true,
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,
@@ -1088,7 +1109,8 @@
                 }
               ]
             }
-          }
+          },
+          "defaultConfiguration": ""
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
@@ -1125,14 +1147,11 @@
           }
         },
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@angular-eslint/builder:lint",
           "options": {
-            "tsConfig": [
-              "projects/grid-signalr/tsconfig.app.json",
-              "projects/grid-signalr/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
+            "lintFilePatterns": [
+              "projects/grid-signalr//**/*.ts",
+              "projects/grid-signalr//**/*.html"
             ]
           }
         }
@@ -1159,15 +1178,22 @@
               "projects/integration-jquery-partial/src/assets"
             ],
             "styles": [
-                {
-                  "input": "node_modules/@progress/kendo-theme-default/dist/all.css"
-                },
-                "projects/integration-jquery-partial/src/styles.css"
-              ],
+              {
+                "input": "node_modules/@progress/kendo-theme-default/dist/all.css",
+                "inject": true
+              },
+              "projects/integration-jquery-partial/src/styles.css"
+            ],
             "scripts": [
-                "node_modules/jquery/dist/jquery.min.js",
-                "projects/integration-jquery-partial/src/assets/kendo.custom.min.js"
-            ]
+              "node_modules/jquery/dist/jquery.min.js",
+              "projects/integration-jquery-partial/src/assets/kendo.custom.min.js"
+            ],
+            "vendorChunk": true,
+            "extractLicenses": false,
+            "buildOptimizer": false,
+            "sourceMap": true,
+            "optimization": false,
+            "namedChunks": true
           },
           "configurations": {
             "production": {
@@ -1180,7 +1206,6 @@
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
-              "extractCss": true,
               "namedChunks": false,
               "aot": true,
               "extractLicenses": true,
@@ -1194,7 +1219,8 @@
                 }
               ]
             }
-          }
+          },
+          "defaultConfiguration": ""
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
@@ -1225,27 +1251,15 @@
               "projects/integration-jquery-partial/src/assets"
             ],
             "styles": [
-                {
-                  "input": "node_modules/@progress/kendo-theme-default/dist/all.css"
-                },
-                "projects/integration-jquery-partial/src/styles.css"
-              ],
-            "scripts": [
-                "node_modules/jquery/dist/jquery.min.js",
-                "projects/integration-jquery-partial/src/assets/kendo.custom.min.js"
-            ]
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "projects/integration-jquery-partial/tsconfig.app.json",
-              "projects/integration-jquery-partial/tsconfig.spec.json",
-              "projects/integration-jquery-partial/e2e/tsconfig.json"
+              {
+                "input": "node_modules/@progress/kendo-theme-default/dist/all.css",
+                "inject": true
+              },
+              "projects/integration-jquery-partial/src/styles.css"
             ],
-            "exclude": [
-              "**/node_modules/**"
+            "scripts": [
+              "node_modules/jquery/dist/jquery.min.js",
+              "projects/integration-jquery-partial/src/assets/kendo.custom.min.js"
             ]
           }
         },
@@ -1259,6 +1273,15 @@
             "production": {
               "devServerTarget": "integration-jquery-partial:serve:production"
             }
+          }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "projects/integration-jquery-partial/**/*.ts",
+              "projects/integration-jquery-partial/**/*.html"
+            ]
           }
         }
       }

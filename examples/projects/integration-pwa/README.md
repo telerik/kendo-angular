@@ -13,7 +13,7 @@ This Kendo UI for Angular sample project demonstrates how to use [Kendo UI for A
 > A copy of the application is deployed at [https://telerik.github.io/kendo-angular/integration-pwa/](https://telerik.github.io/kendo-angular/integration-pwa/).
 
 1. Build the application in production mode to be able to access the service worker.
-1. Access the service worker by running `ng build integration-pwa --prod`.
+1. Access the service worker by running `ng build integration-pwa --configuration production`.
 2. Enter the newly created `dist` folder by running `cd dist/integration-pwa`.
 3. Run the server in a disabled cache mode by running `npx http-server -c -1`.
 

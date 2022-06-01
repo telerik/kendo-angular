@@ -1,6 +1,5 @@
 import { HttpClient, HttpErrorResponse, HttpResponse } from '@angular/common/http';
 import { DataResult, DataSource, DataSourceOptions } from '@progress/jsdo-angular';
-import { progress } from '@progress/jsdo-core';
 import { State } from '@progress/kendo-data-query';
 import { DataService } from './data.service';
 import { ModelDataResult } from './model-data-result';
@@ -11,6 +10,9 @@ import { DataProviderService } from './service-config';
 import { Observable, throwError, of } from 'rxjs';
 import { map, switchMap, catchError } from 'rxjs/operators';
 
+// Patch for `@progress/jsdo-core` in strict mode.
+(<any> window).progress = {};
+import { progress } from '@progress/jsdo-core';
 
 export class ProgressService<T> extends DataService<T> {
     public jsdoResource: progress.data.JSDO;

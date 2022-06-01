@@ -6,11 +6,10 @@ import * as marked from 'marked';
     template: '<div [innerHTML]="convertedData"></div>'
 })
 export class MarkdownComponent implements OnChanges {
-// tslint:disable-next-line: no-input-rename
-    @Input('data') public data: string;
+    @Input() public data: string;
     public convertedData: string;
 
-    ngOnChanges() {
+    public ngOnChanges(): void {
         const md = marked.setOptions({});
         this.convertedData = md.parse(this.data);
     }

@@ -21,11 +21,11 @@ export class TestSchedulerComponent implements AfterViewInit, OnDestroy {
             startTime: new Date('2013/6/13 07:00 AM'),
             height: 600,
             views: [
-                'day',
+                { type: 'day' },
                 { type: 'workWeek', selected: true },
-                'week',
-                'month',
-                'agenda',
+                { type: 'week' },
+                { type: 'month' },
+                { type: 'agenda' },
                 { type: 'timeline', eventHeight: 50 }
             ],
             timezone: 'Etc/UTC',

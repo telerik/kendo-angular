@@ -17,8 +17,8 @@
 </kendo-chart>
 
 <p>Send a message</p>
-<input #messageInput type="text" class="k-textbox" />
-<button class="k-button" (click)="sendMessage(messageInput.value); messageInput.value = '';">Send</button>
+<kendo-textbox #messageInput></kendo-textbox>
+<button kendoButton (click)="sendMessage(messageInput.value); messageInput.value = '';">Send</button>
 <hr />
 <h4>Messages:</h4>
 <ul>
