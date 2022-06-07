@@ -5,4 +5,8 @@ import { Component } from '@angular/core';
     templateUrl: './action-buttons.component.html',
     styleUrls: ['./action-buttons.component.scss']
 })
-export class ActionButtonsComponent {}
+export class ActionButtonsComponent {
+    public navigateOffSite(webAddress: string): void {
+        window.open(webAddress, '_blank');
+    }
+}
