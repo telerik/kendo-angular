@@ -97,7 +97,7 @@ This is commercial software. To use it, you need to agree to the [**Telerik End 
 
 All available Kendo UI commercial licenses may be obtained at http://www.telerik.com/purchase/kendo-ui.
 
-*Copyright © 2021 Progress Software Corporation and/or one of its subsidiaries or affiliates. All rights reserved.*
+*Copyright © 2022 Progress Software Corporation and/or one of its subsidiaries or affiliates. All rights reserved.*
 
 
 @progress/kendo-file-saver
@@ -112,7 +112,7 @@ This is commercial software. To use it, you need to agree to the [**Telerik End 
 
 All available Kendo UI commercial licenses may be obtained at http://www.telerik.com/purchase/kendo-ui.
 
-*Copyright © 2020 Progress Software Corporation and/or one of its subsidiaries or affiliates. All rights reserved.*
+*Copyright © 2022 Progress Software Corporation and/or one of its subsidiaries or affiliates. All rights reserved.*
 
 
 @progress/kendo-licensing
@@ -135,7 +135,7 @@ This project has been released under the [Apache License, version 2.0](https://w
 @progress/kendo-ui
 LicenseRef-LICENSE
 Kendo UI (http://www.telerik.com/kendo-ui)
-Copyright 2021 Progress Software Corporation and/or one of its subsidiaries or affiliates. All rights reserved.
+Copyright 2022 Progress Software Corporation and/or one of its subsidiaries or affiliates. All rights reserved.
 
 Kendo UI commercial licenses may be obtained at
 http://www.telerik.com/purchase/license-agreement/kendo-ui-complete
@@ -175,7 +175,7 @@ For licensing information about Kendo UI, see the [License Agreements page](http
 > * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 > * See the License for the specific language governing permissions and limitations under the License.
 
-*Copyright © 2019 Progress Software Corporation and/or one of its subsidiaries or affiliates. All rights reserved.*
+*Copyright © 2021 Progress Software Corporation and/or one of its subsidiaries or affiliates. All rights reserved.*
 
 
 hammerjs
