@@ -5,7 +5,14 @@ import { Component } from '@angular/core';
     template: `
         <h1>{{name}}</h1>
 
-        <kendo-grid [data]="data"></kendo-grid>
+        <kendo-grid [data]="data">
+            <ng-template kendoGridToolbarTemplate>
+                <button type="button" kendoGridExcelCommand icon="file-excel">
+                Export to Excel
+                </button>
+            </ng-template>
+            <kendo-grid-excel fileName="Export.xlsx"></kendo-grid-excel>
+        </kendo-grid>
 
         <button kendoButton>Kendo Button</button>
     `

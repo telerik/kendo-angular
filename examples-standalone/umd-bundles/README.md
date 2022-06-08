@@ -10,5 +10,5 @@ See [Microfrontend with Angular and Webpack Module Federation](https://www.steff
 ## Run Sample
 
 1. Run `npm ci` to fetch all dependencies
-1. Run `npm run start` to build and run the application
+1. Run `npm start` to build and run the application
 1. Navigate to http://localhost:8080/dist/
