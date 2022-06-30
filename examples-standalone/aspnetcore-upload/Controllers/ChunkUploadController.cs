@@ -88,9 +88,9 @@ namespace aspnetcore_upload.Controllers
                         uploadedChunkStream.CopyTo(chunkFileStream);
                     }
 
-                    // Step 2. Try to assemble the final file
-                    // In this highly unoptimized implementation, only the lats attempt will have the finished file
-                    TryAssembleFile(somemetaData.UploadUid, somemetaData.TotalChunks, somemetaData.FileName);
+                    // Step 2. Lets check to see if we have all the chunks
+                    // If we do, then we can assemble them all into a final destination file
+                    CombineChunks(somemetaData);
                 }
             }
 
@@ -123,12 +123,12 @@ namespace aspnetcore_upload.Controllers
         }
         
 
-        private void TryAssembleFile(string uuid, long totalChunks, string filename)
+        private void CombineChunks(ChunkMetaData metadata)
         {
             // PHASE 1 - VERIFYING
-            for (var chunkIndex = 0; chunkIndex <= totalChunks - 1; chunkIndex++)
+            for (var chunkIndex = 0; chunkIndex <= metadata.TotalChunks - 1; chunkIndex++)
             {
-                var chunkFilePath = Path.Combine(_webHhostingEnvironment.WebRootPath, "Upload_Directory", $"{uuid}_{chunkIndex}");
+                var chunkFilePath = Path.Combine(_webHhostingEnvironment.WebRootPath, "Upload_Directory", $"{metadata.UploadUid}_{chunkIndex}");
 
                 // If any of these chunk files are missing, then we know we're not done, break and exit.
                 if (!System.IO.File.Exists(chunkFilePath))
@@ -140,15 +140,15 @@ namespace aspnetcore_upload.Controllers
 
             // PHASE 2 - COMBINING
             // Create a single file to combine everything
-            var tempFinalFilePath = Path.Combine(_webHhostingEnvironment.WebRootPath, "Upload_Directory", $"{uuid}");
+            var tempFinalFilePath = Path.Combine(_webHhostingEnvironment.WebRootPath, "Upload_Directory", $"{metadata.UploadUid}");
             
             // Open a file stream
             using (var destStream = System.IO.File.Create(tempFinalFilePath))
             {
                 // iterate over each chunk, in the order of the ChunkIndex
-                for (var chunkIndex = 0; chunkIndex <= totalChunks - 1; chunkIndex++)
+                for (var chunkIndex = 0; chunkIndex <= metadata.TotalChunks - 1; chunkIndex++)
                 {
-                    var chunkFileName = Path.Combine(_webHhostingEnvironment.WebRootPath, "Upload_Directory", $"{uuid}_{chunkIndex}");
+                    var chunkFileName = Path.Combine(_webHhostingEnvironment.WebRootPath, "Upload_Directory", $"{metadata.UploadUid}_{chunkIndex}");
 
                     // Open the chunk's filestream
                     using var sourceStream = System.IO.File.OpenRead(chunkFileName);
@@ -162,7 +162,7 @@ namespace aspnetcore_upload.Controllers
 
             // Now that we have a combined file, lets move it to the final destination
             // Some browsers send file names with full path. This needs to be stripped.
-            var cleanFileName = Path.GetFileName(filename);
+            var cleanFileName = Path.GetFileName(metadata.FileName);
             var filePath = Path.Combine(_root, cleanFileName);
 
             if (System.IO.File.Exists(filePath))
@@ -173,9 +173,9 @@ namespace aspnetcore_upload.Controllers
 
             // PHASE 4 - CLEANUP
             // Delete temp chunk files
-            for (var chunkIndex = 0; chunkIndex <= totalChunks - 1; chunkIndex++)
+            for (var chunkIndex = 0; chunkIndex <= metadata.TotalChunks - 1; chunkIndex++)
             {
-                var chunkFileName = Path.Combine(_webHhostingEnvironment.WebRootPath, "Upload_Directory", $"{uuid}_{chunkIndex}");
+                var chunkFileName = Path.Combine(_webHhostingEnvironment.WebRootPath, "Upload_Directory", $"{metadata.UploadUid}_{chunkIndex}");
 
                 if (System.IO.File.Exists(chunkFileName))
                     System.IO.File.Delete(chunkFileName);
