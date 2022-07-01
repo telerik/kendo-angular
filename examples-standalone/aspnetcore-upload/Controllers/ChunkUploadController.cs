@@ -1,4 +1,10 @@
-﻿using Microsoft.AspNetCore.Hosting;
+﻿// ------------------ //
+// *** WARNING!!! *** //
+// ------------------ //
+// You are responsible for the security of your system(s). This example code is for illustration purposes only and comes with no operational or system security guarantee.
+// By using any portion of this example, you agree to all notices on https://github.com/telerik/kendo-angular and https://www.telerik.com/about/terms-of-use
+
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
