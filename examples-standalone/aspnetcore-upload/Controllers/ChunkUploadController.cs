@@ -1,13 +1,9 @@
-﻿// ------------------ //
-// *** WARNING!!! *** //
-// ------------------ //
-// You are responsible for the security of your system(s). This example code is for illustration purposes only and comes with no operational or system security guarantee.
-// By using any portion of this example, you agree to all notices on https://github.com/telerik/kendo-angular and https://www.telerik.com/about/terms-of-use
-
+﻿using System;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Json;
@@ -17,13 +13,11 @@ namespace aspnetcore_upload.Controllers
 {
     public class ChunkUploadController : Controller
     {
-        private readonly string _root;
         private readonly IWebHostEnvironment _webHhostingEnvironment;
 
         public ChunkUploadController(IWebHostEnvironment webHostingEnvironment)
         {
             _webHhostingEnvironment = webHostingEnvironment;
-            _root = Path.Combine(_webHhostingEnvironment.WebRootPath, "Upload_Directory");
         }
 
         public ActionResult Save(List<IFormFile> files)
@@ -32,9 +26,11 @@ namespace aspnetcore_upload.Controllers
             {
                 foreach (var file in files)
                 {
+                    Debug.WriteLine($"Save(): Processing {file.FileName}.");
+
                     // Some browsers send file names with full path. This needs to be stripped.
                     var fileName = Path.GetFileName(file.FileName);
-                    var physicalPath = Path.Combine(_root, fileName);
+                    var physicalPath = Path.Combine(_webHhostingEnvironment.WebRootPath, "Upload_Directory", fileName);
                     
                     using(var uploadedFile = file.OpenReadStream())
                     using (var stream = new FileStream(physicalPath, FileMode.Create, FileAccess.Write, FileShare.ReadWrite))
@@ -58,18 +54,19 @@ namespace aspnetcore_upload.Controllers
                 return Save(files);
             }
 
-            var ms = new MemoryStream(Encoding.UTF8.GetBytes(metaData));
-            var serializer = new DataContractJsonSerializer(typeof(ChunkMetaData));
-            var somemetaData = serializer.ReadObject(ms) as ChunkMetaData;
+            using var ms = new MemoryStream(Encoding.UTF8.GetBytes(metaData));
+            var serializer = new DataContractJsonSerializer(typeof(ChunkMetaData)); // 'ChunkMetaData' class is defined below
+            var metadata = serializer.ReadObject(ms) as ChunkMetaData;
 
             // The Name of the Upload component is "files"
             if (files != null)
             {
                 foreach (var file in files)
                 {
-                    // ********************************** //
-                    // ********** Scenario 1 ************ //
-                    // ********************************** //
+                    // ************************************************************************** //
+                    // ********** Scenario 1 - Supports Only Concurrent Chunk Upload ************ //
+                    // ************************************************************************** //
+
                     // If the upload is in sequential order, you can just appends the chunks to what has already been written to disk
                     //var path = Path.Combine(_root, somemetaData.FileName);
                     //using (var uploadedChunkStream = file.OpenReadStream())
@@ -79,24 +76,26 @@ namespace aspnetcore_upload.Controllers
                     //}
 
 
-                    // ********************************** //
-                    // ********** Scenario 2 ************ //
-                    // ********************************** //
-                    // Un-sequential means you will need to develop a system to keep track of each chunks and assembly them
-                    // together when all the chunks have been uploaded.
-                    // The ChunkMetaData gives you all the information you need to keep track and reassemble
+                    // ************************************************************************* //
+                    // ********** Scenario 2 - Supports Non-Concurrent Chunk Upload ************ //
+                    // ************************************************************************* //
 
-                    // step 1. Save the chunk
-                    var tempChunkFilePath = Path.Combine(_webHhostingEnvironment.WebRootPath, "Upload_Directory", $"{somemetaData.UploadUid}_{somemetaData.ChunkIndex}");
+                    // For non-concurrent chunk support you will need to develop a system to keep track of each chunks and reassembly them
+                    // together when all the chunks have been uploaded. The ChunkMetaData gives you all the information you need.
+
+                    // Step 1. Save the chunk
+                    var tempChunkFilePath = Path.Combine(_webHhostingEnvironment.WebRootPath, "Upload_Directory", $"{metadata.FileName}_{metadata.ChunkIndex}");
                     using (var uploadedChunkStream = file.OpenReadStream())
                     using (var chunkFileStream = System.IO.File.OpenWrite(tempChunkFilePath))
                     {
                         uploadedChunkStream.CopyTo(chunkFileStream);
+
+                        Debug.WriteLine($"ChunkSave(): Saved {file.FileName} to Chunk #{metadata.ChunkIndex + 1} of {metadata.TotalChunks}.");
                     }
 
                     // Step 2. Lets check to see if we have all the chunks
                     // If we do, then we can assemble them all into a final destination file
-                    CombineChunks(somemetaData);
+                    CombineChunks(metadata);
                 }
             }
 
@@ -131,10 +130,13 @@ namespace aspnetcore_upload.Controllers
 
         private void CombineChunks(ChunkMetaData metadata)
         {
+            // ------------------- //
             // PHASE 1 - VERIFYING
+            // ------------------- //
+
             for (var chunkIndex = 0; chunkIndex <= metadata.TotalChunks - 1; chunkIndex++)
             {
-                var chunkFilePath = Path.Combine(_webHhostingEnvironment.WebRootPath, "Upload_Directory", $"{metadata.UploadUid}_{chunkIndex}");
+                var chunkFilePath = Path.Combine(_webHhostingEnvironment.WebRootPath, "Upload_Directory", $"{metadata.FileName}_{chunkIndex}");
 
                 // If any of these chunk files are missing, then we know we're not done, break and exit.
                 if (!System.IO.File.Exists(chunkFilePath))
@@ -143,10 +145,15 @@ namespace aspnetcore_upload.Controllers
                     return;
                 }
             }
-
+            
+            // ------------------- //
             // PHASE 2 - COMBINING
+            // ------------------- //
+
+            Debug.WriteLine($"Combining all chunks for {metadata.FileName}.");
+
             // Create a single file to combine everything
-            var tempFinalFilePath = Path.Combine(_webHhostingEnvironment.WebRootPath, "Upload_Directory", $"{metadata.UploadUid}");
+            var tempFinalFilePath = Path.Combine(_webHhostingEnvironment.WebRootPath, "Upload_Directory", $"tmp_{metadata.FileName}");
             
             // Open a file stream
             using (var destStream = System.IO.File.Create(tempFinalFilePath))
@@ -154,7 +161,9 @@ namespace aspnetcore_upload.Controllers
                 // iterate over each chunk, in the order of the ChunkIndex
                 for (var chunkIndex = 0; chunkIndex <= metadata.TotalChunks - 1; chunkIndex++)
                 {
-                    var chunkFileName = Path.Combine(_webHhostingEnvironment.WebRootPath, "Upload_Directory", $"{metadata.UploadUid}_{chunkIndex}");
+                    var chunkFileName = Path.Combine(_webHhostingEnvironment.WebRootPath, "Upload_Directory", $"{metadata.FileName}_{chunkIndex}");
+
+                    Debug.WriteLine($"Appending ({chunkIndex + 1} of {metadata.TotalChunks}): {chunkFileName}.");
 
                     // Open the chunk's filestream
                     using var sourceStream = System.IO.File.OpenRead(chunkFileName);
@@ -163,29 +172,44 @@ namespace aspnetcore_upload.Controllers
                     sourceStream.CopyTo(destStream);
                 }
             }
-
+            
+            // -------------------- //
             // PHASE 3 - FINALIZING
+            // -------------------- //
 
             // Now that we have a combined file, lets move it to the final destination
             // Some browsers send file names with full path. This needs to be stripped.
             var cleanFileName = Path.GetFileName(metadata.FileName);
-            var filePath = Path.Combine(_root, cleanFileName);
-
+            var filePath = Path.Combine(_webHhostingEnvironment.WebRootPath, "Upload_Directory", cleanFileName);
+            
             if (System.IO.File.Exists(filePath))
                 System.IO.File.Delete(filePath);
             
             System.IO.File.Move(tempFinalFilePath, filePath);
 
-
+            Debug.WriteLine($"Moved: {tempFinalFilePath} to {filePath}.");
+            
+            // ----------------- //
             // PHASE 4 - CLEANUP
-            // Delete temp chunk files
+            // ----------------- //
+
+            // With the final final assembled and moved, we need to delete all the temporary chunk files
+
+            Debug.WriteLine($"Deleting temporary chunk files for {metadata.FileName}..");
+
             for (var chunkIndex = 0; chunkIndex <= metadata.TotalChunks - 1; chunkIndex++)
             {
-                var chunkFileName = Path.Combine(_webHhostingEnvironment.WebRootPath, "Upload_Directory", $"{metadata.UploadUid}_{chunkIndex}");
+                var chunkFileName = Path.Combine(_webHhostingEnvironment.WebRootPath, "Upload_Directory", $"{metadata.FileName}_{chunkIndex}");
 
                 if (System.IO.File.Exists(chunkFileName))
+                {
                     System.IO.File.Delete(chunkFileName);
+
+                    Debug.WriteLine($"Deleted chunk: {chunkFileName}.");
+                }
             }
+
+            Debug.WriteLine($"*** Upload and recombination complete! *** File: {cleanFileName}");
         }
     }
 
