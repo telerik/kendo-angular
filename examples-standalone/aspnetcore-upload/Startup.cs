@@ -10,6 +10,8 @@ namespace aspnetcore_upload
 {
     public class Startup
     {
+        string MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -21,10 +23,18 @@ namespace aspnetcore_upload
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
             {
                 configuration.RootPath = "ClientApp/dist";
+            });
+            
+            services.AddCors(options =>
+            {
+                options.AddPolicy(
+                    name: MyAllowSpecificOrigins,
+                    policy => policy.WithOrigins("https://localhost:5001", "http://localhost:5000", "http://localhost:11688"));
             });
         }
 
@@ -50,6 +60,8 @@ namespace aspnetcore_upload
             }
 
             app.UseRouting();
+
+            app.UseCors(MyAllowSpecificOrigins);
 
             app.UseEndpoints(endpoints =>
             {
