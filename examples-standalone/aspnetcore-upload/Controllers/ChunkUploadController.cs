@@ -63,11 +63,11 @@ namespace aspnetcore_upload.Controllers
             {
                 foreach (var file in files)
                 {
-                    // ************************************************************************** //
-                    // ********** Scenario 1 - Supports Only Concurrent Chunk Upload ************ //
-                    // ************************************************************************** //
+                    // ********************************************************************** //
+                    // ** Scenario 1: Concurrent=false - Supports Sequential Chunk Upload  ** //
+                    // ********************************************************************** //
 
-                    // If the upload is in sequential order, you can just appends the chunks to what has already been written to disk
+                    // If the upload is in sequential order, you can just append the chunks to what has already been written to disk
                     //var path = Path.Combine(_root, somemetaData.FileName);
                     //using (var uploadedChunkStream = file.OpenReadStream())
                     //using(var stream = new FileStream(path, FileMode.Append, FileAccess.Write, FileShare.ReadWrite))
@@ -76,12 +76,12 @@ namespace aspnetcore_upload.Controllers
                     //}
 
 
-                    // ************************************************************************* //
-                    // ********** Scenario 2 - Supports Non-Concurrent Chunk Upload ************ //
-                    // ************************************************************************* //
+                    // ********************************************************************* //
+                    // ** Scenario 2: Concurrent=true - Supports Concurrent Chunk Upload  ** //
+                    // ********************************************************************* //
 
-                    // For non-concurrent chunk support you will need to develop a system to keep track of each chunks and reassembly them
-                    // together when all the chunks have been uploaded. The ChunkMetaData gives you all the information you need.
+                    // To support concurrent chunk upload, you need a system to keep track of each chunk and assemble them in the correct
+                    // order when all the chunks have been uploaded. The ChunkMetaData object gives you all the information you need.
 
                     // Step 1. Save the chunk
                     var tempChunkFilePath = Path.Combine(_webHhostingEnvironment.WebRootPath, "Upload_Directory", $"{metadata.FileName}_{metadata.ChunkIndex}");
