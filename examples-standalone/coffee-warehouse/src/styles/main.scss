@@ -114,9 +114,13 @@ kendo-recurrence-frequency-editor .k-edit-field {
 }
 
 .ddl-theme {
-    width: 60px;
+    width: 75px;
 }
 
-.ddl-locale .k-dropdown-wrap {
-    width: 98px;
+.k-dropdownlist {
+    margin: 5px;
+}
+
+.ddl-locale {
+    width: 120px;
 }
