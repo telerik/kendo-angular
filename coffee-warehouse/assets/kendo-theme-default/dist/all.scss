@@ -885,42 +885,6 @@ $_kendo-imported-modules: ();
 
 // #endregion
 
-// Other
-// #region @import "_input-ripple.scss"; -> packages/default/scss/core/mixins/_input-ripple.scss
-@mixin input-ripple() {
-    $height: 2 * $kendo-input-border-width;
-
-    &::after {
-        display: block;
-        z-index: 2;
-        content: "";
-        position: absolute;
-        bottom: calc( 1px - #{$height} );
-        left: 0;
-        right: 0;
-        height: $height;
-        margin: auto;
-        opacity: 0;
-        transform: scaleX(.5);
-        transition: transform .3s;
-        background-color: $primary;
-    }
-
-    &.k-state-focused::after ,
-    &.k-focus::after {
-        opacity: 1;
-        transform: scaleX(1);
-    }
-
-
-    &.k-state-invalid::after ,
-    &.k-invalid::after {
-        background-color: $error;
-        transition: none;
-    }
-}
-
-// #endregion
 
 // #endregion
 // #region @import "../_variables.scss"; -> packages/default/scss/_variables.scss
@@ -6072,14 +6036,14 @@ $message-box-link-text-decoration: underline !default;
 $kendo-list-font-size: null !default;
 $kendo-list-font-size-sm: $font-size-md !default;
 $kendo-list-font-size-md: $font-size-md !default;
-$kendo-list-font-size-lg: $font-size-md !default;
+$kendo-list-font-size-lg: $font-size-lg !default;
 
 /// Line height of the list component, if no size is set.
 /// @group list
 $kendo-list-line-height: null !default;
-$kendo-list-line-height-sm: null !default;
-$kendo-list-line-height-md: null !default;
-$kendo-list-line-height-lg: null !default;
+$kendo-list-line-height-sm: $line-height-md !default;
+$kendo-list-line-height-md: $line-height-md !default;
+$kendo-list-line-height-lg: $line-height-lg !default;
 
 /// Horizontal padding of list header, if no size is set.
 /// @group list
@@ -6125,7 +6089,7 @@ $kendo-list-item-padding-x: null !default;
 $kendo-list-item-padding-x-base: map-get( $spacing, 2 ) !default;
 $kendo-list-item-padding-x-sm: map-get( $spacing, 2 ) !default;
 $kendo-list-item-padding-x-md: map-get( $spacing, 2 ) !default;
-$kendo-list-item-padding-x-lg: map-get( $spacing, 2 ) !default;
+$kendo-list-item-padding-x-lg: map-get( $spacing, 3 ) !default;
 
 /// Vertical padding of list items, when no size is set.
 /// @group list
@@ -6133,7 +6097,7 @@ $kendo-list-item-padding-y: null !default;
 $kendo-list-item-padding-y-base: map-get( $spacing, 1 ) !default;
 $kendo-list-item-padding-y-sm: map-get( $spacing, 1 ) - map-get( $spacing, thin ) !default;
 $kendo-list-item-padding-y-md: map-get( $spacing, 1 ) !default;
-$kendo-list-item-padding-y-lg: map-get( $spacing, 1 ) + map-get( $spacing, thin ) !default;
+$kendo-list-item-padding-y-lg: map-get( $spacing, 2 ) !default;
 
 /// Font size of list items, if no size is set.
 /// @group list
@@ -7991,34 +7955,33 @@ $kendo-button-border-radius: null !default;
 /// Horizontal padding of the button.
 /// @group button
 $kendo-button-padding-x: map-get( $spacing, 2 ) !default;
-$kendo-button-padding-x-sm: map-get( $spacing, 2 ) !default;
-$kendo-button-padding-x-md: map-get( $spacing, 2 ) !default;
-$kendo-button-padding-x-lg: map-get( $spacing, 2 ) !default;
-
 /// Vertical padding of the button.
 /// @group button
 $kendo-button-padding-y: map-get( $spacing, 1 ) !default;
-$kendo-button-padding-y-sm: map-get( $spacing, 1 ) - map-get( $spacing, thin ) !default;
-$kendo-button-padding-y-md: map-get( $spacing, 1 ) !default;
-$kendo-button-padding-y-lg: map-get( $spacing, 1 ) + map-get( $spacing, thin ) !default;
-
 /// Font family of the button.
 /// @group button
 $kendo-button-font-family: $font-family !default;
-
 /// Font sizes of the button.
 /// @group button
 $kendo-button-font-size: $font-size-md !default;
-$kendo-button-font-size-sm: $font-size-md !default;
-$kendo-button-font-size-md: $font-size-md !default;
-$kendo-button-font-size-lg: $font-size-md !default;
-
 /// Line heights used along with $font-size.
 /// @group button
 $kendo-button-line-height: $line-height-md !default;
+
+$kendo-button-padding-x-sm: map-get( $spacing, 2 ) !default;
+$kendo-button-padding-y-sm: map-get( $spacing, 1 ) - map-get( $spacing, thin ) !default;
+$kendo-button-font-size-sm: $font-size-md !default;
 $kendo-button-line-height-sm: $line-height-md !default;
+
+$kendo-button-padding-x-md: map-get( $spacing, 2 ) !default;
+$kendo-button-padding-y-md: map-get( $spacing, 1 ) !default;
+$kendo-button-font-size-md: $font-size-md !default;
 $kendo-button-line-height-md: $line-height-md !default;
-$kendo-button-line-height-lg: $line-height-md !default;
+
+$kendo-button-padding-x-lg: map-get( $spacing, 3 ) !default;
+$kendo-button-padding-y-lg: map-get( $spacing, 2 );
+$kendo-button-font-size-lg: $font-size-lg !default;
+$kendo-button-line-height-lg: $line-height-lg !default;
 
 /// Calculated height of the button.
 /// @group button
@@ -8027,6 +7990,27 @@ $kendo-button-calc-size: calc( #{$kendo-button-line-height * 1em} + #{$kendo-but
 /// Calculated inner height of the button. Without the border width.
 /// @group button
 $kendo-button-inner-calc-size: calc( #{$kendo-button-line-height * 1em} + #{$kendo-button-padding-y * 2} ) !default;
+
+$kendo-button-sizes: (
+    sm: (
+        padding-x: $kendo-button-padding-x-sm,
+        padding-y: $kendo-button-padding-y-sm,
+        font-size: $kendo-button-font-size-sm,
+        line-height: $kendo-button-line-height-sm
+    ),
+    md: (
+        padding-x: $kendo-button-padding-x-md,
+        padding-y: $kendo-button-padding-y-md,
+        font-size: $kendo-button-font-size-md,
+        line-height: $kendo-button-line-height-md
+    ),
+    lg: (
+        padding-x: $kendo-button-padding-x-lg,
+        padding-y: $kendo-button-padding-y-lg,
+        font-size: $kendo-button-font-size-lg,
+        line-height: $kendo-button-line-height-lg
+    )
+) !default;
 
 /// Theme colors map for the button.
 /// @group button
@@ -8252,45 +8236,27 @@ $kendo-button-transition: color .2s ease-in-out !default;
 
     .k-button-text {}
 
+
     // Sizes
-    .k-button-sm {
-        padding: $kendo-button-padding-y-sm $kendo-button-padding-x-sm;
-        font-size: $kendo-button-font-size-sm;
-        line-height: $kendo-button-line-height-sm;
-    }
-    .k-button-md {
-        padding: $kendo-button-padding-y-md $kendo-button-padding-x-md;
-        font-size: $kendo-button-font-size-md;
-        line-height: $kendo-button-line-height-md;
-    }
-    .k-button-lg {
-        padding: $kendo-button-padding-y-lg $kendo-button-padding-x-lg;
-        font-size: $kendo-button-font-size-lg;
-        line-height: $kendo-button-line-height-lg;
-    }
+    @each $size, $size-props in $kendo-button-sizes {
+        $_padding-x: map-get( $size-props, padding-x );
+        $_padding-y: map-get( $size-props, padding-y );
+        $_font-size: map-get( $size-props, font-size );
+        $_line-height: map-get( $size-props, line-height );
 
-    .k-icon-button.k-button-sm {
-        padding: $kendo-button-padding-y-sm;
-
-        > .k-button-icon {
-            min-width: calc( #{$kendo-button-font-size-sm} * #{$kendo-button-line-height-sm} );
-            min-height: calc( #{$kendo-button-font-size-sm} * #{$kendo-button-line-height-sm} );
+        .k-button-#{$size} {
+            padding: $_padding-y $_padding-x;
+            font-size: $_font-size;
+            line-height: $_line-height;
         }
-    }
-    .k-icon-button.k-button-md {
-        padding: $kendo-button-padding-y-md;
 
-        > .k-button-icon {
-            min-width: calc( #{$kendo-button-font-size-md} * #{$kendo-button-line-height-md} );
-            min-height: calc( #{$kendo-button-font-size-md} * #{$kendo-button-line-height-md} );
-        }
-    }
-    .k-icon-button.k-button-lg {
-        padding: $kendo-button-padding-y-lg;
+        .k-button-#{$size}.k-icon-button {
+            padding: $_padding-y;
 
-        > .k-button-icon {
-            min-width: calc( #{$kendo-button-font-size-lg} * #{$kendo-button-line-height-lg} );
-            min-height: calc( #{$kendo-button-font-size-lg} * #{$kendo-button-line-height-lg} );
+            > .k-button-icon {
+                min-width: calc( #{$_font-size} * #{$_line-height} );
+                min-height: calc( #{$_font-size} * #{$_line-height} );
+            }
         }
     }
 
@@ -8813,16 +8779,33 @@ $kendo-button-transition: color .2s ease-in-out !default;
 // Component
 // #region @import "_variables.scss"; -> packages/default/scss/input/_variables.scss
 // Input
+
+/// Default width of input components.
+/// @group input
 $kendo-input-default-width: 100% !default;
 
+/// Border width of input components.
+/// @group input
 $kendo-input-border-width: 1px !default;
 $kendo-input-border-height: ( $kendo-input-border-width * 2 ) !default;
+/// Border radius of input components.
+/// @group input
 $kendo-input-border-radius: null !default;
 
+/// Horizontal padding of input components.
+/// @group input
 $kendo-input-padding-x: map-get( $spacing, 2 ) !default;
+/// Vertical padding of input components.
+/// @group input
 $kendo-input-padding-y: map-get( $spacing, 1 ) !default;
+/// Font family of input components.
+/// @group input
 $kendo-input-font-family: $font-family !default;
+/// Font size of input components.
+/// @group input
 $kendo-input-font-size: $font-size-md !default;
+/// Line height of input components.
+/// @group input
 $kendo-input-line-height: $line-height-md !default;
 
 $kendo-input-padding-x-sm: map-get( $spacing, 2 ) !default;
@@ -8835,10 +8818,10 @@ $kendo-input-padding-y-md: map-get( $spacing, 1 ) !default;
 $kendo-input-font-size-md: $font-size-md !default;
 $kendo-input-line-height-md: $line-height-md !default;
 
-$kendo-input-padding-x-lg: map-get( $spacing, 2 ) !default;
-$kendo-input-padding-y-lg: map-get( $spacing, 1 ) + map-get( $spacing, thin ) !default;
-$kendo-input-font-size-lg: $font-size-md !default;
-$kendo-input-line-height-lg: $line-height-md !default;
+$kendo-input-padding-x-lg: map-get( $spacing, 3 ) !default;
+$kendo-input-padding-y-lg: map-get( $spacing, 2 ) !default;
+$kendo-input-font-size-lg: $font-size-lg !default;
+$kendo-input-line-height-lg: $line-height-lg !default;
 
 $kendo-input-sizes: (
     sm: (
@@ -8892,7 +8875,7 @@ $kendo-input-disabled-gradient: null !default;
 $kendo-input-disabled-shadow: null !default;
 
 $kendo-input-outline-bg: null !default;
-$kendo-input-outline-text: null !default;
+$kendo-input-outline-text: $kendo-input-text !default;
 $kendo-input-outline-border: rgba( $kendo-button-text, .5) !default;
 
 $kendo-input-outline-hover-bg: null !default;
@@ -8901,18 +8884,21 @@ $kendo-input-outline-hover-border: rgba( $kendo-button-text, .8) !default;
 
 $kendo-input-outline-focus-bg: null !default;
 $kendo-input-outline-focus-text: null !default;
-$kendo-input-outline-focus-border: $kendo-input-outline-border !default;
+$kendo-input-outline-focus-border: null !default;
 $kendo-input-outline-focus-shadow: $kendo-input-focus-shadow !default;
 
-$kendo-input-flat-bg: transparent !default;
+$kendo-input-flat-bg: null !default;
 $kendo-input-flat-text: $kendo-input-text !default;
 $kendo-input-flat-border: $kendo-input-border !default;
+
+$kendo-input-flat-hover-bg: null !default;
+$kendo-input-flat-hover-text: null !default;
+$kendo-input-flat-hover-border: $kendo-input-hover-border !default;
 
 $kendo-input-flat-focus-bg: null !default;
 $kendo-input-flat-focus-text: null !default;
 $kendo-input-flat-focus-border: null !default;
-
-$kendo-input-flat-border-radius: $kendo-border-radius $kendo-border-radius 0px 0px !default;
+$kendo-input-flat-focus-shadow: $kendo-input-focus-shadow !default;
 
 $kendo-picker-bg: $kendo-button-bg !default;
 $kendo-picker-text: $kendo-button-text !default;
@@ -8938,24 +8924,24 @@ $kendo-picker-disabled-border: null !default;
 $kendo-picker-disabled-gradient: null !default;
 $kendo-picker-disabled-shadow: null !default;
 
-$kendo-picker-outline-bg: transparent !default;
-$kendo-picker-outline-text: null !default;
-$kendo-picker-outline-border: $kendo-button-text !default;
+$kendo-picker-outline-bg: null !default;
+$kendo-picker-outline-text: $kendo-button-text !default;
+$kendo-picker-outline-border: rgba( $kendo-picker-outline-text, .5) !default;
 
-$kendo-picker-outline-hover-bg: $kendo-button-text !default;
-$kendo-picker-outline-hover-text: $body-bg !default;
-$kendo-picker-outline-hover-border: null !default;
+$kendo-picker-outline-hover-bg: $kendo-picker-outline-text !default;
+$kendo-picker-outline-hover-text: contrast-wcag( $kendo-picker-outline-hover-bg ) !default;
+$kendo-picker-outline-hover-border: $kendo-picker-outline-hover-bg !default;
 
-$kendo-picker-outline-focus-bg: transparent !default;
-$kendo-picker-outline-focus-text: $kendo-picker-outline-text !default;
-$kendo-picker-outline-focus-border: $kendo-picker-outline-border !default;
+$kendo-picker-outline-focus-bg: null !default;
+$kendo-picker-outline-focus-text: null !default;
+$kendo-picker-outline-focus-border: null !default;
 $kendo-picker-outline-focus-shadow: $kendo-picker-focus-shadow !default;
 
-$kendo-picker-outline-hover-focus-bg: $kendo-picker-outline-hover-bg !default;
-$kendo-picker-outline-hover-focus-text: $kendo-picker-outline-hover-text !default;
-$kendo-picker-outline-hover-focus-border: $kendo-picker-outline-hover-border !default;
+$kendo-picker-outline-hover-focus-bg: null !default;
+$kendo-picker-outline-hover-focus-text: null !default;
+$kendo-picker-outline-hover-focus-border: null !default;
 
-$kendo-picker-flat-bg: transparent !default;
+$kendo-picker-flat-bg: null !default;
 $kendo-picker-flat-text: $kendo-button-text !default;
 $kendo-picker-flat-border: $kendo-button-border !default;
 
@@ -8966,7 +8952,7 @@ $kendo-picker-flat-hover-border: rgba( $kendo-button-border, .16 ) !default;
 $kendo-picker-flat-focus-bg: null !default;
 $kendo-picker-flat-focus-text: null !default;
 $kendo-picker-flat-focus-border: null !default;
-$kendo-picker-flat-focus-shadow: null !default;
+$kendo-picker-flat-focus-shadow: $kendo-picker-focus-shadow !default;
 
 $kendo-picker-flat-hover-focus-bg: null !default;
 $kendo-picker-flat-hover-focus-text: null !default;
@@ -9345,26 +9331,14 @@ $kendo-input-invalid-shadow: $invalid-shadow !default;
     // Fill mode
     .k-input-flat,
     .k-picker-flat {
-        @include border-radius( 0 !important ); // sass-lint:disable-line no-important
+        @include border-bottom-radius( 0 !important ); // sass-lint:disable-line no-important
         border-width: $kendo-input-border-width 0;
         border-top-color: transparent !important; // sass-lint:disable-line no-important
         background-image: none !important; // sass-lint:disable-line no-important
-
-        &:focus,
-        &.k-focus {
-            @include border-radius( $kendo-input-flat-border-radius !important ); // sass-lint:disable-line no-important
-        }
-        &:focus-within {
-            @include border-radius( $kendo-input-flat-border-radius !important ); // sass-lint:disable-line no-important
-        }
     }
 
     .k-input-outline {
         background: none !important; // sass-lint:disable-line no-important
-    }
-
-    .k-picker.k-picker-flat {
-        @include border-radius( $kendo-input-flat-border-radius !important ); // sass-lint:disable-line no-important
     }
 
 
@@ -9476,7 +9450,7 @@ $kendo-input-invalid-shadow: $invalid-shadow !default;
 @include exports( "input/theme" ) {
 
     // Solid input
-    .k-input {
+    .k-input-solid {
         @include fill(
             $kendo-input-text,
             $kendo-input-bg,
@@ -9513,7 +9487,7 @@ $kendo-input-invalid-shadow: $invalid-shadow !default;
             @include box-shadow( $kendo-input-focus-shadow );
         }
 
-        //Disabled
+        // Disabled
         &:disabled,
         &[disabled],
         &.k-disabled {
@@ -9530,7 +9504,7 @@ $kendo-input-invalid-shadow: $invalid-shadow !default;
         &.k-invalid,
         &.ng-invalid.ng-touched,
         &.ng-invalid.ng-dirty {
-            @include fill( $border: $invalid-border );
+            @include fill( $border: $kendo-input-invalid-border );
 
             .k-input-validation-icon {
                 color: $invalid-text;
@@ -9538,10 +9512,10 @@ $kendo-input-invalid-shadow: $invalid-shadow !default;
 
             &:focus,
             &.k-focus {
-                @include box-shadow($invalid-shadow);
+                @include box-shadow( $kendo-input-invalid-shadow );
             }
             &:focus-within {
-                @include box-shadow($invalid-shadow);
+                @include box-shadow( $kendo-input-invalid-shadow );
             }
         }
 
@@ -9549,7 +9523,7 @@ $kendo-input-invalid-shadow: $invalid-shadow !default;
 
 
     // Solid picker
-    .k-picker {
+    .k-picker-solid {
         @include fill(
             $kendo-picker-text,
             $kendo-picker-bg,
@@ -9590,7 +9564,7 @@ $kendo-input-invalid-shadow: $invalid-shadow !default;
             @include box-shadow( $kendo-picker-focus-shadow );
         }
 
-        //Disabled
+        // Disabled
         &:disabled,
         &[disabled],
         &.k-disabled {
@@ -9623,7 +9597,8 @@ $kendo-input-invalid-shadow: $invalid-shadow !default;
         }
     }
 
-    // Outline
+
+    // Outline input
     .k-input-outline {
         @include fill (
             $kendo-input-outline-text,
@@ -9644,6 +9619,7 @@ $kendo-input-invalid-shadow: $invalid-shadow !default;
            }
         }
 
+        // Hover
         &:hover,
         &.k-hover {
             @include fill (
@@ -9653,6 +9629,7 @@ $kendo-input-invalid-shadow: $invalid-shadow !default;
             );
         }
 
+        // Focus
         &:focus,
         &.k-focus {
             @include fill (
@@ -9662,12 +9639,33 @@ $kendo-input-invalid-shadow: $invalid-shadow !default;
              );
             @include box-shadow ( $kendo-input-outline-focus-shadow );
         }
+        &:focus-within {
+            @include fill (
+                $kendo-input-outline-focus-text,
+                $kendo-input-outline-focus-bg,
+                $kendo-input-outline-focus-border
+             );
+            @include box-shadow ( $kendo-input-outline-focus-shadow );
+        }
+
+        // Disabled
+        &:disabled,
+        &[disabled],
+        &.k-disabled {
+            @include fill(
+                $kendo-input-disabled-text,
+                $kendo-input-disabled-bg,
+                $kendo-input-disabled-border,
+                $kendo-input-disabled-gradient
+            );
+            @include box-shadow( $kendo-input-disabled-shadow );
+        }
 
         // Invalid
         &.k-invalid,
         &.ng-invalid.ng-touched,
         &.ng-invalid.ng-dirty {
-            @include fill( $border: $invalid-border );
+            @include fill( $border: $kendo-input-invalid-border );
 
             .k-input-validation-icon {
                 color: $invalid-text;
@@ -9675,15 +9673,17 @@ $kendo-input-invalid-shadow: $invalid-shadow !default;
 
             &:focus,
             &.k-focus {
-                @include box-shadow($invalid-shadow);
+                @include box-shadow( $kendo-input-invalid-shadow );
             }
             &:focus-within {
-                @include box-shadow($invalid-shadow);
+                @include box-shadow( $kendo-input-invalid-shadow );
             }
         }
 
     }
 
+
+    // Outline picker
     .k-picker-outline {
         @include fill (
             $kendo-picker-outline-text,
@@ -9691,6 +9691,7 @@ $kendo-input-invalid-shadow: $invalid-shadow !default;
             $kendo-picker-outline-border
         );
 
+        // Hover
         &:hover,
         &.k-hover {
             @include fill (
@@ -9700,8 +9701,17 @@ $kendo-input-invalid-shadow: $invalid-shadow !default;
             );
         }
 
+        // Focus
         &:focus,
         &.k-focus {
+            @include fill (
+                $kendo-picker-outline-focus-text,
+                $kendo-picker-outline-focus-bg,
+                $kendo-picker-outline-focus-border
+            );
+            @include box-shadow ( $kendo-picker-outline-focus-shadow );
+        }
+        &:focus-within {
             @include fill (
                 $kendo-picker-outline-focus-text,
                 $kendo-picker-outline-focus-bg,
@@ -9721,41 +9731,17 @@ $kendo-input-invalid-shadow: $invalid-shadow !default;
             );
         }
 
-        // Invalid
-        &.k-invalid,
-        &.ng-invalid.ng-touched,
-        &.ng-invalid.ng-dirty {
-            @include fill( $border: $invalid-border );
-
-            .k-input-validation-icon {
-                color: $invalid-text;
-            }
-
-            &:focus,
-            &.k-focus {
-                @include box-shadow($invalid-shadow);
-            }
-            &:focus-within {
-                @include box-shadow($invalid-shadow);
-            }
-        }
-    }
-
-    // Flat
-    .k-input-flat {
-        @include fill (
-            $kendo-input-flat-text,
-            $kendo-input-flat-bg,
-            $kendo-input-flat-border
-        );
-
-        &:focus,
-        &.k-focus {
-            @include fill (
-                $kendo-input-flat-focus-text,
-                $kendo-input-flat-focus-bg,
-                $kendo-input-flat-focus-border
+        // Disabled
+        &:disabled,
+        &[disabled],
+        &.k-disabled {
+            @include fill(
+                $kendo-picker-disabled-text,
+                $kendo-picker-disabled-bg,
+                $kendo-picker-disabled-border,
+                $kendo-picker-disabled-gradient
             );
+            @include box-shadow( $kendo-picker-disabled-shadow );
         }
 
         // Invalid
@@ -9778,6 +9764,79 @@ $kendo-input-invalid-shadow: $invalid-shadow !default;
         }
     }
 
+
+    // Flat input
+    .k-input-flat {
+        @include fill (
+            $kendo-input-flat-text,
+            $kendo-input-flat-bg,
+            $kendo-input-flat-border
+        );
+
+        // Hover
+        &:hover,
+        &.k-hover {
+            @include fill (
+                $kendo-input-flat-hover-text,
+                $kendo-input-flat-hover-bg,
+                $kendo-input-flat-hover-border
+            );
+        }
+
+        // Focus
+        &:focus,
+        &.k-focus {
+            @include fill (
+                $kendo-input-flat-focus-text,
+                $kendo-input-flat-focus-bg,
+                $kendo-input-flat-focus-border
+            );
+            @include box-shadow( $kendo-input-flat-focus-shadow );
+        }
+        &:focus-within {
+            @include fill (
+                $kendo-input-flat-focus-text,
+                $kendo-input-flat-focus-bg,
+                $kendo-input-flat-focus-border
+            );
+            @include box-shadow( $kendo-input-flat-focus-shadow );
+        }
+
+        // Disabled
+        &:disabled,
+        &[disabled],
+        &.k-disabled {
+            @include fill(
+                $kendo-input-disabled-text,
+                $kendo-input-disabled-bg,
+                $kendo-input-disabled-border,
+                $kendo-input-disabled-gradient
+            );
+            @include box-shadow( $kendo-input-disabled-shadow );
+        }
+
+        // Invalid
+        &.k-invalid,
+        &.ng-invalid.ng-touched,
+        &.ng-invalid.ng-dirty {
+            @include fill( $border: $kendo-input-invalid-border );
+
+            .k-input-validation-icon {
+                color: $invalid-text;
+            }
+
+            &:focus,
+            &.k-focus {
+                @include box-shadow( $kendo-input-invalid-shadow );
+            }
+            &:focus-within {
+                @include box-shadow( $kendo-input-invalid-shadow );
+            }
+        }
+    }
+
+
+    // Flat picker
     .k-picker-flat {
         @include fill (
             $kendo-picker-flat-text,
@@ -9785,6 +9844,7 @@ $kendo-input-invalid-shadow: $invalid-shadow !default;
             $kendo-picker-flat-border
         );
 
+        // Hover
         &:hover,
         &.k-hover {
             @include fill (
@@ -9794,8 +9854,17 @@ $kendo-input-invalid-shadow: $invalid-shadow !default;
             );
         }
 
+        // Focus
         &:focus,
         &.k-focus {
+            @include fill (
+                $kendo-picker-flat-focus-text,
+                $kendo-picker-flat-focus-bg,
+                $kendo-picker-flat-focus-border
+            );
+            @include box-shadow( $kendo-picker-flat-focus-shadow );
+        }
+        &:focus-within {
             @include fill (
                 $kendo-picker-flat-focus-text,
                 $kendo-picker-flat-focus-bg,
@@ -9813,6 +9882,19 @@ $kendo-input-invalid-shadow: $invalid-shadow !default;
                 $kendo-picker-flat-hover-focus-bg,
                 $kendo-picker-flat-hover-focus-border
             );
+        }
+
+        // Disabled
+        &:disabled,
+        &[disabled],
+        &.k-disabled {
+            @include fill(
+                $kendo-picker-disabled-text,
+                $kendo-picker-disabled-bg,
+                $kendo-picker-disabled-border,
+                $kendo-picker-disabled-gradient
+            );
+            @include box-shadow( $kendo-picker-disabled-shadow );
         }
 
         // Invalid
@@ -11115,6 +11197,7 @@ $kendo-avatar-theme-colors: $kendo-theme-colors !default;
             width: 100%;
             height: 100%;
             object-fit: cover;
+            vertical-align: top;
         }
     }
 
@@ -11196,7 +11279,7 @@ $kendo-avatar-theme-colors: $kendo-theme-colors !default;
 $kendo-chip-border-width: 1px !default;
 /// The spacing between the text and the icons of the chip.
 /// @group chip
-$kendo-chip-spacing: map-get( $spacing, 1 );
+$kendo-chip-spacing: map-get( $spacing, 1 ) !default;
 
 /// Horizontal padding of the chip.
 /// @group chip
@@ -13798,7 +13881,8 @@ $fieldset-legend-border: null !default;
 
         .k-multiselect,
         .k-floating-label-container,
-        .k-daterangepicker .k-dateinput {
+        .k-daterangepicker .k-dateinput,
+        .k-signature {
             display: inline-flex;
             width: 100%;
         }
@@ -14822,6 +14906,7 @@ $listbox-drop-hint-width: 1px !default;
 // #region @import "_variables.scss"; -> packages/default/scss/progressbar/_variables.scss
 // Progressbar
 $progressbar-height: 22px !default;
+$progressbar-horizontal-width: 100% !default;
 $progressbar-animation-timing: 1s linear infinite !default;
 $progressbar-border-width: 0px !default;
 $progressbar-font-family: $font-family !default;
@@ -14844,6 +14929,10 @@ $progressbar-indeterminate-border: $progressbar-border !default;
 $progressbar-indeterminate-gradient: null !default;
 
 $progressbar-chunk-border: $body-bg !default;
+
+// Circular Progressbar
+$kendo-circular-progressbar-arc-stroke: $primary !default;
+$kendo-circular-progressbar-scale-stroke: $progressbar-bg !default;
 
 // #endregion
 // #region @import "_layout.scss"; -> packages/default/scss/progressbar/_layout.scss
@@ -14875,7 +14964,7 @@ $progressbar-chunk-border: $body-bg !default;
 
 
         // Selection
-        > .k-state-selected ,
+        > .k-state-selected,
         > .k-selected {
             border-width: 0;
             border-style: solid;
@@ -14936,7 +15025,7 @@ $progressbar-chunk-border: $body-bg !default;
 
     // Horizontal
     .k-progressbar-horizontal {
-        width: 27em;
+        width: $progressbar-horizontal-width;
         height: $progressbar-height;
         grid-template-columns: 1fr;
         grid-template-rows: 100%;
@@ -14946,7 +15035,7 @@ $progressbar-chunk-border: $body-bg !default;
             flex-direction: row;
         }
 
-        > .k-state-selected ,
+        > .k-state-selected,
         > .k-selected {
             width: 0;
             width: calc( var( --kendo-progressbar-progress, 0 ) * 1% ); // sass-lint:disable-line no-duplicate-properties
@@ -14973,7 +15062,7 @@ $progressbar-chunk-border: $body-bg !default;
         // Horizontal reverse
         &.k-progressbar-reverse {
 
-            > .k-state-selected ,
+            > .k-state-selected,
             > .k-selected {
                 flex-direction: row-reverse;
                 justify-self: flex-end;
@@ -14998,7 +15087,7 @@ $progressbar-chunk-border: $body-bg !default;
             writing-mode: vertical-lr;
         }
 
-        > .k-state-selected ,
+        > .k-state-selected,
         > .k-selected {
             height: 0;
             height: calc( var( --kendo-progressbar-progress, 0 ) * 1% ); // sass-lint:disable-line no-duplicate-properties
@@ -15028,7 +15117,7 @@ $progressbar-chunk-border: $body-bg !default;
         &.k-progressbar-reverse {
             flex-direction: column;
 
-            > .k-state-selected ,
+            > .k-state-selected,
             > .k-selected {
                 flex-direction: column;
                 align-self: flex-start;
@@ -15053,7 +15142,7 @@ $progressbar-chunk-border: $body-bg !default;
 
         > .k-state-selected,
         > .k-selected,
-        > .k-state-selected > .k-progress-status-wrap ,
+        > .k-state-selected > .k-progress-status-wrap,
         > .k-selected > .k-progress-status-wrap {
             transition: width .1s ease-in-out;
         }
@@ -15082,7 +15171,7 @@ $progressbar-chunk-border: $body-bg !default;
         display: -ms-inline-grid;
 
         > .k-progress-status-wrap,
-        > .k-state-selected ,
+        > .k-state-selected,
         > .k-selected {
             -ms-grid-column: 1;
             -ms-grid-row: 1;
@@ -15092,7 +15181,7 @@ $progressbar-chunk-border: $body-bg !default;
         -ms-grid-columns: 1fr;
         -ms-grid-rows: $progressbar-height;
 
-        &.k-progressbar-reverse > .k-state-selected ,
+        &.k-progressbar-reverse > .k-state-selected,
         &.k-progressbar-reverse > .k-selected {
             -ms-grid-column-align: end;
         }
@@ -15101,15 +15190,58 @@ $progressbar-chunk-border: $body-bg !default;
         -ms-grid-columns: $progressbar-height;
         -ms-grid-rows: 1fr;
 
-        > .k-state-selected ,
+        > .k-state-selected,
         > .k-selected {
             -ms-grid-row-align: end;
         }
 
-        &.k-progressbar-reverse > .k-state-selected ,
+        &.k-progressbar-reverse > .k-state-selected,
         &.k-progressbar-reverse > .k-selected {
             -ms-grid-row-align: start;
         }
+    }
+
+}
+
+@include exports("circular-progressbar/layout") {
+
+    .k-circular-progressbar {
+        display: inline-block;
+        text-align: left;
+        position: relative;
+    }
+
+    .k-circular-progressbar-surface {
+        height: 100%;
+
+        & > div {
+            width: 100%;
+            height: 100%;
+        }
+
+        svg {
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    .k-circular-progressbar-scale {
+        fill: none;
+    }
+
+    .k-circular-progressbar-arc {
+        transform-box: fill-box;
+        transform-origin: center center;
+        transform: rotate(-90deg);
+        stroke-linecap: round;
+        fill: none;
+    }
+
+    .k-circular-progressbar-label {
+        position: absolute;
+        text-align: center;
+        padding: 0;
+        margin: 0;
     }
 
 }
@@ -15126,7 +15258,7 @@ $progressbar-chunk-border: $body-bg !default;
     .k-progressbar {
         @include fill( $progressbar-text, $progressbar-bg, $progressbar-border, $progressbar-gradient );
 
-        .k-state-selected ,
+        .k-state-selected,
         .k-selected {
             @include fill( $progressbar-fill-text, $progressbar-fill-bg, $progressbar-fill-border, $progressbar-fill-gradient );
         }
@@ -15141,6 +15273,19 @@ $progressbar-chunk-border: $body-bg !default;
         @include striped-gradient( shade($progressbar-indeterminate-bg) );
         background-size: $progressbar-height $progressbar-height;
         animation: progressbar-indeterminate-animation $progressbar-animation-timing;
+    }
+
+}
+
+@include exports("circular-progressbar/theme") {
+
+    .k-circular-progressbar-scale {
+        stroke: $kendo-circular-progressbar-scale-stroke;
+    }
+
+    .k-circular-progressbar-arc {
+        stroke: $kendo-circular-progressbar-arc-stroke;
+        transition: stroke .5s ease;
     }
 
 }
@@ -15493,7 +15638,7 @@ $kendo-radio-ripple-opacity: .25 !default;
         }
 
         .k-radio:focus,
-        .k-radio.k-state-focus ,
+        .k-radio.k-state-focus,
         .k-radio.k-focus {
             box-shadow: none !important; // sass-lint:disable-line no-important
 
@@ -15554,7 +15699,7 @@ $kendo-radio-ripple-opacity: .25 !default;
 
     // Hover state
     .k-radio:hover,
-    .k-radio.k-state-hover ,
+    .k-radio.k-state-hover,
     .k-radio.k-hover {
         @include fill(
             $kendo-radio-hover-text,
@@ -15566,7 +15711,7 @@ $kendo-radio-ripple-opacity: .25 !default;
 
     // Focus state
     .k-radio:focus,
-    .k-radio.k-state-focus ,
+    .k-radio.k-state-focus,
     .k-radio.k-focus {
         @include fill( $border: $kendo-radio-focus-border );
         @include box-shadow( $kendo-radio-focus-shadow );
@@ -15598,7 +15743,7 @@ $kendo-radio-ripple-opacity: .25 !default;
         );
     }
     .k-radio:checked:focus,
-    .k-radio.k-checked.k-state-focus ,
+    .k-radio.k-checked.k-state-focus,
     .k-radio.k-checked.k-focus {
         @include fill( $border: $kendo-radio-focus-checked-border );
         @include box-shadow( $kendo-radio-focus-checked-shadow );
@@ -15766,7 +15911,7 @@ $slider-disabled-opacity: null !default;
         }
 
 
-        &.k-state-disabled ,
+        &.k-state-disabled,
         &.k-disabled {
             .k-tick,
             .k-slider-track,
@@ -15830,6 +15975,16 @@ $slider-disabled-opacity: null !default;
             }
             .k-tick {
                 flex: 0 0 1px;
+            }
+
+            .k-tick-horizontal {
+                width: 1px;
+                min-height: 100%;
+            }
+
+            .k-tick-vertical {
+                width: 100%;
+                min-height: 1px;
             }
 
             .k-draghandle {
@@ -16210,20 +16365,20 @@ $slider-disabled-opacity: null !default;
             }
 
             &:focus,
-            &.k-state-focused ,
+            &.k-state-focused,
             &.k-focus {
                 @include box-shadow( $slider-draghandle-focused-shadow );
             }
         }
 
-        &.k-state-focused ,
+        &.k-state-focused,
         &.k-focus {
             .k-draghandle {
                 @include box-shadow( $slider-draghandle-focused-shadow );
             }
         }
 
-        &.k-state-disabled ,
+        &.k-state-disabled,
         &.k-disabled {
             opacity: $slider-disabled-opacity;
         }
@@ -16282,7 +16437,6 @@ $calendar-border: $component-border !default;
 $calendar-header-padding-x: map-get( $spacing, 1 ) !default;
 $calendar-header-padding-y: map-get( $spacing, 1 ) !default;
 $calendar-header-border-width: 1px !default;
-$calendar-header-min-width: ($calendar-cell-size * 8) !default;
 
 $calendar-header-bg: $header-bg !default;
 $calendar-header-text: $header-text !default;
@@ -16380,12 +16534,58 @@ $infinite-calendar-view-height: ( $calendar-cell-size * 9 ) !default;
 
 // Multiview calendar
 
+
+// Calendar sizes
+$kendo-calendar-sm-font-size: $font-size-md !default;
+$kendo-calendar-sm-line-height: $line-height-md !default;
+$kendo-calendar-sm-cell-size: 28px !default;
+$kendo-calendar-sm-cell-padding-x: map-get( $spacing, 1) - map-get( $spacing, thin ) !default;
+$kendo-calendar-sm-cell-padding-y: map-get( $spacing, 1) - map-get( $spacing, thin ) !default;
+
+$kendo-calendar-md-font-size: $font-size-md !default;
+$kendo-calendar-md-line-height: $line-height-md !default;
+$kendo-calendar-md-cell-size: 32px !default;
+$kendo-calendar-md-cell-padding-x: map-get( $spacing, 1 ) !default;
+$kendo-calendar-md-cell-padding-y: map-get( $spacing, 1 ) !default;
+
+$kendo-calendar-lg-font-size: $font-size-lg !default;
+$kendo-calendar-lg-line-height: $line-height-lg !default;
+$kendo-calendar-lg-cell-size: 40px !default;
+$kendo-calendar-lg-cell-padding-x: map-get( $spacing, 2 ) !default;
+$kendo-calendar-lg-cell-padding-y: map-get( $spacing, 2 ) !default;
+
+$kendo-calendar-sizes: (
+    sm: (
+        font-size: $kendo-calendar-sm-font-size,
+        line-height: $kendo-calendar-sm-line-height,
+        cell-size: $kendo-calendar-sm-cell-size,
+        cell-padding-x: $kendo-calendar-sm-cell-padding-y,
+        cell-padding-y: $kendo-calendar-sm-cell-padding-x
+    ),
+    md: (
+        font-size: $kendo-calendar-md-font-size,
+        line-height: $kendo-calendar-md-line-height,
+        cell-size: $kendo-calendar-md-cell-size,
+        cell-padding-x: $kendo-calendar-md-cell-padding-y,
+        cell-padding-y: $kendo-calendar-md-cell-padding-x
+    ),
+    lg: (
+        font-size: $kendo-calendar-lg-font-size,
+        line-height: $kendo-calendar-lg-line-height,
+        cell-size: $kendo-calendar-lg-cell-size,
+        cell-padding-x: $kendo-calendar-lg-cell-padding-y,
+        cell-padding-y: $kendo-calendar-lg-cell-padding-x
+    )
+) !default;
+
 // #endregion
 // #region @import "_layout.scss"; -> packages/default/scss/calendar/_layout.scss
 @include exports("calendar/layout") {
 
     // Base
     .k-calendar {
+        inline-size: var( --INTERNAL--kendo-calendar-width, min-content );
+        block-size: var( --INTERNAL--kendo-calendar-height, min-content );
         border-width: $calendar-border-width;
         border-style: solid;
         box-sizing: border-box;
@@ -16406,19 +16606,12 @@ $infinite-calendar-view-height: ( $calendar-cell-size * 9 ) !default;
         > .k-calendar {
             border: 0;
         }
-
-        // Common
-        .k-link {
-            white-space: normal;
-            position: relative;
-            overflow: hidden;
-        }
     }
 
 
     // Calendar table
     .k-calendar-table {
-        margin: 0;
+        margin: 0 auto;
         border-width: 0;
         border-color: inherit;
         border-spacing: 0;
@@ -16426,8 +16619,7 @@ $infinite-calendar-view-height: ( $calendar-cell-size * 9 ) !default;
         table-layout: fixed;
         text-align: center;
         outline: 0;
-        display: inline-table;
-        vertical-align: top;
+        display: table;
         position: relative;
         z-index: 1;
     }
@@ -16445,6 +16637,9 @@ $infinite-calendar-view-height: ( $calendar-cell-size * 9 ) !default;
         font-weight: $calendar-caption-font-weight;
         cursor: default;
     }
+
+
+    // Calendar cell
     .k-calendar-th,
     .k-calendar-td {
         border-width: 0;
@@ -16466,7 +16661,29 @@ $infinite-calendar-view-height: ( $calendar-cell-size * 9 ) !default;
     }
     .k-calendar-td {
         @include border-radius( $calendar-cell-border-radius );
+        inline-size: var( --INTERNAL--kendo-calendar-cell-size, min-content );
+        block-size: var( --INTERNAL--kendo-calendar-cell-size, min-content );
         border-color: transparent;
+    }
+
+
+    // Calendar cell inner
+    // Remove .k-calendar once we remove k-link
+    .k-calendar .k-calendar-cell-inner {
+        @include border-radius( $calendar-cell-border-radius );
+        padding: $calendar-cell-padding-y $calendar-cell-padding-x;
+        padding-inline: var( --INTERNAL--kendo-calendar-cell-padding-x, #{$calendar-cell-padding-x} );
+        padding-block: var( --INTERNAL--kendo-calendar-cell-padding-y, #{$calendar-cell-padding-y} );
+        width: 100%;
+        height: 100%;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        white-space: normal;
+        position: relative;
+        overflow: hidden;
     }
 
 
@@ -16487,7 +16704,7 @@ $infinite-calendar-view-height: ( $calendar-cell-size * 9 ) !default;
     // Calendar header
     .k-calendar-header {
         padding: $calendar-header-padding-y $calendar-header-padding-x;
-        min-width: $calendar-header-min-width;
+        min-width: ($calendar-cell-size * 8);
         box-sizing: border-box;
         display: flex;
         align-items: center;
@@ -16529,22 +16746,13 @@ $infinite-calendar-view-height: ( $calendar-cell-size * 9 ) !default;
         padding: 0 $calendar-header-padding-x;
         // setting width / height prevents layout changes in meta views
         width: $calendar-view-width;
+        inline-size: var( --INTERNAL--kendo-calendar-view-width, #{$calendar-view-width});
         min-height: $calendar-view-height;
         box-sizing: content-box;
         gap: $calendar-view-gap;
         position: relative;
         z-index: 1;
         overflow: hidden;
-
-        .k-link {
-            @include border-radius( $calendar-cell-border-radius );
-            padding: $calendar-cell-padding-y $calendar-cell-padding-x;
-            box-sizing: border-box;
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            justify-content: center;
-        }
     }
     .k-week-number .k-calendar-view {
         width: (8 * $calendar-cell-size);
@@ -16552,61 +16760,59 @@ $infinite-calendar-view-height: ( $calendar-cell-size * 9 ) !default;
 
 
     // Month view
+    .k-month-calendar,
     .k-calendar-monthview {
         $_month-cell-size: $calendar-cell-size;
 
         .k-calendar-td {
             width: $_month-cell-size;
             height: $_month-cell-size;
-        }
-        .k-link {
-            width: $_month-cell-size;
-            height: $_month-cell-size;
+            inline-size: var( --INTERNAL--kendo-calendar-cell-size, #{$_month-cell-size} );
+            block-size: var( --INTERNAL--kendo-calendar-cell-size, #{$_month-cell-size} );
         }
     }
 
 
     // Year view
+    .k-year-calendar,
     .k-calendar-yearview {
-        $_year-cell-size: ( (7 / 4) * $calendar-cell-size);
+        $_year-cell-size: ( 1.75 * $calendar-cell-size ); // 7 / 4 => 1.75
 
         .k-calendar-td {
-            width: auto;
-            height: auto;
-        }
-        .k-link {
             width: $_year-cell-size;
             height: $_year-cell-size;
+            inline-size: var( --INTERNAL--kendo-calendar-cell-size, #{$_year-cell-size} );
+            block-size: var( --INTERNAL--kendo-calendar-cell-size, #{$_year-cell-size} );
         }
     }
 
 
     // Decade view
+    .k-decade-calendar,
     .k-calendar-decadeview {
-        $_decade-cell-size: ( (7 / 4) * $calendar-cell-size);
+        $_decade-cell-size: ( 1.75 * $calendar-cell-size ); // 7 / 4 => 1.75
 
         .k-calendar-td {
-            width: auto;
-            height: auto;
-        }
-        .k-link {
             width: $_decade-cell-size;
             height: $_decade-cell-size;
+            inline-size: var( --INTERNAL--kendo-calendar-cell-size, #{$_decade-cell-size} );
+            block-size: var( --INTERNAL--kendo-calendar-cell-size, #{$_decade-cell-size} );
         }
     }
 
 
     // Century view
+    .k-century-calendar,
     .k-calendar-centuryview {
-        $_century-cell-size: ( (7 / 4) * $calendar-cell-size);
+        $_century-cell-size: ( 1.75 * $calendar-cell-size ); // 7 / 4 => 1.75
 
         .k-calendar-td {
-            width: auto;
-            height: auto;
-        }
-        .k-link {
             width: $_century-cell-size;
             height: $_century-cell-size;
+            inline-size: var( --INTERNAL--kendo-calendar-cell-size, #{$_century-cell-size} );
+            block-size: var( --INTERNAL--kendo-calendar-cell-size, #{$_century-cell-size} );
+        }
+        .k-calendar-cell-inner {
             text-align: left;
         }
     }
@@ -16645,6 +16851,56 @@ $infinite-calendar-view-height: ( $calendar-cell-size * 9 ) !default;
         width: 1px;
         top: 0;
         right: 0;
+    }
+
+
+
+
+    // Calendar sizes
+    @each $size, $size-props in $kendo-calendar-sizes {
+        $_font-size: map-get( $size-props, font-size );
+        $_line-height: map-get( $size-props, line-height );
+        $_cell-size: map-get( $size-props, cell-size );
+        $_cell-padding-x: map-get( $size-props, cell-padding-x );
+        $_cell-padding-y: map-get( $size-props, cell-padding-y );
+
+        $_month-cell-size: $_cell-size;
+        $_year-cell-size: ( 1.75 * $_cell-size ); // 7 / 4 => 1.75
+        $_decade-cell-size: ( 1.75 * $_cell-size ); // 7 / 4 => 1.75
+        $_century-cell-size: ( 1.75 * $_cell-size ); // 7 / 4 => 1.75
+
+        .k-calendar-#{$size} {
+            --INTERNAL--kendo-calendar-view-width: #{8 * $_cell-size};
+            --INTERNAL--kendo-calendar-cell-padding-x: var( --kendo-calendar-#{$size}-cell-padding-x, #{$_cell-padding-x} );
+            --INTERNAL--kendo-calendar-cell-padding-y: var( --kendo-calendar-#{$size}-cell-padding-y, #{$_cell-padding-y} );
+            font-size: $_font-size;
+            line-height: $_line-height;
+
+            &.k-month-calendar,
+            .k-calendar-monthview {
+                --INTERNAL--kendo-calendar-cell-size: var( --kendo-calendar-#{$size}-month-cell-size, #{$_month-cell-size} );
+            }
+            &.k-year-calendar,
+            .k-calendar-yearview {
+                --INTERNAL--kendo-calendar-cell-size: var( --kendo-calendar-#{$size}-year-cell-size, #{$_year-cell-size} );
+            }
+            &.k-decade-calendar,
+            .k-calendar-decadeview {
+                --INTERNAL--kendo-calendar-cell-size: var( --kendo-calendar-#{$size}-decade-cell-size, #{$_decade-cell-size} );
+            }
+            &.k-century-calendar,
+            .k-calendar-centuryview {
+                --INTERNAL--kendo-calendar-cell-size: var( --kendo-calendar-#{$size}-century-cell-size, #{$_century-cell-size} );
+            }
+        }
+    }
+
+
+
+
+    // Alias
+    .k-link {
+        @extend .k-calendar-cell-inner;
     }
 }
 
@@ -16770,7 +17026,7 @@ $infinite-calendar-view-height: ( $calendar-cell-size * 9 ) !default;
         }
 
         // // styles are applied to the k-link element inside
-        // .k-state-selected ,
+        // .k-state-selected,
         // .k-selected {
         //     color: inherit;
         //     background: transparent;
@@ -16795,6 +17051,10 @@ $infinite-calendar-view-height: ( $calendar-cell-size * 9 ) !default;
 
             &::after {
                 display: none;
+            }
+
+            &:focus {
+                outline: 0;
             }
         }
 
@@ -16890,8 +17150,8 @@ $infinite-calendar-view-height: ( $calendar-cell-size * 9 ) !default;
             &.k-hover,
             &.k-state-hover,
             &:focus,
-            &.k-state-focus,
-            &.k-focus {
+            &.k-focus,
+            &.k-state-focus {
                 color: $calendar-today-nav-hover-text;
             }
         }
@@ -16909,11 +17169,11 @@ $infinite-calendar-view-height: ( $calendar-cell-size * 9 ) !default;
         // Special days
         .k-calendar-view .k-today {
             @if $calendar-today-style == box {
-                .k-link {
+                .k-calendar-cell-inner {
                     box-shadow: inset 0 0 0 1px $calendar-today-color;
                 }
-                &.k-state-focused .k-link,
-                &.k-focus .k-link {
+                &.k-focus .k-calendar-cell-inner,
+                &.k-state-focused .k-calendar-cell-inner {
                     box-shadow: inset 0 0 0 1px $calendar-today-color, $calendar-cell-focused-shadow;
                 }
             } @else if $calendar-today-style == color {
@@ -16947,9 +17207,9 @@ $infinite-calendar-view-height: ( $calendar-cell-size * 9 ) !default;
 
 
         // Interactive states
-        .k-calendar-td:hover .k-link,
-        .k-calendar-td.k-state-hover .k-link,
-        .k-calendar-td.k-hover .k-link {
+        .k-calendar-td:hover .k-calendar-cell-inner,
+        .k-calendar-td.k-hover .k-calendar-cell-inner,
+        .k-calendar-td.k-state-hover .k-calendar-cell-inner {
             @include fill(
                 $calendar-cell-hover-text,
                 $calendar-cell-hover-bg,
@@ -16957,8 +17217,8 @@ $infinite-calendar-view-height: ( $calendar-cell-size * 9 ) !default;
                 $calendar-cell-hover-gradient
             );
         }
-        .k-calendar-td.k-state-selected .k-link,
-        .k-calendar-td.k-selected .k-link {
+        .k-calendar-td.k-selected .k-calendar-cell-inner,
+        .k-calendar-td.k-state-selected .k-calendar-cell-inner {
             @include fill(
                 $calendar-cell-selected-text,
                 $calendar-cell-selected-bg,
@@ -16966,12 +17226,9 @@ $infinite-calendar-view-height: ( $calendar-cell-size * 9 ) !default;
                 $calendar-cell-selected-gradient
             );
         }
-        .k-calendar-td.k-state-selected:hover .k-link,
-        .k-calendar-td.k-selected:hover .k-link,
-        .k-calendar-td.k-state-selected.k-state-hover .k-link,
-        .k-calendar-td.k-selected.k-hover .k-link,
-        .k-calendar-td.k-selected:hover .k-link,
-        .k-calendar-td.k-selected.k-hover .k-link {
+        .k-calendar-td.k-selected:hover .k-calendar-cell-inner,
+        .k-calendar-td.k-selected.k-hover .k-calendar-cell-inner,
+        .k-calendar-td.k-state-selected:hover .k-calendar-cell-inner {
             @include fill(
                 $calendar-cell-selected-hover-text,
                 $calendar-cell-selected-hover-bg,
@@ -16979,18 +17236,15 @@ $infinite-calendar-view-height: ( $calendar-cell-size * 9 ) !default;
                 $calendar-cell-selected-hover-gradient
             );
         }
-        .k-calendar-td.k-state-focused .k-link,
-        .k-calendar-td.k-focus .k-link,
-        .k-calendar-td.k-state-focus .k-link,
-        .k-calendar-td.k-focus .k-link {
+        .k-calendar-td:focus .k-calendar-cell-inner,
+        .k-calendar-td.k-focus .k-calendar-cell-inner,
+        .k-calendar-td.k-state-focus .k-calendar-cell-inner,
+        .k-calendar-td.k-state-focused .k-calendar-cell-inner {
             box-shadow: $calendar-cell-focused-shadow;
         }
-        .k-calendar-td.k-state-selected.k-state-focused .k-link,
-        .k-calendar-td.k-selected.k-focused .k-link,
-        .k-calendar-td.k-state-selected.k-state-focus .k-link,
-        .k-calendar-td.k-selected.k-focus .k-link,
-        .k-calendar-td.k-selected:focus .k-link,
-        .k-calendar-td.k-selected.k-focus .k-link {
+        .k-calendar-td.k-selected:focus .k-calendar-cell-inner,
+        .k-calendar-td.k-selected.k-focus .k-calendar-cell-inner,
+        .k-calendar-td.k-state-selected.k-state-focus .k-calendar-cell-inner {
             box-shadow: $calendar-cell-selected-focus-shadow;
         }
 
@@ -17004,8 +17258,8 @@ $infinite-calendar-view-height: ( $calendar-cell-size * 9 ) !default;
             box-shadow: inset -1px 0 $calendar-navigation-border;
 
             li:hover,
-            li.k-state-hover,
-            li.k-hover {
+            li.k-hover,
+            li.k-state-hover {
                 color: $calendar-today-nav-hover-text;
             }
         }
@@ -17060,19 +17314,7 @@ $infinite-calendar-view-height: ( $calendar-cell-size * 9 ) !default;
         .k-range-start,
         .k-range-end,
         .k-range-mid {
-            // sass-lint:disable-block indentation
-            background-image:
-                linear-gradient(
-                    transparent $calendar-range-gap,
-                    $calendar-range-bg $calendar-range-gap,
-                    $calendar-range-bg calc(100% - #{$calendar-range-gap}),
-                    transparent calc(100% - #{$calendar-range-gap})
-                );
-
-            .k-ie & {
-                background-image: none;
-                background-color: $calendar-range-bg;
-            }
+            background-color: $calendar-range-bg;
         }
 
         .k-range-start.k-range-end {
@@ -17082,16 +17324,16 @@ $infinite-calendar-view-height: ( $calendar-cell-size * 9 ) !default;
 
         .k-range-start,
         .k-range-end {
-            .k-link {
+            .k-calendar-cell-inner {
                 background-color: $calendar-cell-selected-bg;
             }
         }
 
-        .k-range-start.k-state-active,
         .k-range-start.k-active,
-        .k-range-end.k-state-active,
-        .k-range-end.k-active {
-            .k-link {
+        .k-range-start.k-state-active,
+        .k-range-end.k-active,
+        .k-range-end.k-state-active {
+            .k-calendar-cell-inner {
                 box-shadow: inset 0 0 2px 2px rgba(0, 0, 0, .2);
             }
         }
@@ -17104,8 +17346,8 @@ $infinite-calendar-view-height: ( $calendar-cell-size * 9 ) !default;
                 content: "";
                 display: block;
                 position: absolute;
-                top: $calendar-range-gap;
-                bottom: $calendar-range-gap;
+                top: 0;
+                bottom: 0;
                 width: $calendar-range-split-size;
             }
         }
@@ -17180,6 +17422,44 @@ $time-list-highlight-bg: $component-bg !default;
 $time-list-highlight-border: $component-border !default;
 
 $time-list-focused-bg: rgba(0, 0, 0, .04) !default;
+
+
+// Time selector sizes
+$kendo-time-selector-sm-font-size: $kendo-list-font-size-sm !default;
+$kendo-time-selector-sm-line-height: $kendo-list-line-height-sm !default;
+$kendo-time-selector-sm-list-item-padding-x: $kendo-list-item-padding-x-sm !default;
+$kendo-time-selector-sm-list-item-padding-y: $kendo-list-item-padding-y-sm !default;
+
+$kendo-time-selector-md-font-size: $kendo-list-font-size-md !default;
+$kendo-time-selector-md-line-height: $kendo-list-line-height-md !default;
+$kendo-time-selector-md-list-item-padding-x: $kendo-list-item-padding-x-md !default;
+$kendo-time-selector-md-list-item-padding-y: $kendo-list-item-padding-y-md !default;
+
+$kendo-time-selector-lg-font-size: $kendo-list-font-size-lg !default;
+$kendo-time-selector-lg-line-height: $kendo-list-line-height-lg !default;
+$kendo-time-selector-lg-list-item-padding-x: $kendo-list-item-padding-x-lg !default;
+$kendo-time-selector-lg-list-item-padding-y: $kendo-list-item-padding-y-lg !default;
+
+$kendo-time-selector-sizes: (
+    sm: (
+        font-size: $kendo-time-selector-sm-font-size,
+        line-height: $kendo-time-selector-sm-line-height,
+        list-item-padding-x: $kendo-time-selector-sm-list-item-padding-x,
+        list-item-padding-y: $kendo-time-selector-sm-list-item-padding-y
+    ),
+    md: (
+        font-size: $kendo-time-selector-md-font-size,
+        line-height: $kendo-time-selector-md-line-height,
+        list-item-padding-x: $kendo-time-selector-md-list-item-padding-x,
+        list-item-padding-y: $kendo-time-selector-md-list-item-padding-y
+    ),
+    lg: (
+        font-size: $kendo-time-selector-lg-font-size,
+        line-height: $kendo-time-selector-lg-line-height,
+        list-item-padding-x: $kendo-time-selector-lg-list-item-padding-x,
+        list-item-padding-y: $kendo-time-selector-lg-list-item-padding-y
+    )
+) !default;
 
 // #endregion
 // #region @import "_layout.scss"; -> packages/default/scss/timeselector/_layout.scss
@@ -17285,7 +17565,7 @@ $time-list-focused-bg: rgba(0, 0, 0, .04) !default;
             display: block;
         }
 
-        &.k-state-focused ,
+        &.k-state-focused,
         &.k-focus {
             &::before,
             &::after {
@@ -17391,6 +17671,36 @@ $time-list-focused-bg: rgba(0, 0, 0, .04) !default;
         top: calc( #{$time-list-title-height / 2} );
     }
 
+
+    // Time selector sizes
+    @each $size, $size-props in $kendo-time-selector-sizes {
+        $_font-size: map-get( $size-props, font-size );
+        $_line-height: map-get( $size-props, line-height );
+        $_list-item-padding-x: map-get( $size-props, list-item-padding-x );
+        $_list-item-padding-y: map-get( $size-props, list-item-padding-y );
+        $_highlight-height: calc( #{$_font-size * $_line-height} + #{ $_list-item-padding-y * 2} );
+
+
+        .k-timeselector-#{$size} {
+            font-size: $_font-size;
+            line-height: $_line-height;
+
+            .k-time-highlight,
+            .k-time-list-highlight {
+                height: $_highlight-height;
+            }
+
+            .k-time-separator {
+                height:  $_highlight-height;
+            }
+
+            .k-time-list-item,
+            .k-time-list .k-item {
+                padding: $_list-item-padding-y $_list-item-padding-x;
+            }
+        }
+    }
+
 }
 
 // #endregion
@@ -17427,7 +17737,7 @@ $time-list-focused-bg: rgba(0, 0, 0, .04) !default;
             color: $time-list-title-text;
         }
 
-        &.k-state-focused ,
+        &.k-state-focused,
         &.k-focus {
             .k-title {
                 color: $time-list-title-focus-text;
@@ -17741,7 +18051,7 @@ $colorpalette-tile-selected-shadow: 0 1px 3px 1px rgba( black, .3 ), inset 0 0 0
         &.k-focus,
         &.k-state-selected,
         &.k-selected,
-        &.k-state-selected:hover ,
+        &.k-state-selected:hover,
         &.k-selected:hover {
             position: relative;
             z-index: 100;
@@ -18060,6 +18370,9 @@ $colorgradient-contrast-spacer: ( $colorgradient-spacer / 1.5 ) !default;
         }
 
         .k-input-inner {
+            padding-inline-start: 2px;
+            padding-inline-end: 2px;
+            text-align: center;
             text-overflow: clip;
         }
     }
@@ -19012,13 +19325,13 @@ $kendo-treeview-font-family: $font-family !default;
 $kendo-treeview-font-size: $font-size-md !default;
 $kendo-treeview-font-size-sm: $font-size-md !default;
 $kendo-treeview-font-size-md: $font-size-md !default;
-$kendo-treeview-font-size-lg: $font-size-md !default;
+$kendo-treeview-font-size-lg: $font-size-lg !default;
 /// Line height of the treeview component.
 /// @group treeview
 $kendo-treeview-line-height: $line-height-md !default;
 $kendo-treeview-line-height-sm: $line-height-md !default;
 $kendo-treeview-line-height-md: $line-height-md !default;
-$kendo-treeview-line-height-lg: $line-height-md !default;
+$kendo-treeview-line-height-lg: $line-height-lg !default;
 /// Indentation of child groups in treeview component.
 /// @group treeview
 $kendo-treeview-indent: 16px !default;
@@ -19028,13 +19341,13 @@ $kendo-treeview-indent: 16px !default;
 $kendo-treeview-item-padding-x: map-get( $spacing, 2 ) !default;
 $kendo-treeview-item-padding-x-sm: map-get( $spacing, 2 ) !default;
 $kendo-treeview-item-padding-x-md: map-get( $spacing, 2 ) !default;
-$kendo-treeview-item-padding-x-lg: map-get( $spacing, 2 ) !default;
+$kendo-treeview-item-padding-x-lg: map-get( $spacing, 3 ) !default;
 /// Vertical padding of treeview items.
 /// @group treeview
 $kendo-treeview-item-padding-y: map-get( $spacing, 1 ) !default;
 $kendo-treeview-item-padding-y-sm: map-get( $spacing, 1 ) - map-get( $spacing, thin ) !default;
 $kendo-treeview-item-padding-y-md: map-get( $spacing, 1 ) !default;
-$kendo-treeview-item-padding-y-lg: map-get( $spacing, 1 ) + map-get( $spacing, thin ) !default;
+$kendo-treeview-item-padding-y-lg: map-get( $spacing, 2 ) !default;
 /// Border width of treeview items.
 /// @group treeview
 $kendo-treeview-item-border-width: 0px !default;
@@ -19651,7 +19964,7 @@ $rating-icon-focused-selected-shadow: 0 2px 4px rgba( $black, .1) !default;
         color: $component-text;
 
         &:focus,
-        &.k-state-focused ,
+        &.k-state-focused,
         &.k-focus {
 
             .k-rating-item {
@@ -19659,7 +19972,7 @@ $rating-icon-focused-selected-shadow: 0 2px 4px rgba( $black, .1) !default;
                     text-shadow: $rating-icon-focused-shadow;
                 }
 
-                &.k-state-selected > .k-icon ,
+                &.k-state-selected > .k-icon,
                 &.k-selected > .k-icon {
                     text-shadow: $rating-icon-focused-selected-shadow;
                 }
@@ -19670,19 +19983,19 @@ $rating-icon-focused-selected-shadow: 0 2px 4px rgba( $black, .1) !default;
     .k-rating-item {
         color: $rating-icon-text;
 
-        &.k-state-selected ,
+        &.k-state-selected,
         &.k-selected {
             color: $rating-icon-selected-text;
 
             &:focus,
-            &.k-state-focused ,
+            &.k-state-focused,
             &.k-focus {
                 color: $rating-icon-focused-text;
             }
         }
 
         &:hover,
-        &.k-state-hover ,
+        &.k-state-hover,
         &.k-hover {
             color: $rating-icon-hover-text;
             cursor: pointer;
@@ -20089,6 +20402,7 @@ $kendo-switch-on-thumb-hover-gradient: null !default;
     // RTL
     .k-switch[dir="rtl"],
     [dir="rtl"] .k-switch,
+    .k-switch.k-rtl,
     .k-rtl .k-switch {
 
         .k-switch-thumb {
@@ -20892,7 +21206,7 @@ $upload-focused-shadow: 0 0 0 2px rgba(0, 0, 0, .13) !default;
             z-index: 1;
         }
         input[disabled],
-        input.k-state-disabled ,
+        input.k-state-disabled,
         input.k-disabled {
             visibility: hidden;
         }
@@ -20937,12 +21251,12 @@ $upload-focused-shadow: 0 0 0 2px rgba(0, 0, 0, .13) !default;
 
         .k-file {
 
-            &.k-state-focused ,
+            &.k-state-focused,
             &.k-focus {
                 box-shadow: inset $upload-focused-shadow;
             }
 
-            .k-upload-action.k-state-focused ,
+            .k-upload-action.k-state-focused,
             .k-upload-action.k-focus {
                 box-shadow: $upload-focused-shadow;
             }
@@ -21829,6 +22143,10 @@ $actionsheet-item-disabled-shadow: null !default;
             box-sizing: border-box;
         }
     }
+    .k-actionsheet-fullscreen {
+        max-height: 100%;
+        height: 100%;
+    }
 
 
     // Actionsheet header
@@ -21842,6 +22160,35 @@ $actionsheet-item-disabled-shadow: null !default;
         font-size: $actionsheet-header-font-size;
         font-family: $actionsheet-header-font-family;
         line-height: $actionsheet-header-line-height;
+        flex: none;
+    }
+
+
+    // Actionsheet titlebar
+    .k-actionsheet-titlebar {
+        @extend .k-actionsheet-header !optional;
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+    }
+    .k-actionsheet-title {
+        flex: 1;
+    }
+    .k-actionsheet-actions {
+        flex: none;
+    }
+
+
+    // Actionsheet content
+    .k-actionsheet-content {
+        flex: 1;
+        overflow: auto;
+    }
+
+
+    // Actionsheet footer
+    .k-actionsheet-footer {
+        flex: none;
     }
 
 
@@ -21938,6 +22285,37 @@ $actionsheet-item-disabled-shadow: null !default;
         transform: none;
     }
 
+
+    // Adaptive action sheet
+    .k-adaptive-actionsheet {
+        max-width: 100%;
+        width: 100%;
+
+        // TMP: this should be moved to action sheet
+        display: flex;
+        flex-flow: column nowrap;
+
+        .k-calendar {
+            margin-inline: auto;
+            border-width: 0;
+            display: flex;
+        }
+
+        .k-timeselector {
+            height: 100%;
+            border-width: 0;
+            overflow: hidden;
+
+            .k-time-part {
+                display: contents;
+            }
+
+            .k-time-list-wrapper {
+                height: 100%;
+            }
+        }
+    }
+
 }
 
 // #endregion
@@ -21987,7 +22365,7 @@ $actionsheet-item-disabled-shadow: null !default;
 
         // Hover state
         &:hover,
-        &.k-state-hover ,
+        &.k-state-hover,
         &.k-hover {
             @include fill(
                 $actionsheet-item-hover-text,
@@ -22001,7 +22379,7 @@ $actionsheet-item-disabled-shadow: null !default;
 
         // Focus state
         &:focus,
-        &.k-state-focus ,
+        &.k-state-focus,
         &.k-focus {
             @include fill(
                 $actionsheet-item-focus-text,
@@ -22015,7 +22393,7 @@ $actionsheet-item-disabled-shadow: null !default;
 
         // Disabed state
         &:disabled,
-        &.k-state-disabled ,
+        &.k-state-disabled,
         &.k-disabled {
             @include fill(
                 $actionsheet-item-disabled-text,
@@ -22254,7 +22632,7 @@ $actionsheet-item-disabled-shadow: null !default;
 
     .k-window {
         &:focus,
-        &.k-state-focused ,
+        &.k-state-focused,
         &.k-focus {
             @include box-shadow( $window-focused-shadow );
         }
@@ -22431,6 +22809,9 @@ $drawer-font-size: $font-size !default;
 $drawer-line-height: $line-height !default;
 $drawer-content-padding-x: $padding-x !default;
 $drawer-content-padding-y: $padding-y !default;
+$drawer-item-level-padding-x: map-get( $spacing, 4 ) !default;
+
+$drawer-item-level-count: 5 !default;
 
 $drawer-scrollbar-width: 7px !default;
 $drawer-scrollbar-color: rgba(156, 156, 156, .7) !default;
@@ -22472,6 +22853,7 @@ $drawer-selected-hover-text: $selected-hover-text !default;
     }
     .k-drawer {
         height: 100%;
+        max-width: 100%;
         border-width: 0;
         border-style: solid;
         box-sizing: border-box;
@@ -22624,6 +23006,20 @@ $drawer-selected-hover-text: $selected-hover-text !default;
             padding: 0 $drawer-item-padding-x;
             display: inline-block;
             white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .k-drawer-toggle {
+            margin-inline-start: auto;
+            cursor: pointer;
+        }
+
+        // Hierarchy items
+        @for $i from 1 through $drawer-item-level-count {
+            &.k-level-#{$i} {
+                padding-inline-start: ( $drawer-item-level-padding-x * $i );
+            }
         }
     }
     .k-drawer-separator {
@@ -22713,33 +23109,33 @@ $drawer-selected-hover-text: $selected-hover-text !default;
     .k-drawer-item {
 
         &:hover,
-        &.k-state-hover ,
+        &.k-state-hover,
         &.k-hover {
             color: $drawer-hovered-text;
             background-color: $drawer-hovered-bg;
         }
 
         &:focus,
-        &.k-state-focused ,
+        &.k-state-focused,
         &.k-focus {
             background-color: $drawer-focused-bg;
             box-shadow: $drawer-focused-shadow;
 
             &:hover,
-            &.k-state-hover ,
+            &.k-state-hover,
             &.k-hover {
                 color: $drawer-hovered-text;
                 background-color: $drawer-hovered-bg;
             }
         }
 
-        &.k-state-selected ,
+        &.k-state-selected,
         &.k-selected {
             color: $drawer-selected-text;
             background-color: $drawer-selected-bg;
 
             &:hover,
-            &.k-state-hover ,
+            &.k-state-hover,
             &.k-hover {
                 color: $drawer-selected-hover-text;
                 background-color: $drawer-selected-hover-bg;
@@ -23973,7 +24369,7 @@ $bottom-nav-flat-border: $component-border !default;
             outline: 0;
         }
     }
-    .k-bottom-nav-item.k-state-disabled ,
+    .k-bottom-nav-item.k-state-disabled,
     .k-bottom-nav-item.k-disabled {
         background-color: initial;
     }
@@ -24025,7 +24421,7 @@ $bottom-nav-flat-border: $component-border !default;
                 @include fill( $bg: rgba(true-mix( $color, contrast-wcag( $color ), 35%), .2));
             }
 
-            .k-bottom-nav-item.k-state-selected ,
+            .k-bottom-nav-item.k-state-selected,
             .k-bottom-nav-item.k-selected {
                 @include fill( $color: contrast-wcag( $color ) );
             }
@@ -24049,7 +24445,7 @@ $bottom-nav-flat-border: $component-border !default;
         }
 
         @each $name, $color in $kendo-theme-colors {
-            &.k-bottom-nav-#{$name} .k-bottom-nav-item.k-state-selected ,
+            &.k-bottom-nav-#{$name} .k-bottom-nav-item.k-state-selected,
             &.k-bottom-nav-#{$name} .k-bottom-nav-item.k-selected {
                 @if $name == "secondary" or $name == "light" {
                     @include fill( $color: try-shade($color, 3) );
@@ -24304,7 +24700,7 @@ $breadcrumb-focused-shadow: 0 0 2px 1px rgba(0, 0, 0, .06) !default;
         );
 
         &:focus,
-        &.k-state-focused ,
+        &.k-state-focused,
         &.k-focus {
             @include box-shadow( $breadcrumb-focused-shadow );
         }
@@ -24321,7 +24717,7 @@ $breadcrumb-focused-shadow: 0 0 2px 1px rgba(0, 0, 0, .06) !default;
 
         // Hovered state
         &:hover,
-        &.k-state-hover ,
+        &.k-state-hover,
         &.k-hover {
             @include fill(
                 $breadcrumb-link-hovered-text,
@@ -24332,7 +24728,7 @@ $breadcrumb-focused-shadow: 0 0 2px 1px rgba(0, 0, 0, .06) !default;
 
         // Focused state
         &:focus,
-        &.k-state-focused ,
+        &.k-state-focused,
         &.k-focus {
             @include fill(
                 $breadcrumb-link-focused-text,
@@ -24354,7 +24750,7 @@ $breadcrumb-focused-shadow: 0 0 2px 1px rgba(0, 0, 0, .06) !default;
 
         // Hovered state
         &:hover,
-        &.k-state-hover ,
+        &.k-state-hover,
         &.k-hover {
             @include fill(
                 $breadcrumb-root-link-hovered-text,
@@ -24365,7 +24761,7 @@ $breadcrumb-focused-shadow: 0 0 2px 1px rgba(0, 0, 0, .06) !default;
 
         // Focused state
         &:focus,
-        &.k-state-focused ,
+        &.k-state-focused,
         &.k-focus {
             @include fill(
                 $breadcrumb-root-link-focused-text,
@@ -24511,7 +24907,7 @@ $pager-dropdown-width: 5em !default;
 
             // Focused state
             &:focus,
-            &.k-state-focus ,
+            &.k-state-focus,
             &.k-focus {
                 z-index: 3;
             }
@@ -24561,7 +24957,7 @@ $pager-dropdown-width: 5em !default;
         &:hover {
             z-index: 2;
         }
-        &.k-state-disabled ,
+        &.k-state-disabled,
         &.k-disabled {
             color: inherit;
         }
@@ -24611,7 +25007,7 @@ $pager-dropdown-width: 5em !default;
         }
 
         // Selected state
-        .k-state-selected ,
+        .k-state-selected,
         .k-selected {
             cursor: inherit;
             z-index: 2;
@@ -24757,7 +25153,7 @@ $pager-dropdown-width: 5em !default;
         &:focus,
         &.k-focus,
         &.k-state-focus,
-        &.k-state-focused ,
+        &.k-state-focused,
         &.k-focus {
             @include fill( $bg: $pager-focus-bg );
             @include box-shadow( $pager-focus-shadow );
@@ -24773,7 +25169,7 @@ $pager-dropdown-width: 5em !default;
         );
 
         &:hover,
-        &.k-state-hover ,
+        &.k-state-hover,
         &.k-hover {
             @include fill(
                 $pager-item-hover-text,
@@ -24782,7 +25178,7 @@ $pager-dropdown-width: 5em !default;
             );
         }
 
-        &.k-state-selected ,
+        &.k-state-selected,
         &.k-selected {
             @include fill(
                 $pager-item-selected-text,
@@ -24792,7 +25188,7 @@ $pager-dropdown-width: 5em !default;
         }
 
         &:focus,
-        &.k-state-focus ,
+        &.k-state-focus,
         &.k-focus {
             background-color: $pager-item-focus-bg;
             @include box-shadow( $pager-item-focus-shadow );
@@ -24816,7 +25212,7 @@ $pager-dropdown-width: 5em !default;
             );
 
             &:hover,
-            &.k-state-hover ,
+            &.k-state-hover,
             &.k-hover {
                 @include fill(
                     $pager-number-hover-text,
@@ -24826,13 +25222,13 @@ $pager-dropdown-width: 5em !default;
             }
 
             &:focus,
-            &.k-state-focus ,
+            &.k-state-focus,
             &.k-focus {
                 background-color: $pager-number-focus-bg;
                 @include box-shadow( $pager-number-focus-shadow );
             }
 
-            &.k-state-selected ,
+            &.k-state-selected,
             &.k-selected {
                 @include fill(
                     $pager-number-selected-text,
@@ -24865,7 +25261,7 @@ $pager-dropdown-width: 5em !default;
                 );
 
                 &:hover,
-                &.k-state-hover ,
+                &.k-state-hover,
                 &.k-hover {
                     @include fill(
                         $dropdownlist-hovered-text,
@@ -24886,7 +25282,7 @@ $pager-dropdown-width: 5em !default;
                 .k-link {
 
                     &:hover,
-                    &.k-state-hover ,
+                    &.k-state-hover,
                     &.k-hover {
                         @include fill(
                             $kendo-list-item-hover-text,
@@ -24894,7 +25290,7 @@ $pager-dropdown-width: 5em !default;
                         );
                     }
 
-                    &.k-state-selected ,
+                    &.k-state-selected,
                     &.k-selected {
                         @include fill(
                             $kendo-list-item-selected-text,
@@ -25162,7 +25558,7 @@ $stepper-content-transition-timing-function: cubic-bezier(.4, 0, .2, 1) 0ms !def
             opacity: $stepper-optional-label-opacity;
         }
         .k-step-disabled .k-step-label-optional,
-        &.k-state-disabled .k-step-label-optional ,
+        &.k-state-disabled .k-step-label-optional,
         &.k-disabled .k-step-label-optional {
             color: inherit;
         }
@@ -25477,7 +25873,7 @@ $stepper-content-transition-timing-function: cubic-bezier(.4, 0, .2, 1) 0ms !def
                 $bg: $stepper-progressbar-bg
             );
 
-            .k-state-selected ,
+            .k-state-selected,
             .k-selected {
                 @include fill(
                     $color: $stepper-progressbar-fill-text,
@@ -25725,13 +26121,13 @@ $tabstrip-content-border-focused: $component-text !default;
         position: relative;
         z-index: 1;
 
-        &.k-state-active ,
+        &.k-state-active,
         &.k-active {
             display: block;
         }
 
         &:focus,
-        &.k-state-focused ,
+        &.k-state-focused,
         &.k-focus {
             outline-width: 1px;
             outline-style: dotted;
@@ -25820,7 +26216,7 @@ $tabstrip-content-border-focused: $component-text !default;
                 margin-left: $tabstrip-item-gap;
             }
 
-            .k-item.k-state-active ,
+            .k-item.k-state-active,
             .k-item.k-active {
                 border-bottom-color: transparent;
             }
@@ -25850,7 +26246,7 @@ $tabstrip-content-border-focused: $component-text !default;
                 margin-left: $tabstrip-item-gap;
             }
 
-            .k-item.k-state-active ,
+            .k-item.k-state-active,
             .k-item.k-active {
                 border-top-color: transparent;
             }
@@ -25884,7 +26280,7 @@ $tabstrip-content-border-focused: $component-text !default;
                 margin-top: $tabstrip-item-gap;
             }
 
-            .k-item.k-state-active ,
+            .k-item.k-state-active,
             .k-item.k-active {
                 border-right-color: transparent;
             }
@@ -25920,7 +26316,7 @@ $tabstrip-content-border-focused: $component-text !default;
                 margin-top: $tabstrip-item-gap;
             }
 
-            .k-item.k-state-active ,
+            .k-item.k-state-active,
             .k-item.k-active {
                 border-left-color: transparent;
             }
@@ -25966,7 +26362,7 @@ $tabstrip-content-border-focused: $component-text !default;
                     border-left-width: $tabstrip-indicator-size;
                 }
             }
-            .k-item.k-state-active::after ,
+            .k-item.k-state-active::after,
             .k-item.k-active::after {
                 display: block;
             }
@@ -26037,7 +26433,7 @@ $tabstrip-content-border-focused: $component-text !default;
             );
 
             &:hover,
-            &.k-state-hover ,
+            &.k-state-hover,
             &.k-hover {
                 @include fill(
                     $tabstrip-item-hovered-text,
@@ -26050,7 +26446,7 @@ $tabstrip-content-border-focused: $component-text !default;
             &:active,
             &.k-state-active,
             &.k-active,
-            &.k-state-selected ,
+            &.k-state-selected,
             &.k-selected {
                 @include fill(
                     $tabstrip-item-selected-text,
@@ -26061,7 +26457,7 @@ $tabstrip-content-border-focused: $component-text !default;
             }
 
             &:focus,
-            &.k-state-focused ,
+            &.k-state-focused,
             &.k-focus {
                 @include box-shadow( $tabstrip-item-focused-shadow );
             }
@@ -26084,7 +26480,7 @@ $tabstrip-content-border-focused: $component-text !default;
         );
 
         &:focus,
-        &.k-state-focused ,
+        &.k-state-focused,
         &.k-focus {
             outline-color: $tabstrip-content-border-focused;
         }
@@ -26095,7 +26491,7 @@ $tabstrip-content-border-focused: $component-text !default;
     @if ($tabstrip-indicator-size) {
 
         .k-tabstrip-items-wrapper {
-            .k-item.k-state-active::after ,
+            .k-item.k-state-active::after,
             .k-item.k-active::after {
                 border-color: $tabstrip-indicator-color;
             }
@@ -26186,7 +26582,7 @@ $wizard-focused-shadow: inset 0 0 0 2px rgba(0, 0, 0, .13) !default;
             justify-content: space-between;
 
             &:focus,
-            &.k-state-focused ,
+            &.k-state-focused,
             &.k-focus {
                 outline-width: 1px;
                 outline-style: dotted;
@@ -26280,13 +26676,13 @@ $wizard-focused-shadow: inset 0 0 0 2px rgba(0, 0, 0, .13) !default;
 @include exports("wizard/theme") {
     .k-wizard-step {
         &:focus,
-        &.k-state-focused ,
+        &.k-state-focused,
         &.k-focus {
             outline-color: $wizard-step-border-focused;
         }
 
         .k-ie &:focus,
-        .k-ie &.k-state-focused ,
+        .k-ie &.k-state-focused,
         .k-ie &.k-focus {
             @include box-shadow($wizard-focused-shadow);
             outline: none;
@@ -26451,7 +26847,7 @@ $expander-content-padding-y: $padding-y * 4 !default;
             $expander-border
         );
 
-        &.k-state-focus ,
+        &.k-state-focus,
         &.k-focus {
             box-shadow: $expander-focus-shadow;
         }
@@ -26466,13 +26862,13 @@ $expander-content-padding-y: $padding-y * 4 !default;
         outline: none;
 
         &:hover,
-        &.k-state-hover ,
+        &.k-state-hover,
         &.k-hover {
             background-color: $expander-header-hover-bg;
         }
 
         // Should be removed
-        &.k-state-focused ,
+        &.k-state-focused,
         &.k-focus {
             background-color: $expander-header-focused-bg;
             box-shadow: $expander-header-focused-shadow;
@@ -26518,6 +26914,7 @@ $panelbar-font-family: $font-family !default;
 $panelbar-font-size: $font-size !default;
 $panelbar-line-height: $line-height !default;
 $panelbar-border-width: 1px !default;
+$panelbar-border-style: solid !default;
 $panelbar-item-border-width: 1px !default;
 $panelbar-item-border-style: solid !default;
 
@@ -26624,7 +27021,7 @@ $panelbar-header-expanded-gradient: null !default;
         margin: 0;
         padding: 0;
         border-width: $panelbar-border-width;
-        border-style: solid;
+        border-style: $panelbar-border-style;
         box-sizing: border-box;
         outline: 0;
         font-family: $panelbar-font-family;
@@ -26838,7 +27235,7 @@ $panelbar-header-expanded-gradient: null !default;
 
             // Hover
             > .k-link:hover,
-            > .k-link.k-state-hover ,
+            > .k-link.k-state-hover,
             > .k-link.k-hover {
                 @include fill(
                     $panelbar-header-hovered-text,
@@ -26852,7 +27249,7 @@ $panelbar-header-expanded-gradient: null !default;
             > .k-link:focus,
             > .k-link.k-state-focus,
             > .k-link.k-focus,
-            > .k-link.k-state-focused ,
+            > .k-link.k-state-focused,
             > .k-link.k-focus {
                 @include fill(
                     $panelbar-header-focused-text,
@@ -26865,7 +27262,7 @@ $panelbar-header-expanded-gradient: null !default;
 
             // Focus & Hover
             > .k-link:focus:hover,
-            > .k-link.k-state-focus.k-state-hover ,
+            > .k-link.k-state-focus.k-state-hover,
             > .k-link.k-focus.k-hover {
                 @include fill(
                     $panelbar-header-hovered-focused-text,
@@ -26876,7 +27273,7 @@ $panelbar-header-expanded-gradient: null !default;
             }
 
             // Selected
-            > .k-link.k-state-selected ,
+            > .k-link.k-state-selected,
             > .k-link.k-selected {
                 @include fill(
                     $panelbar-header-selected-text,
@@ -26894,7 +27291,7 @@ $panelbar-header-expanded-gradient: null !default;
             // Selected Hover
             > .k-link.k-state-selected:hover,
             > .k-link.k-selected:hover,
-            > .k-link.k-state-selected.k-state-hover ,
+            > .k-link.k-state-selected.k-state-hover,
             > .k-link.k-selected.k-hover {
                 @include fill(
                     $panelbar-header-selected-hovered-text,
@@ -26909,7 +27306,7 @@ $panelbar-header-expanded-gradient: null !default;
             > .k-link.k-selected:focus,
             > .k-link.k-state-selected.k-state-focus,
             > .k-link.k-selected.k-focus,
-            > .k-link.k-state-selected.k-state-focused ,
+            > .k-link.k-state-selected.k-state-focused,
             > .k-link.k-selected.k-focused {
                 @include fill(
                     $panelbar-header-selected-focused-text,
@@ -26924,7 +27321,7 @@ $panelbar-header-expanded-gradient: null !default;
             > .k-link.k-selected:hover:focus,
             > .k-link.k-state-selected.k-state-hover.k-state-focus,
             > .k-link.k-selected.k-hover.k-state-focus,
-            > .k-link.k-state-selected.k-state-hover.k-state-focused ,
+            > .k-link.k-state-selected.k-state-hover.k-state-focused,
             > .k-link.k-selected.k-hover.k-state-focused {
                 @include fill(
                     $panelbar-header-selected-hovered-focused-text,
@@ -26945,7 +27342,7 @@ $panelbar-header-expanded-gradient: null !default;
             > .k-item > .k-link.k-state-hover,
             > .k-item > .k-link.k-hover,
             > .k-panelbar-item > .k-link:hover,
-            > .k-panelbar-item > .k-link.k-state-hover ,
+            > .k-panelbar-item > .k-link.k-state-hover,
             > .k-panelbar-item > .k-link.k-hover {
                 @include fill(
                     $panelbar-item-hovered-text,
@@ -26964,7 +27361,7 @@ $panelbar-header-expanded-gradient: null !default;
             > .k-panelbar-item > .k-link:focus,
             > .k-panelbar-item > .k-link.k-state-focus,
             > .k-panelbar-item > .k-link.k-focus,
-            > .k-panelbar-item > .k-link.k-state-focused ,
+            > .k-panelbar-item > .k-link.k-state-focused,
             > .k-panelbar-item > .k-link.k-focus {
                 @include fill(
                     $panelbar-item-focused-text,
@@ -26980,7 +27377,7 @@ $panelbar-header-expanded-gradient: null !default;
             > .k-item > .k-link.k-state-focus.k-state-hover,
             > .k-item > .k-link.k-focus.k-hover,
             > .k-panelbar-item > .k-link:focus:hover,
-            > .k-panelbar-item > .k-link.k-state-focus.k-state-hover ,
+            > .k-panelbar-item > .k-link.k-state-focus.k-state-hover,
             > .k-panelbar-item > .k-link.k-focus.k-hover {
                 @include fill(
                     $panelbar-item-hovered-focused-text,
@@ -26993,7 +27390,7 @@ $panelbar-header-expanded-gradient: null !default;
             // Selected
             > .k-item > .k-link.k-state-selected,
             > .k-item > .k-link.k-selected,
-            > .k-panelbar-item > .k-link.k-state-selected ,
+            > .k-panelbar-item > .k-link.k-state-selected,
             > .k-panelbar-item > .k-link.k-selected {
                 @include fill(
                     $panelbar-item-selected-text,
@@ -27010,7 +27407,7 @@ $panelbar-header-expanded-gradient: null !default;
             > .k-item > .k-link.k-selected.k-hover,
             > .k-panelbar-item > .k-link.k-state-selected:hover,
             > .k-panelbar-item > .k-link.k-selected:hover,
-            > .k-panelbar-item > .k-link.k-state-selected.k-state-hover ,
+            > .k-panelbar-item > .k-link.k-state-selected.k-state-hover,
             > .k-panelbar-item > .k-link.k-selected.k-hover {
                 @include fill(
                     $panelbar-item-selected-hovered-text,
@@ -27031,7 +27428,7 @@ $panelbar-header-expanded-gradient: null !default;
             > .k-panelbar-item > .k-link.k-selected:focus,
             > .k-panelbar-item > .k-link.k-state-selected.k-state-focus,
             > .k-panelbar-item > .k-link.k-selected.k-focus,
-            > .k-item > .k-link.k-state-selected.k-state-focused ,
+            > .k-item > .k-link.k-state-selected.k-state-focused,
             > .k-item > .k-link.k-selected.k-focused {
                 @include fill(
                     $panelbar-item-selected-focused-text,
@@ -27052,7 +27449,7 @@ $panelbar-header-expanded-gradient: null !default;
             > .k-panelbar-item > .k-link.k-selected:focus:hover,
             > .k-panelbar-item > .k-link.k-state-selected.k-state-focus.k-state-hover,
             > .k-panelbar-item > .k-link.k-selected.k-focus.k-state-hover,
-            > .k-item > .k-link.k-state-selected.k-state-focused.k-state-hover ,
+            > .k-item > .k-link.k-state-selected.k-state-focused.k-state-hover,
             > .k-item > .k-link.k-selected.k-focused.k-state-hover {
                 @include fill(
                     $panelbar-item-selected-hovered-focused-text,
@@ -27340,7 +27737,7 @@ $splitbar-selected-text: $selected-text !default;
     .k-splitbar:focus,
     .k-splitbar.k-state-focus,
     .k-splitbar.k-focus,
-    .k-splitbar.k-state-focused ,
+    .k-splitbar.k-state-focused,
     .k-splitbar.k-focus {
         color: $splitbar-selected-text;
         background: $splitbar-selected-bg;
@@ -27447,7 +27844,7 @@ $tilelayout-hint-border: $component-border !default;
     .k-tilelayout-item:focus,
     .k-tilelayout-item.k-focus,
     .k-tilelayout-item.k-state-focus,
-    .k-tilelayout-item.k-state-focused ,
+    .k-tilelayout-item.k-state-focused,
     .k-tilelayout-item.k-focus {
         @include box-shadow($tilelayout-card-focus-shadow);
     }
@@ -28119,12 +28516,12 @@ $adaptive-scheduler-subtle-text: $subtle-text !default;
 
         .k-column-menu {
 
-            .k-listgroup-item.k-state-selected ,
+            .k-listgroup-item.k-state-selected,
             .k-listgroup-item.k-selected {
                 color: $adaptive-grid-sort-text;
                 background: none;
             }
-            .k-listgroup-item.k-state-selected .k-link ,
+            .k-listgroup-item.k-state-selected .k-link,
             .k-listgroup-item.k-selected .k-link {
                 color: inherit;
             }
@@ -28866,7 +29263,7 @@ $adaptive-scheduler-subtle-text: $subtle-text !default;
             &.k-i-sort-desc-sm,
             &.k-i-sort-asc-sm {
                 vertical-align: text-top;
-                margin-left: $grid-sorted-icon-spacing;
+                margin-inline-start: $grid-sorted-icon-spacing;
             }
         }
 
@@ -28876,7 +29273,7 @@ $adaptive-scheduler-subtle-text: $subtle-text !default;
             height: $icon-size;
             font-size: $grid-sorting-index-font-size;
             margin-top: $grid-sorting-index-spacing-y;
-            margin-left: $grid-sorting-index-spacing-x;
+            margin-inline-start: $grid-sorting-index-spacing-x;
         }
     }
 
@@ -29277,15 +29674,15 @@ $adaptive-scheduler-subtle-text: $subtle-text !default;
     }
 
     .k-header > .k-cell-inner {
-        margin: (-1 * $grid-header-padding-y) calc(-1 * calc( #{$kendo-button-calc-size} - #{$grid-cell-padding-x})) (-1 * $grid-header-padding-y) (-1 * $grid-cell-padding-x);
+        margin: (-1 * $grid-header-padding-y) (-1 * $grid-header-padding-x);
     }
 
     .k-filterable {
         > .k-cell-inner {
-            margin: (-1 * $grid-header-padding-y) calc(-1 * #{$kendo-button-calc-size}) (-1 * $grid-header-padding-y) (-1 * $grid-cell-padding-x);
+            margin-inline-end: calc(-1 * #{$grid-filterable-icon-spacing});
 
             .k-link {
-                padding-right: 0;
+                padding-inline-end: 0;
             }
         }
     }
@@ -29324,6 +29721,7 @@ $adaptive-scheduler-subtle-text: $subtle-text !default;
         .k-grid-filter,
         .k-header-column-menu {
             position: static;
+            margin-inline-end: $grid-header-menu-icon-spacing;
         }
 
         .k-grid-filter,
@@ -29634,28 +30032,6 @@ $adaptive-scheduler-subtle-text: $subtle-text !default;
             margin-left: $icon-spacing;
             margin-right: 0;
         }
-
-        .k-header > .k-cell-inner {
-            margin-right: (-1 * $grid-cell-padding-x);
-            margin-left: calc(-1 * calc( #{$kendo-button-calc-size} - #{$grid-cell-padding-x}));
-
-            .k-sort-order {
-                margin-right: $grid-sorting-index-spacing-x;
-                margin-left: 0;
-            }
-        }
-
-        .k-filterable {
-            > .k-cell-inner {
-                margin-right: (-1 * $grid-cell-padding-x);
-                margin-left: calc(-1 * #{$kendo-button-calc-size});
-
-                .k-link {
-                    padding-right: $grid-header-padding-x;
-                    padding-left: 0;
-                }
-            }
-        }
     }
 }
 
@@ -29758,9 +30134,9 @@ $adaptive-scheduler-subtle-text: $subtle-text !default;
         }
 
         // Hover state
-        tbody tr:not(.k-detail-row):hover,
-        tbody tr:not(.k-detail-row).k-state-hover ,
-        tbody tr:not(.k-detail-row).k-hover {
+        tbody>tr:not(.k-detail-row):hover,
+        tbody>tr:not(.k-detail-row).k-state-hover,
+        tbody>tr:not(.k-detail-row).k-hover {
             color: $grid-hovered-text;
             background-color: $grid-hovered-bg;
         }
@@ -29768,7 +30144,7 @@ $adaptive-scheduler-subtle-text: $subtle-text !default;
         // Selected state
         td.k-state-selected,
         td.k-selected,
-        tr.k-state-selected > td ,
+        tr.k-state-selected > td,
         tr.k-selected > td {
             color: $grid-selected-text;
             background-color: $grid-selected-bg;
@@ -29784,7 +30160,7 @@ $adaptive-scheduler-subtle-text: $subtle-text !default;
         .k-grouping-row > td:focus,
         .k-detail-row > td:focus,
         .k-group-footer > td:focus,
-        .k-grid-pager.k-state-focused ,
+        .k-grid-pager.k-state-focused,
         .k-grid-pager.k-focus {
             box-shadow: $grid-focused-shadow;
         }
@@ -29827,12 +30203,12 @@ $adaptive-scheduler-subtle-text: $subtle-text !default;
             }
 
             // Selected state
-            .k-state-selected td ,
+            .k-state-selected td,
             .k-selected td {
                 @include fill( $bg: $grid-sticky-selected-bg );
             }
 
-            .k-state-selected.k-alt td ,
+            .k-state-selected.k-alt td,
             .k-selected.k-alt td {
                 @include fill( $bg: $grid-sticky-selected-alt-bg );
             }
@@ -29840,7 +30216,7 @@ $adaptive-scheduler-subtle-text: $subtle-text !default;
             // Selected hover
             .k-state-selected:hover td,
             .k-selected:hover td,
-            .k-state-selected.k-state-hover td ,
+            .k-state-selected.k-state-hover td,
             .k-selected.k-hover td {
                 @include fill( $bg: $grid-sticky-selected-hovered-bg );
             }
@@ -29886,7 +30262,7 @@ $adaptive-scheduler-subtle-text: $subtle-text !default;
             &.k-state-border-down {
                 box-shadow: inset 0 0 0 2px rgba( 0, 0, 0, .1 );
             }
-            &.k-state-active ,
+            &.k-state-active,
             &.k-active {
                 color: $selected-text;
                 background-color: $selected-bg;
@@ -29946,7 +30322,7 @@ $adaptive-scheduler-subtle-text: $subtle-text !default;
         &.k-selected .k-grid-content-sticky,
         &.k-state-selected .k-grid-row-sticky,
         &.k-selected .k-grid-row-sticky,
-        td.k-grid-content-sticky.k-state-selected ,
+        td.k-grid-content-sticky.k-state-selected,
         td.k-grid-content-sticky.k-selected {
             @include fill( $bg: $grid-sticky-selected-bg );
         }
@@ -29955,7 +30331,7 @@ $adaptive-scheduler-subtle-text: $subtle-text !default;
         &.k-selected.k-alt .k-grid-content-sticky,
         &.k-state-selected.k-alt .k-grid-row-sticky,
         &.k-selected.k-alt .k-grid-row-sticky,
-        &.k-alt td.k-grid-content-sticky.k-state-selected ,
+        &.k-alt td.k-grid-content-sticky.k-state-selected,
         &.k-alt td.k-grid-content-sticky.k-selected {
             @include fill( $bg: $grid-sticky-selected-alt-bg );
         }
@@ -29966,7 +30342,7 @@ $adaptive-scheduler-subtle-text: $subtle-text !default;
         &:hover .k-grid-row-sticky,
         &.k-state-hover .k-grid-content-sticky,
         &.k-hover .k-grid-content-sticky,
-        &.k-state-hover .k-grid-row-sticky ,
+        &.k-state-hover .k-grid-row-sticky,
         &.k-hover .k-grid-row-sticky {
             background-color: $grid-sticky-hovered-bg;
         }
@@ -29983,7 +30359,7 @@ $adaptive-scheduler-subtle-text: $subtle-text !default;
         &.k-selected.k-hover .k-grid-row-sticky,
         &:hover td.k-grid-content-sticky.k-state-selected,
         &:hover td.k-grid-content-sticky.k-selected,
-        &.k-state-hover td.k-grid-content-sticky.k-state-selected ,
+        &.k-state-hover td.k-grid-content-sticky.k-state-selected,
         &.k-hover td.k-grid-content-sticky.k-selected {
             background-color: $grid-sticky-selected-hovered-bg;
         }
@@ -29997,7 +30373,7 @@ $adaptive-scheduler-subtle-text: $subtle-text !default;
             background-color: $grid-sticky-bg;
 
             &:hover,
-            &.k-state-hover ,
+            &.k-state-hover,
             &.k-hover {
                 background-color: $grid-sticky-hovered-bg;
             }
@@ -30011,7 +30387,7 @@ $adaptive-scheduler-subtle-text: $subtle-text !default;
             }
 
             &:hover td,
-            &.k-state-hover td ,
+            &.k-state-hover td,
             &.k-hover td {
                 background-color: $grid-sticky-hovered-bg;
             }
@@ -30029,7 +30405,7 @@ $adaptive-scheduler-subtle-text: $subtle-text !default;
         .k-selected.k-grid-row-sticky td,
         .k-grid-row-sticky td.k-state-selected,
         .k-grid-row-sticky td.k-selected,
-        .k-state-selected.k-grid-content-sticky ,
+        .k-state-selected.k-grid-content-sticky,
         .k-selected.k-grid-content-sticky {
             @include fill( $bg: $grid-sticky-selected-bg );
         }
@@ -30038,7 +30414,7 @@ $adaptive-scheduler-subtle-text: $subtle-text !default;
         tr.k-selected.k-alt .k-grid-content-sticky,
         .k-state-selected.k-alt.k-grid-row-sticky td,
         .k-selected.k-alt.k-grid-row-sticky td,
-        .k-alt .k-state-selected.k-grid-content-sticky ,
+        .k-alt .k-state-selected.k-grid-content-sticky,
         .k-alt .k-selected.k-grid-content-sticky {
             @include fill( $bg: $grid-sticky-selected-alt-bg );
         }
@@ -30054,7 +30430,7 @@ $adaptive-scheduler-subtle-text: $subtle-text !default;
         .k-grid-row-sticky.k-alt.k-state-hover td,
         .k-grid-row-sticky.k-alt.k-hover td,
         .k-alt:hover .k-grid-content-sticky,
-        .k-alt.k-state-hover .k-grid-content-sticky ,
+        .k-alt.k-state-hover .k-grid-content-sticky,
         .k-alt.k-hover .k-grid-content-sticky {
             background-color: $grid-sticky-hovered-bg;
         }
@@ -30082,7 +30458,7 @@ $adaptive-scheduler-subtle-text: $subtle-text !default;
         .k-grid-row-sticky.k-hover td.k-selected,
         tr:hover .k-grid-content-sticky.k-state-selected,
         tr:hover .k-grid-content-sticky.k-selected,
-        tr.k-state-hover .k-grid-content-sticky.k-state-selected ,
+        tr.k-state-hover .k-grid-content-sticky.k-state-selected,
         tr.k-hover .k-grid-content-sticky.k-selected {
             background-color: $grid-sticky-selected-hovered-bg;
         }
@@ -30094,7 +30470,7 @@ $adaptive-scheduler-subtle-text: $subtle-text !default;
         }
 
         &:hover .k-grid-content-sticky,
-        &.k-state-hover .k-grid-content-sticky ,
+        &.k-state-hover .k-grid-content-sticky,
         &.k-hover .k-grid-content-sticky {
             @include fill( $bg: $grid-sticky-hovered-bg );
         }
@@ -30108,13 +30484,13 @@ $adaptive-scheduler-subtle-text: $subtle-text !default;
         );
     }
     .k-columnmenu-item:focus,
-    .k-columnmenu-item.k-state-focus ,
+    .k-columnmenu-item.k-state-focus,
     .k-columnmenu-item.k-focus {
         @include box-shadow( $kendo-list-item-focus-shadow );
     }
 
     .k-columnmenu-item {
-        &.k-state-selected ,
+        &.k-state-selected,
         &.k-selected {
             @include fill(
                 $kendo-list-item-selected-text,
@@ -30140,7 +30516,7 @@ $adaptive-scheduler-subtle-text: $subtle-text !default;
                 );
 
                 &:hover,
-                &.k-state-hover ,
+                &.k-state-hover,
                 &.k-hover {
                     @include fill(
                         $kendo-list-item-hover-text,
@@ -30148,7 +30524,7 @@ $adaptive-scheduler-subtle-text: $subtle-text !default;
                     );
                 }
 
-                &.k-state-selected ,
+                &.k-state-selected,
                 &.k-selected {
                     @include fill(
                         $kendo-list-item-selected-text,
@@ -30157,7 +30533,7 @@ $adaptive-scheduler-subtle-text: $subtle-text !default;
                 }
 
                 &:focus,
-                &.k-state-focused ,
+                &.k-state-focused,
                 &.k-focus {
                     @include box-shadow( $kendo-list-item-focus-shadow );
                 }
@@ -30393,7 +30769,7 @@ $listview-item-focus-shadow: inset 0 0 0 2px rgba(0, 0, 0, .13) !default;
     // Listview content
     .k-listview-content {
 
-        > .k-state-focused ,
+        > .k-state-focused,
         > .k-focus {
             @include fill(
                 $listview-item-focus-text,
@@ -30403,7 +30779,7 @@ $listview-item-focus-shadow: inset 0 0 0 2px rgba(0, 0, 0, .13) !default;
             @include box-shadow( $listview-item-focus-shadow );
         }
 
-        > .k-state-selected ,
+        > .k-state-selected,
         > .k-selected {
             @include fill(
                 $listview-item-selected-text,
@@ -30781,7 +31157,7 @@ $spreadsheet-drawing-anchor-bg: rgba( $selected-bg, .25 ) !default;
         overflow: hidden;
 
         // disabled cells in the Spreadsheet should allow navigation if link is used
-        .k-state-disabled ,
+        .k-state-disabled,
         .k-disabled {
             pointer-events: auto;
         }
@@ -31343,7 +31719,7 @@ $spreadsheet-drawing-anchor-bg: rgba( $selected-bg, .25 ) !default;
             background-position: 50% 50%;
 
             &:hover div,
-            &.k-state-hovered div ,
+            &.k-state-hovered div,
             &.k-hover div {
                 margin: 0;
                 align-self: center;
@@ -31409,7 +31785,7 @@ $spreadsheet-drawing-anchor-bg: rgba( $selected-bg, .25 ) !default;
         .k-spreadsheet-insert-image-dialog {
             .k-spreadsheet-has-image {
                 &:hover,
-                &.k-state-hovered ,
+                &.k-state-hovered,
                 &.k-hover {
                     border-radius: $spreadsheet-insert-image-dialog-preview-overlay-border-radius;
                 }
@@ -31586,7 +31962,7 @@ $spreadsheet-drawing-anchor-bg: rgba( $selected-bg, .25 ) !default;
             );
         }
 
-        &.k-state-active ,
+        &.k-state-active,
         &.k-active {
             @include fill(
                 $kendo-button-active-text,
@@ -31604,7 +31980,7 @@ $spreadsheet-drawing-anchor-bg: rgba( $selected-bg, .25 ) !default;
         > .k-menu,
         > .k-menu:not(.k-context-menu) {
 
-            .k-item.k-state-hover ,
+            .k-item.k-state-hover,
             .k-item.k-hover {
                 @include fill(
                     $kendo-list-item-hover-text,
@@ -31635,7 +32011,7 @@ $spreadsheet-drawing-anchor-bg: rgba( $selected-bg, .25 ) !default;
         .k-button {}
 
         .k-button:hover,
-        .k-button.k-state-hover ,
+        .k-button.k-state-hover,
         .k-button.k-hover {
             @include fill(
                 $kendo-list-item-hover-text,
@@ -31645,7 +32021,7 @@ $spreadsheet-drawing-anchor-bg: rgba( $selected-bg, .25 ) !default;
         .k-button:active,
         .k-button.k-state-active,
         .k-button.k-active,
-        .k-button.k-state-selected ,
+        .k-button.k-state-selected,
         .k-button.k-selected {
             @include fill(
                 $kendo-list-item-selected-text,
@@ -31667,13 +32043,13 @@ $spreadsheet-drawing-anchor-bg: rgba( $selected-bg, .25 ) !default;
 
         .k-spreadsheet-has-image {
             &:hover,
-            &.k-state-hovered ,
+            &.k-state-hovered,
             &.k-hover {
                 box-shadow: $spreadsheet-insert-image-dialog-preview-overlay-shadow;
             }
 
             &:hover div,
-            &.k-state-hovered div ,
+            &.k-state-hovered div,
             &.k-hover div {
                 color: $spreadsheet-insert-image-dialog-overlay-hovered-text;
             }
@@ -32657,7 +33033,7 @@ $pivotgrid-remove-text: null !default;
     // Selected state
     .k-pivotgrid-cell.k-state-selected,
     .k-pivotgrid-cell.k-selected,
-    .k-pivotgrid-row.k-state-selected > .k-pivotgrid-cell ,
+    .k-pivotgrid-row.k-state-selected > .k-pivotgrid-cell,
     .k-pivotgrid-row.k-selected > .k-pivotgrid-cell {
         @include fill (
             $pivotgrid-selected-text,
@@ -32886,7 +33262,7 @@ $treelist-footer-row-border-width: 1px !default;
         }
 
         .k-treelist-dragging,
-        .k-treelist-dragging .k-state-hover ,
+        .k-treelist-dragging .k-state-hover,
         .k-treelist-dragging .k-hover {
             cursor: default;
         }
@@ -33602,7 +33978,7 @@ $filemanager-preview-icon-border: null !default;
                 );
             }
 
-            &.k-state-selected .k-file-icon ,
+            &.k-state-selected .k-file-icon,
             &.k-selected .k-file-icon {
                 @include fill(
                     inherit,
@@ -34061,7 +34437,7 @@ $taskboard-drag-placeholder-border: $component-border !default;
         );
     }
     .k-taskboard-column:focus,
-    .k-taskboard-column.k-state-focus ,
+    .k-taskboard-column.k-state-focus,
     .k-taskboard-column.k-focus {
         @include fill(
             $taskboard-column-focus-text,
@@ -34261,7 +34637,7 @@ $editor-selectednode-outline-color: #8cf !default; // sass-lint:disable-line hex
                 pointer-events: auto;
             }
 
-            .k-editor-content.k-state-focused ,
+            .k-editor-content.k-state-focused,
             .k-editor-content.k-focus {
                 outline-width: 1px;
                 outline-style: dashed;
@@ -34715,7 +35091,7 @@ $editor-selectednode-outline-color: #8cf !default; // sass-lint:disable-line hex
             display: block;
             margin: auto;
 
-            &.k-state-selected ,
+            &.k-state-selected,
             &.k-selected {
                 color: inherit;
                 border-width: 0;
@@ -34935,7 +35311,7 @@ $editor-selectednode-outline-color: #8cf !default; // sass-lint:disable-line hex
 
     kendo-editor {
         &.k-readonly {
-            .k-editor-content.k-state-focused ,
+            .k-editor-content.k-state-focused,
             .k-editor-content.k-focus {
                 outline-color: $body-text;
             }
@@ -34973,7 +35349,7 @@ $editor-selectednode-outline-color: #8cf !default; // sass-lint:disable-line hex
 
         // Hover & Actve state
         &:hover,
-        &.k-state-active ,
+        &.k-state-active,
         &.k-active {
             border-color: $panel-border;
         }
@@ -34991,7 +35367,7 @@ $editor-selectednode-outline-color: #8cf !default; // sass-lint:disable-line hex
 
     // Insert table
     .k-ct-popup {
-        .k-state-selected ,
+        .k-state-selected,
         .k-selected {
             @include fill( $selected-text, $selected-bg, $selected-border, none );
         }
@@ -35540,7 +35916,7 @@ $gantt-validation-tooltip-invalid-border: $error !default;
                 }
             }
 
-            tr.k-state-selected > td:last-child ,
+            tr.k-state-selected > td:last-child,
             tr.k-selected > td:last-child {
                 background: transparent;
             }
@@ -35810,7 +36186,7 @@ $gantt-validation-tooltip-invalid-border: $error !default;
         border-color: currentColor;
         position: absolute;
     }
-    .k-gantt-line.k-state-selected ,
+    .k-gantt-line.k-state-selected,
     .k-gantt-line.k-selected {
         z-index: 3;
     }
@@ -35884,7 +36260,7 @@ $gantt-validation-tooltip-invalid-border: $error !default;
         transform: translate(-50%, -50%);
     }
     .k-task-dot:hover::before,
-    .k-task-dot.k-state-hover::before ,
+    .k-task-dot.k-state-hover::before,
     .k-task-dot.k-hover::before {
         border-width: 1px;
     }
@@ -36355,7 +36731,7 @@ $gantt-validation-tooltip-invalid-border: $error !default;
                     $border: $gantt-milestone-border
                 );
             }
-            .k-task-milestone.k-state-selected .k-task-milestone-content ,
+            .k-task-milestone.k-state-selected .k-task-milestone-content,
             .k-task-milestone.k-selected .k-task-milestone-content {
                 @include fill(
                     $bg: $gantt-milestone-selected-bg,
@@ -36370,7 +36746,7 @@ $gantt-validation-tooltip-invalid-border: $error !default;
                 stroke: $gantt-line-fill;
             }
 
-            polyline.k-state-selected ,
+            polyline.k-state-selected,
             polyline.k-selected {
                 stroke: $gantt-line-selected-fill;
             }
@@ -36424,7 +36800,7 @@ $gantt-validation-tooltip-invalid-border: $error !default;
         );
     }
     .k-task-dot:hover::before,
-    .k-task-dot.k-state-hover::before ,
+    .k-task-dot.k-state-hover::before,
     .k-task-dot.k-hover::before {
         @include fill(
             $bg: $gantt-dot-hover-bg,
@@ -36450,7 +36826,7 @@ $gantt-validation-tooltip-invalid-border: $error !default;
             );
         }
     }
-    .k-task-milestone.k-state-selected ,
+    .k-task-milestone.k-state-selected,
     .k-task-milestone.k-selected {
         background-image: none;
         @include fill(
@@ -36481,7 +36857,7 @@ $gantt-validation-tooltip-invalid-border: $error !default;
     .k-task-advanced .k-task-summary-complete {
         color: $gantt-advanced-bg;
     }
-    .k-task-summary.k-state-selected ,
+    .k-task-summary.k-state-selected,
     .k-task-summary.k-selected {
         color: $gantt-summary-selected-bg;
 
@@ -36525,7 +36901,7 @@ $gantt-validation-tooltip-invalid-border: $error !default;
             $bg: $gantt-advanced-bg
         );
     }
-    .k-task-single.k-state-selected ,
+    .k-task-single.k-state-selected,
     .k-task-single.k-selected {
         @include fill(
             $gantt-task-selected-text,
@@ -36542,7 +36918,7 @@ $gantt-validation-tooltip-invalid-border: $error !default;
     .k-gantt-line {
         color: $gantt-line-fill;
     }
-    .k-gantt-line.k-state-selected ,
+    .k-gantt-line.k-state-selected,
     .k-gantt-line.k-selected {
         color: $gantt-line-selected-fill;
     }
@@ -37198,7 +37574,7 @@ $scheduler-tooltip-callout-text: $scheduler-tooltip-bg !default;
             }
 
             &:hover,
-            &.k-state-hover ,
+            &.k-state-hover,
             &.k-hover {
                 .k-event-delete {
                     opacity: 1;
@@ -37264,7 +37640,7 @@ $scheduler-tooltip-callout-text: $scheduler-tooltip-bg !default;
 
         // Hover
         &:hover,
-        &.k-state-hover ,
+        &.k-state-hover,
         &.k-hover {
             .k-event-actions .k-event-delete,
             .k-resize-handle {
@@ -37526,7 +37902,7 @@ $scheduler-tooltip-callout-text: $scheduler-tooltip-bg !default;
         .k-hover .k-task > .k-event-delete,
         .k-scheduler-content tr:hover .k-event-delete,
         .k-scheduler-content .k-scheduler-row:hover .k-event-delete,
-        .k-scheduler-content .k-scheduler-row.k-state-hover .k-event-delete ,
+        .k-scheduler-content .k-scheduler-row.k-state-hover .k-event-delete,
         .k-scheduler-content .k-scheduler-row.k-hover .k-event-delete {
             visibility: visible;
         }
@@ -37600,7 +37976,7 @@ $scheduler-tooltip-callout-text: $scheduler-tooltip-bg !default;
                 position: relative;
             }
 
-            td.k-state-selected ,
+            td.k-state-selected,
             td.k-selected {
                 background-color: inherit;
             }
@@ -37947,7 +38323,7 @@ $scheduler-tooltip-callout-text: $scheduler-tooltip-bg !default;
 
     .k-scheduler-layout td.k-state-selected,
     .k-scheduler-layout td.k-selected,
-    .k-scheduler-layout .k-scheduler-cell.k-state-selected ,
+    .k-scheduler-layout .k-scheduler-cell.k-state-selected,
     .k-scheduler-layout .k-scheduler-cell.k-selected {
         background-color: rgba($selected-bg, .25);
     }
@@ -37970,7 +38346,7 @@ $scheduler-tooltip-callout-text: $scheduler-tooltip-bg !default;
         );
         @include box-shadow( $scheduler-event-shadow );
 
-        &.k-state-hover ,
+        &.k-state-hover,
         &.k-hover {
             @include fill(
                 $scheduler-event-hover-text,
@@ -37981,7 +38357,7 @@ $scheduler-tooltip-callout-text: $scheduler-tooltip-bg !default;
             @include box-shadow( $scheduler-event-hover-shadow );
         }
 
-        &.k-state-selected ,
+        &.k-state-selected,
         &.k-selected {
             @include fill(
                 $scheduler-event-selected-text,
@@ -38051,7 +38427,7 @@ $scheduler-tooltip-callout-text: $scheduler-tooltip-bg !default;
         .k-scheduler-content tr.k-state-hover,
         .k-scheduler-content tr.k-hover,
         .k-scheduler-content .k-scheduler-row:hover,
-        .k-scheduler-content .k-scheduler-row.k-state-hover ,
+        .k-scheduler-content .k-scheduler-row.k-state-hover,
         .k-scheduler-content .k-scheduler-row.k-hover {
             @include fill(
                 $hovered-text,
@@ -38065,7 +38441,7 @@ $scheduler-tooltip-callout-text: $scheduler-tooltip-bg !default;
         .k-scheduler-content tr:hover .k-scheduler-groupcolumn,
         .k-scheduler-content tr.k-state-hover .k-scheduler-datecolumn,
         .k-scheduler-content tr.k-hover .k-scheduler-datecolumn,
-        .k-scheduler-content tr.k-state-hover .k-scheduler-groupcolumn ,
+        .k-scheduler-content tr.k-state-hover .k-scheduler-groupcolumn,
         .k-scheduler-content tr.k-hover .k-scheduler-groupcolumn {
             @include fill(
                 $scheduler-text,
@@ -38075,13 +38451,13 @@ $scheduler-tooltip-callout-text: $scheduler-tooltip-bg !default;
         }
 
         // Selected
-        .k-scheduler-content tr.k-state-selected ,
+        .k-scheduler-content tr.k-state-selected,
         .k-scheduler-content tr.k-selected {
             background-color: rgba($selected-bg, .25);
         }
         .k-scheduler-content tr.k-state-selected .k-scheduler-datecolumn,
         .k-scheduler-content tr.k-selected .k-scheduler-datecolumn,
-        .k-scheduler-content tr.k-state-selected .k-scheduler-groupcolumn ,
+        .k-scheduler-content tr.k-state-selected .k-scheduler-groupcolumn,
         .k-scheduler-content tr.k-selected .k-scheduler-groupcolumn {
             background-color: $scheduler-bg;
         }
@@ -38099,7 +38475,7 @@ $scheduler-tooltip-callout-text: $scheduler-tooltip-bg !default;
             @include fill( $bg: $scheduler-yearview-indicator-bg );
         }
 
-        .k-state-selected .k-day-indicator ,
+        .k-state-selected .k-day-indicator,
         .k-selected .k-day-indicator {
             @include fill( $bg: $scheduler-yearview-indicator-selected-bg );
         }
@@ -38400,7 +38776,7 @@ $chat-quick-reply-hover-border: $primary !default;
 
 
         // Message states
-        .k-message.k-state-selected ,
+        .k-message.k-state-selected,
         .k-message.k-selected {
             margin-bottom: $chat-item-spacing-y;
             border: 0;
@@ -38610,7 +38986,7 @@ $chat-quick-reply-hover-border: $primary !default;
             flex: 0 0 auto;
         }
 
-        &.k-state-selected ,
+        &.k-state-selected,
         &.k-selected {
             background: none;
         }
@@ -38844,7 +39220,7 @@ $chat-quick-reply-hover-border: $primary !default;
         .k-bubble:hover {
             @include box-shadow( $chat-bubble-hover-shadow );
         }
-        .k-state-selected .k-bubble ,
+        .k-state-selected .k-bubble,
         .k-selected .k-bubble {
             @include box-shadow( $chat-bubble-selected-shadow );
         }
@@ -38860,7 +39236,7 @@ $chat-quick-reply-hover-border: $primary !default;
         .k-alt .k-bubble:hover {
             @include box-shadow( $chat-alt-bubble-hover-shadow );
         }
-        .k-alt .k-state-selected .k-bubble ,
+        .k-alt .k-state-selected .k-bubble,
         .k-alt .k-selected .k-bubble {
             @include box-shadow( $chat-alt-bubble-selected-shadow );
         }
@@ -39647,7 +40023,7 @@ $timeline-event-min-height-calc: calc(2 * (#{$timeline-track-event-offset} - #{$
             color: $body-text;
         }
 
-        .k-timeline-arrow.k-state-disabled ,
+        .k-timeline-arrow.k-state-disabled,
         .k-timeline-arrow.k-disabled {
             opacity: 1; // The arrow button in disabled mode should have a solid background
             color: $timeline-track-arrow-disabled-text;
@@ -39668,7 +40044,7 @@ $timeline-event-min-height-calc: calc(2 * (#{$timeline-track-event-offset} - #{$
         background-color: $timeline-flag-bg;
     }
 
-    .k-timeline-track-item.k-state-focus .k-timeline-circle ,
+    .k-timeline-track-item.k-state-focus .k-timeline-circle,
     .k-timeline-track-item.k-focus .k-timeline-circle {
         @include box-shadow( $timeline-track-item-focus-shadow );
     }
@@ -40361,7 +40737,7 @@ $scrollview-transition-timing-function: ease-in-out !default;
         -webkit-tap-highlight-color: $scrollview-arrow-tap-highlight-color;
 
         &:focus,
-        &.k-state-focus ,
+        &.k-state-focus,
         &.k-focus {
             color: $scrollview-navigation-color;
             opacity: $scrollview-navigation-hover-opacity;
@@ -40372,7 +40748,7 @@ $scrollview-transition-timing-function: ease-in-out !default;
         }
 
         &:hover,
-        &.k-state-hover ,
+        &.k-state-hover,
         &.k-hover {
             color: $scrollview-navigation-color;
             opacity: $scrollview-navigation-hover-opacity;
@@ -40392,14 +40768,14 @@ $scrollview-transition-timing-function: ease-in-out !default;
         }
 
         &:focus,
-        &.k-state-focused ,
+        &.k-state-focused,
         &.k-focus {
             box-shadow: $scrollview-pagebutton-shadow;
         }
     }
 
     .k-scrollview-nav > .k-link:hover,
-    .k-scrollview-nav > .k-link.k-state-hover ,
+    .k-scrollview-nav > .k-link.k-state-hover,
     .k-scrollview-nav > .k-link.k-hover {
         box-shadow: $scrollview-pagebutton-shadow;
     }
@@ -41185,8 +41561,6 @@ $treemap-line-height: $line-height !default;
 }
 
 
-
-
 @include exports("dataviz/treemap/theme") {
 
     // Treemap
@@ -41214,7 +41588,7 @@ $treemap-line-height: $line-height !default;
         .k-leaf.k-inverse {
             color: $component-text;
         }
-        .k-leaf.k-state-hover ,
+        .k-leaf.k-state-hover,
         .k-leaf.k-hover {
             box-shadow: inset 0 0 0 3px $component-border;
         }
@@ -41701,7 +42075,7 @@ $orgchart-line-v-height: 25px !default;
     .k-orgchart-node-group-container:focus,
     .k-orgchart-node-group-container.k-focus,
     .k-orgchart-node-group-container.k-state-focus,
-    .k-orgchart-node-group-container.k-state-focused ,
+    .k-orgchart-node-group-container.k-state-focused,
     .k-orgchart-node-group-container.k-focus {
         @include box-shadow( $orgchart-node-group-focus-shadow );
         @include fill ( $border: $orgchart-node-group-focus-border );
@@ -41716,6 +42090,151 @@ $orgchart-line-v-height: 25px !default;
     .k-orgchart-line-v {
         @include fill( $color: $orgchart-line-fill );
     }
+
+}
+
+// #endregion
+
+// #endregion
+// #region @import "signature/_index.scss"; -> packages/default/scss/signature/_index.scss
+// #region @import "../core/_index.scss"; -> packages/default/scss/core/_index.scss
+// File already imported_once. Skipping output.
+// #endregion
+
+// Dependencies
+// #region @import "../button/_index.scss"; -> packages/default/scss/button/_index.scss
+// File already imported_once. Skipping output.
+// #endregion
+// #region @import "../input/_index.scss"; -> packages/default/scss/input/_index.scss
+// File already imported_once. Skipping output.
+// #endregion
+
+// Component
+// #region @import "_variables.scss"; -> packages/default/scss/signature/_variables.scss
+$kendo-signature-width: 250px !default;
+$kendo-signature-height: 84px !default;
+
+$kendo-signature-maximized-width: 750px !default;
+$kendo-signature-maximized-height: 252px !default;
+
+$kendo-signature-padding: map-get( $spacing, 1 ) !default;
+$kendo-signature-padding-sm: map-get( $spacing, 1 ) - map-get($spacing, thin) !default;
+$kendo-signature-padding-md: $kendo-signature-padding !default;
+$kendo-signature-padding-lg: map-get( $spacing, 1 ) + map-get($spacing, thin) !default;
+
+$kendo-signature-line-width: 1px !default;
+$kendo-signature-line-style: dashed !default;
+$kendo-signature-line-color: rgba( $info, .24 ) !default;
+
+$kendo-signature-line-size: calc( 100% - 2 * #{$kendo-signature-padding} ) !default;
+$kendo-signature-line-size-sm: calc( 100% - 2 * #{$kendo-signature-padding-sm} ) !default;
+$kendo-signature-line-size-md: calc( 100% - 2 * #{$kendo-signature-padding-md} ) !default;
+$kendo-signature-line-size-lg: calc( 100% - 2 * #{$kendo-signature-padding-lg} ) !default;
+
+$kendo-signature-line-bottom-offset: calc( #{$kendo-button-calc-size} + #{$kendo-signature-padding} ) !default;
+$kendo-signature-line-bottom-offset-sm: calc( #{$kendo-button-calc-size} + #{$kendo-signature-padding-sm} ) !default;
+$kendo-signature-line-bottom-offset-md: calc( #{$kendo-button-calc-size} + #{$kendo-signature-padding-md} ) !default;
+$kendo-signature-line-bottom-offset-lg: calc( #{$kendo-button-calc-size} + #{$kendo-signature-padding-lg} ) !default;
+
+$kendo-signature-sizes: (
+    sm: (
+        padding: $kendo-signature-padding-sm,
+        line-size: $kendo-signature-line-size-sm,
+        line-offset: $kendo-signature-line-bottom-offset-sm
+    ),
+    md: (
+        padding: $kendo-signature-padding-md,
+        line-size: $kendo-signature-line-size-md,
+        line-offset: $kendo-signature-line-bottom-offset-md
+    ),
+    lg: (
+        padding: $kendo-signature-padding-lg,
+        line-size: $kendo-signature-line-size-lg,
+        line-offset: $kendo-signature-line-bottom-offset-lg
+    )
+) !default;
+
+$kendo-signature-actions-gap: map-get( $spacing, 1 ) !default;
+$kendo-signature-maximized-line-width: map-get( $spacing, 1 ) - map-get( $spacing, hair ) !default;
+
+// #endregion
+// #region @import "_layout.scss"; -> packages/default/scss/signature/_layout.scss
+@include exports("signature/layout") {
+
+    .k-signature {
+        width: $kendo-signature-width;
+        height: $kendo-signature-height;
+        position: relative;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        &.k-signature-maximized {
+            width: $kendo-signature-maximized-width;
+            height: $kendo-signature-maximized-height;
+
+            > .k-signature-line {
+                border-bottom-width: $kendo-signature-maximized-line-width;
+            }
+        }
+    }
+
+    .k-signature-actions {
+        display: flex;
+        width: min-content;
+        margin-inline-start: auto;
+        gap: $kendo-signature-actions-gap;
+        z-index: 2;
+    }
+
+    .k-signature-canvas {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: block;
+        z-index: 1;
+    }
+
+    .k-signature-line {
+        position: absolute;
+        z-index: 0;
+        border-bottom-width: $kendo-signature-line-width;
+        border-bottom-style: $kendo-signature-line-style;
+    }
+
+    // Sizes
+    @each $size, $size-props in $kendo-signature-sizes {
+        $_padding: map-get($size-props, padding);
+        $_line-size: map-get($size-props, line-size);
+        $_line-offset: map-get($size-props, line-offset);
+
+        .k-signature-#{$size} {
+            padding: $_padding;
+
+            .k-signature-line {
+                width: $_line-size;
+                bottom: $_line-offset;
+            }
+        }
+
+    }
+}
+
+// #endregion
+// #region @import "_theme.scss"; -> packages/default/scss/signature/_theme.scss
+@include exports("signature/theme") {
+
+    // Solid signature
+    .k-signature {
+
+        .k-signature-line {
+            border-bottom-color: $kendo-signature-line-color;
+        }
+    }
+
 
 }
 
