@@ -52,7 +52,7 @@ export class AppComponent implements OnInit, OnDestroy {
 
     public setDrawerConfig() {
         const pageWidth = window.innerWidth;
-        if (pageWidth <= 770) {
+        if (pageWidth <= 840) {
             this.mode = 'overlay';
             this.mini = false;
         } else {
