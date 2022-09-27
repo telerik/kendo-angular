@@ -23,14 +23,14 @@
 
         <div class="card-ranges">
             <kendo-daterange>
-                <span class="k-icon k-i-calendar" (click)="daterange.toggle()"></span>
+                <span class="k-icon k-i-calendar daterange-center" (click)="daterange.toggle()"></span>
                 <kendo-dateinput
                     kendoDateRangeStartInput
                     (valueChange)="fromDate($event)"
                     [(value)]="dateRange.start"
                     format="dd/MM/yy"
                 ></kendo-dateinput>
-                <span> - </span>
+                <span class="daterange-center"> - </span>
                 <kendo-dateinput
                     kendoDateRangeEndInput
                     (valueChange)="toDate($event)"
