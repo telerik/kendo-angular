@@ -55,3 +55,5 @@ import '@angular/localize/init';
 /***************************************************************************************************
  * APPLICATION IMPORTS
  */
+// Patch for `@progress/jsdo-core` in strict mode.
+(<any> window).progress = {};

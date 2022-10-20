@@ -10,8 +10,6 @@ import { DataProviderService } from './service-config';
 import { Observable, throwError, of } from 'rxjs';
 import { map, switchMap, catchError } from 'rxjs/operators';
 
-// Patch for `@progress/jsdo-core` in strict mode.
-(<any> window).progress = {};
 import { progress } from '@progress/jsdo-core';
 
 export class ProgressService<T> extends DataService<T> {
