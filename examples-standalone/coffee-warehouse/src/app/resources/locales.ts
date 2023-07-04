@@ -10,9 +10,5 @@ export const locales = [
     {
         locale: 'Spanish',
         localeId: 'es'
-    },
-    {
-        locale: 'Polish',
-        localeId: 'pl-PL'
-    },
+    }
 ];
