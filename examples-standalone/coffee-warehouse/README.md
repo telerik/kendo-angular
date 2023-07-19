@@ -26,9 +26,7 @@ Used Kendo UI for Angular Components:
 
 ## Setting Up the Project
 
-Currently, the sample project runs with:
-- Angular v11
-- Angular-CLI v11
+The sample project runs with the [currently supported Angular version](https://www.telerik.com/kendo-angular-ui/components/installation/requirements/#toc-angular).
 
 ## Getting Started
 
@@ -38,7 +36,8 @@ Currently, the sample project runs with:
 
 ## Building for Development
 
-1. In the terminal window, tun the project with `ng serve` for a dev server.
+To run the project:
+1. Execute the `ng serve` command in the terminal window for a dev server.
 1. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 ## Serve in Production
