@@ -7,7 +7,7 @@ import { Team } from 'src/app/models/team.model';
 
 @Component({
     selector: 'app-card-component',
-    templateUrl: './card.component.html',
+    templateUrl: './card.component.html'
 })
 export class CardComponent {
     @Output() public toggleEvents: EventEmitter<Employee> = new EventEmitter();
@@ -16,7 +16,7 @@ export class CardComponent {
 
     public images = images;
 
-    public setCardColor(card: Employee): string | undefined{
+    public setCardColor(card: Employee): string | undefined {
         const currentTeam: Team | undefined = teams.find((team: Team) => team.teamID === card.teamId);
         return currentTeam?.teamColor;
     }

@@ -7,6 +7,7 @@ import { Employee } from 'src/app/models/employee.model';
 import { CustomMessagesService } from 'src/app/services/custom-messages.service';
 import { employees } from 'src/app/resources/employees';
 import { images } from 'src/app/resources/images';
+import { SVGIcon, fileExcelIcon, filePdfIcon } from '@progress/kendo-svg-icons';
 
 @Component({
     selector: 'app-team-component',
@@ -17,6 +18,8 @@ export class TeamComponent implements OnInit {
 
     public gridData: Employee[] = employees;
     public gridView: any[] = [];
+    public excelIcon: SVGIcon = fileExcelIcon;
+    public pdfIcon: SVGIcon = filePdfIcon;
 
     public mySelection: string[] = [];
 
@@ -51,12 +54,12 @@ export class TeamComponent implements OnInit {
             }
         }).data;
 
-        this.dataBinding? this.dataBinding.skip = 0 : null;
+        this.dataBinding ? (this.dataBinding.skip = 0) : null;
     }
 
     public getField = (args: Employee) => {
         return `${args.fullName}_${args.jobTitle}_${args.budget}_${args.phone}_${args.address}`;
-    }
+    };
 
     public photoURL(dataItem: any): string {
         const code: string = dataItem.imgId + dataItem.gender;

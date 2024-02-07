@@ -100,10 +100,10 @@ export class ProfileComponent implements AfterViewInit {
 
     public selectAvatar(ev: SelectEvent): void {
         const avatars = this.avatars;
-        const  reader = new FileReader();
+        const reader = new FileReader();
         const file = ev.files[0];
         if (file.rawFile && this.isFileAllowed(file)) {
-            reader.onloadend = function() {
+            reader.onloadend = function () {
                 avatars?.forEach((avatar: any) => {
                     avatar.style['background-image'] = `url("${this.result}")`;
                     localStorage.setItem('avatar', (<string>this.result).toString());

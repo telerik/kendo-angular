@@ -4,7 +4,7 @@ import { CustomMessagesService } from 'src/app/services/custom-messages.service'
 
 @Component({
     selector: 'app-info-component',
-    templateUrl: './info.component.html',
+    templateUrl: './info.component.html'
 })
 export class InfoComponent {
     public customMsgService: CustomMessagesService;

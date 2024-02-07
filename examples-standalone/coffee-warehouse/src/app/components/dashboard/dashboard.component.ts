@@ -4,6 +4,7 @@ import { MessageService } from '@progress/kendo-angular-l10n';
 import { CustomMessagesService } from 'src/app/services/custom-messages.service';
 import { orders } from 'src/app/resources/orders';
 import { Order } from 'src/app/models/order.model';
+import { SVGIcon, calendarIcon } from '@progress/kendo-svg-icons';
 
 @Component({
     selector: 'app-dashboard-component',
@@ -12,6 +13,7 @@ import { Order } from 'src/app/models/order.model';
 export class DashboardComponent {
     public selectedChart: 'Trend' | 'Volume' = 'Trend';
     public orders: Order[] = orders;
+    public calendarIcon: SVGIcon = calendarIcon;
 
     public dateRange: any = {
         start: new Date(2020, 0, 1),
