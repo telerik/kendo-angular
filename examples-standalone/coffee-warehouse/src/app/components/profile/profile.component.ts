@@ -1,13 +1,13 @@
 import { AfterViewInit, Component } from '@angular/core';
 import { Validators, FormGroup, FormControl } from '@angular/forms';
 
-import { countries } from 'src/app/resources/countries';
-import { FormModel } from 'src/app/models/form.model';
 
 import { SelectEvent, FileRestrictions } from '@progress/kendo-angular-upload';
-import { CustomMessagesService } from 'src/app/services/custom-messages.service';
 import { MessageService } from '@progress/kendo-angular-l10n';
 import { NotificationService } from '@progress/kendo-angular-notification';
+import { countries } from '../../resources/countries';
+import { FormModel } from '../../models/form.model';
+import { CustomMessagesService } from '../../services/custom-messages.service';
 
 @Component({
     selector: 'app-profile-component',
@@ -99,6 +99,7 @@ export class ProfileComponent implements AfterViewInit {
     }
 
     public selectAvatar(ev: SelectEvent): void {
+
         const avatars = this.avatars;
         const reader = new FileReader();
         const file = ev.files[0];

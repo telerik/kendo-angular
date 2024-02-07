@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { IntlService } from '@progress/kendo-angular-intl';
 import { MessageService } from '@progress/kendo-angular-l10n';
-import { CustomMessagesService } from 'src/app/services/custom-messages.service';
-import { orders } from 'src/app/resources/orders';
-import { Order } from 'src/app/models/order.model';
 import { SVGIcon, calendarIcon } from '@progress/kendo-svg-icons';
+import { CustomMessagesService } from '../../services/custom-messages.service';
+import { Order } from '../../models/order.model';
+import { orders } from '../../resources/orders';
 
 @Component({
     selector: 'app-dashboard-component',
