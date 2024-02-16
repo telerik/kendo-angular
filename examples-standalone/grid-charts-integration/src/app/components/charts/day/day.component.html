@@ -8,10 +8,11 @@
         </kendo-chart-category-axis-item>
     </kendo-chart-category-axis>
     <kendo-chart-series>
-        <kendo-chart-series-item [type]="'line'" [data]="data" [markers]="{ visible: false }" [color]="changePct > 0 ? 'green' : 'red'">
+        <kendo-chart-series-item [type]="'line'" [data]="data" [markers]="{ visible: false }"
+            [color]="changePct > 0 ? 'green' : 'red'">
         </kendo-chart-series-item>
-        <kendo-chart-series-item [type]="'area'" [data]="data" [markers]="{ visible: false }" [color]="changePct > 0 ? 'green' : 'red'"
-            [opacity]="0.2">
+        <kendo-chart-series-item [type]="'area'" [data]="data" [markers]="{ visible: false }"
+            [color]="changePct > 0 ? 'green' : 'red'" [opacity]="0.2">
         </kendo-chart-series-item>
     </kendo-chart-series>
     <kendo-chart-tooltip></kendo-chart-tooltip>

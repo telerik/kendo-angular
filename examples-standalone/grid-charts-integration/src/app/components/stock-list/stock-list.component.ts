@@ -1,29 +1,33 @@
-import {
-    Component,
-    ViewChild,
-    ViewEncapsulation
-} from '@angular/core';
-
-import { ContextMenuSelectEvent } from '@progress/kendo-angular-menu';
-import { Stock, ChartConfig } from '../../model';
-import { stocksInPortfolio } from '../../data';
-
-import { ContextMenuComponent } from '@progress/kendo-angular-menu';
-import { SelectableSettings, CellClickEvent, GridComponent } from '@progress/kendo-angular-grid';
-
-import { menuItems } from '../../data';
-import { getChartStack, getChartType } from '../../utils';
+import { Component, ViewChild, ViewEncapsulation } from '@angular/core';
+import { ContextMenuComponent, ContextMenuSelectEvent, MenusModule } from "@progress/kendo-angular-menu";
+import { CellClickEvent, ExcelModule, GridComponent, GridModule, SelectableSettings } from "@progress/kendo-angular-grid";
+import { IconsModule } from '@progress/kendo-angular-icons';
+import { SVGIcon, infoCircleIcon } from '@progress/kendo-svg-icons';
+import { ChartConfig, Stock } from '../../model';
+import { menuItems, stocksInPortfolio } from '../../data';
 import { SeriesType } from '@progress/kendo-angular-charts';
+import { getChartStack, getChartType } from '../../utils';
+import { NumberFormatPipe } from '../../pipes/number-format.pipe';
+import { DialogsModule } from '@progress/kendo-angular-dialog';
+import { WindowComponent } from '../common/window/window.component';
+import { DayChartComponent } from '../charts/day/day.component';
+
+import 'hammerjs';
+import { CommonModule } from '@angular/common';
 
 @Component({
-    selector: 'app-stock-list',
-    templateUrl: './stock-list.component.html',
-    styleUrls: ['./stock-list.component.scss'],
-    encapsulation: ViewEncapsulation.None
+  selector: 'app-stock-list',
+  standalone: true,
+  imports: [MenusModule, GridModule, IconsModule, NumberFormatPipe, DialogsModule, ExcelModule, WindowComponent, DayChartComponent, WindowComponent, CommonModule],
+  templateUrl: './stock-list.component.html',
+  styleUrl: './stock-list.component.scss',
+  encapsulation: ViewEncapsulation.None
 })
 export class StockListComponent {
-    @ViewChild('gridmenu') public gridContextMenu: ContextMenuComponent | undefined;
+  @ViewChild('gridmenu') public gridContextMenu: ContextMenuComponent | undefined;
     @ViewChild('grid') public grid: GridComponent | undefined;
+
+    public infoIcon: SVGIcon = infoCircleIcon;
 
     public items: object[] = menuItems;
     public opened = false;

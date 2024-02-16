@@ -1,38 +1,55 @@
 import { Component, Input } from '@angular/core';
 import { ChartConfig, Stock } from '../../../model';
 import { series, seriesTypes } from '../../../data';
-import { getChartStack, getChartType, getTitle } from '../../../utils';
+import { getChartType, getTitle } from '../../../utils';
+import { LayoutModule } from '@progress/kendo-angular-layout';
 import { ChartComponent, ChartsModule, SeriesType } from '@progress/kendo-angular-charts';
+import { ButtonsModule } from '@progress/kendo-angular-buttons';
 import { saveAs } from '@progress/kendo-file-saver';
 import { SVGIcon, gearIcon, downloadIcon } from '@progress/kendo-svg-icons';
-import { LayoutModule } from '@progress/kendo-angular-layout';
-import { SelectSeriesComponent } from '../../common/select-series/select-series.component';
 import { SelectChartTypeComponent } from '../../common/select-chart-type/select-chart-type.component';
-import { ButtonsModule } from '@progress/kendo-angular-buttons';
+import { SelectSeriesComponent } from '../../common/select-series/select-series.component';
 import { TooltipsModule } from '@progress/kendo-angular-tooltip';
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'stocks-component',
+  selector: 'scatter-bubble-charts',
   standalone: true,
-  imports: [LayoutModule, ChartsModule, SelectSeriesComponent, SelectChartTypeComponent, ButtonsModule, TooltipsModule, CommonModule],
-  templateUrl: './stocks-chart.component.html'
+  imports: [LayoutModule, ChartsModule, ButtonsModule, SelectChartTypeComponent, SelectSeriesComponent, TooltipsModule, CommonModule],
+  templateUrl: './scatter-bubble.component.html',
 })
-export class StocksChartComponent {
-    @Input() public data: Stock[] = [];
-    @Input() public chartConfiguration: ChartConfig = { seriesType: 'line', stack: false };
+export class ScatterBubbleComponent {
+  @Input() public chartConfiguration: ChartConfig = { seriesType: 'pie', stack: false };
+    @Input() public set data(value: Stock[]) {
+        this.stockData = value.map((item, index) => {
+            item.index = index;
+            return item;
+        });
+    }
 
     public iconDownload: SVGIcon = downloadIcon;
     public iconGear: SVGIcon = gearIcon;
 
+    public stockData: Stock[] = [];
     public series: object[] = series;
     public selectedSeries: string[] = ['price', 'pe'];
-    public seriesTypes: string[] = seriesTypes.simpleSeries;
+    public seriesTypes: string[] = seriesTypes.complexSeries;
     public getTitle = getTitle;
     public expanded = false;
 
+    constructor() {
+        this.labelContent = this.labelContent.bind(this);
+    }
+
+    public labelContent(args: any): string {
+        if (args.value >= 0) {
+            return this.stockData[args.value].symbol;
+        } else {
+            return '';
+        }
+    }
+
     public onValueChange(chartName: string) {
-        this.chartConfiguration.stack = getChartStack(chartName);
         this.chartConfiguration.seriesType = getChartType(chartName) as SeriesType;
     }
 
