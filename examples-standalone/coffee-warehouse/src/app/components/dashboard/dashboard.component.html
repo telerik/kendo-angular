@@ -1,21 +1,14 @@
 <div class="card-container">
     <div class="card-header-wrapper">
-        <h3 class="card-title"> {{ customMsgService.translate('teamEfficiency') }} </h3>
+        <h3 class="card-title">
+            {{ customMsgService.translate('teamEfficiency') }}
+        </h3>
         <div class="card-buttons">
             <kendo-buttongroup selection="single">
-                <button
-                    kendoButton
-                    [toggleable]="true"
-                    [selected]="true"
-                    (click)="selectedChart = 'Trend'"
-                >
+                <button kendoButton [toggleable]="true" [selected]="true" (click)="selectedChart = 'Trend'">
                     {{ customMsgService.translate('trend') }}
                 </button>
-                <button
-                    kendoButton
-                    [toggleable]="true"
-                    (click)="selectedChart = 'Volume'"
-                >
+                <button kendoButton [toggleable]="true" (click)="selectedChart = 'Volume'">
                     {{ customMsgService.translate('volume') }}
                 </button>
             </kendo-buttongroup>
@@ -23,7 +16,7 @@
 
         <div class="card-ranges">
             <kendo-daterange>
-                <span class="k-icon k-i-calendar daterange-center" (click)="daterange.toggle()"></span>
+                <kendo-svgicon [icon]="calendarIcon" (click)="daterange.toggle()" class="daterange-center calendar-icon"></kendo-svgicon>
                 <kendo-dateinput
                     kendoDateRangeStartInput
                     (valueChange)="fromDate($event)"
@@ -65,7 +58,7 @@
                 <ng-template kendoChartSeriesTooltipTemplate let-value="value" let-category="category">
                     {{ intl.formatDate(category, 'MMMM yyyy').toUpperCase() }}
                     <br />
-                    <div class="chart-tooltip"> {{ intl.formatNumber(value, 'n3') }} </div>
+                    <div class="chart-tooltip">{{ intl.formatNumber(value, 'n3') }}</div>
                 </ng-template>
             </kendo-chart-tooltip>
             <kendo-chart-series>
@@ -96,7 +89,7 @@
                 <ng-template kendoChartSeriesTooltipTemplate let-value="value" let-category="category">
                     {{ intl.formatDate(category, 'MMMM yyyy').toUpperCase() }}
                     <br />
-                    <div class="chart-tooltip"> {{ intl.formatNumber(value, 'n3') }} </div>
+                    <div class="chart-tooltip">{{ intl.formatNumber(value, 'n3') }}</div>
                 </ng-template>
             </kendo-chart-tooltip>
             <kendo-chart-series>

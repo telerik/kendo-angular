@@ -1,4 +1,4 @@
-import { Employee } from 'src/app/models/employee.model';
+import { Employee } from "../models/employee.model";
 
 export const employees: Employee[] = [
     {
