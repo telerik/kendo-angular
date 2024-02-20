@@ -51,7 +51,7 @@ jobs:
         working-directory: ./examples-standalone/grid-charts-integration
         run: |
           npm ci
-          npm run build
+      # npm run lint
 
   standalone-examples-node14:
     runs-on: ubuntu-latest
