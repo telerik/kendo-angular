@@ -72,7 +72,7 @@ a {
         font-weight: bold;
     }
 
-    .card-ranges .k-i-calendar {
+    .calendar-icon {
         color: #656565;
         cursor: pointer;
         margin-right: 5px;
@@ -201,9 +201,7 @@ a {
         text-align: center;
     }
 
-    .hamburger-icon {
-        background-image: url('./../assets/hamburger-icon.svg');
-        background-repeat: no-repeat;
+    .menu-icon {
         width: 20px;
         cursor: pointer;
     }

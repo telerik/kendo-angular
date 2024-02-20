@@ -2,7 +2,8 @@ import { Component, EventEmitter, Inject, Input, LOCALE_ID, Output } from '@angu
 import { CldrIntlService, IntlService } from '@progress/kendo-angular-intl';
 import { MessageService } from '@progress/kendo-angular-l10n';
 import { CustomMessagesService } from '../services/custom-messages.service';
-import { locales } from 'src/app/resources/locales';
+import { SVGIcon, menuIcon, paletteIcon } from '@progress/kendo-svg-icons';
+import { locales } from '../resources/locales';
 
 @Component({
     selector: 'app-header-component',
@@ -12,12 +13,14 @@ export class HeaderComponent {
     @Output() public toggle = new EventEmitter();
     @Input() public selectedPage?: string;
 
+    public menuIcon: SVGIcon = menuIcon;
+    public paletteIcon: SVGIcon = paletteIcon;
     public customMsgService: CustomMessagesService;
 
     public selectedLanguage = { locale: 'English', localeId: 'en-US' };
     public locales = locales;
     public popupSettings = { width: '150' };
-    public themes: {href: string, text: string}[] = [
+    public themes: { href: string; text: string }[] = [
         {
             href: 'assets/kendo-theme-default/dist/all.css',
             text: 'Default'
@@ -41,7 +44,7 @@ export class HeaderComponent {
         this.customMsgService.language = this.selectedLanguage.localeId;
     }
 
-    public changeTheme(theme: {href: string, text: string}) {
+    public changeTheme(theme: { href: string; text: string }) {
         this.selectedTheme = theme;
         const themeEl: any = document.getElementById('theme');
         themeEl.href = theme.href;
