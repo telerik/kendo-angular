@@ -1,0 +1,16 @@
+{
+  "version": 2,
+  "dgSpecHash": "CZ5AltKd4Xl7Ty+7aGgMbdM652sbxNZnKh87OEJ/Pp88uFW/0c5EGjbpBVr7mYSDOmumIs1ZHKOaGgEt5NXUWw==",
+  "success": true,
+  "projectFilePath": "/Users/bechev/Downloads/backup/AngularApp.Server/AngularApp.Server.csproj",
+  "expectedPackageFiles": [
+    "/Users/bechev/.nuget/packages/microsoft.aspnetcore.spaproxy/8.0.2/microsoft.aspnetcore.spaproxy.8.0.2.nupkg.sha512",
+    "/Users/bechev/.nuget/packages/microsoft.extensions.apidescription.server/6.0.5/microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
+    "/Users/bechev/.nuget/packages/microsoft.openapi/1.2.3/microsoft.openapi.1.2.3.nupkg.sha512",
+    "/Users/bechev/.nuget/packages/swashbuckle.aspnetcore/6.4.0/swashbuckle.aspnetcore.6.4.0.nupkg.sha512",
+    "/Users/bechev/.nuget/packages/swashbuckle.aspnetcore.swagger/6.4.0/swashbuckle.aspnetcore.swagger.6.4.0.nupkg.sha512",
+    "/Users/bechev/.nuget/packages/swashbuckle.aspnetcore.swaggergen/6.4.0/swashbuckle.aspnetcore.swaggergen.6.4.0.nupkg.sha512",
+    "/Users/bechev/.nuget/packages/swashbuckle.aspnetcore.swaggerui/6.4.0/swashbuckle.aspnetcore.swaggerui.6.4.0.nupkg.sha512"
+  ],
+  "logs": []
+}
