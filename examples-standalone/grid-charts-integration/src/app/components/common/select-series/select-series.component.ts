@@ -8,13 +8,13 @@ import { DropDownsModule } from '@progress/kendo-angular-dropdowns';
   templateUrl: './select-series.component.html',
 })
 export class SelectSeriesComponent {
-  @Input() public data: object[] = [];
-  @Output() public valueChange = new EventEmitter<string[]>();
+    @Input() public data: object[] = [];
+    @Output() public valueChange = new EventEmitter<string[]>();
 
-  public selectedSeries: string[] = ['price', 'pe'];
+    public selectedSeries: string[] = ['price', 'pe'];
 
-  public onChange(value: string[]): void {
-    this.selectedSeries = value;
-    this.valueChange.emit(value);
-  }
+    public onChange(value: string[]): void {
+        this.selectedSeries = value;
+        this.valueChange.emit(value);
+    }
 }

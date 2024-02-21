@@ -9,6 +9,6 @@ import { ChartsModule } from '@progress/kendo-angular-charts';
   styleUrl: './day.component.scss'
 })
 export class DayChartComponent {
-  @Input() public data: number[] = [];
-  @Input() public changePct: number = 0;
+    @Input() public data: number[] = [];
+    @Input() public changePct: number = 0;
 }

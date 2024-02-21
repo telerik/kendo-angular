@@ -13,5 +13,5 @@ import { ActionButtonsComponent } from './components/action-buttons/action-butto
   templateUrl: './app.component.html'
 })
 export class AppComponent {
-  title = 'grid-charts-integration';
+    title = 'grid-charts-integration';
 }

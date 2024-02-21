@@ -18,25 +18,25 @@ import { TooltipsModule } from '@progress/kendo-angular-tooltip';
   templateUrl: './pie-donut.component.html',
 })
 export class PieDonutComponent {
-  @Input() public data: Stock[] = [];
-  @Input() public chartConfiguration: ChartConfig = { seriesType: 'pie', stack: false };
-  public expanded = false;
+    @Input() public data: Stock[] = [];
+    @Input() public chartConfiguration: ChartConfig = { seriesType: 'pie', stack: false };
+    public expanded = false;
 
-  public iconDownload: SVGIcon = downloadIcon;
-  public iconGear: SVGIcon = gearIcon;
+    public iconDownload: SVGIcon = downloadIcon;
+    public iconGear: SVGIcon = gearIcon;
 
-  public selectedSeries = 'price';
-  public series: object[] = series;
-  public seriesTypes: string[] = seriesTypes.circularSeries;
-  public getTitle = getTitle;
+    public selectedSeries = 'price';
+    public series: object[] = series;
+    public seriesTypes: string[] = seriesTypes.circularSeries;
+    public getTitle = getTitle;
 
-  public onValueChange(chartName: string) {
-      this.chartConfiguration.seriesType = getChartType(chartName) as SeriesType;
-  }
+    public onValueChange(chartName: string) {
+        this.chartConfiguration.seriesType = getChartType(chartName) as SeriesType;
+    }
 
-  public exportChart(chart: ChartComponent): void {
-      chart.exportImage().then((data) => {
-          saveAs(data, 'chart.png');
-      });
-  }
+    public exportChart(chart: ChartComponent): void {
+        chart.exportImage().then((data) => {
+            saveAs(data, 'chart.png');
+        });
+    }
 }

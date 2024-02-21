@@ -19,7 +19,7 @@ import { CommonModule } from '@angular/common';
   templateUrl: './scatter-bubble.component.html',
 })
 export class ScatterBubbleComponent {
-  @Input() public chartConfiguration: ChartConfig = { seriesType: 'pie', stack: false };
+    @Input() public chartConfiguration: ChartConfig = { seriesType: 'pie', stack: false };
     @Input() public set data(value: Stock[]) {
         this.stockData = value.map((item, index) => {
             item.index = index;

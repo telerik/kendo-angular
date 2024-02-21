@@ -24,7 +24,7 @@ import { CommonModule } from '@angular/common';
   encapsulation: ViewEncapsulation.None
 })
 export class StockListComponent {
-  @ViewChild('gridmenu') public gridContextMenu: ContextMenuComponent | undefined;
+    @ViewChild('gridmenu') public gridContextMenu: ContextMenuComponent | undefined;
     @ViewChild('grid') public grid: GridComponent | undefined;
 
     public infoIcon: SVGIcon = infoCircleIcon;
