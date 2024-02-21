@@ -1,0 +1,23 @@
+{
+  "Version": 1,
+  "Hash": "wlZUvFHwk0y/GlJGCkeWi9ZByJTVIHnCgnZJqyqhBjM=",
+  "Source": "Server",
+  "BasePath": "_content/Server",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [
+    {
+      "Identity": "/Users/bechev/Documents/kendo-packages/kendo-angular/examples-standalone/aspnetcore-data/Client/Client.esproj",
+      "Version": 2,
+      "Source": "Client",
+      "GetPublishAssetsTargets": "GetCurrentProjectPublishStaticWebAssetItems",
+      "AdditionalPublishProperties": "",
+      "AdditionalPublishPropertiesToRemove": "WebPublishProfileFile;TargetFramework;RuntimeIdentifier;SelfContained",
+      "GetBuildAssetsTargets": "GetCurrentProjectBuildStaticWebAssetItems",
+      "AdditionalBuildProperties": "",
+      "AdditionalBuildPropertiesToRemove": "WebPublishProfileFile;TargetFramework;RuntimeIdentifier;SelfContained"
+    }
+  ],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
