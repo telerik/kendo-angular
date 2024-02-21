@@ -47,6 +47,12 @@ jobs:
           npm ci
           npm run build
 
+      - name: Build ASP.NET Core Data client app
+        working-directory: ./examples-standalone/aspnetcore-data/Client
+        run: |
+          npm ci
+          npm run build
+
   standalone-examples-node14:
     runs-on: ubuntu-latest
 
@@ -67,12 +73,6 @@ jobs:
 
       - name: Build Angular Universal ASP.NET core example
         working-directory: ./examples-standalone/angular-universal/aspnet_core_sample_application/ClientApp
-        run: |
-          npm ci
-          npm run lint
-
-      - name: Build ASP.NET Core Data client app
-        working-directory: ./examples-standalone/aspnetcore-data/ClientApp
         run: |
           npm ci
           npm run lint
