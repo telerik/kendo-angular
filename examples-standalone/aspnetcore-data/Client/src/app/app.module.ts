@@ -13,6 +13,7 @@ import { GridModule } from '@progress/kendo-angular-grid';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { DataService } from './fetch-data/data.service';
+import { ButtonsModule } from '@progress/kendo-angular-buttons';
 
 function getBaseUrl() {
     return document.getElementsByTagName('base')[0].href;
@@ -31,6 +32,7 @@ function getBaseUrl() {
             { path: 'fetch-data', component: FetchDataComponent }
         ]),
         GridModule,
+        ButtonsModule,
         BrowserAnimationsModule
     ],
     providers: [DataService, { provide: 'BASE_URL', useFactory: getBaseUrl }],

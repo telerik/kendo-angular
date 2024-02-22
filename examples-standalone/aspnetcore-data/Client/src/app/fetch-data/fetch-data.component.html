@@ -4,23 +4,23 @@
 
 <kendo-grid
     [data]="view | async"
+    [scrollable]="'scrollable'"
+    [pageable]="true"
     [pageSize]="state.take"
     [skip]="state.skip"
-    [sort]="state.sort"
-    [filter]="state.filter"
-    [group]="state.group"
-    [groupable]="true"
-    [filterable]="true"
     [sortable]="true"
-    [pageable]="true"
-    [scrollable]="'scrollable'"
+    [sort]="state.sort"
+    [filterable]="true"
+    [filter]="state.filter"
+    [groupable]="true"
+    [group]="state.group"
     (dataStateChange)="dataStateChange($event)"
-    [height]="400"
     (edit)="editHandler($event)"
     (cancel)="cancelHandler($event)"
     (save)="saveHandler($event)"
     (remove)="removeHandler($event)"
     (add)="addHandler($event)"
+    [height]="400"
 >
     <ng-template kendoGridToolbarTemplate>
         <button kendoGridAddCommand>Add new</button>
