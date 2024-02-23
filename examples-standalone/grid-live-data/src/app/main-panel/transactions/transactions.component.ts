@@ -1,11 +1,15 @@
 import { Component } from '@angular/core';
-import { Transactions } from 'src/app/models/transaction.model';
+import { Transactions } from '../../models/transaction.model';
 import { accountTransactions } from '../transaction-data/transactions';
+import { LayoutModule } from '@progress/kendo-angular-layout';
+import { CommonModule } from '@angular/common';
 
 @Component({
-    selector: 'transactions',
-    templateUrl: './transactions.component.html',
-    styleUrls: ['./transactions.component.css']
+  selector: 'transactions',
+  standalone: true,
+  imports: [LayoutModule, CommonModule],
+  templateUrl: './transactions.component.html',
+  styleUrl: './transactions.component.css'
 })
 export class TransactionsComponent {
     public transactionCards: Transactions[] = accountTransactions;
