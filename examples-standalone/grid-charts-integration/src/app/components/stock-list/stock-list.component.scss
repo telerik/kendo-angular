@@ -68,6 +68,12 @@
     margin: $notification-margin 0;
 }
 
+.k-notification-wrap{
+    display: flex;
+    align-items: center;
+    gap: 3px;
+}
+
 .menu-item {
     margin-left: 10px;
 }

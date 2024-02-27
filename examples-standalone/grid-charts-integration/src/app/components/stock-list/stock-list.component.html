@@ -1,7 +1,7 @@
 <div class="k-custom-notification">
     <div class="k-widget k-notification k-notification-info">
         <div class="k-notification-wrap">
-            <span class="k-icon k-i-info"></span>
+            <kendo-svgicon [icon]="infoIcon"></kendo-svgicon>
             <div class="k-notification-content">Select rows and right click the Grid in order to choose the desired
                 Chart and generate it.</div>
         </div>
@@ -27,7 +27,8 @@
 
     <kendo-grid-column field="day_change" title="Change" media="(min-width: 768px)">
         <ng-template kendoGridCellTemplate let-dataItem>
-            <span [ngClass]="{ 'grid-cell-positive' : dataItem.day_change > 0, 'grid-cell-negative' : dataItem.day_change < 0 }">
+            <span
+                [ngClass]="{ 'grid-cell-positive' : dataItem.day_change > 0, 'grid-cell-negative' : dataItem.day_change < 0 }">
                 {{ dataItem.day_change > 0 ? ('+' + dataItem.day_change) : dataItem.day_change }}
             </span>
         </ng-template>
@@ -35,7 +36,8 @@
 
     <kendo-grid-column field="change_pct" title="%Change" media="(min-width: 768px)">
         <ng-template kendoGridCellTemplate let-dataItem>
-            <span [ngClass]="{ 'grid-cell-positive' : dataItem.change_pct > 0, 'grid-cell-negative' : dataItem.change_pct < 0 }">
+            <span
+                [ngClass]="{ 'grid-cell-positive' : dataItem.change_pct > 0, 'grid-cell-negative' : dataItem.change_pct < 0 }">
                 {{ dataItem.change_pct > 0 ? ('+' + dataItem.change_pct) : dataItem.change_pct }}%
             </span>
         </ng-template>
@@ -98,7 +100,7 @@
     </ng-template>
 </kendo-contextmenu>
 
-<kendo-window title="Stock Portfolio Details" *ngIf="opened" (close)="close()" [top]="150" [minWidth]="250" [width]="700"
-    [height]="550">
+<kendo-window title="Stock Portfolio Details" *ngIf="opened" (close)="close()" [top]="150" [minWidth]="250"
+    [width]="700" [height]="550">
     <window-component [data]="mySelection" [chartConfiguration]="chartConfiguration"></window-component>
 </kendo-window>
