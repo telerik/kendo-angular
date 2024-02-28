@@ -10,17 +10,17 @@ env:
   NODE_OPTIONS: --max_old_space_size=6144
 
 jobs:
-  build:
+  general-examples:
     runs-on: ubuntu-latest
 
     steps:
       - name: Use NodeJS v14
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v4
         with:
-          node-version: '14'
+          node-version: "14"
 
       - name: Check out repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Build general examples
         working-directory: ./examples
@@ -29,11 +29,41 @@ jobs:
           npm run lint
           npm run build-all
 
+  standalone-examples-node18:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Use NodeJS v18
+        uses: actions/setup-node@v4
+        with:
+          node-version: "18"
+
+      - name: Check out repository
+        uses: actions/checkout@v4
+
       - name: Build Coffee warehouse app
         working-directory: ./examples-standalone/coffee-warehouse
         run: |
           npm ci
           npm run build
+
+      - name: Build Grid & Charts integration app
+        working-directory: ./examples-standalone/grid-charts-integration
+        run: |
+          npm ci
+      # npm run lint
+
+  standalone-examples-node14:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Use NodeJS v14
+        uses: actions/setup-node@v4
+        with:
+          node-version: "14"
+
+      - name: Check out repository
+        uses: actions/checkout@v4
 
       - name: Build Angular Universal Node example
         working-directory: ./examples-standalone/angular-universal/node_sample_application
@@ -57,8 +87,7 @@ jobs:
         working-directory: ./examples-standalone/aspnetcore-upload/ClientApp
         run: |
           npm ci
-#          npm run lint
-
+      #          npm run lint
       - name: Build ASP.NET Web API client app
         working-directory: ./examples-standalone/aspnetwebapi-data/ClientApp
         run: |
@@ -84,12 +113,6 @@ jobs:
           npm ci
           npm run build
 
-      - name: Build Grid & Charts integration app
-        working-directory: ./examples-standalone/grid-charts-integration
-        run: |
-          npm ci
-#          npm run lint
-
       - name: Build Grid Live Data app
         working-directory: ./examples-standalone/grid-live-data
         run: |
@@ -98,4 +121,3 @@ jobs:
 
       - name: Cleanup
         run: git clean -xdf
-

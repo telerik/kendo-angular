@@ -1,13 +1,13 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-import { teams } from 'src/app/resources/teams';
-import { employees } from 'src/app/resources/employees';
-import { images } from 'src/app/resources/images';
-import { Employee } from 'src/app/models/employee.model';
-import { Team } from 'src/app/models/team.model';
+import { Employee } from '../../../models/employee.model';
+import { Team } from '../../../models/team.model';
+import { employees } from '../../../resources/employees';
+import { images } from '../../../resources/images';
+import { teams } from '../../../resources/teams';
 
 @Component({
     selector: 'app-card-component',
-    templateUrl: './card.component.html',
+    templateUrl: './card.component.html'
 })
 export class CardComponent {
     @Output() public toggleEvents: EventEmitter<Employee> = new EventEmitter();
@@ -16,7 +16,7 @@ export class CardComponent {
 
     public images = images;
 
-    public setCardColor(card: Employee): string | undefined{
+    public setCardColor(card: Employee): string | undefined {
         const currentTeam: Team | undefined = teams.find((team: Team) => team.teamID === card.teamId);
         return currentTeam?.teamColor;
     }

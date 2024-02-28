@@ -29,6 +29,7 @@ import { DateInputsModule } from '@progress/kendo-angular-dateinputs';
 import { InputsModule } from '@progress/kendo-angular-inputs';
 import { DropDownsModule } from '@progress/kendo-angular-dropdowns';
 import { NotificationModule } from '@progress/kendo-angular-notification';
+import { IconsModule } from "@progress/kendo-angular-icons";
 import { MessageService } from '@progress/kendo-angular-l10n';
 
 const drawerRoutes = [
@@ -78,7 +79,8 @@ import '@progress/kendo-angular-intl/locales/fr/all';
         InputsModule,
         DropDownsModule,
         RouterModule.forRoot(drawerRoutes),
-        NotificationModule
+        NotificationModule,
+        IconsModule
     ],
     providers: [
         { provide: MessageService, useClass: CustomMessagesService },

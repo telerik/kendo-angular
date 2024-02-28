@@ -1,8 +1,11 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { DropDownsModule } from '@progress/kendo-angular-dropdowns';
 
 @Component({
-    selector: 'select-chart-type',
-    templateUrl: './select-chart-type.component.html'
+  selector: 'select-chart-type',
+  standalone: true,
+  imports: [DropDownsModule],
+  templateUrl: './select-chart-type.component.html',
 })
 export class SelectChartTypeComponent {
     @Input() public data?: any[];

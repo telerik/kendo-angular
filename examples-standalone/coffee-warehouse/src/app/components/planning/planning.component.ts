@@ -1,15 +1,15 @@
 import { Component } from '@angular/core';
 import { MessageService } from '@progress/kendo-angular-l10n';
-import { CustomMessagesService } from 'src/app/services/custom-messages.service';
 
 import { CreateFormGroupArgs, EventStyleArgs, EditMode } from '@progress/kendo-angular-scheduler';
 import { FormGroup, FormBuilder } from '@angular/forms';
 
-import { sampleData } from 'src/app/resources/events';
-import { teams } from 'src/app/resources/teams';
-import { Team } from 'src/app/models/team.model';
-import { Employee } from 'src/app/models/employee.model';
-import { Event } from 'src/app/models/event.model';
+import { CustomMessagesService } from '../../services/custom-messages.service';
+import { sampleData } from '../../resources/events';
+import { teams } from '../../resources/teams';
+import { Team } from '../../models/team.model';
+import { Event } from '../../models/event.model';
+import { Employee } from '../../models/employee.model';
 
 @Component({
     selector: 'app-planning-component',

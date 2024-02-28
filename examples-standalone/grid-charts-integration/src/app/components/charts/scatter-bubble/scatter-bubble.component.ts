@@ -1,15 +1,24 @@
 import { Component, Input } from '@angular/core';
-import { Stock, ChartConfig } from '../../../model';
+import { ChartConfig, Stock } from '../../../model';
 import { series, seriesTypes } from '../../../data';
-import { getTitle, getChartType } from '../../../utils';
+import { getChartType, getTitle } from '../../../utils';
+import { LayoutModule } from '@progress/kendo-angular-layout';
+import { ChartComponent, ChartsModule, SeriesType } from '@progress/kendo-angular-charts';
+import { ButtonsModule } from '@progress/kendo-angular-buttons';
 import { saveAs } from '@progress/kendo-file-saver';
-import { ChartComponent, SeriesType } from '@progress/kendo-angular-charts';
+import { SVGIcon, gearIcon, downloadIcon } from '@progress/kendo-svg-icons';
+import { SelectChartTypeComponent } from '../../common/select-chart-type/select-chart-type.component';
+import { SelectSeriesComponent } from '../../common/select-series/select-series.component';
+import { TooltipsModule } from '@progress/kendo-angular-tooltip';
+import { CommonModule } from '@angular/common';
 
 @Component({
-    selector: 'scatter-bubble-charts',
-    templateUrl: './scatter-bubble.template.html'
+  selector: 'scatter-bubble-charts',
+  standalone: true,
+  imports: [LayoutModule, ChartsModule, ButtonsModule, SelectChartTypeComponent, SelectSeriesComponent, TooltipsModule, CommonModule],
+  templateUrl: './scatter-bubble.component.html',
 })
-export class ScatterBubbleChartComponent {
+export class ScatterBubbleComponent {
     @Input() public chartConfiguration: ChartConfig = { seriesType: 'pie', stack: false };
     @Input() public set data(value: Stock[]) {
         this.stockData = value.map((item, index) => {
@@ -17,6 +26,9 @@ export class ScatterBubbleChartComponent {
             return item;
         });
     }
+
+    public iconDownload: SVGIcon = downloadIcon;
+    public iconGear: SVGIcon = gearIcon;
 
     public stockData: Stock[] = [];
     public series: object[] = series;
