@@ -47,6 +47,12 @@ jobs:
           npm ci
           npm run build
 
+      - name: Build Finance portfolio app
+        working-directory: ./examples-standalone/finance-portfolio
+        run: |
+          npm ci
+          npm run build
+
   standalone-examples-node14:
     runs-on: ubuntu-latest
 
@@ -99,12 +105,6 @@ jobs:
         run: |
           npm ci
           npm rebuild node-sass
-          npm run build
-
-      - name: Build Finance portfolio app
-        working-directory: ./examples-standalone/finance-portfolio
-        run: |
-          npm ci
           npm run build
 
       - name: Build Grid & Charts integration app

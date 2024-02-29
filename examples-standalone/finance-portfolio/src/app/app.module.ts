@@ -12,6 +12,7 @@ import { DateInputsModule } from '@progress/kendo-angular-dateinputs';
 import { ChartsModule } from '@progress/kendo-angular-charts';
 import 'hammerjs';
 import '@progress/kendo-ui';
+import * as $ from 'jquery';
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -33,6 +34,7 @@ import { StockDataService } from './services/stock-data.service';
 
 import { NumberFormatPipe } from './pipes/number-format.pipe';
 import { DropDownListPopupSelectorDirective } from './directives/dropdownlist-popup-selector.directive';
+import { IconsModule } from '@progress/kendo-angular-icons';
 
 @NgModule({
     declarations: [
@@ -63,9 +65,10 @@ import { DropDownListPopupSelectorDirective } from './directives/dropdownlist-po
         ChartsModule,
         DialogsModule,
         DateInputsModule,
-        FormsModule
+        FormsModule,
+        IconsModule
     ],
     providers: [StockDataService],
     bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

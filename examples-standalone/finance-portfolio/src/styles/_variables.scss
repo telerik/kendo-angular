@@ -7,13 +7,13 @@ $font-weight-200: 200;
 // colors
 $white: #fff;
 $black: #000;
-$white-50: rgba(255, 255, 255, .5);
-$text-base: #373A3C;
+$white-50: rgba(255, 255, 255, 0.5);
+$text-base: #373a3c;
 $border-base: #ddd;
-$active-state-base: #1C7CD5;
+$active-state-base: #1c7cd5;
 $hover-bg: #e6e6e6;
-$negative-value: #D9534F;
-$positive-value: #5CB85C;
+$negative-value: #d9534f;
+$positive-value: #5cb85c;
 $body-base-bg: rgba(236, 238, 239, 0.5);
 
 // margins
@@ -25,7 +25,7 @@ $font-size-default: 16px;
 
 // header
 $header-height: 140px;
-$header-title-padding: .5rem;
+$header-title-padding: 0.5rem;
 $profile-image-width: 58px;
 $profile-image-height: 58px;
 $profile-image-margin-top: 2rem;
@@ -39,7 +39,7 @@ $progress-logo-width: 100px;
 
 // dropdownlist
 $dropdownlist-font-size: $font-size-default;
-$dropdownlist-item-selected-bg: #E9ECEF;
+$dropdownlist-item-selected-bg: #e9ecef;
 $dropdownlist-item-selected-text: $active-state-base;
 
 $dropownlist-add-new-padding: 8px;
@@ -51,7 +51,7 @@ $splitter-bar-boxshadow: 5px 5px 5px rgba(#000, 0.2);
 
 // grid
 $grid-header-subtitle: 13px;
-$grid-row-selection-bg: #007BFF;
+$grid-row-selection-bg: #007bff;
 $grid-cell-positive-color: $positive-value;
 $grid-cell-negative-color: $negative-value;
 $grid-sorting-icon-margin: $margin-sm;
@@ -85,8 +85,8 @@ $profile-icon-size: 38px;
 $profile-user-wrapper: 210px;
 
 // charts
-$chart-navigation-drag-handle-bg: #ECEEEF;
-$chart-navigation-drag-handle-border: #818A91;
+$chart-navigation-drag-handle-bg: #eceeef;
+$chart-navigation-drag-handle-border: #818a91;
 
 // dateinputs
 $dateinput-width: 140px;
@@ -96,4 +96,4 @@ $action-buttons-padding: 20px;
 $action-buttons-right: 25px;
 $action-buttons-bottom: 70px;
 $action-buttons-border-radius: 5px;
-$action-buttons-shadow: 0 2px 6px rgba(0,0,0,0.08);
+$action-buttons-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);

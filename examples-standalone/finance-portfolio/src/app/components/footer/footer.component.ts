@@ -9,5 +9,5 @@ import { Router } from '@angular/router';
 })
 export class FooterComponent {
     public currentYear: number = new Date().getFullYear();
-    constructor(public router: Router) { }
+    constructor(public router: Router) {}
 }

@@ -39,13 +39,6 @@
     }
 }
 
-.btn-remove-stock.k-button.k-flat {
-    color: $negative-value;
-    &:focus:after {
-        box-shadow: none;
-    }
-}
-
 .k-dialog {
     .k-header {
         &, .k-icon {
@@ -135,7 +128,7 @@
         color: $grid-row-selection-bg;
     }
 
-    th,
+    th .k-link,
     .symbol-col,
     .price-col {
         font-weight: bold;

@@ -6,7 +6,6 @@ import { formatCurrency } from './helpers';
     name: 'numberFormat'
 })
 export class NumberFormatPipe implements PipeTransform {
-
     transform(value: number): any {
         return formatCurrency(value);
     }

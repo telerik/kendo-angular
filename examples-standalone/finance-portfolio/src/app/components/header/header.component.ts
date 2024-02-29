@@ -1,6 +1,6 @@
 import { Component, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
-import { StockDataService } from 'src/app/services/stock-data.service';
+import { StockDataService } from '../../services/stock-data.service';
 
 @Component({
     selector: 'app-header',
@@ -12,7 +12,7 @@ export class HeaderComponent {
     public listItems: Array<string> = ['USD', 'EUR', 'GBP'];
     public selected = this.service.selectedCurrency;
 
-    constructor(public router: Router, private service: StockDataService) { }
+    constructor(public router: Router, private service: StockDataService) {}
 
     public onCurrencyChange(e: any): void {
         this.service.changeCurrency(e);

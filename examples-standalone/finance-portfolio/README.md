@@ -1,4 +1,4 @@
-[<img src="./logo-kendo.png" width="225" />](https://www.telerik.com/kendo-angular-ui/) [![Angular Logo](./logo-angular.jpg)](https://angular.io/)
+[<img src="./src/assets/logo-kendo.png" width="225" />](https://www.telerik.com/kendo-angular-ui/) [![Angular Logo](./src/assets/logo-angular.png)](https://angular.io/)
 
 # Using Kendo UI for Angular
 
@@ -13,23 +13,9 @@ Used Kendo UI for Angular Components:
  - [Buttons](https://www.telerik.com/kendo-angular-ui/components/buttons/button/)
  - [Kendo Theme Bootstrap](https://www.telerik.com/kendo-angular-ui/components/styling/theme-bootstrap/)
 
-## In This Article
-
-* [Setting Up the Project](#setting-up-the-project)
-* [Getting Started](#getting-started)
-* [Building for Development](building-for-development)
-* [Serve in Production](serve-in-production)
-
 ## Setting Up the Project
 
-Currently, the sample project runs with:
-- Angular v13
-- Angular-CLI v13
-
-Note: This sample project is an Angular CLI project:
- - Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
- - To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
-
+The sample project runs with the [currently supported Angular version](https://www.telerik.com/kendo-angular-ui/components/installation/requirements/#toc-angular).
 
 ## Getting Started
 
@@ -37,11 +23,8 @@ Note: This sample project is an Angular CLI project:
 1. Navigate to the project folder by running `cd examples-standalone/finance-portfolio`.
 1. Install dependencies with NPM by running `npm install`.
 
-
 ## Building for Development
 
-In the terminal window, `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Serve in Production
-
-Run `npm run serve-prod` to run the project in production mode.
+To run the project:
+1. Execute the `ng serve` command in the terminal window for a dev server.
+1. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
