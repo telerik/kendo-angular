@@ -2,7 +2,8 @@
     <kendo-drawer #drawer [mode]="'push'" position="end" [(expanded)]="expanded">
         <ng-template kendoDrawerTemplate>
             <h3> Configuration</h3>
-            <select-chart-type [data]="seriesTypes" [chartName]="chartConfiguration.chartName" (valueChange)="onValueChange($event)"></select-chart-type>
+            <select-chart-type [data]="seriesTypes" [chartName]="chartConfiguration.chartName"
+                (valueChange)="onValueChange($event)"></select-chart-type>
             <label>Series:
                 <kendo-dropdownlist [data]="series" [valuePrimitive]="true" [textField]="'title'" [valueField]="'field'"
                     [(value)]="selectedSeries">
@@ -16,8 +17,8 @@
             <kendo-chart #chart>
                 <kendo-chart-title [text]="getTitle(selectedSeries) + ' per stock'"></kendo-chart-title>
                 <kendo-chart-series>
-                    <kendo-chart-series-item [type]="chartConfiguration.seriesType" [data]="data" [field]="selectedSeries"
-                        [name]="selectedSeries" [categoryField]="'symbol'">
+                    <kendo-chart-series-item [type]="chartConfiguration.seriesType" [data]="data"
+                        [field]="selectedSeries" [name]="selectedSeries" [categoryField]="'symbol'">
                         <kendo-chart-series-item-tooltip>
                             <ng-template let-dataItem="dataItem" let-value="value">
                                 {{dataItem.symbol}} {{getTitle(selectedSeries)}}: {{value}}
@@ -30,14 +31,15 @@
             </kendo-chart>
 
             <div class="window-icon-buttons">
-                <button kendoButton [iconClass]="'k-i-download k-icon'" title="Export as PNG" (click)="exportChart(chart)"></button>
-                <button kendoButton [iconClass]="'k-i-gear k-icon'" title="Configuration" (click)="drawer.toggle()"></button>
+                <button kendoButton [svgIcon]="iconDownload" title="Export as PNG"
+                    (click)="exportChart(chart)"></button>
+                <button kendoButton [svgIcon]="iconGear" title="Configuration" (click)="drawer.toggle()"></button>
             </div>
         </div>
 
         <div kendoTooltip class="window-icon-buttons" [offset]="1">
-            <button kendoButton [iconClass]="'k-i-download k-icon'" title="Export as PNG" (click)="exportChart(chart)"></button>
-            <button kendoButton [iconClass]="'k-i-gear k-icon'" title="Configuration" (click)="drawer.toggle()"></button>
+            <button kendoButton [svgIcon]="iconDownload" title="Export as PNG" (click)="exportChart(chart)"></button>
+            <button kendoButton [svgIcon]="iconGear" title="Configuration" (click)="drawer.toggle()"></button>
         </div>
     </kendo-drawer-content>
 </kendo-drawer-container>

@@ -1,17 +1,29 @@
 import { Component, Input } from '@angular/core';
+import { ChartConfig, Stock } from '../../../model';
 import { series, seriesTypes } from '../../../data';
-import { Stock, ChartConfig } from '../../../model';
-import { getChartStack, getTitle, getChartType } from '../../../utils';
+import { getChartStack, getChartType, getTitle } from '../../../utils';
+import { ChartComponent, ChartsModule, SeriesType } from '@progress/kendo-angular-charts';
 import { saveAs } from '@progress/kendo-file-saver';
-import { ChartComponent, Series, SeriesType } from '@progress/kendo-angular-charts';
+import { SVGIcon, gearIcon, downloadIcon } from '@progress/kendo-svg-icons';
+import { LayoutModule } from '@progress/kendo-angular-layout';
+import { SelectSeriesComponent } from '../../common/select-series/select-series.component';
+import { SelectChartTypeComponent } from '../../common/select-chart-type/select-chart-type.component';
+import { ButtonsModule } from '@progress/kendo-angular-buttons';
+import { TooltipsModule } from '@progress/kendo-angular-tooltip';
+import { CommonModule } from '@angular/common';
 
 @Component({
-    selector: 'stocks-component',
-    templateUrl: './stocks-chart.template.html'
+  selector: 'stocks-component',
+  standalone: true,
+  imports: [LayoutModule, ChartsModule, SelectSeriesComponent, SelectChartTypeComponent, ButtonsModule, TooltipsModule, CommonModule],
+  templateUrl: './stocks-chart.component.html'
 })
 export class StocksChartComponent {
     @Input() public data: Stock[] = [];
     @Input() public chartConfiguration: ChartConfig = { seriesType: 'line', stack: false };
+
+    public iconDownload: SVGIcon = downloadIcon;
+    public iconGear: SVGIcon = gearIcon;
 
     public series: object[] = series;
     public selectedSeries: string[] = ['price', 'pe'];
