@@ -46,13 +46,13 @@
     "lint": "ng lint"
   },
   "dependencies": {
-    "@angular/animations": "17.2.3",
+    "@angular/animations": "17.0.8",
     "@angular/common": "17.0.8",
     "@angular/compiler": "17.0.8",
     "@angular/core": "17.0.8",
     "@angular/forms": "17.0.8",
     "@angular/language-service": "17.0.8",
-    "@angular/localize": "17.2.3",
+    "@angular/localize": "17.0.8",
     "@angular/platform-browser": "17.0.8",
     "@angular/platform-browser-dynamic": "17.0.8",
     "@angular/router": "17.0.8",
