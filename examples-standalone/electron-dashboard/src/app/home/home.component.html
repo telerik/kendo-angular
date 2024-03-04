@@ -1,7 +1,33 @@
 <div class="container">
-  <h1 class="title">
-    {{ 'PAGES.HOME.TITLE' | translate }}
-  </h1>
-
-  <a routerLink="/detail">{{ 'PAGES.HOME.GO_TO_DETAIL' | translate }}</a>
+  <div class="banner">
+    <h1>Kendo UI for Angular</h1>
+    <p>
+      Build responsive and powerful web applications with Kendo UI for Angular.
+    </p>
+    <a
+      href="https://www.telerik.com/try/kendo-angular-ui"
+      class="try-button"
+      target="_blank"
+      >Try it out</a
+    >
+  </div>
+  <kendo-grid
+    [style.width.%]="50"
+    [kendoGridBinding]="gridData"
+    [pageSize]="10"
+    [pageable]="true"
+    [sortable]="true"
+    [filterable]="true"
+    [groupable]="true"
+    [height]="420"ß
+    [size]="'small'"
+  >
+    <kendo-grid-column field="CompanyName" [width]="140"></kendo-grid-column>
+    <kendo-grid-column field="ContactName" [width]="120"></kendo-grid-column>
+    <kendo-grid-column field="City" [width]="100"></kendo-grid-column>
+    <kendo-grid-column field="ContactTitle" [width]="130"></kendo-grid-column>
+  </kendo-grid>
+  <a class="navigation" routerLink="/detail">{{
+    "PAGES.HOME.GO_TO_DETAIL" | translate
+  }}</a>
 </div>
