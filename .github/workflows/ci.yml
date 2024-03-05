@@ -50,7 +50,7 @@ jobs:
       - name: Build Electron dashboard app
         working-directory: ./examples-standalone/electron-dashboard
         run: |
-          npm install --legacy-peer-deps
+          npm ci
           npm rebuild node-sass
           npm run build
 
