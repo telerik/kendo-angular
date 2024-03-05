@@ -1,17 +1,25 @@
 import { Component, Input, ViewEncapsulation } from '@angular/core';
+import { SVGIcon, caretAltDownIcon, caretAltUpIcon } from '@progress/kendo-svg-icons';
+import { cards } from './card-data';
+import { Stock } from '../../services/stocks.service';
 import { IntlService } from '@progress/kendo-angular-intl';
 import { Observable } from 'rxjs';
-import { Stock } from '../services/stocks.service';
-import { cards } from './cards-data';
+import { IconsModule } from '@progress/kendo-angular-icons';
+import { LayoutModule } from '@progress/kendo-angular-layout';
 
 @Component({
-    selector: 'my-portfolio',
-    templateUrl: './my-portfolio.component.html',
-    styleUrls: ['./my-portfolio.component.css'],
-    encapsulation: ViewEncapsulation.None
+  selector: 'my-portfolio',
+  standalone: true,
+  imports: [IconsModule, LayoutModule],
+  templateUrl: './my-portfolio.component.html',
+  styleUrl: './my-portfolio.component.css',
+  encapsulation: ViewEncapsulation.None
 })
 export class MyPortfolioComponent {
     @Input() data!: Observable<Stock[]>;
+
+    public upArrowIcon: SVGIcon = caretAltUpIcon;
+    public downArrowIcon: SVGIcon = caretAltDownIcon;
 
     public cryptoCards: Stock[] = cards;
 

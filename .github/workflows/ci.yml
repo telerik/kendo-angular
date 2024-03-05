@@ -59,6 +59,12 @@ jobs:
           npm ci
       # npm run lint
 
+      - name: Build Grid Live Data app
+        working-directory: ./examples-standalone/grid-live-data
+        run: |
+          npm ci
+          npm run build
+
   standalone-examples-node14:
     runs-on: ubuntu-latest
 
@@ -111,12 +117,6 @@ jobs:
         run: |
           npm ci
           npm rebuild node-sass
-          npm run build
-
-      - name: Build Grid Live Data app
-        working-directory: ./examples-standalone/grid-live-data
-        run: |
-          npm ci
           npm run build
 
       - name: Cleanup
