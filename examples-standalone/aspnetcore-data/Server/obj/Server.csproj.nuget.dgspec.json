@@ -47,9 +47,21 @@
               "target": "Package",
               "version": "[8.*-*, )"
             },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.2, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[8.0.2, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.4.0, )"
+            },
+            "Telerik.UI.for.AspNet.Core.Trial": {
+              "target": "Package",
+              "version": "[2023.3.1114, )"
             }
           },
           "imports": [
