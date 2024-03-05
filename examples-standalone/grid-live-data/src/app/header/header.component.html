@@ -6,28 +6,19 @@
     <kendo-appbar-spacer></kendo-appbar-spacer>
 
     <kendo-appbar-section class="actions">
-            <div kendoTooltip [offset]="4">
-                <a
-                    class="k-button k-flat k-text-right"
-                    href="https://github.com/telerik/kendo-angular/tree/master/examples-standalone/grid-live-data"
-                    target="_blank"
-                    role="button"
-                    title="Download on GitHub"
-                    ><img src="assets/github-icon.svg" alt="github icon" [style.width.px]="25"
-                /></a>
-                <a
-                    class="k-button k-flat k-text-right"
-                    href="https://www.telerik.com/kendo-angular-ui/components/"
-                    target="_blank"
-                    role="button"
-                    title="Documentation"
-                    ><span class="k-icon k-i-file-txt docs-icon"></span
-                ></a>
-            </div>
+        <div kendoTooltip [offset]="4">
+            <a class="k-button k-button-flat k-text-right"
+                href="https://github.com/telerik/kendo-angular/tree/master/examples-standalone/grid-live-data"
+                target="_blank" role="button" title="Download on GitHub"><img src="assets/github-icon.svg"
+                    alt="github icon" [style.width.px]="25" /></a>
+            <a class="k-button k-button-flat k-text-right" href="https://www.telerik.com/kendo-angular-ui/components/"
+                target="_blank" role="button" title="Documentation"><kendo-svg-icon class="docs-icon"
+                    [icon]="fileIcon"></kendo-svg-icon></a>
+        </div>
         <span class="k-appbar-separator"></span>
         <kendo-badge-container>
             <button class="k-button k-button-clear">
-                <kendo-icon themeColor="light" name="bell"></kendo-icon>
+                <kendo-svg-icon themeColor="light" [icon]="bellIcon"></kendo-svg-icon>
             </button>
             <kendo-badge class="badge" shape="dot" size="medium" position="inside"></kendo-badge>
         </kendo-badge-container>
