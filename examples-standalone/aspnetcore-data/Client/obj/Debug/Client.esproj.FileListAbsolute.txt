@@ -1,0 +1,1 @@
+/Users/bechev/Documents/kendo-packages/kendo-angular/examples-standalone/aspnetcore-data/Client/obj/Debug/Client.esproj.CoreCompileInputs.cache

@@ -1,0 +1,10 @@
+{
+"SpaProxyServer": {
+"ServerUrl": "https://localhost:4200",
+"RedirectUrl": "",
+"LaunchCommand": "npm start",
+"WorkingDirectory": "/Users/bechev/Documents/kendo-packages/kendo-angular/examples-standalone/aspnetcore-data/Server/../Client",
+"MaxTimeoutInSeconds": "120",
+"KeepRunning": "false"
+}
+}
