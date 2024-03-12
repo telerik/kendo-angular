@@ -1,22 +1,33 @@
 import { Component } from '@angular/core';
-import { DataStateChangeEvent, GridDataResult } from '@progress/kendo-angular-grid';
+import { CommonModule } from '@angular/common';
+import { RouterOutlet } from '@angular/router';
+import { DataStateChangeEvent, GridDataResult, GridModule } from '@progress/kendo-angular-grid';
 import { process, State } from '@progress/kendo-data-query';
+import { LabelModule } from '@progress/kendo-angular-label';
+import { FormsModule } from '@angular/forms';
+import { ButtonsModule } from '@progress/kendo-angular-buttons';
+import { InputsModule } from '@progress/kendo-angular-inputs';
 
 @Component({
-    selector: 'app-root',
-    templateUrl: './app.component.html',
-    styleUrls: ['./app.component.css']
+  selector: 'app-root',
+  standalone: true,
+  imports: [CommonModule, FormsModule, RouterOutlet, GridModule, LabelModule, ButtonsModule, InputsModule],
+  templateUrl: './app.component.html',
+  styleUrl: './app.component.css',
 })
 export class AppComponent {
     public isVirtual = true;
-    public gridView: GridDataResult;
+    public gridView: GridDataResult = {
+        total: 0,
+        data: []
+    };
     public data: any[];
     public mode = 'virtual';
 
     public state: State = {
         skip: 0,
         take: 40,
-        sort: []
+        sort: [],
     };
 
     public numberOfRows = 100000;
@@ -26,11 +37,11 @@ export class AppComponent {
     public columns = (() => {
         const cols = [{ field: 'id', title: 'ID', width: 80 }];
         for (let c = 1; c <= this.numberOfColumns; c++) {
-            cols.push({
-                field: `Field_${c}`,
-                width: 150,
-                title: `Field-${c}`
-            });
+        cols.push({
+            field: `Field_${c}`,
+            width: 150,
+            title: `Field-${c}`,
+        });
         }
         return cols;
     })();
@@ -60,13 +71,13 @@ export class AppComponent {
 
     /* Generating Grid Data */
     public getData = (skip: number, take: number) => {
-        const page  = [];
+        const page = [];
         for (let r = skip + 1; r <= skip + take && r <= this.numberOfRows; r++) {
-            const row: any = { id: r };
-            for (let c = 1; c <= this.numberOfColumns; c++) {
-                row[`Field_${c}`] = `R${r} : C${c}`;
-            }
-            page.push(row);
+        const row: any = { id: r };
+        for (let c = 1; c <= this.numberOfColumns; c++) {
+            row[`Field_${c}`] = `R${r} : C${c}`;
+        }
+        page.push(row);
         }
         return page;
     };
