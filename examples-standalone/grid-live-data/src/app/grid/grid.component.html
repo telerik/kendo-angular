@@ -24,8 +24,8 @@
     <kendo-grid-column class="priceColumn" field="change_24h" title="24h%">
         <ng-template kendoGridCellTemplate let-dataItem>
             <span> {{ dataItem.change_24h | number }}% </span>
-            <span class="k-icon k-i-arrow-60-down arrow-down" *ngIf="dataItem.change_24h < prevDataItem.change_24h"></span>
-            <span class="k-icon k-i-arrow-60-up arrow-up" *ngIf="dataItem.change_24h > prevDataItem.change_24h"></span>
+            <kendo-svg-icon [icon]="downArrowIcon" *ngIf="dataItem.change_24h < prevDataItem.change_24h"></kendo-svg-icon>
+            <kendo-svg-icon [icon]="upArrowIcon" *ngIf="dataItem.change_24h > prevDataItem.change_24h"></kendo-svg-icon>
         </ng-template>
     </kendo-grid-column>
 

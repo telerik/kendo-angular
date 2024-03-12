@@ -17,8 +17,8 @@
                 <p kendoCardSubtitle class="card-subtitle">
                     {{ card.currency }}
                     <span class="price" [ngClass]="{ 'negative': card.change_24h < 0, 'positive': card.change_24h > 0 }">
-                        <span class="k-icon k-i-arrow-60-down arrow-down" *ngIf="card.change_24h < 0"></span>
-                        <span class="k-icon k-i-arrow-60-up arrow-up" *ngIf="card.change_24h > 0"></span>
+                        <kendo-svg-icon [icon]="downArrowIcon" *ngIf="card.change_24h < 0"></kendo-svg-icon>
+                        <kendo-svg-icon [icon]="upArrowIcon" *ngIf="card.change_24h > 0"></kendo-svg-icon>
                         <span>
                             {{getPriceChange(card) | currency: "USD"}} ({{card.change_24h}}%)
                         </span>

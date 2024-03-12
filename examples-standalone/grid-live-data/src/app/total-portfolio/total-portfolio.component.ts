@@ -1,11 +1,14 @@
 import { Component, ViewEncapsulation } from '@angular/core';
-import { CategoryAxisLabels, SeriesLine, ValueAxisLabels } from '@progress/kendo-angular-charts';
+import { CategoryAxisLabels, ChartsModule, SeriesLine, ValueAxisLabels } from '@progress/kendo-angular-charts';
+import 'hammerjs';
 
 @Component({
-    selector: 'total-portfolio',
-    templateUrl: './total-portfolio.component.html',
-    styleUrls: ['./total-portfolio.component.css'],
-    encapsulation: ViewEncapsulation.None
+  selector: 'total-portfolio',
+  standalone: true,
+  imports: [ChartsModule],
+  templateUrl: './total-portfolio.component.html',
+  styleUrl: './total-portfolio.component.css',
+  encapsulation: ViewEncapsulation.None
 })
 export class TotalPortfolioComponent {
     public categories: Array<string> = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
