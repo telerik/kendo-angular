@@ -1,7 +1,75 @@
 <div class="container">
-  <h1 class="title">
-    {{ 'PAGES.DETAIL.TITLE' | translate }}
-  </h1>
-
-  <a routerLink="/">{{ 'PAGES.DETAIL.BACK_TO_HOME' | translate }}</a>
+    <div class="banner">
+      <h1>Kendo UI for Angular</h1>
+      <p>
+        Build responsive and powerful web applications with Kendo UI for
+        Angular.
+      </p>
+      <a
+        href="https://www.telerik.com/try/kendo-angular-ui"
+        class="try-button"
+        target="_blank"
+        >Try it out</a
+      >
+    </div>
+    <kendo-chart
+      [style.width.%]="50"
+      [pannable]="{ lock: 'y' }"
+      [zoomable]="{ mousewheel: { lock: 'y' } }"
+    >
+      <kendo-chart-title text="Trendlines"></kendo-chart-title>
+      <kendo-chart-series>
+        <kendo-chart-series-item
+          name="Sales By Quarter"
+          type="line"
+          style="smooth"
+          [data]="salesByQuarter"
+          field="count"
+          categoryField="date"
+        >
+        </kendo-chart-series-item>
+        <kendo-chart-series-item
+          name="Sales Forecast (LINEAR)"
+          type="linearTrendline"
+          for="Sales By Quarter"
+        >
+          <kendo-chart-series-item-trendline [forecast]="{ after: 10 }">
+          </kendo-chart-series-item-trendline>
+        </kendo-chart-series-item>
+        <kendo-chart-series-item
+          name="Trend (POLY)"
+          type="polynomialTrendline"
+          for="Sales By Quarter"
+          color="red"
+        >
+          <kendo-chart-series-item-trendline [order]="3">
+          </kendo-chart-series-item-trendline>
+        </kendo-chart-series-item>
+      </kendo-chart-series>
+      <kendo-chart-category-axis>
+        <kendo-chart-category-axis-item
+          baseUnit="auto"
+          [maxDivisions]="50"
+          [labels]="{ rotation: -90, position: 'start' }"
+        >
+        </kendo-chart-category-axis-item>
+      </kendo-chart-category-axis>
+      <kendo-chart-value-axis>
+        <kendo-chart-value-axis-item [min]="-4e5" [max]="1.2e6">
+        </kendo-chart-value-axis-item>
+      </kendo-chart-value-axis>
+      <kendo-chart-tooltip format="C">
+        <ng-template
+          kendoChartSeriesTooltipTemplate
+          let-series="series"
+          let-value="value"
+        >
+          {{ series.name }}: {{ value | kendoNumber : "c" }}
+        </ng-template>
+      </kendo-chart-tooltip>
+      <kendo-chart-legend position="bottom"></kendo-chart-legend>
+    </kendo-chart>
+    <a class="navigation" routerLink="/">{{
+      "PAGES.DETAIL.BACK_TO_HOME" | translate
+    }}</a>
 </div>
