@@ -1,4 +1,4 @@
-<div class="container" style="padding-bottom: 100px;">
+<div class="container" style="padding-bottom: 100px">
     <div class="d-flex justify-content-center py-5 align-items-center">
         <app-navigation></app-navigation>
     </div>
@@ -21,28 +21,28 @@
                     {{ service.selectedCurrency }}
                 </ng-template>
             </kendo-grid-column>
-            <kendo-grid-column
-                field="price"
-                [width]="100"
-                format="c2"
-                title="Price">
-                        <ng-template kendoGridCellTemplate let-dataItem>
-                        <span class="grid-price-cell p-0" [ngClass]="{
-                                'price-up': dataItem.change > 0,
-                                'price-down': dataItem.change < 0
-                            }">{{ dataItem.price.toFixed(2) | currency: service.selectedCurrency:'symbol' }}</span>
-                        </ng-template>
-            </kendo-grid-column>
-            <kendo-grid-column
-                field="change"
-                [width]="100"
-                title="Change">
+            <kendo-grid-column field="price" [width]="100" format="c2" title="Price">
                 <ng-template kendoGridCellTemplate let-dataItem>
-                    <span class="grid-price-cell p-0" [ngClass]="{
-                        'price-up': dataItem.change > 0,
-                        'price-down': dataItem.change < 0
-                    }">
-                        {{ dataItem.change > 0 ? ('+' + dataItem.change.toFixed(2)) : dataItem.change.toFixed(2) }}%
+                    <span
+                        class="grid-price-cell p-0"
+                        [ngClass]="{
+                            'price-up': dataItem.change > 0,
+                            'price-down': dataItem.change < 0
+                        }"
+                        >{{ dataItem.price.toFixed(2) | currency : service.selectedCurrency : 'symbol' }}</span
+                    >
+                </ng-template>
+            </kendo-grid-column>
+            <kendo-grid-column field="change" [width]="100" title="Change">
+                <ng-template kendoGridCellTemplate let-dataItem>
+                    <span
+                        class="grid-price-cell p-0"
+                        [ngClass]="{
+                            'price-up': dataItem.change > 0,
+                            'price-down': dataItem.change < 0
+                        }"
+                    >
+                        {{ dataItem.change > 0 ? '+' + dataItem.change.toFixed(2) : dataItem.change.toFixed(2) }}%
                     </span>
                 </ng-template>
             </kendo-grid-column>

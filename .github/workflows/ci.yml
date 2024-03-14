@@ -47,6 +47,11 @@ jobs:
           npm ci
           npm run build
 
+      - name: Build Finance portfolio app
+        working-directory: ./examples-standalone/finance-portfolio
+        run: |
+          npm ci
+
       - name: Build Electron dashboard app
         working-directory: ./examples-standalone/electron-dashboard
         run: |
@@ -109,12 +114,6 @@ jobs:
 
       - name: Build Dialogflow app
         working-directory: ./examples-standalone/dialogflow-integration/client
-        run: |
-          npm ci
-          npm run build
-
-      - name: Build Finance portfolio app
-        working-directory: ./examples-standalone/finance-portfolio
         run: |
           npm ci
           npm run build

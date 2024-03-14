@@ -6,19 +6,15 @@ import { Subscription } from 'rxjs';
     selector: '[appDropDownListPopupSelector]'
 })
 export class DropDownListPopupSelectorDirective implements AfterViewInit, OnDestroy {
-
     private valueChangeSubscription: Subscription | undefined;
 
     private keyDownHandler = (event: KeyboardEvent) => {
         if (!this.dropdownlist.isOpen) {
             event.stopPropagation();
         }
-    }
+    };
 
-    constructor(
-        private hostElement: ElementRef<HTMLSpanElement>,
-        private dropdownlist: DropDownListComponent
-    ) { }
+    constructor(private hostElement: ElementRef<HTMLSpanElement>, private dropdownlist: DropDownListComponent) {}
 
     public ngAfterViewInit(): void {
         this.hostElement.nativeElement.addEventListener('keydown', this.keyDownHandler, true);

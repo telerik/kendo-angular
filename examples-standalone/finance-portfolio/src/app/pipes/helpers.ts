@@ -34,9 +34,8 @@ export const dateInRange = (candidate: Date, min: Date, max: Date): Date => {
     return candidate;
 };
 
-export const isDateInRange = (candidate: Date, min: Date, max: Date): boolean => (
-    !candidate || !((min && min > candidate) || (max && max < candidate))
-);
+export const isDateInRange = (candidate: Date, min: Date, max: Date): boolean =>
+    !candidate || !((min && min > candidate) || (max && max < candidate));
 
 export const normalizeSelectionRange = (start: Date, end: Date, min: Date, max: Date): SelectionRange => {
     if (!(start && end && isDateInRange(start, min, max) && isDateInRange(end, min, max))) {
@@ -57,7 +56,7 @@ export const rangeAndIntervalCompatible = (rangeDuration: number, intervalDurati
     const intervalGreaterThanRange = intervalDuration > rangeDuration;
 
     // disallow the selection of intervals smaller than 1 hour for ranges greater than 3 days
-    const intervalTooSmallForRange = rangeDuration > (MS_PER_DAY * 3) && intervalDuration < (MS_PER_DAY / 24);
+    const intervalTooSmallForRange = rangeDuration > MS_PER_DAY * 3 && intervalDuration < MS_PER_DAY / 24;
 
     return !intervalGreaterThanRange && !intervalTooSmallForRange;
 };

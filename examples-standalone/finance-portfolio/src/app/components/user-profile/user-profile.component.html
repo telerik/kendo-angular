@@ -3,7 +3,7 @@
         <h1>My Portfolio</h1>
         <span routerLink="/stocks" class="k-icon icon-close"></span>
     </div>
-    <div class=" row d-flex justify-content-between pt-5">
+    <div class="row d-flex justify-content-between pt-5">
         <div class="col col-3">
             <div class="user-profile-wrapper d-flex flex-column align-self-end">
                 <div class="profile-image"></div>
@@ -12,11 +12,11 @@
             <table>
                 <tr>
                     <td>CURRENT VALUE:</td>
-                    <td class="current-value">{{ 1694.88 | currency: service.selectedCurrency:'symbol' }}</td>
+                    <td class="current-value">{{ 1694.88 | currency : service.selectedCurrency : 'symbol' }}</td>
                 </tr>
                 <tr>
                     <td>24H CHANGE:</td>
-                    <td class="green">{{ 20 | currency: service.selectedCurrency:'symbol' }}</td>
+                    <td class="green">{{ 20 | currency : service.selectedCurrency : 'symbol' }}</td>
                 </tr>
                 <tr>
                     <td>% CHANGE:</td>
@@ -24,11 +24,11 @@
                 </tr>
                 <tr>
                     <td>TOTAL COST:</td>
-                    <td>{{ 9.185 | currency: service.selectedCurrency:'symbol' }}</td>
+                    <td>{{ 9.185 | currency : service.selectedCurrency : 'symbol' }}</td>
                 </tr>
                 <tr>
                     <td>TOTAL PROFIT:</td>
-                    <td class="red">{{ -2.638 | currency: service.selectedCurrency:'symbol' }}</td>
+                    <td class="red">{{ -2.638 | currency : service.selectedCurrency : 'symbol' }}</td>
                 </tr>
             </table>
         </div>
@@ -38,17 +38,18 @@
                 <kendo-grid-column field="name" title="Name"></kendo-grid-column>
                 <kendo-grid-column field="price" title="Price" [width]="100" format="c2">
                     <ng-template kendoGridCellTemplate let-dataItem>
-                            {{ dataItem.price | currency: service.selectedCurrency:'symbol' }}
+                        {{ dataItem.price | currency : service.selectedCurrency : 'symbol' }}
                     </ng-template>
                 </kendo-grid-column>
             </kendo-grid>
         </div>
         <div class="col col-5 pb-5">
-            <kendo-chart style="width: 100%; height: 100%;"[chartArea]="{ 'background': 'transparent' }">
+            <kendo-chart style="width: 100%; height: 100%" [chartArea]="{ background: 'transparent' }">
                 <kendo-chart-series>
                     <kendo-chart-tooltip>
                         <ng-template kendoChartSeriesTooltipTemplate let-category="category" let-value="value">
-                            <div>{{ category }}</div><div>{{ value | currency: service.selectedCurrency:'symbol' }}</div>
+                            <div>{{ category }}</div>
+                            <div>{{ value | currency : service.selectedCurrency : 'symbol' }}</div>
                         </ng-template>
                     </kendo-chart-tooltip>
                     <kendo-chart-series-item

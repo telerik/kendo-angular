@@ -2,16 +2,8 @@
     <div class="container d-flex justify-content-between">
         <div>
             <h1 class="mb-0 header-title">My Stocks Portfolio</h1>
-            <kendo-dropdownlist
-                [data]="listItems"
-                [iconClass]="'k-i-arrow-chevron-down'"
-                [style.width.px]="150"
-                [(value)]="selected"
-                (valueChange)="onCurrencyChange($event)"
-            >
-                <ng-template kendoDropDownListValueTemplate let-dataItem>
-                    Currency in {{ dataItem }}
-                </ng-template>
+            <kendo-dropdownlist [data]="listItems" [style.width.px]="200" [(value)]="selected" (valueChange)="onCurrencyChange($event)">
+                <ng-template kendoDropDownListValueTemplate let-dataItem> Currency in {{ dataItem }} </ng-template>
             </kendo-dropdownlist>
         </div>
         <div class="profile-wrapper d-flex flex-column align-self-center" routerLink="/profile">

@@ -1,9 +1,8 @@
 import { Component, ViewEncapsulation, Input, SimpleChanges, OnChanges } from '@angular/core';
 import { SelectionRange } from '@progress/kendo-angular-dateinputs';
-import { StockDataService } from 'src/app/services/stock-data.service';
 import { PlotBand } from '@progress/kendo-angular-charts';
-
-import { StockIntervalDetails, Interval, IntervalUnitsMap, defaultRange } from 'src/app/models';
+import { Interval, IntervalUnitsMap, StockIntervalDetails, defaultRange } from '../../models';
+import { StockDataService } from '../../services/stock-data.service';
 
 const currencies = {
     EUR: '€',
@@ -18,7 +17,6 @@ const currencies = {
     encapsulation: ViewEncapsulation.None
 })
 export class StockDetailsComponent implements OnChanges {
-
     @Input() public chartType: 'candle' | 'line' | 'area' = 'candle';
 
     @Input() public interval: Interval = { unit: 'hours', step: 1 };
@@ -43,7 +41,7 @@ export class StockDetailsComponent implements OnChanges {
 
     private previousColumnChartItem: StockIntervalDetails = { volume: 100 };
 
-    constructor(private stockDataService: StockDataService) { }
+    constructor(private stockDataService: StockDataService) {}
 
     public ngOnChanges(changes: SimpleChanges): void {
         if (changes['interval'] || changes['range'] || changes['symbol']) {
@@ -60,19 +58,19 @@ export class StockDetailsComponent implements OnChanges {
 
     public itemColor = (args: any) => {
         const current: StockIntervalDetails = args.dataItem;
-        const currentLargerThenPrev = !this.previousColumnChartItem || (current.volume >= this.previousColumnChartItem.volume);
+        const currentLargerThenPrev = !this.previousColumnChartItem || current.volume >= this.previousColumnChartItem.volume;
 
         if (current.volume) {
             this.previousColumnChartItem = args.dataItem;
         }
 
         return currentLargerThenPrev ? '#5CB85C' : '#FF6358';
-    }
+    };
 
     public configureVolumeValueAxisHeight(): void {
         // setting the valueAxis height of the column chart to four times the height of the largest `volume` value
         // (contains the column series in just one fourth of the chart area)
-        this.volumeValueAxisMax = Math.max(...this.stockData.map(stock => stock.volume)) * 4;
+        this.volumeValueAxisMax = Math.max(...this.stockData.map((stock) => stock.volume)) * 4;
     }
 
     private composeCategoryPlotBands(): void {

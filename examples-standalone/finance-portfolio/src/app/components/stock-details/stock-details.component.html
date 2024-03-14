@@ -1,9 +1,4 @@
-<kendo-stockchart
-    class="stock-chart"
-    [transitions]="true"
-    [renderAs]="'svg'"
-    (navigatorFilter)="configureVolumeValueAxisHeight()"
->
+<kendo-stockchart class="stock-chart" [transitions]="true" [renderAs]="'svg'" (navigatorFilter)="configureVolumeValueAxisHeight()">
     <kendo-chart-category-axis>
         <kendo-chart-category-axis-item
             [crosshair]="{ visible: true }"
@@ -17,18 +12,9 @@
         </kendo-chart-category-axis-item>
     </kendo-chart-category-axis>
     <kendo-chart-value-axis>
-        <kendo-chart-value-axis-item
-            [name]="'close'"
-            [crosshair]="{ visible: true }"
-            [labels]="{ format: currency + '{0}' }"
-        >
+        <kendo-chart-value-axis-item [name]="'close'" [crosshair]="{ visible: true }" [labels]="{ format: currency + '{0}' }">
         </kendo-chart-value-axis-item>
-        <kendo-chart-value-axis-item
-            [name]="'volume'"
-            [visible]="false"
-            [max]="volumeValueAxisMax"
-            [min]="0"
-        >
+        <kendo-chart-value-axis-item [name]="'volume'" [visible]="false" [max]="volumeValueAxisMax" [min]="0">
         </kendo-chart-value-axis-item>
     </kendo-chart-value-axis>
     <kendo-chart-series>
@@ -53,8 +39,8 @@
                     <table>
                         <tbody>
                             <tr>
-                                <th>{{ category | date:'HH:mm' }}</th>
-                                <th>{{ category | date:'d/M' }}</th>
+                                <th>{{ category | date : 'HH:mm' }}</th>
+                                <th>{{ category | date : 'd/M' }}</th>
                             </tr>
                             <tr>
                                 <td>Open:</td>
@@ -125,10 +111,6 @@
             >
             </kendo-chart-navigator-series-item>
         </kendo-chart-navigator-series>
-        <kendo-chart-navigator-select
-            [from]="range.start"
-            [to]="range.end"
-        >
-        </kendo-chart-navigator-select>
+        <kendo-chart-navigator-select [from]="range.start" [to]="range.end"> </kendo-chart-navigator-select>
     </kendo-chart-navigator>
 </kendo-stockchart>

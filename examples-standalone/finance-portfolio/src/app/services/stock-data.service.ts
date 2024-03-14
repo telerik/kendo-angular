@@ -17,19 +17,28 @@ export class StockDataService {
 
     public selectedCurrency: 'USD' | 'EUR' | 'GBP' = 'USD';
     public selectedStock: Stock = {
-        symbol: '', name: '', price: 0, day_change: 0, change_pct: 0,
-        volume: 0, volume_avg: 0, market_cap: 0, pe: 0, intraday: [0]
+        symbol: '',
+        name: '',
+        price: 0,
+        day_change: 0,
+        change_pct: 0,
+        volume: 0,
+        volume_avg: 0,
+        market_cap: 0,
+        pe: 0,
+        intraday: [0]
     };
 
     public getDataStream(): Observable<Stock[]> {
-        return this.data
-            .pipe(map((stocks) => {
+        return this.data.pipe(
+            map((stocks) => {
                 if (this.selectedCurrency === 'USD') {
                     return stocks;
                 }
 
                 return stocks.map((item) => ({ ...item, price: this.convertCurrency(item) }));
-            }));
+            })
+        );
     }
 
     public query(sort: SortDescriptor[] = []): void {
@@ -44,7 +53,9 @@ export class StockDataService {
     public convertCurrency(dataItem: Stock): any {
         const currency = { GBP: 0.77, EUR: 0.9 };
 
-        if (this.selectedCurrency === 'USD') { return dataItem.price; }
+        if (this.selectedCurrency === 'USD') {
+            return dataItem.price;
+        }
 
         return Number((dataItem.price * currency[this.selectedCurrency]).toFixed(2));
     }
@@ -55,7 +66,7 @@ export class StockDataService {
     }
 
     public addToPortfolio(symbol: string): void {
-        const targetIndex = uncategorizedStocks.findIndex(stock => stock.symbol === symbol);
+        const targetIndex = uncategorizedStocks.findIndex((stock) => stock.symbol === symbol);
         const target = uncategorizedStocks.splice(targetIndex, 1)[0];
 
         stocksInPortfolio.unshift(target);
@@ -63,7 +74,7 @@ export class StockDataService {
     }
 
     public removeFromPortfolio(symbol: string): void {
-        const targetIndex = stocksInPortfolio.findIndex(stock => stock.symbol === symbol);
+        const targetIndex = stocksInPortfolio.findIndex((stock) => stock.symbol === symbol);
         const target = stocksInPortfolio.splice(targetIndex, 1)[0];
 
         uncategorizedStocks.unshift(target);
@@ -71,11 +82,11 @@ export class StockDataService {
     }
 
     public getUncategorizedSymbols(): string[] {
-        return uncategorizedStocks.map(stock => stock.symbol);
+        return uncategorizedStocks.map((stock) => stock.symbol);
     }
 
     public getStockIntervalDetails(symbol: string, range: SelectionRange, intervalInMinutes: number): StockIntervalDetails[] {
-        const stock = stocksInPortfolio.concat(uncategorizedStocks).find(st => st.symbol === symbol);
+        const stock = stocksInPortfolio.concat(uncategorizedStocks).find((st) => st.symbol === symbol);
         return this.generateDataForSymbol(stock as Stock, intervalInMinutes, range);
     }
 
@@ -85,9 +96,10 @@ export class StockDataService {
         const minutesPerDay = 1440;
         const standingPoint = {
             close: stock.intraday[0],
-            volume: intervalInMinutes < minutesPerDay ?
-                stock.volume / (minutesPerDay / intervalInMinutes) :
-                stock.volume * (intervalInMinutes / minutesPerDay)
+            volume:
+                intervalInMinutes < minutesPerDay
+                    ? stock.volume / (minutesPerDay / intervalInMinutes)
+                    : stock.volume * (intervalInMinutes / minutesPerDay)
         };
 
         const intervalInMs = MS_PER_MINUTE * intervalInMinutes;
@@ -100,7 +112,7 @@ export class StockDataService {
 
             let cngP = 2 * volatility * random;
             if (cngP > volatility) {
-                cngP -= (2 * volatility);
+                cngP -= 2 * volatility;
             }
 
             const change = Number(previousInterval.close) * cngP;
@@ -111,8 +123,8 @@ export class StockDataService {
             data.push({
                 open: Number(previousInterval.close?.toFixed(2)),
                 close: Number(newPrice.toFixed(2)),
-                high: Number((high + (0.015 * high)).toFixed(2)),
-                low: Number((low - (0.015 * low)).toFixed(2)),
+                high: Number((high + 0.015 * high).toFixed(2)),
+                low: Number((low - 0.015 * low).toFixed(2)),
                 volume: this.getStocksTradeVolume(standingPoint.volume),
                 date: new Date(dateInMs)
             });
@@ -122,11 +134,11 @@ export class StockDataService {
     }
 
     private getStocksTradeVolume(oldValue: number): number {
-        const coef = Number.parseFloat((Math.random()).toFixed(2));
-        const newValue = Number.parseFloat((oldValue + (oldValue * coef / 1.5)).toFixed(0));
+        const coef = Number.parseFloat(Math.random().toFixed(2));
+        const newValue = Number.parseFloat((oldValue + (oldValue * coef) / 1.5).toFixed(0));
         const diff = newValue - oldValue;
         const sign = Math.random() >= 0.5 ? 1 : -1;
 
-        return Number((oldValue + (diff * sign)).toFixed(0));
+        return Number((oldValue + diff * sign).toFixed(0));
     }
 }

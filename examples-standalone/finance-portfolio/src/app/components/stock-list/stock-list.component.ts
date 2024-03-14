@@ -5,9 +5,10 @@ import { SelectionEvent } from '@progress/kendo-angular-grid';
 import { DialogService, DialogCloseResult } from '@progress/kendo-angular-dialog';
 import { SortDescriptor } from '@progress/kendo-data-query';
 
-import { StockDataService } from 'src/app/services/stock-data.service';
-import { Stock } from 'src/app/models/stock';
 import { Subscription } from 'rxjs';
+import { Stock } from '../../models';
+import { StockDataService } from '../../services/stock-data.service';
+import { SVGIcon, plusIcon, trashIcon } from '@progress/kendo-svg-icons';
 
 @Component({
     selector: 'app-stock-list',
@@ -16,6 +17,8 @@ import { Subscription } from 'rxjs';
     encapsulation: ViewEncapsulation.None
 })
 export class StockListComponent implements OnDestroy {
+    public trashIcon: SVGIcon = trashIcon;
+    public plusIcon: SVGIcon = plusIcon;
     public selectedRows: Array<string> = [];
 
     public uncategorizedSymbols: Array<string>;
@@ -25,12 +28,8 @@ export class StockListComponent implements OnDestroy {
 
     private confirmRemoveStockSubscription: Subscription | undefined;
 
-    constructor(
-        public stockDataService: StockDataService,
-        private dialogService: DialogService
-    ) {
-        this.stockDataService.getDataStream()
-            .subscribe(data => this.gridView = data);
+    constructor(public stockDataService: StockDataService, private dialogService: DialogService) {
+        this.stockDataService.getDataStream().subscribe((data) => (this.gridView = data));
 
         if (this.gridView && this.gridView.length) {
             this.stockDataService.selectedStock = this.gridView[0];
@@ -70,18 +69,14 @@ export class StockListComponent implements OnDestroy {
             .open({
                 title: 'Confirm delete',
                 content: `Are you sure you want to delete ${this.selectedRows[0]}?`,
-                actions: [
-                    { text: 'Cancel' },
-                    { text: 'Confirm', primary: true }
-                ],
+                actions: [{ text: 'Cancel' }, { text: 'Confirm', themeColor: 'primary' }],
                 width: 500,
                 height: 245,
-                actionsLayout: 'normal'
+                actionsLayout: 'stretched'
             })
-            .result
-            .pipe(
+            .result.pipe(
                 take(1),
-                filter(result => !(result instanceof DialogCloseResult || result.text === 'Cancel'))
+                filter((result) => !(result instanceof DialogCloseResult || result.text === 'Cancel'))
             )
             .subscribe(() => {
                 const symbol = this.selectedRows[0];

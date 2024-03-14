@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewEncapsulation, OnDestroy } from '@angular/core';
 import { GridDataResult, PageChangeEvent } from '@progress/kendo-angular-grid';
-import { StockDataService } from 'src/app/services/stock-data.service';
+import { StockDataService } from '../../services/stock-data.service';
 
 @Component({
     selector: 'app-real-time-data',
@@ -22,7 +22,7 @@ export class RealTimeDataComponent implements OnInit, OnDestroy {
 
     public ngOnInit() {
         this.interval = setInterval(() => {
-            this.data = this.data.map(item => {
+            this.data = this.data.map((item) => {
                 const change = this.getChange();
                 item.change = change;
                 item.price = item.price + change;
@@ -53,34 +53,39 @@ export class RealTimeDataComponent implements OnInit, OnDestroy {
         let lastSymbol = '';
 
         const createSymbol = () => {
-            lastSymbol = '    '.split('').map(char => letters[Math.floor(Math.random() * 26)]).join('');
+            lastSymbol = '    '
+                .split('')
+                .map((char) => letters[Math.floor(Math.random() * 26)])
+                .join('');
             return lastSymbol;
         };
 
-        return Array(count).fill({}).map((_, idx) => {
-            const price = Math.random() * 100 + 10;
+        return Array(count)
+            .fill({})
+            .map((_, idx) => {
+                const price = Math.random() * 100 + 10;
 
-            return {
-                id: idx + 1,
-                symbol: createSymbol(),
-                name: lastSymbol + ' Inc.',
-                currency: this.service.selectedCurrency,
-                price,
-                change: this.getChange(),
-                stock_exchange_long: 'New York Stock Exchange',
-                stock_exchange_short: 'NYSE',
-                timezone: 'EDT',
-                timezone_name: 'America/New_York',
-                year_high: (price + price / 3).toFixed(2),
-                year_low: (price - price / 3).toFixed(2),
-                volume: (21774241 * Math.random() * 50).toFixed(0),
-                market_cap: (229956956 * Math.random() * 50).toFixed(0)
-            };
-        });
+                return {
+                    id: idx + 1,
+                    symbol: createSymbol(),
+                    name: lastSymbol + ' Inc.',
+                    currency: this.service.selectedCurrency,
+                    price,
+                    change: this.getChange(),
+                    stock_exchange_long: 'New York Stock Exchange',
+                    stock_exchange_short: 'NYSE',
+                    timezone: 'EDT',
+                    timezone_name: 'America/New_York',
+                    year_high: (price + price / 3).toFixed(2),
+                    year_low: (price - price / 3).toFixed(2),
+                    volume: (21774241 * Math.random() * 50).toFixed(0),
+                    market_cap: (229956956 * Math.random() * 50).toFixed(0)
+                };
+            });
     }
 
     private getChange = () => {
         const rnd = Math.random();
-        return rnd > 0.5 ? rnd > 0.75 ? -Math.random() * 2 : Math.random() * 2 : 0;
-    }
+        return rnd > 0.5 ? (rnd > 0.75 ? -Math.random() * 2 : Math.random() * 2) : 0;
+    };
 }

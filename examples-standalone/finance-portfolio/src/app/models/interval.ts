@@ -14,4 +14,4 @@ export const IntervalUnitsMap = {
     weeks: 10080
 };
 
-export const defaultRange: SelectionRange = { start: new Date(Date.now() - 604800000) , end: new Date(Date.now()) }
+export const defaultRange: SelectionRange = { start: new Date(Date.now() - 604800000), end: new Date(Date.now()) };

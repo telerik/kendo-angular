@@ -19,7 +19,7 @@ export class StockChartComponent {
     public calendarMin = addMonths(new Date(), -6);
     public calendarMax = new Date();
 
-    public timeFilters: Array<{ name: string, duration: number }> = [
+    public timeFilters: Array<{ name: string; duration: number }> = [
         { name: '1H', duration: MS_PER_DAY / 24 },
         { name: '4H', duration: MS_PER_DAY / 6 },
         { name: '12H', duration: MS_PER_DAY / 2 },
@@ -29,7 +29,7 @@ export class StockChartComponent {
     ];
     public activeTimeFilter: number = this.timeFilters[4].duration;
 
-    public intervals: Array<{ name: string, interval: Interval, duration: number }> = [
+    public intervals: Array<{ name: string; interval: Interval; duration: number }> = [
         { name: '5M', interval: { unit: 'minutes', step: 5 }, duration: MS_PER_DAY / 24 / 12 },
         { name: '15M', interval: { unit: 'minutes', step: 15 }, duration: MS_PER_DAY / 24 / 4 },
         { name: '30M', interval: { unit: 'minutes', step: 30 }, duration: MS_PER_DAY / 24 / 2 },
@@ -38,10 +38,10 @@ export class StockChartComponent {
         { name: '1D', interval: { unit: 'days', step: 1 }, duration: MS_PER_DAY },
         { name: '1W', interval: { unit: 'weeks', step: 1 }, duration: MS_PER_DAY * 7 }
     ];
-    public selectedInterval: { name: string, interval: Interval, duration: number } = this.intervals[3];
+    public selectedInterval: { name: string; interval: Interval; duration: number } = this.intervals[3];
 
     public chartType: 'candle' | 'line' | 'area' = 'candle';
-    public charts: Array<{ text: string, value: string }> = [
+    public charts: Array<{ text: string; value: string }> = [
         { text: 'Candle', value: 'candle' },
         { text: 'Line', value: 'line' },
         { text: 'Area', value: 'area' }
@@ -49,11 +49,11 @@ export class StockChartComponent {
 
     private displayedDuration: number = this.activeTimeFilter;
 
-    constructor(public stockDataService: StockDataService) { }
+    constructor(public stockDataService: StockDataService) {}
 
     public disableIncompatibleIntervals = (args: ItemArgs): boolean => {
         return !rangeAndIntervalCompatible(this.displayedDuration, args.dataItem.duration);
-    }
+    };
 
     public onTimeFilterClick(duration: number): void {
         if (this.activeTimeFilter === duration) {
@@ -87,7 +87,7 @@ export class StockChartComponent {
             return;
         }
 
-        const firstCompatibleInterval = this.intervals.find(interval => rangeAndIntervalCompatible(displayedDuration, interval.duration));
+        const firstCompatibleInterval = this.intervals.find((interval) => rangeAndIntervalCompatible(displayedDuration, interval.duration));
         if (firstCompatibleInterval) {
             this.selectedInterval = firstCompatibleInterval;
         }

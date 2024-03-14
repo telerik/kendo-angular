@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { SVGIcon, downloadIcon, fileTxtIcon } from '@progress/kendo-svg-icons';
 
 @Component({
     selector: 'app-action-buttons',
@@ -6,6 +7,8 @@ import { Component } from '@angular/core';
     styleUrls: ['./action-buttons.component.scss']
 })
 export class ActionButtonsComponent {
+    public filteText: SVGIcon = fileTxtIcon;
+    public downloadIcon: SVGIcon = downloadIcon;
     public navigateOffSite(webAddress: string): void {
         window.open(webAddress, '_blank');
     }
