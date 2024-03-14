@@ -51,6 +51,12 @@ jobs:
         working-directory: ./examples-standalone/finance-portfolio
         run: |
           npm ci
+
+      - name: Build Electron dashboard app
+        working-directory: ./examples-standalone/electron-dashboard
+        run: |
+          npm ci
+          npm rebuild node-sass
           npm run build
 
       - name: Build Grid & Charts integration app
@@ -110,13 +116,6 @@ jobs:
         working-directory: ./examples-standalone/dialogflow-integration/client
         run: |
           npm ci
-          npm run build
-
-      - name: Build Electron dashboard app
-        working-directory: ./examples-standalone/electron-dashboard
-        run: |
-          npm ci
-          npm rebuild node-sass
           npm run build
 
       - name: Cleanup
