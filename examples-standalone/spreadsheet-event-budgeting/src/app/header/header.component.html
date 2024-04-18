@@ -1,0 +1,58 @@
+<kendo-appbar position="top">
+  <kendo-appbar-section class="title-container">
+    <h1 class="title" routerLink="/login">Sample Event</h1>
+  </kendo-appbar-section>
+
+  <kendo-appbar-spacer width="32px"></kendo-appbar-spacer>
+
+  <kendo-appbar-section class="flex-buttons">
+    <kendo-button
+      kendoButton
+      themeColor="primary"
+      rounded="medium"
+      fillMode="clear"
+      size="medium"
+      routerLink="/event-budget"
+      routerLinkActive="active"
+      >Event Budget</kendo-button
+    >
+    <kendo-button
+      kendoButton
+      themeColor="primary"
+      rounded="medium"
+      fillMode="clear"
+      size="medium"
+      routerLink="/tickets"
+      routerLinkActive="active"
+      >Tickets</kendo-button
+    >
+    <kendo-button
+      kendoButton
+      themeColor="primary"
+      rounded="medium"
+      fillMode="clear"
+      size="medium"
+      routerLink="/speakers"
+      routerLinkActive="active"
+      >Call for Speakers</kendo-button
+    >
+  </kendo-appbar-section>
+
+  <kendo-appbar-spacer></kendo-appbar-spacer>
+  <span class="user-title">Hello, {{ roleName }}</span>
+  <kendo-appbar-section class="actions">
+    <kendo-button
+      kendoButton
+      fillMode="clear"
+      themeColor="primary"
+      routerLink="/login"
+      routerLinkActive="active"
+    >
+      <kendo-svgicon
+        style="margin-bottom: 5px"
+        [icon]="logoutIcon"
+      ></kendo-svgicon>
+      <span style="margin-left: 5px">Logout</span>
+    </kendo-button>
+  </kendo-appbar-section>
+</kendo-appbar>

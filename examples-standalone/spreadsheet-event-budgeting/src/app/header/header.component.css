@@ -1,0 +1,63 @@
+kendo-appbar {
+  background-color: #ebebeb;
+  position: fixed;
+  height: 46px;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+}
+.title {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  letter-spacing: 0.18px;
+  line-height: 20px;
+  margin: 0;
+  cursor: pointer;
+  color: #000000;
+}
+.user-title {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  color: #000000;
+  margin-right: 5px;
+  margin-bottom: 24px;
+  /* should be removed when readonly is available */
+  display:none;
+}
+
+.title-container {
+  margin-top: -4px !important;
+}
+.k-appbar-section {
+  margin-bottom: 18px;
+}
+.active {
+  background-color: #1274ac33 !important;
+}
+.flex-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: -2px;
+}
+.actions {
+  margin-right: 14px;
+  /* should be removed when readonly is available */
+  display:none;
+}
+@media only screen and (max-width: 660px) and (max-height: 900px) {
+  .title {
+    display: none;
+  }
+}
+@media only screen and (max-width: 360px) and (max-height: 800px) {
+  .title {
+    display: none;
+  }
+  .flex-buttons {
+    margin-left: -22px;
+  }
+}

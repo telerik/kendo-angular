@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="background-div"></div>
+  <h1>Event Budget</h1>
+  <app-header></app-header>
+  <div>
+    <kendo-toolbar>
+      <kendo-toolbar-button
+        themeColor="primary"
+        text="Save"
+        [disabled]="isButtonDisabled"
+        (click)="onSave()"
+      ></kendo-toolbar-button>
+      <kendo-toolbar-button
+        text="Clear"
+        [disabled]="isButtonDisabled"
+        (click)="onClear()"
+      ></kendo-toolbar-button>
+    </kendo-toolbar>
+    <kendo-spreadsheet
+      *ngIf="!reRender"
+      #spreadsheet
+      class="kendo-spreadsheet"
+      [sheets]="data"
+      (change)="onChange()"
+    ></kendo-spreadsheet>
+  </div>
+</div>
