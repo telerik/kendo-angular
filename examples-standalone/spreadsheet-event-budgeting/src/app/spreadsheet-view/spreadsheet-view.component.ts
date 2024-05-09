@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, ViewChild } from '@angular/core';
+import { ChangeDetectorRef, Component, ViewChild, ViewEncapsulation } from '@angular/core';
 import {
   SheetDescriptor,
   SpreadsheetComponent,
@@ -10,6 +10,7 @@ import { NotificationService } from '@progress/kendo-angular-notification';
   selector: 'app-spreadsheet-view',
   templateUrl: './spreadsheet-view.component.html',
   styleUrl: './spreadsheet-view.component.css',
+  encapsulation: ViewEncapsulation.None,
 })
 export class SpreadsheetViewComponent {
   @ViewChild('spreadsheet', { static: false })

@@ -1,135 +1,130 @@
-<h1>Get Tickets</h1>
 <app-header></app-header>
-<div class="background-div"></div>
-
-<div class="form-container">
-  <form [formGroup]="formGroup" (ngSubmit)="submitForm()">
-    <div class="blue-note">
-      <p>This form is just an example.</p>
-      <p>No payment or data is collected.</p>
-      <p>
-        After submitting the form the corresponding income will increase in the
-        the spreadsheet in Event Budget page of this application
-      </p>
+<div class="page-title">
+  <h1 class="k-h1">Get Tickets</h1>
+</div>
+<div class="page-container">
+  <form
+    class="k-form k-form-md"
+    [formGroup]="formGroup"
+    (ngSubmit)="submitForm()"
+  >
+    <div class="k-messagebox k-messagebox-info">
+      This form is just an example.<br />
+      No payment or data is collected.<br />
+      After submitting the form the corresponding income will increase in
+      the spreadsheet in Event Budget page of this application.
     </div>
 
-    <div class="section">
-      <h3>In person</h3>
-      <div class="underline"></div>
-      <div class="field">
-        <kendo-label [for]="package"
-          >Full package: all workshops + talks</kendo-label
-        >
-        <div class="input-container">
-          <h5>{{ calculateTicketPrice("fullPackage") }} USD</h5>
-          <span>x</span>
-          <kendo-numerictextbox
-            #package
-            size="large"
-            format="##"
-            [min]="0"
-            [max]="100"
-            formControlName="fullPackage"
-          ></kendo-numerictextbox>
-        </div>
+    <fieldset class="k-form-fieldset">
+      <div class="form-section">
+        <legend class="k-form-legend">In person</legend>
+        <kendo-formfield>
+          <kendo-label [for]="package">Full package: all workshops + talks</kendo-label>
+          <div class="input-container">
+            <h5 class="k-h5">{{ calculateTicketPrice("fullPackage") }} USD <span class="k-font-weight-normal">x</span></h5>
+            <kendo-numerictextbox
+              #package
+              size="large"
+              format="##"
+              [min]="0"
+              [max]="100"
+              formControlName="fullPackage"
+            ></kendo-numerictextbox>
+          </div>
+        </kendo-formfield>
+        <kendo-formfield>
+          <kendo-label [for]="workshop">Workshops: 1st day</kendo-label>
+          <div class="input-container">
+            <h5 class="k-h5">{{ calculateTicketPrice("workshopFirstDay") }} USD <span class="k-font-weight-normal">x</span></h5>
+            <kendo-numerictextbox
+              #workshop
+              size="large"
+              format="##"
+              [min]="0"
+              [max]="100"
+              formControlName="workshopFirstDay"
+            ></kendo-numerictextbox>
+          </div>
+        </kendo-formfield>
+        <kendo-formfield>
+          <kendo-label [for]="workshop2">Workshops: 2nd day</kendo-label>
+          <div class="input-container">
+            <h5 class="k-h5">{{ calculateTicketPrice("workshopSecondDay") }} USD <span class="k-font-weight-normal">x</span></h5>
+            <kendo-numerictextbox
+              #workshop2
+              size="large"
+              format="##"
+              [min]="0"
+              [max]="100"
+              formControlName="workshopSecondDay"
+            ></kendo-numerictextbox>
+          </div>
+        </kendo-formfield>
+        <kendo-formfield>
+          <kendo-label [for]="talks">Talks only</kendo-label>
+          <div class="input-container">
+            <h5 class="k-h5">{{ calculateTicketPrice("talksOnly") }} USD <span class="k-font-weight-normal">x</span></h5>
+            <kendo-numerictextbox
+              #talks
+              size="large"
+              format="##"
+              [min]="0"
+              [max]="100"
+              formControlName="talksOnly"
+            ></kendo-numerictextbox>
+          </div>
+        </kendo-formfield>
       </div>
-      <div class="field">
-        <kendo-label [for]="workshop">Workshops: 1st day</kendo-label>
-        <div class="input-container">
-          <h5>{{ calculateTicketPrice("workshopFirstDay") }} USD</h5>
-          <span>x</span>
-          <kendo-numerictextbox
-            #workshop
-            size="large"
-            format="##"
-            [min]="0"
-            [max]="100"
-            formControlName="workshopFirstDay"
-          ></kendo-numerictextbox>
-        </div>
-      </div>
-      <div class="field">
-        <kendo-label [for]="workshop2">Workshops: 2nd day</kendo-label>
-        <div class="input-container">
-          <h5>{{ calculateTicketPrice("workshopSecondDay") }} USD</h5>
-          <span>x</span>
-          <kendo-numerictextbox
-            #workshop2
-            size="large"
-            format="##"
-            [min]="0"
-            [max]="100"
-            formControlName="workshopSecondDay"
-          ></kendo-numerictextbox>
-        </div>
-      </div>
-      <div class="field">
-        <kendo-label [for]="talks">Talks only</kendo-label>
-        <div class="input-container">
-          <h5>{{ calculateTicketPrice("talksOnly") }} USD</h5>
-          <span>x</span>
-          <kendo-numerictextbox
-            #talks
-            size="large"
-            format="##"
-            [min]="0"
-            [max]="100"
-            formControlName="talksOnly"
-          ></kendo-numerictextbox>
-        </div>
-      </div>
-    </div>
 
-    <div class="section">
-      <h3>Online</h3>
-      <div class="underline"></div>
-      <div class="field">
-        <kendo-label [for]="tickets">Online Talks</kendo-label>
-        <div class="input-container">
-          <h5>{{ calculateTicketPrice("onlineTickets") }} USD</h5>
-          <span>x</span>
-          <kendo-numerictextbox
-            #tickets
-            size="large"
-            format="##"
-            [min]="0"
-            [max]="100"
-            formControlName="onlineTickets"
-          ></kendo-numerictextbox>
+      <div class="form-section">
+        <legend class="k-form-legend">Online</legend>
+        <kendo-formfield>
+          <kendo-label [for]="tickets">Online Talks</kendo-label>
+          <div class="input-container">
+            <h5 class="k-h5">{{ calculateTicketPrice("onlineTickets") }} USD <span class="k-font-weight-normal">x</span></h5>
+            <kendo-numerictextbox
+              #tickets
+              size="large"
+              format="##"
+              [min]="0"
+              [max]="100"
+              formControlName="onlineTickets"
+            ></kendo-numerictextbox>
+          </div>
+        </kendo-formfield>
+      </div>
+
+      <div class="form-section">
+        <span class="k-form-separator"></span>
+        <div class="total-price">
+          <h5 class="k-h5"><span class="k-font-weight-normal">TOTAL:</span> {{ calculateTotalPrice() }} USD</h5>
         </div>
       </div>
-    </div>
-    <div class="underline" style="margin-bottom: 14px"></div>
-    <div class="total-price">
-      TOTAL:<b style="margin-left: 5px">{{ calculateTotalPrice() }} USD</b>
-    </div>
 
-    <div class="buttons">
-      <button
-        kendoButton
-        themeColor="primary"
-        type="submit"
-        size="large"
-        style="width: 86px"
-      >
-        Book Now
-      </button>
-      <kendo-button
-        type="button"
-        (click)="clearForm()"
-        size="large"
-        style="width: 80px"
-        >Clear</kendo-button
-      >
-    </div>
+      <div class="form-section">
+        <div class="buttons-container">
+          <button
+            kendoButton
+            themeColor="primary"
+            type="submit"
+            size="large"
+            style="width: 86px"
+          >
+            Book Now
+          </button>
+          <kendo-button
+            type="button"
+            (click)="clearForm()"
+            size="large"
+            style="width: 80px"
+            >Clear</kendo-button
+          >
+        </div>
+      </div>
+    </fieldset>
   </form>
 </div>
+
 <ng-template #notificationTemplate>
-  <div style="max-width: 270px">
-    <p>Your booking has been processed.</p>
-    <p>
-      <u style="text-decoration: underline">Event Booking</u> Spreadsheet on
-      Event Booking page is updated.
-    </p>
-  </div>
+  <div>Your booking has been processed.<br />Spreadsheet on Event Booking page is updated.</div>
 </ng-template>

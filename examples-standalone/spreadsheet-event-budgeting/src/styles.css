@@ -1,6 +1,41 @@
-.button-notification {
-    background-color: #37B400;
-    p {
-        margin: 0;
-    }
+body {
+    padding: 0;
+    margin: 0;
 }
+
+:root {
+    /* Colors */
+    --kendo-color-on-app-surface: #3D3D3D;
+    --kendo-color-light: #EBEBEB;
+    --kendo-color-on-light: #000000;
+    --kendo-color-success: #37B400;
+
+    /* Typography */
+    --kendo-font-family: 'Roboto', sans-serif;
+    --kendo-h1-font-size: 42px;
+    --kendo-h2-font-size: 34px;
+    --kendo-h3-font-size: 28px;
+    --kendo-h4-font-size: 21px;
+    --kendo-h5-font-size: 16px;
+    --kendo-h6-font-size: 14px;
+    --kendo-font-size-xl: 18px;
+}
+
+.page-title {
+    height: 325px;
+    padding-top: var(--kendo-spacing-16);
+    text-align: center;
+    box-sizing: border-box;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.k-h1,
+.k-h5 {
+  margin: 0;
+}
+
+.k-notification {
+    align-items: start;
+}
+
