@@ -31,13 +31,13 @@ export class ExcelDataService {
 
     switch (profileForm.speakerType) {
       case 'Talk - Online':
-        cellLocation = { sheetNumber: 0, rowNumber: 14, cellNumber: 3, value: 1 };
+        cellLocation = { sheetNumber: 0, rowNumber: 14, cellNumber: 4, value: 1 };
         break;
       case 'Workshop - Online':
-        cellLocation = { sheetNumber: 0, rowNumber: 12, cellNumber: 3, value: 1 };
+        cellLocation = { sheetNumber: 0, rowNumber: 12, cellNumber: 4, value: 1 };
         break;
       case 'Talk - Live Talk':
-        cellLocation = { sheetNumber: 0, rowNumber: 13, cellNumber: 3, value: 1 };
+        cellLocation = { sheetNumber: 0, rowNumber: 13, cellNumber: 4, value: 1 };
         break;
       default:
         console.log('Invalid Request');
