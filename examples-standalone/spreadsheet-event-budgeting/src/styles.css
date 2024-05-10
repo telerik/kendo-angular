@@ -5,13 +5,13 @@ body {
 
 :root {
     /* Colors */
-    --kendo-color-on-app-surface: #3D3D3D;
-    --kendo-color-light: #EBEBEB;
+    --kendo-color-on-app-surface: #3d3d3d;
+    --kendo-color-light: #ebebeb;
     --kendo-color-on-light: #000000;
-    --kendo-color-success: #37B400;
+    --kendo-color-success: #37b400;
 
     /* Typography */
-    --kendo-font-family: 'Roboto', sans-serif;
+    --kendo-font-family: "Roboto", sans-serif;
     --kendo-h1-font-size: 42px;
     --kendo-h2-font-size: 34px;
     --kendo-h3-font-size: 28px;
@@ -32,10 +32,9 @@ body {
 
 .k-h1,
 .k-h5 {
-  margin: 0;
+    margin: 0;
 }
 
 .k-notification {
     align-items: start;
 }
-
