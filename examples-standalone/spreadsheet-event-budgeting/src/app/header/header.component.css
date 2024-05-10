@@ -1,0 +1,34 @@
+.k-appbar {
+    padding-inline: var(--kendo-spacing-4);
+
+    @media (max-width: 767.98px) {
+        justify-content: center;
+    }
+}
+
+.logo-nav-container {
+    display: flex;
+    gap: var(--kendo-spacing-8);
+}
+
+.logo {
+    font-size: var(--kendo-font-size-xl);
+    cursor: pointer;
+
+    @media (max-width: 767.98px) {
+        display: none;
+    }
+}
+
+.nav-buttons,
+.username-logout-container {
+    display: flex;
+    gap: var(--kendo-spacing-2);
+}
+
+.username-logout-container,
+.k-appbar-spacer {
+    @media (max-width: 767.98px) {
+        display: none;
+    }
+}

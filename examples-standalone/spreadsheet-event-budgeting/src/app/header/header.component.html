@@ -1,0 +1,53 @@
+<kendo-appbar positionMode="sticky" position="top" themeColor="light">
+    <kendo-appbar-section class="logo-nav-container">
+        <div class="logo" routerLink="/login">Sample Event</div>
+        <div class="nav-buttons">
+            <kendo-button
+                kendoButton
+                themeColor="primary"
+                rounded="medium"
+                fillMode="clear"
+                size="medium"
+                routerLink="/event-budget"
+                routerLinkActive="active"
+                >Event Budget</kendo-button
+            >
+            <kendo-button
+                kendoButton
+                themeColor="primary"
+                rounded="medium"
+                fillMode="clear"
+                size="medium"
+                routerLink="/tickets"
+                routerLinkActive="active"
+                >Tickets</kendo-button
+            >
+            <kendo-button
+                kendoButton
+                themeColor="primary"
+                rounded="medium"
+                fillMode="clear"
+                size="medium"
+                routerLink="/speakers"
+                routerLinkActive="active"
+                >Call for Speakers</kendo-button
+            >
+        </div>
+    </kendo-appbar-section>
+
+    <kendo-appbar-spacer></kendo-appbar-spacer>
+
+    <kendo-appbar-section class="username-logout-container">
+        <span class="user-title">Hello, {{ roleName }}</span>
+        <kendo-button 
+            kendoButton 
+            fillMode="clear" 
+            themeColor="primary" 
+            routerLink="/login" 
+            routerLinkActive="active"
+        >
+            <kendo-svgicon [icon]="logoutIcon"></kendo-svgicon>
+            <span>Logout</span>
+        </kendo-button>
+    </kendo-appbar-section>
+</kendo-appbar>

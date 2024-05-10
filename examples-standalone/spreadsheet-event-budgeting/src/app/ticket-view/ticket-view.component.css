@@ -1,0 +1,64 @@
+.page-title {
+    background-image: url("/assets/tickets-bg-bg.svg");
+}
+
+.page-container {
+    margin: -125px auto 0;
+    max-width: 560px;
+
+    @media (max-width: 559.98px) {
+        max-width: 100%;
+        margin-inline: var(--kendo-spacing-5);
+    }
+}
+
+.k-form {
+    margin-bottom: var(--kendo-spacing-15);
+}
+
+.k-form .k-form-legend {
+    margin-bottom: var(--kendo-spacing-7);
+}
+
+.k-form .k-form-fieldset {
+    display: flex;
+    flex-direction: column;
+    gap: var(--kendo-spacing-7);
+}
+
+.k-form-field {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--kendo-spacing-3);
+}
+
+kendo-label {
+    font-size: var(--kendo-font-size-lg);
+}
+
+.input-container {
+    display: flex;
+    align-items: center;
+    gap: var(--kendo-spacing-3);
+    min-width: 192px;
+}
+
+.k-numerictextbox {
+    width: 80px;
+}
+
+.k-form-separator {
+    border-width: 2px 0 0;
+    margin: 0 0 var(--kendo-spacing-4);
+}
+
+.total-price {
+    display: flex;
+    justify-content: end;
+}
+
+.buttons-container {
+    display: flex;
+    gap: var(--kendo-spacing-2);
+}

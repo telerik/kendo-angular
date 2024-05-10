@@ -1,0 +1,75 @@
+app-login {
+    display: flex;
+    align-items: center;
+    min-height: 100vh;
+    background-image: url("/assets/login-bg.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.page-container {
+    max-width: 1180px;
+    margin: var(--kendo-spacing-5) auto;
+    flex: 1 1 auto;
+
+    @media (max-width: 1179.98px) {
+        max-width: 100%;
+        margin: var(--kendo-spacing-5);
+    }
+}
+
+.login-form {
+    max-width: 368px;
+    padding: var(--kendo-spacing-10) var(--kendo-spacing-8);
+    background-color: var(--kendo-color-app-surface);
+    border-radius: var(--kendo-border-radius-md);
+    box-sizing: border-box;
+}
+
+.form-header {
+    margin: 0;
+    text-align: center;
+}
+
+.k-form-fieldset {
+    display: flex;
+    flex-direction: column;
+    gap: var(--kendo-spacing-6);
+}
+
+.form-container .k-form-field {
+    margin: 0;
+}
+
+.form-container,
+.buttons-container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--kendo-spacing-7);
+}
+
+.button-icon-text-container {
+    display: flex;
+    gap: var(--kendo-spacing-1);
+}
+
+.icon-container {
+    display: flex;
+    align-items: center;
+}
+
+.material-symbols-outlined {
+    font-size: var(--kendo-font-size-lg);
+}
+
+.text-container {
+    display: flex;
+    align-items: center;
+    gap: var(--kendo-spacing-4);
+}
+
+.line-separator {
+    flex: 1 1 auto;
+    height: 2px;
+    background-color: var(--kendo-color-border);
+}

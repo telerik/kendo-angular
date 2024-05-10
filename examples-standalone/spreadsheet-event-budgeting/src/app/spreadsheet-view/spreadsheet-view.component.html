@@ -1,0 +1,26 @@
+<app-header></app-header>
+<div class="page-title">
+  <h1 class="k-h1">Event Budget</h1>
+</div>
+<div class="page-container">
+  <kendo-toolbar>
+    <kendo-toolbar-button
+      themeColor="primary"
+      text="Save"
+      [disabled]="isButtonDisabled"
+      (click)="onSave()"
+    ></kendo-toolbar-button>
+    <kendo-toolbar-button
+      text="Clear"
+      [disabled]="isButtonDisabled"
+      (click)="onClear()"
+    ></kendo-toolbar-button>
+  </kendo-toolbar>
+  <kendo-spreadsheet
+    *ngIf="!reRender"
+    #spreadsheet
+    class="kendo-spreadsheet"
+    [sheets]="data"
+    (change)="onChange()"
+  ></kendo-spreadsheet>
+</div>

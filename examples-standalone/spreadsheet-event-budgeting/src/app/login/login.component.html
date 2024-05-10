@@ -1,0 +1,89 @@
+<div class="page-container">
+    <div class="login-form">
+        <form class="k-form k-form-md" [formGroup]="form">
+            <fieldset class="k-form-fieldset">
+                <h2 class="k-h2 form-header">Event Budgeting</h2>
+
+                <div class="form-container">
+                    <kendo-formfield class="username-input">
+                        <kendo-label [for]="username" text="Username"></kendo-label>
+                        <kendo-textbox
+                            #username
+                            required
+                            formControlName="username"
+                            size="large"
+                            [clearButton]="true"
+                        ></kendo-textbox>
+                        <kendo-formerror>Error: Username is required</kendo-formerror>
+                    </kendo-formfield>
+
+                    <kendo-formfield class="password-input">
+                        <kendo-label [for]="password" text="Password"></kendo-label>
+                        <kendo-textbox #password required formControlName="password" size="large" [type]="inputType">
+                            <ng-template kendoTextBoxSuffixTemplate>
+                                <button
+                                    class="show-password"
+                                    kendoButton
+                                    look="clear"
+                                    [svgIcon]="eyeIcon"
+                                    (click)="toggleVisibility()"
+                                ></button>
+                            </ng-template>
+                        </kendo-textbox>
+                        <kendo-formerror>Error: Password is required</kendo-formerror>
+                    </kendo-formfield>
+
+                    <kendo-button
+                        class="login-button"
+                        size="large"
+                        themeColor="primary"
+                        routerLink="/event-budget"
+                        [queryParams]="{ role: 'Administrator' }"
+                    >
+                        <div class="button-icon-text-container">
+                            <div class="icon-container">
+                                <i class="material-symbols-outlined">passkey</i>
+                            </div>
+                            <span class="button-text">Login as Administrator</span>
+                        </div>
+                    </kendo-button>
+                </div>
+
+                <div class="text-container">
+                    <span class="line-separator"></span>
+                    <span class="k-font-size-lg">or continue as</span>
+                    <span class="line-separator"></span>
+                </div>
+
+                <div class="buttons-container">
+                    <kendo-button
+                        class="event-guest-button"
+                        size="large"
+                        routerLink="/tickets"
+                        [queryParams]="{ role: 'Guest' }"
+                    >
+                        <div class="button-icon-text-container">
+                            <div class="icon-container">
+                                <i class="material-symbols-outlined">supervisor_account</i>
+                            </div>
+                            <span class="button-text">Event Guest</span>
+                        </div>
+                    </kendo-button>
+                    <kendo-button
+                        class="event-speaker-button"
+                        size="large"
+                        routerLink="/speakers"
+                        [queryParams]="{ role: 'Speaker' }"
+                    >
+                        <div class="button-icon-text-container">
+                            <div class="icon-container">
+                                <i class="material-symbols-outlined">record_voice_over</i>
+                            </div>
+                            <span class="button-text">Event Speaker</span>
+                        </div>
+                    </kendo-button>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</div>
