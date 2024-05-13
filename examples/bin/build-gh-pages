@@ -3,19 +3,19 @@
 # Builds example projects and deploys them to GH Pages
 
 WORKSPACE_PROJECTS=(integration-pwa integration-pwa-material)
-STANDALONE_PROJECTS=(finance-portfolio grid-charts-integration coffee-warehouse grid-live-data)
+STANDALONE_PROJECTS=(finance-portfolio grid-charts-integration coffee-warehouse grid-live-data spreadsheet-app)
 
 set -e
 
 # Workspace Projects
-npm ci
-rm -rf dist
+# npm ci
+# rm -rf dist
 
-for PROJECT in "${WORKSPACE_PROJECTS[@]}"
-do
-  echo Building ${PROJECT}
-  node --max_old_space_size=6144 ./node_modules/.bin/ng build ${PROJECT} --prod --base-href
-done
+# for PROJECT in "${WORKSPACE_PROJECTS[@]}"
+# do
+#   echo Building ${PROJECT}
+#   node --max_old_space_size=6144 ./node_modules/.bin/ng build ${PROJECT} --prod --base-href
+# done
 
 # Standalone Projects
 for PROJECT in "${STANDALONE_PROJECTS[@]}"
@@ -25,7 +25,7 @@ do
   echo Building ${PROJECT}
   npm ci
   rm -rf dist
-  node --max_old_space_size=6144 ./node_modules/.bin/ng build --prod --base-href
+  node --max_old_space_size=6144 ./node_modules/.bin/ng build --configuration production --base-href
   mv dist/${PROJECT} ../../examples/dist
 
   popd > /dev/null
