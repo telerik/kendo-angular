@@ -71,8 +71,8 @@ jobs:
           npm ci
           npm run build
       
-      - name: Spreadsheet Event Budgeting app
-        working-directory: ./examples-standalone/spreadsheet-event-budgeting
+      - name: Spreadsheet App
+        working-directory: ./examples-standalone/spreadsheet-app
         run: |
           npm ci
           npm run build

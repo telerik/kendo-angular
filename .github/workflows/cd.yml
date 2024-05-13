@@ -6,10 +6,6 @@ on:
     branches:
       - master
 
-defaults:
-  run:
-    working-directory: ./examples
-
 env:
   NODE_OPTIONS: --max_old_space_size=6144
 
@@ -32,29 +28,40 @@ jobs:
           export-secrets-to-environment: false
 
       - name: Use NodeJS v14
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v4
         with:
-          node-version: '14'
+          node-version: "14"
 
       - name: Check out repository
-        uses: actions/checkout@v3
-
-      - name: Install modules
-        run: npm ci
+        uses: actions/checkout@v4
 
       - name: Build
+        working-directory: ./examples
         run: ./bin/build-gh-pages
         env:
           KENDO_UI_LICENSE: ${{ secrets.KENDO_UI_LICENSE }}
 
+      - name: Use NodeJS v18
+        uses: actions/setup-node@v4
+        with:
+          node-version: "18"
+
+      - name: Build Node18 Examples
+        run: |
+          chmod +x ./examples-standalone/bin/build-gh-pages
+          ./examples-standalone/bin/build-gh-pages
+        env:
+          KENDO_UI_LICENSE: ${{ secrets.KENDO_UI_LICENSE }}
+
+      - name: Copy Node18 Dist
+        run: | 
+          cp -rf ./examples-standalone/dist/* ./examples/dist
+          ls -la ./examples/dist
+          
       - name: Deploy to GH Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ steps.import-secrets.outputs.GH_TOKEN }}
           publish_dir: ./examples/dist
-          user_name: 'kendo-bot'
-          user_email: 'kendouiteam@progress.com'
-
-      - name: Cleanup
-        run: git clean -xdf
-
+          user_name: "kendo-bot"
+          user_email: "kendouiteam@progress.com"
