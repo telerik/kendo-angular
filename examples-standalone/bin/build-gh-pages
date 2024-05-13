@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+
+# Builds example projects and deploys them to GH Pages
+STANDALONE_PROJECTS=(finance-portfolio grid-charts-integration coffee-warehouse grid-live-data spreadsheet-app)
+
+set -e
+
+# Standalone Projects
+rm -rf ./examples-standalone/dist
+mkdir -p ./examples-standalone/dist
+for PROJECT in "${STANDALONE_PROJECTS[@]}"
+do
+    pushd ./examples-standalone/${PROJECT} > /dev/null
+    
+    echo Building ${PROJECT}
+    npm ci
+    rm -rf dist
+    npx ng build --configuration production --base-href
+
+    # Move content of browser folder one level up
+    if [ -d "dist/${PROJECT}/browser" ]; then
+        mv dist/${PROJECT}/3rdpartylicenses.txt dist/${PROJECT}/browser/3rdpartylicenses.txt
+        mv dist/${PROJECT}/browser ../../examples-standalone/dist/${PROJECT}
+    fi
+    
+    popd > /dev/null
+done
+
