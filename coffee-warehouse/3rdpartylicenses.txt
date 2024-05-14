@@ -19,6 +19,32 @@ MIT
 @angular/router
 MIT
 
+@babel/runtime
+MIT
+MIT License
+
+Copyright (c) 2014-present Sebastian McKenzie and other contributors
+
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of this software and associated documentation files (the
+"Software"), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to
+the following conditions:
+
+The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+
 @progress/jszip-esm
 SEE LICENSE IN LICENSE.md
 
@@ -49,6 +75,9 @@ SEE LICENSE IN LICENSE.md
 @progress/kendo-angular-grid
 SEE LICENSE IN LICENSE.md
 
+@progress/kendo-angular-icons
+SEE LICENSE IN LICENSE.md
+
 @progress/kendo-angular-inputs
 SEE LICENSE IN LICENSE.md
 
@@ -62,6 +91,9 @@ SEE LICENSE IN LICENSE.md
 SEE LICENSE IN LICENSE.md
 
 @progress/kendo-angular-layout
+SEE LICENSE IN LICENSE.md
+
+@progress/kendo-angular-navigation
 SEE LICENSE IN LICENSE.md
 
 @progress/kendo-angular-notification
@@ -82,10 +114,16 @@ SEE LICENSE IN LICENSE.md
 @progress/kendo-angular-toolbar
 SEE LICENSE IN LICENSE.md
 
+@progress/kendo-angular-tooltip
+SEE LICENSE IN LICENSE.md
+
 @progress/kendo-angular-treeview
 SEE LICENSE IN LICENSE.md
 
 @progress/kendo-angular-upload
+SEE LICENSE IN LICENSE.md
+
+@progress/kendo-angular-utils
 SEE LICENSE IN LICENSE.md
 
 @progress/kendo-charts
@@ -100,6 +138,9 @@ SEE LICENSE IN LICENSE.md
 @progress/kendo-date-math
 SEE LICENSE IN LICENSE.md
 
+@progress/kendo-dateinputs-common
+SEE LICENSE IN LICENSE.md
+
 @progress/kendo-draggable
 Apache-2.0
 This project has been released under the [Apache License, version 2.0](http://www.apache.org/licenses/LICENSE-2.0.html), the text of which is included below. This license applies ONLY to the source of this repository and does not extend to any other Kendo UI distribution or variant, or any other third-party libraries used in a repository.
@@ -112,6 +153,9 @@ For licensing information about Kendo UI, see the [License Agreements page](http
 
 *Copyright © 2022 Progress Software Corporation and/or one of its subsidiaries or affiliates. All rights reserved.*
 
+
+@progress/kendo-draggable-common
+SEE LICENSE IN LICENSE.md
 
 @progress/kendo-drawing
 See license in LICENSE.md
@@ -146,6 +190,9 @@ All available Kendo UI commercial licenses may be obtained at http://www.telerik
 *Copyright © 2022 Progress Software Corporation and/or one of its subsidiaries or affiliates. All rights reserved.*
 
 
+@progress/kendo-inputs-common
+SEE LICENSE IN LICENSE.md
+
 @progress/kendo-intl
 Apache-2.0
 This project has been released under the [Apache License, version 2.0](http://www.apache.org/licenses/LICENSE-2.0.html), the text of which is included below. This license applies ONLY to the source of this repository and does not extend to any other Kendo UI distribution or variant, or any other third-party libraries used in a repository.
@@ -179,27 +226,31 @@ This project has been released under the [Apache License, version 2.0](https://w
 @progress/kendo-recurrence
 SEE LICENSE IN LICENSE.md
 
+@progress/kendo-svg-icons
+Apache-2.0
+# Kendo SVG Icons
+
+This package is part of the following suites:
+
+* [Kendo UI for Angular](https://www.telerik.com/kendo-angular-ui/)
+* [Kendo UI for Vue](https://www.telerik.com/kendo-vue-ui)
+* [KendoReact](https://www.telerik.com/kendo-react-ui/)
+* [Kendo UI for jQuery](https://www.telerik.com/kendo-ui)
+* [UI for ASP.NET MVC](https://www.telerik.com/aspnet-mvc)
+* [UI for ASP.NET Core](https://www.telerik.com/aspnet-core-ui)
+* [UI for Blazor](https://www.telerik.com/blazor-ui)
+
+## License
+
+All available Kendo UI commercial licenses may be obtained at http://www.telerik.com/purchase/kendo-ui.
+
+If you do not own a commercial license, the usage of this software shall be governed by the [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0).
+
+*Copyright © 2023 Progress Software Corporation and/or one of its subsidiaries or affiliates. All rights reserved.*
+
+
 @progress/pako-esm
 SEE LICENSE IN LICENSE.md
-
-@telerik/kendo-draggable
-Apache-2.0
-This project has been released under the [Apache License, version 2.0](http://www.apache.org/licenses/LICENSE-2.0.html), the text of which is included below. This license applies ONLY to the source of this repository and does not extend to any other Kendo UI distribution or variant, or any other 3rd party libraries used in a repository. For licensing information about Kendo UI, see the [License Agreements page](https://www.kendoui.com/purchase/license-agreement.aspx) at [KendoUI.com](http://www.kendoui.com).
-
-> Copyright © 2014-2015 Telerik
-
-> Licensed under the Apache License, Version 2.0 (the "License");
-   you may not use this file except in compliance with the License.
-   You may obtain a copy of the License at
-
-> [http://www.apache.org/licenses/LICENSE-2.0](http://www.apache.org/licenses/LICENSE-2.0)
-
->  Unless required by applicable law or agreed to in writing, software
-   distributed under the License is distributed on an "AS IS" BASIS,
-   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-   See the License for the specific language governing permissions and
-   limitations under the License.
-
 
 @telerik/kendo-intl
 Apache-2.0
@@ -241,7 +292,7 @@ THE SOFTWARE.
 
 orderedmap
 MIT
-Copyright (C) 2016 by Marijn Haverbeke <marijnh@gmail.com> and others
+Copyright (C) 2016 by Marijn Haverbeke <marijn@haverbeke.berlin> and others
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -264,7 +315,7 @@ THE SOFTWARE.
 
 prosemirror-commands
 MIT
-Copyright (C) 2015-2017 by Marijn Haverbeke <marijnh@gmail.com> and others
+Copyright (C) 2015-2017 by Marijn Haverbeke <marijn@haverbeke.berlin> and others
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -287,7 +338,7 @@ THE SOFTWARE.
 
 prosemirror-gapcursor
 MIT
-Copyright (C) 2015-2017 by Marijn Haverbeke <marijnh@gmail.com> and others
+Copyright (C) 2015-2017 by Marijn Haverbeke <marijn@haverbeke.berlin> and others
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -310,7 +361,7 @@ THE SOFTWARE.
 
 prosemirror-history
 MIT
-Copyright (C) 2015-2017 by Marijn Haverbeke <marijnh@gmail.com> and others
+Copyright (C) 2015-2017 by Marijn Haverbeke <marijn@haverbeke.berlin> and others
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -333,7 +384,7 @@ THE SOFTWARE.
 
 prosemirror-inputrules
 MIT
-Copyright (C) 2015-2017 by Marijn Haverbeke <marijnh@gmail.com> and others
+Copyright (C) 2015-2017 by Marijn Haverbeke <marijn@haverbeke.berlin> and others
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -356,7 +407,7 @@ THE SOFTWARE.
 
 prosemirror-keymap
 MIT
-Copyright (C) 2015-2017 by Marijn Haverbeke <marijnh@gmail.com> and others
+Copyright (C) 2015-2017 by Marijn Haverbeke <marijn@haverbeke.berlin> and others
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -379,7 +430,7 @@ THE SOFTWARE.
 
 prosemirror-model
 MIT
-Copyright (C) 2015-2017 by Marijn Haverbeke <marijnh@gmail.com> and others
+Copyright (C) 2015-2017 by Marijn Haverbeke <marijn@haverbeke.berlin> and others
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -402,7 +453,7 @@ THE SOFTWARE.
 
 prosemirror-schema-list
 MIT
-Copyright (C) 2015-2017 by Marijn Haverbeke <marijnh@gmail.com> and others
+Copyright (C) 2015-2017 by Marijn Haverbeke <marijn@haverbeke.berlin> and others
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -425,7 +476,7 @@ THE SOFTWARE.
 
 prosemirror-state
 MIT
-Copyright (C) 2015-2017 by Marijn Haverbeke <marijnh@gmail.com> and others
+Copyright (C) 2015-2017 by Marijn Haverbeke <marijn@haverbeke.berlin> and others
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -471,7 +522,7 @@ THE SOFTWARE.
 
 prosemirror-transform
 MIT
-Copyright (C) 2015-2017 by Marijn Haverbeke <marijnh@gmail.com> and others
+Copyright (C) 2015-2017 by Marijn Haverbeke <marijn@haverbeke.berlin> and others
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -494,7 +545,7 @@ THE SOFTWARE.
 
 prosemirror-view
 MIT
-Copyright (C) 2015-2017 by Marijn Haverbeke <marijnh@gmail.com> and others
+Copyright (C) 2015-2017 by Marijn Haverbeke <marijn@haverbeke.berlin> and others
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -517,7 +568,7 @@ THE SOFTWARE.
 
 rope-sequence
 MIT
-Copyright (C) 2016 by Marijn Haverbeke <marijnh@gmail.com>
+Copyright (C) 2016 by Marijn Haverbeke <marijn@haverbeke.berlin>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -761,7 +812,7 @@ PERFORMANCE OF THIS SOFTWARE.
 
 w3c-keyname
 MIT
-Copyright (C) 2016 by Marijn Haverbeke <marijnh@gmail.com> and others
+Copyright (C) 2016 by Marijn Haverbeke <marijn@haverbeke.berlin> and others
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -786,7 +837,7 @@ zone.js
 MIT
 The MIT License
 
-Copyright (c) 2010-2022 Google LLC. https://angular.io/license
+Copyright (c) 2010-2023 Google LLC. https://angular.io/license
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
