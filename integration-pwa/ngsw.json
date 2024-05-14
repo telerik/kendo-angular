@@ -1,0 +1,103 @@
+{
+  "configVersion": 1,
+  "timestamp": 1715675378989,
+  "index": "/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "/assets/app_icon/angularX144.png",
+        "/assets/app_icon/angularX192.png",
+        "/assets/app_icon/angularX36.png",
+        "/assets/app_icon/angularX48.png",
+        "/assets/app_icon/angularX512.png",
+        "/assets/app_icon/angularX72.png",
+        "/assets/app_icon/angularX96.png",
+        "/assets/help_images/add_to_home.png",
+        "/assets/help_images/cached_local.png",
+        "/assets/help_images/cached_remote.png",
+        "/assets/help_images/confirm.png",
+        "/assets/help_images/dashboard.png",
+        "/assets/help_images/offline.png",
+        "/assets/help_images/sw.png",
+        "/assets/i18n/en.json",
+        "/assets/issue-closed.png",
+        "/assets/issue-open.png",
+        "/assets/issueclosed.png",
+        "/assets/issueopen.png",
+        "/assets/login-left-bg.png",
+        "/assets/login-right-bg.png",
+        "/assets/noConnection.png",
+        "/favicon.ico",
+        "/index.html"
+      ],
+      "patterns": []
+    }
+  ],
+  "dataGroups": [
+    {
+      "name": "api-freshness",
+      "patterns": [
+        "https:\\/\\/api\\.github\\.com\\/.*"
+      ],
+      "strategy": "freshness",
+      "maxSize": 100,
+      "maxAge": 259200000,
+      "timeoutMs": 30000,
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "version": 1
+    }
+  ],
+  "hashTable": {
+    "/assets/app_icon/angularX144.png": "9264209363fc7ccb2c578f9279ba86b7d39cbbda",
+    "/assets/app_icon/angularX192.png": "b33ed3be02ee338cbc857ba835803b858cf47c10",
+    "/assets/app_icon/angularX36.png": "a4bff313656ae6d972ac9fbcd61cd52cf8c6f6a9",
+    "/assets/app_icon/angularX48.png": "a60a6058cc7c0a8fa706e86c2b0b81904c736871",
+    "/assets/app_icon/angularX512.png": "745fce22fa7af130f29746d255adac0121a50160",
+    "/assets/app_icon/angularX72.png": "df345f6fda09629f245b3aab8b07818920af7f35",
+    "/assets/app_icon/angularX96.png": "45cdc5b14afe3590c29c6bf1253c4977c93dea14",
+    "/assets/help_images/add_to_home.png": "61c77aebcf211aedd82cb1a36d18987c18b9b5b0",
+    "/assets/help_images/cached_local.png": "ac6fb50b98929154c51cf54b6e8766e909928da2",
+    "/assets/help_images/cached_remote.png": "4ee542aa1d7acf9067edf6bf54f253482612fd13",
+    "/assets/help_images/confirm.png": "58ac8c3c665063d1cd2accabb73474f2e2a8157d",
+    "/assets/help_images/dashboard.png": "1c01bb09531c98b359d1a3f4520cc46bab0d586b",
+    "/assets/help_images/offline.png": "aa9cef623aef3e0934f5d71a619aab506fff695c",
+    "/assets/help_images/sw.png": "a1adc559e4496792ba743bec1fb2e5998cb712cb",
+    "/assets/i18n/en.json": "7c9fcc9bf3288871a65365b65a0dd11af3754883",
+    "/assets/issue-closed.png": "602d44d51dd5478b7a6eba58cacbd5a0689b21d5",
+    "/assets/issue-open.png": "4b10898ee27964e0e1434703f4a038218196bd32",
+    "/assets/issueclosed.png": "602d44d51dd5478b7a6eba58cacbd5a0689b21d5",
+    "/assets/issueopen.png": "4b10898ee27964e0e1434703f4a038218196bd32",
+    "/assets/login-left-bg.png": "4b203e185ea6eca5f05ba1dbf7a0e0da5565693a",
+    "/assets/login-right-bg.png": "657495c9cb2fd673c468a9b0afbec8dd60e25838",
+    "/assets/noConnection.png": "ac66318b4d07496f76b01b4c5749b68c4c494631",
+    "/favicon.ico": "84161b857f5c547e3699ddfbffc6d8d737542e01",
+    "/index.html": "5476f67cfbf76b4947840daa3d3fd874dec5775d"
+  },
+  "navigationUrls": [
+    {
+      "positive": true,
+      "regex": "^\\/.*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*\\.[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*\\/.*$"
+    }
+  ],
+  "navigationRequestStrategy": "performance"
+}
