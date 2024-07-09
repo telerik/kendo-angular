@@ -2,6 +2,7 @@ import { NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
 import { ReactiveFormsModule } from "@angular/forms";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import {APP_BASE_HREF} from '@angular/common';
 
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
@@ -45,7 +46,7 @@ import { NotificationModule } from "@progress/kendo-angular-notification";
         ToolBarModule,
         NotificationModule,
     ],
-    providers: [],
+    providers: [{provide: APP_BASE_HREF, useValue: '/spreadsheet-app/'}],
     bootstrap: [AppComponent],
 })
 export class AppModule {}
