@@ -1,0 +1,44 @@
+<div class="row">
+    <div class="info">
+        <p>
+            The Upload helps users send files from their file systems to dedicated server handlers which are configured
+            to receive them.
+        </p>
+        <p>
+            It is a richer version of an
+            <code><![CDATA[<input type="file" />]]></code> element and supports model binding, templates, forms and
+            more.
+        </p>
+        <p>
+            For more information check the
+            <a href="https://www.telerik.com/kendo-angular-ui/components/uploads/upload/">Upload documentation</a>.
+        </p>
+    </div>
+    <div class="component info">
+        <kendo-upload [saveUrl]="'upload'" [removeUrl]="'/remove'"> </kendo-upload>
+    </div>
+</div>
+<div class="row">
+    <div class="info">
+        <p>
+            The Chunk Upload allows splitting files into smaller chunks and sending them asynchronously through multiple
+            requests to the server.
+        </p>
+        <p>
+            The
+            <a href="https://www.telerik.com/kendo-angular-ui/components/uploads/api/ChunkSettings/">ChunkSettings</a>
+            parameter enables you to specify the size of each chunk, number of attempts to retry uploading a failed
+            chunk, pause and later resume the process.
+        </p>
+        <p>
+            For more information check the
+            <a href="https://www.telerik.com/kendo-angular-ui/components/uploads/upload/chunk-upload/"
+                >Chunk Upload documentation.</a
+            >
+        </p>
+    </div>
+    <div class="component info">
+        <kendo-upload [saveUrl]="'/chunk/upload'" [removeUrl]="'/chunk/remove'" [chunkable]="chunkSettings">
+        </kendo-upload>
+    </div>
+</div>

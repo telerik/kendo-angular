@@ -1,0 +1,42 @@
+<p>
+    <a href="https://www.telerik.com/kendo-angular-ui/components/grid/">Grid component</a> demonstrating fetching data
+    from the server with CRUD operations.
+</p>
+<kendo-grid
+    [data]="gridData"
+    [groupable]="true"
+    [sortable]="true"
+    [pageable]="true"
+    [filterable]="true"
+    [skip]="state.skip"
+    [pageSize]="state.take"
+    [group]="state.group"
+    [sort]="state.sort"
+    [filter]="state.filter"
+    (edit)="editHandler($event)"
+    (cancel)="cancelHandler($event)"
+    (save)="saveHandler($event)"
+    (remove)="removeHandler($event)"
+    (add)="addHandler($event)"
+    (dataStateChange)="dataStateChange($event)"
+    style="margin-bottom: 10px"
+>
+    <ng-template kendoGridToolbarTemplate>
+        <button kendoGridAddCommand>Add new</button>
+    </ng-template>
+    <kendo-grid-column field="productID" title="ID" editor="numeric" filter="numeric"> </kendo-grid-column>
+    <kendo-grid-column field="productName" title="Name" editor="text" filter="text"> </kendo-grid-column>
+    <kendo-grid-column field="unitPrice" title="Price" editor="numeric" filter="numeric"> </kendo-grid-column>
+    <kendo-grid-command-column title="command" [width]="220">
+        <ng-template kendoGridCellTemplate let-isNew="isNew">
+            <button kendoGridEditCommand [primary]="true">Edit</button>
+            <button kendoGridRemoveCommand>Remove</button>
+            <button kendoGridSaveCommand [disabled]="formGroup?.invalid ?? false">
+                {{ isNew ? "Add" : "Update" }}
+            </button>
+            <button kendoGridCancelCommand>
+                {{ isNew ? "Discard changes" : "Cancel" }}
+            </button>
+        </ng-template>
+    </kendo-grid-command-column>
+</kendo-grid>
