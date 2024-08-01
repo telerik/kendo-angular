@@ -106,23 +106,6 @@ jobs:
           npm ci
           npm run lint
 
-      - name: Build ASP.NET Core Data client app
-        working-directory: ./examples-standalone/aspnetcore-data/ClientApp
-        run: |
-          npm ci
-          npm run lint
-
-      - name: Build ASP.NET Core Upload client app
-        working-directory: ./examples-standalone/aspnetcore-upload/ClientApp
-        run: |
-          npm ci
-      #          npm run lint
-      - name: Build ASP.NET Web API client app
-        working-directory: ./examples-standalone/aspnetwebapi-data/ClientApp
-        run: |
-          npm ci
-          npm run lint
-
       - name: Build Dialogflow app
         working-directory: ./examples-standalone/dialogflow-integration/client
         run: |
