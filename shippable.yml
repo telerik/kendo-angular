@@ -33,16 +33,7 @@ build:
     - npm run lint
     - npm run build
     - cd -
-    #
-    # Lint ASP.NET Core client app
-    - cd examples-standalone/aspnetcore-data/ClientApp
-    - npm ci --ignore-scripts
-    - npm run lint
-    - npm run build
-    - cd -
-    - ssh-add $SHIPPABLEKENDOANGULARPUSH_PRIVATE_KEY_PATH
-    - git remote set-url origin git@github.com:telerik/kendo-angular.git
-    - cd examples && ./bin/publish-gh-pages
+
 resources:
   - name: shippable-kendo-angular-push
     type: integration
