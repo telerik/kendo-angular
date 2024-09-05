@@ -1,0 +1,85 @@
+name: 🐞 Bug Report
+description: Please provide a detailed description and include all relevant information about the issue. If you have any doubts regarding the expected behavior, consult our documentation https://www.telerik.com/kendo-angular-ui/components/
+labels: ["Bug"]
+body:
+- type: input
+  attributes:
+    label: Ticket URL
+    description: A link to the ticket with the bug report
+- type: input
+  attributes:
+    label: Public URL
+    description: A link to the ticket for the feedback portal item
+- type: textarea
+  attributes:
+    label: Description
+    description: Add a concise description of the issue and any relevant information
+  validations:
+    required: true
+- type: textarea
+  attributes:
+    label: Steps To Reproduce
+    description: |
+      Include:
+      - a StackBlitz or CodeSandBox demo
+      - concise steps to replicate the issue
+  validations:
+    required: true
+- type: textarea
+  attributes:
+    label: Expected Behavior
+    description: A clear and concise description of what you expected to happen
+  validations:
+    required: true
+- type: textarea
+  attributes:
+    label: Actual Behavior
+    description: A clear and concise description of what is the current behavior
+  validations:
+    required: true
+- type: textarea
+  attributes:
+    label: Screenshots or video
+    description: Provide screenshots or a video of the issue
+  validations:
+    required: false
+- type: dropdown
+  attributes:
+    label: Browser Type
+    multiple: true
+    options:
+      - All
+      - Chrome
+      - Safari
+      - Firefox
+      - Microsoft Edge
+    default: 1
+  validations:
+    required: true
+- type: textarea
+  attributes:
+    label: Browser version
+    description: Set the browser version
+  validations:
+    required: true
+- type: dropdown
+  attributes:
+    label: OS Type
+    multiple: true
+    options:
+      - Windows
+      - MacOS
+      - Linux
+      - Other
+    default: 1
+  validations:
+    required: true
+- type: textarea
+  attributes:
+    label: OS version
+    description: Set the OS version and additional details
+  validations:
+    required: true
+- type: input
+  attributes:
+    label: Last working version of Telerik UI for Angular (if regression)

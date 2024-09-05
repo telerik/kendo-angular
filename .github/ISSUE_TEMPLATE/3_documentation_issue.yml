@@ -1,0 +1,35 @@
+name: 📄 Documentation issue
+description: Share any missing or outdated documentation, broken links and examples.
+labels: ["Documentation"]
+body:
+- type: textarea
+  attributes:
+    label: Describe the issue
+    description: A clear and concise description of the issue and a link to the affected page.
+  validations:
+    required: true
+- type: textarea
+  attributes:
+    label: Screenshots or video
+    description: Provide screenshots or a video of the issue
+  validations:
+    required: false
+- type: dropdown
+  attributes:
+    label: Browser Type
+    multiple: true
+    options:
+      - All
+      - Chrome
+      - Safari
+      - Firefox
+      - Microsoft Edge
+    default: 1
+  validations:
+    required: true
+- type: textarea
+  attributes:
+    label: Browser version
+    description: Set the browser version
+  validations:
+    required: true
