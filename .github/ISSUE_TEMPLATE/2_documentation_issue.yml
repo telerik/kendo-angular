@@ -1,17 +1,23 @@
 name: 📄 Documentation issue
-description: Share any missing or outdated documentation, broken links and examples.
+description: Please provide a detailed description about missing or outdated documentation, broken links and examples.
 labels: ["Documentation"]
 body:
 - type: textarea
   attributes:
     label: Describe the issue
-    description: A clear and concise description of the issue and a link to the affected page.
+    description: A clear and concise description of the issue and any relevant information.
+  validations:
+    required: true
+- type: input
+  attributes:
+    label: Page URL
+    description: A link to the affected documentation page.
   validations:
     required: true
 - type: textarea
   attributes:
     label: Screenshots or video
-    description: Provide screenshots or a video of the issue
+    description: Provide screenshots or a video of the issue.
   validations:
     required: false
 - type: dropdown
@@ -27,9 +33,9 @@ body:
     default: 1
   validations:
     required: true
-- type: textarea
+- type: input
   attributes:
     label: Browser version
-    description: Set the browser version
+    value: "latest"
   validations:
     required: true

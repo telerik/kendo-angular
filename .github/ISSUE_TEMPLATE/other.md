@@ -2,7 +2,7 @@
 name: Other
 about: Ask a question or share additional feedback.
 title: ''
-labels: ''
+labels: 'Question'
 assignees: ''
 
 ---
