@@ -43,7 +43,7 @@ body:
       - Firefox
       - Safari
       - Microsoft Edge
-    default: Chrome
+    default: 1
   validations:
     required: true
 - type: input
@@ -63,7 +63,7 @@ body:
       - Android
       - iOS
       - Other
-    default: Windows
+    default: 1
   validations:
     required: false
 - type: input
