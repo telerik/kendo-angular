@@ -1,5 +1,5 @@
 name: 🐞 Bug Report
-description: Please provide a detailed description and include all relevant information about the issue. If you have any doubts regarding the expected behavior, consult our documentation https://www.telerik.com/kendo-angular-ui/components/
+description: Please provide a detailed description and include all relevant information about the issue. If you have any doubts, consult our [documentation](https://www.telerik.com/kendo-angular-ui/components/).
 labels: ["Bug"]
 body:
 - type: textarea
@@ -11,10 +11,7 @@ body:
 - type: textarea
   attributes:
     label: Steps To Reproduce
-    description: |
-      Include:
-      - List of concise steps to replicate the issue
-      - Runnable demo in StackBlitz or CodeSandBox (You can edit one from our documentation through the **EDIT IN** button)
+    description: A list of concise steps to replicate the issue. Please include a runnable demo in StackBlitz or CodeSandBox (You can edit one from our documentation through the **EDIT IN** button).
   validations:
     required: true
 - type: textarea
@@ -46,7 +43,7 @@ body:
       - Firefox
       - Safari
       - Microsoft Edge
-    default: 1
+    default: Chrome
   validations:
     required: true
 - type: input
@@ -66,7 +63,7 @@ body:
       - Android
       - iOS
       - Other
-    default: 1
+    default: Windows
   validations:
     required: false
 - type: input
