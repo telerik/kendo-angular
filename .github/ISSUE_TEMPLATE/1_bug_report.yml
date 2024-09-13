@@ -1,5 +1,5 @@
 name: 🐞 Bug Report
-description: Please provide a detailed description and include all relevant information about the issue. If you have any doubts, consult our [documentation](https://www.telerik.com/kendo-angular-ui/components/).
+description: Please provide a detailed description and include all relevant information about the issue. If you have any doubts, consult our documentation.
 labels: ["Bug"]
 body:
 - type: textarea
@@ -54,7 +54,7 @@ body:
     required: true
 - type: dropdown
   attributes:
-    label: OS Type
+    label: OS type
     multiple: true
     options:
       - Windows
