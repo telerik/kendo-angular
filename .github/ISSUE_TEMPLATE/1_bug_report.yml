@@ -2,14 +2,6 @@ name: 🐞 Bug Report
 description: Please provide a detailed description and include all relevant information about the issue. If you have any doubts regarding the expected behavior, consult our documentation https://www.telerik.com/kendo-angular-ui/components/
 labels: ["Bug"]
 body:
-- type: input
-  attributes:
-    label: Ticket URL
-    description: A link to the ticket with the bug report
-- type: input
-  attributes:
-    label: Public URL
-    description: A link to the ticket for the feedback portal item
 - type: textarea
   attributes:
     label: Description
@@ -21,20 +13,8 @@ body:
     label: Steps To Reproduce
     description: |
       Include:
-      - a StackBlitz or CodeSandBox demo
-      - concise steps to replicate the issue
-  validations:
-    required: true
-- type: textarea
-  attributes:
-    label: Expected Behavior
-    description: A clear and concise description of what you expected to happen
-  validations:
-    required: true
-- type: textarea
-  attributes:
-    label: Actual Behavior
-    description: A clear and concise description of what is the current behavior
+      - List of concise steps to replicate the issue
+      - Runnable demo in StackBlitz or CodeSandBox (You can edit an example from our [documentation](https://www.telerik.com/kendo-angular-ui/components/) through the **EDIT IN** button)
   validations:
     required: true
 - type: textarea
@@ -43,23 +23,36 @@ body:
     description: Provide screenshots or a video of the issue
   validations:
     required: false
-- type: dropdown
+- type: textarea
   attributes:
-    label: Browser Type
-    multiple: true
-    options:
-      - All
-      - Chrome
-      - Safari
-      - Firefox
-      - Microsoft Edge
-    default: 1
+    label: Actual Behavior
+    description: A clear and concise description of what is the current behavior
   validations:
     required: true
 - type: textarea
   attributes:
+    label: Expected Behavior
+    description: A clear and concise description of what you expected to happen
+  validations:
+    required: true
+- type: dropdown
+  attributes:
+    label: Browser
+    description: Select all browsers in which you reproduce the issue
+    multiple: true
+    options:
+      - All
+      - Chrome
+      - Firefox
+      - Safari
+      - Microsoft Edge
+    default: 1
+  validations:
+    required: true
+- type: input
+  attributes:
     label: Browser version
-    description: Set the browser version
+    value: latest
   validations:
     required: true
 - type: dropdown
@@ -70,16 +63,20 @@ body:
       - Windows
       - MacOS
       - Linux
+      - Android
+      - iOS
       - Other
     default: 1
   validations:
-    required: true
-- type: textarea
+    required: false
+- type: input
   attributes:
     label: OS version
     description: Set the OS version and additional details
   validations:
-    required: true
+    required: false
 - type: input
   attributes:
-    label: Last working version of Telerik UI for Angular (if regression)
+    label: Last working version of the Kendo UI for Angular package (if regression)
+  validations:
+    required: false
