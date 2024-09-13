@@ -22,7 +22,7 @@ body:
     required: false
 - type: dropdown
   attributes:
-    label: Browser Type
+    label: Browser
     multiple: true
     options:
       - All
