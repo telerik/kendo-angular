@@ -11,10 +11,7 @@ body:
 - type: textarea
   attributes:
     label: Steps To Reproduce
-    description: |
-      Include:
-      - List of concise steps to replicate the issue
-      - Runnable demo in StackBlitz or CodeSandBox (You can edit one from our documentation through the **EDIT IN** button)
+    description: A list of concise steps to replicate the issue. Please include a runnable demo in StackBlitz or CodeSandBox (You can edit one from our documentation through the **EDIT IN** button).
   validations:
     required: true
 - type: textarea
