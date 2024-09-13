@@ -46,7 +46,7 @@ body:
       - Firefox
       - Safari
       - Microsoft Edge
-    default: 1
+    default: Chrome
   validations:
     required: true
 - type: input
@@ -66,7 +66,7 @@ body:
       - Android
       - iOS
       - Other
-    default: 1
+    default: Windows
   validations:
     required: false
 - type: input
