@@ -14,7 +14,7 @@ body:
     description: |
       Include:
       - List of concise steps to replicate the issue
-      - Runnable demo in StackBlitz or CodeSandBox (You can edit an example from our [documentation](https://www.telerik.com/kendo-angular-ui/components/) through the **EDIT IN** button)
+      - Runnable demo in StackBlitz or CodeSandBox (You can edit one from our documentation through the **EDIT IN** button)
   validations:
     required: true
 - type: textarea
