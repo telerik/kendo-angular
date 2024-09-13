@@ -1,0 +1,81 @@
+name: 🐞 Bug Report
+description: Please provide a detailed description and include all relevant information about the issue. If you have any doubts regarding the expected behavior, consult our documentation https://www.telerik.com/kendo-angular-ui/components/
+labels: ["Bug"]
+body:
+- type: textarea
+  attributes:
+    label: Description
+    description: Add a concise description of the issue and any relevant information.
+  validations:
+    required: true
+- type: textarea
+  attributes:
+    label: Steps To Reproduce
+    description: |
+      Include:
+      - List of concise steps to replicate the issue
+      - Runnable demo in StackBlitz or CodeSandBox (You can edit an example from our [documentation](https://www.telerik.com/kendo-angular-ui/components/) through the **EDIT IN** button)
+  validations:
+    required: true
+- type: textarea
+  attributes:
+    label: Screenshots or video
+    description: Provide screenshots or a video of the issue.
+  validations:
+    required: false
+- type: textarea
+  attributes:
+    label: Actual Behavior
+    description: A clear and concise description of what is the current behavior.
+  validations:
+    required: true
+- type: textarea
+  attributes:
+    label: Expected Behavior
+    description: A clear and concise description of what you expected to happen.
+  validations:
+    required: true
+- type: dropdown
+  attributes:
+    label: Browser
+    description: Select all browsers in which you reproduce the issue.
+    multiple: true
+    options:
+      - All
+      - Chrome
+      - Firefox
+      - Safari
+      - Microsoft Edge
+    default: 1
+  validations:
+    required: true
+- type: input
+  attributes:
+    label: Browser version
+    value: "latest"
+  validations:
+    required: true
+- type: dropdown
+  attributes:
+    label: OS Type
+    multiple: true
+    options:
+      - Windows
+      - MacOS
+      - Linux
+      - Android
+      - iOS
+      - Other
+    default: 1
+  validations:
+    required: false
+- type: input
+  attributes:
+    label: OS version
+  validations:
+    required: false
+- type: input
+  attributes:
+    label: Last working version of the Kendo UI for Angular package (if regression).
+  validations:
+    required: false
