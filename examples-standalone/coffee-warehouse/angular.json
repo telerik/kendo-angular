@@ -22,7 +22,6 @@
           "builder": "@angular-devkit/build-angular:application",
           "options": {
             "allowedCommonJsDependencies": [
-              "hammerjs",
               "@progress/kendo-angular-intl/locales/en/all",
               "@progress/kendo-angular-intl/locales/es/all",
               "@progress/kendo-angular-intl/locales/fr/all"
@@ -36,25 +35,14 @@
             "tsConfig": "tsconfig.app.json",
             "assets": [
               "src/favicon.ico",
-              "src/assets",
-              {
-                "glob": "**/*",
-                "input": "node_modules/@progress/kendo-theme-bootstrap/dist",
-                "output": "/assets/kendo-theme-bootstrap/dist"
-              },
-              {
-                "glob": "**/*",
-                "input": "node_modules/@progress/kendo-theme-default/dist",
-                "output": "/assets/kendo-theme-default/dist"
-              },
-              {
-                "glob": "**/*",
-                "input": "node_modules/@progress/kendo-theme-material/dist",
-                "output": "/assets/kendo-theme-material/dist"
-              }
+              "src/assets"
             ],
             "styles": [
-              "src/styles/main.scss"
+              "src/styles/main.scss",
+              {
+                "input": "node_modules/@progress/kendo-theme-default/dist/all.css"
+              },
+              "node_modules/@progress/kendo-theme-utils/dist/all.css"
             ],
             "scripts": [],
             "extractLicenses": false,

@@ -33,6 +33,8 @@ import { NotificationModule } from '@progress/kendo-angular-notification';
 import { IconsModule } from "@progress/kendo-angular-icons";
 import { MessageService } from '@progress/kendo-angular-l10n';
 
+import { MenuWindowComponent } from './components/menu-window/menu-window.component';
+
 const drawerRoutes = [
     { path: '', component: TeamComponent },
     { path: 'dashboard', component: DashboardComponent },
@@ -47,6 +49,7 @@ import '@progress/kendo-angular-intl/locales/en/all';
 import '@progress/kendo-angular-intl/locales/es/all';
 import '@progress/kendo-angular-intl/locales/fr/all';
 import { SettingsListComponent } from './components/accessibility-menu/settings-list/settings-list.component';
+import { WindowModule } from '@progress/kendo-angular-dialog';
 
 @NgModule({
     declarations: [
@@ -60,7 +63,8 @@ import { SettingsListComponent } from './components/accessibility-menu/settings-
         InfoComponent,
         TeamComponent,
         NumericTextboxButtonsComponent,
-        SettingsListComponent
+        SettingsListComponent,
+        MenuWindowComponent
     ],
     imports: [
         BrowserModule,
@@ -84,7 +88,8 @@ import { SettingsListComponent } from './components/accessibility-menu/settings-
         DropDownsModule,
         RouterModule.forRoot(drawerRoutes),
         NotificationModule,
-        IconsModule
+        IconsModule,
+        WindowModule
     ],
     providers: [
         { provide: MessageService, useClass: CustomMessagesService },
