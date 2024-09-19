@@ -1,6 +1,8 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { ButtonComponent } from '@progress/kendo-angular-buttons';
+import { WindowRef, WindowService } from '@progress/kendo-angular-dialog';
 import { accessibilityIcon, SVGIcon } from '@progress/kendo-svg-icons';
+import { SettingsListComponent } from '../settings-list/settings-list.component';
 
 @Component({
     selector: 'app-menu-window',
@@ -11,39 +13,44 @@ import { accessibilityIcon, SVGIcon } from '@progress/kendo-svg-icons';
             size="large" 
             themeColor="inverse"
             (click)="toggle()"></kendo-button>
-        <kendo-window *ngIf="show"
-            [top]="top"
-            [left]="left"
-            [width]="400"
-            (close)="show = false;"
-            [resizable]="false">
-            <kendo-window-titlebar>
-                <span class="k-window-title">Accessibility Settings</span>
-                <button kendoWindowCloseAction></button>
-            </kendo-window-titlebar>
-            <app-settings-list-component>
-            </app-settings-list-component>
-        </kendo-window>
+        <ng-template #windowTitleBar let-win>
+            <span class="k-window-title">Accessibility Settings</span>
+            <button kendoWindowCloseAction [window]="win"></button>
+        </ng-template>
     `
 })
 export class MenuWindowComponent implements OnInit {
     @ViewChild('button') public button: ButtonComponent;
+    @ViewChild('windowTitleBar') public titleBar: TemplateRef<any>;
     public a11yIcon: SVGIcon = accessibilityIcon;
     public show = false;
-    public left: number;
-    public top: number;
+    private windowRef: WindowRef | null = null;
 
-    constructor() { }
+    constructor(private windowService: WindowService) { }
 
     ngOnInit() { }
 
     public toggle(): void {
-        if (!this.show) {
+        if (!this.windowRef) {
             const {bottom, left, width} = this.button.element.getBoundingClientRect();
-            this.top = bottom;
-            this.left = left - 400 + width;
-        }
 
-        this.show = !this.show;
+            this.windowRef = this.windowService.open({
+                width: 400,
+                top: bottom,
+                left: left - 400 + width,
+                content: SettingsListComponent,
+                resizable: false,
+                titleBarContent: this.titleBar
+            });
+
+            const closeSub = this.windowRef.result.subscribe(() => {
+                this.windowRef = null;
+                closeSub.unsubscribe();
+                this.button.focus();
+            });
+        } else {
+            this.windowRef.close();
+            this.windowRef = null;
+        }
     }
 }
