@@ -41,17 +41,6 @@ export class SettingsListComponent {
         return this.settingsService.letterSpacing;
     }
 
-    public defaultSettings = {
-        textSize: 16,
-        colorTheme: defaultTheme,
-        font: defaulFont,
-        underlineLinks: false,
-        pauseAnimations: false,
-        lgSizeWidgets: false,
-        lineHeight: 1.2,
-        letterSpacing: 1
-    }
-
     public disabilitiesData: any[] = groupBy([{
             type: 'Visual Impairments',
             text: 'Low Vision'
