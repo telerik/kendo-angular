@@ -51,8 +51,9 @@ import 'hammerjs';
 import '@progress/kendo-angular-intl/locales/en/all';
 import '@progress/kendo-angular-intl/locales/es/all';
 import '@progress/kendo-angular-intl/locales/fr/all';
-import { SettingsListComponent } from './components/accessibility-menu/settings-list/settings-list.component';
+import { SettingsListComponent } from './components/settings-list/settings-list.component';
 import { WindowModule } from '@progress/kendo-angular-dialog';
+import { SettingsService } from './components/settings-list/settings.service';
 
 @NgModule({
     declarations: [
@@ -100,7 +101,8 @@ import { WindowModule } from '@progress/kendo-angular-dialog';
     ],
     providers: [
         { provide: MessageService, useClass: CustomMessagesService },
-        { provide: LOCALE_ID, useValue: 'en-US' }
+        { provide: LOCALE_ID, useValue: 'en-US' },
+        SettingsService
     ],
     bootstrap: [AppComponent]
 })

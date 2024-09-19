@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { plusIcon, minusIcon, xIcon } from '@progress/kendo-svg-icons';
 
 @Component({
@@ -34,6 +34,9 @@ export class NumericTextboxButtonsComponent {
     @Input()
     public showBadge = false;
 
+    @Output()
+    public valueChange: EventEmitter<number> = new EventEmitter<number>();
+
     public plusIcon = plusIcon;
     public minusIcon = minusIcon;
     public clearIcon = xIcon;
@@ -44,6 +47,7 @@ export class NumericTextboxButtonsComponent {
             return;
         }
         this.value += this.step;
+        this.valueChange.emit(this.value);
     }
 
     public decreaseValue(): void {
@@ -52,11 +56,13 @@ export class NumericTextboxButtonsComponent {
             return;
         }
         this.value -= this.step;
+        this.valueChange.emit(this.value);
     }
 
     public clearValue(): void {
         if (this.defaultValue) {
             this.value = this.defaultValue;
+            this.valueChange.emit(this.value);
         }
     }
 }
