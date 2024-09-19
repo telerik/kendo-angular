@@ -1,8 +1,6 @@
-import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ButtonComponent } from '@progress/kendo-angular-buttons';
-import { WindowRef, WindowService } from '@progress/kendo-angular-dialog';
 import { accessibilityIcon, SVGIcon } from '@progress/kendo-svg-icons';
-import { SettingsListComponent } from '../settings-list/settings-list.component';
 
 @Component({
     selector: 'app-menu-window',
@@ -13,44 +11,41 @@ import { SettingsListComponent } from '../settings-list/settings-list.component'
             size="large" 
             themeColor="inverse"
             (click)="toggle()"></kendo-button>
-        <ng-template #windowTitleBar let-win>
-            <span class="k-window-title">Accessibility Settings</span>
-            <button kendoWindowCloseAction [window]="win"></button>
-        </ng-template>
+        <kendo-window *ngIf="show"
+            [top]="top"
+            [left]="left"
+            [width]="400"
+            (close)="show = false;"
+            [resizable]="false"
+            class="!k-rounded-lg">
+            <kendo-window-titlebar class="!k-rounded-tl-lg !k-rounded-tr-lg" [style.backgroundColor]="'var(--kendo-color-inverse)'" [style.color]="'var(--kendo-color-on-inverse)'">
+                <span class="k-window-title">Accessibility Settings</span>
+                <button kendoWindowCloseAction></button>
+            </kendo-window-titlebar>
+            <app-settings-list-component>
+            </app-settings-list-component>
+        </kendo-window>
     `
 })
 export class MenuWindowComponent implements OnInit {
     @ViewChild('button') public button: ButtonComponent;
-    @ViewChild('windowTitleBar') public titleBar: TemplateRef<any>;
     public a11yIcon: SVGIcon = accessibilityIcon;
     public show = false;
-    private windowRef: WindowRef | null = null;
+    public left: number;
+    public top: number;
 
-    constructor(private windowService: WindowService) { }
+    constructor() { }
 
     ngOnInit() { }
 
     public toggle(): void {
-        if (!this.windowRef) {
-            const {bottom, left, width} = document.querySelector('.k-appbar')!.getBoundingClientRect();
-
-            this.windowRef = this.windowService.open({
-                width: 400,
-                top: bottom,
-                left: left - 400 + width,
-                content: SettingsListComponent,
-                resizable: false,
-                titleBarContent: this.titleBar
-            });
-
-            const closeSub = this.windowRef.result.subscribe(() => {
-                this.windowRef = null;
-                closeSub.unsubscribe();
-                this.button.focus();
-            });
-        } else {
-            this.windowRef.close();
-            this.windowRef = null;
+        if (!this.show) {
+            const { left, width} = this.button.element.getBoundingClientRect();
+            const { bottom } = document.querySelector('.k-appbar')!.getBoundingClientRect();
+            this.top = bottom;
+            this.left = left - 400 + width;
         }
+
+        this.show = !this.show;
     }
 }

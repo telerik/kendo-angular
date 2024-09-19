@@ -128,3 +128,11 @@ kendo-recurrence-frequency-editor .k-edit-field {
 .daterange-center {
     align-self: center;
 }
+
+// Header
+.appbar-button-group.k-button-group >.k-button {
+    border-start-end-radius: 0;
+    border-end-end-radius: 0;
+    border-start-start-radius: 0;
+    border-end-start-radius: 0;
+}

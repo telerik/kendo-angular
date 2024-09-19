@@ -14,18 +14,17 @@
         </p>
     </div>
 </div>
-
-<kendo-appbar [positionMode]="'sticky'">
+<kendo-appbar [themeColor]="'inherit'">
     <kendo-appbar-section class="k-flex-basis-0 k-flex-grow k-gap-2">
-        <a href="#" className="k-d-none k-d-md-flex">
+        <a href="#" class="k-d-inline-flex">
             <img src="assets/HW-site-logo.svg" alt="Logo" />
         </a>
     </kendo-appbar-section>
     <kendo-appbar-section class="k-flex-basis-0 k-flex-grow k-justify-content-center">
-        <kendo-buttongroup selection="single">
-            <button kendoButton [toggleable]="true" fillMode="flat" themeColor="primary">Team</button>
-            <button kendoButton [toggleable]="true" fillMode="flat" themeColor="primary">Profile</button>
-            <button kendoButton [toggleable]="true" fillMode="flat" themeColor="primary">Info</button>
+        <kendo-buttongroup selection="single" class="appbar-button-group">
+            <button kendoButton [toggleable]="true" fillMode="link" themeColor="primary" [size]="'large'" class="!k-px-6">Team</button>
+            <button kendoButton [toggleable]="true" fillMode="link" themeColor="primary" [size]="'large'" class="!k-px-6">Profile</button>
+            <button kendoButton [toggleable]="true" fillMode="link" themeColor="primary" [size]="'large'" class="!k-px-6">Info</button>
           </kendo-buttongroup>
     </kendo-appbar-section>
     <kendo-appbar-section class="k-flex-basis-0 k-flex-grow k-justify-content-end">
