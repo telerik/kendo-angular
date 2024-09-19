@@ -34,6 +34,7 @@ import { NotificationModule } from '@progress/kendo-angular-notification';
 import { IconsModule } from "@progress/kendo-angular-icons";
 import { MessageService } from '@progress/kendo-angular-l10n';
 import { IndicatorsModule } from '@progress/kendo-angular-indicators';
+import { NavigationModule } from "@progress/kendo-angular-navigation";
 
 import { MenuWindowComponent } from './components/menu-window/menu-window.component';
 
@@ -94,7 +95,8 @@ import { WindowModule } from '@progress/kendo-angular-dialog';
         NotificationModule,
         IconsModule,
         WindowModule,
-        IndicatorsModule
+        IndicatorsModule,
+        NavigationModule
     ],
     providers: [
         { provide: MessageService, useClass: CustomMessagesService },
