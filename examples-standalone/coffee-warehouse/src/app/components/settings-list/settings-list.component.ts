@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { SettingsService } from './settings.service';
+import { groupBy } from '@progress/kendo-data-query';
 
 const defaulFont = 'defaultFont';
 const defaultTheme = 'defaultTheme';
@@ -43,6 +44,46 @@ export class SettingsListComponent {
             letterSpacing: this.letterSpacing
         };
     }
+
+    public defaultSettings = {
+        textSize: 16,
+        colorTheme: defaultTheme,
+        font: defaulFont,
+        underlineLinks: false,
+        pauseAnimations: false,
+        lgSizeWidgets: false,
+        lineHeight: 1.2,
+        letterSpacing: 1
+    }
+
+    public disabilitiesData: any[] = groupBy([{
+            type: 'Visual Impairments',
+            text: 'Low Vision'
+        }, {
+            type: 'Visual Impairments',
+            text: 'Color Blindness'
+        }, {
+            type: 'Visual Impairments',
+            text: 'Blindness'
+        }, {
+            type: 'Hearing Impairments',
+            text: 'Deafness'
+        }, {
+            type: 'Hearing Impairments',
+            text: 'Hard of Hearing'
+        }, {
+            type: 'Motor Impairments',
+            text: 'Limited Mobility'
+        }, {
+            type: 'Motor Impairments',
+            text: 'Tremors'
+        }, {
+            type: 'Cognitive Disabilities',
+            text: 'Dyslexia'
+        }, {
+            type: 'Cognitive Disabilities',
+            text: 'ADHD'
+        }], [{field: 'type'}]);
 
     constructor(private settingsService: SettingsService) { }
 

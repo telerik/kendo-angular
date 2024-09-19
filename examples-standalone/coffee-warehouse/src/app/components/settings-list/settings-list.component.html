@@ -1,46 +1,54 @@
+<kendo-combobox
+    [data]="disabilitiesData"
+    textField="text"
+    valueField="text"></kendo-combobox>
+
 <kendo-expansionpanel title="Accessibility settings" [(expanded)]="settingsExpanded">
     <form class="k-form k-form-md">
-        <kendo-formfield>
-            <kendo-label text="Text size:"></kendo-label>
-            <kendo-numeric-textbox-buttons (valueChange)="settingChange('textSize', $event)" [(value)]="textSize"></kendo-numeric-textbox-buttons>
-        </kendo-formfield>
-        <kendo-formfield>
-            <kendo-label text="Color theme:"></kendo-label>
-            <kendo-buttongroup selection="single">
-                <kendo-button size="large" (click)="settingChange('colorTheme', 'contrast')" [selected]="colorTheme === 'contrast'">Contrast</kendo-button>
-                <kendo-button size="large" (click)="settingChange('colorTheme', 'dark')" [selected]="colorTheme === 'dark'">Dark</kendo-button>
-            </kendo-buttongroup>
-        </kendo-formfield>
+        <fieldset>
+            <legend>Accessibility Settings</legend>
+            <kendo-formfield>
+                <kendo-label text="Text size:"></kendo-label>
+                <kendo-numeric-textbox-buttons (valueChange)="settingChange('textSize', $event)" [(value)]="textSize"></kendo-numeric-textbox-buttons>
+            </kendo-formfield>
+            <kendo-formfield>
+                <kendo-label text="Color theme:"></kendo-label>
+                <kendo-buttongroup selection="single">
+                    <kendo-button size="large" (click)="settingChange('colorTheme', 'contrast')" [selected]="colorTheme === 'contrast'">Contrast</kendo-button>
+                    <kendo-button size="large" (click)="settingChange('colorTheme', 'dark')" [selected]="colorTheme === 'dark'">Dark</kendo-button>
+                </kendo-buttongroup>
+            </kendo-formfield>
 
-        <kendo-formfield>
-            <kendo-label text="Font:"></kendo-label>
-            <kendo-buttongroup selection="single">
-                <kendo-button size="large" (click)="settingChange('font', 'legible')" [selected]="font === 'legible'">Legible Font</kendo-button>
-                <kendo-button size="large" (click)="settingChange('font', 'dyslexia')" [selected]="font === 'dyslexia'">Dyslexia Font</kendo-button>
-            </kendo-buttongroup>
-        </kendo-formfield>
+            <kendo-formfield>
+                <kendo-label text="Font:"></kendo-label>
+                <kendo-buttongroup selection="single">
+                    <kendo-button size="large" (click)="settingChange('font', 'legible')" [selected]="font === 'legible'">Legible Font</kendo-button>
+                    <kendo-button size="large" (click)="settingChange('font', 'dyslexia')" [selected]="font === 'dyslexia'">Dyslexia Font</kendo-button>
+                </kendo-buttongroup>
+            </kendo-formfield>
 
-        <kendo-formfield>
-            <kendo-label text="Common:"></kendo-label>
-            <kendo-button size="large" [toggleable]="true" (click)="settingChange('underlineLinks', !underlineLinks)">Underiline Links</kendo-button>
-        </kendo-formfield>
+            <kendo-formfield>
+                <kendo-label text="Common:"></kendo-label>
+                <kendo-button size="large" [toggleable]="true" (click)="settingChange('underlineLinks', !underlineLinks)">Underiline Links</kendo-button>
+            </kendo-formfield>
 
-        <kendo-formfield>
-            <kendo-button size="large" [toggleable]="true" (click)="settingChange('pauseAnimations', !pauseAnimations)">Pause Animation</kendo-button>
-        </kendo-formfield>
+            <kendo-formfield>
+                <kendo-button size="large" [toggleable]="true" (click)="settingChange('pauseAnimations', !pauseAnimations)">Pause Animation</kendo-button>
+            </kendo-formfield>
 
-        <kendo-formfield>
-            <kendo-button size="large" [toggleable]="true" (click)="settingChange('lgSizeWidgets', !lgSizeWidgets)">Large Size Widgets</kendo-button>
-        </kendo-formfield>
+            <kendo-formfield>
+                <kendo-button size="large" [toggleable]="true" (click)="settingChange('lgSizeWidgets', !lgSizeWidgets)">Large Size Widgets</kendo-button>
+            </kendo-formfield>
 
-        <kendo-formfield>
-            <kendo-label text="Line Height:"></kendo-label>
-            <kendo-numeric-textbox-buttons (valueChange)="settingChange('lineHeight', $event)" [(value)]="lineHeight"></kendo-numeric-textbox-buttons>
-        </kendo-formfield>
+            <kendo-formfield>
+                <kendo-label text="Line Height:"></kendo-label>
+                <kendo-numeric-textbox-buttons (valueChange)="settingChange('lineHeight', $event)" [(value)]="lineHeight"></kendo-numeric-textbox-buttons>
+            </kendo-formfield>
 
-        <kendo-formfield>
-            <kendo-label text="Letter Spacing:"></kendo-label>
-            <kendo-numeric-textbox-buttons (valueChange)="settingChange('letterSpacing', $event)" [(value)]="letterSpacing"></kendo-numeric-textbox-buttons>
-        </kendo-formfield>
+            <kendo-formfield>
+                <kendo-label text="Letter Spacing:"></kendo-label>
+                <kendo-numeric-textbox-buttons (valueChange)="settingChange('letterSpacing', $event)" [(value)]="letterSpacing"></kendo-numeric-textbox-buttons>
+            </kendo-formfield>
+        </fieldset>
     </form>
 </kendo-expansionpanel>

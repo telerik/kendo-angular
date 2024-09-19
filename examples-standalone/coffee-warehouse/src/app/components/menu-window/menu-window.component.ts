@@ -32,7 +32,7 @@ export class MenuWindowComponent implements OnInit {
 
     public toggle(): void {
         if (!this.windowRef) {
-            const {bottom, left, width} = this.button.element.getBoundingClientRect();
+            const {bottom, left, width} = document.querySelector('.k-appbar')!.getBoundingClientRect();
 
             this.windowRef = this.windowService.open({
                 width: 400,
