@@ -1,33 +1,42 @@
 <button
     kendoButton
+    size="large"
+    rounded="large"
     [svgIcon]="minusIcon"
     class="numericDecrease"
     (click)="decreaseValue()"
     [disabled]="value === min"
 ></button>
 
-<kendo-numerictextbox
-    [format]="format"
-    [min]="$any(min)"
-    [max]="$any(max)"
-    [(value)]="value"
-    [spinners]="false"
-    [style.width.px]="120"
-    [autoCorrect]="true"
-    [decimals]="decimals"
->
-    <ng-template kendoSuffixTemplate *ngIf="clearButton">
-        <button
-            kendoButton
-            [svgIcon]="clearIcon"
-            (click)="clearValue()"
-            fillMode="flat"
-        ></button>
-    </ng-template>
-</kendo-numerictextbox>
+<kendo-badge-container>
+    <kendo-numerictextbox
+        size="large"
+        rounded="large"
+        [format]="format"
+        [min]="$any(min)"
+        [max]="$any(max)"
+        [(value)]="value"
+        [spinners]="false"
+        [style.width.px]="120"
+        [autoCorrect]="true"
+        [decimals]="decimals"
+    >
+        <ng-template kendoSuffixTemplate *ngIf="clearButton">
+            <button
+                kendoButton
+                [svgIcon]="clearIcon"
+                (click)="clearValue()"
+                fillMode="flat"
+            ></button>
+        </ng-template>
+    </kendo-numerictextbox>
+    <kendo-info-badge *ngIf="showBadge"></kendo-info-badge>
+</kendo-badge-container>
 
 <button
     kendoButton
+    rounded="large"
+    size="large"
     [svgIcon]="plusIcon"
     class="numericIncrease"
     (click)="increaseValue()"

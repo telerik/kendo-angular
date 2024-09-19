@@ -16,6 +16,7 @@ import { HeaderComponent } from './header/header.component';
 import { TeamComponent } from './components/team/team.component';
 import { CustomMessagesService } from './services/custom-messages.service';
 import { NumericTextboxButtonsComponent } from './components/numeric-textbox-buttons/numeric-textbox-buttons.component';
+import { InfoBadgeComponent } from './components/info-badge/info-badge.component';
 
 import { ExcelModule, GridModule, PDFModule } from '@progress/kendo-angular-grid';
 import { LabelModule } from '@progress/kendo-angular-label';
@@ -32,6 +33,7 @@ import { DropDownsModule } from '@progress/kendo-angular-dropdowns';
 import { NotificationModule } from '@progress/kendo-angular-notification';
 import { IconsModule } from "@progress/kendo-angular-icons";
 import { MessageService } from '@progress/kendo-angular-l10n';
+import { IndicatorsModule } from '@progress/kendo-angular-indicators';
 
 import { MenuWindowComponent } from './components/menu-window/menu-window.component';
 
@@ -65,7 +67,8 @@ import { WindowModule } from '@progress/kendo-angular-dialog';
         NumericTextboxButtonsComponent,
         SettingsListComponent,
         MenuWindowComponent,
-        SettingsListComponent
+        SettingsListComponent,
+        InfoBadgeComponent
     ],
     imports: [
         BrowserModule,
@@ -90,7 +93,8 @@ import { WindowModule } from '@progress/kendo-angular-dialog';
         RouterModule.forRoot(drawerRoutes),
         NotificationModule,
         IconsModule,
-        WindowModule
+        WindowModule,
+        IndicatorsModule
     ],
     providers: [
         { provide: MessageService, useClass: CustomMessagesService },

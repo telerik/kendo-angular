@@ -31,6 +31,9 @@ export class NumericTextboxButtonsComponent {
     @Input()
     public clearButton = false;
 
+    @Input()
+    public showBadge = false;
+
     public plusIcon = plusIcon;
     public minusIcon = minusIcon;
     public clearIcon = xIcon;

@@ -3,13 +3,9 @@ kendo-numerictextbox {
 }
 
 .numericIncrease {
-    margin-left: 10px;
+    margin-left: 5px;
 }
 
 .numericDecrease {
-    margin-right: 10px;
-}
-
-.px-suffix {
-    padding-right: 5px;
+    margin-right: 5px;
 }
