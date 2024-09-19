@@ -136,3 +136,15 @@ kendo-recurrence-frequency-editor .k-edit-field {
     border-start-start-radius: 0;
     border-end-start-radius: 0;
 }
+
+.appbar-button-group .k-button.k-selected {
+    color: var(--kendo-color-base-on-surface);
+}
+
+.k-window {
+    --kendo-border-radius-md: var(--kendo-border-radius-lg);
+}
+
+.k-window .k-expander {
+    border-radius: var(--kendo-border-radius-lg);
+}
