@@ -43,6 +43,7 @@
     "@progress/kendo-angular-toolbar": "15.0.1",
     "@progress/kendo-angular-tooltip": "15.0.1",
     "@progress/kendo-angular-treeview": "15.0.1",
+    "@progress/kendo-angular-upload": "^15.0.1",
     "@progress/kendo-angular-utils": "15.0.1",
     "@progress/kendo-data-query": "^1.0.0",
     "@progress/kendo-drawing": "^1.19.0",
