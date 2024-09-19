@@ -7,7 +7,8 @@ import { locales } from '../resources/locales';
 
 @Component({
     selector: 'app-header-component',
-    templateUrl: './header.commponent.html'
+    templateUrl: './header.commponent.html',
+    styleUrl: './header.component.css'
 })
 export class HeaderComponent {
     @Output() public toggle = new EventEmitter();
