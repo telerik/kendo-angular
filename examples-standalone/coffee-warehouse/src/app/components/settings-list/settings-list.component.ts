@@ -2,47 +2,43 @@ import { Component } from '@angular/core';
 import { SettingsService } from './settings.service';
 import { groupBy } from '@progress/kendo-data-query';
 
-const defaulFont = 'defaultFont';
-const defaultTheme = 'defaultTheme';
-
-const defaultSettings = {
-    textSize: 16,
-    colorTheme: defaultTheme,
-    font: defaulFont,
-    underlineLinks: false,
-    pauseAnimations: false,
-    lgSizeWidgets: false,
-    lineHeight: 1.2,
-    letterSpacing: 1
-};
-
 @Component({
     selector: 'app-settings-list-component',
     templateUrl: './settings-list.component.html'
 })
 export class SettingsListComponent {
-    public textSize: number = 16;
-    public colorTheme = defaultTheme;
-    public font = defaulFont;
-    public underlineLinks: boolean = false;
-    public pauseAnimations: boolean = false;
-    public lgSizeWidgets: boolean = false;
-    public lineHeight: number = 1.2;
-    public letterSpacing: number = 1;
-
     public settingsExpanded = true;
 
-    public get accessibilitySettings(): any {
-        return {
-            textSize: this.textSize,
-            colorTheme: this.colorTheme,
-            font: this.font,
-            underlineLinks: this.underlineLinks,
-            pauseAnimations: this.pauseAnimations,
-            lgSizeWidgets: this.lgSizeWidgets,
-            lineHeight: this.lineHeight,
-            letterSpacing: this.letterSpacing
-        };
+    public get textSize(): number {
+        return this.settingsService.textSize;
+    }
+
+    public get colorTheme(): string {
+        return this.settingsService.colorTheme;
+    }
+
+    public get font(): string {
+        return this.settingsService.font;
+    }
+
+    public get underlineLinks(): boolean {
+        return this.settingsService.underlineLinks;
+    }
+
+    public get pauseAnimations(): boolean {
+        return this.settingsService.pauseAnimations;
+    }
+
+    public get lgSizeWidgets(): boolean {
+        return this.settingsService.lgSizeWidgets;
+    }
+
+    public get lineHeight(): number {
+        return this.settingsService.lineHeight;
+    }
+
+    public get letterSpacing(): number {
+        return this.settingsService.letterSpacing;
     }
 
     public defaultSettings = {
@@ -88,12 +84,6 @@ export class SettingsListComponent {
     constructor(private settingsService: SettingsService) { }
 
     public settingChange(setting: string, value: any): void {
-        const currentValue = this[setting];
-
-        if (currentValue === value) {
-            this[setting] = defaultSettings[setting];
-        } else {
-            this[setting] = value;
-        }
+        this.settingsService.notifySettingChange(setting, value);
     }
 }
