@@ -16,6 +16,14 @@
     [autoCorrect]="true"
     [decimals]="decimals"
 >
+    <ng-template kendoSuffixTemplate *ngIf="clearButton">
+        <button
+            kendoButton
+            [svgIcon]="clearIcon"
+            (click)="clearValue()"
+            fillMode="flat"
+        ></button>
+    </ng-template>
 </kendo-numerictextbox>
 
 <button

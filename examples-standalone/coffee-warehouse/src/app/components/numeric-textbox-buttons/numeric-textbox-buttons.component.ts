@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { plusIcon, minusIcon } from '@progress/kendo-svg-icons';
+import { plusIcon, minusIcon, xIcon } from '@progress/kendo-svg-icons';
 
 @Component({
   selector: 'kendo-numeric-textbox-buttons',
@@ -11,10 +11,13 @@ export class NumericTextboxButtonsComponent {
     public value = 12;
 
     @Input()
-    public min: number | undefined;
+    public defaultValue?: number;
 
     @Input()
-    public max: number | undefined;
+    public min?: number;
+
+    @Input()
+    public max?: number;
 
     @Input()
     public step = 1;
@@ -25,8 +28,12 @@ export class NumericTextboxButtonsComponent {
     @Input()
     public format = '#';
 
+    @Input()
+    public clearButton = false;
+
     public plusIcon = plusIcon;
     public minusIcon = minusIcon;
+    public clearIcon = xIcon;
 
     public increaseValue(): void {
         if (this.max && this.value + this.step >= this.max) {
@@ -42,5 +49,11 @@ export class NumericTextboxButtonsComponent {
             return;
         }
         this.value -= this.step;
+    }
+
+    public clearValue(): void {
+        if (this.defaultValue) {
+            this.value = this.defaultValue;
+        }
     }
 }
