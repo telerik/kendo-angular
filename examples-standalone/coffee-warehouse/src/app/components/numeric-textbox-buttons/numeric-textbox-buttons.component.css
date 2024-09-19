@@ -1,0 +1,15 @@
+kendo-numerictextbox {
+    width: 170px;
+}
+
+.numericIncrease {
+    margin-left: 10px;
+}
+
+.numericDecrease {
+    margin-right: 10px;
+}
+
+.px-suffix {
+    padding-right: 5px;
+}

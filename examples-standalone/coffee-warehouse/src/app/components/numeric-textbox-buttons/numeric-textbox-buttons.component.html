@@ -1,0 +1,26 @@
+<button
+    kendoButton
+    [svgIcon]="minusIcon"
+    class="numericDecrease"
+    (click)="decreaseValue()"
+    [disabled]="value === min"
+></button>
+
+<kendo-numerictextbox
+    [format]="format"
+    [min]="$any(min)"
+    [max]="$any(max)"
+    [(value)]="value"
+    [spinners]="false"
+    [style.width.px]="120"
+    [autoCorrect]="true"
+    [decimals]="decimals"
+>
+</kendo-numerictextbox>
+
+<button
+    kendoButton
+    [svgIcon]="plusIcon"
+    class="numericIncrease"
+    (click)="increaseValue()"
+></button>

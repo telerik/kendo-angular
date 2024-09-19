@@ -15,6 +15,7 @@ import { InfoComponent } from './components/info/info.component';
 import { HeaderComponent } from './header/header.component';
 import { TeamComponent } from './components/team/team.component';
 import { CustomMessagesService } from './services/custom-messages.service';
+import { NumericTextboxButtonsComponent } from './components/numeric-textbox-buttons/numeric-textbox-buttons.component';
 
 import { ExcelModule, GridModule, PDFModule } from '@progress/kendo-angular-grid';
 import { LabelModule } from '@progress/kendo-angular-label';
@@ -56,7 +57,8 @@ import '@progress/kendo-angular-intl/locales/fr/all';
         ProfileComponent,
         HeaderComponent,
         InfoComponent,
-        TeamComponent
+        TeamComponent,
+        NumericTextboxButtonsComponent
     ],
     imports: [
         BrowserModule,
