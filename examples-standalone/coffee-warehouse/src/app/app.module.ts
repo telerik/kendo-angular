@@ -46,6 +46,7 @@ import 'hammerjs';
 import '@progress/kendo-angular-intl/locales/en/all';
 import '@progress/kendo-angular-intl/locales/es/all';
 import '@progress/kendo-angular-intl/locales/fr/all';
+import { SettingsListComponent } from './components/accessibility-menu/settings-list/settings-list.component';
 
 @NgModule({
     declarations: [
@@ -58,7 +59,8 @@ import '@progress/kendo-angular-intl/locales/fr/all';
         HeaderComponent,
         InfoComponent,
         TeamComponent,
-        NumericTextboxButtonsComponent
+        NumericTextboxButtonsComponent,
+        SettingsListComponent
     ],
     imports: [
         BrowserModule,

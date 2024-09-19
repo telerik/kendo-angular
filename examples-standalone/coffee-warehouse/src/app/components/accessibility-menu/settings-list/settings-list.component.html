@@ -1,0 +1,30 @@
+<form class="k-form k-form-md">
+    <fieldset>
+        <legend>Accessibility Settings</legend>
+
+        <kendo-label text="Text size:"></kendo-label>
+        <kendo-numerictextbox></kendo-numerictextbox>
+
+        <kendo-label text="Color theme:"></kendo-label>
+        <kendo-buttongroup>
+            <kendo-button [toggleable]="true">Contrast</kendo-button>
+            <kendo-button [toggleable]="true">Dark</kendo-button>
+        </kendo-buttongroup>
+
+        <kendo-label text="Font:"></kendo-label>
+        <kendo-buttongroup>
+            <kendo-button [toggleable]="true" (click)="changeFont('legible')">Legible Font</kendo-button>
+            <kendo-button [toggleable]="true" (click)="changeFont('dyslexia')">Dyslexia Font</kendo-button>
+        </kendo-buttongroup>
+
+        <kendo-button [toggleable]="true">Underiline Links</kendo-button>
+        <kendo-button [toggleable]="true">Pause Animation</kendo-button>
+        <kendo-button [toggleable]="true">Large Size Widgets</kendo-button>
+
+        <kendo-label text="Line Height:"></kendo-label>
+        <kendo-numerictextbox></kendo-numerictextbox>
+
+        <kendo-label text="Letter Spacing:"></kendo-label>
+        <kendo-numerictextbox></kendo-numerictextbox>
+    </fieldset>
+</form>
