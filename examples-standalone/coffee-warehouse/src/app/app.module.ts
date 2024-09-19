@@ -64,7 +64,8 @@ import { WindowModule } from '@progress/kendo-angular-dialog';
         TeamComponent,
         NumericTextboxButtonsComponent,
         SettingsListComponent,
-        MenuWindowComponent
+        MenuWindowComponent,
+        SettingsListComponent
     ],
     imports: [
         BrowserModule,

@@ -15,8 +15,14 @@ import { accessibilityIcon, SVGIcon } from '@progress/kendo-svg-icons';
             [top]="top"
             [left]="left"
             [width]="400"
-            (close)="show = false;">
-            Window content
+            (close)="show = false;"
+            [resizable]="false">
+            <kendo-window-titlebar>
+                <span class="k-window-title">Accessibility Settings</span>
+                <button kendoWindowCloseAction></button>
+            </kendo-window-titlebar>
+            <app-settings-list-component>
+            </app-settings-list-component>
         </kendo-window>
     `
 })
