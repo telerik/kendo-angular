@@ -22,13 +22,15 @@
     </kendo-appbar-section>
     <kendo-appbar-section class="k-flex-basis-0 k-flex-grow k-justify-content-center">
         <kendo-buttongroup selection="single" class="appbar-button-group">
-            <button kendoButton [toggleable]="true" fillMode="link" themeColor="primary" [size]="'large'" class="!k-px-6">Team</button>
-            <button kendoButton [toggleable]="true" fillMode="link" themeColor="primary" [size]="'large'" class="!k-px-6">Profile</button>
-            <button kendoButton [toggleable]="true" fillMode="link" themeColor="primary" [size]="'large'" class="!k-px-6">Info</button>
-          </kendo-buttongroup>
+            <button kendoButton [toggleable]="true" fillMode="link" themeColor="primary" [size]="'large'" class="!k-px-6" [routerLink]="['/']">Team</button>
+            <button kendoButton [toggleable]="true" fillMode="link" themeColor="primary" [size]="'large'" class="!k-px-6" [routerLink]="['/profile']">Profile</button>
+            <button kendoButton [toggleable]="true" fillMode="link" themeColor="primary" [size]="'large'" class="!k-px-6" [routerLink]="['/info']">Info</button>
+        </kendo-buttongroup>
     </kendo-appbar-section>
     <kendo-appbar-section class="k-flex-basis-0 k-flex-grow k-justify-content-end">
         <app-menu-window></app-menu-window>
     </kendo-appbar-section>
 </kendo-appbar>
 <div kendoWindowContainer></div>
+
+<router-outlet></router-outlet>

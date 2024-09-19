@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { NgModule, LOCALE_ID } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
@@ -38,12 +38,13 @@ import { NavigationModule } from "@progress/kendo-angular-navigation";
 
 import { MenuWindowComponent } from './components/menu-window/menu-window.component';
 
-const drawerRoutes = [
+const routes: Routes = [
     { path: '', component: TeamComponent },
     { path: 'dashboard', component: DashboardComponent },
     { path: 'planning', component: PlanningComponent },
     { path: 'profile', component: ProfileComponent },
-    { path: 'info', component: InfoComponent }
+    { path: 'info', component: InfoComponent },
+    { path: '**', redirectTo: 'profile', pathMatch: 'full' }
 ];
 
 import 'hammerjs';
@@ -92,7 +93,7 @@ import { SettingsService } from './components/settings-list/settings.service';
         DateInputsModule,
         InputsModule,
         DropDownsModule,
-        RouterModule.forRoot(drawerRoutes),
+        RouterModule.forRoot(routes),
         NotificationModule,
         IconsModule,
         WindowModule,
