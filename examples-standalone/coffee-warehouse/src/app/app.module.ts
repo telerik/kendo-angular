@@ -98,7 +98,8 @@ import { SettingsService } from './settings.service';
         IconsModule,
         WindowModule,
         IndicatorsModule,
-        NavigationModule
+        NavigationModule,
+        HttpClientModule
     ],
     providers: [
         { provide: MessageService, useClass: CustomMessagesService },

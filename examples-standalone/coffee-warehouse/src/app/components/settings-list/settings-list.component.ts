@@ -3,7 +3,8 @@ import { SettingsService } from '../../settings.service';
 import { groupBy } from '@progress/kendo-data-query';
 import { SVGIcon, arrowRotateCcwIcon, fontFamilyIcon, imageResizeIcon, pauseSmIcon, underlineIcon } from '@progress/kendo-svg-icons';
 import { contrastIcon, darkModeIcon, dyslexiaFontIcon, microphoneIcon } from './svg-icons';
-import { Subscription } from 'rxjs';
+import { map, Subscription } from 'rxjs';
+import { HttpService } from '../../http.service';
 
 @Component({
     selector: 'app-settings-list-component',
@@ -55,7 +56,9 @@ export class SettingsListComponent {
     public resizeIcon: SVGIcon = imageResizeIcon;
     public dyslexiaFontIcon: SVGIcon = dyslexiaFontIcon;
 
-    constructor(private settingsService: SettingsService) { }
+    constructor(
+        private settingsService: SettingsService,
+        private httpService: HttpService) { }
 
     public getSetting(prop: string): string {
         return this.settingsService.settings[prop];
@@ -67,6 +70,17 @@ export class SettingsListComponent {
 
     public onValueChange(value: string) {
         console.log(`combo value changed, new value: `, value);
+        // get settings after API call
         // call settingChange with the respective settings for the combobox value
+
+        // sample usage
+        this.subs.add(this.httpService.get('https://jsonplaceholder.typicode.com/todos/1')
+            .subscribe(r => console.log('from API', r)));
+
+        this.subs.add(this.httpService.post('https://jsonplaceholder.typicode.com/posts', {
+            title: value,
+            body: 'body',
+            userId: 1,
+        }).subscribe(r => console.log('from API', r)));
     }
 }
