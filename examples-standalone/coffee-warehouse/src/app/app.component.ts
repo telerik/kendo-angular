@@ -18,6 +18,9 @@ export class AppComponent {
   @HostBinding('style.--kendo-line-height') 
   public lineHeight = '1.2px'
 
+  @HostBinding('style.--kendo-letter-spacing-normal') 
+  public letterSpacing = '0px'
+
   constructor(
     public msgService: MessageService,
     private settingsService: SettingsService) {
