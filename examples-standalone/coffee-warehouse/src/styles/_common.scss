@@ -14,6 +14,7 @@ body{
 
 p {
     color: var(--kendo-color-on-app-surface);
+    font-family: var(--kendo-font-family, inherit);
 }
 
 a {
@@ -406,6 +407,7 @@ a {
 
     .k-form .k-label {
         text-align: right;
+        font-family: var(--kendo-font-family, inherit);
     }
 
     .k-form-field:first-of-type .k-form-field-wrap {
@@ -462,7 +464,7 @@ a {
     h2,
     h3
     {
-        font-family: Metric, Helvetica, Arial, sans-serif;
+        font-family: var(--kendo-font-family, inherit);
         margin-top: 3rem;
     }
     .component-link {
@@ -488,6 +490,7 @@ a {
     p, a, li {
         font-size: var(--kendo-font-size, inherit);
         line-height: var(--kendo-line-height);
+        font-family: var(--kendo-font-family, inherit);
     }
 
     .content {
