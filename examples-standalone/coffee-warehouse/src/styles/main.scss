@@ -150,21 +150,37 @@ kendo-recurrence-frequency-editor .k-edit-field {
 
 // Settings window
 .settings-panel {
-    --kendo-color-border: var(--kendo-color-subtle);
+    
 }
 
 .settings-panel.k-window {
     border-width: 1px;
     border-style: solid;
     --kendo-border-radius-md: var(--kendo-border-radius-lg);
+    --kendo-color-border: var(--kendo-color-inverse);
 }
 
 .settings-panel .k-expander {
     border-radius: var(--kendo-border-radius-lg);
 }
 
-.settings-panel {
+.settings-panel .k-expander-title {
+    color: var(--kendo-color-inverse);
+}
+
+.settings-panel .k-selected {
     --kendo-color-primary: var(--kendo-color-base-on-surface);
+}
+
+.settings-panel .k-window,
+.settings-panel .k-form {
+    font-size: var(--kendo-font-size-lg);
+    line-height: var(--kendo-line-height-lg);
+}
+
+.settings-panel .k-label {
+    display: block;
+    margin-bottom: var(--kendo-spacing-1);
 }
 
 .common-wrapper {
@@ -174,10 +190,14 @@ kendo-recurrence-frequency-editor .k-edit-field {
 .buttons-wrapper {
     display: flex;
     flex-direction: column;
-    gap: var(--kendo-spacing-1);
-    width: 70%;
+    gap: var(--kendo-spacing-2);
+    width: 220px;
 }
 
 .reset-button {
     --kendo-color-primary: #1274AC;
+}
+
+.settings-panel .k-input-solid:hover {
+    border-color: var(--kendo-color-inverse-hover);
 }

@@ -4,7 +4,9 @@
     [valuePrimitive]="true"
     (valueChange)="onValueChange($event)"
     textField="text"
-    valueField="text" class="k-mb-4 !k-w-full" placeholder="Write or select type of disability">
+    valueField="text" class="k-mb-4 !k-w-full"
+    [size]="'large'"
+    placeholder="Write or select type of disability">
     <ng-template kendoSuffixTemplate>
         <button kendoButton fillMode="flat" [svgIcon]="microphoneIcon"></button>
     </ng-template>
@@ -52,7 +54,7 @@
         </kendo-formfield>
 
         <kendo-formfield>
-            <button kendoButton themeColor="primary" size="large" [svgIcon]="resetIcon">Reset All Settings</button>
+            <button kendoButton themeColor="primary" size="large" [svgIcon]="resetIcon" class="k-w-full">Reset All Settings</button>
         </kendo-formfield>
     </form>
 </kendo-expansionpanel>
