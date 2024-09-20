@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Inject, Input, LOCALE_ID, Output, QueryList, ViewChildren } from '@angular/core';
+import { Component, EventEmitter, HostBinding, Inject, Input, LOCALE_ID, Output, QueryList, ViewChildren } from '@angular/core';
 import { CldrIntlService, IntlService } from '@progress/kendo-angular-intl';
 import { MessageService } from '@progress/kendo-angular-l10n';
 import { CustomMessagesService } from '../services/custom-messages.service';
@@ -6,6 +6,7 @@ import { SVGIcon, menuIcon, paletteIcon } from '@progress/kendo-svg-icons';
 import { locales } from '../resources/locales';
 import { NavigationStart, Router } from '@angular/router';
 import { ButtonDirective } from '@progress/kendo-angular-buttons';
+import { SettingsService } from '../settings.service';
 
 @Component({
     selector: 'app-header-component',
@@ -22,6 +23,7 @@ export class HeaderComponent {
     public menuIcon: SVGIcon = menuIcon;
     public paletteIcon: SVGIcon = paletteIcon;
     public customMsgService: CustomMessagesService;
+    public pauseAnimation = false;
 
     public selectedLanguage = { locale: 'English', localeId: 'en-US' };
     public locales = locales;
@@ -42,12 +44,22 @@ export class HeaderComponent {
     ];
     public selectedTheme = this.themes[0];
 
-    constructor(public messages: MessageService, @Inject(LOCALE_ID) public localeId: string, public intlService: IntlService, private router: Router) {
+    constructor(
+        public messages: MessageService,
+        @Inject(LOCALE_ID) public localeId: string,
+        public intlService: IntlService,
+        private router: Router,
+        private settingsService: SettingsService
+    ) {
         this.localeId = this.selectedLanguage.localeId;
         this.setLocale(this.localeId);
 
         this.customMsgService = this.messages as CustomMessagesService;
         this.customMsgService.language = this.selectedLanguage.localeId;
+
+        this.settingsService.changes.subscribe(settings => {
+            this.pauseAnimation = settings.pauseAnimations;
+        });
     }
 
     ngAfterViewInit() {

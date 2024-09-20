@@ -7,7 +7,12 @@
 app-root {
     --kendo-font-family: 'Roboto', sans-serif;
     letter-spacing: var( --kendo-letter-spacing-normal);
+    a {
+        text-decoration: var(--text-decoration)
+    }
 }
+
+
 
 //Grid
 .customer-photo {

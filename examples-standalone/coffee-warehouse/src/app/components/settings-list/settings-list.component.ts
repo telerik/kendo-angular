@@ -68,6 +68,10 @@ export class SettingsListComponent {
         this.settingsService.notifySettingChange(changes);
     }
 
+    public resetSettings(): void {
+        this.settingsService.resetSettings();
+    }
+
     public onValueChange(value: string) {
         console.log(`combo value changed, new value: `, value);
         // get settings after API call

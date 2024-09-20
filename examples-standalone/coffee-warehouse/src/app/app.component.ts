@@ -6,7 +6,7 @@ import { isPresent } from "@progress/kendo-angular-common";
 
 @Component({
   selector: "app-root",
-  templateUrl: "./app.component.html",
+  templateUrl: "./app.component.html"
 })
 export class AppComponent implements AfterViewInit {
   public selected = "Team";
@@ -23,6 +23,12 @@ export class AppComponent implements AfterViewInit {
   @HostBinding('style.--kendo-letter-spacing-normal') 
   public letterSpacing = '0px';
 
+  @HostBinding('style.--kendo-font-family') 
+  public fontFamily = `'Roboto', sans-serif`;
+
+  @HostBinding('style.--text-decoration') 
+  public textDecoration = 'none';
+
   private themeLinkElement: HTMLLinkElement;
 
   public ngAfterViewInit(): void {
@@ -36,11 +42,26 @@ export class AppComponent implements AfterViewInit {
     this.settingsService.changes.subscribe(settings => {
       console.log(settings);
       for (let setting in settings) {
-        if (setting === 'fontSize' || setting === 'lineHeight' || setting === 'letterSpacing') {
-          this[setting] = `${settings[setting]}px`;
-        } else if (setting === 'colorTheme' && isPresent(this.themeLinkElement)) {
-          const newThemeLink = this.getThemeLink(settings[setting]);
-          this.themeLinkElement.href = newThemeLink;
+        switch (setting) {
+          case 'fontSize':
+          case 'letterSpacing':
+            this[setting] = `${settings[setting]}px`;
+            break;
+          case 'lineHeight':
+            this[setting] = `${settings[setting]}em`;
+            break;
+          case 'colorTheme':
+            if (isPresent(this.themeLinkElement)) {
+              const newThemeLink = this.getThemeLink(settings[setting]);
+              this.themeLinkElement.href = newThemeLink;
+            }
+            break;
+          case 'fontFamily':
+            this.fontFamily = this.getFontFamily(settings[setting]);
+            break;
+          case 'underlineLinks':
+            this.textDecoration = settings[setting] ? 'underline' : 'none';
+            break;
         }
       }
     });
@@ -51,10 +72,20 @@ export class AppComponent implements AfterViewInit {
       case 'contrast':
         return 'https://kendo.cdn.telerik.com/themes/8.2.1/default/default-ocean-blue.css';
       case 'dark':
-        return 'https://kendo.cdn.telerik.com/themes/8.2.1/bootstrap/bootstrap-main-dark.css';
+        return 'https://kendo.cdn.telerik.com/themes/8.2.1/material/material-main-dark.css';
       default:
         return 'https://kendo.cdn.telerik.com/themes/8.2.1/default/default-turquoise.css';
     }
+  }
 
+  private getFontFamily(fontKey: string): string {
+    switch(fontKey) {
+      case 'legible':
+        return `'Verdana', sans-serif`;
+      case 'dyslexia':
+        return `OpenDyslexic`;
+      default:
+        return `''Roboto', sans-serif'`;
+    }
   }
 }
