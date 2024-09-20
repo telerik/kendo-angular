@@ -147,10 +147,14 @@ kendo-recurrence-frequency-editor .k-edit-field {
     color: var(--kendo-color-base-on-surface);
 }
 
+// Settings window
+.settings-panel {
+    --kendo-color-border: var(--kendo-color-subtle);
+}
+
 .settings-panel.k-window {
     border-width: 1px;
     border-style: solid;
-    border-color: var(--kendo-color-base-on-surface);
     --kendo-border-radius-md: var(--kendo-border-radius-lg);
 }
 
@@ -159,5 +163,20 @@ kendo-recurrence-frequency-editor .k-edit-field {
 }
 
 .settings-panel {
-    --kendo-color-border: var(--kendo-color-subtle);
+    --kendo-color-primary: var(--kendo-color-base-on-surface);
+}
+
+.common-wrapper {
+    margin-top: var(--kendo-spacing-3\.5);
+}
+
+.buttons-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: var(--kendo-spacing-1);
+    width: 70%;
+}
+
+.reset-button {
+    --kendo-color-primary: #1274AC;
 }
