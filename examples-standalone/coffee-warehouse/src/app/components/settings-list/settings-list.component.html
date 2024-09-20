@@ -45,7 +45,7 @@
 
         <kendo-formfield>
             <kendo-label text="Line Height:"></kendo-label>
-            <kendo-numeric-textbox-buttons (valueChange)="settingChange({'lineHeight': $event})" [value]="getSetting('lineHeight')"></kendo-numeric-textbox-buttons>
+            <kendo-numeric-textbox-buttons [min]="1" (valueChange)="settingChange({'lineHeight': $event})" [value]="getSetting('lineHeight')"></kendo-numeric-textbox-buttons>
         </kendo-formfield>
 
         <kendo-formfield>

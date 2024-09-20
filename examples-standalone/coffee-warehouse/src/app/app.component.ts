@@ -18,7 +18,7 @@ export class AppComponent implements AfterViewInit {
   public fontSize = '16px';
 
   @HostBinding('style.--kendo-line-height') 
-  public lineHeight = '1.2px';
+  public lineHeight = '1.2em';
 
   @HostBinding('style.--kendo-letter-spacing-normal') 
   public letterSpacing = '0px';
