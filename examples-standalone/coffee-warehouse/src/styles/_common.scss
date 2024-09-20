@@ -5,11 +5,16 @@ h2,
 h3 {
     margin: 0;
     padding: 0;
+    color: var(--kendo-color-on-app-surface);
 }
 
 body{
-    background-color: var(--kendo-color-surface-alt)
+    background-color: var(--kendo-color-surface-alt);
 };
+
+p {
+    color: var(--kendo-color-on-app-surface);
+}
 
 a {
     text-decoration: none;
