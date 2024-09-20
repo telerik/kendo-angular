@@ -25,7 +25,7 @@
             <kendo-label text="Font:"></kendo-label>
             <kendo-buttongroup selection="single">
                 <button kendoButton size="large" [svgIcon]="fontIcon" (click)="settingChange('font', 'legible')" [selected]="font === 'legible'">Legible Font</button>
-                <button kendoButton size="large" (click)="settingChange('font', 'dyslexia')" [selected]="font === 'dyslexia'">Dyslexia Font</button>
+                <button kendoButton size="large" [svgIcon]="dyslexiaFontIcon" (click)="settingChange('font', 'dyslexia')" [selected]="font === 'dyslexia'">Dyslexia Font</button>
             </kendo-buttongroup>
         </kendo-formfield>
 
