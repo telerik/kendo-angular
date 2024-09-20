@@ -15,14 +15,20 @@ export class AppComponent {
   @HostBinding('style.--kendo-font-size') 
   public fontSize = '16px'
 
+  @HostBinding('style.--kendo-line-height') 
+  public lineHeight = '1.2px'
+
   constructor(
     public msgService: MessageService,
     private settingsService: SettingsService) {
     this.customMsgService = this.msgService as CustomMessagesService;
-    this.settingsService.changes.subscribe(ch => {
-      console.log(ch);
-      this.fontSize = ch.textSize + 'px';
-      
-    })
+    this.settingsService.changes.subscribe(settings => {
+      console.log(settings);
+      for (let setting in settings) {
+        if (setting === 'fontSize' || setting === 'lineHeight' || setting === 'letterSpacing') {
+          this[setting] = `${settings[setting]}px`;
+        }
+      }
+    });
   }
 }

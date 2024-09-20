@@ -9,14 +9,14 @@ const defaultTheme = 'defaultTheme';
 @Injectable()
 export class SettingsService {
     private _settings = {
-        textSize: 16,
+        fontSize: 16,
         colorTheme: defaultTheme,
         font: defaultFont,
         underlineLinks: false,
         pauseAnimations: false,
         lgSizeWidgets: false,
         lineHeight: 1.2,
-        letterSpacing: 1
+        letterSpacing: 0
     };
 
     public get settings(): any {
