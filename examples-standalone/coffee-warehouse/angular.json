@@ -39,9 +39,6 @@
             ],
             "styles": [
               "src/styles/main.scss",
-              {
-                "input": "node_modules/@progress/kendo-theme-default/dist/default-turquoise.css"
-              },
               "node_modules/@progress/kendo-theme-utils/dist/all.css"
             ],
             "scripts": [],
