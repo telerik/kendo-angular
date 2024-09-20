@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { SettingsService } from '../../settings.service';
+import { defaultFont, SettingsService } from '../../settings.service';
 import { groupBy } from '@progress/kendo-data-query';
 import { SVGIcon, arrowRotateCcwIcon, fontFamilyIcon, imageResizeIcon, pauseSmIcon, underlineIcon } from '@progress/kendo-svg-icons';
 import { contrastIcon, darkModeIcon, dyslexiaFontIcon, microphoneIcon } from './svg-icons';
@@ -15,6 +15,7 @@ import { IWindow } from '../../models/window.model';
 export class SettingsListComponent {
     public settingsExpanded = true;
     public settings: any;
+    public comboboxValue = null;
 
     public disabilitiesData: any[] = groupBy([{
             type: 'Visual Impairments',
@@ -44,7 +45,7 @@ export class SettingsListComponent {
             type: 'Cognitive Disabilities',
             text: 'ADHD'
         }], [{field: 'type'}]);
-        
+
     public recognition: any;
 
     public resetIcon: SVGIcon = arrowRotateCcwIcon;
@@ -56,6 +57,7 @@ export class SettingsListComponent {
     public pauseIcon: SVGIcon = pauseSmIcon;
     public resizeIcon: SVGIcon = imageResizeIcon;
     public dyslexiaFontIcon: SVGIcon = dyslexiaFontIcon;
+    public defaultFont = defaultFont;
 
     @ViewChild(ComboBoxComponent) private combo: ComboBoxComponent;
     private subs: Subscription = new Subscription();
@@ -92,7 +94,7 @@ export class SettingsListComponent {
     	};
     }
 
-    public getSetting(prop: string): string {
+    public getSetting(prop: string): any {
         return this.settingsService.settings[prop];
     }
 
@@ -118,6 +120,8 @@ export class SettingsListComponent {
             body: 'body',
             userId: 1,
         }).subscribe(r => console.log('from API', r)));
+
+        this.comboboxValue = value;
     }
 
     public activateSpeech() {

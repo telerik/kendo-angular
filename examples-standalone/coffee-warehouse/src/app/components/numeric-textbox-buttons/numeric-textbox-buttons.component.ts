@@ -44,6 +44,7 @@ export class NumericTextboxButtonsComponent {
     public increaseValue(): void {
         if (this.max && this.value + this.step >= this.max) {
             this.value = this.max;
+            this.valueChange.emit(this.value);
             return;
         }
         this.value += this.step;
@@ -53,6 +54,7 @@ export class NumericTextboxButtonsComponent {
     public decreaseValue(): void {
         if (this.min && this.value - this.step <= this.min) {
             this.value = this.min;
+            this.valueChange.emit(this.value);
             return;
         }
         this.value -= this.step;

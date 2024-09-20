@@ -3,8 +3,8 @@ import {
 } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 
-const defaultFont = `'Roboto', sans-serif`;
-const defaultTheme = 'https://kendo.cdn.telerik.com/themes/8.2.1/default/default-turquoise.css';
+export const defaultFont = `'Roboto', sans-serif`;
+export const defaultTheme = 'https://kendo.cdn.telerik.com/themes/8.2.1/default/default-turquoise.css';
 
 @Injectable()
 export class SettingsService {
@@ -15,7 +15,7 @@ export class SettingsService {
         underlineLinks: false,
         pauseAnimations: false,
         lgSizeWidgets: false,
-        lineHeight: 1.2,
+        lineHeight: 1,
         letterSpacing: 0
     };
 
@@ -41,7 +41,7 @@ export class SettingsService {
             underlineLinks: false,
             pauseAnimations: false,
             lgSizeWidgets: false,
-            lineHeight: 1.2,
+            lineHeight: 1,
             letterSpacing: 0
         }
 

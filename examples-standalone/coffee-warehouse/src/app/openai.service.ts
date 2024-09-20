@@ -35,14 +35,17 @@ export class OpenAIService {
 
     const completion = await this.client.chat.completions.create(messages);
     const result = completion.choices[0].message.content;
+    console.log(result);
     return result;
   }
 
   private createMessages(selectedDisabilities: string[]): ChatCompletionCreateParamsNonStreaming {
     const prompt = `
     Based on the following disabilities: ${selectedDisabilities.join(', ')},
-    suggest the appropriate accessibility settings as a list of key-value pairs.
-    The keys should match the following settings:
+    suggest the appropriate accessibility settings as a single object.
+    Only include the settings that are applicable to the disabilities.
+
+    The possible settings are:
     - textSize: Numeric value for text size (e.g. 16)
     - colorTheme: Either 'contrast' or 'dark'
     - font: Either 'legible' or 'dyslexia'
@@ -52,9 +55,9 @@ export class OpenAIService {
     - lineHeight: Numeric value for line height (e.g. 1.2)
     - letterSpacing: Numeric value for letter spacing (e.g. 1)
 
-    The response should only return valid key-value pairs, for example:
-    [{textSize: 16}, {colorTheme: 'contrast'}, {pauseAnimations: true}]
-    Please provide the best configuration based on the disabilities.
+    Respond with only an object that contains the applicable settings.
+    Do not wrap the object in any syntax, such as \`\`\`json\`.
+    For example: { textSize: 18, font: 'dyslexia' }
     `;
 
     return {
@@ -71,6 +74,5 @@ export class OpenAIService {
       model: "gpt-4",
     };
   }
-
 
 }
