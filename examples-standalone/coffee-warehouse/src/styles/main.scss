@@ -198,6 +198,8 @@ kendo-recurrence-frequency-editor .k-edit-field {
     --kendo-color-primary: #1274AC;
 }
 
-.settings-panel .k-input-solid:hover {
+.settings-panel .k-input-solid:hover,
+.settings-panel .k-input-solid:focus,
+.settings-panel .k-input-solid.k-focus {
     border-color: var(--kendo-color-inverse-hover);
 }
