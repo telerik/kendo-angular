@@ -15,7 +15,7 @@ import { accessibilityIcon, SVGIcon } from '@progress/kendo-svg-icons';
             [top]="top"
             [left]="left"
             [width]="400"
-            (close)="show = false;"
+            (close)="show = false; button.focus();"
             [resizable]="false"
             class="settings-panel !k-rounded-lg">
             <kendo-window-titlebar class="!k-rounded-tl-lg !k-rounded-tr-lg" [style.backgroundColor]="'var(--kendo-color-inverse)'" [style.color]="'var(--kendo-color-on-inverse)'">
