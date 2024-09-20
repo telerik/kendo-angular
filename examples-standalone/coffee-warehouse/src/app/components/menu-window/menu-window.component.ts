@@ -17,7 +17,7 @@ import { accessibilityIcon, SVGIcon } from '@progress/kendo-svg-icons';
             [width]="400"
             (close)="show = false;"
             [resizable]="false"
-            class="!k-rounded-lg">
+            class="settings-panel !k-rounded-lg">
             <kendo-window-titlebar class="!k-rounded-tl-lg !k-rounded-tr-lg" [style.backgroundColor]="'var(--kendo-color-inverse)'" [style.color]="'var(--kendo-color-on-inverse)'">
                 <span class="k-window-title">Accessibility Settings</span>
                 <button kendoWindowCloseAction></button>

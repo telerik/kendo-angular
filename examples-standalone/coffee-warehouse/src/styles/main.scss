@@ -2,6 +2,12 @@
 @import './typography';
 @import './common';
 
+@import 'https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap';
+
+app-root {
+    --kendo-font-family: 'Roboto', sans-serif;
+}
+
 //Grid
 .customer-photo {
     display: inline-block;
@@ -130,7 +136,7 @@ kendo-recurrence-frequency-editor .k-edit-field {
 }
 
 // Header
-.appbar-button-group.k-button-group >.k-button {
+.appbar-button-group.k-button-group > .k-button {
     border-start-end-radius: 0;
     border-end-end-radius: 0;
     border-start-start-radius: 0;
@@ -141,10 +147,17 @@ kendo-recurrence-frequency-editor .k-edit-field {
     color: var(--kendo-color-base-on-surface);
 }
 
-.k-window {
+.settings-panel.k-window {
+    border-width: 1px;
+    border-style: solid;
+    border-color: var(--kendo-color-base-on-surface);
     --kendo-border-radius-md: var(--kendo-border-radius-lg);
 }
 
-.k-window .k-expander {
+.settings-panel .k-expander {
     border-radius: var(--kendo-border-radius-lg);
+}
+
+.settings-panel {
+    --kendo-color-border: var(--kendo-color-subtle);
 }
