@@ -1,7 +1,11 @@
 <kendo-combobox
     [data]="disabilitiesData"
     textField="text"
-    valueField="text" class="k-mb-4 !k-w-full" placeholder="Write or select type of disability"></kendo-combobox>
+    valueField="text" class="k-mb-4 !k-w-full" placeholder="Write or select type of disability">
+    <ng-template kendoSuffixTemplate>
+        <button kendoButton fillMode="flat" [svgIcon]="microphoneIcon"></button>
+    </ng-template>
+</kendo-combobox>
 
 <kendo-expansionpanel title="Accessibility settings" [(expanded)]="settingsExpanded">
     <form class="k-form k-form-md">
@@ -12,30 +16,30 @@
         <kendo-formfield>
             <kendo-label text="Color theme:"></kendo-label>
             <kendo-buttongroup selection="single">
-                <kendo-button size="large" (click)="settingChange('colorTheme', 'contrast')" [selected]="colorTheme === 'contrast'">Contrast</kendo-button>
-                <kendo-button size="large" (click)="settingChange('colorTheme', 'dark')" [selected]="colorTheme === 'dark'">Dark</kendo-button>
+                <button kendoButton size="large" [svgIcon]="contrastIcon" (click)="settingChange('colorTheme', 'contrast')" [selected]="colorTheme === 'contrast'">Contrast</button>
+                <button kendoButton size="large" [svgIcon]="darkModeIcon" (click)="settingChange('colorTheme', 'dark')" [selected]="colorTheme === 'dark'">Dark</button>
             </kendo-buttongroup>
         </kendo-formfield>
 
         <kendo-formfield>
             <kendo-label text="Font:"></kendo-label>
             <kendo-buttongroup selection="single">
-                <kendo-button size="large" (click)="settingChange('font', 'legible')" [selected]="font === 'legible'">Legible Font</kendo-button>
-                <kendo-button size="large" (click)="settingChange('font', 'dyslexia')" [selected]="font === 'dyslexia'">Dyslexia Font</kendo-button>
+                <button kendoButton size="large" [svgIcon]="fontIcon" (click)="settingChange('font', 'legible')" [selected]="font === 'legible'">Legible Font</button>
+                <button kendoButton size="large" (click)="settingChange('font', 'dyslexia')" [selected]="font === 'dyslexia'">Dyslexia Font</button>
             </kendo-buttongroup>
         </kendo-formfield>
 
         <kendo-formfield>
             <kendo-label text="Common:"></kendo-label>
-            <kendo-button size="large" [toggleable]="true" (selectedChange)="settingChange('underlineLinks', $event)" [selected]="underlineLinks">Underiline Links</kendo-button>
+            <button kendoButton size="large" [svgIcon]="underlineIcon" [toggleable]="true" (selectedChange)="settingChange('underlineLinks', $event)" [selected]="underlineLinks">Underiline Links</button>
         </kendo-formfield>
 
         <kendo-formfield>
-            <kendo-button size="large" [toggleable]="true" (selectedChange)="settingChange('pauseAnimations', $event)" [selected]="pauseAnimations">Pause Animation</kendo-button>
+            <button kendoButton size="large" [svgIcon]="pauseIcon" [toggleable]="true" (selectedChange)="settingChange('pauseAnimations', $event)" [selected]="pauseAnimations">Pause Animation</button>
         </kendo-formfield>
 
         <kendo-formfield>
-            <kendo-button size="large" [toggleable]="true" (selectedChange)="settingChange('lgSizeWidgets', $event)" [selected]="lgSizeWidgets">Large Size Widgets</kendo-button>
+            <button kendoButton size="large" [svgIcon]="resizeIcon" [toggleable]="true" (selectedChange)="settingChange('lgSizeWidgets', $event)" [selected]="lgSizeWidgets">Large Size Widgets</button>
         </kendo-formfield>
 
         <kendo-formfield>
@@ -46,6 +50,10 @@
         <kendo-formfield>
             <kendo-label text="Letter Spacing:"></kendo-label>
             <kendo-numeric-textbox-buttons (valueChange)="settingChange('letterSpacing', $event)" [value]="letterSpacing"></kendo-numeric-textbox-buttons>
+        </kendo-formfield>
+
+        <kendo-formfield>
+            <button kendoButton themeColor="primary" size="large" [svgIcon]="resetIcon">Reset All Settings</button>
         </kendo-formfield>
     </form>
 </kendo-expansionpanel>

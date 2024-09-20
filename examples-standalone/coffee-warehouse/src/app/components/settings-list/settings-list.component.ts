@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { SettingsService } from './settings.service';
 import { groupBy } from '@progress/kendo-data-query';
+import { SVGIcon, arrowRotateCcwIcon, fontFamilyIcon, imageResizeIcon, pauseSmIcon, underlineIcon } from '@progress/kendo-svg-icons';
+import { contrastIcon, darkModeIcon, microphoneIcon } from './svg-icons';
 
 @Component({
     selector: 'app-settings-list-component',
@@ -69,6 +71,15 @@ export class SettingsListComponent {
             type: 'Cognitive Disabilities',
             text: 'ADHD'
         }], [{field: 'type'}]);
+
+    public resetIcon: SVGIcon = arrowRotateCcwIcon;
+    public darkModeIcon: SVGIcon = darkModeIcon;
+    public microphoneIcon: SVGIcon = microphoneIcon;
+    public contrastIcon: SVGIcon = contrastIcon;
+    public fontIcon: SVGIcon = fontFamilyIcon;
+    public underlineIcon: SVGIcon = underlineIcon;
+    public pauseIcon: SVGIcon = pauseSmIcon;
+    public resizeIcon: SVGIcon = imageResizeIcon;
 
     constructor(private settingsService: SettingsService) { }
 
