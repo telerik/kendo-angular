@@ -107,20 +107,7 @@ export class SettingsListComponent {
     }
 
     public onValueChange(value: string) {
-        console.log(`combo value changed, new value: `, value);
-        // get settings after API call
-        // call settingChange with the respective settings for the combobox value
-
-        // sample usage
-        this.subs.add(this.httpService.get('https://jsonplaceholder.typicode.com/todos/1')
-            .subscribe(r => console.log('from API', r)));
-
-        this.subs.add(this.httpService.post('https://jsonplaceholder.typicode.com/posts', {
-            title: value,
-            body: 'body',
-            userId: 1,
-        }).subscribe(r => console.log('from API', r)));
-
+        console.log(`value change`);
         this.comboboxValue = value;
     }
 

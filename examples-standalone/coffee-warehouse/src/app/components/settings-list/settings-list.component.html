@@ -20,7 +20,10 @@
     <form class="k-form k-form-md">
         <kendo-formfield>
             <kendo-label text="Text size:"></kendo-label>
-            <kendo-numeric-textbox-buttons [showBadge]="getSetting('fontSize') !== 16" (valueChange)="settingChange({'fontSize': $event})" [value]="getSetting('fontSize')"></kendo-numeric-textbox-buttons>
+            <kendo-numeric-textbox-buttons 
+                [showBadge]="getSetting('fontSize') !== 16" 
+                [step]="4"
+                (valueChange)="settingChange({'fontSize': $event})" [value]="getSetting('fontSize')" format="# PX"></kendo-numeric-textbox-buttons>
         </kendo-formfield>
         <kendo-formfield>
             <kendo-label text="Color theme:"></kendo-label>
@@ -61,12 +64,17 @@
 
         <kendo-formfield>
             <kendo-label text="Line Height:"></kendo-label>
-            <kendo-numeric-textbox-buttons [showBadge]="getSetting('lineHeight') !== 1" [min]="1" (valueChange)="settingChange({'lineHeight': $event})" [value]="getSetting('lineHeight')"></kendo-numeric-textbox-buttons>
+            <kendo-numeric-textbox-buttons 
+                [step]="0.1" [decimals]="1" 
+                [showBadge]="getSetting('lineHeight') !== 1" 
+                [min]="0" (valueChange)="settingChange({'lineHeight': $event})" 
+                format="#.# EM"
+                [value]="getSetting('lineHeight')"></kendo-numeric-textbox-buttons>
         </kendo-formfield>
 
         <kendo-formfield>
             <kendo-label text="Letter Spacing:"></kendo-label>
-            <kendo-numeric-textbox-buttons [showBadge]="getSetting('letterSpacing') !== 0" (valueChange)="settingChange({'letterSpacing': $event})" [value]="getSetting('letterSpacing')"></kendo-numeric-textbox-buttons>
+            <kendo-numeric-textbox-buttons format="# PX" [min]="0" [showBadge]="getSetting('letterSpacing') !== 0" (valueChange)="settingChange({'letterSpacing': $event})" [value]="getSetting('letterSpacing')"></kendo-numeric-textbox-buttons>
         </kendo-formfield>
 
         <kendo-formfield>
