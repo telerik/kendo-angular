@@ -54,7 +54,7 @@ import '@progress/kendo-angular-intl/locales/es/all';
 import '@progress/kendo-angular-intl/locales/fr/all';
 import { SettingsListComponent } from './components/settings-list/settings-list.component';
 import { WindowModule } from '@progress/kendo-angular-dialog';
-import { SettingsService } from './components/settings-list/settings.service';
+import { SettingsService } from './settings.service';
 
 @NgModule({
     declarations: [

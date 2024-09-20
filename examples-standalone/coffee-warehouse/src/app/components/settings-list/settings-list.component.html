@@ -1,5 +1,7 @@
 <kendo-combobox
     [data]="disabilitiesData"
+    [valuePrimitive]="true"
+    (valueChange)="onValueChange($event)"
     textField="text"
     valueField="text" class="k-mb-4 !k-w-full" placeholder="Write or select type of disability">
     <ng-template kendoSuffixTemplate>
@@ -11,45 +13,45 @@
     <form class="k-form k-form-md">
         <kendo-formfield>
             <kendo-label text="Text size:"></kendo-label>
-            <kendo-numeric-textbox-buttons (valueChange)="settingChange('textSize', $event)" [value]="textSize"></kendo-numeric-textbox-buttons>
+            <kendo-numeric-textbox-buttons (valueChange)="settingChange({'textSize': $event})" [value]="getSetting('textSize')"></kendo-numeric-textbox-buttons>
         </kendo-formfield>
         <kendo-formfield>
             <kendo-label text="Color theme:"></kendo-label>
             <kendo-buttongroup selection="single">
-                <button kendoButton size="large" [svgIcon]="contrastIcon" (click)="settingChange('colorTheme', 'contrast')" [selected]="colorTheme === 'contrast'">Contrast</button>
-                <button kendoButton size="large" [svgIcon]="darkModeIcon" (click)="settingChange('colorTheme', 'dark')" [selected]="colorTheme === 'dark'">Dark</button>
+                <button kendoButton size="large" [svgIcon]="contrastIcon" (click)="settingChange({'colorTheme': getSetting('colorTheme') === 'contrast' ? 'defaultTheme' : 'contrast'})" [selected]="getSetting('colorTheme') === 'contrast'">Contrast</button>
+                <button kendoButton size="large" [svgIcon]="darkModeIcon" (click)="settingChange({'colorTheme': getSetting('colorTheme') === 'dark' ? 'defaultTheme' : 'dark'})" [selected]="getSetting('colorTheme') === 'dark'">Dark</button>
             </kendo-buttongroup>
         </kendo-formfield>
 
         <kendo-formfield>
             <kendo-label text="Font:"></kendo-label>
             <kendo-buttongroup selection="single">
-                <button kendoButton size="large" [svgIcon]="fontIcon" (click)="settingChange('font', 'legible')" [selected]="font === 'legible'">Legible Font</button>
-                <button kendoButton size="large" [svgIcon]="dyslexiaFontIcon" (click)="settingChange('font', 'dyslexia')" [selected]="font === 'dyslexia'">Dyslexia Font</button>
+                <button kendoButton [svgIcon]="fontIcon" size="large" (click)="settingChange({'font': getSetting('font') === 'legible' ? 'defaultFont' : 'legible'})" [selected]="getSetting('font') === 'legible'">Legible Font</button>
+                <button kendoButton [svgIcon]="dyslexiaFontIcon" size="large" (click)="settingChange({'font': getSetting('font') === 'dyslexia' ? 'defaultFont' : 'dyslexia'})" [selected]="getSetting('font') === 'dyslexia'">Dyslexia Font</button>
             </kendo-buttongroup>
         </kendo-formfield>
 
         <kendo-formfield>
             <kendo-label text="Common:"></kendo-label>
-            <button kendoButton size="large" [svgIcon]="underlineIcon" [toggleable]="true" (selectedChange)="settingChange('underlineLinks', $event)" [selected]="underlineLinks">Underiline Links</button>
+            <button kendoButton size="large" [svgIcon]="underlineIcon" [toggleable]="true" (selectedChange)="settingChange({'underlineLinks': $event})" [selected]="getSetting('underlineLinks')">Underiline Links</button>
         </kendo-formfield>
 
         <kendo-formfield>
-            <button kendoButton size="large" [svgIcon]="pauseIcon" [toggleable]="true" (selectedChange)="settingChange('pauseAnimations', $event)" [selected]="pauseAnimations">Pause Animation</button>
+            <button kendoButton size="large" [svgIcon]="pauseIcon" [toggleable]="true" (selectedChange)="settingChange({'pauseAnimations': $event})" [selected]="getSetting('pauseAnimations')">Pause Animation</button>
         </kendo-formfield>
 
         <kendo-formfield>
-            <button kendoButton size="large" [svgIcon]="resizeIcon" [toggleable]="true" (selectedChange)="settingChange('lgSizeWidgets', $event)" [selected]="lgSizeWidgets">Large Size Widgets</button>
+            <button kendoButton size="large" [svgIcon]="resizeIcon" [toggleable]="true" (selectedChange)="settingChange({'lgSizeWidgets': $event})" [selected]="getSetting('lgSizeWidgets')">Large Size Widgets</button>
         </kendo-formfield>
 
         <kendo-formfield>
             <kendo-label text="Line Height:"></kendo-label>
-            <kendo-numeric-textbox-buttons (valueChange)="settingChange('lineHeight', $event)" [value]="lineHeight"></kendo-numeric-textbox-buttons>
+            <kendo-numeric-textbox-buttons (valueChange)="settingChange({'lineHeight': $event})" [value]="getSetting('lineHeight')"></kendo-numeric-textbox-buttons>
         </kendo-formfield>
 
         <kendo-formfield>
             <kendo-label text="Letter Spacing:"></kendo-label>
-            <kendo-numeric-textbox-buttons (valueChange)="settingChange('letterSpacing', $event)" [value]="letterSpacing"></kendo-numeric-textbox-buttons>
+            <kendo-numeric-textbox-buttons (valueChange)="settingChange({'letterSpacing': $event})" [value]="getSetting('letterSpacing')"></kendo-numeric-textbox-buttons>
         </kendo-formfield>
 
         <kendo-formfield>
