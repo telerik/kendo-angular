@@ -1,10 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { SettingsService } from '../../settings.service';
 import { groupBy } from '@progress/kendo-data-query';
 import { SVGIcon, arrowRotateCcwIcon, fontFamilyIcon, imageResizeIcon, pauseSmIcon, underlineIcon } from '@progress/kendo-svg-icons';
 import { contrastIcon, darkModeIcon, dyslexiaFontIcon, microphoneIcon } from './svg-icons';
 import { map, Subscription } from 'rxjs';
 import { HttpService } from '../../http.service';
+import { ComboBoxComponent } from '@progress/kendo-angular-dropdowns';
+import { IWindow } from '../../models/window.model';
 
 @Component({
     selector: 'app-settings-list-component',
@@ -12,7 +14,6 @@ import { HttpService } from '../../http.service';
 })
 export class SettingsListComponent {
     public settingsExpanded = true;
-
     public settings: any;
 
     public disabilitiesData: any[] = groupBy([{
@@ -43,8 +44,8 @@ export class SettingsListComponent {
             type: 'Cognitive Disabilities',
             text: 'ADHD'
         }], [{field: 'type'}]);
-    
-    private subs: Subscription = new Subscription();
+        
+    public recognition: any;
 
     public resetIcon: SVGIcon = arrowRotateCcwIcon;
     public darkModeIcon: SVGIcon = darkModeIcon;
@@ -56,9 +57,40 @@ export class SettingsListComponent {
     public resizeIcon: SVGIcon = imageResizeIcon;
     public dyslexiaFontIcon: SVGIcon = dyslexiaFontIcon;
 
+    @ViewChild(ComboBoxComponent) private combo: ComboBoxComponent;
+    private subs: Subscription = new Subscription();
+
     constructor(
         private settingsService: SettingsService,
         private httpService: HttpService) { }
+
+    public ngAfterViewInit(): void {
+        // Using a custom window interface as some of the speech recognition classes not showing up
+    	const myWindow: IWindow = window as any;
+    
+    	const SpeechRecognition = myWindow.SpeechRecognition || myWindow.webkitSpeechRecognition;
+    
+    	this.recognition = new SpeechRecognition();
+    	this.recognition.continuous = false;
+    	this.recognition.lang = 'en-US';
+    	this.recognition.interimResults = false;
+    
+    	this.recognition.onresult = (event: any) => {
+    		console.log("Speech Recognition end");
+    
+    		const transcript: string = event.results[0][0].transcript;
+    		console.log(`Result received: ${transcript}`)
+    
+    		const filtered: any = Array.from(event.results).filter(
+    			(r: any) => r.isFinal && r[0].confidence > 0.9
+    		);
+    		if (filtered.length == 0) {
+    			this.combo.searchbar.handleInput({
+    				target: { value: transcript.substring(0, transcript.length -1) },
+    			});
+    		}
+    	};
+    }
 
     public getSetting(prop: string): string {
         return this.settingsService.settings[prop];
@@ -86,5 +118,10 @@ export class SettingsListComponent {
             body: 'body',
             userId: 1,
         }).subscribe(r => console.log('from API', r)));
+    }
+
+    public activateSpeech() {
+        this.recognition.start();
+        console.log("Speech Recognition start");
     }
 }

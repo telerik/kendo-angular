@@ -8,7 +8,7 @@
     [size]="'large'"
     placeholder="Write or select type of disability">
     <ng-template kendoSuffixTemplate>
-        <button kendoButton fillMode="flat" [svgIcon]="microphoneIcon"></button>
+        <button kendoButton fillMode="flat" (click)="activateSpeech()" [svgIcon]="microphoneIcon"></button>
     </ng-template>
 </kendo-combobox>
 
