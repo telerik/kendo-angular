@@ -7,6 +7,10 @@ h3 {
     padding: 0;
 }
 
+body{
+    background-color: var(--kendo-color-surface-alt)
+};
+
 a {
     text-decoration: none;
 }
@@ -39,7 +43,7 @@ a {
 }
 
 .card-container {
-    background-color: $white;
+    background-color: var(--kendo-color-app-surface);
     padding: 40px 0;
     text-align: center;
 
