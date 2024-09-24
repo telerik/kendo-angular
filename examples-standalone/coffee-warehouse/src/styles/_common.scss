@@ -21,6 +21,11 @@ a {
     text-decoration: none;
 }
 
+//Remove watermark
+div[kendowatermarkoverlay] {
+    display: none !important;
+}
+
 // App styles
 .k-drawer-container {
     background-color: $background-color;
@@ -465,7 +470,7 @@ a {
     h3
     {
         font-family: var(--kendo-font-family, inherit);
-        margin-top: 3rem;
+        margin-top: 2rem;
     }
     .component-link {
         font-size: var(--kendo-font-size, inherit);
@@ -501,7 +506,7 @@ a {
     }
 
     .section-1 {
-        text-align: center;
+        
         h1 {
             font-size: 48px;
             font-weight: bold;
@@ -509,7 +514,7 @@ a {
 
         h2 {
             font-size: 30px;
-            margin-bottom: 53px;
+            margin-bottom: 1rem;
         }
 
         .button-group {

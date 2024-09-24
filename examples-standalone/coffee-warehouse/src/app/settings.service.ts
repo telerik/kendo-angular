@@ -15,7 +15,7 @@ export class SettingsService {
         underlineLinks: false,
         pauseAnimations: false,
         lgSizeWidgets: false,
-        lineHeight: 1,
+        lineHeight: 1.2,
         letterSpacing: 0
     };
 
@@ -41,7 +41,7 @@ export class SettingsService {
             underlineLinks: false,
             pauseAnimations: false,
             lgSizeWidgets: false,
-            lineHeight: 1,
+            lineHeight: 1.2,
             letterSpacing: 0
         }
 

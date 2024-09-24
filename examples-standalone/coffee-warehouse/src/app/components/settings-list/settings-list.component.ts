@@ -13,7 +13,7 @@ import { IWindow } from '../../models/window.model';
     templateUrl: './settings-list.component.html'
 })
 export class SettingsListComponent {
-    public settingsExpanded = true;
+    public settingsExpanded = false;
     public settings: any;
     public comboboxValue = null;
 

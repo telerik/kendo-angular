@@ -163,6 +163,7 @@ kendo-recurrence-frequency-editor .k-edit-field {
     border-style: solid;
     --kendo-border-radius-md: var(--kendo-border-radius-lg);
     --kendo-color-border: var(--kendo-color-inverse);
+    max-height: calc(100% - 100px);
 }
 
 .settings-panel .k-expander {
