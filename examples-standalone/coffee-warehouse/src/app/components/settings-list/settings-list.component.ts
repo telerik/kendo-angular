@@ -22,7 +22,7 @@ export class SettingsListComponent {
             text: 'Low Vision'
         }, {
             type: 'Visual Impairments',
-            text: 'Color Blindness'
+            text: 'Colour Blindness'
         }, {
             type: 'Visual Impairments',
             text: 'Blindness'
@@ -86,10 +86,12 @@ export class SettingsListComponent {
     		const filtered: any = Array.from(event.results).filter(
     			(r: any) => r.isFinal && r[0].confidence > 0.9
     		);
-    		if (filtered.length == 0) {
+    		if (filtered.length != 0) {
     			this.combo.searchbar.handleInput({
-    				target: { value: transcript.substring(0, transcript.length -1) },
+    				target: { value: transcript},
     			});
+                this.combo.selectClick();
+                this.combo.togglePopup(false);
     		}
     	};
     }
@@ -109,6 +111,7 @@ export class SettingsListComponent {
     public onValueChange(value: string) {
         console.log(`value change`);
         this.comboboxValue = value;
+        this.settingsExpanded = true;
     }
 
     public activateSpeech() {
