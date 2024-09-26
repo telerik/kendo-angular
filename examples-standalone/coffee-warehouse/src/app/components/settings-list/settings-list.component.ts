@@ -3,10 +3,10 @@ import { defaultFont, SettingsService } from '../../settings.service';
 import { groupBy } from '@progress/kendo-data-query';
 import { SVGIcon, arrowRotateCcwIcon, fontFamilyIcon, imageResizeIcon, pauseSmIcon, underlineIcon } from '@progress/kendo-svg-icons';
 import { contrastIcon, darkModeIcon, dyslexiaFontIcon, microphoneIcon } from './svg-icons';
-import { map, Subscription } from 'rxjs';
-import { HttpService } from '../../http.service';
+import { Subscription } from 'rxjs';
 import { ComboBoxComponent } from '@progress/kendo-angular-dropdowns';
 import { IWindow } from '../../models/window.model';
+import { OpenAIService } from '../../openai.service';
 
 @Component({
     selector: 'app-settings-list-component',
@@ -46,6 +46,11 @@ export class SettingsListComponent {
             text: 'ADHD'
         }], [{field: 'type'}]);
 
+    private isDisabilitySupported(disability: string): boolean {
+        const supportedDisabilities = this.disabilitiesData.flatMap(group => group.items.map(item => item.text));
+        return supportedDisabilities.includes(disability);
+    };
+
     public recognition: any;
 
     public resetIcon: SVGIcon = arrowRotateCcwIcon;
@@ -64,36 +69,36 @@ export class SettingsListComponent {
 
     constructor(
         private settingsService: SettingsService,
-        private httpService: HttpService) { }
+        private openAIService: OpenAIService) { }
 
     public ngAfterViewInit(): void {
         // Using a custom window interface as some of the speech recognition classes not showing up
-    	const myWindow: IWindow = window as any;
-    
-    	const SpeechRecognition = myWindow.SpeechRecognition || myWindow.webkitSpeechRecognition;
-    
-    	this.recognition = new SpeechRecognition();
-    	this.recognition.continuous = false;
-    	this.recognition.lang = 'en-US';
-    	this.recognition.interimResults = false;
-    
-    	this.recognition.onresult = (event: any) => {
-    		console.log("Speech Recognition end");
-    
-    		const transcript: string = event.results[0][0].transcript;
-    		console.log(`Result received: ${transcript}`)
-    
-    		const filtered: any = Array.from(event.results).filter(
-    			(r: any) => r.isFinal && r[0].confidence > 0.9
-    		);
-    		if (filtered.length != 0) {
-    			this.combo.searchbar.handleInput({
-    				target: { value: transcript},
-    			});
+        const myWindow: IWindow = window as any;
+
+        const SpeechRecognition = myWindow.SpeechRecognition || myWindow.webkitSpeechRecognition;
+
+        this.recognition = new SpeechRecognition();
+        this.recognition.continuous = false;
+        this.recognition.lang = 'en-US';
+        this.recognition.interimResults = false;
+
+        this.recognition.onresult = (event: any) => {
+            console.log("Speech Recognition end");
+
+            const transcript: string = event.results[0][0].transcript;
+            console.log(`Result received: ${transcript}`)
+
+            const filtered: any = Array.from(event.results).filter(
+                (r: any) => r.isFinal && r[0].confidence > 0.9
+            );
+            if (filtered.length != 0) {
+                this.combo.searchbar.handleInput({
+                    target: { value: transcript},
+                });
                 this.combo.selectClick();
                 this.combo.togglePopup(false);
-    		}
-    	};
+            }
+        };
     }
 
     public getSetting(prop: string): any {
@@ -106,15 +111,30 @@ export class SettingsListComponent {
 
     public resetSettings(): void {
         this.settingsService.resetSettings();
+        this.combo.reset();
     }
 
-    public onValueChange(value: string) {
-        console.log(`value change`);
-        this.comboboxValue = value;
+    async applyAIRecommendedSettings(value: string) {
+        if (!this.isDisabilitySupported(value)) {
+        console.log(`Disability "${value}" is not supported. Skipping AI call.`);
+        return;
+        }
+        // reset old selected disability settings before applying new
+        this.settingsService.resetSettings();
+        let settings = await this.openAIService.getAIRecommendedSettings(value);
+        // let settings = `{"colorTheme": "contrast", "underlineLinks": true}`;
+        settings = JSON.parse(settings); // parse JSON string into object
+
+        for (const [setting, settingValue] of Object.entries(settings)) {
+            const settingObj = { [setting]: settingValue };
+            console.log(`setting: ${setting}`);
+            console.log(`settingValue: ${settingValue}`);
+            this.settingChange(settingObj);
+        }
         this.settingsExpanded = true;
     }
 
-    public activateSpeech() {
+        public activateSpeech() {
         this.recognition.start();
         console.log("Speech Recognition start");
     }
