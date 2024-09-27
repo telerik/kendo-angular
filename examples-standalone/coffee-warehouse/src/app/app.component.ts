@@ -70,7 +70,7 @@ export class AppComponent implements AfterViewInit {
   private getThemeLink(themeKey: string): string {
     switch(themeKey) {
       case 'contrast':
-        return 'https://kendo.cdn.telerik.com/themes/8.2.1/default/default-ocean-blue.css';
+        return 'https://kendo.cdn.telerik.com/themes/8.2.1/default/default-ocean-blue-a11y.css';
       case 'dark':
         return 'https://kendo.cdn.telerik.com/themes/8.2.1/material/material-main-dark.css';
       default:

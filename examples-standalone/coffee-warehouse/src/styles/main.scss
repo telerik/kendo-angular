@@ -201,3 +201,7 @@ kendo-recurrence-frequency-editor .k-edit-field {
 .settings-panel .k-input-solid.k-focus {
     border-color: var(--kendo-color-inverse-hover);
 }
+
+.settings-panel .k-focus{
+    box-shadow: 0 0 0 2px var(--kendo-color-inverse), 0 0 0 3px var(--kendo-color-on-inverse);
+}
