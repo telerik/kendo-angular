@@ -154,10 +154,6 @@ kendo-recurrence-frequency-editor .k-edit-field {
 }
 
 // Settings window
-.settings-panel {
-    
-}
-
 .settings-panel.k-window {
     border-width: 1px;
     border-style: solid;
@@ -189,19 +185,15 @@ kendo-recurrence-frequency-editor .k-edit-field {
     margin-bottom: var(--kendo-spacing-1);
 }
 
-.common-wrapper {
+.settings-panel .common-wrapper {
     margin-top: var(--kendo-spacing-3\.5);
 }
 
-.buttons-wrapper {
+.settings-panel .buttons-wrapper {
     display: flex;
     flex-direction: column;
     gap: var(--kendo-spacing-2);
     width: 220px;
-}
-
-.reset-button {
-    --kendo-color-primary: #1274AC;
 }
 
 .settings-panel .k-input-solid:hover,
