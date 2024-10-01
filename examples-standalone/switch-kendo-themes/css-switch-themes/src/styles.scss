@@ -1,0 +1,14 @@
+$_imported: (); // reset the list of imported modules by the new modules system making them globally available
+$_kendo-imported-modules: (); // reset the list of loaded modules for good measure
+$_kendo-data-uris: (); // reset the data-uris thus making them globally available
+
+.light-theme {
+  @import "assets/light-theme/default-ocean-blue-a11y.css";
+}
+
+$_imported: ();
+$_kendo-imported-modules: ();
+$_kendo-data-uris: ();
+.dark-theme {
+  @import "assets/dark-theme/default-main-dark.css";
+}

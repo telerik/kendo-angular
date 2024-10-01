@@ -1,0 +1,24 @@
+<div class="layout">
+    <kendo-switch
+        [checked]="isDarkTheme"
+        onLabel="Dark"
+        offLabel="Light"
+        style="width: 70px"
+        (valueChange)="toggleTheme()"
+    >
+    </kendo-switch>
+
+    <kendo-grid [data]="gridData" style="margin-top: 20px">
+        <kendo-grid-column field="ProductID" title="ID" [width]="50"></kendo-grid-column>
+        <kendo-grid-column field="ProductName" title="Product Name" [width]="150"></kendo-grid-column>
+        <kendo-grid-column field="Category" title="Category" [width]="100"></kendo-grid-column>
+        <kendo-grid-column field="Price" title="Price" [width]="100"></kendo-grid-column>
+    </kendo-grid>
+
+    <kendo-chart #chart [transitions]="false">
+        <kendo-chart-series>
+            <kendo-chart-series-item type="column" [data]="[1, 2, 3, 5]"> </kendo-chart-series-item>
+            <kendo-chart-series-item type="column" [data]="[-1, -2, -3, -5]"> </kendo-chart-series-item>
+        </kendo-chart-series>
+    </kendo-chart>
+</div>

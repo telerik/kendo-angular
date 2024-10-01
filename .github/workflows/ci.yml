@@ -82,6 +82,24 @@ jobs:
         run: |
           npm ci
 
+      - name: Switch Themes CSS App
+        working-directory: ./examples-standalone/switch-kendo-themes/css-switch-themes
+        run: |
+          npm ci
+          npm run build
+
+      - name: Switch Themes SCSS App
+        working-directory: ./examples-standalone/switch-kendo-themes/scss-switch-themes
+        run: |
+          npm ci
+          npm run build
+
+      - name: Switch Theme SCSS Service App
+        working-directory: ./examples-standalone/switch-kendo-themes/scss-switch-themes-service
+        run: |
+          npm ci
+          npm run build
+
   standalone-examples-node14:
     runs-on: ubuntu-latest
 
