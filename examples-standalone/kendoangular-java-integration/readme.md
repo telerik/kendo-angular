@@ -43,7 +43,7 @@ Ensure you have the following tools installed on your machine:
 - **Navigate to the Frontend Directory**:
 
     ```bash
-    cd kendo-angular/examples-standalone/kendoangular-java-integration/frontend
+    cd kendo-angular/examples-standalone/kendoangular-java-integration/ClientApp
     ```
 
 - **Install Project Dependencies**:
