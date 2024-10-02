@@ -21,7 +21,7 @@ Ensure you have the following tools installed on your machine:
 - **Command**: Clone the repository to your local machine to get the project files.
 
     ```bash
-    git clone https://github.com/telerik/kendo-angular/.git
+    git clone https://github.com/telerik/kendo-angular/
     ```
 
 ### 3. Set Up the Java Spring Boot Project

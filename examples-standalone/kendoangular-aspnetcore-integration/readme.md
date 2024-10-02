@@ -7,7 +7,7 @@ This is a sample project that demonstrates how to use Kendo UI for Angular [Grid
 1. Clone this repository by running the following command:
 
     ```bash
-    git clone https://github.com/telerik/kendo-angular/.git
+    git clone https://github.com/telerik/kendo-angular/
     ```
 
 1. Make sure to have the [.NET Core 8 SDK](https://dotnet.microsoft.com/download) installed on your machine, along with [Angular CLI 18.0.6](https://v17.angular.io/guide/setup-local#install-the-angular-cli).
