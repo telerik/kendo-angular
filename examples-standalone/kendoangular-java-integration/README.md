@@ -29,9 +29,7 @@ Ensure you have the following tools installed on your machine:
     git clone https://github.com/telerik/kendo-angular/
     ```
 
-## Setup and Run the Java Spring Boot App
-
-## Setup and Run the Java Spring Boot App
+## Setup and Run the Java Spring Boot Application
 
 1. **Navigate to the Backend Directory**:
 
