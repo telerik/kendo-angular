@@ -82,6 +82,12 @@ jobs:
         run: |
           npm ci
 
+      - name: Build ASP.NET Core Integration app
+        working-directory: ./examples-standalone/kendoangular-java-integration/ClientApp
+        run: |
+          npm ci
+          npm run build
+
   standalone-examples-node14:
     runs-on: ubuntu-latest
 
