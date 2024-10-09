@@ -31,6 +31,7 @@ import { DropDownsModule } from '@progress/kendo-angular-dropdowns';
 import { NotificationModule } from '@progress/kendo-angular-notification';
 import { IconsModule } from "@progress/kendo-angular-icons";
 import { MessageService } from '@progress/kendo-angular-l10n';
+import { ProfileImageService } from './services/profile-image.service';
 
 const drawerRoutes = [
     { path: '', component: TeamComponent },
@@ -84,7 +85,8 @@ import '@progress/kendo-angular-intl/locales/fr/all';
     ],
     providers: [
         { provide: MessageService, useClass: CustomMessagesService },
-        { provide: LOCALE_ID, useValue: 'en-US' }
+        { provide: LOCALE_ID, useValue: 'en-US' },
+        ProfileImageService
     ],
     bootstrap: [AppComponent]
 })

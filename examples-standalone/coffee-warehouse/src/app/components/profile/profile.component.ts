@@ -1,26 +1,26 @@
 import { AfterViewInit, Component } from '@angular/core';
 import { Validators, FormGroup, FormControl } from '@angular/forms';
 
-
 import { SelectEvent, FileRestrictions } from '@progress/kendo-angular-upload';
 import { MessageService } from '@progress/kendo-angular-l10n';
 import { NotificationService } from '@progress/kendo-angular-notification';
 import { countries } from '../../resources/countries';
 import { FormModel } from '../../models/form.model';
 import { CustomMessagesService } from '../../services/custom-messages.service';
+import { ProfileImageService } from '../../services/profile-image.service';
 
 @Component({
     selector: 'app-profile-component',
     templateUrl: './profile.component.html'
 })
-export class ProfileComponent implements AfterViewInit {
+export class ProfileComponent {
     public formGroup: FormGroup = new FormGroup({});
     public countries = countries;
     public phoneNumberMask = '(+9) 0000-000-00-00';
+    public profileImage: string = '';
     public fileRestrictions: FileRestrictions = {
         allowedExtensions: ['.png', '.jpeg', '.jpg']
     };
-    public avatars?: NodeList;
 
     public formValue: FormModel | null = {
         avatar: [''],
@@ -36,12 +36,13 @@ export class ProfileComponent implements AfterViewInit {
 
     public customMsgService: CustomMessagesService;
 
-    constructor(public msgService: MessageService, private notificationService: NotificationService) {
+    constructor(
+        public msgService: MessageService,
+        private notificationService: NotificationService,
+        private profileService: ProfileImageService
+    ) {
         this.setFormValues();
         this.customMsgService = this.msgService as CustomMessagesService;
-    }
-
-    ngAfterViewInit() {
         this.setAvatar();
     }
 
@@ -64,12 +65,14 @@ export class ProfileComponent implements AfterViewInit {
         });
     }
 
-    public setAvatar() {
-        this.avatars = document.querySelectorAll('.k-avatar .k-avatar-image');
+    public setAvatar(): void {
         const avatarImg = localStorage.getItem('avatar');
         if (avatarImg) {
-            this.avatars.forEach((avatar: any) => {
-                avatar.style['background-image'] = `url("${avatarImg}")`;
+            this.profileImage = avatarImg;
+            this.profileService.updateProfileImage(avatarImg);
+        } else {
+            this.profileService.profileImage$.subscribe((image: string) => {
+                this.profileImage = image;
             });
         }
     }
@@ -95,20 +98,17 @@ export class ProfileComponent implements AfterViewInit {
     }
 
     public isFileAllowed(file: any): boolean {
-        return <boolean>this.fileRestrictions.allowedExtensions?.includes(file.extension);
+        return <boolean>this.fileRestrictions.allowedExtensions?.includes(file.extension.toLowerCase());
     }
 
     public selectAvatar(ev: SelectEvent): void {
-
-        const avatars = this.avatars;
         const reader = new FileReader();
         const file = ev.files[0];
         if (file.rawFile && this.isFileAllowed(file)) {
-            reader.onloadend = function () {
-                avatars?.forEach((avatar: any) => {
-                    avatar.style['background-image'] = `url("${this.result}")`;
-                    localStorage.setItem('avatar', (<string>this.result).toString());
-                });
+            reader.onloadend = () => {
+                this.profileImage = reader.result as string;
+                this.profileService.updateProfileImage(this.profileImage);
+                localStorage.setItem('avatar', this.profileImage);
             };
             reader.readAsDataURL(file.rawFile);
         }
