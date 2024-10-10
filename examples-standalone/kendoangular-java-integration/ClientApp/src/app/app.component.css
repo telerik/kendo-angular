@@ -40,10 +40,6 @@ kendo-upload {
 }
 
 a {
-    color: #ff6358;
-    text-decoration: none;
-}
-
-a:hover {
+    color: var(--kendo-color-primary);
     text-decoration: underline;
 }
