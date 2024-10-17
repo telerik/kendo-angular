@@ -13,8 +13,11 @@ export class CardComponent {
     @Output() public toggleEvents: EventEmitter<Employee> = new EventEmitter();
 
     public cards: Employee[] = employees.slice(1, 6);
-
     public images = images;
+
+    ngOnInit(){
+        this.cards.map(card=>card.selected = false)
+    }
 
     public setCardColor(card: Employee): string | undefined {
         const currentTeam: Team | undefined = teams.find((team: Team) => team.teamID === card.teamId);

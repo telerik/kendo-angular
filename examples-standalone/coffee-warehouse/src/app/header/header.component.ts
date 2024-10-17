@@ -4,6 +4,8 @@ import { MessageService } from '@progress/kendo-angular-l10n';
 import { CustomMessagesService } from '../services/custom-messages.service';
 import { SVGIcon, menuIcon, paletteIcon } from '@progress/kendo-svg-icons';
 import { locales } from '../resources/locales';
+import { profileBase64 } from '../resources/profile-base64';
+import { ProfileImageService } from '../services/profile-image.service';
 
 @Component({
     selector: 'app-header-component',
@@ -35,8 +37,16 @@ export class HeaderComponent {
         }
     ];
     public selectedTheme = this.themes[0];
+    public profileImage: string = '';
 
-    constructor(public messages: MessageService, @Inject(LOCALE_ID) public localeId: string, public intlService: IntlService) {
+    constructor(
+        public messages: MessageService,
+        @Inject(LOCALE_ID) public localeId: string,
+        public intlService: IntlService,
+        private profileService: ProfileImageService
+    ) {
+        this.setProfileImage();
+
         this.localeId = this.selectedLanguage.localeId;
         this.setLocale(this.localeId);
 
@@ -44,7 +54,13 @@ export class HeaderComponent {
         this.customMsgService.language = this.selectedLanguage.localeId;
     }
 
-    public changeTheme(theme: { href: string; text: string }) {
+    public setProfileImage(): void {
+        this.profileService.profileImage$.subscribe((image: string) => {
+            this.profileImage = image;
+        });
+    }
+
+    public changeTheme(theme: { href: string; text: string }): void {
         this.selectedTheme = theme;
         const themeEl: any = document.getElementById('theme');
         themeEl.href = theme.href;
