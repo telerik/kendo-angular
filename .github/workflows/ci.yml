@@ -70,7 +70,13 @@ jobs:
         run: |
           npm ci
           npm run build
-      
+
+      - name: Translation of Messages
+        working-directory: ./examples-standalone/integration-i18n
+        run: |
+          npm ci
+          npm run build
+
       - name: Spreadsheet App
         working-directory: ./examples-standalone/spreadsheet-app
         run: |
