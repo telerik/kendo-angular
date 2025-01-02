@@ -2,18 +2,18 @@
 
 Kendo UI for Angular uses GitHub Issues as an official bug tracker.
 
-This repository is intended to support users by providing information on available support options and by storing the sample projects that are referred to from the official Kendo UI for Angular documentation.
+This repository is intended to support users by providing information on available support options and by storing the sample projects that are referred to from the [official Kendo UI for Angular documentation](https://www.telerik.com/kendo-angular-ui/components/).
 
 **This repository does not contain the actual source code of the components.**
 
 ## In This Article
 
 * [Available Support Options](#support-options)
-    * [Information on How to Use Specific Features](#how-do-i)
-    * [Queries on Future Releases](#when-do-you-plan-on-releasing-feature-x)
-    * [Bug Discovery](#i-think-i-found-a-bug)
-    * [Bug Reports](#i-want-to-report-a-bug)
-    * [Tailor-Made Solutions](#i-need-a-tailor-made-solution)
+  * [Information on How to Use Specific Features](#how-do-i)
+  * [Queries on Future Releases](#when-do-you-plan-on-releasing-feature-x)
+  * [Bug Discovery](#i-think-i-found-a-bug)
+  * [Bug Reports](#i-want-to-report-a-bug)
+  * [Tailor-Made Solutions](#i-need-a-tailor-made-solution)
 * [Sample Projects and Applications](#sample-projects)
 
 ## Support Options
@@ -59,7 +59,7 @@ The [Progress Services](https://www.progress.com/services) team is available to 
 
 ## Sample Projects
 
-The kendo-angular repository is a single storing place for all sample applications that are referred in the [official Kendo UI for Angular documentation]. All currently available sample applications are located under the following folders:
+The kendo-angular repository is a single storing place for all sample applications that are referred in the [official Kendo UI for Angular documentation](https://www.telerik.com/kendo-angular-ui/components/). All currently available sample applications are located under the following folders:
 
 * [examples/projects/](https://github.com/telerik/kendo-angular/tree/master/examples/projects)
 * [examples-standalone](https://github.com/telerik/kendo-angular/tree/master/examples-standalone)
