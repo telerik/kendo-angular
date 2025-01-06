@@ -37,7 +37,7 @@
             ],
             "styles": [
               {
-                "input": "node_modules/@progress/kendo-theme-default/dist/default-ocean-blue.scss"
+                "input": "node_modules/@progress/kendo-theme-default/dist/default-ocean-blue-a11y.scss"
               },
               "src/styles.css"
             ],

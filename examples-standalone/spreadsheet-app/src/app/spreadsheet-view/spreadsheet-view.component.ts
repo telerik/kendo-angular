@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, ViewChild, ViewEncapsulation } from '@angular/core';
+import { Component, ViewChild, ViewEncapsulation } from '@angular/core';
 import {
   SheetDescriptor,
   SpreadsheetComponent,
@@ -18,10 +18,8 @@ export class SpreadsheetViewComponent {
   public spreadsheet!: SpreadsheetComponent;
   public data: SheetDescriptor[];
   public isButtonDisabled = true;
-  public reRender = false;
 
   constructor(
-    private cd: ChangeDetectorRef,
     private notificationService: NotificationService,
     private excelDataService: ExcelDataService
   ) {
