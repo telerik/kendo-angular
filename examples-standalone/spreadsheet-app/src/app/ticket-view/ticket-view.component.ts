@@ -6,6 +6,7 @@ import { TicketPrices } from "../data/models/interfaces";
 
 @Component({
     selector: "app-ticket-view",
+    standalone: false,
     templateUrl: "./ticket-view.component.html",
     styleUrls: ["./ticket-view.component.css"],
 })

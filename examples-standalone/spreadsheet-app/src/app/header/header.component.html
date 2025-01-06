@@ -2,7 +2,7 @@
     <kendo-appbar-section class="logo-nav-container">
         <div class="logo" routerLink="/login">Sample Event</div>
         <div class="nav-buttons">
-            <kendo-button
+            <button
                 kendoButton
                 themeColor="primary"
                 rounded="medium"
@@ -10,9 +10,9 @@
                 size="medium"
                 routerLink="/event-budget"
                 routerLinkActive="active"
-                >Event Budget</kendo-button
+                >Event Budget</button
             >
-            <kendo-button
+            <button
                 kendoButton
                 themeColor="primary"
                 rounded="medium"
@@ -20,9 +20,9 @@
                 size="medium"
                 routerLink="/tickets"
                 routerLinkActive="active"
-                >Tickets</kendo-button
+                >Tickets</button
             >
-            <kendo-button
+            <button
                 kendoButton
                 themeColor="primary"
                 rounded="medium"
@@ -30,7 +30,7 @@
                 size="medium"
                 routerLink="/speakers"
                 routerLinkActive="active"
-                >Call for Speakers</kendo-button
+                >Call for Speakers</button
             >
         </div>
     </kendo-appbar-section>
@@ -39,7 +39,7 @@
 
     <kendo-appbar-section class="username-logout-container">
         <span class="user-title">Hello, {{ roleName }}</span>
-        <kendo-button 
+        <button 
             kendoButton 
             fillMode="clear" 
             themeColor="primary" 
@@ -48,6 +48,6 @@
         >
             <kendo-svgicon [icon]="logoutIcon"></kendo-svgicon>
             <span>Logout</span>
-        </kendo-button>
+        </button>
     </kendo-appbar-section>
 </kendo-appbar>

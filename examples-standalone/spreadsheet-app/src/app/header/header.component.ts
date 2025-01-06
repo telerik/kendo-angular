@@ -4,6 +4,7 @@ import { SVGIcon, logoutIcon } from "@progress/kendo-svg-icons";
 
 @Component({
     selector: "app-header",
+    standalone: false,
     templateUrl: "./header.component.html",
     styleUrl: "./header.component.css",
 })
