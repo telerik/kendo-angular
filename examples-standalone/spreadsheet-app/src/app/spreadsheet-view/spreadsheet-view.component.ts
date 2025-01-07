@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, ViewChild, ViewEncapsulation } from '@angular/core';
+import { Component, ViewChild, ViewEncapsulation } from '@angular/core';
 import {
   SheetDescriptor,
   SpreadsheetComponent,
@@ -8,6 +8,7 @@ import { NotificationService } from '@progress/kendo-angular-notification';
 
 @Component({
   selector: 'app-spreadsheet-view',
+  standalone: false,
   templateUrl: './spreadsheet-view.component.html',
   styleUrl: './spreadsheet-view.component.css',
   encapsulation: ViewEncapsulation.None,
@@ -17,10 +18,8 @@ export class SpreadsheetViewComponent {
   public spreadsheet!: SpreadsheetComponent;
   public data: SheetDescriptor[];
   public isButtonDisabled = true;
-  public reRender = false;
 
   constructor(
-    private cd: ChangeDetectorRef,
     private notificationService: NotificationService,
     private excelDataService: ExcelDataService
   ) {
@@ -56,11 +55,7 @@ export class SpreadsheetViewComponent {
   }
 
   public onClear(): void {
-    this.reRender = true;
-    this.data = this.excelDataService.getData();
-    // Reset the data to the original state workaround due to https://github.com/telerik/kendo-angular/issues/4255
-    this.cd.detectChanges();
-    this.reRender = false;
+    this.data = this.excelDataService.getData().slice();
     this.isButtonDisabled = true;
 
     this.notificationService.show({

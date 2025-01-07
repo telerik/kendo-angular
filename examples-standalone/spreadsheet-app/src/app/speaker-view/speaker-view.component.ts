@@ -5,6 +5,7 @@ import { ExcelDataService } from "../data/services/excel-data.service";
 
 @Component({
     selector: "app-speaker-view",
+    standalone: false,
     templateUrl: "./speaker-view.component.html",
     styleUrl: "./speaker-view.component.css",
 })
