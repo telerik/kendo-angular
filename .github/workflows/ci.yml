@@ -64,7 +64,6 @@ jobs:
         run: |
           npm ci
       # npm run lint
-
       - name: Build Grid Live Data app
         working-directory: ./examples-standalone/grid-live-data
         run: |
@@ -90,6 +89,12 @@ jobs:
 
       - name: Build ASP.NET Core Integration app
         working-directory: ./examples-standalone/kendoangular-java-integration/ClientApp
+        run: |
+          npm ci
+          npm run build
+
+      - name: Personal Finance App
+        working-directory: ./examples-standalone/personal-finance-app
         run: |
           npm ci
           npm run build

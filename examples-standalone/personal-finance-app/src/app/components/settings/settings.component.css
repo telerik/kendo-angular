@@ -1,0 +1,16 @@
+.customClass {
+  font-size: 72px;
+  width: 72px;
+  height: 72px;
+}
+
+.k-text-blue {
+  color: #8CA5DA;
+}
+
+.k-horizontal-separator {
+  border: 1px solid #FFFFFF;
+  opacity: 20%;
+  border-radius: 3px;
+  align-content: center;
+}

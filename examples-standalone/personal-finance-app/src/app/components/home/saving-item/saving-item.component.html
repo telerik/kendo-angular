@@ -1,0 +1,6 @@
+<div class="k-d-flex k-d-flex-row k-justify-content-between">
+  <span class="k-font-size-lg k-font-normal">{{customMsgService.translate(getCurrentTitle())}}</span>
+  <span class="k-font-size-lg k-font-normal">{{intl.formatNumber(saving!.value,
+    customCurrencyOptions)}}</span>
+</div>
+<kendo-progressbar [value]="30" [label]="{visible: false}"></kendo-progressbar>

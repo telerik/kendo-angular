@@ -1,0 +1,9 @@
+.language-dropdown>.k-button {
+  flex-direction: row-reverse;
+}
+
+@media (max-width: 992px) {
+  .k-justify-content-sm-start {
+    justify-content: start;
+  }
+}
