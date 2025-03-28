@@ -38,6 +38,7 @@ export class HomeComponent {
   public customCurrencyOptions: NumberFormatOptions = {
     style: 'currency',
     currencyDisplay: 'code',
+    currency: 'USD',
   };
 
   public colors = [

@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import {
   ColumnMenuSettings,
   KENDO_GRID,
+  PDFModule,
   RowArgs,
 } from '@progress/kendo-angular-grid';
 import { KENDO_PAGER } from '@progress/kendo-angular-pager';
@@ -17,11 +18,12 @@ import {
 import { ChipThemeColor, KENDO_BUTTONS } from '@progress/kendo-angular-buttons';
 import { MessageService } from '@progress/kendo-angular-l10n';
 import { CustomMessagesService } from '../../services/custom-messages.service';
+import { ExcelExportData } from '@progress/kendo-angular-excel-export';
 
 @Component({
   selector: 'app-transactions-grid',
   standalone: true,
-  imports: [KENDO_GRID, KENDO_PAGER, IntlModule, KENDO_BUTTONS],
+  imports: [KENDO_GRID, KENDO_PAGER, IntlModule, KENDO_BUTTONS, PDFModule],
   templateUrl: './transactions-grid.component.html',
   styleUrl: './transactions-grid.component.css',
 })
@@ -37,6 +39,7 @@ export class TransactionsGridComponent {
   public customCurrencyOptions: NumberFormatOptions = {
     style: 'currency',
     currencyDisplay: 'code',
+    currency: 'USD',
   };
   public menuSettings: ColumnMenuSettings = {
     lock: true,
@@ -75,5 +78,11 @@ export class TransactionsGridComponent {
       default:
         return 'info';
     }
+  }
+
+  public allData(): ExcelExportData {
+    const result = { data: gridTransactions };
+
+    return result;
   }
 }

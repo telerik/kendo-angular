@@ -59,20 +59,23 @@
             <kendo-textbox formControlName="postCode"></kendo-textbox>
           </div>
 
-          <button kendoButton themeColor="primary" [style.width.px]="90" type="submit"
-            [disabled]="userForm.invalid || !userForm.touched">{{customMsgService.translate('save')}}</button>
+          <div class="k-d-flex k-gap-2">
+            <button kendoButton themeColor="primary" [style.width.px]="110" type="submit"
+              [disabled]="userForm.invalid || !userForm.touched">{{customMsgService.translate('save')}}</button>
+            <button kendoButton [style.width.px]="110" type="button" fillMode="outline" (click)="restoreUserInfo()"
+              [disabled]="!userForm.touched">{{customMsgService.translate('restore')}}</button>
+          </div>
         </div>
       </form>
     </div>
     <!-- DASHBRDCARD-11 Start -->
     <div
-      class="k-col-span-10 k-col-span-xl-4 k-d-flex k-flex-col k-flex-basis-0 k-flex-grow k-bg-surface-alt k-rounded-xxl k-gap-1 k-p-4">
+      class="k-col-span-12 k-col-span-xl-4 k-d-flex k-flex-col k-flex-basis-0 k-flex-grow k-bg-surface-alt k-rounded-xxl k-gap-1 k-p-4">
       <div class="k-d-flex k-d-flex-col k-justify-content-between k-align-items-start k-gap-0">
         <h6 class="k-h6 k-font-medium">{{customMsgService.translate('calendar')}}</h6>
       </div>
       <div class="k-flex-1 k-d-flex k-d-flex-col k-h-full k-gap-3 k-justify-content-center k-align-items-center">
-        <kendo-calendar class="k-border-none k-elevation-5 k-border-lg" #calendar [navigation]="false"
-          size="large"></kendo-calendar>
+        <kendo-calendar class="k-border-none k-elevation-5 k-border-lg" #calendar [navigation]="false"></kendo-calendar>
       </div>
     </div>
     <!-- DASHBRDCARD-11 End -->
@@ -114,8 +117,12 @@
                 [text]="customMsgService.translate('cardNumber')"></kendo-label>
               <kendo-maskedtextbox formControlName="cardNumber" [mask]="'000 000 000 000'"></kendo-maskedtextbox>
             </div>
-            <button kendoButton themeColor="primary" [style.width.px]="90" type="submit"
-              [disabled]="cardForm.invalid || !cardForm.touched">{{customMsgService.translate('save')}}</button>
+            <div class="k-d-flex k-gap-2">
+              <button kendoButton themeColor="primary" [style.width.px]="110" type="submit"
+                [disabled]="cardForm.invalid || !cardForm.touched">{{customMsgService.translate('save')}}</button>
+              <button kendoButton [style.width.px]="110" type="button" fillMode="outline" [disabled]="!userForm.touched"
+                (click)="restoreCardInfo()">{{customMsgService.translate('restore')}}</button>
+            </div>
           </div>
         </form>
       </div>
@@ -124,7 +131,7 @@
     <!-- DASHBRDCARD-11 End -->
     <!-- DASHBRDCARD-11 Start -->
     <div
-      class="k-col-span-10 k-col-span-xl-4 k-d-flex k-flex-col k-flex-basis-0 k-flex-grow k-bg-surface-alt k-rounded-xxl k-gap-1 k-p-4">
+      class="k-col-span-12 k-col-span-xl-4 k-d-flex k-flex-col k-flex-basis-0 k-flex-grow k-bg-surface-alt k-rounded-xxl k-gap-1 k-p-4">
       <div class="k-d-flex k-d-flex-col k-justify-content-between k-align-items-start k-gap-0">
         <h6 class="k-h6 k-font-medium">{{customMsgService.translate('weather')}}</h6>
       </div>

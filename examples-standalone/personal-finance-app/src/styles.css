@@ -5,6 +5,11 @@ p {
   margin: 0;
 }
 
+body {
+  height: 100%;
+  min-height: 100%;
+}
+
 :root {
   /* Colors */
   --kendo-color-on-app-surface: #E0E0E0;

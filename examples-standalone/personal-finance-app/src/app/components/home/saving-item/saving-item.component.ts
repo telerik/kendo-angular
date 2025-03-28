@@ -31,5 +31,6 @@ export class SavingItemComponent {
   public customCurrencyOptions: NumberFormatOptions = {
     style: 'currency',
     currencyDisplay: 'code',
+    currency: 'USD',
   };
 }

@@ -33,4 +33,8 @@
     <kendo-pager-info></kendo-pager-info>
     <kendo-pager-page-sizes [pageSizes]="sizes"></kendo-pager-page-sizes>
   </ng-template>
+  <kendo-grid-excel fileName="Transactions.xlsx" [fetchData]="allData"></kendo-grid-excel>
+  <kendo-grid-pdf fileName="Transactions.pdf" [allPages]="true" paperSize="A4" [repeatHeaders]="true"
+    [landscape]="true">
+  </kendo-grid-pdf>
 </kendo-grid>

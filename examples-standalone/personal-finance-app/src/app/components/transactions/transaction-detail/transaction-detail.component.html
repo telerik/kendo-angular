@@ -38,7 +38,8 @@
     <img [src]="transaction.cardType === 'Visa' ? 'assets/visa-logo.png' : 'assets/mastercard-logo.png'" width="52px"
       height="32px" />
     } @else {
-    <kendo-chip class="k-rounded-lg k-font-size-sm k-text-center" [style.width.px]="44" [style.height.px]="24"
+    <kendo-chip class="k-rounded-lg k-font-size-sm k-text-center"
+      [style.width.px]="transaction.paymentMethod === 'Bank Transfer' ? 84 : 44" [style.height.px]="24"
       [themeColor]="'info'" [label]="transaction.paymentMethod" [attr.title]="transaction.paymentMethod"></kendo-chip>
     }
   </div>

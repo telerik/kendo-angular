@@ -2,6 +2,16 @@
   flex-direction: row-reverse;
 }
 
+.custom-dimensions {
+  width: 119px;
+  max-width: 119px;
+
+}
+
+.k-font-size-custom {
+  font-size: 14px;
+}
+
 @media (max-width: 992px) {
   .k-justify-content-sm-start {
     justify-content: start;

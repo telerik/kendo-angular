@@ -55,6 +55,7 @@ export const enCustomMessages = {
   cardInformation: "Card Information",
   weather: "Weather",
   save: "Save",
+  restore: "Restore",
   name: "Name",
   surname: "Surname",
   tag: "Tag",
@@ -86,6 +87,8 @@ export const enCustomMessages = {
   october: "October",
   november: "November",
   december: "December",
+  relatedTopics: "Related Topics",
+  chatWithRoby: "Chat with Roby",
 };
 
 export const enComponentMessages = {
@@ -175,4 +178,13 @@ export const enComponentMessages = {
   // NumericTextBox
   "kendo.numerictextbox.increment": "Increase value",
   "kendo.numerictextbox.decrement": "Decrease value",
+
+  // AIPrompt
+  "kendo.aiprompt.generateOutput": "Generate",
+  "kendo.aiprompt.copyOutput": "Copy",
+  "kendo.aiprompt.retryGeneration": "Retry",
+  "kendo.aiprompt.outputView": "Output",
+  "kendo.aiprompt.promptView": "ASK AI",
+  "kendo.aiprompt.promptPlaceholder": "How to...",
+  "kendo.aiprompt.promptSuggestions": "Prompt Suggestions",
 };

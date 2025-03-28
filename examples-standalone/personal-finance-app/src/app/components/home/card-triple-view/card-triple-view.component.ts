@@ -28,5 +28,6 @@ export class CardTripleViewComponent {
   public customCurrencyOptions: NumberFormatOptions = {
     style: 'currency',
     currencyDisplay: 'code',
+    currency: 'USD',
   };
 }

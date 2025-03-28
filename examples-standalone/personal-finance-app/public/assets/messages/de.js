@@ -55,6 +55,7 @@ export const deCustomMessages = {
   cardInformation: "Karteninformation",
   weather: "Wetter",
   save: "Speichern",
+  restore: "Restore",
   name: "Name",
   surname: "Nachname",
   tag: "Kennzeichen",
@@ -86,6 +87,8 @@ export const deCustomMessages = {
   october: "Oktober",
   november: "November",
   december: "Dezember",
+  relatedTopics: "Verwandte Themen",
+  chatWithRoby: "Mit Roby chatten",
 };
 
 export const deComponentMessages = {
@@ -175,4 +178,13 @@ export const deComponentMessages = {
   // NumericTextBox
   "kendo.numerictextbox.increment": "Wert erhöhen",
   "kendo.numerictextbox.decrement": "Wert verringern",
+
+  // AIPrompt
+  "kendo.aiprompt.generateOutput": "Generieren",
+  "kendo.aiprompt.copyOutput": "Kopieren",
+  "kendo.aiprompt.retryGeneration": "Wiederholen",
+  "kendo.aiprompt.outputView": "Ausgabe",
+  "kendo.aiprompt.promptView": "KI FRAGEN",
+  "kendo.aiprompt.promptPlaceholder": "Wie kann ich...",
+  "kendo.aiprompt.promptSuggestions": "Eingabevorschläge",
 };

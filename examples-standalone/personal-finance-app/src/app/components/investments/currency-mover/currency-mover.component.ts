@@ -22,6 +22,7 @@ export class CurrencyMoverComponent {
   public customCurrencyOptions: NumberFormatOptions = {
     style: 'accounting',
     currencyDisplay: 'symbol',
+    currency: 'USD',
     minimumFractionDigits: 2,
   };
 

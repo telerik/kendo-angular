@@ -40,6 +40,8 @@ export class SettingsComponent {
   public cardForm!: FormGroup;
   public cloudIcon: SVGIcon = cloudIcon;
   public countries: string[] = [];
+  private initialUserFormValues: any;
+  private initialCardFormValues: any;
 
   public customMsgService: CustomMessagesService;
 
@@ -53,6 +55,9 @@ export class SettingsComponent {
       : [this.user.country];
     this.initUserForm();
     this.initCardForm();
+
+    this.initialUserFormValues = { ...this.userForm.getRawValue() };
+    this.initialCardFormValues = { ...this.cardForm.getRawValue() };
   }
 
   public saveUserInfo(): void {
@@ -71,6 +76,20 @@ export class SettingsComponent {
 
       this.cardForm.markAsUntouched();
     }
+  }
+
+  public restoreUserInfo(): void {
+    this.userForm.reset(this.initialUserFormValues);
+
+    this.userForm.markAsPristine();
+    this.userForm.markAsUntouched();
+  }
+
+  public restoreCardInfo(): void {
+    this.cardForm.reset(this.initialCardFormValues);
+
+    this.cardForm.markAsPristine();
+    this.cardForm.markAsUntouched();
   }
 
   private initUserForm(): void {
