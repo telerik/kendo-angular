@@ -9,20 +9,18 @@
       </div>
       <div class="k-flex-1 k-d-flex k-d-flex-col k-h-full k-gap-3">
         <kendo-chart>
-          <kendo-chart-legend position="right">
-            <kendo-chart-legend-item [visual]="labelsVisual" cursor="pointer">
+          <kendo-chart-legend [position]="legendPosition">
+            <kendo-chart-legend-item cursor="pointer">
             </kendo-chart-legend-item>
           </kendo-chart-legend>
           <kendo-chart-series>
             <kendo-chart-series-item type="pie" [data]="pieData" field="value" categoryField="category"
-              [labels]="{ visible: true, content: labelContent, position: 'center' }">
+              [labels]="{ visible: true, content: labelContent, position: 'center', background: 'transparent' }">
             </kendo-chart-series-item>
           </kendo-chart-series>
         </kendo-chart>
       </div>
     </div>
-    <!-- DASHBRDCARD-11 End -->
-    <!-- DASHBRDCARD-11 Start -->
     <div
       class="k-col-span-12 k-col-span-xl-7 k-d-flex k-flex-col k-flex-basis-0 k-flex-grow k-bg-surface-alt k-rounded-xxl k-gap-4 k-p-4 k-mb-10">
       <div class="k-d-flex k-d-flex-col k-justify-content-between k-align-items-start k-gap-0">
@@ -35,8 +33,6 @@
       </div>
     </div>
   </div>
-  <!-- DASHBRDCARD-11 End -->
-
   <div
     class="k-col-span-12 k-col-span-xl-12 k-d-flex k-flex-col k-flex-basis-0 k-flex-grow k-bg-surface-alt k-rounded-xxl k-gap-4 k-p-4 k-mb-4">
     <div class="k-d-flex k-d-flex-col k-justify-content-between k-align-items-start k-gap-0">

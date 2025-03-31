@@ -38,6 +38,12 @@ export class HeaderComponent {
   public suggestions: string[] = searchSuggestionsEn;
   public selectedLanguage = { locale: 'English', localeId: 'en-US' };
   public customMsgService: CustomMessagesService;
+  public translations: Array<{ locale: string; localeId: string }> = [
+    { locale: 'English', localeId: 'en-US' },
+    { locale: 'Español', localeId: 'es-ES' },
+    { locale: 'Deutsch', localeId: 'de-DE' },
+    { locale: 'Français', localeId: 'fr-FR' },
+  ];
 
   constructor(
     public messages: MessageService,
@@ -57,13 +63,6 @@ export class HeaderComponent {
       );
     });
   }
-
-  public translations: Array<{ locale: string; localeId: string }> = [
-    { locale: 'English', localeId: 'en-US' },
-    { locale: 'Español', localeId: 'es-ES' },
-    { locale: 'Deutsch', localeId: 'de-DE' },
-    { locale: 'Français', localeId: 'fr-FR' },
-  ];
 
   public changeLanguage(item: any): void {
     this.selectedLanguage = item;

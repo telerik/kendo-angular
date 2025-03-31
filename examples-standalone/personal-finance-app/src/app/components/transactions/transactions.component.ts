@@ -10,7 +10,6 @@ import { MessageService } from '@progress/kendo-angular-l10n';
   standalone: true,
   imports: [TransactionsGridComponent, TransactionDetailComponent],
   templateUrl: './transactions.component.html',
-  styleUrl: './transactions.component.css',
 })
 export class TransactionsComponent {
   public selectedTransaction: Transaction = new Transaction();

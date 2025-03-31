@@ -18,6 +18,13 @@ body {
   --kendo-color-white: #E0E0E0;
   --kendo-color-green: #64805D;
   --kendo-color-red: #D35F5F;
+  --kendo-color-surface-alt: #212121;
+  --kendo-color-success-subtle: #A7DB97;
+  --kendo-color-error-subtle: #D77B8B;
+  --kendo-color-warning-subtle: #FFE19C;
+  --kendo-color-success-on-subtle: #212121;
+  --kendo-color-error-on-subtle: #212121;
+  --kendo-color-warning-on-subtle: #212121;
 
   /* Typography */
   --kendo-font-family: "Roboto", sans-serif;

@@ -25,7 +25,6 @@ import { ExcelExportData } from '@progress/kendo-angular-excel-export';
   standalone: true,
   imports: [KENDO_GRID, KENDO_PAGER, IntlModule, KENDO_BUTTONS, PDFModule],
   templateUrl: './transactions-grid.component.html',
-  styleUrl: './transactions-grid.component.css',
 })
 export class TransactionsGridComponent {
   public gridData: Transaction[] = gridTransactions;

@@ -9,15 +9,15 @@
       {{customMsgService.translate('pdfExport')}}
     </button>
   </ng-template>
-  <kendo-grid-checkbox-column [width]="50"></kendo-grid-checkbox-column>
+  <kendo-grid-checkbox-column [width]="70" [columnMenu]="false"></kendo-grid-checkbox-column>
   <kendo-grid-column field="dateOfPurchase" title="Date" [width]="140" format="dd/MM/yyyy"></kendo-grid-column>
-  <kendo-grid-column field="merchant" title="Merchant" [width]="120"></kendo-grid-column>
   <kendo-grid-column field="amount" title="Amount" [width]="100">
     <ng-template kendoGridCellTemplate let-dataItem>
       <span>{{intl.formatNumber(dataItem.amount,
         customCurrencyOptions)}}</span>
     </ng-template>
   </kendo-grid-column>
+  <kendo-grid-column field="merchant" title="Merchant" [width]="120"></kendo-grid-column>
   <kendo-grid-column field="category" title="Category" [width]="140"></kendo-grid-column>
   <kendo-grid-column field="paymentMethod" title="Pay Method" [width]="140"></kendo-grid-column>
   <kendo-grid-column field="orderStatus" title="Status" [width]="130">

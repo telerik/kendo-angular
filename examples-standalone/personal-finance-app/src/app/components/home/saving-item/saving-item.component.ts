@@ -10,12 +10,16 @@ import { MessageService } from '@progress/kendo-angular-l10n';
   standalone: true,
   imports: [KENDO_PROGRESSBARS],
   templateUrl: './saving-item.component.html',
-  styleUrl: './saving-item.component.css',
 })
 export class SavingItemComponent {
   @Input() public saving!: Saving;
 
   public customMsgService: CustomMessagesService;
+  public customCurrencyOptions: NumberFormatOptions = {
+    style: 'currency',
+    currencyDisplay: 'code',
+    currency: 'USD',
+  };
 
   constructor(public msgService: MessageService, public intl: IntlService) {
     this.customMsgService = this.msgService as CustomMessagesService;
@@ -27,10 +31,4 @@ export class SavingItemComponent {
     }
     return this.saving.title.toLowerCase();
   }
-
-  public customCurrencyOptions: NumberFormatOptions = {
-    style: 'currency',
-    currencyDisplay: 'code',
-    currency: 'USD',
-  };
 }

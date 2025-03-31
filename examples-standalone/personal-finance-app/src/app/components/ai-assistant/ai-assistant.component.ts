@@ -37,11 +37,16 @@ import { CustomMessagesService } from '../../services/custom-messages.service';
 export class AiAssistantComponent {
   public customMsgService: CustomMessagesService;
 
-  public relatedTopics = relatedTopicsDataEn;
+  public relatedTopics: {
+    title: string;
+    description: string;
+    expanded: boolean;
+  }[] = [];
   public promptSuggestions: string[] = [];
   public activeView: number = 0;
   public promptOutputs: PromptOutput[] = [];
   public emailContent = '';
+
   private currentLocaleId: string = 'en-US';
   private defaultMessage = '';
   private promptData: { suggestion: string; answer: string }[] = [];
@@ -52,9 +57,14 @@ export class AiAssistantComponent {
   ) {
     this.customMsgService = this.messages as CustomMessagesService;
 
-    this.promptSuggestions = this.getPromptSuggestions(this.currentLocaleId);
-    this.defaultMessage = this.getDefaultMessage(this.currentLocaleId);
-    this.promptData = this.getPrompts(this.currentLocaleId);
+    this.promptSuggestions = this.getPromptSuggestions(
+      this.customMsgService.language
+    );
+    this.defaultMessage = this.getDefaultMessage(
+      this.customMsgService.language
+    );
+    this.promptData = this.getPrompts(this.customMsgService.language);
+    this.relatedTopics = this.getRelatedTopics(this.customMsgService.language);
 
     this.customMsgService.localeChange.subscribe(() => {
       this.currentLocaleId = this.customMsgService.language;
@@ -70,8 +80,6 @@ export class AiAssistantComponent {
     const response = this.promptData
       .slice()
       .find((s) => s.suggestion === ev.prompt);
-
-    console.log(response, ev.prompt);
 
     const output: PromptOutput = {
       id: guid(),

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import {
   KENDO_CHARTS,
   LegendItemVisualArgs,
@@ -28,11 +28,12 @@ const { Point, Rect, Size } = geometry;
   standalone: true,
   imports: [KENDO_CHARTS, StockChartComponent, CurrencyMoverComponent],
   templateUrl: './investments.component.html',
-  styleUrl: './investments.component.css',
 })
 export class InvestmentsComponent {
   public pieData: PieData[] = pieData;
   public currencyMovers: CurrencyMover[] = currencyMovers;
+  public legendPosition: 'top' | 'bottom' | 'left' | 'right' | 'custom' =
+    'right';
 
   public customMsgService: CustomMessagesService;
 
@@ -44,47 +45,12 @@ export class InvestmentsComponent {
     return `${args.dataItem.value}`;
   }
 
-  public labelsVisual = (args: LegendItemVisualArgs): Element => {
-    const rectOptions = {
-      stroke: { width: 20, color: 'transparent' },
-      fill: { color: 'transparent' },
-    };
-    const rectGeometry = new Rect(new Point(0, 10), new Size(60, 10));
-    const rect: RectShape = new RectShape(rectGeometry, rectOptions);
+  @HostListener('window:resize', ['$event'])
+  onResize(event: any): void {
+    this.updateLegendPosition(event.target.innerWidth);
+  }
 
-    const pathColor = args.options.markers.border.color;
-    const path1 = new Path({
-      stroke: {
-        color: pathColor,
-        width: 5,
-      },
-    });
-
-    path1.moveTo(0, 7).lineTo(20, 7).close();
-
-    const labelText = this.customMsgService.translate(
-      this.getLabelText(args.series.data[args.pointIndex].category)
-    );
-    const labelFont = args.options.labels.font;
-    const fontColor = args.options.labels.color;
-    const textOptions = { font: labelFont, fill: { color: fontColor } };
-    const text = new Text(labelText, new Point(27, 0), textOptions);
-
-    const group = new Group();
-
-    group.append(rect, path1, text);
-
-    if (!args.active) {
-      group.opacity(0.5);
-    }
-
-    return group;
-  };
-
-  private getLabelText(category: string): string {
-    if (category === 'Real Estates' || category === 'Mutual Funds') {
-      return category === 'Real Estates' ? 'realEstates' : 'mutualFunds';
-    }
-    return category.toLowerCase();
+  private updateLegendPosition(width: number): void {
+    this.legendPosition = width < 768 ? 'bottom' : 'right';
   }
 }

@@ -16,18 +16,11 @@ import { MessageService } from '@progress/kendo-angular-l10n';
   standalone: true,
   imports: [KENDO_LAYOUT, KENDO_CHARTS],
   templateUrl: './stock-chart.component.html',
-  styleUrl: './stock-chart.component.css',
 })
 export class StockChartComponent {
   public selected = 0;
   public tabStripItems: TabStripItem[] = tabStripItems;
-
   public customMsgService: CustomMessagesService;
-
-  constructor(public intl: IntlService, private messages: MessageService) {
-    this.customMsgService = this.messages as CustomMessagesService;
-  }
-
   public from: Date = new Date('2019/03/05');
   public to: Date = new Date('2020/02/07');
 
@@ -37,6 +30,10 @@ export class StockChartComponent {
     currency: 'USD',
     minimumFractionDigits: 0,
   };
+
+  constructor(public intl: IntlService, private messages: MessageService) {
+    this.customMsgService = this.messages as CustomMessagesService;
+  }
 
   public navigatorFilter(e: NavigatorFilterEvent): void {
     this.from = e.from;

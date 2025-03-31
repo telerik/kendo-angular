@@ -18,16 +18,14 @@ import { MessageService } from '@progress/kendo-angular-l10n';
 })
 export class CardTripleViewComponent {
   @Input() public cardData!: OverviewCard;
-
   public customMsgService: CustomMessagesService;
-
-  constructor(public intl: IntlService, public msgService: MessageService) {
-    this.customMsgService = this.msgService as CustomMessagesService;
-  }
-
   public customCurrencyOptions: NumberFormatOptions = {
     style: 'currency',
     currencyDisplay: 'code',
     currency: 'USD',
   };
+
+  constructor(public intl: IntlService, public msgService: MessageService) {
+    this.customMsgService = this.msgService as CustomMessagesService;
+  }
 }

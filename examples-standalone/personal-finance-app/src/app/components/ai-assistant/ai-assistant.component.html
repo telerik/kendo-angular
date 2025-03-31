@@ -24,9 +24,9 @@
         <h6 class="k-h6 k-font-medium">{{customMsgService.translate('chatWithRoby')}}</h6>
       </div>
       <div class="k-d-flex k-justify-content-center k-align-items-center">
-        <kendo-aiprompt [style.maxWidth.px]="390" [style.minWidth.px]="390" [style.maxHeight.px]="520"
-          [style.height.px]="520" #aiPrompt [promptOutputs]=" promptOutputs" [(activeView)]="activeView"
-          (promptRequest)="onPromptRequest($event)" [promptSuggestions]="promptSuggestions">
+        <kendo-aiprompt [style.maxHeight.px]="520" [style.maxWidth.px]="390" [style.height.px]="520" #aiPrompt
+          [promptOutputs]=" promptOutputs" [(activeView)]="activeView" (promptRequest)="onPromptRequest($event)"
+          [promptSuggestions]="promptSuggestions">
           <kendo-aiprompt-prompt-view></kendo-aiprompt-prompt-view>
           <kendo-aiprompt-output-view></kendo-aiprompt-output-view>
         </kendo-aiprompt>

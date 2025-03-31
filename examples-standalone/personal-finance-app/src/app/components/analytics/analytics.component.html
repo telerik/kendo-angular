@@ -3,10 +3,8 @@
 
   <div
     class="k-col-span-12 k-col-span-xl-12 k-d-flex k-flex-col k-flex-basis-0 k-flex-grow k-bg-surface-alt k-rounded-xxl k-gap-4 k-p-4 k-mb-10 k-pos-relative">
-    <div
-      class="k-pos-absolute k-z-10 k-d-flex k-d-flex-row k-justify-content-between k-align-items-center k-gap-0 k-w-100 k-left-0 k-right-0 k-px-4">
+    <div class="k-d-flex k-d-flex-row k-justify-content-between k-align-items-center k-gap-0 k-w-100 k-px-4">
       <h6 class="k-h6 k-font-medium k-align-middle k-mb-0">{{customMsgService.translate('moneyCashflow')}}</h6>
-
       <kendo-dropdownlist class="k-w-25" [data]="drillDownLevels" [value]="activeSeries"
         (valueChange)="onDrilldownLevelChange($event)" [textField]="'text'" [valueField]="'value'"
         [valuePrimitive]="false" [(value)]="defaultItem" [itemDisabled]="itemDisabled"></kendo-dropdownlist>
@@ -24,8 +22,8 @@
           <kendo-chart-value-axis-item [labels]="valueAxisLabels">
           </kendo-chart-value-axis-item>
         </kendo-chart-value-axis>
-        <kendo-chart-legend position="top">
-          <kendo-chart-legend-item [visual]="labelsVisual" cursor="pointer">
+        <kendo-chart-legend [position]="legendPosition">
+          <kendo-chart-legend-item cursor="pointer">
           </kendo-chart-legend-item>
         </kendo-chart-legend>
         <kendo-chart-series>
@@ -63,7 +61,6 @@
       </kendo-chart>
     </div>
   </div>
-
   <div
     class="k-col-span-12 k-col-span-xl-12 k-d-flex k-flex-col k-flex-basis-0 k-flex-grow k-bg-surface-alt k-rounded-xxl k-gap-4 k-p-4 k-mb-4">
     <div class="k-d-flex k-d-flex-col k-justify-content-between k-align-items-start k-gap-0">
