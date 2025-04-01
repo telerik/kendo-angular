@@ -90,8 +90,8 @@ export class AnalyticsComponent {
     };
 
     @HostListener('window:resize', ['$event'])
-    onResize(event: any): void {
-        this.updateLegendPosition(event.target.innerWidth);
+    onResize(event: UIEvent): void {
+        this.updateLegendPosition((event.target as Window).innerWidth);
     }
 
     private updateLegendPosition(width: number): void {
