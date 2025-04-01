@@ -1,4 +1,4 @@
 export interface Saving {
-  title: string;
-  value: number;
+    title: string;
+    value: number;
 }

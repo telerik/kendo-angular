@@ -7,10 +7,10 @@ import { InvestmentsComponent } from './components/investments/investments.compo
 import { AiAssistantComponent } from './components/ai-assistant/ai-assistant.component';
 
 export const routes: Routes = [
-  { path: '', component: HomeComponent },
-  { path: 'transactions', component: TransactionsComponent },
-  { path: 'investments', component: InvestmentsComponent },
-  { path: 'analytics', component: AnalyticsComponent },
-  { path: 'ai-assistant', component: AiAssistantComponent },
-  { path: 'settings', component: SettingsComponent },
+    { path: '', component: HomeComponent },
+    { path: 'transactions', component: TransactionsComponent },
+    { path: 'investments', component: InvestmentsComponent },
+    { path: 'analytics', component: AnalyticsComponent },
+    { path: 'ai-assistant', component: AiAssistantComponent },
+    { path: 'settings', component: SettingsComponent },
 ];

@@ -1,34 +1,54 @@
 <header class="k-d-flex k-px-15 k-py-6.5 k-gap-4 k-flex-wrap k-justify-content-between k-align-items-center">
-  <div class="k-d-flex-row k-shrink-0 k-flex-basis-0 k-flex-grow k-gap-2 k-align-items-center">
-    <kendo-avatar size="large" imageSrc="assets/avatar-image.jpeg"></kendo-avatar>
-    <div class="k-d-flex k-d-flex-col k-flex-nowrap k-gap-3 k-align-items-start">
-      <span class="k-font-size-xl !k-m-0 k-font-bold k-white-space-nowrap k-h-6 k-align-middle">
-        {{customMsgService.translate('greeting')}}
-      </span>
-      <span
-        class="k-font-size-md !k-m-0 k-font-medium k-white-space-nowrap">{{customMsgService.translate('welcome')}}</span>
+    <div class="k-d-flex-row k-shrink-0 k-flex-basis-0 k-flex-grow k-gap-2 k-align-items-center">
+        <kendo-avatar size="large" imageSrc="assets/avatar-image.jpeg"></kendo-avatar>
+        <div class="k-d-flex k-d-flex-col k-flex-nowrap k-gap-3 k-align-items-start">
+            <span class="k-font-size-xl !k-m-0 k-font-bold k-white-space-nowrap k-h-6 k-align-middle">
+                {{ customMsgService.translate('greeting') }}
+            </span>
+            <span class="k-font-size-md !k-m-0 k-font-medium k-white-space-nowrap">
+                {{ customMsgService.translate('welcome') }}
+            </span>
+        </div>
     </div>
-  </div>
-  <div class="k-flex-basis-0 k-shrink-0 k-flex-grow">
-    <div class="k-d-flex">
-      <kendo-autocomplete #cities [data]="suggestions" class="!k-bg-dark k-color-subtle k-border-transparent"
-        [style.minWidth.px]="215" [style.maxWidth.px]="360" size="small"
-        [placeholder]="customMsgService.translate('search')" rounded="large" fillMode="outline"
-        (valueChange)="onValueChange($event)">
-        <ng-template kendoPrefixTemplate [showSeparator]="true">
-          <kendo-svgicon [icon]="searchIcon"></kendo-svgicon>
-        </ng-template>
-      </kendo-autocomplete>
+    <div class="k-flex-basis-0 k-shrink-0 k-flex-grow">
+        <div class="k-d-flex">
+            <kendo-autocomplete
+                #cities
+                [data]="suggestions"
+                class="!k-bg-dark k-color-subtle k-border-transparent"
+                [style.minWidth.px]="215"
+                [style.maxWidth.px]="360"
+                size="small"
+                [placeholder]="customMsgService.translate('search')"
+                rounded="large"
+                fillMode="outline"
+                (valueChange)="onValueChange($event)"
+            >
+                <ng-template kendoPrefixTemplate [showSeparator]="true">
+                    <kendo-svgicon [icon]="searchIcon"></kendo-svgicon>
+                </ng-template>
+            </kendo-autocomplete>
+        </div>
     </div>
-  </div>
-  <div class="k-d-flex k-flex-basis-0 k-shrink-0 k-flex-grow k-justify-content-end k-justify-content-sm-start k-gap-4">
-    <button kendoButton themeColor="primary" rounded="large" [routerLink]="'/ai-assistant'">
-      <span class="k-font-size-custom">{{customMsgService.translate('aiAssistant')}}</span>
-    </button>
-    <kendo-dropdownbutton [data]="translations" [svgIcon]="dropDownIcon" themeColor="light" rounded="large"
-      class="language-dropdown custom-dimensions" [style.width.px]="119" [style.maxWidth.px]="119" textField="locale"
-      valueField="localeId" (itemClick)="changeLanguage($event)">
-      <span class="k-font-size-custom">{{selectedLanguage.locale}}</span>
-    </kendo-dropdownbutton>
-  </div>
+    <div
+        class="k-d-flex k-flex-basis-0 k-shrink-0 k-flex-grow k-justify-content-end k-justify-content-sm-start k-gap-4"
+    >
+        <button kendoButton themeColor="primary" rounded="large" [routerLink]="'/ai-assistant'">
+            <span class="k-font-size-custom">{{ customMsgService.translate('aiAssistant') }}</span>
+        </button>
+        <kendo-dropdownbutton
+            [data]="translations"
+            [svgIcon]="dropDownIcon"
+            themeColor="light"
+            rounded="large"
+            class="language-dropdown custom-dimensions"
+            [style.width.px]="119"
+            [style.maxWidth.px]="119"
+            textField="locale"
+            valueField="localeId"
+            (itemClick)="changeLanguage($event)"
+        >
+            <span class="k-font-size-custom">{{ selectedLanguage.locale }}</span>
+        </kendo-dropdownbutton>
+    </div>
 </header>

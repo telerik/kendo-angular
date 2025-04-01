@@ -1,67 +1,121 @@
 <div class="k-d-flex k-d-flex-col k-gap-3">
-  <div class="k-d-flex k-d-flex-col k-gap-0">
-    <kendo-label class="k-display-block k-font-size-lg" [for]="merchant"
-      [text]="customMsgService.translate('merchant')"></kendo-label>
-    <kendo-textbox #merchant [readonly]="true" [value]="transaction.merchant"></kendo-textbox>
-  </div>
+    <div class="k-d-flex k-d-flex-col k-gap-0">
+        <kendo-label
+            class="k-display-block k-font-size-lg"
+            [for]="merchant"
+            [text]="customMsgService.translate('merchant')"
+        ></kendo-label>
+        <kendo-textbox #merchant [readonly]="true" [value]="transaction.merchant"></kendo-textbox>
+    </div>
 
-  <div class=" k-d-flex k-d-flex-col k-gap-0">
-    <kendo-label class="k-display-block k-font-size-lg"
-      [text]="customMsgService.translate('orderStatus')"></kendo-label>
-    <kendo-chip class="k-rounded-lg k-font-size-sm k-text-center" [style.width.px]="68" [style.height.px]="28"
-      [themeColor]="getThemeColor()" [label]="transaction.orderStatus"></kendo-chip>
-  </div>
+    <div class="k-d-flex k-d-flex-col k-gap-0">
+        <kendo-label
+            class="k-display-block k-font-size-lg"
+            [text]="customMsgService.translate('orderStatus')"
+        ></kendo-label>
+        <kendo-chip
+            class="k-rounded-lg k-font-size-sm k-text-center"
+            [style.width.px]="68"
+            [style.height.px]="28"
+            [themeColor]="getThemeColor()"
+            [label]="transaction.orderStatus"
+        ></kendo-chip>
+    </div>
 
-  <div class="k-d-flex k-d-flex-col k-gap-0">
-    <kendo-label class="k-display-block k-font-size-lg" [for]="purchaseTime"
-      [text]="customMsgService.translate('time')"></kendo-label>
-    <kendo-dateinput #purchaseTime [readonly]="true" [value]="getTransactionTime()"
-      format="h:mm a MMMM dd, yyyy"></kendo-dateinput>
-  </div>
+    <div class="k-d-flex k-d-flex-col k-gap-0">
+        <kendo-label
+            class="k-display-block k-font-size-lg"
+            [for]="purchaseTime"
+            [text]="customMsgService.translate('time')"
+        ></kendo-label>
+        <kendo-dateinput
+            #purchaseTime
+            [readonly]="true"
+            [value]="getTransactionTime()"
+            format="h:mm a MMMM dd, yyyy"
+        ></kendo-dateinput>
+    </div>
 
-  <div class="k-d-flex k-d-flex-col k-gap-0">
-    <kendo-label class="k-display-block k-font-size-lg" [for]="customer"
-      [text]="customMsgService.translate('customer')"></kendo-label>
-    <kendo-textbox #customer [readonly]="true" [value]="'Maria Johnson'"></kendo-textbox>
-  </div>
+    <div class="k-d-flex k-d-flex-col k-gap-0">
+        <kendo-label
+            class="k-display-block k-font-size-lg"
+            [for]="customer"
+            [text]="customMsgService.translate('customer')"
+        ></kendo-label>
+        <kendo-textbox #customer [readonly]="true" [value]="'Maria Johnson'"></kendo-textbox>
+    </div>
 
-  <div class="k-d-flex k-d-flex-col k-gap-0">
-    <kendo-label class="k-display-block k-font-size-lg" [for]="email"
-      [text]="customMsgService.translate('email')"></kendo-label>
-    <kendo-textbox #email [readonly]="true" [value]="'mariajohnson@email.com'"></kendo-textbox>
-  </div>
+    <div class="k-d-flex k-d-flex-col k-gap-0">
+        <kendo-label
+            class="k-display-block k-font-size-lg"
+            [for]="email"
+            [text]="customMsgService.translate('email')"
+        ></kendo-label>
+        <kendo-textbox #email [readonly]="true" [value]="'mariajohnson@email.com'"></kendo-textbox>
+    </div>
 
-  <div class="k-d-flex k-d-flex-col k-gap-0">
-    <kendo-label class="k-display-block k-font-size-lg"
-      [text]="customMsgService.translate('paymentMethod')"></kendo-label>
-    @if(transaction.paymentMethod === 'Credit Card' || transaction.paymentMethod === 'Debit Card') {
-    <img [src]="transaction.cardType === 'Visa' ? 'assets/visa-logo.png' : 'assets/mastercard-logo.png'" width="52px"
-      height="32px" />
-    } @else {
-    <kendo-chip class="k-rounded-lg k-font-size-sm k-text-center"
-      [style.width.px]="transaction.paymentMethod === 'Bank Transfer' ? 84 : 44" [style.height.px]="24"
-      [themeColor]="'info'" [label]="transaction.paymentMethod" [attr.title]="transaction.paymentMethod"></kendo-chip>
-    }
-  </div>
+    <div class="k-d-flex k-d-flex-col k-gap-0">
+        <kendo-label
+            class="k-display-block k-font-size-lg"
+            [text]="customMsgService.translate('paymentMethod')"
+        ></kendo-label>
+        @if(transaction.paymentMethod === 'Credit Card' || transaction.paymentMethod === 'Debit Card') {
+        <img
+            [src]="transaction.cardType === 'Visa' ? 'assets/visa-logo.png' : 'assets/mastercard-logo.png'"
+            width="52px"
+            height="32px"
+        />
+        } @else {
+        <kendo-chip
+            class="k-rounded-lg k-font-size-sm k-text-center"
+            [style.width.px]="transaction.paymentMethod === 'Bank Transfer' ? 84 : 44"
+            [style.height.px]="24"
+            [themeColor]="'info'"
+            [label]="transaction.paymentMethod"
+            [attr.title]="transaction.paymentMethod"
+        ></kendo-chip>
+        }
+    </div>
 
-  <div class="k-d-flex k-d-flex-col k-gap-0">
-    <kendo-label class="k-display-block k-font-size-lg" [for]="transactionHash"
-      [text]="customMsgService.translate('transactionHash')"></kendo-label>
-    <kendo-textbox #transactionHash class="k-text-blue" [readonly]="true"
-      [value]="transaction.transactionHashFrom ? transaction.transactionHashFrom : ''"></kendo-textbox>
-  </div>
+    <div class="k-d-flex k-d-flex-col k-gap-0">
+        <kendo-label
+            class="k-display-block k-font-size-lg"
+            [for]="transactionHash"
+            [text]="customMsgService.translate('transactionHash')"
+        ></kendo-label>
+        <kendo-textbox
+            #transactionHash
+            class="k-text-blue"
+            [readonly]="true"
+            [value]="transaction.transactionHashFrom ? transaction.transactionHashFrom : ''"
+        ></kendo-textbox>
+    </div>
 
-  <div class="k-d-flex k-d-flex-col k-gap-0">
-    <kendo-label class="k-display-block k-font-size-lg" [for]="from"
-      [text]="customMsgService.translate('from')"></kendo-label>
-    <kendo-textbox #from class="k-text-blue" [readonly]="true"
-      [value]="transaction.transactionHashFrom ? transaction.transactionHashFrom : ''"></kendo-textbox>
-  </div>
+    <div class="k-d-flex k-d-flex-col k-gap-0">
+        <kendo-label
+            class="k-display-block k-font-size-lg"
+            [for]="from"
+            [text]="customMsgService.translate('from')"
+        ></kendo-label>
+        <kendo-textbox
+            #from
+            class="k-text-blue"
+            [readonly]="true"
+            [value]="transaction.transactionHashFrom ? transaction.transactionHashFrom : ''"
+        ></kendo-textbox>
+    </div>
 
-  <div class="k-d-flex k-d-flex-col k-gap-0">
-    <kendo-label class="k-display-block k-font-size-lg" [for]="to"
-      [text]="customMsgService.translate('to')"></kendo-label>
-    <kendo-textbox #to class="k-text-blue" [readonly]="true"
-      [value]="transaction.transactionHashTo ? transaction.transactionHashTo : ''"></kendo-textbox>
-  </div>
+    <div class="k-d-flex k-d-flex-col k-gap-0">
+        <kendo-label
+            class="k-display-block k-font-size-lg"
+            [for]="to"
+            [text]="customMsgService.translate('to')"
+        ></kendo-label>
+        <kendo-textbox
+            #to
+            class="k-text-blue"
+            [readonly]="true"
+            [value]="transaction.transactionHashTo ? transaction.transactionHashTo : ''"
+        ></kendo-textbox>
+    </div>
 </div>

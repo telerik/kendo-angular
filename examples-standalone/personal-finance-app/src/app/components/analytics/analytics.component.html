@@ -1,73 +1,124 @@
 <div class="k-px-15 k-px-sm-15 k-px-md-15 k-px-lg-15 k-px-xl-15 k-py-2 k-py-sm-1 k-py-md-1 k-py-lg-2 k-py-xl-2 k-pt-8">
-  <h4 class="k-h4 !k-mb-6 k-text-ellipsis">{{customMsgService.translate('analytics')}}</h4>
+    <h4 class="k-h4 !k-mb-6 k-text-ellipsis">{{ customMsgService.translate('analytics') }}</h4>
 
-  <div
-    class="k-col-span-12 k-col-span-xl-12 k-d-flex k-flex-col k-flex-basis-0 k-flex-grow k-bg-surface-alt k-rounded-xxl k-gap-4 k-p-4 k-mb-10 k-pos-relative">
-    <div class="k-d-flex k-d-flex-row k-justify-content-between k-align-items-center k-gap-0 k-w-100 k-px-4">
-      <h6 class="k-h6 k-font-medium k-align-middle k-mb-0">{{customMsgService.translate('moneyCashflow')}}</h6>
-      <kendo-dropdownlist class="k-w-25" [data]="drillDownLevels" [value]="activeSeries"
-        (valueChange)="onDrilldownLevelChange($event)" [textField]="'text'" [valueField]="'value'"
-        [valuePrimitive]="false" [(value)]="defaultItem" [itemDisabled]="itemDisabled"></kendo-dropdownlist>
+    <div
+        class="k-col-span-12 k-col-span-xl-12 k-d-flex k-flex-col k-flex-basis-0 k-flex-grow k-bg-surface-alt k-rounded-xxl k-gap-4 k-p-4 k-mb-10 k-pos-relative"
+    >
+        <div class="k-d-flex k-d-flex-row k-justify-content-between k-align-items-center k-gap-0 k-w-100 k-px-4">
+            <h6 class="k-h6 k-font-medium k-align-middle k-mb-0">{{ customMsgService.translate('moneyCashflow') }}</h6>
+            <kendo-dropdownlist
+                class="k-w-25"
+                [data]="drillDownLevels"
+                [value]="activeSeries"
+                (valueChange)="onDrilldownLevelChange($event)"
+                [textField]="'text'"
+                [valueField]="'value'"
+                [valuePrimitive]="false"
+                [(value)]="defaultItem"
+                [itemDisabled]="itemDisabled"
+            ></kendo-dropdownlist>
+        </div>
+        <div class="k-flex-1 k-d-flex k-d-flex-col k-h-full k-gap-1 k-justify-content-center">
+            <kendo-chart
+                #instance
+                (drilldown)="onDrilldown($event)"
+                [(drilldownLevel)]="drilldownLevel"
+                [style.height.px]="500"
+            >
+                <kendo-chart-category-axis>
+                    <kendo-chart-category-axis-item>
+                        <kendo-chart-category-axis-item-labels
+                            [rotation]="{ angle: -90 }"
+                            [content]="categoryAxisLabels"
+                        >
+                        </kendo-chart-category-axis-item-labels>
+                    </kendo-chart-category-axis-item>
+                </kendo-chart-category-axis>
+                <kendo-chart-value-axis>
+                    <kendo-chart-value-axis-item [labels]="valueAxisLabels"> </kendo-chart-value-axis-item>
+                </kendo-chart-value-axis>
+                <kendo-chart-legend [position]="legendPosition">
+                    <kendo-chart-legend-item cursor="pointer"> </kendo-chart-legend-item>
+                </kendo-chart-legend>
+                <kendo-chart-series>
+                    @if(!isDrilledDown || activeSeries === 'Stocks'){
+                    <kendo-chart-series-item
+                        type="column"
+                        name="Stocks"
+                        [data]="stocksYearlyData"
+                        field="flow"
+                        categoryField="month"
+                        drilldownField="month"
+                        [spacing]="0.1"
+                        color="#E0CF34"
+                    >
+                        <ng-template kendoChartDrilldownSeries let-month="drilldownValue">
+                            <kendo-chart-series-item
+                                name="{{ month }}"
+                                [data]="stocksMonthlyData[month]"
+                                field="sales"
+                                categoryField="day"
+                                color="#E0CF34"
+                            >
+                            </kendo-chart-series-item>
+                        </ng-template>
+                    </kendo-chart-series-item>
+                    } @if(!isDrilledDown || activeSeries === 'Real Estate'){
+                    <kendo-chart-series-item
+                        type="column"
+                        name="Real Estate"
+                        [data]="realEstateYearlyData"
+                        field="flow"
+                        categoryField="month"
+                        drilldownField="month"
+                        color="#008478"
+                    >
+                        <ng-template kendoChartDrilldownSeries let-month="drilldownValue">
+                            <kendo-chart-series-item
+                                name="{{ month }}"
+                                [data]="realEstateMonthlyData[month]"
+                                field="sales"
+                                categoryField="day"
+                                drilldownField="day"
+                                color="#008478"
+                            >
+                            </kendo-chart-series-item>
+                        </ng-template>
+                    </kendo-chart-series-item>
+                    } @if(!isDrilledDown || activeSeries === 'Bonds'){
+                    <kendo-chart-series-item
+                        type="column"
+                        name="Bonds"
+                        [data]="bondsYearlyData"
+                        field="flow"
+                        categoryField="month"
+                        drilldownField="month"
+                        color="#9C27B0"
+                    >
+                        <ng-template kendoChartDrilldownSeries let-month="drilldownValue">
+                            <kendo-chart-series-item
+                                [name]="customMsgService.translate(month.toString())"
+                                [data]="bondsMonthlyData[month]"
+                                field="sales"
+                                categoryField="day"
+                                color="#9C27B0"
+                            >
+                            </kendo-chart-series-item>
+                        </ng-template>
+                    </kendo-chart-series-item>
+                    }
+                </kendo-chart-series>
+            </kendo-chart>
+        </div>
     </div>
-    <div class="k-flex-1 k-d-flex k-d-flex-col k-h-full k-gap-1 k-justify-content-center">
-      <kendo-chart #instance (drilldown)="onDrilldown($event)" [(drilldownLevel)]="drilldownLevel"
-        [style.height.px]="500">
-        <kendo-chart-category-axis>
-          <kendo-chart-category-axis-item>
-            <kendo-chart-category-axis-item-labels [rotation]="{ angle: -90 }" [content]="categoryAxisLabels">
-            </kendo-chart-category-axis-item-labels>
-          </kendo-chart-category-axis-item>
-        </kendo-chart-category-axis>
-        <kendo-chart-value-axis>
-          <kendo-chart-value-axis-item [labels]="valueAxisLabels">
-          </kendo-chart-value-axis-item>
-        </kendo-chart-value-axis>
-        <kendo-chart-legend [position]="legendPosition">
-          <kendo-chart-legend-item cursor="pointer">
-          </kendo-chart-legend-item>
-        </kendo-chart-legend>
-        <kendo-chart-series>
-          @if(!isDrilledDown || activeSeries === 'Stocks'){
-          <kendo-chart-series-item type="column" name="Stocks" [data]="stocksYearlyData" field="flow"
-            categoryField="month" drilldownField="month" [spacing]="0.1" color="#E0CF34">
-            <ng-template kendoChartDrilldownSeries let-month="drilldownValue">
-              <kendo-chart-series-item name="{{ month }}" [data]="stocksMonthlyData[month]" field="sales"
-                categoryField="day" color="#E0CF34">
-              </kendo-chart-series-item>
-            </ng-template>
-          </kendo-chart-series-item>
-          }
-          @if(!isDrilledDown || activeSeries === 'Real Estate'){
-          <kendo-chart-series-item type="column" name="Real Estate" [data]="realEstateYearlyData" field="flow"
-            categoryField="month" drilldownField="month" color="#008478">
-            <ng-template kendoChartDrilldownSeries let-month="drilldownValue">
-              <kendo-chart-series-item name="{{ month }}" [data]="realEstateMonthlyData[month]" field="sales"
-                categoryField="day" drilldownField="day" color="#008478">
-              </kendo-chart-series-item>
-            </ng-template>
-          </kendo-chart-series-item>
-          }
-          @if(!isDrilledDown || activeSeries === 'Bonds'){
-          <kendo-chart-series-item type="column" name="Bonds" [data]="bondsYearlyData" field="flow"
-            categoryField="month" drilldownField="month" color="#9C27B0">
-            <ng-template kendoChartDrilldownSeries let-month="drilldownValue">
-              <kendo-chart-series-item [name]="customMsgService.translate(month.toString())"
-                [data]="bondsMonthlyData[month]" field="sales" categoryField="day" color="#9C27B0">
-              </kendo-chart-series-item>
-            </ng-template>
-          </kendo-chart-series-item>
-          }
-        </kendo-chart-series>
-      </kendo-chart>
+    <div
+        class="k-col-span-12 k-col-span-xl-12 k-d-flex k-flex-col k-flex-basis-0 k-flex-grow k-bg-surface-alt k-rounded-xxl k-gap-4 k-p-4 k-mb-4"
+    >
+        <div class="k-d-flex k-d-flex-col k-justify-content-between k-align-items-start k-gap-0">
+            <h6 class="k-h6 k-font-medium">{{ customMsgService.translate('transactions') }}</h6>
+        </div>
+        <div class="k-flex-1 k-d-flex k-d-flex-col k-h-full k-gap-1 k-justify-content-center">
+            <app-transactions-grid [pageSize]="7"></app-transactions-grid>
+        </div>
     </div>
-  </div>
-  <div
-    class="k-col-span-12 k-col-span-xl-12 k-d-flex k-flex-col k-flex-basis-0 k-flex-grow k-bg-surface-alt k-rounded-xxl k-gap-4 k-p-4 k-mb-4">
-    <div class="k-d-flex k-d-flex-col k-justify-content-between k-align-items-start k-gap-0">
-      <h6 class="k-h6 k-font-medium">{{customMsgService.translate('transactions')}}</h6>
-    </div>
-    <div class="k-flex-1 k-d-flex k-d-flex-col k-h-full k-gap-1 k-justify-content-center">
-      <app-transactions-grid [pageSize]="7"></app-transactions-grid>
-    </div>
-  </div>
 </div>

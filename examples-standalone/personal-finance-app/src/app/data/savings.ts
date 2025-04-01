@@ -1,7 +1,4 @@
 import { Saving } from '../models/saving';
-import { CustomMessagesService } from '../services/custom-messages.service';
-
-const customMsgService: CustomMessagesService = new CustomMessagesService();
 
 export const savings: Saving[] = [
   {

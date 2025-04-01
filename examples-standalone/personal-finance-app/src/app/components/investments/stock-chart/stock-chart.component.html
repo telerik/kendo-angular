@@ -1,57 +1,73 @@
 <kendo-tabstrip>
-  @for (item of tabStripItems; track item; let i = $index, e = $even){
-  <kendo-tabstrip-tab [title]="item.company" [selected]="i === selected">
-    <ng-template kendoTabContent>
-      <kendo-stockchart class="k-overflow-hidden"
-        [navigator]="{visible: false, select: {from: from, to: to, mousewheel: false}}">
-        <kendo-chart-title [text]="customMsgService.translate('value')">
-        </kendo-chart-title>
-        <kendo-chart-series>
-          <kendo-chart-series-item type="candlestick" [data]="item.chartData" openField="open" closeField="close"
-            lowField="low" highField="high" categoryField="date" color="#008478">
-          </kendo-chart-series-item>
-        </kendo-chart-series>
-        <kendo-chart-category-axis>
-          <kendo-chart-category-axis-item>
-            <kendo-chart-category-axis-item-labels [visible]="false">
-            </kendo-chart-category-axis-item-labels>
-          </kendo-chart-category-axis-item>
-        </kendo-chart-category-axis>
-      </kendo-stockchart>
-      <kendo-stockchart class="k-overflow-hidden" (navigatorFilter)="navigatorFilter($event)">
-        <kendo-chart-title [text]="customMsgService.translate('volume')">
-        </kendo-chart-title>
-        <kendo-chart-series>
-          <kendo-chart-series-item type="column" field="volume" categoryField="volume" [data]="item.chartData"
-            color="#008478">
-            <kendo-chart-series-item-tooltip>
-              <ng-template let-value="value">
-                {{ intl.formatNumber(value, customCurrencyOptions) }}
-              </ng-template>
-            </kendo-chart-series-item-tooltip>
-          </kendo-chart-series-item>
-        </kendo-chart-series>
-        <kendo-chart-category-axis>
-          <kendo-chart-category-axis-item>
-            <kendo-chart-category-axis-item-labels format="MMM 'yy">
-            </kendo-chart-category-axis-item-labels>
-          </kendo-chart-category-axis-item>
-        </kendo-chart-category-axis>
-        <kendo-chart-value-axis>
-          <kendo-chart-value-axis-item [labels]="{visible: false,}">
-          </kendo-chart-value-axis-item>
-        </kendo-chart-value-axis>
-        <kendo-chart-navigator position="bottom">
-          <kendo-chart-navigator-select [from]="from" [to]="to">
-          </kendo-chart-navigator-select>
-          <kendo-chart-navigator-series>
-            <kendo-chart-navigator-series-item type="area" [data]="item.chartData" field="close" categoryField="date"
-              color="#008478">
-            </kendo-chart-navigator-series-item>
-          </kendo-chart-navigator-series>
-        </kendo-chart-navigator>
-      </kendo-stockchart>
-    </ng-template>
-  </kendo-tabstrip-tab>
-  }
+    @for (item of tabStripItems; track item; let i = $index, e = $even){
+    <kendo-tabstrip-tab [title]="item.company" [selected]="i === selected">
+        <ng-template kendoTabContent>
+            <kendo-stockchart
+                class="k-overflow-hidden"
+                [navigator]="{ visible: false, select: { from: from, to: to, mousewheel: false } }"
+            >
+                <kendo-chart-title [text]="customMsgService.translate('value')"> </kendo-chart-title>
+                <kendo-chart-series>
+                    <kendo-chart-series-item
+                        type="candlestick"
+                        [data]="item.chartData"
+                        openField="open"
+                        closeField="close"
+                        lowField="low"
+                        highField="high"
+                        categoryField="date"
+                        color="#008478"
+                    >
+                    </kendo-chart-series-item>
+                </kendo-chart-series>
+                <kendo-chart-category-axis>
+                    <kendo-chart-category-axis-item>
+                        <kendo-chart-category-axis-item-labels [visible]="false">
+                        </kendo-chart-category-axis-item-labels>
+                    </kendo-chart-category-axis-item>
+                </kendo-chart-category-axis>
+            </kendo-stockchart>
+            <kendo-stockchart class="k-overflow-hidden" (navigatorFilter)="navigatorFilter($event)">
+                <kendo-chart-title [text]="customMsgService.translate('volume')"> </kendo-chart-title>
+                <kendo-chart-series>
+                    <kendo-chart-series-item
+                        type="column"
+                        field="volume"
+                        categoryField="volume"
+                        [data]="item.chartData"
+                        color="#008478"
+                    >
+                        <kendo-chart-series-item-tooltip>
+                            <ng-template let-value="value">
+                                {{ intl.formatNumber(value, customCurrencyOptions) }}
+                            </ng-template>
+                        </kendo-chart-series-item-tooltip>
+                    </kendo-chart-series-item>
+                </kendo-chart-series>
+                <kendo-chart-category-axis>
+                    <kendo-chart-category-axis-item>
+                        <kendo-chart-category-axis-item-labels format="MMM 'yy">
+                        </kendo-chart-category-axis-item-labels>
+                    </kendo-chart-category-axis-item>
+                </kendo-chart-category-axis>
+                <kendo-chart-value-axis>
+                    <kendo-chart-value-axis-item [labels]="{visible: false,}"> </kendo-chart-value-axis-item>
+                </kendo-chart-value-axis>
+                <kendo-chart-navigator position="bottom">
+                    <kendo-chart-navigator-select [from]="from" [to]="to"> </kendo-chart-navigator-select>
+                    <kendo-chart-navigator-series>
+                        <kendo-chart-navigator-series-item
+                            type="area"
+                            [data]="item.chartData"
+                            field="close"
+                            categoryField="date"
+                            color="#008478"
+                        >
+                        </kendo-chart-navigator-series-item>
+                    </kendo-chart-navigator-series>
+                </kendo-chart-navigator>
+            </kendo-stockchart>
+        </ng-template>
+    </kendo-tabstrip-tab>
+    }
 </kendo-tabstrip>

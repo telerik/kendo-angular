@@ -1,45 +1,56 @@
 <div class="k-px-15 k-px-sm-15 k-px-md-15 k-px-lg-15 k-px-xl-15 k-py-2 k-py-sm-1 k-py-md-1 k-py-lg-2 k-py-xl-2 k-pt-8">
-  <h4 class="k-h4 !k-mb-6 k-text-ellipsis">{{customMsgService.translate('investments')}}</h4>
-  <div class="k-d-grid k-grid-cols-12 k-gap-4 k-gap-lg-6 k-overflow-hidden">
-    <div
-      class="k-col-span-12 k-col-span-xl-5 k-d-flex k-flex-col k-flex-basis-0 k-flex-grow k-bg-surface-alt k-rounded-xxl k-gap-4 k-p-4 k-mb-10">
-      <div class="k-d-flex k-d-flex-col k-justify-content-between k-align-items-start k-gap-0">
-        <h6 class="k-h6 k-font-medium">{{customMsgService.translate('totalInvestments')}}</h6>
-        <span class="k-font-size-lg k-font-normal">Placeholder</span>
-      </div>
-      <div class="k-flex-1 k-d-flex k-d-flex-col k-h-full k-gap-3">
-        <kendo-chart>
-          <kendo-chart-legend [position]="legendPosition">
-            <kendo-chart-legend-item cursor="pointer">
-            </kendo-chart-legend-item>
-          </kendo-chart-legend>
-          <kendo-chart-series>
-            <kendo-chart-series-item type="pie" [data]="pieData" field="value" categoryField="category"
-              [labels]="{ visible: true, content: labelContent, position: 'center', background: 'transparent' }">
-            </kendo-chart-series-item>
-          </kendo-chart-series>
-        </kendo-chart>
-      </div>
+    <h4 class="k-h4 !k-mb-6 k-text-ellipsis">{{ customMsgService.translate('investments') }}</h4>
+    <div class="k-d-grid k-grid-cols-12 k-gap-4 k-gap-lg-6 k-overflow-hidden">
+        <div
+            class="k-col-span-12 k-col-span-xl-5 k-d-flex k-flex-col k-flex-basis-0 k-flex-grow k-bg-surface-alt k-rounded-xxl k-gap-4 k-p-4 k-mb-10"
+        >
+            <div class="k-d-flex k-d-flex-col k-justify-content-between k-align-items-start k-gap-0">
+                <h6 class="k-h6 k-font-medium">{{ customMsgService.translate('totalInvestments') }}</h6>
+                <span class="k-font-size-lg k-font-normal">Placeholder</span>
+            </div>
+            <div class="k-flex-1 k-d-flex k-d-flex-col k-h-full k-gap-3">
+                <kendo-chart>
+                    <kendo-chart-legend [position]="legendPosition">
+                        <kendo-chart-legend-item cursor="pointer"></kendo-chart-legend-item>
+                    </kendo-chart-legend>
+                    <kendo-chart-series>
+                        <kendo-chart-series-item
+                            type="pie"
+                            [data]="pieData"
+                            field="value"
+                            categoryField="category"
+                            [labels]="{
+                                visible: true,
+                                content: labelContent,
+                                position: 'center',
+                                background: 'transparent'
+                            }"
+                        ></kendo-chart-series-item>
+                    </kendo-chart-series>
+                </kendo-chart>
+            </div>
+        </div>
+        <div
+            class="k-col-span-12 k-col-span-xl-7 k-d-flex k-flex-col k-flex-basis-0 k-flex-grow k-bg-surface-alt k-rounded-xxl k-gap-4 k-p-4 k-mb-10"
+        >
+            <div class="k-d-flex k-d-flex-col k-justify-content-between k-align-items-start k-gap-0">
+                <h6 class="k-h6 k-font-medium k-mb-10">{{ customMsgService.translate('todayMovers') }}</h6>
+            </div>
+            <div class="k-d-flex k-d-flex-col k-gap-6">
+                @for(currencyMover of currencyMovers; track currencyMover){
+                <app-currency-mover [currencyMover]="currencyMover"></app-currency-mover>
+                }
+            </div>
+        </div>
     </div>
     <div
-      class="k-col-span-12 k-col-span-xl-7 k-d-flex k-flex-col k-flex-basis-0 k-flex-grow k-bg-surface-alt k-rounded-xxl k-gap-4 k-p-4 k-mb-10">
-      <div class="k-d-flex k-d-flex-col k-justify-content-between k-align-items-start k-gap-0">
-        <h6 class="k-h6 k-font-medium k-mb-10">{{customMsgService.translate('todayMovers')}}</h6>
-      </div>
-      <div class="k-d-flex k-d-flex-col k-gap-6">
-        @for(currencyMover of currencyMovers; track currencyMover){
-        <app-currency-mover [currencyMover]="currencyMover"></app-currency-mover>
-        }
-      </div>
+        class="k-col-span-12 k-col-span-xl-12 k-d-flex k-flex-col k-flex-basis-0 k-flex-grow k-bg-surface-alt k-rounded-xxl k-gap-4 k-p-4 k-mb-4"
+    >
+        <div class="k-d-flex k-d-flex-col k-justify-content-between k-align-items-start k-gap-0">
+            <h6 class="k-h6 k-font-medium">{{ customMsgService.translate('stockChart') }}</h6>
+        </div>
+        <div class="k-flex-1 k-d-flex k-d-flex-col k-h-full k-gap-1 k-justify-content-center">
+            <app-stock-chart></app-stock-chart>
+        </div>
     </div>
-  </div>
-  <div
-    class="k-col-span-12 k-col-span-xl-12 k-d-flex k-flex-col k-flex-basis-0 k-flex-grow k-bg-surface-alt k-rounded-xxl k-gap-4 k-p-4 k-mb-4">
-    <div class="k-d-flex k-d-flex-col k-justify-content-between k-align-items-start k-gap-0">
-      <h6 class="k-h6 k-font-medium">{{customMsgService.translate('stockChart')}}</h6>
-    </div>
-    <div class="k-flex-1 k-d-flex k-d-flex-col k-h-full k-gap-1 k-justify-content-center">
-      <app-stock-chart></app-stock-chart>
-    </div>
-  </div>
 </div>

@@ -1,9 +1,4 @@
-import {
-  ApplicationConfig,
-  provideZoneChangeDetection,
-  importProvidersFrom,
-  LOCALE_ID,
-} from '@angular/core';
+import { ApplicationConfig, provideZoneChangeDetection, importProvidersFrom, LOCALE_ID } from '@angular/core';
 import { provideRouter, withHashLocation } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -21,19 +16,19 @@ import { APP_BASE_HREF } from '@angular/common';
 const enData: Locale = localeData('en');
 
 if (enData.numbers && enData.numbers.symbols) {
-  enData.numbers.symbols.decimal = '.';
-  enData.numbers.symbols.group = ' ';
+    enData.numbers.symbols.decimal = '.';
+    enData.numbers.symbols.group = ' ';
 
-  (enData.numbers as any)['currency'].patterns[0] = 'n $';
+    (enData.numbers as any)['currency'].patterns[0] = 'n $';
 }
 
 export const appConfig: ApplicationConfig = {
-  providers: [
-    provideZoneChangeDetection({ eventCoalescing: true }),
-    provideRouter(routes, withHashLocation()),
-    importProvidersFrom([BrowserAnimationsModule]),
-    { provide: LOCALE_ID, useValue: 'en-US' },
-    { provide: MessageService, useClass: CustomMessagesService },
-    { provide: APP_BASE_HREF, useValue: '/personal-finance-app/' },
-  ],
+    providers: [
+        provideZoneChangeDetection({ eventCoalescing: true }),
+        provideRouter(routes, withHashLocation()),
+        importProvidersFrom([BrowserAnimationsModule]),
+        { provide: LOCALE_ID, useValue: 'en-US' },
+        { provide: MessageService, useClass: CustomMessagesService },
+        { provide: APP_BASE_HREF, useValue: '/personal-finance-app/' },
+    ],
 };

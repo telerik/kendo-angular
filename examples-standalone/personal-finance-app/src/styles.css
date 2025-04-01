@@ -1,35 +1,35 @@
 /* You can add global styles to this file, and also import other style files */
 body,
 p {
-  padding: 0;
-  margin: 0;
+    padding: 0;
+    margin: 0;
 }
 
 body {
-  height: 100%;
-  min-height: 100%;
+    height: 100%;
+    min-height: 100%;
 }
 
 :root {
-  /* Colors */
-  --kendo-color-on-app-surface: #E0E0E0;
-  --kendo-color-app-surface: #121212;
-  --kendo-color-dark: #212121;
-  --kendo-color-white: #E0E0E0;
-  --kendo-color-green: #64805D;
-  --kendo-color-red: #D35F5F;
-  --kendo-color-surface-alt: #212121;
-  --kendo-color-success-subtle: #A7DB97;
-  --kendo-color-error-subtle: #D77B8B;
-  --kendo-color-warning-subtle: #FFE19C;
-  --kendo-color-success-on-subtle: #212121;
-  --kendo-color-error-on-subtle: #212121;
-  --kendo-color-warning-on-subtle: #212121;
+    /* Colors */
+    --kendo-color-on-app-surface: #e0e0e0;
+    --kendo-color-app-surface: #121212;
+    --kendo-color-dark: #212121;
+    --kendo-color-white: #e0e0e0;
+    --kendo-color-green: #64805d;
+    --kendo-color-red: #d35f5f;
+    --kendo-color-surface-alt: #212121;
+    --kendo-color-success-subtle: #a7db97;
+    --kendo-color-error-subtle: #d77b8b;
+    --kendo-color-warning-subtle: #ffe19c;
+    --kendo-color-success-on-subtle: #212121;
+    --kendo-color-error-on-subtle: #212121;
+    --kendo-color-warning-on-subtle: #212121;
 
-  /* Typography */
-  --kendo-font-family: "Roboto", sans-serif;
-  --kendo-h4-font-size: 36px;
-  --kendo-h5-font-size: 30px;
-  --kendo-h6-font-size: 24px;
-  --kendo-font-size-md: 18px;
+    /* Typography */
+    --kendo-font-family: 'Roboto', sans-serif;
+    --kendo-h4-font-size: 36px;
+    --kendo-h5-font-size: 30px;
+    --kendo-h6-font-size: 24px;
+    --kendo-font-size-md: 18px;
 }

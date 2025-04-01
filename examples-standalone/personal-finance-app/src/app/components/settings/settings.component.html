@@ -1,147 +1,242 @@
 <div
-  class="k-px-15 k-px-sm-15 k-px-md-15 k-px-lg-15 k-px-xl-15 k-py-2 k-py-sm-1 k-py-md-1 k-py-lg-2 k-py-xl-2 k-pt-8 k-mb-4">
-  <h4 class="k-h4 !k-mb-6 k-text-ellipsis">{{customMsgService.translate('settings')}}</h4>
-  <div class="k-d-grid k-grid-cols-12 k-gap-4 k-gap-lg-6 k-mb-5 k-overflow-hidden">
-    <div
-      class="k-col-span-12 k-col-span-xl-8 k-d-flex k-flex-col k-flex-basis-0 k-flex-grow k-bg-surface-alt k-rounded-xxl k-p-4">
-      <div class="k-d-flex k-d-flex-col k-justify-content-between k-align-items-start k-gap-0">
-        <h6 class="k-h6 k-font-medium">{{customMsgService.translate('personalInformation')}}</h6>
-      </div>
-      <form [formGroup]="userForm" (ngSubmit)="saveUserInfo()">
-        <div class="k-d-grid k-grid-cols-4 k-gap-4 k-gap-lg-10 k-overflow-hidden k-mb-4">
-          <div class="k-col-span-5 k-col-span-lg-2 k-col-span-xl-2">
-            <kendo-label class="k-display-block k-font-size-md k-mb-1" [for]="'name'"
-              [text]="customMsgService.translate('name')"></kendo-label>
-            <kendo-textbox formControlName="name"></kendo-textbox>
-          </div>
-          <div class="k-col-span-5 k-col-span-lg-2 k-col-span-xl-2">
-            <kendo-label class="k-display-block k-font-size-md k-mb-1" [for]="'surname'"
-              [text]="customMsgService.translate('surname')"></kendo-label>
-            <kendo-textbox formControlName="surname"></kendo-textbox>
-          </div>
-        </div>
+    class="k-px-15 k-px-sm-15 k-px-md-15 k-px-lg-15 k-px-xl-15 k-py-2 k-py-sm-1 k-py-md-1 k-py-lg-2 k-py-xl-2 k-pt-8 k-mb-4"
+>
+    <h4 class="k-h4 !k-mb-6 k-text-ellipsis">
+        {{ customMsgService.translate('settings') }}
+    </h4>
+    <div class="k-d-grid k-grid-cols-12 k-gap-4 k-gap-lg-6 k-mb-5 k-overflow-hidden">
+        <div
+            class="k-col-span-12 k-col-span-xl-8 k-d-flex k-flex-col k-flex-basis-0 k-flex-grow k-bg-surface-alt k-rounded-xxl k-p-4"
+        >
+            <div class="k-d-flex k-d-flex-col k-justify-content-between k-align-items-start k-gap-0">
+                <h6 class="k-h6 k-font-medium">
+                    {{ customMsgService.translate('personalInformation') }}
+                </h6>
+            </div>
+            <form [formGroup]="userForm" (ngSubmit)="saveUserInfo()">
+                <div class="k-d-grid k-grid-cols-4 k-gap-4 k-gap-lg-10 k-overflow-hidden k-mb-4">
+                    <div class="k-col-span-5 k-col-span-lg-2 k-col-span-xl-2">
+                        <kendo-label
+                            class="k-display-block k-font-size-md k-mb-1"
+                            [for]="'name'"
+                            [text]="customMsgService.translate('name')"
+                        ></kendo-label>
+                        <kendo-textbox formControlName="name"></kendo-textbox>
+                    </div>
+                    <div class="k-col-span-5 k-col-span-lg-2 k-col-span-xl-2">
+                        <kendo-label
+                            class="k-display-block k-font-size-md k-mb-1"
+                            [for]="'surname'"
+                            [text]="customMsgService.translate('surname')"
+                        ></kendo-label>
+                        <kendo-textbox formControlName="surname"></kendo-textbox>
+                    </div>
+                </div>
 
-        <div class="k-d-grid k-grid-cols-4 k-gap-4 k-gap-lg-10 k-overflow-hidden k-mb-4">
-          <div class="k-col-span-5 k-col-span-lg-2 k-col-span-xl-2">
-            <kendo-label class="k-display-block k-font-size-md k-mb-1" [for]="'email'"
-              [text]="customMsgService.translate('email')"></kendo-label>
-            <kendo-textbox formControlName="email"></kendo-textbox>
-          </div>
-          <div class="k-col-span-5 k-col-span-lg-2 k-col-span-xl-2">
-            <kendo-label class="k-display-block k-font-size-md k-mb-1" [for]="'tag'"
-              [text]="customMsgService.translate('tag')"></kendo-label>
-            <kendo-textbox formControlName="tag"></kendo-textbox>
-          </div>
-        </div>
+                <div class="k-d-grid k-grid-cols-4 k-gap-4 k-gap-lg-10 k-overflow-hidden k-mb-4">
+                    <div class="k-col-span-5 k-col-span-lg-2 k-col-span-xl-2">
+                        <kendo-label
+                            class="k-display-block k-font-size-md k-mb-1"
+                            [for]="'email'"
+                            [text]="customMsgService.translate('email')"
+                        ></kendo-label>
+                        <kendo-textbox formControlName="email"></kendo-textbox>
+                    </div>
+                    <div class="k-col-span-5 k-col-span-lg-2 k-col-span-xl-2">
+                        <kendo-label
+                            class="k-display-block k-font-size-md k-mb-1"
+                            [for]="'tag'"
+                            [text]="customMsgService.translate('tag')"
+                        ></kendo-label>
+                        <kendo-textbox formControlName="tag"></kendo-textbox>
+                    </div>
+                </div>
 
-        <div class="k-d-grid k-grid-cols-4 k-gap-4 k-gap-lg-10 k-overflow-hidden k-mb-4">
-          <div class="k-col-span-5 k-col-span-lg-2 k-col-span-xl-2">
-            <kendo-label class="k-display-block k-font-size-md k-mb-1" [for]="'birthday'"
-              [text]="customMsgService.translate('birthday')"></kendo-label>
-            <kendo-dateinput formControlName="birthday"></kendo-dateinput>
-          </div>
-          <div class="k-col-span-5 k-col-span-lg-2 k-col-span-xl-2">
-            <kendo-label class="k-display-block k-font-size-md k-mb-1" [for]="'country'"
-              [text]="customMsgService.translate('country')"></kendo-label>
-            <kendo-dropdownlist formControlName="country" [data]="countries"></kendo-dropdownlist>
-          </div>
-        </div>
+                <div class="k-d-grid k-grid-cols-4 k-gap-4 k-gap-lg-10 k-overflow-hidden k-mb-4">
+                    <div class="k-col-span-5 k-col-span-lg-2 k-col-span-xl-2">
+                        <kendo-label
+                            class="k-display-block k-font-size-md k-mb-1"
+                            [for]="'birthday'"
+                            [text]="customMsgService.translate('birthday')"
+                        ></kendo-label>
+                        <kendo-dateinput formControlName="birthday"></kendo-dateinput>
+                    </div>
+                    <div class="k-col-span-5 k-col-span-lg-2 k-col-span-xl-2">
+                        <kendo-label
+                            class="k-display-block k-font-size-md k-mb-1"
+                            [for]="'country'"
+                            [text]="customMsgService.translate('country')"
+                        ></kendo-label>
+                        <kendo-dropdownlist formControlName="country" [data]="countries"></kendo-dropdownlist>
+                    </div>
+                </div>
 
-        <div class="k-d-grid k-grid-cols-4 k-gap-4 k-gap-lg-10 k-overflow-hidden k-mb-4">
-          <div class="k-col-span-5 k-col-span-lg-2 k-col-span-xl-2">
-            <kendo-label class="k-display-block k-font-size-md k-mb-1" [for]="'address'"
-              [text]="customMsgService.translate('address')"></kendo-label>
-            <kendo-textbox formControlName="address"></kendo-textbox>
-          </div>
-          <div class="k-col-span-5 k-col-span-lg-2 k-col-span-xl-2">
-            <kendo-label class="k-display-block k-font-size-md k-mb-1" [for]="'postCode'"
-              [text]="customMsgService.translate('postCode')"></kendo-label>
-            <kendo-textbox formControlName="postCode"></kendo-textbox>
-          </div>
+                <div class="k-d-grid k-grid-cols-4 k-gap-4 k-gap-lg-10 k-overflow-hidden k-mb-4">
+                    <div class="k-col-span-5 k-col-span-lg-2 k-col-span-xl-2">
+                        <kendo-label
+                            class="k-display-block k-font-size-md k-mb-1"
+                            [for]="'address'"
+                            [text]="customMsgService.translate('address')"
+                        ></kendo-label>
+                        <kendo-textbox formControlName="address"></kendo-textbox>
+                    </div>
+                    <div class="k-col-span-5 k-col-span-lg-2 k-col-span-xl-2">
+                        <kendo-label
+                            class="k-display-block k-font-size-md k-mb-1"
+                            [for]="'postCode'"
+                            [text]="customMsgService.translate('postCode')"
+                        ></kendo-label>
+                        <kendo-textbox formControlName="postCode"></kendo-textbox>
+                    </div>
 
-          <div class="k-d-flex k-gap-2">
-            <button kendoButton themeColor="primary" [style.width.px]="110" type="submit"
-              [disabled]="userForm.invalid || !userForm.touched">{{customMsgService.translate('save')}}</button>
-            <button kendoButton [style.width.px]="110" type="button" fillMode="outline" (click)="restoreUserInfo()"
-              [disabled]="!userForm.touched">{{customMsgService.translate('restore')}}</button>
-          </div>
+                    <div class="k-d-flex k-gap-2">
+                        <button
+                            kendoButton
+                            themeColor="primary"
+                            [style.width.px]="110"
+                            type="submit"
+                            [disabled]="userForm.invalid || (!userForm.touched && !userForm.dirty)"
+                        >
+                            {{ customMsgService.translate('save') }}
+                        </button>
+                        <button
+                            kendoButton
+                            [style.width.px]="110"
+                            type="button"
+                            fillMode="outline"
+                            (click)="restoreUserInfo()"
+                            [disabled]="!userForm.touched && !userForm.dirty"
+                        >
+                            {{ customMsgService.translate('restore') }}
+                        </button>
+                    </div>
+                </div>
+            </form>
         </div>
-      </form>
+        <div
+            class="k-col-span-12 k-col-span-xl-4 k-d-flex k-flex-col k-flex-basis-0 k-flex-grow k-bg-surface-alt k-rounded-xxl k-gap-1 k-p-4"
+        >
+            <div class="k-d-flex k-d-flex-col k-justify-content-between k-align-items-start k-gap-0">
+                <h6 class="k-h6 k-font-medium">
+                    {{ customMsgService.translate('calendar') }}
+                </h6>
+            </div>
+            <div class="k-flex-1 k-d-flex k-d-flex-col k-h-full k-gap-3 k-justify-content-center k-align-items-center">
+                <kendo-calendar
+                    class="k-border-none k-elevation-5 k-border-lg"
+                    #calendar
+                    [navigation]="false"
+                ></kendo-calendar>
+            </div>
+        </div>
     </div>
-    <div
-      class="k-col-span-12 k-col-span-xl-4 k-d-flex k-flex-col k-flex-basis-0 k-flex-grow k-bg-surface-alt k-rounded-xxl k-gap-1 k-p-4">
-      <div class="k-d-flex k-d-flex-col k-justify-content-between k-align-items-start k-gap-0">
-        <h6 class="k-h6 k-font-medium">{{customMsgService.translate('calendar')}}</h6>
-      </div>
-      <div class="k-flex-1 k-d-flex k-d-flex-col k-h-full k-gap-3 k-justify-content-center k-align-items-center">
-        <kendo-calendar class="k-border-none k-elevation-5 k-border-lg" #calendar [navigation]="false"></kendo-calendar>
-      </div>
-    </div>
-  </div>
-  <div class="k-d-grid k-grid-cols-12 k-gap-4 k-gap-lg-6 k-overflow-hidden">
-    <div
-      class="k-col-span-12 k-col-span-xl-8 k-d-flex k-flex-col k-flex-basis-0 k-flex-grow k-bg-surface-alt k-rounded-xxl k-p-4">
-      <div class="k-d-flex k-d-flex-col k-justify-content-between k-align-items-start k-gap-0">
-        <h6 class="k-h6 k-font-medium">{{customMsgService.translate('cardInformation')}}</h6>
-      </div>
-      <div class="k-flex-1 k-d-flex k-d-flex-col k-h-full k-gap-0">
-        <form [formGroup]="cardForm" (ngSubmit)="saveCardInfo()">
-          <div class="k-d-grid k-grid-cols-4 k-gap-4 k-gap-lg-10 k-overflow-hidden k-mb-4">
-            <div class="k-col-span-5 k-col-span-lg-2 k-col-span-xl-2">
-              <kendo-label class="k-display-block k-font-size-md k-mb-1" [for]="'bank'"
-                [text]="customMsgService.translate('bank')"></kendo-label>
-              <kendo-textbox formControlName="bank"></kendo-textbox>
+    <div class="k-d-grid k-grid-cols-12 k-gap-4 k-gap-lg-6 k-overflow-hidden">
+        <div
+            class="k-col-span-12 k-col-span-xl-8 k-d-flex k-flex-col k-flex-basis-0 k-flex-grow k-bg-surface-alt k-rounded-xxl k-p-4"
+        >
+            <div class="k-d-flex k-d-flex-col k-justify-content-between k-align-items-start k-gap-0">
+                <h6 class="k-h6 k-font-medium">
+                    {{ customMsgService.translate('cardInformation') }}
+                </h6>
             </div>
-          </div>
-          <div class="k-d-grid k-grid-cols-4 k-gap-4 k-gap-lg-10 k-overflow-hidden k-mb-4">
-            <div class="k-col-span-5 k-col-span-lg-2 k-col-span-xl-2">
-              <kendo-label class="k-display-block k-font-size-md k-mb-1" [for]="'expirationDate'"
-                [text]="customMsgService.translate('expirationDate')"></kendo-label>
-              <kendo-datepicker formControlName="expirationDate" [clearButton]="true" format="MM/yyyy"
-                bottomView="year"></kendo-datepicker>
+            <div class="k-flex-1 k-d-flex k-d-flex-col k-h-full k-gap-0">
+                <form [formGroup]="cardForm" (ngSubmit)="saveCardInfo()">
+                    <div class="k-d-grid k-grid-cols-4 k-gap-4 k-gap-lg-10 k-overflow-hidden k-mb-4">
+                        <div class="k-col-span-5 k-col-span-lg-2 k-col-span-xl-2">
+                            <kendo-label
+                                class="k-display-block k-font-size-md k-mb-1"
+                                [for]="'bank'"
+                                [text]="customMsgService.translate('bank')"
+                            ></kendo-label>
+                            <kendo-textbox formControlName="bank"></kendo-textbox>
+                        </div>
+                    </div>
+                    <div class="k-d-grid k-grid-cols-4 k-gap-4 k-gap-lg-10 k-overflow-hidden k-mb-4">
+                        <div class="k-col-span-5 k-col-span-lg-2 k-col-span-xl-2">
+                            <kendo-label
+                                class="k-display-block k-font-size-md k-mb-1"
+                                [for]="'expirationDate'"
+                                [text]="customMsgService.translate('expirationDate')"
+                            ></kendo-label>
+                            <kendo-datepicker
+                                formControlName="expirationDate"
+                                [clearButton]="true"
+                                format="MM/yyyy"
+                                bottomView="year"
+                            ></kendo-datepicker>
+                        </div>
+                    </div>
+                    <div class="k-d-grid k-grid-cols-4 k-gap-4 k-gap-lg-10 k-overflow-hidden k-mb-4">
+                        <div class="k-col-span-5 k-col-span-lg-2 k-col-span-xl-2">
+                            <kendo-label
+                                class="k-display-block k-font-size-md k-mb-1"
+                                [for]="'cardHolder'"
+                                [text]="customMsgService.translate('cardHolder')"
+                            ></kendo-label>
+                            <kendo-textbox formControlName="cardHolder"></kendo-textbox>
+                        </div>
+                        <div class="k-col-span-5 k-col-span-lg-2 k-col-span-xl-2">
+                            <kendo-label
+                                class="k-display-block k-font-size-md k-mb-1"
+                                [for]="'cardNumber'"
+                                [text]="customMsgService.translate('cardNumber')"
+                            ></kendo-label>
+                            <kendo-maskedtextbox
+                                formControlName="cardNumber"
+                                [mask]="'000 000 000 000'"
+                            ></kendo-maskedtextbox>
+                        </div>
+                        <div class="k-d-flex k-gap-2">
+                            <button
+                                kendoButton
+                                themeColor="primary"
+                                [style.width.px]="110"
+                                type="submit"
+                                [disabled]="cardForm.invalid || (!cardForm.touched && !cardForm.dirty)"
+                            >
+                                {{ customMsgService.translate('save') }}
+                            </button>
+                            <button
+                                kendoButton
+                                [style.width.px]="110"
+                                type="button"
+                                fillMode="outline"
+                                [disabled]="!cardForm.touched && !cardForm.dirty"
+                                (click)="restoreCardInfo()"
+                            >
+                                {{ customMsgService.translate('restore') }}
+                            </button>
+                        </div>
+                    </div>
+                </form>
             </div>
-          </div>
-          <div class="k-d-grid k-grid-cols-4 k-gap-4 k-gap-lg-10 k-overflow-hidden k-mb-4">
-            <div class="k-col-span-5 k-col-span-lg-2 k-col-span-xl-2">
-              <kendo-label class="k-display-block k-font-size-md k-mb-1" [for]="'cardHolder'"
-                [text]="customMsgService.translate('cardHolder')"></kendo-label>
-              <kendo-textbox formControlName="cardHolder"></kendo-textbox>
-            </div>
-            <div class="k-col-span-5 k-col-span-lg-2 k-col-span-xl-2">
-              <kendo-label class="k-display-block k-font-size-md k-mb-1" [for]="'cardNumber'"
-                [text]="customMsgService.translate('cardNumber')"></kendo-label>
-              <kendo-maskedtextbox formControlName="cardNumber" [mask]="'000 000 000 000'"></kendo-maskedtextbox>
-            </div>
-            <div class="k-d-flex k-gap-2">
-              <button kendoButton themeColor="primary" [style.width.px]="110" type="submit"
-                [disabled]="cardForm.invalid || !cardForm.touched">{{customMsgService.translate('save')}}</button>
-              <button kendoButton [style.width.px]="110" type="button" fillMode="outline" [disabled]="!userForm.touched"
-                (click)="restoreCardInfo()">{{customMsgService.translate('restore')}}</button>
-            </div>
-          </div>
-        </form>
-      </div>
-
-    </div>
-    <div
-      class="k-col-span-12 k-col-span-xl-4 k-d-flex k-flex-col k-flex-basis-0 k-flex-grow k-bg-surface-alt k-rounded-xxl k-gap-1 k-p-4">
-      <div class="k-d-flex k-d-flex-col k-justify-content-between k-align-items-start k-gap-0">
-        <h6 class="k-h6 k-font-medium">{{customMsgService.translate('weather')}}</h6>
-      </div>
-      <div class="k-flex-1 k-d-flex k-d-flex-col k-h-full k-gap-3">
-        <div class="k-d-flex k-d-flex-col k-justify-content-center k-align-items-center k-gap-2">
-          <kendo-svg-icon [icon]="cloudIcon" class="customClass"></kendo-svg-icon>
-          <span class="k-font-size-xl k-font-normal">{{customMsgService.translate('partlyCloudy')}}</span>
-          <span class="k-h4 k-text-blue k-m-0">12&#x2103;</span>
         </div>
-        <span class="k-horizontal-separator"></span>
-        <div class="k-d-flex k-d-flex-col k-justify-content-center k-align-items-center k-gap-0">
-          <span class="k-font-size-sm k-font-normal">{{customMsgService.translate('humidity')}}: 56%</span>
-          <span class="k-font-size-sm k-font-normal">{{customMsgService.translate('dew')}}: 2 &deg;C</span>
-          <span class="k-font-size-sm k-font-normal">{{customMsgService.translate('pressure')}}: 1043 mb</span>
-          <span class="k-font-size-sm k-font-normal">{{customMsgService.translate('windSpeed')}}: 30km/h NW</span>
+        <div
+            class="k-col-span-12 k-col-span-xl-4 k-d-flex k-flex-col k-flex-basis-0 k-flex-grow k-bg-surface-alt k-rounded-xxl k-gap-1 k-p-4"
+        >
+            <div class="k-d-flex k-d-flex-col k-justify-content-between k-align-items-start k-gap-0">
+                <h6 class="k-h6 k-font-medium">
+                    {{ customMsgService.translate('weather') }}
+                </h6>
+            </div>
+            <div class="k-flex-1 k-d-flex k-d-flex-col k-h-full k-gap-3">
+                <div class="k-d-flex k-d-flex-col k-justify-content-center k-align-items-center k-gap-2">
+                    <kendo-svg-icon [icon]="cloudIcon" class="customClass"></kendo-svg-icon>
+                    <span class="k-font-size-xl k-font-normal">{{ customMsgService.translate('partlyCloudy') }}</span>
+                    <span class="k-h4 k-text-blue k-m-0">12&#x2103;</span>
+                </div>
+                <span class="k-horizontal-separator"></span>
+                <div class="k-d-flex k-d-flex-col k-justify-content-center k-align-items-center k-gap-0">
+                    <span class="k-font-size-sm k-font-normal">{{ customMsgService.translate('humidity') }}: 56%</span>
+                    <span class="k-font-size-sm k-font-normal">{{ customMsgService.translate('dew') }}: 2 &deg;C</span>
+                    <span class="k-font-size-sm k-font-normal"
+                        >{{ customMsgService.translate('pressure') }}: 1043 mb</span
+                    >
+                    <span class="k-font-size-sm k-font-normal"
+                        >{{ customMsgService.translate('windSpeed') }}: 30km/h NW</span
+                    >
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
 </div>

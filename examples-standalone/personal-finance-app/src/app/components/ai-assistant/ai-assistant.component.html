@@ -1,39 +1,52 @@
 <div
-  class="k-px-15 k-px-sm-15 k-px-md-15 k-px-lg-15 k-px-xl-15 k-py-2 k-py-sm-1 k-py-md-1 k-py-lg-2 k-py-xl-2 k-pt-8 k-mb-4">
-  <h4 class="k-h4 !k-mb-6 k-text-ellipsis">{{customMsgService.translate('aiAssistant')}}</h4>
-  <div class="k-d-grid k-grid-cols-12 k-gap-4 k-gap-lg-6 k-mb-5 k-overflow-hidden">
-    <div
-      class="k-col-span-12 k-col-span-xl-7 k-d-flex k-flex-col k-flex-basis-0 k-flex-grow k-bg-surface-alt k-rounded-xxl k-p-4">
-      <div class="k-d-flex k-d-flex-col k-justify-content-between k-align-items-start k-gap-0 k-mb-4">
-        <h6 class="k-h6 k-font-medium">{{customMsgService.translate('relatedTopics')}}</h6>
-      </div>
-      <div class="k-overflow-auto" [style.maxHeight.px]="520">
-        @for(topic of relatedTopics; track topic){
-        <kendo-expansionpanel [expanded]="topic.expanded">
-          <ng-template kendoExpansionPanelTitleDirective>
-            <span class="k-text-blue">{{topic.title}}</span>
-          </ng-template>
-          <div class="content-text">{{ topic.description }}</div>
-        </kendo-expansionpanel>
-        }
-      </div>
+    class="k-px-15 k-px-sm-15 k-px-md-15 k-px-lg-15 k-px-xl-15 k-py-2 k-py-sm-1 k-py-md-1 k-py-lg-2 k-py-xl-2 k-pt-8 k-mb-4"
+>
+    <h4 class="k-h4 !k-mb-6 k-text-ellipsis">
+        {{ customMsgService.translate('aiAssistant') }}
+    </h4>
+    <div class="k-d-grid k-grid-cols-12 k-gap-4 k-gap-lg-6 k-mb-5 k-overflow-hidden">
+        <div
+            class="k-col-span-12 k-col-span-xl-7 k-d-flex k-flex-col k-flex-basis-0 k-flex-grow k-bg-surface-alt k-rounded-xxl k-p-4"
+        >
+            <div class="k-d-flex k-d-flex-col k-justify-content-between k-align-items-start k-gap-0 k-mb-4">
+                <h6 class="k-h6 k-font-medium">
+                    {{ customMsgService.translate('relatedTopics') }}
+                </h6>
+            </div>
+            <div class="k-overflow-auto" [style.maxHeight.px]="520">
+                @for(topic of relatedTopics; track topic){
+                <kendo-expansionpanel [expanded]="topic.expanded">
+                    <ng-template kendoExpansionPanelTitleDirective>
+                        <span class="k-text-blue">{{ topic.title }}</span>
+                    </ng-template>
+                    <div class="content-text">{{ topic.description }}</div>
+                </kendo-expansionpanel>
+                }
+            </div>
+        </div>
+        <div
+            class="k-col-span-10 k-col-span-xl-5 k-d-flex k-flex-col k-flex-basis-0 k-flex-grow k-bg-surface-alt k-rounded-xxl k-gap-1 k-p-4"
+        >
+            <div class="k-d-flex k-d-flex-col k-justify-content-between k-align-items-start k-gap-0 k-mb-8">
+                <h6 class="k-h6 k-font-medium">
+                    {{ customMsgService.translate('chatWithRoby') }}
+                </h6>
+            </div>
+            <div class="k-d-flex k-justify-content-center k-align-items-center">
+                <kendo-aiprompt
+                    [style.maxHeight.px]="520"
+                    [style.maxWidth.px]="390"
+                    [style.height.px]="520"
+                    #aiPrompt
+                    [promptOutputs]="promptOutputs"
+                    [(activeView)]="activeView"
+                    (promptRequest)="onPromptRequest($event)"
+                    [promptSuggestions]="promptSuggestions"
+                >
+                    <kendo-aiprompt-prompt-view></kendo-aiprompt-prompt-view>
+                    <kendo-aiprompt-output-view></kendo-aiprompt-output-view>
+                </kendo-aiprompt>
+            </div>
+        </div>
     </div>
-    <div
-      class="k-col-span-10 k-col-span-xl-5 k-d-flex k-flex-col k-flex-basis-0 k-flex-grow k-bg-surface-alt k-rounded-xxl k-gap-1 k-p-4">
-      <div class="k-d-flex k-d-flex-col k-justify-content-between k-align-items-start k-gap-0 k-mb-8">
-        <h6 class="k-h6 k-font-medium">{{customMsgService.translate('chatWithRoby')}}</h6>
-      </div>
-      <div class="k-d-flex k-justify-content-center k-align-items-center">
-        <kendo-aiprompt [style.maxHeight.px]="520" [style.maxWidth.px]="390" [style.height.px]="520" #aiPrompt
-          [promptOutputs]=" promptOutputs" [(activeView)]="activeView" (promptRequest)="onPromptRequest($event)"
-          [promptSuggestions]="promptSuggestions">
-          <kendo-aiprompt-prompt-view></kendo-aiprompt-prompt-view>
-          <kendo-aiprompt-output-view></kendo-aiprompt-output-view>
-        </kendo-aiprompt>
-      </div>
-    </div>
-
-  </div>
-
-
 </div>

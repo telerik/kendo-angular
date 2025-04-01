@@ -8,36 +8,36 @@ import { CustomMessagesService } from '../../../services/custom-messages.service
 import { MessageService } from '@progress/kendo-angular-l10n';
 
 @Component({
-  selector: 'app-transaction-detail',
-  standalone: true,
-  imports: [KENDO_INPUTS, KENDO_LABELS, KENDO_BUTTONS, KENDO_DATEINPUTS],
-  templateUrl: './transaction-detail.component.html',
-  styleUrl: './transaction-detail.component.css',
+    selector: 'app-transaction-detail',
+    standalone: true,
+    imports: [KENDO_INPUTS, KENDO_LABELS, KENDO_BUTTONS, KENDO_DATEINPUTS],
+    templateUrl: './transaction-detail.component.html',
+    styleUrl: './transaction-detail.component.css',
 })
 export class TransactionDetailComponent {
-  @Input() public transaction: Transaction = new Transaction();
+    @Input() public transaction: Transaction = new Transaction();
 
-  public customMsgService: CustomMessagesService;
+    public customMsgService: CustomMessagesService;
 
-  constructor(private messages: MessageService) {
-    this.customMsgService = this.messages as CustomMessagesService;
-  }
-
-  public getThemeColor(): ChipThemeColor {
-    switch (this.transaction?.orderStatus) {
-      case 'Pending':
-        return 'warning';
-      case 'Postponed':
-        return 'error';
-      case 'Published':
-        return 'success';
-      default:
-        return 'info';
+    constructor(private messages: MessageService) {
+        this.customMsgService = this.messages as CustomMessagesService;
     }
-  }
 
-  public getTransactionTime(): Date | null {
-    const dateOfPurchase = this.transaction?.dateOfPurchase;
-    return dateOfPurchase ? new Date(dateOfPurchase) : null;
-  }
+    public getThemeColor(): ChipThemeColor {
+        switch (this.transaction?.orderStatus) {
+            case 'Pending':
+                return 'warning';
+            case 'Postponed':
+                return 'error';
+            case 'Published':
+                return 'success';
+            default:
+                return 'info';
+        }
+    }
+
+    public getTransactionTime(): Date | null {
+        const dateOfPurchase = this.transaction?.dateOfPurchase;
+        return dateOfPurchase ? new Date(dateOfPurchase) : null;
+    }
 }

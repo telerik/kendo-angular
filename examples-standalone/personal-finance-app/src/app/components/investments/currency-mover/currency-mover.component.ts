@@ -6,27 +6,27 @@ import { CommonModule } from '@angular/common';
 import { IntlService, NumberFormatOptions } from '@progress/kendo-angular-intl';
 
 @Component({
-  selector: 'app-currency-mover',
-  standalone: true,
-  imports: [CommonModule, KENDO_ICONS],
-  templateUrl: './currency-mover.component.html',
-  styleUrl: './currency-mover.component.css',
+    selector: 'app-currency-mover',
+    standalone: true,
+    imports: [CommonModule, KENDO_ICONS],
+    templateUrl: './currency-mover.component.html',
+    styleUrl: './currency-mover.component.css',
 })
 export class CurrencyMoverComponent {
-  @Input() currencyMover!: CurrencyMover;
+    @Input() currencyMover!: CurrencyMover;
 
-  constructor(public intl: IntlService) {}
+    constructor(public intl: IntlService) {}
 
-  public downIcon: SVGIcon = caretAltDownIcon;
-  public upIcon: SVGIcon = caretAltUpIcon;
-  public customCurrencyOptions: NumberFormatOptions = {
-    style: 'accounting',
-    currencyDisplay: 'symbol',
-    currency: 'USD',
-    minimumFractionDigits: 2,
-  };
+    public downIcon: SVGIcon = caretAltDownIcon;
+    public upIcon: SVGIcon = caretAltUpIcon;
+    public customCurrencyOptions: NumberFormatOptions = {
+        style: 'accounting',
+        currencyDisplay: 'symbol',
+        currency: 'USD',
+        minimumFractionDigits: 2,
+    };
 
-  public getAbsoluteValue(value: number): number {
-    return Math.abs(value);
-  }
+    public getAbsoluteValue(value: number): number {
+        return Math.abs(value);
+    }
 }
