@@ -1,0 +1,60 @@
+<div class="k-d-flex k-d-flex-row k-justify-content-between k-align-items-center k-gap-4 k-flex-wrap">
+    <div class="k-d-flex k-d-flex-row k-gap-2 k-align-items-center">
+        <img [src]="currencyMover.imgPath" alt="placeholder" height="44px" width="44px" />
+        <div class="k-d-flex k-d-flex-col">
+            <span class="k-font-bold k-font-size-lg">{{ currencyMover.abbreviation }}</span>
+            <span class="k-font-normal k-font-size-sm">{{ currencyMover.name }}</span>
+        </div>
+    </div>
+    <div class="k-d-flex k-d-flex-col">
+        <span class="k-font-bold k-font-size-lg">{{
+            intl.formatNumber(currencyMover.firstParameter, customCurrencyOptions)
+        }}</span>
+        <div class="k-d-flex k-d-flex-row k-align-items-center">
+            <kendo-svgicon
+                [icon]="currencyMover.firstParameterChange > 0 ? upIcon : downIcon"
+                [themeColor]="currencyMover.firstParameterChange > 0 ? 'success' : 'error'"
+            ></kendo-svgicon>
+            <span
+                class="k-font-normal k-font-size-sm"
+                [ngClass]="currencyMover.firstParameterChange > 0 ? 'k-text-green' : 'k-text-red'"
+                >{{
+                    intl.formatNumber(getAbsoluteValue(currencyMover.firstParameterChange), {
+                        style: 'accounting',
+                        minimumFractionDigits: 1
+                    })
+                }}
+                ({{ intl.formatNumber(currencyMover.firstParameterPercentage, { style: 'percent' }) }})</span
+            >
+        </div>
+    </div>
+
+    <div class="k-d-flex k-d-flex-col">
+        <span class="k-font-bold k-font-size-lg">{{
+            intl.formatNumber(currencyMover.secondParameter, customCurrencyOptions)
+        }}</span>
+        <div class="k-d-flex k-d-flex-row k-align-items-center">
+            <kendo-svgicon
+                [icon]="currencyMover.secondParameterChange > 0 ? upIcon : downIcon"
+                [themeColor]="currencyMover.secondParameterChange > 0 ? 'success' : 'error'"
+            ></kendo-svgicon>
+            <span
+                class="k-font-normal k-font-size-sm"
+                [ngClass]="currencyMover.secondParameterChange > 0 ? 'k-text-green' : 'k-text-red'"
+                >{{
+                    intl.formatNumber(getAbsoluteValue(currencyMover.secondParameterChange), {
+                        style: 'accounting',
+                        minimumFractionDigits: 1
+                    })
+                }}
+                ({{ intl.formatNumber(currencyMover.secondParameterPercentage, { style: 'percent' }) }})</span
+            >
+        </div>
+    </div>
+
+    <div class="k-d-flex k-d-flex-col">
+        <span class="k-font-bold k-font-size-lg">{{
+            intl.formatNumber(currencyMover.totalValue, customCurrencyOptions)
+        }}</span>
+    </div>
+</div>
