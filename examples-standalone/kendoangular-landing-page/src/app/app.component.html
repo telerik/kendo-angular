@@ -1,0 +1,22 @@
+<div class="app-container">
+  <nav class="nav-menu">
+    <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Dashboard</a>
+    <a routerLink="/transactions" routerLinkActive="active">Transactions</a>
+    <a routerLink="/bottom-left" routerLinkActive="active">Bottom Left</a>
+    <a routerLink="/bottom-right" routerLinkActive="active">Bottom Right</a>
+  </nav>
+  <router-outlet></router-outlet>
+</div>
+<!-- <div class="dashboard-container">
+  <div class="top-section">
+    <app-transactions-dashboard></app-transactions-dashboard>
+  </div>
+  <div class="bottom-section">
+    <div class="bottom-left">
+      <app-bottom-left></app-bottom-left>
+    </div>
+    <div class="bottom-right">
+      <app-bottom-right></app-bottom-right>
+    </div>
+  </div>
+</div> -->

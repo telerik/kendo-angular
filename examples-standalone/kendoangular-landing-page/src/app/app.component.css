@@ -1,0 +1,110 @@
+.app-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100%;
+}
+
+.app-header {
+  background-color: #f6f6f6;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.header-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.logo h1 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.app-content {
+  flex: 1;
+  padding: 2rem 0;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.nav-menu {
+  display: flex;
+  background-color: #f0f0f0;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+.nav-menu a {
+  margin-right: 20px;
+  text-decoration: none;
+  color: #333;
+  padding: 5px 10px;
+}
+
+.nav-menu a.active {
+  background-color: #007bff;
+  color: white;
+  border-radius: 4px;
+}
+
+.app-footer {
+  background-color: #f6f6f6;
+  padding: 1rem 0;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  text-align: center;
+}
+
+.footer-content p {
+  margin: 0;
+  color: #666;
+}
+
+kendo-appbar {
+  background-color: transparent;
+}
+
+ul[kendoAppBarNavContainer] {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+li[kendoAppBarNavItem] {
+  margin-right: 1rem;
+}
+
+a[kendoAppBarNavLink] {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  padding: 0.5rem;
+  display: inline-block;
+  position: relative;
+}
+
+a[kendoAppBarNavLink]:hover {
+  color: #ff6358;
+}
+
+a[kendoAppBarNavLink].k-selected {
+  color: #ff6358;
+}
+
+a[kendoAppBarNavLink].k-selected:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #ff6358;
+}

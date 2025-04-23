@@ -1,0 +1,47 @@
+.positive-amount {
+  color: #4bb34b;
+}
+
+.negative-amount {
+  color: #ff5252;
+}
+
+.status-badge {
+  display: inline-flex;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.status-success {
+  background-color: rgba(75, 179, 75, 0.15);
+  color: #4bb34b;
+}
+
+.status-error {
+  background-color: rgba(255, 82, 82, 0.15);
+  color: #ff5252;
+}
+
+.status-warning {
+  background-color: rgba(255, 174, 1, 0.15);
+  color: #ffae01;
+}
+
+::ng-deep .k-grid-header {
+  background-color: #f8f9fa;
+}
+
+::ng-deep .k-grid tbody tr:hover {
+  background-color: #f5f7fa;
+}
+
+::ng-deep .k-grid tr.k-selected {
+  background-color: rgba(87, 119, 234, 0.05);
+}
+
+::ng-deep .k-pager-numbers .k-link.k-selected {
+  color: #fff;
+  background-color: #5777ea;
+}

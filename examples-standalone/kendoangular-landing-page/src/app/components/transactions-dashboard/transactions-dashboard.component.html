@@ -1,0 +1,57 @@
+<div
+  class="k-d-flex k-flex-column k-border k-border-solid k-border-border k-rounded-lg k-bg-surface-alt"
+  style="padding: 20px; box-shadow: 0px 3px 6px 0px rgba(4, 20, 42, 0.06);"
+>
+  <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+    <h4 style="margin: 0;">Transactions</h4>
+    <button kendoButton themeColor="primary" icon="plus">Add Transaction</button>
+  </div>
+
+  <kendo-grid
+    [data]="gridData"
+    [pageSize]="pageSize"
+    [skip]="skip"
+    [pageable]="{ pageSizes: pageSizes }"
+    [scrollable]="'none'"
+    (pageChange)="pageChange($event)"
+    [selectable]="true"
+    [navigable]="true"
+    style="height: auto"
+  >
+    <kendo-grid-column field="time" title="Time" [width]="100"></kendo-grid-column>
+    
+    <kendo-grid-column field="amount" title="Amount" [width]="120">
+      <ng-template kendoGridCellTemplate let-dataItem>
+        <span [ngClass]="getAmountClass(dataItem.positive)">
+          {{ dataItem.amount }}
+        </span>
+      </ng-template>
+    </kendo-grid-column>
+    
+    <kendo-grid-column field="company" title="Company" [width]="170"></kendo-grid-column>
+    
+    <kendo-grid-column field="status" title="Status" [width]="120">
+      <ng-template kendoGridCellTemplate let-dataItem>
+        <span [ngClass]="getStatusClass(dataItem.status)" class="status-badge">
+          {{ dataItem.status }}
+        </span>
+      </ng-template>
+    </kendo-grid-column>
+    
+    <kendo-grid-column field="country" title="Country" [width]="120">
+      <ng-template kendoGridCellTemplate let-dataItem>
+        <div style="display: flex; align-items: center;">
+          <span style="margin-right: 8px; display: flex;" [innerHTML]="getSafeFlag(dataItem.flag)"></span>
+          <span>{{ dataItem.country }}</span>
+        </div>
+      </ng-template>
+    </kendo-grid-column>
+    
+    <kendo-grid-column [width]="80">
+      <ng-template kendoGridCellTemplate>
+        <button kendoButton themeColor="primary" fillMode="flat">View</button>
+        <button kendoButton  fillMode="flat">Cancel</button>
+      </ng-template>
+    </kendo-grid-column>
+  </kendo-grid>
+</div>
