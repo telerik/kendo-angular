@@ -1,11 +1,20 @@
+
 .positive-amount {
   color: #4bb34b;
+  justify-content: flex-end;
+  display: flex;
 }
 
 .negative-amount {
   color: #ff5252;
+  justify-content: flex-end;
+  display: flex;
 }
-
+.action-buttons {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
 .status-badge {
   display: inline-flex;
   padding: 4px 8px;
@@ -29,19 +38,19 @@
   color: #ffae01;
 }
 
-::ng-deep .k-grid-header {
+.k-grid-header {
   background-color: #f8f9fa;
 }
 
-::ng-deep .k-grid tbody tr:hover {
+.k-grid tbody tr:hover {
   background-color: #f5f7fa;
 }
 
-::ng-deep .k-grid tr.k-selected {
+.k-grid tr.k-selected {
   background-color: rgba(87, 119, 234, 0.05);
 }
 
-::ng-deep .k-pager-numbers .k-link.k-selected {
+.k-pager-numbers .k-link.k-selected {
   color: #fff;
   background-color: #5777ea;
 }

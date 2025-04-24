@@ -1,23 +1,27 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { SafeHtml } from '@angular/platform-browser';
-import { ButtonsModule } from '@progress/kendo-angular-buttons';
-import { KENDO_GRID, PageChangeEvent } from '@progress/kendo-angular-grid';
+import { KENDO_BUTTONS } from '@progress/kendo-angular-buttons';
+import { ColumnMenuSettings, KENDO_GRID } from '@progress/kendo-angular-grid';
+import { KENDO_PAGER } from '@progress/kendo-angular-pager';
 import { GridDataService, GridItem } from '../../services/grid-data.service';
 
 @Component({
   selector: 'app-transactions-dashboard',
   standalone: true,
-  imports: [CommonModule, KENDO_GRID, ButtonsModule],
+  encapsulation: ViewEncapsulation.None,
+  imports: [CommonModule, KENDO_GRID, KENDO_BUTTONS, KENDO_PAGER],
   templateUrl: './transactions-dashboard.component.html',
   styleUrls: ['./transactions-dashboard.component.css']
 })
 export class TransactionsDashboardComponent implements OnInit {
   public gridData: GridItem[] = [];
-  public pageSize = 5;
-  public skip = 0;
-  public total = 0;
   public pageSizes = [5, 10, 15];
+  public menuSettings: ColumnMenuSettings = {
+    sort: true,
+    filter: true,
+    columnChooser: false,
+  };
 
   constructor(
     private gridDataService: GridDataService,
@@ -28,14 +32,7 @@ export class TransactionsDashboardComponent implements OnInit {
   }
 
   private loadGridData(): void {
-    this.total = this.gridDataService.getTotal();
-    this.gridData = this.gridDataService.getPagedData(this.skip, this.pageSize);
-  }
-
-  public pageChange(event: PageChangeEvent): void {
-    this.skip = event.skip;
-    this.pageSize = event.take;
-    this.loadGridData();
+    this.gridData = this.gridDataService.getGridData()
   }
 
   public getAmountClass(positive: boolean): string {

@@ -1,0 +1,20 @@
+.k-form-field-wrap {
+    margin-bottom: 1rem;
+}
+
+.k-form-buttons {
+    margin-top: 1.5rem;
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.5rem;
+}
+
+kendo-formfield {
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.k-radio-list-horizontal {
+    display: flex;
+    gap: 1rem;
+}
