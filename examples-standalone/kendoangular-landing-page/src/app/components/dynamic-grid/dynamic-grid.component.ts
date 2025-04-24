@@ -1,0 +1,128 @@
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { ChipThemeColor, KENDO_BUTTONS } from '@progress/kendo-angular-buttons';
+import { SVGIcon, caretAltDownIcon, caretAltUpIcon } from '@progress/kendo-svg-icons';
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
+import { DataService } from '../../services/data.service';
+import { BehaviorSubject, Observable, Subject, Subscription, combineLatest } from 'rxjs';
+import { switchMap, takeUntil, tap, startWith } from 'rxjs/operators';
+import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { ColumnMenuSettings, DataStateChangeEvent, GridDataResult, KENDO_GRID } from '@progress/kendo-angular-grid';
+import { KENDO_DROPDOWNS } from '@progress/kendo-angular-dropdowns';
+import { KENDO_INPUTS } from '@progress/kendo-angular-inputs';
+import { KENDO_CHARTS } from '@progress/kendo-angular-charts';
+import { KENDO_LABELS } from '@progress/kendo-angular-label';
+import { IntlModule } from '@progress/kendo-angular-intl';
+import { KENDO_ICONS } from '@progress/kendo-angular-icons';
+import { KENDO_TOOLTIPS } from '@progress/kendo-angular-tooltip';
+import { cashIcon, goldIcon, realEstateIcon, securitiesIcon } from '../../data/custom-icons';
+import { DynamicGridItem } from '../../models/dynamic-grid-item';
+import { State } from '@progress/kendo-data-query';
+import { MultiCheckboxFilterComponent } from './multi-checkbox-filter/multi-checkbox-filter.component';
+
+@Component({
+    selector: 'app-dynamic-grid',
+    standalone: true,
+    imports: [
+        FormsModule,
+        CommonModule,
+        KENDO_GRID,
+        KENDO_DROPDOWNS,
+        KENDO_INPUTS,
+        KENDO_CHARTS,
+        KENDO_BUTTONS,
+        KENDO_LABELS,
+        KENDO_TOOLTIPS,
+        KENDO_ICONS,
+        IntlModule,
+        MultiCheckboxFilterComponent,
+    ],
+    templateUrl: './dynamic-grid.component.html',
+    styleUrl: './dynamic-grid.component.css',
+})
+export class DynamicGridComponent {
+    public gridView!: GridDataResult;
+    public refreshInterval: number = 100;
+    public currentGridDataSize: { text: string; value: number } = { text: '100', value: 100 };
+    public positivePriceChangeIcon: SVGIcon = caretAltUpIcon;
+    public negativePriceChangeIcon: SVGIcon = caretAltDownIcon;
+
+    private dataSubscription!: Subscription;
+
+    public gridDataSize: { text: string; value: number }[] = [
+        { text: '100', value: 100 },
+        { text: '5000', value: 5000 },
+        { text: '50000', value: 50000 },
+        { text: '100000', value: 100000 },
+    ];
+    public state: State = {
+        skip: 0,
+        take: 50,
+        sort: [],
+        group: [],
+        filter: {
+            logic: 'and',
+            filters: [],
+        },
+    };
+    public menuSettings: ColumnMenuSettings = {
+        filter: true,
+        sort: true,
+        columnChooser: false,
+    };
+
+    constructor(private domSanitizer: DomSanitizer, private dataService: DataService) {}
+
+    ngOnInit(): void {
+        this.dataSubscription = this.dataService.fetchData(this.state).subscribe((result) => {
+            this.gridView = result;
+        });
+    }
+
+    ngOnDestroy(): void {
+        if (this.dataSubscription) {
+            this.dataSubscription.unsubscribe();
+        }
+    }
+
+    public dataStateChange(state: DataStateChangeEvent): void {
+        this.state = state;
+        this.dataService.updateGridState(state);
+    }
+
+    public onGridSizeChange(event: { text: string; value: number }): void {
+        this.currentGridDataSize = event;
+        this.dataService.updateTotalRecords(event.value);
+    }
+
+    public onRefreshIntervalChange(event: number): void {
+        this.refreshInterval = event;
+        this.dataService.updateRefreshInterval(event);
+    }
+
+    public getThemeColor(status: string): ChipThemeColor {
+        switch (status) {
+            case 'Filled':
+                return 'info';
+            case 'Open':
+                return 'success';
+            case 'Rejected':
+                return 'error';
+            default:
+                return 'base';
+        }
+    }
+
+    public getAssetTypeIcon(assetType: string): SafeHtml {
+        if (assetType === 'Real Estate') {
+            return this.domSanitizer.bypassSecurityTrustHtml(realEstateIcon);
+        } else if (assetType === 'Securities') {
+            return this.domSanitizer.bypassSecurityTrustHtml(securitiesIcon);
+        } else if (assetType === 'Cash') {
+            return this.domSanitizer.bypassSecurityTrustHtml(cashIcon);
+        } else if (assetType === 'Gold') {
+            return this.domSanitizer.bypassSecurityTrustHtml(goldIcon);
+        }
+        return '';
+    }
+}

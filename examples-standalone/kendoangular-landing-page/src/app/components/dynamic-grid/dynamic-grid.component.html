@@ -1,0 +1,127 @@
+<div class="grid-wrapper">
+    <kendo-grid
+        [data]="gridView"
+        [height]="440"
+        [rowHeight]="36"
+        scrollable="virtual"
+        [skip]="state.skip"
+        [sort]="state.sort"
+        [filter]="state.filter"
+        [pageSize]="state.take"
+        [columnMenu]="menuSettings"
+        [sortable]="true"
+        (dataStateChange)="dataStateChange($event)"
+    >
+        <ng-template kendoGridToolbarTemplate>
+            <kendo-label [for]="gridSize" text="Rows: "></kendo-label>
+            <kendo-dropdownlist
+                #gridSize
+                [data]="gridDataSize"
+                [value]="currentGridDataSize"
+                textField="text"
+                valueField="value"
+                kendoGridToolbarFocusable
+                (valueChange)="onGridSizeChange($event)"
+            >
+                <ng-template kendoDropDownListItemTemplate let-dataItem>
+                    <span class="template">{{ dataItem.value | kendoNumber }}</span>
+                </ng-template>
+            </kendo-dropdownlist>
+            <kendo-label class="k-display-block" [for]="slider" text="Refresh rate:"></kendo-label>
+            <div kendoTooltip position="top" filter=".k-draghandle" [tooltipTemplate]="template">
+                <kendo-slider
+                    kendoGridToolbarFocusable
+                    #slider
+                    tickPlacement="none"
+                    [min]="100"
+                    [max]="1000"
+                    [value]="refreshInterval"
+                    [showButtons]="false"
+                    [smallStep]="200"
+                    [largeStep]="500"
+                    (valueChange)="onRefreshIntervalChange($event)"
+                ></kendo-slider>
+            </div>
+        </ng-template>
+        <kendo-grid-column title="Company" field="company">
+            <ng-template kendoGridHeaderTemplate let-column>
+                <strong>{{ column.title }}</strong>
+            </ng-template>
+        </kendo-grid-column>
+        <kendo-grid-column title="Assets Type" field="assetType">
+            <ng-template
+                kendoGridFilterMenuTemplate
+                let-column="column"
+                let-filter="filter"
+                let-filterService="filterService"
+            >
+                <app-multi-checkbox-filter
+                    [field]="column.field"
+                    [filterService]="filterService"
+                    [currentFilter]="filter"
+                ></app-multi-checkbox-filter>
+            </ng-template>
+            <ng-template kendoGridHeaderTemplate let-column>
+                <strong>{{ column.title }}</strong>
+            </ng-template>
+            <ng-template kendoGridCellTemplate let-dataItem>
+                <div class="asset-type">
+                    <span [innerHTML]="getAssetTypeIcon(dataItem.assetType)"></span>
+                    <span>{{ dataItem.assetType }}</span>
+                </div>
+            </ng-template>
+        </kendo-grid-column>
+        <kendo-grid-column title="Price" field="price" filter="numeric">
+            <ng-template kendoGridHeaderTemplate let-column>
+                <strong>{{ column.title }}</strong>
+            </ng-template>
+            <ng-template kendoGridCellTemplate let-dataItem="dataItem">
+                <span>{{ dataItem.price | kendoNumber : 'c' }}</span>
+            </ng-template>
+        </kendo-grid-column>
+        <kendo-grid-column title="Price Change" field="change" filter="numeric">
+            <ng-template kendoGridHeaderTemplate let-column>
+                <strong>{{ column.title }}</strong>
+            </ng-template>
+            <ng-template kendoGridCellTemplate let-dataItem>
+                <kendo-svg-icon
+                    [icon]="dataItem.change > 0 ? positivePriceChangeIcon : negativePriceChangeIcon"
+                    [themeColor]="dataItem.change > 0 ? 'success' : 'error'"
+                ></kendo-svg-icon>
+                <span [ngClass]="[dataItem.change > 0 ? 'green' : 'red']">{{ dataItem.change }}</span>
+            </ng-template>
+        </kendo-grid-column>
+        <kendo-grid-column title="Timeline" field="timeline" [columnMenu]="false">
+            <ng-template kendoGridHeaderTemplate let-column>
+                <strong>{{ column.title }}</strong>
+            </ng-template>
+            <ng-template kendoGridCellTemplate let-dataItem>
+                <kendo-sparkline
+                    [data]="dataItem.timeline"
+                    type="column"
+                    [seriesColors]="['#1274AC']"
+                    [chartArea]="{ background: 'transparent' }"
+                    [style.width.%]="100"
+                >
+                    <ng-template kendoSparklineTooltipTemplate let-value="value">
+                        <span>{{ value | kendoNumber : 'c' }}</span>
+                    </ng-template>
+                </kendo-sparkline>
+            </ng-template>
+        </kendo-grid-column>
+        <kendo-grid-column title="Status" field="status">
+            <ng-template kendoGridHeaderTemplate let-column>
+                <strong>{{ column.title }}</strong>
+            </ng-template>
+            <ng-template kendoGridCellTemplate let-dataItem="dataItem">
+                <kendo-chip rounded="full" [themeColor]="getThemeColor(dataItem.status)">{{
+                    dataItem.status
+                }}</kendo-chip>
+            </ng-template>
+        </kendo-grid-column>
+    </kendo-grid>
+</div>
+
+<ng-template #template>
+    <span>{{ refreshInterval + ' ms' }}</span>
+</ng-template>

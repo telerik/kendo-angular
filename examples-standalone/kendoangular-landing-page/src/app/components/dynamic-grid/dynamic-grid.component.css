@@ -1,0 +1,23 @@
+.grid-wrapper {
+    display: flex;
+    grid: auto auto / 1fr 1fr;
+    grid-gap: 40px;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 0;
+}
+
+.asset-type {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    align-items: center;
+}
+
+.red {
+    color: #f31700;
+}
+
+.green {
+    color: #37b400;
+}

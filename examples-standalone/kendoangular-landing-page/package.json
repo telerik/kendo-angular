@@ -40,6 +40,7 @@
     "@progress/kendo-angular-progressbar": "18.5.2",
     "@progress/kendo-angular-scheduler": "^18.5.2",
     "@progress/kendo-angular-toolbar": "18.5.2",
+    "@progress/kendo-angular-tooltip": "^18.5.2",
     "@progress/kendo-angular-treeview": "18.5.2",
     "@progress/kendo-angular-utils": "18.5.2",
     "@progress/kendo-data-query": "^1.0.0",
