@@ -1,0 +1,15 @@
+<!--Load the font icons package:-->
+<link rel="stylesheet" href="https://unpkg.com/@progress/kendo-font-icons/dist/index.css" />
+
+<div>
+    <button kendoButton fillMode="flat" (click)="postLikesCount(card)">
+        <span [ngClass]="postHeartIcon(card)"></span>
+    </button>
+    <button kendoButton fillMode="flat" (click)="commentClick(card)">
+        <span class="k-icon k-font-icon k-i-comment"></span>
+    </button>
+    <button kendoButton fillMode="flat">
+        <span class="k-icon k-font-icon k-i-share"></span>
+    </button>
+</div>
+<span class="post-likes-count">{{ card.postLikes }} likes</span>

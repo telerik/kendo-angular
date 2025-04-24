@@ -1,0 +1,22 @@
+.content {
+    display: flex;
+}
+
+.image-container {
+    height: 250px;
+    margin-right: 20px;
+}
+
+img {
+    height: 100%;
+}
+
+.content-text {
+    display: block;
+    text-align: justify;
+}
+
+.expansionpanel-wrapper {
+    max-width: 550px;
+    margin: 0 auto;
+}

@@ -1,0 +1,35 @@
+.teamMate:after {
+    content: '.';
+    display: block;
+    height: 0;
+    line-height: 0;
+    clear: both;
+    visibility: hidden;
+}
+.teamMate h2 {
+    font-size: 1.3em;
+    font-weight: normal;
+    padding-top: 17px;
+    margin: 0;
+}
+.teamMate p {
+    margin: 0;
+    font-size: 0.8em;
+}
+.teamMate img {
+    display: inline-block;
+    vertical-align: top;
+    width: 50px;
+    height: 50px;
+    margin: 10px;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+}
+.mate-info {
+    display: inline-block;
+    vertical-align: top;
+}
+.panelbar-wrapper {
+    max-width: 300px;
+    margin: 0 auto;
+}
