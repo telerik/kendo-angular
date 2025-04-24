@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { KENDO_CHARTS } from '@progress/kendo-angular-charts';
 import { KENDO_INPUTS } from '@progress/kendo-angular-inputs';
@@ -9,6 +9,7 @@ import { FormsModule } from '@angular/forms';
 @Component({
   selector: 'app-bottom-left',
   standalone: true,
+  encapsulation: ViewEncapsulation.None,
   imports: [CommonModule, FormsModule, KENDO_CHARTS, KENDO_INPUTS],
   templateUrl: './bottom-left.component.html',
   styleUrl: './bottom-left.component.css',
