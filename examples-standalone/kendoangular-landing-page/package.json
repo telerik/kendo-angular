@@ -22,6 +22,7 @@
     "@progress/kendo-angular-buttons": "18.5.2",
     "@progress/kendo-angular-charts": "^18.5.2",
     "@progress/kendo-angular-common": "18.5.2",
+    "@progress/kendo-angular-conversational-ui": "^18.5.2",
     "@progress/kendo-angular-dateinputs": "18.5.2",
     "@progress/kendo-angular-dialog": "18.5.2",
     "@progress/kendo-angular-dropdowns": "18.5.2",
