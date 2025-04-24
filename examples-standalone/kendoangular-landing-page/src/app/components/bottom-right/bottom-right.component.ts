@@ -52,12 +52,6 @@ export class BottomRightComponent {
     return null;
   }
 
-  public handleSubmit(): void {
-    if (this.form.valid) {
-      alert(JSON.stringify(this.form.value, null, 2));
-    }
-  }
-
   public clearForm(): void {
     this.form.reset();
   }

@@ -429,51 +429,11 @@ export class GridDataService {
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
   >
-    <g clipPath="url(#clip0_6418_12247)">
-      <mask
-        id="mask0_6418_12247"
-        style="mask-type:luminance"
-        maskUnits="userSpaceOnUse"
-        x="0"
-        y="0"
-        width="24"
-        height="12"
-      >
-        <path d="M0 0V12H24V0H0Z" fill="white" />
-      </mask>
-      <g mask="url(#mask0_6418_12247)">
-        <path d="M0 0V12H24V0H0Z" fill="#012169" />
-        <path d="M0 0L24 12L0 0ZM24 0L0 12L24 0Z" fill="black" />
-        <path d="M0 0L24 12M24 0L0 12" stroke="white" strokeWidth="2.4" />
-        <mask
-          id="mask1_6418_12247"
-          style="mask-type:luminance"
-          maskUnits="userSpaceOnUse"
-          x="0"
-          y="0"
-          width="24"
-          height="12"
-        >
-          <path
-            d="M12 6H24V12L12 6ZM12 6V12H0L12 6ZM12 6H0V0L12 6ZM12 6V0H24L12 6Z"
-            fill="white"
-          />
-        </mask>
-        <g mask="url(#mask1_6418_12247)">
-          <path d="M0 0L24 12L0 0ZM24 0L0 12L24 0Z" fill="black" />
-          <path d="M0 0L24 12M24 0L0 12" stroke="#C8102E" strokeWidth="1.6" />
-        </g>
-        <path d="M12 0V12V0ZM0 6H24H0Z" fill="black" />
-        <path d="M12 0V12M0 6H24" stroke="white" strokeWidth="4" />
-        <path d="M12 0V12V0ZM0 6H24H0Z" fill="black" />
-        <path d="M12 0V12M0 6H24" stroke="#C8102E" strokeWidth="2.4" />
-      </g>
-    </g>
-    <defs>
-      <clipPath id="clip0_6418_12247">
-        <rect width="24" height="12" fill="white" />
-      </clipPath>
-    </defs>
+    <rect width="24" height="12" fill="#00247D"/>
+    <path d="M0 0L24 12M24 0L0 12" stroke="white" stroke-width="2.4"/>
+    <path d="M12 0V12M0 6H24" stroke="white" stroke-width="4"/>
+    <path d="M12 0V12M0 6H24" stroke="#CF142B" stroke-width="2"/>
+    <path d="M0 0L24 12M24 0L0 12" stroke="#CF142B" stroke-width="1"/>
   </svg>`;
 
   private gridData: GridItem[] = [

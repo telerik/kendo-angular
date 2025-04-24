@@ -12,6 +12,7 @@
     [navigable]="true"
     [height]="302"
     [style.width.px]="586"
+    size="small"
     scrollable='none'
   >
     <kendo-grid-column field="time" title="Time" [width]="97"></kendo-grid-column>
@@ -26,15 +27,7 @@
     
     <kendo-grid-column field="company" title="Company" [width]="181"></kendo-grid-column>
     
-    <kendo-grid-column field="status" title="Status" [width]="54">
-      <ng-template kendoGridCellTemplate let-dataItem>
-        <span [ngClass]="getStatusClass(dataItem.status)" class="status-badge">
-          {{ dataItem.status }}
-        </span>
-      </ng-template>
-    </kendo-grid-column>
-    
-    <kendo-grid-column field="country" title="Country" [width]="54">
+    <kendo-grid-column field="country" title="Ctry." [width]="54" [columnMenu]="false">
       <ng-template kendoGridCellTemplate let-dataItem>
         <div style="display: flex; justify-content: center;" [innerHTML]="getSafeFlag(dataItem.flag)">
         </div>
