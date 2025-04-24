@@ -17,9 +17,15 @@
     <kendo-scheduler-agenda-view></kendo-scheduler-agenda-view>
     <ng-template kendoSchedulerToolbarTemplate let-selectedDate="selectedDate">
         <div kendoSchedulerToolbarNavigation></div>
-
+        <kendo-dropdownlist
+            [data]="languages"
+            textField="text"
+            valueField="value"
+            [(value)]="selectedLanguage"
+            (valueChange)="changeLanguage($event)"
+        >
+        </kendo-dropdownlist>
         <span class="k-spacer"></span>
-
         <div kendoSchedulerToolbarViewSelector [toolbarWidth]="900" [responsiveBreakpoint]="960"></div>
     </ng-template>
 </kendo-scheduler>
