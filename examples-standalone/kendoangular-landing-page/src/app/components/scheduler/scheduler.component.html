@@ -1,0 +1,25 @@
+<kendo-scheduler
+    [kendoSchedulerBinding]="events"
+    [kendoSchedulerReactiveEditing]="createFormGroup"
+    [resources]="resources"
+    [selectedDate]="selectedDate"
+    [selectedViewIndex]="1"
+    [group]="group"
+    [modelFields]="modelFields"
+    startTime="08:00"
+    endTime="17:00"
+    style="height: 600px"
+>
+    <kendo-scheduler-timeline-view></kendo-scheduler-timeline-view>
+    <kendo-scheduler-day-view></kendo-scheduler-day-view>
+    <kendo-scheduler-week-view></kendo-scheduler-week-view>
+    <kendo-scheduler-month-view></kendo-scheduler-month-view>
+    <kendo-scheduler-agenda-view></kendo-scheduler-agenda-view>
+    <ng-template kendoSchedulerToolbarTemplate let-selectedDate="selectedDate">
+        <div kendoSchedulerToolbarNavigation></div>
+
+        <span class="k-spacer"></span>
+
+        <div kendoSchedulerToolbarViewSelector [toolbarWidth]="900" [responsiveBreakpoint]="960"></div>
+    </ng-template>
+</kendo-scheduler>

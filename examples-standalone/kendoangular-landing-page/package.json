@@ -38,17 +38,19 @@
     "@progress/kendo-angular-pdf-export": "18.5.2",
     "@progress/kendo-angular-popup": "18.5.2",
     "@progress/kendo-angular-progressbar": "18.5.2",
+    "@progress/kendo-angular-scheduler": "^18.5.2",
     "@progress/kendo-angular-toolbar": "18.5.2",
     "@progress/kendo-angular-treeview": "18.5.2",
     "@progress/kendo-angular-utils": "18.5.2",
     "@progress/kendo-data-query": "^1.0.0",
-    "@progress/kendo-drawing": "^1.17.2",
+    "@progress/kendo-drawing": "^1.21.0",
     "@progress/kendo-licensing": "^1.5.0",
     "@progress/kendo-svg-icons": "^4.0.0",
     "@progress/kendo-theme-default": "^10.3.1",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
-    "zone.js": "~0.15.0"
+    "zone.js": "~0.15.0",
+    "@progress/kendo-angular-tooltip": "18.5.2"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^19.1.3",
