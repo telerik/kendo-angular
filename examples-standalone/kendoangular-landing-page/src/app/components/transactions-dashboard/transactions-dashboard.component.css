@@ -54,3 +54,28 @@
   color: #fff;
   background-color: #5777ea;
 }
+.k-header {
+  background-color: #fff;
+}
+
+.k-table-td.price-column {
+  text-align: end;
+}
+
+.price-column-header {
+  justify-content: end;
+}
+.k-grid-pager {
+  border-color: var(--kendo-color-border, rgba(0, 0, 0, 0.08));
+  border-width: 0px 1px 1px 1px;
+  font-size: 14px;
+  background-color: #fff;
+}
+
+.k-pager-numbers-wrap button {
+  border-radius: 4px;
+}
+
+.k-sort-icon {
+  color: #5777EA!important;
+}

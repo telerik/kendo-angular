@@ -7,7 +7,6 @@
     [pageable]="true"
     [pageSize]="6"
     [sortable]="true"
-    [selectable]="true"
     [columnMenu]="menuSettings"
     [navigable]="true"
     [height]="302"
@@ -17,7 +16,7 @@
   >
     <kendo-grid-column field="time" title="Time" [width]="97"></kendo-grid-column>
     
-    <kendo-grid-column field="amount" title="Amount" [width]="110">
+    <kendo-grid-column field="amount" title="Amount" [width]="110" [columnMenu]="false" [headerStyle]="{ 'justify-content': 'right' }">
       <ng-template kendoGridCellTemplate let-dataItem>
         <span [ngClass]="getAmountClass(dataItem.positive)">
           {{ dataItem.amount }}

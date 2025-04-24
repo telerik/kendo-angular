@@ -18,3 +18,18 @@ kendo-formfield {
     display: flex;
     gap: 1rem;
 }
+
+.k-radio:checked,
+.k-radio.k-checked {
+    border-color: #5777ea;
+    background-color: #5777ea;
+    box-shadow: 0 0 0 2px rgba(87, 119, 234, 0.5);
+}
+
+.k-radio:focus,
+.k-radio.k-focus {
+    box-shadow: 0 0 0 2px rgba(87, 119, 234, 0.5) !important;
+}
+.k-radio {
+    border: 1px solid var(--kendo-color-border, rgba(0, 0, 0, 0.08)) !important;
+}

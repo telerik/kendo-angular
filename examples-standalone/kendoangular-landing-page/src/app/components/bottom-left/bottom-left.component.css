@@ -1,3 +1,22 @@
 .k-switch-on .k-switch-track {
-    border-color: #5777EA !important;
+    border-color: #5777ea;
+}
+
+.k-slider .k-draghandle:focus,
+.k-slider .k-draghandle:hover,
+.k-draghandle:focus,
+.k-slider .k-draghandle:active,
+.k-draghandle.k-pressed {
+    background-color: #5777ea;
+    box-shadow: 0 0 0 2px rgba(87, 119, 234, 0.5);
+    border-color: #5777ea;
+}
+
+.k-slider .k-slider-track {
+    background-color: #ebebeb;
+}
+
+.k-switch-on:focus .k-switch-track,
+.k-switch-on.k-focus .k-switch-track {
+    outline: 2px solid color-mix(in srgb, #5777ea 20%, transparent);
 }
