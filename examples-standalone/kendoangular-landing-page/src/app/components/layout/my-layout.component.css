@@ -1,0 +1,51 @@
+html,
+body,
+#parent,
+my-app,
+.wrapper {
+    margin: 0;
+    padding: 0;
+    border-width: 0;
+    height: 100%;
+}
+
+html {
+    overflow: hidden;
+}
+
+.customClass {
+    flex: 1;
+    overflow: auto;
+    align-items: stretch;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.customClass .k-drawer-content {
+    overflow: auto;
+}
+
+.custom-toolbar {
+    width: 100%;
+    background-color: #f6f6f6;
+    line-height: 10px;
+    border-bottom: inset;
+    border-bottom-width: 1px;
+    padding: 3px;
+    color: #656565;
+    flex-shrink: 0;
+}
+.mail-box {
+    font-weight: bold;
+    font-size: 17px;
+}
+h5 {
+    font-size: 1.25rem!important;
+    font-weight: 500;
+    margin: 0;
+    padding: 0;
+}

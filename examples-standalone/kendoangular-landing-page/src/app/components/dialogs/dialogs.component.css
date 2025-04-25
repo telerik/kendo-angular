@@ -1,0 +1,90 @@
+.example-wrapper {
+    padding: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.controls-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.demo-section {
+    flex: 1;
+    min-width: 300px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    background-color: #ffffff;
+}
+
+.demo-section h4 {
+    margin-top: 0;
+    color: #333;
+    font-size: 20px;
+}
+
+.window-content {
+    padding: 15px;
+}
+
+.window-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eee;
+}
+
+.window-header .k-icon {
+    font-size: 24px;
+    margin-right: 10px;
+    color: #ff6358;
+}
+
+.success-message,
+.dialog-result {
+    margin-top: 15px;
+    padding: 12px;
+    border-radius: 6px;
+    background-color: #e8f5e9;
+    border-left: 4px solid #4caf50;
+}
+
+.dialog-result {
+    background-color: #e3f2fd;
+    border-left-color: #2196f3;
+}
+
+kendo-window {
+    --kendo-window-titlebar-bg: #3f51b5;
+    --kendo-window-titlebar-text: white;
+}
+
+.k-form-field {
+    margin-bottom: 15px;
+}
+
+fieldset {
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+legend {
+    padding: 0 10px;
+    font-weight: 500;
+    color: #455a64;
+}
+
+.k-actions {
+    margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+    .controls-container {
+        flex-direction: column;
+    }
+}

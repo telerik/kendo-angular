@@ -1,0 +1,22 @@
+.container {
+    display: flex;
+    justify-content: center;
+    height: 440px;
+    gap: 100px;
+    width: 100%;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.chat {
+    width: 400px;
+}
+
+.prompt {
+    flex-grow: 1;
+    max-width: 400px;
+    width: 400px;
+}

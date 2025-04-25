@@ -1,0 +1,22 @@
+<div class="wrapper">
+    <div>
+        <kendo-textbox rounded="none" (valueChange)="valueChange($event)">
+            <ng-template kendoTextBoxPrefixTemplate>
+                <kendo-svgicon [icon]="searchIcon"></kendo-svgicon>
+            </ng-template>
+        </kendo-textbox>
+    </div>
+    <div class="items-wrapper">
+        @for (item of currentData; track item; let i = $index) {
+        <div class="item">
+            <kendo-checkbox
+                #notification
+                kendoCheckBox
+                [checkedState]="isItemSelected(item)"
+                (checkedStateChange)="onSelectionChange(item)"
+            ></kendo-checkbox>
+            <kendo-label [for]="notification" [text]="item"></kendo-label>
+        </div>
+        }
+    </div>
+</div>

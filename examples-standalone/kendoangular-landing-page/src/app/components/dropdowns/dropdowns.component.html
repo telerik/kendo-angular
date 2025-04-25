@@ -1,0 +1,43 @@
+<div class="wrapper">
+    <div class="components-wrapper">
+        <div class="component-wrapper">
+            <p>AutoComplete</p>
+            <kendo-autocomplete [data]="listItems" placeholder="Your favorite sport"> </kendo-autocomplete>
+        </div>
+        <div class="component-wrapper">
+            <p>ComboBox</p>
+            <kendo-combobox [data]="listItems" [allowCustom]="allowCustom" [(value)]="comboBoxValue"> </kendo-combobox>
+        </div>
+        <div class="component-wrapper">
+            <p>MultiColumnComboBox</p>
+            <kendo-multicolumncombobox [data]="employees" textField="name" valueField="id">
+                <kendo-combobox-column field="name" title="Name" [width]="200"> </kendo-combobox-column>
+                <kendo-combobox-column field="title" title="Title" [width]="250"> </kendo-combobox-column>
+                <kendo-combobox-column field="country" title="Country" [width]="80" class="k-text-center">
+                </kendo-combobox-column>
+            </kendo-multicolumncombobox>
+        </div>
+        <div class="component-wrapper">
+            <p>DropDownList</p>
+            <kendo-dropdownlist [data]="listItems" [(value)]="selectedValues"></kendo-dropdownlist>
+        </div>
+        <div class="component-wrapper">
+            <p>MultiSelect</p>
+            <kendo-multiselect [data]="listItems" [(value)]="value"></kendo-multiselect>
+        </div>
+        <div class="component-wrapper">
+            <p>DropDownTree</p>
+            <kendo-dropdowntree
+                kendoDropDownTreeExpandable
+                [(expandedKeys)]="expandedNodeIndices"
+                [kendoDropDownTreeHierarchyBinding]="furniture"
+                [value]="dropdowntreeValue"
+                childrenField="items"
+                expandBy="text"
+                textField="text"
+                valueField="id"
+            >
+            </kendo-dropdowntree>
+        </div>
+    </div>
+</div>
