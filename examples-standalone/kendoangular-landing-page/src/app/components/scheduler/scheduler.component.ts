@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, ReactiveFormsModule } from "@angular/forms";
 import { KENDO_DROPDOWNLIST } from "@progress/kendo-angular-dropdowns";
 import { CreateFormGroupArgs, KENDO_SCHEDULER } from "@progress/kendo-angular-scheduler";
 import { KENDO_TOOLBAR } from "@progress/kendo-angular-toolbar";
-import { customModelFields, displayDate, sampleDataWithCustomSchema } from "./scheduler-data";
+import { customModelFields, displayDate, sampleDataWithCustomSchema } from "../../data/scheduler-data";
 import { SchedulerMessageService } from "../../services/scheduler-message.service";
 import { MessageService } from "@progress/kendo-angular-l10n";
 
