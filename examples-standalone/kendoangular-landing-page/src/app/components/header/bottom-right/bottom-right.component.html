@@ -1,64 +1,55 @@
 <div
-  class="k-d-flex k-flex-column k-border k-border-solid k-border-border k-rounded-lg k-bg-surface-alt"
-  style="padding: 0px 20px 0px 20px; height: 100%; box-shadow: 0px 3px 6px 0px rgba(4, 20, 42, 0.06);"
+    class="k-d-flex k-flex-column k-border k-border-solid k-border-border k-rounded-lg k-bg-surface-alt"
+    style="padding: 0px 20px 0px 20px; height: 100%; box-shadow: 0px 3px 6px 0px rgba(4, 20, 42, 0.06)"
 >
-  <form [formGroup]="form" class="k-form">
-    <fieldset class="k-form-fieldset">
-      <div style="text-align: center; margin-top: 20px">
-        Let's Get Started
-      </div>
+    <form [formGroup]="form" class="k-form">
+        <fieldset class="k-form-fieldset">
+            <div style="text-align: center; margin-top: 20px">Let's Get Started</div>
 
-      <kendo-formfield>
-        <kendo-label [for]="email" text="Email"></kendo-label>
-        <kendo-textbox
-          #email
-          formControlName="email"
-          [clearButton]="true"
-        ></kendo-textbox>
-        <kendo-formerror>
-          {{ form.controls['email'].errors?.['required'] ? 'Email field is required.' : 
+            <kendo-formfield>
+                <kendo-label [for]="email" text="Email"></kendo-label>
+                <kendo-textbox #email formControlName="email" [clearButton]="true"></kendo-textbox>
+                <kendo-formerror>
+                    {{ form.controls['email'].errors?.['required'] ? 'Email field is required.' : 
              form.controls['email'].errors?.['email'] ? 'Email is not in a valid format.' : '' }}
-        </kendo-formerror>
-        <kendo-formhint>Try typing an invalid one.</kendo-formhint>
-      </kendo-formfield>
+                </kendo-formerror>
+                <kendo-formhint>Try typing an invalid one.</kendo-formhint>
+            </kendo-formfield>
 
-      <kendo-formfield>
-        <kendo-label [for]="mood" text="How do you feel today?"></kendo-label>
-        <kendo-dropdownlist
-          #mood
-          formControlName="mood"
-          [data]="moodOptions"
-          defaultItem="Select mood..."
-        ></kendo-dropdownlist>
-      </kendo-formfield>
+            <kendo-formfield>
+                <kendo-label [for]="mood" text="How do you feel today?"></kendo-label>
+                <kendo-dropdownlist
+                    #mood
+                    formControlName="mood"
+                    [data]="moodOptions"
+                    defaultItem="Select mood..."
+                ></kendo-dropdownlist>
+            </kendo-formfield>
 
-      <kendo-formfield>
-        <kendo-label text="Are you drinking enough water?"></kendo-label>
-        <div class="k-radio-list-horizontal">
-          <ng-container *ngFor="let item of waterOptions">
-            <input
-              type="radio"
-              kendoRadioButton
-              [value]="item.value"
-              formControlName="water"
-              [attr.id]="'water-' + item.value"
-            />
-            <kendo-label class="k-radio-label" [for]="'water-' + item.value" [text]="item.label"></kendo-label>
-          </ng-container>
-        </div>
-      </kendo-formfield>
+            <kendo-formfield>
+                <kendo-label text="Are you drinking enough water?"></kendo-label>
+                <div class="k-radio-list-horizontal">
+                    <ng-container *ngFor="let item of waterOptions">
+                        <input
+                            type="radio"
+                            kendoRadioButton
+                            [value]="item.value"
+                            formControlName="water"
+                            [attr.id]="'water-' + item.value"
+                        />
+                        <kendo-label
+                            class="k-radio-label"
+                            [for]="'water-' + item.value"
+                            [text]="item.label"
+                        ></kendo-label>
+                    </ng-container>
+                </div>
+            </kendo-formfield>
 
-      <div class="k-form-buttons">
-        <button 
-          kendoButton
-          themeColor="primary" 
-          type="button" 
-          [disabled]="form.invalid"
-        >
-          Submit
-        </button>
-        <button kendoButton type="button" (click)="clearForm()">Clear</button>
-      </div>
-    </fieldset>
-  </form>
+            <div class="k-form-buttons">
+                <button kendoButton themeColor="primary" type="button" [disabled]="form.invalid">Submit</button>
+                <button kendoButton type="button" (click)="clearForm()">Clear</button>
+            </div>
+        </fieldset>
+    </form>
 </div>

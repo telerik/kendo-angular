@@ -1,25 +1,25 @@
-import { CommonModule } from '@angular/common';
-import { Component, ViewEncapsulation } from '@angular/core';
-import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
-import { KENDO_CHARTS } from '@progress/kendo-angular-charts';
-import { KENDO_INPUTS } from '@progress/kendo-angular-inputs';
+import { CommonModule } from "@angular/common";
+import { Component, ViewEncapsulation } from "@angular/core";
+import { DomSanitizer, SafeHtml } from "@angular/platform-browser";
+import { KENDO_CHARTS } from "@progress/kendo-angular-charts";
+import { KENDO_INPUTS } from "@progress/kendo-angular-inputs";
 
-import { FormsModule } from '@angular/forms';
+import { FormsModule } from "@angular/forms";
 
 @Component({
-  selector: 'app-bottom-left',
-  encapsulation: ViewEncapsulation.None,
-  imports: [CommonModule, FormsModule, KENDO_CHARTS, KENDO_INPUTS],
-  templateUrl: './bottom-left.component.html',
-  styleUrl: './bottom-left.component.css',
+    selector: "app-bottom-left",
+    encapsulation: ViewEncapsulation.None,
+    imports: [CommonModule, FormsModule, KENDO_CHARTS, KENDO_INPUTS],
+    templateUrl: "./bottom-left.component.html",
+    styleUrl: "./bottom-left.component.css",
 })
 export class BottomLeftComponent {
-  public chartFirstSeries: number[] = [3, 4, 2];
-  public chartSecondSeries: number[] = [19, 17, 14];
-  public chartThirdSeries: number[] = [25, 11, 32];
-  public categories: string[] = ['Mon', 'Tue', 'Wed'];
+    public chartFirstSeries: number[] = [3, 4, 2];
+    public chartSecondSeries: number[] = [19, 17, 14];
+    public chartThirdSeries: number[] = [25, 11, 32];
+    public categories: string[] = ["Mon", "Tue", "Wed"];
 
-  private kendokaSvg = `<svg
+    private kendokaSvg = `<svg
     width="105"
     height="153"
     viewBox="0 0 105 153"
@@ -194,7 +194,7 @@ export class BottomLeftComponent {
     </defs>
   </svg>`;
 
-  private kendokaHand = `<svg
+    private kendokaHand = `<svg
     width="17"
     height="10"
     viewBox="0 0 17 10"
@@ -223,21 +223,21 @@ export class BottomLeftComponent {
     </defs>
   </svg>`;
 
-  constructor(private sanitizer: DomSanitizer) {}
+    constructor(private sanitizer: DomSanitizer) {}
 
-  public getSanitizedSvg(svg: string): SafeHtml {
-    return this.sanitizer.bypassSecurityTrustHtml(svg);
-  }
+    public getSanitizedSvg(svg: string): SafeHtml {
+        return this.sanitizer.bypassSecurityTrustHtml(svg);
+    }
 
-  public getKendokaSvg(): SafeHtml {
-    return this.getSanitizedSvg(this.kendokaSvg);
-  }
+    public getKendokaSvg(): SafeHtml {
+        return this.getSanitizedSvg(this.kendokaSvg);
+    }
 
-  public getKendokaHand(): SafeHtml {
-    return this.getSanitizedSvg(this.kendokaHand);
-  }
+    public getKendokaHand(): SafeHtml {
+        return this.getSanitizedSvg(this.kendokaHand);
+    }
 
-  public sliderValue = 7;
-  public ratingValue = 4.5;
-  public switchValue = true;
+    public sliderValue = 7;
+    public ratingValue = 4.5;
+    public switchValue = true;
 }

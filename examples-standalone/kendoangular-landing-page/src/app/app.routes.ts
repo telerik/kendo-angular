@@ -42,6 +42,10 @@ export const routes: Routes = [
         path: "editor",
         loadComponent: () => import("./components/editor/editor.component").then((m) => m.EditorComponent),
     },
+    {
+        path: "dialogs",
+        loadComponent: () => import("./components/dialogs/dialogs.component").then((m) => m.DialogsComponent),
+    },
     { path: "home", redirectTo: "header", pathMatch: "full" },
     { path: "", redirectTo: "header", pathMatch: "full" },
 ];

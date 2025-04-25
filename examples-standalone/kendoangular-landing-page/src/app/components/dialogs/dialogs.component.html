@@ -1,0 +1,100 @@
+<div class="example-wrapper">
+    <div class="controls-container">
+        <div class="demo-section">
+            <h4>Kendo Window</h4>
+            <p>Windows are perfect for complex forms and detailed content that requires more screen space.</p>
+            <button kendoButton themeColor="primary" (click)="openWindow()">Open User Profile Window</button>
+            @if (formSubmitted) {
+            <div class="success-message">
+                <p>Profile saved successfully for {{ firstName }} {{ lastName }}</p>
+                <button kendoButton themeColor="light" (click)="reset()">Reset Demo</button>
+            </div>
+            }
+        </div>
+
+        <div class="demo-section">
+            <h4>Kendo Dialog</h4>
+            <p>Dialogs are ideal for confirmations, alerts, and simple interactions requiring immediate attention.</p>
+            <button kendoButton themeColor="secondary" (click)="openDialog()">Show Confirmation Dialog</button>
+            @if (confirmationResult) {
+            <div class="dialog-result">
+                <p>
+                    You chose: <strong>{{ confirmationResult }}</strong>
+                </p>
+                <button kendoButton themeColor="light" (click)="reset()">Reset Demo</button>
+            </div>
+            }
+        </div>
+    </div>
+
+    @if (windowOpened) {
+    <kendo-window
+        title="Complete Your Profile"
+        [minWidth]="320"
+        [width]="500"
+        [height]="590"
+        [top]="160"
+        [resizable]="true"
+        [draggable]="true"
+        (close)="closeWindow()"
+    >
+        <div class="window-content">
+            <div class="window-header">
+                <span class="k-icon k-i-user"></span>
+                <p>Please fill in your profile information to continue</p>
+            </div>
+
+            <form class="k-form">
+                <fieldset>
+                    <legend>Personal Information</legend>
+                    <div class="k-form-field">
+                        <label>First Name</label>
+                        <kendo-textbox
+                            [(ngModel)]="firstName"
+                            name="firstName"
+                            required
+                            placeholder="Your first name"
+                        ></kendo-textbox>
+                    </div>
+                    <div class="k-form-field">
+                        <label>Last Name</label>
+                        <kendo-textbox
+                            [(ngModel)]="lastName"
+                            name="lastName"
+                            required
+                            placeholder="Your last name"
+                        ></kendo-textbox>
+                    </div>
+                    <div class="k-form-field">
+                        <label>Date of Birth</label>
+                        <kendo-datepicker placeholder="Select your birth date"></kendo-datepicker>
+                    </div>
+                    <div class="k-form-field">
+                        <label>Bio</label>
+                        <kendo-textarea placeholder="Tell us about yourself" [rows]="3"></kendo-textarea>
+                    </div>
+                </fieldset>
+
+                <div class="k-actions k-actions-end">
+                    <button kendoButton type="button" (click)="closeWindow()">Cancel</button>
+                    <button kendoButton themeColor="primary" type="button" (click)="submitWindow()">
+                        Save Profile
+                    </button>
+                </div>
+            </form>
+        </div>
+    </kendo-window>
+    } @if (dialogOpened) {
+    <kendo-dialog title="Confirm Action" [minWidth]="250" [width]="450" (close)="closeDialog()">
+        <p style="margin: 30px; text-align: center">
+            Are you sure you want to proceed with this action?<br />
+            This change cannot be undone.
+        </p>
+
+        <kendo-dialog-actions>
+            <button kendoButton (click)="onDialogAction('Cancelled')" themeColor="light">Cancel</button>
+            <button kendoButton (click)="onDialogAction('Confirmed')" themeColor="primary">Confirm</button>
+        </kendo-dialog-actions>
+    </kendo-dialog>
+    }
+</div>
