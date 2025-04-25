@@ -10,6 +10,7 @@
         [pageSize]="state.take"
         [columnMenu]="menuSettings"
         [sortable]="true"
+        [loading]="loading"
         (dataStateChange)="dataStateChange($event)"
     >
         <ng-template kendoGridToolbarTemplate>

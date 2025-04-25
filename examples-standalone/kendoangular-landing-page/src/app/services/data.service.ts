@@ -19,6 +19,9 @@ export class DataService {
     private totalRecords: number = 100;
     private updateInterval: number = 100;
 
+    private loadingSubject = new BehaviorSubject<boolean>(false);
+    public loading$ = this.loadingSubject.asObservable();
+
     private dataSubject = new BehaviorSubject<DynamicGridItem[]>([]);
     private _total: number = 0;
     private gridState: State = {
@@ -36,6 +39,8 @@ export class DataService {
     }
 
     public fetchData(state?: State): Observable<GridDataResult> {
+        this.loadingSubject.next(true);
+
         if (state) {
             this.gridState = { ...state };
         }
@@ -52,6 +57,8 @@ export class DataService {
 
         // Start new interval with current settings
         this.startDataRefresh();
+
+        setTimeout(() => this.loadingSubject.next(false), 300);
 
         // Return the observable that will receive updates
         return this.dataSubject.asObservable().pipe(map((data) => ({ data: data, total: this._total })));

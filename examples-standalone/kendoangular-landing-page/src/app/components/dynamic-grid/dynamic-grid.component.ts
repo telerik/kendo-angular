@@ -39,12 +39,13 @@ import { MultiCheckboxFilterComponent } from './multi-checkbox-filter/multi-chec
     templateUrl: './dynamic-grid.component.html',
     styleUrl: './dynamic-grid.component.css',
 })
-export class DynamicGridComponent {
+export class DynamicGridComponent implements OnInit, OnDestroy {
     public gridView!: GridDataResult;
     public refreshInterval: number = 100;
     public currentGridDataSize: { text: string; value: number } = { text: '100', value: 100 };
     public positivePriceChangeIcon: SVGIcon = caretAltUpIcon;
     public negativePriceChangeIcon: SVGIcon = caretAltDownIcon;
+    public loading: boolean = false;
 
     private dataSubscription!: Subscription;
 
@@ -73,6 +74,10 @@ export class DynamicGridComponent {
     constructor(private domSanitizer: DomSanitizer, private dataService: DataService) {}
 
     ngOnInit(): void {
+        this.dataService.loading$.subscribe((isLoading) => {
+            this.loading = isLoading;
+        });
+
         this.dataSubscription = this.dataService.fetchData(this.state).subscribe((result) => {
             this.gridView = result;
         });
@@ -91,7 +96,11 @@ export class DynamicGridComponent {
 
     public onGridSizeChange(event: { text: string; value: number }): void {
         this.currentGridDataSize = event;
+        this.loading = true;
         this.dataService.updateTotalRecords(event.value);
+        setTimeout(() => {
+            this.loading = false;
+        }, 300);
     }
 
     public onRefreshIntervalChange(event: number): void {
