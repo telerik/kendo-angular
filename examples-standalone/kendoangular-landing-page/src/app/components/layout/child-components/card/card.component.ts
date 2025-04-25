@@ -4,7 +4,6 @@ import { ScrollviewCardComponent } from '../scrollview-card/scrollview-card.comp
 
 @Component({
     selector: 'card-component',
-    standalone: true,
     imports: [ScrollviewCardComponent],
     templateUrl: './card.component.html',
     styleUrl: './card.component.css',

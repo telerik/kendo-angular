@@ -1,11 +1,10 @@
-import { Component } from '@angular/core';
-import { KENDO_EXPANSIONPANEL } from '@progress/kendo-angular-layout';
+import { Component } from "@angular/core";
+import { KENDO_EXPANSIONPANEL } from "@progress/kendo-angular-layout";
 
 @Component({
-    selector: 'expansionpanel-component',
-    standalone: true,
+    selector: "expansionpanel-component",
     imports: [KENDO_EXPANSIONPANEL],
-    templateUrl: './expansionpanel.component.html',
-    styleUrl: './expansionpanel.component.css',
+    templateUrl: "./expansionpanel.component.html",
+    styleUrl: "./expansionpanel.component.css",
 })
 export class ExpansionpanelComponent {}

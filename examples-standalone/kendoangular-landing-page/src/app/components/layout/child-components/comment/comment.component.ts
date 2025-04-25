@@ -6,7 +6,6 @@ import { FormsModule } from '@angular/forms';
 
 @Component({
     selector: 'post-comment',
-    standalone: true,
     imports: [KENDO_AVATAR, CommonModule, FormsModule],
     templateUrl: './comment.component.html',
 })

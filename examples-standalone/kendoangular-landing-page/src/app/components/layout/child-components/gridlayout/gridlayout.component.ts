@@ -3,7 +3,6 @@ import { KENDO_GRIDLAYOUT } from '@progress/kendo-angular-layout';
 
 @Component({
     selector: 'gridlayout-component',
-    standalone: true,
     imports: [KENDO_GRIDLAYOUT],
     templateUrl: './gridlayout.component.html',
     styleUrl: './gridlayout.component.css',

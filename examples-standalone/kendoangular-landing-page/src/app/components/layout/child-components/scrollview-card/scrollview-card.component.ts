@@ -7,7 +7,6 @@ import { CommentComponent } from '../comment/comment.component';
 
 @Component({
     selector: 'scrollview-card',
-    standalone: true,
     imports: [KENDO_LAYOUT, KENDO_SCROLLVIEW, CommonModule, CommentActionsComponent, CommentComponent],
     templateUrl: './scrollview-card.component.html',
     styleUrl: './scrollview-card.component.css',

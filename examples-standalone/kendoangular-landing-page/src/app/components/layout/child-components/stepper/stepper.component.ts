@@ -4,7 +4,6 @@ import { bookIcon, eyeIcon, fileAddIcon, paperclipIcon, userIcon } from '@progre
 
 @Component({
     selector: 'stepper-component',
-    standalone: true,
     imports: [KENDO_STEPPER],
     templateUrl: './stepper.component.html',
 })

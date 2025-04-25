@@ -3,7 +3,6 @@ import { KENDO_TIMELINE, TimelineEvent } from '@progress/kendo-angular-layout';
 
 @Component({
     selector: 'timeline-component',
-    standalone: true,
     imports: [KENDO_TIMELINE],
     templateUrl: './timeline.component.html',
 })

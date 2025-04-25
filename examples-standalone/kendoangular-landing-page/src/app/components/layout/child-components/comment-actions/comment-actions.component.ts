@@ -1,6 +1,6 @@
-import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
-import { KENDO_BUTTONS } from '@progress/kendo-angular-buttons';
+import { CommonModule } from "@angular/common";
+import { Component, Input } from "@angular/core";
+import { KENDO_BUTTONS } from "@progress/kendo-angular-buttons";
 
 export interface MyComment {
     likes: number;
@@ -20,10 +20,9 @@ export interface MyCardComponent {
 }
 
 @Component({
-    selector: 'comment-actions',
-    standalone: true,
+    selector: "comment-actions",
     imports: [KENDO_BUTTONS, CommonModule],
-    templateUrl: './comment-actions.component.html',
+    templateUrl: "./comment-actions.component.html",
 })
 export class CommentActionsComponent {
     @Input() public card!: MyCardComponent;
@@ -43,6 +42,6 @@ export class CommentActionsComponent {
     }
 
     public postHeartIcon(card: MyCardComponent): string {
-        return card.postLiked ? 'k-icon k-font-icon k-i-heart' : 'k-icon k-font-icon k-i-heart-outline';
+        return card.postLiked ? "k-icon k-font-icon k-i-heart" : "k-icon k-font-icon k-i-heart-outline";
     }
 }

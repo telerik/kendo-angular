@@ -3,7 +3,6 @@ import { KENDO_TILELAYOUT } from '@progress/kendo-angular-layout';
 
 @Component({
     selector: 'tilelayout-component',
-    standalone: true,
     imports: [KENDO_TILELAYOUT],
     templateUrl: './tilelayout.component.html',
 })

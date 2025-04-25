@@ -4,7 +4,6 @@ import { SVGIcon, userIcon } from '@progress/kendo-svg-icons';
 
 @Component({
     selector: 'avatar-component',
-    standalone: true,
     imports: [KENDO_AVATAR],
     templateUrl: './avatar.component.html',
     styleUrl: './avatar.component.css',
