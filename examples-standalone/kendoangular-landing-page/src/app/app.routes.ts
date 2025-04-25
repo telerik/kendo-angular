@@ -38,6 +38,10 @@ export const routes: Routes = [
                 (m) => m.ConversationalUiComponent
             ),
     },
+    {
+        path: "editor",
+        loadComponent: () => import("./components/editor/editor.component").then((m) => m.EditorComponent),
+    },
     { path: "home", redirectTo: "header", pathMatch: "full" },
     { path: "", redirectTo: "header", pathMatch: "full" },
 ];

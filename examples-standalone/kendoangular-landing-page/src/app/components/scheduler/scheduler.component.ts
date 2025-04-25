@@ -14,9 +14,9 @@ import { MessageService } from "@progress/kendo-angular-l10n";
     templateUrl: "./scheduler.component.html",
     styleUrls: ["./scheduler.component.css"],
 })
-export class SchedulerComponent implements OnInit {
+export class SchedulerComponent {
     public selectedDate: Date = displayDate;
-    public events: any[] = [];
+    public events: any[] = sampleDataWithCustomSchema;
     public currentView: string = "day";
     public modelFields = customModelFields;
     public orientation: "horizontal" | "vertical" = "horizontal";
@@ -54,10 +54,6 @@ export class SchedulerComponent implements OnInit {
     public selectedLanguage: any = { text: "English", value: "en-US" };
     constructor(private formBuilder: FormBuilder, private messages: MessageService) {
         this.createFormGroup = this.createFormGroup.bind(this);
-    }
-
-    ngOnInit(): void {
-        this.events = sampleDataWithCustomSchema;
     }
 
     public createFormGroup(args: CreateFormGroupArgs): FormGroup {

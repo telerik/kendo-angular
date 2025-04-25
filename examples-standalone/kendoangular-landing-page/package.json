@@ -26,6 +26,7 @@
     "@progress/kendo-angular-dateinputs": "18.5.2",
     "@progress/kendo-angular-dialog": "18.5.2",
     "@progress/kendo-angular-dropdowns": "18.5.2",
+    "@progress/kendo-angular-editor": "^18.5.2",
     "@progress/kendo-angular-excel-export": "18.5.2",
     "@progress/kendo-angular-grid": "^18.5.2",
     "@progress/kendo-angular-icons": "18.5.2",
