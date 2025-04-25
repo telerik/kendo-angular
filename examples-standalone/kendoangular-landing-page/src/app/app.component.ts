@@ -5,12 +5,13 @@ import { TransactionsDashboardComponent } from './components/transactions-dashbo
 import { BottomRightComponent } from './components/bottom-right/bottom-right.component';
 import { SchedulerComponent } from "./components/scheduler/scheduler.component";
 import { DynamicGridComponent } from './components/dynamic-grid/dynamic-grid.component';
+import { ChartsComponent } from './components/charts/charts.component';
 
 @Component({
   selector: 'app-root',
   encapsulation: ViewEncapsulation.None,
   standalone: true,
-  imports: [RouterOutlet, RouterLink, RouterLinkActive, BottomLeftComponent, BottomRightComponent, TransactionsDashboardComponent, SchedulerComponent, DynamicGridComponent],
+  imports: [RouterOutlet, RouterLink, RouterLinkActive, BottomLeftComponent, BottomRightComponent, TransactionsDashboardComponent, SchedulerComponent, DynamicGridComponent, ChartsComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
