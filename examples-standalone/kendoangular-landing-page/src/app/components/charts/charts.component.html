@@ -13,39 +13,41 @@
 
     <div class="chart-item">
         <kendo-chart>
-            <kendo-chart-title text="Units sold"></kendo-chart-title>
+            <kendo-chart-title text="Hybrid car mileage report"></kendo-chart-title>
+            <kendo-chart-legend position="top"></kendo-chart-legend>
+
+            <kendo-chart-value-axis>
+                @for (item of valueAxes; track item.name) {
+                <kendo-chart-value-axis-item
+                    [name]="item.name!"
+                    [title]="item.title!"
+                    [min]="item.min!"
+                    [max]="item.max!"
+                    [majorUnit]="item.majorUnit!"
+                    [color]="item.color!"
+                >
+                </kendo-chart-value-axis-item>
+                }
+            </kendo-chart-value-axis>
+
             <kendo-chart-category-axis>
-                <kendo-chart-category-axis-item [categories]="lineChartCategories" [title]="{ text: 'Months' }">
+                <kendo-chart-category-axis-item [categories]="categories" [axisCrossingValue]="crossingValues">
                 </kendo-chart-category-axis-item>
             </kendo-chart-category-axis>
-            <kendo-chart-series>
-                <kendo-chart-series-item type="line" [data]="lineChartData[0]"> </kendo-chart-series-item>
-                <kendo-chart-series-item type="line" [data]="lineChartData[1]"> </kendo-chart-series-item>
-                <kendo-chart-series-item type="line" [data]="lineChartData[2]"> </kendo-chart-series-item>
-            </kendo-chart-series>
-        </kendo-chart>
-    </div>
 
-    <div class="chart-item">
-        <kendo-chart>
             <kendo-chart-series>
-                <kendo-chart-series-item type="heatmap" [data]="commitData">
-                    <kendo-chart-series-item-tooltip>
-                        <ng-template let-value="value">
-                            {{ value.value }} contributions on week {{ value.x }}, day
-                            {{ value.y }}
-                        </ng-template>
-                    </kendo-chart-series-item-tooltip>
+                @for (item of series; track item.name) {
+                <kendo-chart-series-item
+                    [name]="item.name!"
+                    [data]="item.data!"
+                    [type]="item.type!"
+                    [stack]="item.stack!"
+                    [color]="item.color"
+                    [axis]="item.axis!"
+                >
                 </kendo-chart-series-item>
+                }
             </kendo-chart-series>
-
-            <kendo-chart-x-axis>
-                <kendo-chart-x-axis-item [visible]="false"> </kendo-chart-x-axis-item>
-            </kendo-chart-x-axis>
-
-            <kendo-chart-y-axis>
-                <kendo-chart-y-axis-item [visible]="false"> </kendo-chart-y-axis-item>
-            </kendo-chart-y-axis>
         </kendo-chart>
     </div>
 </div>
