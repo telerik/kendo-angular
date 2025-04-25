@@ -8,7 +8,6 @@ import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-bottom-left',
-  standalone: true,
   encapsulation: ViewEncapsulation.None,
   imports: [CommonModule, FormsModule, KENDO_CHARTS, KENDO_INPUTS],
   templateUrl: './bottom-left.component.html',

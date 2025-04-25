@@ -29,23 +29,23 @@
     <div class="chart-item">
         <kendo-chart>
             <kendo-chart-series>
-              <kendo-chart-series-item type="heatmap" [data]="commitData">
-                <kendo-chart-series-item-tooltip>
-                  <ng-template let-value="value">
-                    {{ value.value }} contributions on week {{ value.x }}, day
-                    {{ value.y }}
-                  </ng-template>
-                </kendo-chart-series-item-tooltip>
-              </kendo-chart-series-item>
+                <kendo-chart-series-item type="heatmap" [data]="commitData">
+                    <kendo-chart-series-item-tooltip>
+                        <ng-template let-value="value">
+                            {{ value.value }} contributions on week {{ value.x }}, day
+                            {{ value.y }}
+                        </ng-template>
+                    </kendo-chart-series-item-tooltip>
+                </kendo-chart-series-item>
             </kendo-chart-series>
-      
+
             <kendo-chart-x-axis>
-              <kendo-chart-x-axis-item [visible]="false"> </kendo-chart-x-axis-item>
+                <kendo-chart-x-axis-item [visible]="false"> </kendo-chart-x-axis-item>
             </kendo-chart-x-axis>
-      
+
             <kendo-chart-y-axis>
-              <kendo-chart-y-axis-item [visible]="false"> </kendo-chart-y-axis-item>
+                <kendo-chart-y-axis-item [visible]="false"> </kendo-chart-y-axis-item>
             </kendo-chart-y-axis>
-          </kendo-chart>
+        </kendo-chart>
     </div>
 </div>

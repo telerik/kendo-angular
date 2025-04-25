@@ -4,7 +4,6 @@ import { commitData } from "../../data/commit-data";
 
 @Component({
     selector: "app-charts",
-    standalone: true,
     imports: [KENDO_CHARTS],
     templateUrl: "./charts.component.html",
     styleUrl: "./charts.component.css",
@@ -31,5 +30,4 @@ export class ChartsComponent {
     public labelContent(e: SeriesLabelsContentArgs): string {
         return e.category;
     }
-
 }

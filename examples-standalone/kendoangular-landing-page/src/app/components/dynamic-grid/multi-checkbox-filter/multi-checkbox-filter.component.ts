@@ -10,7 +10,6 @@ import { FilterService } from '@progress/kendo-angular-grid';
 
 @Component({
     selector: 'app-multi-checkbox-filter',
-    standalone: true,
     imports: [KENDO_INPUTS, KENDO_LABELS, KENDO_ICONS, KENDO_BUTTONS],
     templateUrl: './multi-checkbox-filter.component.html',
     styleUrl: './multi-checkbox-filter.component.css',

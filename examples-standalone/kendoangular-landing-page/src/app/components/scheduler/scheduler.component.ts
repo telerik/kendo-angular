@@ -9,7 +9,6 @@ import { MessageService } from "@progress/kendo-angular-l10n";
 
 @Component({
     selector: "app-scheduler",
-    standalone: true,
     imports: [KENDO_SCHEDULER, KENDO_TOOLBAR, KENDO_DROPDOWNLIST, ReactiveFormsModule],
     providers: [{ provide: MessageService, useClass: SchedulerMessageService }],
     templateUrl: "./scheduler.component.html",
@@ -50,7 +49,7 @@ export class SchedulerComponent implements OnInit {
     ];
     public languages: any[] = [
         { text: "English", value: "en" },
-        { text: "Spanish", value: "es" }
+        { text: "Spanish", value: "es" },
     ];
     public selectedLanguage: any = { text: "English", value: "en-US" };
     constructor(private formBuilder: FormBuilder, private messages: MessageService) {

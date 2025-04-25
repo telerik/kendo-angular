@@ -8,7 +8,6 @@ import { GridDataService, GridItem } from '../../../services/grid-data.service';
 
 @Component({
   selector: 'app-transactions-dashboard',
-  standalone: true,
   encapsulation: ViewEncapsulation.None,
   imports: [CommonModule, KENDO_GRID, KENDO_BUTTONS, KENDO_PAGER],
   templateUrl: './transactions-dashboard.component.html',

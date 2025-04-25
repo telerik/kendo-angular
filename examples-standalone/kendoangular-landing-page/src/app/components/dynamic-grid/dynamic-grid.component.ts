@@ -22,7 +22,6 @@ import { MultiCheckboxFilterComponent } from './multi-checkbox-filter/multi-chec
 
 @Component({
     selector: 'app-dynamic-grid',
-    standalone: true,
     imports: [
         FormsModule,
         CommonModule,
