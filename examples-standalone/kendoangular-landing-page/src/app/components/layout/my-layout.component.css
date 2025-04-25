@@ -43,3 +43,9 @@ html {
     font-weight: bold;
     font-size: 17px;
 }
+h5 {
+    font-size: 1.25rem!important;
+    font-weight: 500;
+    margin: 0;
+    padding: 0;
+}

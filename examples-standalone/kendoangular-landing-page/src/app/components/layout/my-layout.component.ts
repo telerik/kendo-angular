@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 import { DrawerSelectEvent, KENDO_DRAWER } from '@progress/kendo-angular-layout';
 import {
     alignJustifyIcon,
@@ -20,6 +20,7 @@ import { KENDO_BUTTONS } from '@progress/kendo-angular-buttons';
 
 @Component({
     selector: 'app-layout',
+    encapsulation: ViewEncapsulation.None,
     imports: [KENDO_DRAWER, KENDO_BUTTONS, LayoutComponent],
     templateUrl: './my-layout.component.html',
     styleUrl: './my-layout.component.css',

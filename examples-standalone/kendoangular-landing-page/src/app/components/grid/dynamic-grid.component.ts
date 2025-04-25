@@ -1,27 +1,26 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { ChipThemeColor, KENDO_BUTTONS } from '@progress/kendo-angular-buttons';
-import { SVGIcon, caretAltDownIcon, caretAltUpIcon } from '@progress/kendo-svg-icons';
-import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
-import { DataService } from '../../services/data.service';
-import { BehaviorSubject, Observable, Subject, Subscription, combineLatest } from 'rxjs';
-import { switchMap, takeUntil, tap, startWith } from 'rxjs/operators';
-import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { ColumnMenuSettings, DataStateChangeEvent, GridDataResult, KENDO_GRID } from '@progress/kendo-angular-grid';
-import { KENDO_DROPDOWNS } from '@progress/kendo-angular-dropdowns';
-import { KENDO_INPUTS } from '@progress/kendo-angular-inputs';
+import { Component, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
+import { ChipThemeColor, KENDO_BUTTONS } from '@progress/kendo-angular-buttons';
 import { KENDO_CHARTS } from '@progress/kendo-angular-charts';
-import { KENDO_LABELS } from '@progress/kendo-angular-label';
-import { IntlModule } from '@progress/kendo-angular-intl';
+import { KENDO_DROPDOWNS } from '@progress/kendo-angular-dropdowns';
+import { ColumnMenuSettings, DataStateChangeEvent, GridDataResult, KENDO_GRID } from '@progress/kendo-angular-grid';
 import { KENDO_ICONS } from '@progress/kendo-angular-icons';
+import { KENDO_INPUTS } from '@progress/kendo-angular-inputs';
+import { IntlModule } from '@progress/kendo-angular-intl';
+import { KENDO_LABELS } from '@progress/kendo-angular-label';
 import { KENDO_TOOLTIPS } from '@progress/kendo-angular-tooltip';
-import { cashIcon, goldIcon, realEstateIcon, securitiesIcon } from '../../data/custom-icons';
-import { DynamicGridItem } from '../../models/dynamic-grid-item';
 import { State } from '@progress/kendo-data-query';
+import { SVGIcon, caretAltDownIcon, caretAltUpIcon } from '@progress/kendo-svg-icons';
+import { Subscription } from 'rxjs';
+import { cashIcon, goldIcon, realEstateIcon, securitiesIcon } from '../../data/custom-icons';
+import { DataService } from '../../services/data.service';
 import { MultiCheckboxFilterComponent } from './multi-checkbox-filter/multi-checkbox-filter.component';
 
 @Component({
     selector: 'app-dynamic-grid',
+    encapsulation: ViewEncapsulation.None,
     imports: [
         FormsModule,
         CommonModule,

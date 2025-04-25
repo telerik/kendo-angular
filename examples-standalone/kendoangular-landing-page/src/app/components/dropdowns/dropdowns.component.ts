@@ -15,6 +15,7 @@ import { TreeItem } from '../../models/tree-item';
 export class DropdownsComponent {
     public allowCustom = true;
     public selectedValues: string = 'Baseball';
+    public comboBoxValue: string = 'Baseball';
     public value: any = ['Baseball', 'Cricket'];
     public dropdowntreeValue: { text: string; id: number } = { text: 'Sofas', id: 3 };
     public employees: Employee[] = employees;

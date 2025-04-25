@@ -79,7 +79,7 @@ export class ConversationalUiComponent {
         },
     ];
 
-    public suggestions: string[] = ["Suggеstion 1", "Suggestion 2"];
+    public suggestions: string[] = ["Generate out-of-office email template", "Write a LinkedIn post on the importance of work/life balance"];
 
     private local: Subject<Message> = new Subject<Message>();
 

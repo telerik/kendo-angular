@@ -4,7 +4,7 @@ export const routes: Routes = [
     {
         path: 'grid',
         loadComponent: () =>
-            import('./components/dynamic-grid/dynamic-grid.component').then((m) => m.DynamicGridComponent),
+            import('./components/grid/dynamic-grid.component').then((m) => m.DynamicGridComponent),
     },
     {
         path: 'scheduler',
@@ -50,8 +50,6 @@ export const routes: Routes = [
         path: 'treeview',
         loadComponent: () => import('./components/treeview/treeview.component').then((m) => m.TreeviewComponent),
     },
-    { path: 'home', redirectTo: 'header', pathMatch: 'full' },
-    { path: '', redirectTo: 'header', pathMatch: 'full' },
     { path: 'home', redirectTo: 'header', pathMatch: 'full' },
     { path: '', redirectTo: 'header', pathMatch: 'full' },
 ];

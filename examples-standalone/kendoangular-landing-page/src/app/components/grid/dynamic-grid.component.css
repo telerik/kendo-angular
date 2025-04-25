@@ -21,3 +21,6 @@
 .green {
     color: #37b400;
 }
+.k-grid .k-table-row.k-table-alt-row {
+    background-color: transparent;
+}
