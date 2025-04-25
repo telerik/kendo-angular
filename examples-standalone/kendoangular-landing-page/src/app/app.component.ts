@@ -1,17 +1,15 @@
 import { Component, ViewEncapsulation } from '@angular/core';
 import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
-import { BottomLeftComponent } from './components/bottom-left/bottom-left.component';
-import { TransactionsDashboardComponent } from './components/transactions-dashboard/transactions-dashboard.component';
-import { BottomRightComponent } from './components/bottom-right/bottom-right.component';
 import { SchedulerComponent } from "./components/scheduler/scheduler.component";
 import { DynamicGridComponent } from './components/dynamic-grid/dynamic-grid.component';
 import { ChartsComponent } from './components/charts/charts.component';
+import { HeaderComponent } from './components/header/header.component';
 
 @Component({
   selector: 'app-root',
   encapsulation: ViewEncapsulation.None,
   standalone: true,
-  imports: [RouterOutlet, RouterLink, RouterLinkActive, BottomLeftComponent, BottomRightComponent, TransactionsDashboardComponent, SchedulerComponent, DynamicGridComponent, ChartsComponent],
+  imports: [RouterOutlet, RouterLink, RouterLinkActive, SchedulerComponent, DynamicGridComponent, ChartsComponent, HeaderComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

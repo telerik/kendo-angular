@@ -4,7 +4,7 @@ import { SafeHtml } from '@angular/platform-browser';
 import { KENDO_BUTTONS } from '@progress/kendo-angular-buttons';
 import { ColumnMenuSettings, KENDO_GRID } from '@progress/kendo-angular-grid';
 import { KENDO_PAGER } from '@progress/kendo-angular-pager';
-import { GridDataService, GridItem } from '../../services/grid-data.service';
+import { GridDataService, GridItem } from '../../../services/grid-data.service';
 
 @Component({
   selector: 'app-transactions-dashboard',

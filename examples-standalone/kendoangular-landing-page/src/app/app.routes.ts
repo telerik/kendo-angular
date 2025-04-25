@@ -1,7 +1,7 @@
 import { Routes } from '@angular/router';
-import { TransactionsDashboardComponent } from './components/transactions-dashboard/transactions-dashboard.component';
-import { BottomLeftComponent } from './components/bottom-left/bottom-left.component';
-import { BottomRightComponent } from './components/bottom-right/bottom-right.component';
+import { TransactionsDashboardComponent } from './components/header/transactions-dashboard/transactions-dashboard.component';
+import { BottomLeftComponent } from './components/header/bottom-left/bottom-left.component';
+import { BottomRightComponent } from './components/header/bottom-right/bottom-right.component';
 import { DynamicGridComponent } from './components/dynamic-grid/dynamic-grid.component';
 
 export const routes: Routes = [
