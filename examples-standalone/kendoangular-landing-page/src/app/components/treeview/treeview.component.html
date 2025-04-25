@@ -1,0 +1,46 @@
+<div class="container">
+    <div class="wrapper">
+        <p>TreeView - Multiple Selection Mode with Checkboxes</p>
+        <kendo-treeview
+            [nodes]="data"
+            textField="text"
+            kendoTreeViewHierarchyBinding
+            childrenField="items"
+            [filterable]="true"
+            kendoTreeViewExpandable
+            [expandedKeys]="expandedKeys"
+            kendoTreeViewCheckable
+            [(checkedKeys)]="checkedKeys"
+        >
+        </kendo-treeview>
+    </div>
+
+    <div class="wrapper">
+        <p>TreeView - Drag and Drop Support</p>
+        <kendo-treeview
+            [nodes]="treeData"
+            textField="text"
+            kendoTreeViewHierarchyBinding
+            childrenField="items"
+            kendoTreeViewExpandable
+            expandBy="id"
+            [expandedKeys]="[1]"
+            kendoTreeViewDragAndDrop
+            kendoTreeViewDragAndDropEditing
+        >
+            <ng-template kendoTreeViewNodeTemplate let-dataItem>
+                <kendo-svg-icon [icon]="getIcon(dataItem)"></kendo-svg-icon>
+                {{ dataItem.text }}
+            </ng-template>
+            <ng-template
+                kendoTreeViewDragClueTemplate
+                let-action="action"
+                let-destinationItem="destinationItem"
+                let-text="text"
+            >
+                <kendo-svg-icon [icon]="getDragStatus(action, destinationItem)"></kendo-svg-icon>
+                <span>{{ text }}</span>
+            </ng-template>
+        </kendo-treeview>
+    </div>
+</div>

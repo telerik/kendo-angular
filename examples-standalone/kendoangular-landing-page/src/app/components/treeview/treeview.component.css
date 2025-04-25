@@ -10,13 +10,3 @@
     display: flex;
     flex-direction: column;
 }
-
-.chat {
-    width: 400px;
-}
-
-.prompt {
-    flex-grow: 1;
-    max-width: 400px;
-    width: 400px;
-}
