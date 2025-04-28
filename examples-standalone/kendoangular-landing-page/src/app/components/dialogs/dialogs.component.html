@@ -32,18 +32,13 @@
         title="Complete Your Profile"
         [minWidth]="320"
         [width]="500"
-        [height]="590"
-        [top]="160"
+        [height]="430"
+        [top]="80"
         [resizable]="true"
         [draggable]="true"
         (close)="closeWindow()"
     >
         <div class="window-content">
-            <div class="window-header">
-                <span class="k-icon k-i-user"></span>
-                <p>Please fill in your profile information to continue</p>
-            </div>
-
             <form class="k-form">
                 <fieldset>
                     <legend>Personal Information</legend>
@@ -68,10 +63,6 @@
                     <div class="k-form-field">
                         <label>Date of Birth</label>
                         <kendo-datepicker placeholder="Select your birth date"></kendo-datepicker>
-                    </div>
-                    <div class="k-form-field">
-                        <label>Bio</label>
-                        <kendo-textarea placeholder="Tell us about yourself" [rows]="3"></kendo-textarea>
                     </div>
                 </fieldset>
 

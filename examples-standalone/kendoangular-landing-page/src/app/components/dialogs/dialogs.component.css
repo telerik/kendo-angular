@@ -25,22 +25,14 @@
     font-size: 20px;
 }
 
+kendo-window {
+    --kendo-window-titlebar-bg: #3f51b5;
+    --kendo-window-titlebar-text: white;
+    margin-top: 0;
+}
+
 .window-content {
     padding: 15px;
-}
-
-.window-header {
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
-    padding-bottom: 15px;
-    border-bottom: 1px solid #eee;
-}
-
-.window-header .k-icon {
-    font-size: 24px;
-    margin-right: 10px;
-    color: #ff6358;
 }
 
 .success-message,
@@ -57,11 +49,6 @@
     border-left-color: #2196f3;
 }
 
-kendo-window {
-    --kendo-window-titlebar-bg: #3f51b5;
-    --kendo-window-titlebar-text: white;
-}
-
 .k-form-field {
     margin-bottom: 15px;
 }
@@ -75,12 +62,14 @@ fieldset {
 
 legend {
     padding: 0 10px;
-    font-weight: 500;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 5px;
     color: #455a64;
 }
 
 .k-actions {
-    margin-top: 20px;
+    margin-top: 15px;
 }
 
 @media (max-width: 768px) {
