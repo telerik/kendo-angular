@@ -16,7 +16,11 @@ kendo-formfield {
 
 .k-radio-list-horizontal {
     display: flex;
+    flex-flow: row wrap;
     gap: 1rem;
+}
+.k-radio-list-horizontal input[type="radio"] {
+    margin-right: -0.65rem; 
 }
 
 .k-radio:checked,
