@@ -10,7 +10,10 @@ import { KENDO_TOOLBAR } from "@progress/kendo-angular-toolbar";
 })
 export class EditorComponent {
     public value = `
-  <p>
+    <div style="text-align: center;">
+        <img src="assets/kendoka.png" alt="Angular Kendoka" title="Kendo Angular" width="63" height="100"/>
+    </div>
+    <p>
       The Kendo Angular UI Editor allows your users to edit HTML in a familiar, user-friendly way.<br />
       In this version, the Editor provides the core HTML editing engine, which includes basic text formatting, hyperlinks and lists.
       The widget <strong>outputs identical HTML</strong> across all major browsers, follows

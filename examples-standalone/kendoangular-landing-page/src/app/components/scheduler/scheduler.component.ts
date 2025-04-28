@@ -1,16 +1,27 @@
-import { Component, OnInit } from "@angular/core";
+import { ChangeDetectorRef, Component, Inject, LOCALE_ID } from "@angular/core";
 import { FormBuilder, FormGroup, ReactiveFormsModule } from "@angular/forms";
 import { KENDO_DROPDOWNLIST } from "@progress/kendo-angular-dropdowns";
+import { CldrIntlService, IntlService } from "@progress/kendo-angular-intl";
+import { MessageService } from "@progress/kendo-angular-l10n";
 import { CreateFormGroupArgs, KENDO_SCHEDULER } from "@progress/kendo-angular-scheduler";
 import { KENDO_TOOLBAR } from "@progress/kendo-angular-toolbar";
 import { customModelFields, displayDate, sampleDataWithCustomSchema } from "../../data/scheduler-data";
 import { SchedulerMessageService } from "../../services/scheduler-message.service";
-import { MessageService } from "@progress/kendo-angular-l10n";
 
+import "@progress/kendo-angular-intl/locales/en/all";
+import "@progress/kendo-angular-intl/locales/es/all";
+
+interface LanguageOption {
+    text: string;
+    value: string;
+}
 @Component({
     selector: "app-scheduler",
     imports: [KENDO_SCHEDULER, KENDO_TOOLBAR, KENDO_DROPDOWNLIST, ReactiveFormsModule],
-    providers: [{ provide: MessageService, useClass: SchedulerMessageService }],
+    providers: [
+        { provide: MessageService, useClass: SchedulerMessageService },
+        { provide: LOCALE_ID, useValue: "en" },
+    ],
     templateUrl: "./scheduler.component.html",
     styleUrls: ["./scheduler.component.css"],
 })
@@ -47,12 +58,18 @@ export class SchedulerComponent {
             colorField: "color",
         },
     ];
-    public languages: any[] = [
+    public languages: LanguageOption[] = [
         { text: "English", value: "en" },
         { text: "Spanish", value: "es" },
     ];
     public selectedLanguage: any = { text: "English", value: "en-US" };
-    constructor(private formBuilder: FormBuilder, private messages: MessageService) {
+    constructor(
+        private formBuilder: FormBuilder,
+        private messages: MessageService,
+        @Inject(LOCALE_ID) public localeId: string,
+        public intlService: IntlService,
+        private cdr: ChangeDetectorRef
+    ) {
         this.createFormGroup = this.createFormGroup.bind(this);
     }
 
@@ -107,8 +124,9 @@ export class SchedulerComponent {
     public handleOrientationChange(orientation: "horizontal" | "vertical"): void {
         this.orientation = orientation;
     }
-    public changeLanguage(language: string): void {
+    public changeLanguage(language: LanguageOption): void {
         const svc = <SchedulerMessageService>this.messages;
         svc.language = svc.language === "es" ? "en" : "es";
+        (this.intlService as CldrIntlService).localeId = language.value;
     }
 }
