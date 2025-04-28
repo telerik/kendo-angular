@@ -10,15 +10,12 @@
         <kendo-aiprompt
             class="prompt"
             (promptRequest)="onPromptRequest($event)"
-            (commandExecute)="onCommandExecute($event)"
             [promptOutputs]="promptOutputs"
-            [promptCommands]="commands"
-            [promptSuggestions]="suggestions"
+            [promptSuggestions]="promptSuggestions"
             [(activeView)]="activeView"
         >
             <kendo-aiprompt-prompt-view></kendo-aiprompt-prompt-view>
             <kendo-aiprompt-output-view></kendo-aiprompt-output-view>
-            <kendo-aiprompt-command-view></kendo-aiprompt-command-view>
         </kendo-aiprompt>
     </div>
 </div>

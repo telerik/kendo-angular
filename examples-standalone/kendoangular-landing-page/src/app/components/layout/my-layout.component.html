@@ -5,7 +5,15 @@
         </button>
     </div>
     <kendo-drawer-container class="customClass">
-        <kendo-drawer #drawer [items]="items" mode="push" [mini]="true" [expanded]="true" (select)="onSelect($event)">
+        <kendo-drawer
+            #drawer
+            [items]="items"
+            mode="push"
+            [mini]="true"
+            [expanded]="true"
+            [autoCollapse]="false"
+            (select)="onSelect($event)"
+        >
         </kendo-drawer>
         <kendo-drawer-content>
             <layout-component [selectedItem]="selected"></layout-component>

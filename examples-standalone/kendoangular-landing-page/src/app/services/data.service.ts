@@ -1,11 +1,10 @@
 import { Injectable } from '@angular/core';
-import { Observable, BehaviorSubject, from } from 'rxjs';
-import { delay, map, take } from 'rxjs/operators';
-import { data, prices, changes, assetTypes, statuses, companies } from '../data/dynamic-data';
-import { DynamicGridItem } from '../models/dynamic-grid-item';
-import { CompositeFilterDescriptor, FilterDescriptor, SortDescriptor, State } from '@progress/kendo-data-query';
-import { process, orderBy, filterBy } from '@progress/kendo-data-query';
 import { GridDataResult } from '@progress/kendo-angular-grid';
+import { process, State } from '@progress/kendo-data-query';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { assetTypes, changes, companies, prices, statuses } from '../data/dynamic-data';
+import { DynamicGridItem } from '../models/dynamic-grid-item';
 
 @Injectable({
     providedIn: 'root',

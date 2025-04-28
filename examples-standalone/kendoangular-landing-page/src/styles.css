@@ -1,5 +1,5 @@
 :root {
-    --kendo-font-family: "Roboto", sans-serif;
+    --kendo-font-family: 'Roboto', sans-serif;
 }
 body {
     font-family: var(--kendo-font-family);
