@@ -107,19 +107,6 @@ export class DynamicGridComponent implements OnInit, OnDestroy {
         this.dataService.updateRefreshInterval(event);
     }
 
-    public getThemeColor(status: string): ChipThemeColor {
-        switch (status) {
-            case 'Filled':
-                return 'info';
-            case 'Open':
-                return 'success';
-            case 'Rejected':
-                return 'error';
-            default:
-                return 'base';
-        }
-    }
-
     public getAssetTypeIcon(assetType: string): SafeHtml {
         if (assetType === 'Real Estate') {
             return this.domSanitizer.bypassSecurityTrustHtml(realEstateIcon);

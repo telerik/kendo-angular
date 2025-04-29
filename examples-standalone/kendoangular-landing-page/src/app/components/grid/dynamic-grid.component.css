@@ -21,6 +21,38 @@
 .green {
     color: #278200;
 }
+
 .k-grid .k-table-row.k-table-alt-row {
     background-color: transparent;
+}
+
+.status-chip-filled,
+.status-chip-filled:hover {
+    background-color: rgb(0, 88, 233);
+    border-color: var(--kendo-color-info-emphasis, #4082ef);
+    color: rgb(255, 255, 255);
+}
+
+.status-chip-open,
+.status-chip-open:hover {
+    background-color: rgb(40, 133, 0);
+    border-color: var(--kendo-color-success-emphasis, #37b400);
+    color: rgb(255, 255, 255);
+}
+
+.status-chip-rejected,
+.status-chip-rejected:hover {
+    background-color: rgb(235, 23, 0);
+    border-color: var(--kendo-color-error-emphasis, #d51923);
+    color: rgb(255, 255, 255);
+}
+.k-chip {
+    width: 45px;
+    height: 10px;
+}
+.k-chip-content {
+    justify-content: center;
+    font-weight: 400;
+    font-size: 10px;
+    font-family: 'Roboto', sans-serif;
 }
