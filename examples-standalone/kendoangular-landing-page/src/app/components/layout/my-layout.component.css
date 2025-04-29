@@ -31,20 +31,29 @@ html {
 
 .custom-toolbar {
     width: 100%;
-    background-color: #f6f6f6;
-    line-height: 10px;
+    height: 48px;
+    background-color: #757575;
     border-bottom: inset;
     border-bottom-width: 1px;
     padding: 3px;
-    color: #656565;
+    color: #ffffff;
     flex-shrink: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
+
+.custom-toolbar kendo-avatar {
+    margin-right: 10px;
+}
+
 .mail-box {
     font-weight: bold;
     font-size: 17px;
+    padding-left: 8px;
 }
 h5 {
-    font-size: 1.25rem!important;
+    font-size: 1.25rem !important;
     font-weight: 500;
     margin: 0;
     padding: 0;

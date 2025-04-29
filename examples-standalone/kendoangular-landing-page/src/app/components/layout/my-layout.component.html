@@ -1,8 +1,14 @@
 <div class="wrapper">
     <div class="custom-toolbar">
         <button kendoButton [svgIcon]="layoutSvg" fillMode="flat" (click)="drawer.toggle()">
-            <span class="mail-box">Drawer component</span>
+            <h1 class="mail-box">Drawer component</h1>
         </button>
+        <kendo-avatar
+        [imageSrc]="kendokaAvatar"
+        shape="circle"
+        width="38px"
+        height="40px"
+      ></kendo-avatar>
     </div>
     <kendo-drawer-container class="customClass">
         <kendo-drawer

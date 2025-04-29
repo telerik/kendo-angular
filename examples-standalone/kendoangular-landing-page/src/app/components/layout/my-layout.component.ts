@@ -1,5 +1,5 @@
 import { Component, ViewEncapsulation } from '@angular/core';
-import { DrawerSelectEvent, KENDO_DRAWER } from '@progress/kendo-angular-layout';
+import { DrawerSelectEvent, KENDO_DRAWER, KENDO_LAYOUT } from '@progress/kendo-angular-layout';
 import {
     alignJustifyIcon,
     cellsMergeVerticallyIcon,
@@ -21,7 +21,7 @@ import { KENDO_BUTTONS } from '@progress/kendo-angular-buttons';
 @Component({
     selector: 'app-layout',
     encapsulation: ViewEncapsulation.None,
-    imports: [KENDO_DRAWER, KENDO_BUTTONS, LayoutComponent],
+    imports: [KENDO_DRAWER, KENDO_BUTTONS, KENDO_LAYOUT, LayoutComponent],
     templateUrl: './my-layout.component.html',
     styleUrl: './my-layout.component.css',
 })
@@ -56,4 +56,6 @@ export class MyLayoutComponent {
     public onSelect(ev: DrawerSelectEvent): void {
         this.selected = ev.item.text;
     }
+    public kendokaAvatar = "assets/kendoka-angular.png";
+
 }
