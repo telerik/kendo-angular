@@ -115,9 +115,11 @@
                 <strong>{{ column.title }}</strong>
             </ng-template>
             <ng-template kendoGridCellTemplate let-dataItem="dataItem">
-                <kendo-chip rounded="full" [themeColor]="getThemeColor(dataItem.status)">{{
-                    dataItem.status
-                }}</kendo-chip>
+                <kendo-chip 
+                    rounded="full" 
+                    [class]="'status-chip-' + dataItem.status.toLowerCase()">
+                    {{ dataItem.status }}
+                </kendo-chip>
             </ng-template>
         </kendo-grid-column>
     </kendo-grid>

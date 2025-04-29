@@ -1,5 +1,5 @@
 <div style="display: flex; align-items: center; height: 420px">
-    <kendo-editor [value]="value" style="height: 420px">
+    <kendo-editor [value]="value" [iframe]="false" style="height: 420px">
         <kendo-toolbar>
             <kendo-toolbar-buttongroup>
                 <kendo-toolbar-button kendoEditorBoldButton></kendo-toolbar-button>
@@ -58,7 +58,6 @@
                 <kendo-toolbar-button kendoEditorMergeCellsButton></kendo-toolbar-button>
                 <kendo-toolbar-button kendoEditorSplitCellButton></kendo-toolbar-button>
             </kendo-toolbar-buttongroup>
-            <kendo-toolbar-button kendoEditorPrintButton></kendo-toolbar-button>
         </kendo-toolbar>
     </kendo-editor>
 </div>

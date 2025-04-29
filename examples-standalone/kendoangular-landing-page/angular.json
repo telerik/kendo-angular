@@ -24,12 +24,17 @@
             "assets": [
               {
                 "glob": "**/*",
+                "input": "src/assets/",
+                "output": "/assets/"
+              },
+              {
+                "glob": "**/*",
                 "input": "public"
               }
             ],
             "styles": [
               {
-                "input": "node_modules/@progress/kendo-theme-default/dist/default-ocean-blue-a11y.scss"
+                "input": "node_modules/@progress/kendo-theme-default/dist/default-ocean-blue.scss"
               },
               "src/styles.css"
             ],
@@ -84,6 +89,11 @@
             ],
             "tsConfig": "tsconfig.spec.json",
             "assets": [
+              {
+                "glob": "**/*",
+                "input": "src/assets/",
+                "output": "/assets/"
+              },
               {
                 "glob": "**/*",
                 "input": "public"
