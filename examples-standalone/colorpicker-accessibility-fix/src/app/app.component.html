@@ -1,0 +1,82 @@
+<div class="container">
+  <h1>{{ title }}</h1>
+  
+  <div class="example-section">
+    <h2>ARIA Accessibility Issue Demonstration</h2>
+    <p>This example demonstrates the proper implementation of ColorPicker components to resolve ARIA attribute violations.</p>
+    
+    <div class="issue-description">
+      <h3>🚨 The Problem</h3>
+      <p>ARIA attributes like <code>aria-readonly="false"</code> were being applied to <code>k-colorgradient</code> elements without appropriate roles, causing accessibility violations.</p>
+      
+      <p><strong>Error:</strong> "ARIA attribute is not allowed: aria-readonly='false'"</p>
+      <p><strong>Element:</strong> k-colorgradient</p>
+    </div>
+    
+    <div class="solution-description">
+      <h3>✅ The Solution</h3>
+      <p>Ensure ARIA attributes are applied correctly with proper roles and semantic context.</p>
+    </div>
+  </div>
+
+  <div class="example-section">
+    <h2>ColorPicker Examples</h2>
+    
+    <div class="color-picker-examples">
+      <div class="example-item">
+        <h3>Basic ColorPicker</h3>
+        <kendo-colorpicker
+          [value]="selectedColor"
+          (valueChange)="onColorChange($event)">
+        </kendo-colorpicker>
+        <p>Selected Color: {{ selectedColor }}</p>
+      </div>
+
+      <div class="example-item">
+        <h3>ColorPicker with Gradient View</h3>
+        <kendo-colorpicker
+          [value]="selectedColor"
+          view="gradient"
+          (valueChange)="onColorChange($event)">
+        </kendo-colorpicker>
+        <p>This demonstrates the gradient view that had the ARIA issue.</p>
+      </div>
+
+      <div class="example-item">
+        <h3>ColorPicker in Editor Toolbar</h3>
+        <kendo-editor [value]="editorValue">
+          <ng-container kendoEditorToolBarContainer>
+            <kendo-toolbar>
+              <kendo-toolbar-colorpicker kendoEditorForeColor></kendo-toolbar-colorpicker>
+              <kendo-toolbar-colorpicker kendoEditorBackColor view="gradient"></kendo-toolbar-colorpicker>
+            </kendo-toolbar>
+          </ng-container>
+        </kendo-editor>
+        <p>Editor toolbar ColorPickers with proper accessibility implementation.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="example-section">
+    <h2>Accessibility Guidelines</h2>
+    <ul>
+      <li>✅ ARIA attributes are only applied to elements with appropriate roles</li>
+      <li>✅ Color gradient elements have proper semantic structure</li>
+      <li>✅ Alternative text and labels are provided for screen readers</li>
+      <li>✅ Keyboard navigation is fully supported</li>
+      <li>✅ Focus management follows accessibility best practices</li>
+    </ul>
+  </div>
+
+  <div class="example-section">
+    <h2>Testing</h2>
+    <p>To validate the accessibility improvements:</p>
+    <ol>
+      <li>Open browser developer tools</li>
+      <li>Run Axe accessibility scanner</li>
+      <li>Verify no ARIA attribute violations are reported</li>
+      <li>Test keyboard navigation</li>
+      <li>Test with screen readers</li>
+    </ol>
+  </div>
+</div>
