@@ -60,10 +60,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "grid-csp-enabled:build:production"
+              "buildTarget": "colorpicker-accessibility-fix:build:production"
             },
             "development": {
-              "buildTarget": "grid-csp-enabled:build:development"
+              "buildTarget": "colorpicker-accessibility-fix:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -71,7 +71,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "grid-csp-enabled:build"
+            "buildTarget": "colorpicker-accessibility-fix:build"
           }
         },
         "test": {
