@@ -1,12 +1,11 @@
 import { TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 import { InputsModule } from '@progress/kendo-angular-inputs';
-import { EditorModule } from '@progress/kendo-angular-editor';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [AppComponent, InputsModule, EditorModule],
+      imports: [AppComponent, InputsModule],
     }).compileComponents();
   });
 
