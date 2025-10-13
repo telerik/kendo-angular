@@ -1,0 +1,57 @@
+From: GitHub Copilot
+Subject: [PATCH] Fix DatePicker popup closing prematurely during manual date entry
+
+This patch fixes the issue where the DatePicker/DateTimePicker popup
+closes prematurely when a user manually types a complete date in the
+input field.
+
+Issue: https://github.com/telerik/kendo-angular/issues/4702
+
+The problem was in the handleChange() method which closed the popup
+on ANY value change, including when the user was typing. The fix
+ensures the popup only closes when a date is selected from the
+calendar, not when typing in the input.
+
+Additionally, implements the requirement that clicking the input
+when the popup is open should close the popup.
+
+---
+ datepicker.component.ts | 8 +++++---
+ 1 file changed, 5 insertions(+), 3 deletions(-)
+
+diff --git a/packages/dateinputs/src/datepicker/datepicker.component.ts b/packages/dateinputs/src/datepicker/datepicker.component.ts
+index xxxxx..yyyyy 100644
+--- a/packages/dateinputs/src/datepicker/datepicker.component.ts
++++ b/packages/dateinputs/src/datepicker/datepicker.component.ts
+@@ -xxx,x +xxx,x @@ export class DatePickerComponent {
+     handleChange(value: Date, isInputValueChange: boolean): void {
+         this.value = value;
+         if (this.show) {
+             if (!isInputValueChange) {
+                 this.focusInput();
++                this.show = false;
+             }
+-            this.show = false;
+         }
+         this.onControlChange(cloneDate(value));
+         this.valueChange.emit(cloneDate(value));
+     }
+ 
+@@ -xxx,x +xxx,x @@ export class DatePickerComponent {
+     handleDateInputClick(): void {
+         this.windowSize = this.adaptiveService.size;
+         if (this.isAdaptive) {
+             this.show = true;
++        } else if (this.show) {
++            // Close popup if it's open and user clicks the input
++            this.show = false;
+         }
+     }
+ 
+-- 
+2.x.x
+
+Notes:
+- This patch is for the source TypeScript file in the kendo-angular-private repository
+- The actual line numbers and file path need to be adjusted to match the source repository structure
+- Applied and tested on compiled version: @progress/kendo-angular-dateinputs v18.5.2
