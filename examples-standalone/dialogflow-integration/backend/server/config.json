@@ -1,8 +1,0 @@
-{
-    "allowOrigin": "http://localhost:4200",
-    "listenPort": 3140,
-    "maxBodySize": 1024,
-    "maxSessions": 10,
-    "languageCode": "en-US",
-    "cookieSecret": "21b8e75d-02b1-4639-8e02-7a1613e1c556"
-}

@@ -1,0 +1,43 @@
+@import '../../../styles/variables';
+
+.k-grid {
+    tbody td {
+        white-space: nowrap;
+        line-height: 20px;
+        padding: 0.4rem 0.4rem;
+    }
+    .grid-price-cell {
+        padding: 4px 12px;
+    }
+
+    .price-up {
+        color: $positive-value;
+    }
+
+    .price-down {
+        color: $negative-value;
+    }
+}
+
+.price-down,
+.price-up {
+    animation-duration: 700ms;
+    animation-name: blink;
+    animation-iteration-count: 1;
+    animation-direction: alternate;
+    animation-timing-function: ease-in-out;
+}
+@keyframes blink {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0.4;
+    }
+}
+
+.back-icon {
+    font-size: 2em;
+    cursor: pointer;
+    outline: none;
+}

@@ -1,0 +1,23 @@
+.k-drawer-item.k-selected {
+    background-color: var(--kendo-color-primary, #9fa8da);
+    color: var(--kendo-color-surface-alt, #212121);
+}
+
+.k-drawer-item.k-selected:hover {
+    background-color: var(--kendo-color-primary, #9fa8da);
+    color: var(--kendo-color-surface-alt, #212121);
+}
+
+.k-drawer-item.k-selected:focus,
+.k-drawer-item.k-selected.k-focus {
+    background-color: var(--kendo-color-primary, #9fa8da);
+    color: var(--kendo-color-surface-alt, #212121);
+    box-shadow: none;
+}
+
+.k-overlay {
+    background: transparent;
+    backdrop-filter: blur(2px) contrast(0.7);
+    --webkit-backdrop-filter: blur(2px) contrast(0.7);
+    opacity: 1;
+}

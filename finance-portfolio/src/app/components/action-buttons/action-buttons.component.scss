@@ -1,0 +1,27 @@
+@import '../../../styles/variables';
+
+.action-buttons {
+    padding: $action-buttons-padding;
+    position: fixed;
+    right: $action-buttons-right;
+    bottom: $action-buttons-bottom;
+    border-radius: $action-buttons-border-radius;
+    background-color: $white;
+    box-shadow: $action-buttons-shadow;
+
+    > a {
+        display: block;
+        margin-bottom: 5px;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
+
+@media (max-width: 767px) {
+    .action-buttons {
+        position: relative;
+        right: auto;
+    }
+}

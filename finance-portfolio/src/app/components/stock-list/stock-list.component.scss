@@ -1,0 +1,144 @@
+@use "sass:math";
+@import '../../../styles/variables';
+
+.dropdownlist-add-new {
+    padding-left: 0;
+    width: auto;
+
+    .k-dropdown-wrap {
+        border: 1px solid $border-base;
+        background: $white;
+        color: $text-base;
+        padding: $dropownlist-add-new-padding;
+        width: $dropownlist-add-new-width;
+        height: $dropownlist-add-new-height;
+        align-items: center;
+
+        .k-select {
+            .k-icon {
+                color: $text-base;
+
+                &.k-i-arrow-s {
+                    display: none;
+                }
+            }
+        }
+
+        .k-input {
+            .k-icon {
+                &.k-i-plus {
+                    margin-right: 2 * $margin-sm;
+                }
+            }
+        }
+
+        &:hover {
+            border-color: $hover-bg;
+            background-color: $hover-bg;
+        }
+    }
+}
+
+.k-dialog {
+    .k-header {
+        &, .k-icon {
+            font-weight: bold;
+        }
+        .k-icon {
+            font-size: 1.25rem;
+        }
+    }
+    .k-content.k-dialog-content {
+        display: flex;
+        align-items: center;
+    }
+    .k-dialog-buttongroup {
+        .k-button {
+            &:focus {
+                box-shadow: none;
+            }
+        }
+    }
+}
+
+.dropdown-list-selection {
+    align-items: center;
+
+    .k-dropdown-wrap {
+        color: $text-base;
+
+        .service-category {
+            font-weight: bold;
+            margin-left: $margin-sm;
+        }
+
+        .k-select .k-icon {
+            color: $text-base;
+        }
+
+    }
+}
+
+.k-grid {
+    margin-bottom: 100px;
+    border-width: 0;
+
+    td:first-child {
+        text-overflow: unset;
+    }
+
+    .k-grid-header .k-header {
+        vertical-align: middle;
+
+        .grid-header-subtitle {
+            display: block;
+            margin: 0;
+            font-weight: normal;
+            font-size: $grid-header-subtitle;
+        }
+
+        .k-link > .k-icon.k-i-sort-asc-sm,
+        .k-link > .k-icon.k-i-sort-desc-sm {
+            margin-left: $grid-sorting-icon-margin;
+        }
+
+        .grid-header-subtitle + .k-icon.k-i-sort-asc-sm,
+        .grid-header-subtitle + .k-i-sort-desc-sm {
+            position: absolute;
+            top: 50%;
+            margin-top: - math.div($grid-sorting-icon-right-position, 2);
+            right: $grid-sorting-icon-right-position;
+        }
+    }
+
+
+    .k-grid-content tr td {
+        vertical-align: top;
+    }
+
+    tr.k-state-selected > td {
+        color: inherit;
+    }
+
+    tr.k-state-selected > td.symbol-col {
+        color: $grid-row-selection-bg;
+    }
+
+    .symbol-col {
+        color: $grid-row-selection-bg;
+    }
+
+    th .k-link,
+    .symbol-col,
+    .price-col {
+        font-weight: bold;
+    }
+
+    .grid-cell-positive {
+        color: $grid-cell-positive-color;
+    }
+
+    .grid-cell-negative {
+        color: $grid-cell-negative-color;
+    }
+}

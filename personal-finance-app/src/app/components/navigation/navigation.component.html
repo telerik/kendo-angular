@@ -1,0 +1,36 @@
+<kendo-drawer-container class="k-h-full">
+    <kendo-drawer
+        #drawer
+        class="!k-flex-none k-overflow-y-auto !k-pos-fixed k-h-screen"
+        [items]="items"
+        [mini]="true"
+        [(expanded)]="expanded"
+        mode="overlay"
+        (select)="onItemSelection($event)"
+    >
+        <ng-template kendoDrawerHeaderTemplate>
+            <div class="k-drawer-item k-level-0" (click)="drawer.toggle()">
+                <kendo-svg-icon [icon]="menuIcon"></kendo-svg-icon>
+                @if(expanded){
+                <span>{{ customMsgService.translate('menu') }}</span>
+                }
+            </div>
+        </ng-template>
+        <ng-template kendoDrawerItemTemplate let-item>
+            <div class="k-drawer-link" [routerLink]="'./' + item.path">
+                <kendo-svgicon [icon]="item.svgIcon"></kendo-svgicon>
+                @if(expanded){
+                <span>{{ item.text }}</span>
+                }
+            </div>
+        </ng-template>
+    </kendo-drawer>
+
+    <kendo-drawer-content [style.paddingLeft.px]="50" class="k-d-flex k-flex-col k-h-screen">
+        <app-header></app-header>
+        <div class="k-flex-grow">
+            <router-outlet></router-outlet>
+        </div>
+        <app-footer></app-footer>
+    </kendo-drawer-content>
+</kendo-drawer-container>

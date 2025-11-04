@@ -1,0 +1,28 @@
+$font-family-base: 'Roboto', Helvetica, Arial, sans-serif;
+
+@import '../../node_modules/bootstrap/scss/functions';
+@import '../../node_modules/bootstrap/scss/variables';
+@import '../../node_modules/bootstrap/scss/mixins';
+@import '../../node_modules/bootstrap/scss/reboot';
+@import '../../node_modules/bootstrap/scss/utilities';
+
+$grid-columns: 12;
+$grid-gutter-width: 32px;
+$grid-column-width: 32px;
+
+$grid-breakpoints: (
+    xs: 0,
+    sm: 576px,
+    md: 768px,
+    lg: 992px,
+    xl: 1200px
+);
+
+$container-max-widths: (
+    sm: 540px,
+    md: 720px,
+    lg: 992px,
+    xl: 1200px
+);
+
+@import '../../node_modules/bootstrap/scss/bootstrap.scss';

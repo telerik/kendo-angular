@@ -1,0 +1,99 @@
+// typography
+$roboto: 'Roboto', Helvetica, Arial, sans-serif;
+$ubunto: 'Ubuntu', sans-serif;
+
+$font-weight-200: 200;
+
+// colors
+$white: #fff;
+$black: #000;
+$white-50: rgba(255, 255, 255, 0.5);
+$text-base: #373a3c;
+$border-base: #ddd;
+$active-state-base: #1c7cd5;
+$hover-bg: #e6e6e6;
+$negative-value: #d9534f;
+$positive-value: #5cb85c;
+$body-base-bg: rgba(236, 238, 239, 0.5);
+
+// margins
+$margin-sm: 4px;
+$margin-m: 2 * $margin-sm;
+
+// fonts
+$font-size-default: 16px;
+
+// header
+$header-height: 140px;
+$header-title-padding: 0.5rem;
+$profile-image-width: 58px;
+$profile-image-height: 58px;
+$profile-image-margin-top: 2rem;
+
+// footer
+$footer-padding: 10px;
+$footer-height: 43px;
+$footer-font-size: $font-size-default;
+$progress-logo-height: 20px;
+$progress-logo-width: 100px;
+
+// dropdownlist
+$dropdownlist-font-size: $font-size-default;
+$dropdownlist-item-selected-bg: #e9ecef;
+$dropdownlist-item-selected-text: $active-state-base;
+
+$dropownlist-add-new-padding: 8px;
+$dropownlist-add-new-width: 125px;
+$dropownlist-add-new-height: 40px;
+
+// splitter
+$splitter-bar-boxshadow: 5px 5px 5px rgba(#000, 0.2);
+
+// grid
+$grid-header-subtitle: 13px;
+$grid-row-selection-bg: #007bff;
+$grid-cell-positive-color: $positive-value;
+$grid-cell-negative-color: $negative-value;
+$grid-sorting-icon-margin: $margin-sm;
+$grid-sorting-icon-right-position: 20px;
+
+// buttons
+$nav-button-width: 150px;
+$nav-button-active-bg: $active-state-base;
+
+// badge
+$badge-padding: 10px;
+$badge-height: 22px;
+
+// heatmap
+$heatmap-base-bg: $body-base-bg;
+$heatmap-size-container-mb: -35px;
+$heatmap-scale-wrap-width: 385px;
+$heatmap-scape-block-width: 35px;
+$heatmap-scale-block-height: 18px;
+
+// tooltip
+$tooltip-content-padding-x: 6px;
+$tooltip-content-padding-y: 2 * $tooltip-content-padding-x;
+
+// user profile
+$profile-font-size: 1.8em;
+$profile-current-value-font-size: 1em;
+$profile-table-padding: 8px 12px 8px 0;
+$profile-table-cell-width: 180px;
+$profile-icon-size: 38px;
+$profile-user-wrapper: 210px;
+
+// charts
+$chart-navigation-drag-handle-bg: #eceeef;
+$chart-navigation-drag-handle-border: #818a91;
+
+// dateinputs
+$dateinput-width: 140px;
+
+// action buttons
+$action-buttons-padding: 20px;
+$action-buttons-right: 25px;
+$action-buttons-bottom: 70px;
+$action-buttons-border-radius: 5px;
+$action-buttons-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);

@@ -1,0 +1,7 @@
+<div
+    class="selected-stock-badge d-flex align-items-center"
+    [ngClass]="{ 'badge-positive-value': item.change_pct > 0, 'badge-negative-value': item.change_pct < 0 }"
+>
+    <span>{{ item.symbol }} </span>
+    <span>{{ item.price }}</span>
+</div>

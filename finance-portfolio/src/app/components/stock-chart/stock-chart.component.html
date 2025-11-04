@@ -1,0 +1,89 @@
+<div class="container">
+    <div class="row py-4 d-flex justify-content-between align-items-center">
+        <div class="col col-4 d-flex daterange-input-wrap">
+            <kendo-daterange>
+                <kendo-dateinput
+                    kendoDateRangeStartInput
+                    [autoCorrectOn]="'change'"
+                    [min]="calendarMin"
+                    [max]="calendarMax"
+                    [(ngModel)]="range.start"
+                    (valueChange)="handleRangeChange($event, range.end)"
+                >
+                </kendo-dateinput>
+                <kendo-dateinput
+                    kendoDateRangeEndInput
+                    [autoCorrectOn]="'change'"
+                    [min]="calendarMin"
+                    [max]="calendarMax"
+                    [(ngModel)]="range.end"
+                    (valueChange)="handleRangeChange(range.start, $event)"
+                >
+                </kendo-dateinput>
+            </kendo-daterange>
+        </div>
+
+        <ul class="k-reset d-flex col-12 col-sm-8 col-md-6 col-lg-3 justify-content-center justify-content-sm-start">
+            <li class="ms-3" *ngFor="let filter of timeFilters">
+                <span
+                    [ngClass]="{ active: activeTimeFilter === filter.duration }"
+                    class="list-item time-filter-item"
+                    (click)="onTimeFilterClick(filter.duration)"
+                >
+                    {{ filter.name }}
+                </span>
+            </li>
+        </ul>
+
+        <div class="col-12 col-sm-4 col-md-6 col-lg-4 text-center text-sm-right mt-3 mt-sm-0">
+            <kendo-dropdownlist
+                class="dropdown-list-selection interval"
+                [style.width.px]="150"
+                [style.marginRight.px]="8"
+                [data]="intervals"
+                [textField]="'name'"
+                [valueField]="'interval'"
+                [(value)]="selectedInterval"
+                [itemDisabled]="disableIncompatibleIntervals"
+            >
+                <ng-template kendoDropDownListValueTemplate let-dataItem>
+                    <span class="service-category"> Interval: {{ dataItem?.name }}</span>
+                </ng-template>
+            </kendo-dropdownlist>
+
+            <kendo-dropdownlist
+                [style.width.px]="170"
+                class="dropdown-list-selection"
+                [data]="charts"
+                [valueField]="'value'"
+                [textField]="'text'"
+                [valuePrimitive]="true"
+                [(value)]="chartType"
+            >
+                <ng-template kendoDropDownListValueTemplate let-dataItem>
+                    <span class="chart-category selected align-items-center">
+                        <img src="assets/{{ dataItem.value }}.png" />
+                        {{ dataItem.text }}
+                    </span>
+                </ng-template>
+                <ng-template kendoDropDownListItemTemplate let-dataItem>
+                    <span class="chart-category d-flex align-items-center">
+                        <img src="assets/{{ dataItem.value }}.png" />
+                        {{ dataItem.text }}
+                    </span>
+                </ng-template>
+            </kendo-dropdownlist>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <app-stock-details
+                [chartType]="chartType"
+                [interval]="selectedInterval.interval"
+                [range]="normalizedRange"
+                [symbol]="stockDataService.selectedStock.symbol!"
+            >
+            </app-stock-details>
+        </div>
+    </div>
+</div>

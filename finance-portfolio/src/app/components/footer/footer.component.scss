@@ -1,0 +1,23 @@
+@import '../../../styles//variables';
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    padding: $footer-padding;
+    background: url('../../../assets/footer-bg.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: blue;
+    z-index: 999;
+    font-size: $footer-font-size;
+    color: $white;
+
+    .progress-logo {
+        width: $progress-logo-width;
+        height: $progress-logo-height;
+        vertical-align: middle;
+        background-image: url('../../../assets/progress-logo.svg');
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+}

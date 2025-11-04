@@ -1,0 +1,57 @@
+<kendo-grid
+    [kendoGridBinding]="gridData"
+    [pageSize]="10"
+    [pageable]="true"
+    [pageSize]="pageSize"
+    [sortable]="true"
+    [groupable]="true"
+    [selectable]="{ mode: 'single' }"
+    [navigable]="true"
+    [kendoGridSelectBy]="mySelectionKey"
+    [(selectedKeys)]="selectedKeys"
+    (selectedKeysChange)="onSelectedKeysChange($event)"
+    [columnMenu]="menuSettings"
+>
+    <ng-template kendoGridToolbarTemplate>
+        <button kendoGridExcelCommand [svgIcon]="fileExcelIcon">
+            {{ customMsgService.translate('excelExport') }}
+        </button>
+        <button kendoGridPDFCommand [svgIcon]="filePdfIcon">
+            {{ customMsgService.translate('pdfExport') }}
+        </button>
+    </ng-template>
+    <kendo-grid-checkbox-column [width]="70" [columnMenu]="false"></kendo-grid-checkbox-column>
+    <kendo-grid-column field="dateOfPurchase" title="Date" [width]="140" format="dd/MM/yyyy"></kendo-grid-column>
+    <kendo-grid-column field="amount" title="Amount" [width]="100">
+        <ng-template kendoGridCellTemplate let-dataItem>
+            <span>{{ intl.formatNumber(dataItem.amount, customCurrencyOptions) }}</span>
+        </ng-template>
+    </kendo-grid-column>
+    <kendo-grid-column field="merchant" title="Merchant" [width]="120"></kendo-grid-column>
+    <kendo-grid-column field="category" title="Category" [width]="140"></kendo-grid-column>
+    <kendo-grid-column field="paymentMethod" title="Pay Method" [width]="140"></kendo-grid-column>
+    <kendo-grid-column field="orderStatus" title="Status" [width]="130">
+        <ng-template kendoGridCellTemplate let-dataItem>
+            <kendo-chip
+                class="k-rounded-lg k-font-size-sm"
+                [themeColor]="getThemeColor(dataItem.orderStatus)"
+                [label]="dataItem.orderStatus"
+            ></kendo-chip>
+        </ng-template>
+    </kendo-grid-column>
+    <ng-template kendoPagerTemplate let-totalPages="totalPages" let-currentPage="currentPage">
+        <kendo-pager-prev-buttons></kendo-pager-prev-buttons>
+        <kendo-pager-numeric-buttons [buttonCount]="buttonCount"></kendo-pager-numeric-buttons>
+        <kendo-pager-next-buttons></kendo-pager-next-buttons>
+        <kendo-pager-info></kendo-pager-info>
+        <kendo-pager-page-sizes [pageSizes]="sizes"></kendo-pager-page-sizes>
+    </ng-template>
+    <kendo-grid-excel fileName="Transactions.xlsx" [fetchData]="allData"></kendo-grid-excel>
+    <kendo-grid-pdf
+        fileName="Transactions.pdf"
+        [allPages]="true"
+        paperSize="A4"
+        [repeatHeaders]="true"
+        [landscape]="true"
+    ></kendo-grid-pdf>
+</kendo-grid>

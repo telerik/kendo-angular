@@ -1,0 +1,116 @@
+<kendo-stockchart class="stock-chart" [transitions]="true" [renderAs]="'svg'" (navigatorFilter)="configureVolumeValueAxisHeight()">
+    <kendo-chart-category-axis>
+        <kendo-chart-category-axis-item
+            [crosshair]="{ visible: true }"
+            [maxDivisions]="20"
+            [minorGridLines]="{ visible: true }"
+            [majorGridLines]="{ visible: true }"
+            [baseUnit]="interval.unit"
+            [baseUnitStep]="interval.step"
+            [plotBands]="categoryPlotBands"
+        >
+        </kendo-chart-category-axis-item>
+    </kendo-chart-category-axis>
+    <kendo-chart-value-axis>
+        <kendo-chart-value-axis-item [name]="'close'" [crosshair]="{ visible: true }" [labels]="{ format: currency + '{0}' }">
+        </kendo-chart-value-axis-item>
+        <kendo-chart-value-axis-item [name]="'volume'" [visible]="false" [max]="volumeValueAxisMax" [min]="0">
+        </kendo-chart-value-axis-item>
+    </kendo-chart-value-axis>
+    <kendo-chart-series>
+        <kendo-chart-series-item
+            *ngIf="chartType === 'candle'"
+            [type]="'candlestick'"
+            [data]="stockData"
+            [categoryField]="'date'"
+            [color]="'#5CB85C'"
+            [downColor]="'#D9534F'"
+            [axis]="'close'"
+            [openField]="'open'"
+            [closeField]="'close'"
+            [lowField]="'low'"
+            [highField]="'high'"
+            [border]="{ color: 'transparent' }"
+            [gap]="0.75"
+            [aggregate]="candleChartAggregate"
+        >
+            <kendo-chart-series-item-tooltip>
+                <ng-template kendoChartSeriesTooltipTemplate let-value="value" let-category="category">
+                    <table>
+                        <tbody>
+                            <tr>
+                                <th>{{ category | date : 'HH:mm' }}</th>
+                                <th>{{ category | date : 'd/M' }}</th>
+                            </tr>
+                            <tr>
+                                <td>Open:</td>
+                                <td>{{ value.open }}</td>
+                            </tr>
+                            <tr>
+                                <td>High:</td>
+                                <td>{{ value.high }}</td>
+                            </tr>
+                            <tr>
+                                <td>Low:</td>
+                                <td>{{ value.low }}</td>
+                            </tr>
+                            <tr>
+                                <td>Close:</td>
+                                <td>{{ value.close }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </ng-template>
+            </kendo-chart-series-item-tooltip>
+        </kendo-chart-series-item>
+        <kendo-chart-series-item
+            *ngIf="chartType === 'line'"
+            [type]="'line'"
+            [data]="stockData"
+            [field]="'close'"
+            [style]="'smooth'"
+            [categoryField]="'date'"
+            [color]="'#2D73F5'"
+            [axis]="'close'"
+        >
+        </kendo-chart-series-item>
+        <kendo-chart-series-item
+            *ngIf="chartType === 'area'"
+            [type]="'area'"
+            [style]="'smooth'"
+            [data]="stockData"
+            [field]="'close'"
+            [axis]="'close'"
+            [categoryField]="'date'"
+            [color]="'#007BFF'"
+        >
+        </kendo-chart-series-item>
+        <kendo-chart-series-item
+            [type]="'column'"
+            [data]="stockData"
+            [field]="'volume'"
+            [categoryField]="'date'"
+            [color]="itemColor"
+            [axis]="'volume'"
+            [gap]="0.75"
+            [border]="{ color: 'transparent' }"
+            [aggregate]="'avg'"
+            [tooltip]="{ format: '{0:0}' }"
+        >
+        </kendo-chart-series-item>
+    </kendo-chart-series>
+    <kendo-chart-navigator>
+        <kendo-chart-navigator-series>
+            <kendo-chart-navigator-series-item
+                [type]="'area'"
+                [data]="stockData"
+                [field]="'close'"
+                [categoryField]="'date'"
+                [color]="'#559DE0'"
+                [aggregate]="'avg'"
+            >
+            </kendo-chart-navigator-series-item>
+        </kendo-chart-navigator-series>
+        <kendo-chart-navigator-select [from]="range.start" [to]="range.end"> </kendo-chart-navigator-select>
+    </kendo-chart-navigator>
+</kendo-stockchart>

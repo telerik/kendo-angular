@@ -1,0 +1,65 @@
+@import '../../../styles/variables';
+
+body {
+    background: $body-base-bg;
+}
+
+.size-container {
+    margin-bottom: $heatmap-size-container-mb;
+}
+
+.scale-wrap {
+    width: $heatmap-scale-wrap-width;
+}
+
+.scale-blocks {
+    span {
+        width: $heatmap-scape-block-width;
+        height: $heatmap-scale-block-height;
+    }
+}
+
+.heatmap-container {
+    margin-bottom: 50px;
+}
+
+.k-widget {
+    &.k-treemap {
+        border-width: 0;
+        background-color: transparent;
+
+        .k-treemap-title {
+            display: none;
+        }
+
+        .k-treemap-tile {
+            background-color: transparent;
+            border-width: 0;
+            margin: 0;
+        }
+    }
+}
+
+.k-tooltip {
+    .k-tooltip-content {
+        padding: $tooltip-content-padding-x $tooltip-content-padding-y;
+    }
+
+    .hm-symbol {
+        font-weight: bold;
+        font-size: 16px;
+        color: $active-state-base;
+    }
+
+    .hm-symbol-long-name {
+        margin-bottom: $margin-m;
+    }
+
+    .positive-value {
+        color: $positive-value;
+    }
+
+    .negative-value {
+        color: $negative-value;
+    }
+}

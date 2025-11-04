@@ -1,0 +1,59 @@
+<div class="container" style="padding-bottom: 100px">
+    <div class="d-flex justify-content-center py-5 align-items-center">
+        <app-navigation></app-navigation>
+    </div>
+    <div class="row d-flex justify-content-center">
+        <kendo-grid
+            [data]="gridView"
+            [skip]="skip"
+            [pageSize]="pageSize"
+            scrollable="virtual"
+            [rowHeight]="34"
+            [height]="600"
+            [style.width.px]="765"
+            [style.borderWidth.px]="1"
+            (pageChange)="pageChange($event)"
+        >
+            <kendo-grid-column field="symbol" [width]="80" title="Symbol" [locked]="true"></kendo-grid-column>
+            <kendo-grid-column field="name" [width]="130" title="Name"></kendo-grid-column>
+            <kendo-grid-column field="currency" [width]="80" title="Currency">
+                <ng-template kendoGridCellTemplate let-dataItem>
+                    {{ service.selectedCurrency }}
+                </ng-template>
+            </kendo-grid-column>
+            <kendo-grid-column field="price" [width]="100" format="c2" title="Price">
+                <ng-template kendoGridCellTemplate let-dataItem>
+                    <span
+                        class="grid-price-cell p-0"
+                        [ngClass]="{
+                            'price-up': dataItem.change > 0,
+                            'price-down': dataItem.change < 0
+                        }"
+                        >{{ dataItem.price.toFixed(2) | currency : service.selectedCurrency : 'symbol' }}</span
+                    >
+                </ng-template>
+            </kendo-grid-column>
+            <kendo-grid-column field="change" [width]="100" title="Change">
+                <ng-template kendoGridCellTemplate let-dataItem>
+                    <span
+                        class="grid-price-cell p-0"
+                        [ngClass]="{
+                            'price-up': dataItem.change > 0,
+                            'price-down': dataItem.change < 0
+                        }"
+                    >
+                        {{ dataItem.change > 0 ? '+' + dataItem.change.toFixed(2) : dataItem.change.toFixed(2) }}%
+                    </span>
+                </ng-template>
+            </kendo-grid-column>
+            <kendo-grid-column field="stock_exchange_long" [width]="230" title="Stock Exchange"></kendo-grid-column>
+            <kendo-grid-column field="stock_exchange_short" [width]="100" title="SE Short"></kendo-grid-column>
+            <kendo-grid-column field="timezone" [width]="100" title="Time Zone"></kendo-grid-column>
+            <kendo-grid-column field="timezone_name" [width]="180" title="Time Zone Name"></kendo-grid-column>
+            <kendo-grid-column field="year_low" media="(min-width: 992px)" [width]="80" title="Year Low"></kendo-grid-column>
+            <kendo-grid-column field="year_high" media="(min-width: 992px)" [width]="90" title="Year High"></kendo-grid-column>
+            <kendo-grid-column field="volume" media="(min-width: 992px)" [width]="130" title="Volume"></kendo-grid-column>
+            <kendo-grid-column field="market_cap" media="(min-width: 992px)" [width]="150" title="Market Cap"></kendo-grid-column>
+        </kendo-grid>
+    </div>
+</div>

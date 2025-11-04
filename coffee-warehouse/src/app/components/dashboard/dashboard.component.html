@@ -1,0 +1,107 @@
+<div class="card-container">
+    <div class="card-header-wrapper">
+        <h3 class="card-title">
+            {{ customMsgService.translate('teamEfficiency') }}
+        </h3>
+        <div class="card-buttons">
+            <kendo-buttongroup selection="single">
+                <button kendoButton [toggleable]="true" [selected]="true" (click)="selectedChart = 'Trend'">
+                    {{ customMsgService.translate('trend') }}
+                </button>
+                <button kendoButton [toggleable]="true" (click)="selectedChart = 'Volume'">
+                    {{ customMsgService.translate('volume') }}
+                </button>
+            </kendo-buttongroup>
+        </div>
+
+        <div class="card-ranges">
+            <kendo-daterange>
+                <kendo-svgicon [icon]="calendarIcon" (click)="daterange.toggle()" class="daterange-center calendar-icon"></kendo-svgicon>
+                <kendo-dateinput
+                    kendoDateRangeStartInput
+                    (valueChange)="fromDate($event)"
+                    [(value)]="dateRange.start"
+                    format="dd/MM/yy"
+                ></kendo-dateinput>
+                <span class="daterange-center"> - </span>
+                <kendo-dateinput
+                    kendoDateRangeEndInput
+                    (valueChange)="toDate($event)"
+                    [(value)]="dateRange.end"
+                    format="dd/MM/yy"
+                ></kendo-dateinput>
+                <kendo-daterange-popup #daterange></kendo-daterange-popup>
+            </kendo-daterange>
+        </div>
+    </div>
+
+    <div class="card-component">
+        <kendo-chart *ngIf="selectedChart === 'Trend'">
+            <kendo-chart-category-axis>
+                <kendo-chart-category-axis-item
+                    [categories]="categories"
+                    [baseUnit]="'months'"
+                    [min]="dateRange.start"
+                    [max]="dateRange.end"
+                    [labels]="{ format: 'MMMM yyyy', rotation: 'auto' }"
+                >
+                </kendo-chart-category-axis-item>
+            </kendo-chart-category-axis>
+            <kendo-chart-legend
+                position="bottom"
+                orientation="horizontal"
+                background="#f4f5f8"
+                [spacing]="140"
+                [padding]="{ left: 80, right: 80 }"
+            ></kendo-chart-legend>
+            <kendo-chart-tooltip>
+                <ng-template kendoChartSeriesTooltipTemplate let-value="value" let-category="category">
+                    {{ intl.formatDate(category, 'MMMM yyyy').toUpperCase() }}
+                    <br />
+                    <div class="chart-tooltip">{{ intl.formatNumber(value, 'n3') }}</div>
+                </ng-template>
+            </kendo-chart-tooltip>
+            <kendo-chart-series>
+                <kendo-chart-series-item *ngFor="let item of series" type="line" [data]="item.data" [name]="item.name">
+                </kendo-chart-series-item>
+            </kendo-chart-series>
+        </kendo-chart>
+
+        <kendo-chart *ngIf="selectedChart === 'Volume'">
+            <kendo-chart-category-axis>
+                <kendo-chart-category-axis-item
+                    [categories]="categories"
+                    [baseUnit]="'months'"
+                    [min]="dateRange.start"
+                    [max]="dateRange.end"
+                    [labels]="{ format: 'MMMM yyyy' }"
+                >
+                </kendo-chart-category-axis-item>
+            </kendo-chart-category-axis>
+            <kendo-chart-legend
+                position="bottom"
+                orientation="horizontal"
+                background="#f4f5f8"
+                [spacing]="140"
+                [padding]="{ left: 80, right: 80 }"
+            ></kendo-chart-legend>
+            <kendo-chart-tooltip>
+                <ng-template kendoChartSeriesTooltipTemplate let-value="value" let-category="category">
+                    {{ intl.formatDate(category, 'MMMM yyyy').toUpperCase() }}
+                    <br />
+                    <div class="chart-tooltip">{{ intl.formatNumber(value, 'n3') }}</div>
+                </ng-template>
+            </kendo-chart-tooltip>
+            <kendo-chart-series>
+                <kendo-chart-series-item
+                    *ngFor="let item of series"
+                    type="column"
+                    [data]="item.data"
+                    [name]="item.name"
+                    [color]="item.color"
+                >
+                </kendo-chart-series-item>
+            </kendo-chart-series>
+        </kendo-chart>
+    </div>
+</div>

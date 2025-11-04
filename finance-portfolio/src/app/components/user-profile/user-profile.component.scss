@@ -1,0 +1,66 @@
+@import '../../../styles/variables';
+
+h1 {
+    font-family: $ubunto;
+}
+
+td {
+    padding: $profile-table-padding;
+}
+
+td:first-of-type {
+    width: $profile-table-cell-width;
+}
+
+td:last-of-type {
+    font-weight: bold;
+}
+
+.green {
+    color: $positive-value;
+}
+
+.red {
+    color: $negative-value;
+}
+
+.current-value {
+    font-size: $profile-current-value-font-size;
+}
+
+.symbol-col {
+    color: $grid-row-selection-bg;
+}
+
+.k-icon {
+    cursor: pointer;
+    outline: none;
+
+    &.icon-close {
+        background: url('../../../assets/cross-out.svg') center no-repeat;
+        width: $profile-icon-size;
+        height: $profile-icon-size;
+    }
+}
+
+.profile-stocks-grid {
+    border-width: 1px;
+}
+
+.user-profile-wrapper {
+    max-width: $profile-user-wrapper;
+
+    .profile-image {
+        align-self: center;
+        width: 2 * $profile-image-width;
+        height: 2 * $profile-image-height;
+        border-radius: 50%;
+        background-image: url('../../../assets/user.jpg');
+        background-size: cover;
+        background-position: center;
+    }
+
+    h3 {
+        font-size: $profile-font-size;
+    }
+}

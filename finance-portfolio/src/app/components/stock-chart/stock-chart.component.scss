@@ -1,0 +1,32 @@
+@import '../../../styles/variables';
+
+kendo-dateinput {
+    width: $dateinput-width;
+    margin-right: $margin-m;
+}
+
+.list-item {
+    &.time-filter-item {
+        cursor: pointer;
+
+        &.active {
+            font-weight: bold;
+            color: black;
+            border-bottom: 3px solid $active-state-base;
+        }
+    }
+}
+
+.chart-category {
+    &.selected {
+        font-weight: bold;
+    }
+
+    img {
+        margin-right: $margin-m;
+    }
+}
+
+.dropdownlist-service-selector.interval {
+    margin-right: $margin-m;
+}

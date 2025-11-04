@@ -1,0 +1,20 @@
+@import '../../../styles/variables';
+
+.selected-stock-badge {
+    height: $badge-height;
+    color: $white;
+    padding: $badge-padding;
+    border-radius: 2 * $badge-padding;
+
+    span:first-child {
+        margin-right: 2 * $margin-sm;
+    }
+
+    &.badge-positive-value {
+        background: $positive-value;
+    }
+
+    &.badge-negative-value {
+        background: $negative-value;
+    }
+}
