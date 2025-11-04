@@ -1,0 +1,10 @@
+{
+  "name": "kendo-angular-moderne",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "coffee-warehouse",
+    "finance-portfolio",
+    "personal-finance-app"
+  ]
+}
