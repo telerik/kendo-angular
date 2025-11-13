@@ -1,27 +1,30 @@
 <p class="right-panel-title">Recent transactions</p>
 <div class="card-container">
-    <kendo-card width="380px" class="transaction-card" *ngFor="let card of transactionCards">
-        <kendo-card-header class="k-hstack">
-            <kendo-avatar
-                width="40px"
-                height="40px"
-                [imageSrc]="getCardImg(card)"
-                shape="circle"
-                style="background-color: transparent;"
-            ></kendo-avatar>
-            <div>
-                <h1 kendoCardTitle class="card-title">
-                    {{ card.symbol }}
-                    <span *ngIf="card.status === 'Buy'; else recieve" class="price">{{ card.amount }}$</span>
-                </h1>
-                <p kendoCardSubtitle class="k-card-subtitle">
-                    {{ card.status }} {{ card.deduction }}
-                    <span class="price"> {{ card.stamp }}</span>
-                    <ng-template #recieve>
-                        <span class="price">+{{ card.amount }} {{ card.symbol }}</span>
-                    </ng-template>
-                </p>
-            </div>
-        </kendo-card-header>
+  @for (card of transactionCards; track card) {
+    <kendo-card width="380px" class="transaction-card">
+      <kendo-card-header class="k-hstack">
+        <kendo-avatar
+          width="40px"
+          height="40px"
+          [imageSrc]="getCardImg(card)"
+          shape="circle"
+          style="background-color: transparent;"
+        ></kendo-avatar>
+        <div>
+          <h1 kendoCardTitle class="card-title">
+            {{ card.symbol }}
+            @if (card.status === 'Buy') {
+              <span class="price">{{ card.amount }}$</span>
+            } @else {
+              <span class="price">+{{ card.amount }} {{ card.symbol }}</span>
+            }
+          </h1>
+          <p kendoCardSubtitle class="k-card-subtitle">
+            {{ card.status }} {{ card.deduction }}
+            <span class="price"> {{ card.stamp }}</span>
+          </p>
+        </div>
+      </kendo-card-header>
     </kendo-card>
+  }
 </div>

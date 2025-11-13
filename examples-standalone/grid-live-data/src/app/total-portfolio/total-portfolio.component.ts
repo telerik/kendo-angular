@@ -1,6 +1,5 @@
 import { Component, ViewEncapsulation } from '@angular/core';
 import { CategoryAxisLabels, ChartsModule, SeriesLine, ValueAxisLabels } from '@progress/kendo-angular-charts';
-import 'hammerjs';
 
 @Component({
   selector: 'total-portfolio',

@@ -6,11 +6,12 @@ import { IntlService } from '@progress/kendo-angular-intl';
 import { Observable } from 'rxjs';
 import { IconsModule } from '@progress/kendo-angular-icons';
 import { LayoutModule } from '@progress/kendo-angular-layout';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'my-portfolio',
   standalone: true,
-  imports: [IconsModule, LayoutModule],
+  imports: [IconsModule, LayoutModule, CommonModule],
   templateUrl: './my-portfolio.component.html',
   styleUrl: './my-portfolio.component.css',
   encapsulation: ViewEncapsulation.None
