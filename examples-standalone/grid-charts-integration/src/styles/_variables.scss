@@ -1,63 +1,82 @@
-// typography
-$roboto: 'Roboto', Helvetica, Arial, sans-serif;
-$ubunto: 'Ubuntu', sans-serif;
+// Typography
+$roboto: 'Roboto', Helvetica, Arial, sans-serif !default;
+$ubuntu: 'Ubuntu', sans-serif !default;
 
-$font-weight-200: 200;
+$font-weight-light: 200 !default;
+$font-weight-normal: 400 !default;
+$font-weight-medium: 500 !default;
+$font-weight-bold: 700 !default;
 
-// colors
-$white: #fff;
-$black: #000;
-$white-50: rgba(255, 255, 255, .5);
-$text-base: #373A3C;
-$border-base: #ddd;
-$active-state-base: #1C7CD5;
-$hover-bg: #e6e6e6;
-$negative-value: #D9534F;
-$positive-value: #5CB85C;
-$body-base-bg: rgba(236, 238, 239, 0.5);
+// Legacy font weight variable for backwards compatibility
+$font-weight-200: $font-weight-light !default;
+
+// Color palette - using modern color naming convention
+$color-white: #fff !default;
+$color-black: #000 !default;
+$color-white-50: rgba(255, 255, 255, .5) !default;
+$color-text-base: #373A3C !default;
+$color-border-base: #ddd !default;
+$color-primary: #1C7CD5 !default;
+$color-hover-bg: #e6e6e6 !default;
+$color-danger: #D9534F !default;
+$color-success: #5CB85C !default;
+$color-body-bg: rgba(236, 238, 239, 0.5) !default;
+
+// Legacy aliases for backwards compatibility
+$white: $color-white !default;
+$black: $color-black !default;
+$white-50: $color-white-50 !default;
+$text-base: $color-text-base !default;
+$border-base: $color-border-base !default;
+$active-state-base: $color-primary !default;
+$hover-bg: $color-hover-bg !default;
+$negative-value: $color-danger !default;
+$positive-value: $color-success !default;
+$body-base-bg: $color-body-bg !default;
+$ubunto: $ubuntu !default; // Keep the old typo for backwards compatibility
 
 // margins
-$margin-sm: 4px;
-$margin-m: 2 * $margin-sm;
+$margin-sm: 4px !default;
+$margin-m: 2 * $margin-sm !default;
 
 // fonts
-$font-size-default: 16px;
+$font-size-default: 16px !default;
 
 // header
-$header-height: 140px;
-$profile-image-width: 58px;
-$profile-image-height: 58px;
+$header-height: 140px !default;
+$profile-image-width: 58px !default;
+$profile-image-height: 58px !default;
 
 // footer
-$footer-padding: 10px;
-$footer-height: 43px;
-$footer-font-size: $font-size-default;
-$progress-logo-height: 20px;
-$progress-logo-width: 100px;
+$footer-padding: 10px !default;
+$footer-height: 43px !default;
+$footer-font-size: $font-size-default !default;
+$progress-logo-height: 20px !default;
+$progress-logo-width: 100px !default;
 
 // dropdownlist
-$dropdownlist-font-size: $font-size-default;
-$dropdownlist-item-selected-bg: #E9ECEF;
-$dropdownlist-item-selected-text: $active-state-base;
+$dropdownlist-font-size: $font-size-default !default;
+$dropdownlist-item-selected-bg: #E9ECEF !default;
+$dropdownlist-item-selected-text: $active-state-base !default;
 
-$dropownlist-add-new-padding: 8px;
-$dropownlist-add-new-width: 125px;
-$dropownlist-add-new-height: 40px;
+$dropownlist-add-new-padding: 8px !default;
+$dropownlist-add-new-width: 125px !default;
+$dropownlist-add-new-height: 40px !default;
 
 // grid
-$grid-header-subtitle: 13px;
-$grid-row-selection-bg: #007BFF;
-$grid-cell-positive-color: $positive-value;
-$grid-cell-negative-color: $negative-value;
-$grid-sorting-icon-margin: $margin-sm;
-$grid-sorting-icon-right-position: 20px;
+$grid-header-subtitle: 13px !default;
+$grid-row-selection-bg: #007BFF !default;
+$grid-cell-positive-color: $positive-value !default;
+$grid-cell-negative-color: $negative-value !default;
+$grid-sorting-icon-margin: $margin-sm !default;
+$grid-sorting-icon-right-position: 20px !default;
 
 // action buttons
-$action-buttons-padding: 20px;
-$action-buttons-right: 25px;
-$action-buttons-bottom: 70px;
-$action-buttons-border-radius: 5px;
-$action-buttons-shadow: 0 2px 6px rgba(0,0,0,0.08);
+$action-buttons-padding: 20px !default;
+$action-buttons-right: 25px !default;
+$action-buttons-bottom: 70px !default;
+$action-buttons-border-radius: 5px !default;
+$action-buttons-shadow: 0 2px 6px rgba(0,0,0,0.08) !default;
 
 // notification
-$notification-margin: 30px;
+$notification-margin: 30px !default;

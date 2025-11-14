@@ -1,20 +1,20 @@
-@import "../../../styles//variables";
+@use "../../../styles/variables" as vars;
 
 .footer {
     position: fixed;
     bottom: 0;
-    padding: $footer-padding;
+    padding: vars.$footer-padding;
     background: url('../../../assets/footer-bg.svg');
     background-repeat: no-repeat;
     background-size: cover;
     background-color: blue;
     z-index: 999;
-    font-size: $footer-font-size;
-    color: $white;
+    font-size: vars.$footer-font-size;
+    color: vars.$white;
 
     .progress-logo {
-        width: $progress-logo-width;
-        height: $progress-logo-height;
+        width: vars.$progress-logo-width;
+        height: vars.$progress-logo-height;
         vertical-align: middle;
         background-image: url('../../../assets/progress-logo.svg');
         background-position: center;

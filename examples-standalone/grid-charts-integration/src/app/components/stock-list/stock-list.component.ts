@@ -22,7 +22,6 @@ import { DialogsModule } from '@progress/kendo-angular-dialog';
 import { WindowComponent } from '../common/window/window.component';
 import { DayChartComponent } from '../charts/day/day.component';
 
-import 'hammerjs';
 import { CommonModule } from '@angular/common';
 
 @Component({

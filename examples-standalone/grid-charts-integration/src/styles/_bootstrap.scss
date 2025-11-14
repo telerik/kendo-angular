@@ -1,28 +1,44 @@
-$font-family-base: "Roboto", Helvetica, Arial, sans-serif;
+// Custom Bootstrap overrides to match our configuration
+body {
+  font-family: "Roboto", Helvetica, Arial, sans-serif !important;
+}
 
-@import "bootstrap/scss/functions";
-@import "bootstrap/scss/variables";
-@import "bootstrap/scss/mixins";
-@import "bootstrap/scss/reboot";
-@import "bootstrap/scss/utilities";
+// Override Bootstrap's default font stack
+.navbar,
+.nav,
+.dropdown-menu,
+.btn,
+.form-control,
+.input-group-text {
+  font-family: "Roboto", Helvetica, Arial, sans-serif !important;
+}
 
-$grid-columns: 12;
-$grid-gutter-width: 32px;
-$grid-column-width: 32px;
+// Ensure container behavior matches our grid configuration
+.container {
+  padding-right: 16px !important;
+  padding-left: 16px !important;
+}
 
-$grid-breakpoints: (
-    xs: 0,
-    sm: 576px,
-    md: 768px,
-    lg: 992px,
-    xl: 1200px
-);
+@media (min-width: 576px) {
+  .container {
+    max-width: 540px !important;
+  }
+}
 
-$container-max-widths: (
-    sm: 540px,
-    md: 720px,
-    lg: 992px,
-    xl: 1200px
-);
+@media (min-width: 768px) {
+  .container {
+    max-width: 720px !important;
+  }
+}
 
-@import "bootstrap/scss/grid";
+@media (min-width: 992px) {
+  .container {
+    max-width: 992px !important;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1200px !important;
+  }
+}
