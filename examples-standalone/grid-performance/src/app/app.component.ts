@@ -1,22 +1,18 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { RouterOutlet } from '@angular/router';
-import { DataStateChangeEvent, GridDataResult, GridModule } from '@progress/kendo-angular-grid';
+import { DataStateChangeEvent, GridDataResult, KENDO_GRID } from '@progress/kendo-angular-grid';
 import { process, State } from '@progress/kendo-data-query';
-import { LabelModule } from '@progress/kendo-angular-label';
+import { KENDO_LABELS } from '@progress/kendo-angular-label';
 import { FormsModule } from '@angular/forms';
-import { ButtonsModule } from '@progress/kendo-angular-buttons';
-import { InputsModule } from '@progress/kendo-angular-inputs';
+import { KENDO_BUTTONS } from '@progress/kendo-angular-buttons';
+import { KENDO_INPUTS } from '@progress/kendo-angular-inputs';
 
 @Component({
   selector: 'app-root',
-  standalone: true,
-  imports: [CommonModule, FormsModule, RouterOutlet, GridModule, LabelModule, ButtonsModule, InputsModule],
+  imports: [FormsModule, KENDO_GRID, KENDO_LABELS, KENDO_BUTTONS, KENDO_INPUTS],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
 export class AppComponent {
-    public isVirtual = true;
     public gridView: GridDataResult = {
         total: 0,
         data: []
@@ -51,8 +47,15 @@ export class AppComponent {
     }
 
     public changeMode(newMode: string) {
-        this.isVirtual = newMode === 'paging' ? false : true;
-        this.state.take = this.isVirtual ? 40 : 15;
+        this.mode = newMode;
+
+        if (newMode === 'virtualPaging') {
+            this.state.take = 1000;
+        } else if (newMode === 'virtual') {
+            this.state.take = 40;
+        } else {
+            this.state.take = 15;
+        }
         this.state.skip = 0;
 
         if (this.gridView) {

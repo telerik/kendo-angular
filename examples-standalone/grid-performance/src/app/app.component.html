@@ -16,30 +16,36 @@
                     <input kendoRadioButton type="radio" #paging [(ngModel)]="mode" value="paging" (change)="changeMode(mode)" />
                     <kendo-label [for]="paging" text="Paging"></kendo-label>
                 </li>
+                <li class="k-radio-item">
+                    <input kendoRadioButton type="radio" #virtualPaging [(ngModel)]="mode" value="virtualPaging" (change)="changeMode(mode)" />
+                    <kendo-label [for]="virtualPaging" text="Virtual Scrolling + Paging"></kendo-label>
+                </li>
             </ul>
         </div>
     </div>
 </div>
 
+@if (mode === 'virtual') {
 <kendo-grid
-    *ngIf="isVirtual"
     [data]="gridView"
     [skip]="state.skip"
     [pageSize]="state.take"
-    scrollable="virtual"
-    [rowHeight]="36"
     [height]="420"
     [sortable]="true"
     [sort]="state.sort"
+    scrollable="virtual"
     [virtualColumns]="true"
     (dataStateChange)="onChange($event)"
 >
-    <kendo-grid-column *ngFor="let column of columns" [field]="column.field" [title]="column.title" [width]="column.width">
+    @for (column of columns; track column.field) {
+    <kendo-grid-column [field]="column.field" [title]="column.title" [width]="column.width">
     </kendo-grid-column>
+    }
 </kendo-grid>
+}
 
+@if (mode === 'paging') {
 <kendo-grid
-    *ngIf="!isVirtual"
     [data]="gridView"
     [skip]="state.skip"
     [pageSize]="state.take"
@@ -50,6 +56,29 @@
     [virtualColumns]="true"
     (dataStateChange)="onChange($event)"
 >
-    <kendo-grid-column *ngFor="let column of columns" [field]="column.field" [title]="column.title" [width]="column.width">
+    @for (column of columns; track column.field) {
+    <kendo-grid-column [field]="column.field" [title]="column.title" [width]="column.width">
     </kendo-grid-column>
+    }
 </kendo-grid>
+}
+
+@if (mode === 'virtualPaging') {
+<kendo-grid
+    [data]="gridView"
+    [height]="420"
+    [sortable]="true"
+    [sort]="state.sort"
+    [skip]="state.skip"
+    [pageSize]="state.take"
+    [pageable]="true"
+    scrollable="virtual"
+    [virtualColumns]="true"
+    (dataStateChange)="onChange($event)"
+>
+    @for (column of columns; track column.field) {
+    <kendo-grid-column [field]="column.field" [title]="column.title" [width]="column.width">
+    </kendo-grid-column>
+    }
+</kendo-grid>
+}
