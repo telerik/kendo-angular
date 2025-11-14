@@ -8,10 +8,9 @@ import 'hammerjs';
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'window-component',
-  standalone: true,
-  imports: [ScatterBubbleComponent, PieDonutComponent, StocksChartComponent, CommonModule],
-  templateUrl: './window.component.html',
+    selector: 'window-component',
+    imports: [ScatterBubbleComponent, PieDonutComponent, StocksChartComponent, CommonModule],
+    templateUrl: './window.component.html'
 })
 export class WindowComponent {
     @Input() public data: Stock[] = [];

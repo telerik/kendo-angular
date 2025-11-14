@@ -7,10 +7,9 @@ import { StockListComponent } from './components/stock-list/stock-list.component
 import { ActionButtonsComponent } from './components/action-buttons/action-buttons.component';
 
 @Component({
-  selector: 'app-root',
-  standalone: true,
-  imports: [CommonModule, RouterOutlet, HeaderComponent, FooterComponent, StockListComponent, ActionButtonsComponent],
-  templateUrl: './app.component.html'
+    selector: 'app-root',
+    imports: [CommonModule, RouterOutlet, HeaderComponent, FooterComponent, StockListComponent, ActionButtonsComponent],
+    templateUrl: './app.component.html'
 })
 export class AppComponent {
     title = 'grid-charts-integration';

@@ -4,11 +4,10 @@ import { IconsModule } from '@progress/kendo-angular-icons';
 import { SVGIcon, downloadIcon, fileTxtIcon } from '@progress/kendo-svg-icons';
 
 @Component({
-  selector: 'app-action-buttons',
-  standalone: true,
-  imports: [ButtonsModule, IconsModule],
-  templateUrl: './action-buttons.component.html',
-  styleUrl: './action-buttons.component.scss'
+    selector: 'app-action-buttons',
+    imports: [ButtonsModule, IconsModule],
+    templateUrl: './action-buttons.component.html',
+    styleUrl: './action-buttons.component.scss'
 })
 export class ActionButtonsComponent {
     public iconDownload: SVGIcon = downloadIcon;

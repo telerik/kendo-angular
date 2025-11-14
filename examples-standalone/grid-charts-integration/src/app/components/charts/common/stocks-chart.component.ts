@@ -13,10 +13,9 @@ import { TooltipsModule } from '@progress/kendo-angular-tooltip';
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'stocks-component',
-  standalone: true,
-  imports: [LayoutModule, ChartsModule, SelectSeriesComponent, SelectChartTypeComponent, ButtonsModule, TooltipsModule, CommonModule],
-  templateUrl: './stocks-chart.component.html'
+    selector: 'stocks-component',
+    imports: [LayoutModule, ChartsModule, SelectSeriesComponent, SelectChartTypeComponent, ButtonsModule, TooltipsModule, CommonModule],
+    templateUrl: './stocks-chart.component.html'
 })
 export class StocksChartComponent {
     @Input() public data: Stock[] = [];

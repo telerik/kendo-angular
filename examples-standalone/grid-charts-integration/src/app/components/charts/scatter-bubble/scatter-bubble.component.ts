@@ -13,10 +13,9 @@ import { TooltipsModule } from '@progress/kendo-angular-tooltip';
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'scatter-bubble-charts',
-  standalone: true,
-  imports: [LayoutModule, ChartsModule, ButtonsModule, SelectChartTypeComponent, SelectSeriesComponent, TooltipsModule, CommonModule],
-  templateUrl: './scatter-bubble.component.html',
+    selector: 'scatter-bubble-charts',
+    imports: [LayoutModule, ChartsModule, ButtonsModule, SelectChartTypeComponent, SelectSeriesComponent, TooltipsModule, CommonModule],
+    templateUrl: './scatter-bubble.component.html'
 })
 export class ScatterBubbleComponent {
     @Input() public chartConfiguration: ChartConfig = { seriesType: 'pie', stack: false };

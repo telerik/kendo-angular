@@ -12,10 +12,9 @@ import { saveAs } from '@progress/kendo-file-saver';
 import { TooltipsModule } from '@progress/kendo-angular-tooltip';
 
 @Component({
-  selector: 'pie-donut-stocks',
-  standalone: true,
-  imports: [LayoutModule, DropDownsModule, ChartsModule, SelectChartTypeComponent, ButtonsModule, TooltipsModule],
-  templateUrl: './pie-donut.component.html',
+    selector: 'pie-donut-stocks',
+    imports: [LayoutModule, DropDownsModule, ChartsModule, SelectChartTypeComponent, ButtonsModule, TooltipsModule],
+    templateUrl: './pie-donut.component.html'
 })
 export class PieDonutComponent {
     @Input() public data: Stock[] = [];

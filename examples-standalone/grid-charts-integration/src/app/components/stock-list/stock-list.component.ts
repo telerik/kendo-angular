@@ -26,23 +26,22 @@ import 'hammerjs';
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-stock-list',
-  standalone: true,
-  imports: [
-    MenusModule,
-    GridModule,
-    IconsModule,
-    NumberFormatPipe,
-    DialogsModule,
-    ExcelModule,
-    WindowComponent,
-    DayChartComponent,
-    WindowComponent,
-    CommonModule,
-  ],
-  templateUrl: './stock-list.component.html',
-  styleUrl: './stock-list.component.scss',
-  encapsulation: ViewEncapsulation.None,
+    selector: 'app-stock-list',
+    imports: [
+        MenusModule,
+        GridModule,
+        IconsModule,
+        NumberFormatPipe,
+        DialogsModule,
+        ExcelModule,
+        WindowComponent,
+        DayChartComponent,
+        WindowComponent,
+        CommonModule,
+    ],
+    templateUrl: './stock-list.component.html',
+    styleUrl: './stock-list.component.scss',
+    encapsulation: ViewEncapsulation.None
 })
 export class StockListComponent {
   @ViewChild('gridmenu') public gridContextMenu:
