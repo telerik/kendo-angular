@@ -5,7 +5,6 @@ import { NavMenuComponent } from "./nav-menu/nav-menu.component";
 @Component({
     selector: "app-root",
     templateUrl: "./app.component.html",
-    standalone: true,
     imports: [RouterOutlet, NavMenuComponent]
 })
 export class AppComponent {

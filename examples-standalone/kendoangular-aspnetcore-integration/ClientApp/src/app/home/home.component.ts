@@ -5,7 +5,6 @@ import { UploadComponent } from '../upload/upload.component';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  standalone: true,
   imports: [FetchDataComponent, UploadComponent]
 })
 export class HomeComponent {

@@ -20,7 +20,6 @@ import { ProductService } from "./products.service";
 @Component({
     selector: "app-fetch-data",
     templateUrl: "./fetch-data.component.html",
-    standalone: true,
     imports: [KENDO_GRID]
 })
 export class FetchDataComponent {

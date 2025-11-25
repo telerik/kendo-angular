@@ -6,7 +6,6 @@ import { NgClass } from "@angular/common";
     selector: "app-nav-menu",
     templateUrl: "./nav-menu.component.html",
     styleUrls: ["./nav-menu.component.css"],
-    standalone: true,
     imports: [RouterLink, RouterLinkActive, NgClass]
 })
 export class NavMenuComponent {
