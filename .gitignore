@@ -24,3 +24,5 @@ yarn-error.log
 # System Files
 .DS_Store
 Thumbs.db
+/examples-standalone/kendoangular-aspnetcore-integration/bin
+/examples-standalone/kendoangular-aspnetcore-integration/obj
