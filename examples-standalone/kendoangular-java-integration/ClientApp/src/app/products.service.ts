@@ -1,10 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map, Observable } from 'rxjs';
-import { State, toDataSourceRequestString } from '@progress/kendo-data-query';
+import { State, translateDataSourceResultGroups } from '@progress/kendo-data-query';
 import { GridDataResult } from '@progress/kendo-angular-grid';
-import { tap } from 'rxjs/operators';
-import { process } from '@progress/kendo-data-query';
 
 @Injectable({
     providedIn: 'root',
@@ -14,18 +12,22 @@ export class ProductService {
     private baseUrl = 'http://localhost:8080/';
 
     public getProducts(state: State): Observable<GridDataResult> {
-        const url = `${
-            this.baseUrl
-        }products/get-products?${toDataSourceRequestString(state)}`;
+        const url = `${this.baseUrl}products/get-products`;
+        const hasGroups = state.group && state.group.length;
 
-        // The process function is used to manage the state of the Grid data.
-        // You can manage the state of the data in the Java backend, but it will require filtering, sorting, paging, and grouping logic.
-        return this.http.get<GridDataResult>(url).pipe(
-            tap((response) => console.log('GET request response:', response)),
-            map((response) => process(response.data, state))
+        return this.http.post<any>(url, state).pipe(
+            map((response) => {
+                const translatedData = hasGroups ? translateDataSourceResultGroups(response.data) : response.data;
+                
+                return {
+                    data: translatedData,
+                    total: response.total,
+                    aggregates: response.aggregates
+                } as GridDataResult;
+            })
         );
     }
-    // The CRUD operations are handled in the Java backend.
+
     public createProduct(product: any): Observable<any> {
         const url = `${this.baseUrl}products/create-product`;
         return this.http.post(url, product);
