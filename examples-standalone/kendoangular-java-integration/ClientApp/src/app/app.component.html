@@ -13,16 +13,16 @@
     </p>
 
     <kendo-grid
-        [data]="gridData"
+      [data]="gridData() ?? { data: [], total: 0 }"
         [groupable]="true"
         [sortable]="true"
         [pageable]="true"
         [filterable]="true"
-        [skip]="state.skip"
-        [pageSize]="state.take"
-        [group]="state.group"
-        [sort]="state.sort"
-        [filter]="state.filter"
+        [skip]="state().skip"
+        [pageSize]="state().take"
+        [group]="state().group"
+        [sort]="state().sort"
+        [filter]="state().filter"
         (edit)="editHandler($event)"
         (cancel)="cancelHandler($event)"
         (save)="saveHandler($event)"
@@ -33,6 +33,9 @@
     >
         <ng-template kendoGridToolbarTemplate>
             <button kendoGridAddCommand>Add new</button>
+            @if (error()) {
+                <span style="color: red; margin-left: 10px;">Error: {{ error() }}</span>
+            }
         </ng-template>
         <kendo-grid-column
             field="productID"
@@ -61,7 +64,7 @@
                 <button kendoGridRemoveCommand>Remove</button>
                 <button
                     kendoGridSaveCommand
-                    [disabled]="formGroup?.invalid ?? false"
+                    [disabled]="formGroup()?.invalid ?? false"
                 >
                     {{ isNew ? "Add" : "Update" }}
                 </button>
