@@ -18,10 +18,9 @@ import { ProductService } from './products.service';
 
 @Component({
     selector: 'app-root',
-    standalone: true,
     imports: [RouterOutlet, KENDO_GRID, KENDO_UPLOADS],
     templateUrl: './app.component.html',
-    styleUrl: './app.component.css',
+    styleUrl: './app.component.css'
 })
 export class AppComponent implements OnInit {
     public chunkSettings: ChunkSettings = {
