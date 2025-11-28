@@ -48,9 +48,34 @@ public class QueryableExtensions {
         // Get total count after filtering (before paging)
         long total = filteredData.size();
 
-        // Apply sorting
+        // Apply sorting - need to combine group sorting with regular sorting
+        List<SortDescriptor> sortDescriptors = new ArrayList<>();
+        
+        // First, add sorts from group descriptors (groups take precedence)
+        if (request.getGroup() != null && !request.getGroup().isEmpty()) {
+            for (GroupDescriptor group : request.getGroup()) {
+                SortDescriptor sort = new SortDescriptor();
+                sort.setField(group.getField());
+                // Use group's dir if specified, otherwise default to ascending
+                sort.setDir(group.getDir() != null && !group.getDir().isEmpty() ? group.getDir() : "asc");
+                sortDescriptors.add(sort);
+            }
+        }
+        
+        // Then add regular sort descriptors (if they don't conflict with group sorting)
         if (request.getSort() != null && !request.getSort().isEmpty()) {
-            filteredData = applySort(filteredData, request.getSort());
+            for (SortDescriptor sort : request.getSort()) {
+                boolean alreadySorted = sortDescriptors.stream()
+                    .anyMatch(s -> s.getField().equals(sort.getField()));
+                if (!alreadySorted) {
+                    sortDescriptors.add(sort);
+                }
+            }
+        }
+        
+        // Apply the combined sorting
+        if (!sortDescriptors.isEmpty()) {
+            filteredData = applySort(filteredData, sortDescriptors);
         }
 
         // Apply grouping (grouping should NOT be affected by paging unless groupPaging is enabled)
@@ -471,6 +496,8 @@ public class QueryableExtensions {
         }
 
         GroupDescriptor currentGroup = groupDescriptors.get(level);
+        
+        // Use LinkedHashMap to preserve insertion order (data is already sorted)
         Map<Object, List<T>> grouped = data.stream()
                 .collect(Collectors.groupingBy(item -> {
                     try {
@@ -478,7 +505,7 @@ public class QueryableExtensions {
                     } catch (Exception e) {
                         return null;
                     }
-                }));
+                }, LinkedHashMap::new, Collectors.toList()));
 
         List<GroupResult> results = new ArrayList<>();
         boolean hasMoreGroups = level + 1 < groupDescriptors.size();
@@ -489,22 +516,21 @@ public class QueryableExtensions {
             groupResult.setValue(entry.getKey());
 
             if (hasMoreGroups) {
-                // Recursively group
+                // Recursively group nested levels
                 List<GroupResult> subGroups = applyGrouping(entry.getValue(), groupDescriptors, level + 1);
                 groupResult.setItems(subGroups);
                 groupResult.setHasSubgroups(true);
-                // Count total items in all subgroups
                 int totalItems = subGroups.stream()
                         .mapToInt(g -> g.getItemCount() != null ? g.getItemCount() : 0)
                         .sum();
                 groupResult.setItemCount(totalItems);
             } else {
+                // Leaf level - store the actual items
                 groupResult.setItems(entry.getValue());
                 groupResult.setHasSubgroups(false);
                 groupResult.setItemCount(entry.getValue().size());
             }
 
-            // Calculate aggregates for this group
             if (currentGroup.getAggregates() != null && !currentGroup.getAggregates().isEmpty()) {
                 List<AggregateDescriptor> aggregateDescriptors = currentGroup.getAggregates().stream()
                         .map(af -> {
