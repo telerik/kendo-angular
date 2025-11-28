@@ -1,3 +1,4 @@
+import { provideZoneChangeDetection } from "@angular/core";
 import { bootstrapApplication } from "@angular/platform-browser";
 import { provideRouter, withHashLocation } from "@angular/router";
 import { APP_BASE_HREF } from "@angular/common";
@@ -9,7 +10,7 @@ import { provideHttpClient } from "@angular/common/http";
 
 bootstrapApplication(AppComponent, {
     providers: [
-        provideRouter(routes, withHashLocation()),
+        provideZoneChangeDetection(),provideRouter(routes, withHashLocation()),
         { provide: APP_BASE_HREF, useValue: "/overview/" },
         provideHttpClient(),
         provideAnimations(),
