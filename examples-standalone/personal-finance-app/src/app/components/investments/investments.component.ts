@@ -11,7 +11,6 @@ import { StockChartComponent } from './stock-chart/stock-chart.component';
 
 @Component({
     selector: 'app-investments',
-    standalone: true,
     imports: [KENDO_CHARTS, StockChartComponent, CurrencyMoverComponent],
     templateUrl: './investments.component.html',
 })

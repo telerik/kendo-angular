@@ -1,4 +1,3 @@
-import { CommonModule } from '@angular/common';
 import { Component, HostListener } from '@angular/core';
 import { AxisLabelContentArgs, DrilldownEvent, KENDO_CHARTS, ValueAxisLabels } from '@progress/kendo-angular-charts';
 import { KENDO_DROPDOWNS } from '@progress/kendo-angular-dropdowns';
@@ -17,8 +16,7 @@ import { MonthlySalesData, YearlySalesData } from '../../models/charts-models';
 
 @Component({
     selector: 'app-analytics',
-    standalone: true,
-    imports: [TransactionsGridComponent, CommonModule, KENDO_CHARTS, KENDO_DROPDOWNS],
+    imports: [TransactionsGridComponent, KENDO_CHARTS, KENDO_DROPDOWNS],
     templateUrl: './analytics.component.html',
 })
 export class AnalyticsComponent {
