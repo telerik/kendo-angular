@@ -41,19 +41,19 @@ jobs:
         env:
           KENDO_UI_LICENSE: ${{ secrets.KENDO_UI_LICENSE }}
 
-      - name: Use NodeJS v18
+      - name: Use NodeJS v20
         uses: actions/setup-node@v4
         with:
-          node-version: "18"
+          node-version: "20"
 
-      - name: Build Node18 Examples
+      - name: Build Node20 Examples
         run: |
           chmod +x ./examples-standalone/bin/build-gh-pages
           ./examples-standalone/bin/build-gh-pages
         env:
           KENDO_UI_LICENSE: ${{ secrets.KENDO_UI_LICENSE }}
 
-      - name: Copy Node18 Dist
+      - name: Copy Node20 Dist
         run: | 
           cp -rf ./examples-standalone/dist/* ./examples/dist
           ls -la ./examples/dist
