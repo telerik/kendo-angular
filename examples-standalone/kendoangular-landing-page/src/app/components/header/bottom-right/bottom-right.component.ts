@@ -1,4 +1,3 @@
-import { CommonModule } from "@angular/common";
 import { Component, ViewEncapsulation } from "@angular/core";
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from "@angular/forms";
 import { KENDO_BUTTONS } from "@progress/kendo-angular-buttons";
@@ -10,14 +9,13 @@ import { KENDO_LABELS } from "@progress/kendo-angular-label";
     selector: "app-bottom-right",
     encapsulation: ViewEncapsulation.None,
     imports: [
-        CommonModule,
-        ReactiveFormsModule,
-        FormFieldModule,
-        KENDO_BUTTONS,
-        KENDO_DROPDOWNS,
-        KENDO_INPUTS,
-        KENDO_LABELS,
-    ],
+    ReactiveFormsModule,
+    FormFieldModule,
+    KENDO_BUTTONS,
+    KENDO_DROPDOWNS,
+    KENDO_INPUTS,
+    KENDO_LABELS
+],
     templateUrl: "./bottom-right.component.html",
     styleUrl: "./bottom-right.component.css",
 })

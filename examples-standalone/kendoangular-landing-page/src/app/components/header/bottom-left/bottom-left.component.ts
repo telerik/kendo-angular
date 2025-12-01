@@ -1,4 +1,3 @@
-import { CommonModule } from "@angular/common";
 import { Component, ViewEncapsulation } from "@angular/core";
 import { DomSanitizer, SafeHtml } from "@angular/platform-browser";
 import { KENDO_CHARTS } from "@progress/kendo-angular-charts";
@@ -9,7 +8,7 @@ import { FormsModule } from "@angular/forms";
 @Component({
     selector: "app-bottom-left",
     encapsulation: ViewEncapsulation.None,
-    imports: [CommonModule, FormsModule, KENDO_CHARTS, KENDO_INPUTS],
+    imports: [FormsModule, KENDO_CHARTS, KENDO_INPUTS],
     templateUrl: "./bottom-left.component.html",
     styleUrl: "./bottom-left.component.css",
 })
