@@ -11,7 +11,7 @@ env:
 
 jobs:
   build:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
 
     permissions:
       id-token: write # Required by Akeyless
@@ -21,7 +21,7 @@ jobs:
     steps:
       - name: Import Secrets
         id: import-secrets
-        uses: LanceMcCarthy/akeyless-action@v3
+        uses: LanceMcCarthy/akeyless-action@v5
         with:
           access-id: ${{ secrets.GH_AKEYLESS_ACCESS_ID }}
           static-secrets: '{ "/WebComponents/prod/tokens/GH_TOKEN": "GH_TOKEN" }'
@@ -33,7 +33,7 @@ jobs:
           node-version: "14"
 
       - name: Check out repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Build
         working-directory: ./examples
@@ -42,7 +42,7 @@ jobs:
           KENDO_UI_LICENSE: ${{ secrets.KENDO_UI_LICENSE }}
 
       - name: Use NodeJS v20
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
           node-version: "20"
 
