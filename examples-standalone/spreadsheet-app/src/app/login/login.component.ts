@@ -1,11 +1,20 @@
 import { Component, ViewEncapsulation } from "@angular/core";
 import { SVGIcon, eyeIcon } from "@progress/kendo-svg-icons";
-import { InputType } from "@progress/kendo-angular-inputs";
-import { FormControl, FormGroup } from "@angular/forms";
+import { InputType, KENDO_INPUTS } from "@progress/kendo-angular-inputs";
+import { FormControl, FormGroup, ReactiveFormsModule } from "@angular/forms";
+import { KENDO_LABELS } from "@progress/kendo-angular-label";
+import { KENDO_BUTTONS } from "@progress/kendo-angular-buttons";
+import { RouterLink } from "@angular/router";
 
 @Component({
     selector: "app-login",
-    standalone: false,
+    imports: [
+        ReactiveFormsModule,
+        KENDO_INPUTS,
+        KENDO_LABELS,
+        KENDO_BUTTONS,
+        RouterLink
+    ],
     templateUrl: "./login.component.html",
     styleUrl: "./login.component.css",
     encapsulation: ViewEncapsulation.None,
