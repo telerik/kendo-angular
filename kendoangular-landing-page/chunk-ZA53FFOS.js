@@ -1,0 +1,22 @@
+import{c as R,e as T,f as U,g as V}from"./chunk-TNN72TDJ.js";import"./chunk-EIBZHSEW.js";import"./chunk-WJRNDAQE.js";import"./chunk-5WG2D4V4.js";import"./chunk-ZOBE32OV.js";import"./chunk-SRVYF3JF.js";import"./chunk-7XAHRYGP.js";import"./chunk-TDB5YJF6.js";import{ec as m}from"./chunk-LQCEIJVJ.js";import{A as b,Cb as d,La as c,Lc as E,Nc as N,Q as y,Qb as f,Ra as C,Vb as S,Wa as O,Wb as _,Xb as M,_b as k,ca as w,i as u,jc as I,kc as x,mb as l,n as h,nb as a,ob as p,pb as P,s as v}from"./chunk-USDRQVEU.js";var D="The request cannot be processed at this time. Please excuse us for the inconvenience.",g=[{suggestion:"Generate out-of-office email template",response:`Subject: Out of Office: [Your Name]
+    
+            Dear [Recipient's Name],
+    
+            I am currently out of the office until [Return Date] and won't have access to email. For urgent matters, please contact [Colleague's Name] at [Colleague's Email]. I'll respond to your email upon my return.
+    
+            Thank you,
+            [Your Name]`},{suggestion:"Write a LinkedIn post on the importance of work/life balance",response:`\u{1F31F} Embracing Work/Life Balance for Success \u{1F31F}
+    
+            Hello LinkedIn network! \u{1F44B} Today, let's talk about a key to our well-being: work/life balance. \u{1F310}\u2696\uFE0F
+    
+            In our fast-paced world, balancing professional and personal life is not just a luxury, it's a necessity for health and productivity. \u{1F4C8}\u{1F33F}
+    
+            \u2728 Key Points \u2728
+    
+            Enhances Productivity: Less burnout, more motivation. \u{1F680}
+            Boosts Creativity: New experiences = fresh ideas. \u{1F4A1}
+            Improves Health: Mental and physical benefits. \u{1F9D8}\u200D\u2642\uFE0F
+            Strengthens Relationships: Quality time matters. \u{1F91D}
+            Let's champion a culture where success and well-being go hand in hand. Share your work/life balance tips below! \u{1F447}
+    
+            #WorkLifeBalance #Productivity #WellBeing`}];var r=class n{responses=new u;submit(e){let o=e.length,t=`"${e}" contains exactly ${o} symbols.`;setTimeout(()=>this.responses.next(t),1e3)}static \u0275fac=function(o){return new(o||n)};static \u0275prov=w({token:n,factory:n.\u0275fac})};var j=class n{constructor(e){this.svc=e;let o={id:m(),author:this.bot,suggestedActions:[{type:"reply",value:"Neat!"},{type:"reply",value:"Thanks, but this is boring."}],timestamp:new Date,text:"Hello, this is a demo bot. I don`t do much, but I can count symbols!"};this.feed=b(h([o]),this.local,this.svc.responses.pipe(v(t=>({id:m(),author:this.bot,text:t})))).pipe(y((t,s)=>[...t,s],[]))}feed;promptOutputs=[];activeView=0;user={id:1};bot={id:0};promptSuggestions=g.map(e=>e.suggestion);local=new u;sendMessage(e){this.local.next(e.message),this.local.next({id:m(),author:this.bot,typing:!0}),e.message.text!==void 0&&this.svc.submit(e.message.text)}onPromptRequest(e){e.prompt&&(this.createPromptOutput(e),this.activeView=1)}createPromptOutput(e){let o=g.find(s=>s.suggestion===e.prompt),t={id:m(),title:e.prompt,output:o?.response||D,prompt:e.prompt,isRetry:e.isRetry};this.promptOutputs.unshift(t),this.activeView=1}static \u0275fac=function(o){return new(o||n)(C(r))};static \u0275cmp=O({type:n,selectors:[["app-conversational-ui"]],features:[k([r])],decls:12,vars:7,consts:[[1,"container"],[1,"wrapper"],[1,"chat",3,"sendMessage","messages","authorId"],[1,"prompt",3,"promptRequest","activeViewChange","promptOutputs","promptSuggestions","activeView"]],template:function(o,t){o&1&&(a(0,"div",0)(1,"div",1)(2,"p"),f(3,"Conversational UI"),p(),a(4,"kendo-chat",2),I(5,"async"),d("sendMessage",function(i){return t.sendMessage(i)}),p()(),a(6,"div",1)(7,"p"),f(8,"AI Prompt"),p(),a(9,"kendo-aiprompt",3),d("promptRequest",function(i){return t.onPromptRequest(i)}),M("activeViewChange",function(i){return _(t.activeView,i)||(t.activeView=i),i}),P(10,"kendo-aiprompt-prompt-view")(11,"kendo-aiprompt-output-view"),p()()()),o&2&&(c(4),l("messages",x(5,5,t.feed))("authorId",t.user.id),c(5),l("promptOutputs",t.promptOutputs)("promptSuggestions",t.promptSuggestions),S("activeView",t.activeView))},dependencies:[N,R,U,T,V,E],styles:[".container[_ngcontent-%COMP%]{display:flex;justify-content:center;height:440px;gap:100px;width:100%}.wrapper[_ngcontent-%COMP%]{display:flex;flex-direction:column}.chat[_ngcontent-%COMP%]{width:400px}.prompt[_ngcontent-%COMP%]{flex-grow:1;max-width:400px;width:400px}"]})};export{j as ConversationalUiComponent};

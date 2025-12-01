@@ -1,37 +1,5 @@
 
 --------------------------------------------------------------------------------
-Package: @progress/kendo-angular-conversational-ui
-License: "SEE LICENSE IN LICENSE.md"
-
-# Kendo UI for Angular
-
-This package is part of the [Kendo UI for Angular](http://www.telerik.com/kendo-angular-ui/) suite.
-
-## License
-
-This is commercial software. To use it, you need to agree to the [**Telerik End User License Agreement for Kendo UI**](http://www.telerik.com/purchase/license-agreement/kendo-ui). If you do not own a commercial license, this file shall be governed by the trial license terms.
-
-All available Kendo UI commercial licenses may be obtained at http://www.telerik.com/purchase/kendo-ui.
-
-*Copyright © 2025 Progress Software Corporation and/or one of its subsidiaries or affiliates. All rights reserved.*
-
---------------------------------------------------------------------------------
-Package: @progress/kendo-angular-editor
-License: "SEE LICENSE IN LICENSE.md"
-
-# Kendo UI for Angular
-
-This package is part of the [Kendo UI for Angular](http://www.telerik.com/kendo-angular-ui/) suite.
-
-## License
-
-This is commercial software. To use it, you need to agree to the [**Telerik End User License Agreement for Kendo UI**](http://www.telerik.com/purchase/license-agreement/kendo-ui). If you do not own a commercial license, this file shall be governed by the trial license terms.
-
-All available Kendo UI commercial licenses may be obtained at http://www.telerik.com/purchase/kendo-ui.
-
-*Copyright © 2025 Progress Software Corporation and/or one of its subsidiaries or affiliates. All rights reserved.*
-
---------------------------------------------------------------------------------
 Package: orderedmap
 License: "MIT"
 
@@ -380,33 +348,23 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
 --------------------------------------------------------------------------------
-Package: @angular/router
-License: "MIT"
+Package: @progress/kendo-angular-editor
+License: "SEE LICENSE IN LICENSE.md"
 
-The MIT License
+# Kendo UI for Angular
 
-Copyright (c) 2010-2025 Google LLC. https://angular.dev/license
+This package is part of the [Kendo UI for Angular](http://www.telerik.com/kendo-angular-ui/) suite.
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+## License
 
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
+This is commercial software. To use it, you need to agree to the [**Telerik End User License Agreement for Kendo UI**](http://www.telerik.com/purchase/license-agreement/kendo-ui). If you do not own a commercial license, this file shall be governed by the trial license terms.
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
+All available Kendo UI commercial licenses may be obtained at http://www.telerik.com/purchase/kendo-ui.
+
+*Copyright © 2025 Progress Software Corporation and/or one of its subsidiaries or affiliates. All rights reserved.*
 
 --------------------------------------------------------------------------------
-Package: @angular/platform-browser
+Package: @angular/router
 License: "MIT"
 
 The MIT License
@@ -458,23 +416,33 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
 --------------------------------------------------------------------------------
-Package: @progress/kendo-angular-intl
-License: "SEE LICENSE IN LICENSE.md"
+Package: @angular/platform-browser
+License: "MIT"
 
-# Kendo UI for Angular
+The MIT License
 
-This package is part of the [Kendo UI for Angular](http://www.telerik.com/kendo-angular-ui/) suite.
+Copyright (c) 2010-2025 Google LLC. https://angular.dev/license
 
-## License
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
 
-This is commercial software. To use it, you need to agree to the [**Telerik End User License Agreement for Kendo UI**](http://www.telerik.com/purchase/license-agreement/kendo-ui). If you do not own a commercial license, this file shall be governed by the trial license terms.
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
 
-All available Kendo UI commercial licenses may be obtained at http://www.telerik.com/purchase/kendo-ui.
-
-*Copyright © 2025 Progress Software Corporation and/or one of its subsidiaries or affiliates. All rights reserved.*
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
 
 --------------------------------------------------------------------------------
-Package: @progress/kendo-angular-scheduler
+Package: @progress/kendo-angular-intl
 License: "SEE LICENSE IN LICENSE.md"
 
 # Kendo UI for Angular
@@ -532,6 +500,22 @@ For licensing information about Kendo UI, see the [License Agreements page](http
 *Copyright © 2021 Progress Software Corporation and/or one of its subsidiaries or affiliates. All rights reserved.*
 
 --------------------------------------------------------------------------------
+Package: @progress/kendo-angular-scheduler
+License: "SEE LICENSE IN LICENSE.md"
+
+# Kendo UI for Angular
+
+This package is part of the [Kendo UI for Angular](http://www.telerik.com/kendo-angular-ui/) suite.
+
+## License
+
+This is commercial software. To use it, you need to agree to the [**Telerik End User License Agreement for Kendo UI**](http://www.telerik.com/purchase/license-agreement/kendo-ui). If you do not own a commercial license, this file shall be governed by the trial license terms.
+
+All available Kendo UI commercial licenses may be obtained at http://www.telerik.com/purchase/kendo-ui.
+
+*Copyright © 2025 Progress Software Corporation and/or one of its subsidiaries or affiliates. All rights reserved.*
+
+--------------------------------------------------------------------------------
 Package: @progress/kendo-angular-tooltip
 License: "SEE LICENSE IN LICENSE.md"
 
@@ -548,39 +532,7 @@ All available Kendo UI commercial licenses may be obtained at http://www.telerik
 *Copyright © 2025 Progress Software Corporation and/or one of its subsidiaries or affiliates. All rights reserved.*
 
 --------------------------------------------------------------------------------
-Package: @progress/kendo-angular-grid
-License: "SEE LICENSE IN LICENSE.md"
-
-# Kendo UI for Angular
-
-This package is part of the [Kendo UI for Angular](http://www.telerik.com/kendo-angular-ui/) suite.
-
-## License
-
-This is commercial software. To use it, you need to agree to the [**Telerik End User License Agreement for Kendo UI**](http://www.telerik.com/purchase/license-agreement/kendo-ui). If you do not own a commercial license, this file shall be governed by the trial license terms.
-
-All available Kendo UI commercial licenses may be obtained at http://www.telerik.com/purchase/kendo-ui.
-
-*Copyright © 2025 Progress Software Corporation and/or one of its subsidiaries or affiliates. All rights reserved.*
-
---------------------------------------------------------------------------------
 Package: @progress/kendo-angular-pager
-License: "SEE LICENSE IN LICENSE.md"
-
-# Kendo UI for Angular
-
-This package is part of the [Kendo UI for Angular](http://www.telerik.com/kendo-angular-ui/) suite.
-
-## License
-
-This is commercial software. To use it, you need to agree to the [**Telerik End User License Agreement for Kendo UI**](http://www.telerik.com/purchase/license-agreement/kendo-ui). If you do not own a commercial license, this file shall be governed by the trial license terms.
-
-All available Kendo UI commercial licenses may be obtained at http://www.telerik.com/purchase/kendo-ui.
-
-*Copyright © 2025 Progress Software Corporation and/or one of its subsidiaries or affiliates. All rights reserved.*
-
---------------------------------------------------------------------------------
-Package: @progress/kendo-angular-excel-export
 License: "SEE LICENSE IN LICENSE.md"
 
 # Kendo UI for Angular
@@ -638,7 +590,103 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
 --------------------------------------------------------------------------------
+Package: @progress/kendo-angular-excel-export
+License: "SEE LICENSE IN LICENSE.md"
+
+# Kendo UI for Angular
+
+This package is part of the [Kendo UI for Angular](http://www.telerik.com/kendo-angular-ui/) suite.
+
+## License
+
+This is commercial software. To use it, you need to agree to the [**Telerik End User License Agreement for Kendo UI**](http://www.telerik.com/purchase/license-agreement/kendo-ui). If you do not own a commercial license, this file shall be governed by the trial license terms.
+
+All available Kendo UI commercial licenses may be obtained at http://www.telerik.com/purchase/kendo-ui.
+
+*Copyright © 2025 Progress Software Corporation and/or one of its subsidiaries or affiliates. All rights reserved.*
+
+--------------------------------------------------------------------------------
 Package: @progress/kendo-angular-pdf-export
+License: "SEE LICENSE IN LICENSE.md"
+
+# Kendo UI for Angular
+
+This package is part of the [Kendo UI for Angular](http://www.telerik.com/kendo-angular-ui/) suite.
+
+## License
+
+This is commercial software. To use it, you need to agree to the [**Telerik End User License Agreement for Kendo UI**](http://www.telerik.com/purchase/license-agreement/kendo-ui). If you do not own a commercial license, this file shall be governed by the trial license terms.
+
+All available Kendo UI commercial licenses may be obtained at http://www.telerik.com/purchase/kendo-ui.
+
+*Copyright © 2025 Progress Software Corporation and/or one of its subsidiaries or affiliates. All rights reserved.*
+
+--------------------------------------------------------------------------------
+Package: @progress/kendo-angular-grid
+License: "SEE LICENSE IN LICENSE.md"
+
+# Kendo UI for Angular
+
+This package is part of the [Kendo UI for Angular](http://www.telerik.com/kendo-angular-ui/) suite.
+
+## License
+
+This is commercial software. To use it, you need to agree to the [**Telerik End User License Agreement for Kendo UI**](http://www.telerik.com/purchase/license-agreement/kendo-ui). If you do not own a commercial license, this file shall be governed by the trial license terms.
+
+All available Kendo UI commercial licenses may be obtained at http://www.telerik.com/purchase/kendo-ui.
+
+*Copyright © 2025 Progress Software Corporation and/or one of its subsidiaries or affiliates. All rights reserved.*
+
+--------------------------------------------------------------------------------
+Package: @progress/kendo-angular-upload
+License: "SEE LICENSE IN LICENSE.md"
+
+# Kendo UI for Angular
+
+This package is part of the [Kendo UI for Angular](http://www.telerik.com/kendo-angular-ui/) suite.
+
+## License
+
+This is commercial software. To use it, you need to agree to the [**Telerik End User License Agreement for Kendo UI**](http://www.telerik.com/purchase/license-agreement/kendo-ui). If you do not own a commercial license, this file shall be governed by the trial license terms.
+
+All available Kendo UI commercial licenses may be obtained at http://www.telerik.com/purchase/kendo-ui.
+
+*Copyright © 2025 Progress Software Corporation and/or one of its subsidiaries or affiliates. All rights reserved.*
+
+--------------------------------------------------------------------------------
+Package: @progress/kendo-angular-menu
+License: "SEE LICENSE IN LICENSE.md"
+
+# Kendo UI for Angular
+
+This package is part of the [Kendo UI for Angular](http://www.telerik.com/kendo-angular-ui/) suite.
+
+## License
+
+This is commercial software. To use it, you need to agree to the [**Telerik End User License Agreement for Kendo UI**](http://www.telerik.com/purchase/license-agreement/kendo-ui). If you do not own a commercial license, this file shall be governed by the trial license terms.
+
+All available Kendo UI commercial licenses may be obtained at http://www.telerik.com/purchase/kendo-ui.
+
+*Copyright © 2025 Progress Software Corporation and/or one of its subsidiaries or affiliates. All rights reserved.*
+
+--------------------------------------------------------------------------------
+Package: @progress/kendo-angular-conversational-ui
+License: "SEE LICENSE IN LICENSE.md"
+
+# Kendo UI for Angular
+
+This package is part of the [Kendo UI for Angular](http://www.telerik.com/kendo-angular-ui/) suite.
+
+## License
+
+This is commercial software. To use it, you need to agree to the [**Telerik End User License Agreement for Kendo UI**](http://www.telerik.com/purchase/license-agreement/kendo-ui). If you do not own a commercial license, this file shall be governed by the trial license terms.
+
+All available Kendo UI commercial licenses may be obtained at http://www.telerik.com/purchase/kendo-ui.
+
+*Copyright © 2025 Progress Software Corporation and/or one of its subsidiaries or affiliates. All rights reserved.*
+
+--------------------------------------------------------------------------------
+Package: @progress/kendo-angular-indicators
 License: "SEE LICENSE IN LICENSE.md"
 
 # Kendo UI for Angular
@@ -723,6 +771,18 @@ All available Kendo UI commercial licenses may be obtained at http://www.telerik
 *Progress, Telerik, and certain product names used herein are trademarks or registered trademarks of Progress Software Corporation and/or one of its subsidiaries or affiliates in the U.S. and/or other countries.*
 
 --------------------------------------------------------------------------------
+Package: @progress/kendo-charts
+License: "SEE LICENSE IN license.txt"
+
+[Kendo UI for Angular](http://www.telerik.com/kendo-angular-ui)
+
+Copyright © 2024 Telerik AD. All rights reserved.
+
+This is commercial software. To use it, you need to agree to the [**Telerik End User License Agreement for Kendo UI Complete**](http://www.telerik.com/purchase/license-agreement/kendo-ui-complete). If you do not own a commercial license, this file shall be governed by the trial license terms.
+
+All available Kendo UI commercial licenses may be obtained at http://www.telerik.com/purchase/kendo-ui.
+
+--------------------------------------------------------------------------------
 Package: @progress/kendo-angular-charts
 License: "SEE LICENSE IN LICENSE.md"
 
@@ -739,35 +799,7 @@ All available Kendo UI commercial licenses may be obtained at http://www.telerik
 *Copyright © 2025 Progress Software Corporation and/or one of its subsidiaries or affiliates. All rights reserved.*
 
 --------------------------------------------------------------------------------
-Package: @progress/kendo-charts
-License: "SEE LICENSE IN license.txt"
-
-[Kendo UI for Angular](http://www.telerik.com/kendo-angular-ui)
-
-Copyright © 2024 Telerik AD. All rights reserved.
-
-This is commercial software. To use it, you need to agree to the [**Telerik End User License Agreement for Kendo UI Complete**](http://www.telerik.com/purchase/license-agreement/kendo-ui-complete). If you do not own a commercial license, this file shall be governed by the trial license terms.
-
-All available Kendo UI commercial licenses may be obtained at http://www.telerik.com/purchase/kendo-ui.
-
---------------------------------------------------------------------------------
 Package: @progress/kendo-angular-label
-License: "SEE LICENSE IN LICENSE.md"
-
-# Kendo UI for Angular
-
-This package is part of the [Kendo UI for Angular](http://www.telerik.com/kendo-angular-ui/) suite.
-
-## License
-
-This is commercial software. To use it, you need to agree to the [**Telerik End User License Agreement for Kendo UI**](http://www.telerik.com/purchase/license-agreement/kendo-ui). If you do not own a commercial license, this file shall be governed by the trial license terms.
-
-All available Kendo UI commercial licenses may be obtained at http://www.telerik.com/purchase/kendo-ui.
-
-*Copyright © 2025 Progress Software Corporation and/or one of its subsidiaries or affiliates. All rights reserved.*
-
---------------------------------------------------------------------------------
-Package: @progress/kendo-angular-dateinputs
 License: "SEE LICENSE IN LICENSE.md"
 
 # Kendo UI for Angular
@@ -793,6 +825,22 @@ Copyright © 2021 Telerik AD. All rights reserved.
 This is commercial software. To use it, you need to agree to the [**Telerik End User License Agreement for Kendo UI Complete**](http://www.telerik.com/purchase/license-agreement/kendo-ui-complete). If you do not own a commercial license, this file shall be governed by the trial license terms.
 
 All available Kendo UI commercial licenses may be obtained at http://www.telerik.com/purchase/kendo-ui.
+
+--------------------------------------------------------------------------------
+Package: @progress/kendo-angular-dateinputs
+License: "SEE LICENSE IN LICENSE.md"
+
+# Kendo UI for Angular
+
+This package is part of the [Kendo UI for Angular](http://www.telerik.com/kendo-angular-ui/) suite.
+
+## License
+
+This is commercial software. To use it, you need to agree to the [**Telerik End User License Agreement for Kendo UI**](http://www.telerik.com/purchase/license-agreement/kendo-ui). If you do not own a commercial license, this file shall be governed by the trial license terms.
+
+All available Kendo UI commercial licenses may be obtained at http://www.telerik.com/purchase/kendo-ui.
+
+*Copyright © 2025 Progress Software Corporation and/or one of its subsidiaries or affiliates. All rights reserved.*
 
 --------------------------------------------------------------------------------
 Package: @progress/kendo-angular-dropdowns
@@ -843,22 +891,6 @@ All available Kendo UI commercial licenses may be obtained at http://www.telerik
 *Copyright © 2025 Progress Software Corporation and/or one of its subsidiaries or affiliates. All rights reserved.*
 
 --------------------------------------------------------------------------------
-Package: @progress/kendo-angular-inputs
-License: "SEE LICENSE IN LICENSE.md"
-
-# Kendo UI for Angular
-
-This package is part of the [Kendo UI for Angular](http://www.telerik.com/kendo-angular-ui/) suite.
-
-## License
-
-This is commercial software. To use it, you need to agree to the [**Telerik End User License Agreement for Kendo UI**](http://www.telerik.com/purchase/license-agreement/kendo-ui). If you do not own a commercial license, this file shall be governed by the trial license terms.
-
-All available Kendo UI commercial licenses may be obtained at http://www.telerik.com/purchase/kendo-ui.
-
-*Copyright © 2025 Progress Software Corporation and/or one of its subsidiaries or affiliates. All rights reserved.*
-
---------------------------------------------------------------------------------
 Package: @progress/kendo-inputs-common
 License: "SEE LICENSE IN LICENSE.md"
 
@@ -873,6 +905,22 @@ This is commercial software. To use it, you need to agree to the [**Telerik End 
 All available Kendo UI commercial licenses may be obtained at http://www.telerik.com/purchase/kendo-ui.
 
 *Copyright © 2022 Progress Software Corporation and/or one of its subsidiaries or affiliates. All rights reserved.*
+
+--------------------------------------------------------------------------------
+Package: @progress/kendo-angular-inputs
+License: "SEE LICENSE IN LICENSE.md"
+
+# Kendo UI for Angular
+
+This package is part of the [Kendo UI for Angular](http://www.telerik.com/kendo-angular-ui/) suite.
+
+## License
+
+This is commercial software. To use it, you need to agree to the [**Telerik End User License Agreement for Kendo UI**](http://www.telerik.com/purchase/license-agreement/kendo-ui). If you do not own a commercial license, this file shall be governed by the trial license terms.
+
+All available Kendo UI commercial licenses may be obtained at http://www.telerik.com/purchase/kendo-ui.
+
+*Copyright © 2025 Progress Software Corporation and/or one of its subsidiaries or affiliates. All rights reserved.*
 
 --------------------------------------------------------------------------------
 Package: @progress/kendo-drawing
@@ -917,6 +965,18 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
 --------------------------------------------------------------------------------
+Package: @progress/kendo-draggable-common
+License: "SEE LICENSE IN LICENSE.md"
+
+[Kendo UI for Angular](http://www.telerik.com/kendo-angular-ui)
+
+Copyright © 2021 Telerik AD. All rights reserved.
+
+This is commercial software. To use it, you need to agree to the [**Telerik End User License Agreement for Kendo UI Complete**](http://www.telerik.com/purchase/license-agreement/kendo-ui-complete). If you do not own a commercial license, this file shall be governed by the trial license terms.
+
+All available Kendo UI commercial licenses may be obtained at http://www.telerik.com/purchase/kendo-ui.
+
+--------------------------------------------------------------------------------
 Package: @progress/kendo-angular-utils
 License: "SEE LICENSE IN LICENSE.md"
 
@@ -931,18 +991,6 @@ This is commercial software. To use it, you need to agree to the [**Telerik End 
 All available Kendo UI commercial licenses may be obtained at http://www.telerik.com/purchase/kendo-ui.
 
 *Copyright © 2025 Progress Software Corporation and/or one of its subsidiaries or affiliates. All rights reserved.*
-
---------------------------------------------------------------------------------
-Package: @progress/kendo-draggable-common
-License: "SEE LICENSE IN LICENSE.md"
-
-[Kendo UI for Angular](http://www.telerik.com/kendo-angular-ui)
-
-Copyright © 2021 Telerik AD. All rights reserved.
-
-This is commercial software. To use it, you need to agree to the [**Telerik End User License Agreement for Kendo UI Complete**](http://www.telerik.com/purchase/license-agreement/kendo-ui-complete). If you do not own a commercial license, this file shall be governed by the trial license terms.
-
-All available Kendo UI commercial licenses may be obtained at http://www.telerik.com/purchase/kendo-ui.
 
 --------------------------------------------------------------------------------
 Package: @progress/kendo-angular-navigation
@@ -977,7 +1025,7 @@ All available Kendo UI commercial licenses may be obtained at http://www.telerik
 *Copyright © 2025 Progress Software Corporation and/or one of its subsidiaries or affiliates. All rights reserved.*
 
 --------------------------------------------------------------------------------
-Package: @progress/kendo-angular-layout
+Package: @progress/kendo-angular-progressbar
 License: "SEE LICENSE IN LICENSE.md"
 
 # Kendo UI for Angular
@@ -993,7 +1041,7 @@ All available Kendo UI commercial licenses may be obtained at http://www.telerik
 *Copyright © 2025 Progress Software Corporation and/or one of its subsidiaries or affiliates. All rights reserved.*
 
 --------------------------------------------------------------------------------
-Package: @progress/kendo-angular-progressbar
+Package: @progress/kendo-angular-layout
 License: "SEE LICENSE IN LICENSE.md"
 
 # Kendo UI for Angular
@@ -1033,22 +1081,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
-
---------------------------------------------------------------------------------
-Package: @progress/kendo-angular-buttons
-License: "SEE LICENSE IN LICENSE.md"
-
-# Kendo UI for Angular
-
-This package is part of the [Kendo UI for Angular](http://www.telerik.com/kendo-angular-ui/) suite.
-
-## License
-
-This is commercial software. To use it, you need to agree to the [**Telerik End User License Agreement for Kendo UI**](http://www.telerik.com/purchase/license-agreement/kendo-ui). If you do not own a commercial license, this file shall be governed by the trial license terms.
-
-All available Kendo UI commercial licenses may be obtained at http://www.telerik.com/purchase/kendo-ui.
-
-*Copyright © 2025 Progress Software Corporation and/or one of its subsidiaries or affiliates. All rights reserved.*
 
 --------------------------------------------------------------------------------
 Package: @progress/kendo-licensing
@@ -1105,38 +1137,6 @@ If you do not own a commercial license, the usage of this software shall be gove
 *Copyright © 2023 Progress Software Corporation and/or one of its subsidiaries or affiliates. All rights reserved.*
 
 --------------------------------------------------------------------------------
-Package: @progress/kendo-angular-l10n
-License: "SEE LICENSE IN LICENSE.md"
-
-# Kendo UI for Angular
-
-This package is part of the [Kendo UI for Angular](http://www.telerik.com/kendo-angular-ui/) suite.
-
-## License
-
-This is commercial software. To use it, you need to agree to the [**Telerik End User License Agreement for Kendo UI**](http://www.telerik.com/purchase/license-agreement/kendo-ui). If you do not own a commercial license, this file shall be governed by the trial license terms.
-
-All available Kendo UI commercial licenses may be obtained at http://www.telerik.com/purchase/kendo-ui.
-
-*Copyright © 2025 Progress Software Corporation and/or one of its subsidiaries or affiliates. All rights reserved.*
-
---------------------------------------------------------------------------------
-Package: @progress/kendo-angular-common
-License: "SEE LICENSE IN LICENSE.md"
-
-# Kendo UI for Angular
-
-This package is part of the [Kendo UI for Angular](http://www.telerik.com/kendo-angular-ui/) suite.
-
-## License
-
-This is commercial software. To use it, you need to agree to the [**Telerik End User License Agreement for Kendo UI**](http://www.telerik.com/purchase/license-agreement/kendo-ui). If you do not own a commercial license, this file shall be governed by the trial license terms.
-
-All available Kendo UI commercial licenses may be obtained at http://www.telerik.com/purchase/kendo-ui.
-
-*Copyright © 2025 Progress Software Corporation and/or one of its subsidiaries or affiliates. All rights reserved.*
-
---------------------------------------------------------------------------------
 Package: @progress/kendo-common
 License: "SEE LICENSE IN LICENSE.md"
 
@@ -1165,6 +1165,38 @@ For licensing information about Kendo UI, see the [License Agreements page](http
 > * See the License for the specific language governing permissions and limitations under the License.
 
 *Copyright © 2022 Progress Software Corporation and/or one of its subsidiaries or affiliates. All rights reserved.*
+
+--------------------------------------------------------------------------------
+Package: @progress/kendo-angular-common
+License: "SEE LICENSE IN LICENSE.md"
+
+# Kendo UI for Angular
+
+This package is part of the [Kendo UI for Angular](http://www.telerik.com/kendo-angular-ui/) suite.
+
+## License
+
+This is commercial software. To use it, you need to agree to the [**Telerik End User License Agreement for Kendo UI**](http://www.telerik.com/purchase/license-agreement/kendo-ui). If you do not own a commercial license, this file shall be governed by the trial license terms.
+
+All available Kendo UI commercial licenses may be obtained at http://www.telerik.com/purchase/kendo-ui.
+
+*Copyright © 2025 Progress Software Corporation and/or one of its subsidiaries or affiliates. All rights reserved.*
+
+--------------------------------------------------------------------------------
+Package: @progress/kendo-angular-l10n
+License: "SEE LICENSE IN LICENSE.md"
+
+# Kendo UI for Angular
+
+This package is part of the [Kendo UI for Angular](http://www.telerik.com/kendo-angular-ui/) suite.
+
+## License
+
+This is commercial software. To use it, you need to agree to the [**Telerik End User License Agreement for Kendo UI**](http://www.telerik.com/purchase/license-agreement/kendo-ui). If you do not own a commercial license, this file shall be governed by the trial license terms.
+
+All available Kendo UI commercial licenses may be obtained at http://www.telerik.com/purchase/kendo-ui.
+
+*Copyright © 2025 Progress Software Corporation and/or one of its subsidiaries or affiliates. All rights reserved.*
 
 --------------------------------------------------------------------------------
 Package: @progress/kendo-angular-icons
@@ -1196,6 +1228,38 @@ This project has been released under the [Apache License, version 2.0](https://w
 
 --------------------------------------------------------------------------------
 Package: @progress/kendo-angular-popup
+License: "SEE LICENSE IN LICENSE.md"
+
+# Kendo UI for Angular
+
+This package is part of the [Kendo UI for Angular](http://www.telerik.com/kendo-angular-ui/) suite.
+
+## License
+
+This is commercial software. To use it, you need to agree to the [**Telerik End User License Agreement for Kendo UI**](http://www.telerik.com/purchase/license-agreement/kendo-ui). If you do not own a commercial license, this file shall be governed by the trial license terms.
+
+All available Kendo UI commercial licenses may be obtained at http://www.telerik.com/purchase/kendo-ui.
+
+*Copyright © 2025 Progress Software Corporation and/or one of its subsidiaries or affiliates. All rights reserved.*
+
+--------------------------------------------------------------------------------
+Package: @progress/kendo-webspeech-common
+License: "SEE LICENSE IN LICENSE.md"
+
+# Kendo UI
+
+This package is part of the [Kendo UI](https://www.telerik.com/kendo-ui) family of UI Component suites.
+
+## License
+
+This is commercial software. To use it, you need to agree to the [**Telerik End User License Agreement for Kendo UI Complete**](http://www.telerik.com/purchase/license-agreement/kendo-ui-complete). If you do not own a commercial license, this file shall be governed by the trial license terms.
+
+All available Kendo UI commercial licenses may be obtained at http://www.telerik.com/purchase/kendo-ui.
+
+_Copyright © 2025 Progress Software Corporation and/or its subsidiaries or affiliates. All Rights Reserved._
+
+--------------------------------------------------------------------------------
+Package: @progress/kendo-angular-buttons
 License: "SEE LICENSE IN LICENSE.md"
 
 # Kendo UI for Angular
