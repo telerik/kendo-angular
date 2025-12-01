@@ -9,7 +9,6 @@ import { MessageService } from '@progress/kendo-angular-l10n';
 
 @Component({
     selector: 'app-transaction-detail',
-    standalone: true,
     imports: [KENDO_INPUTS, KENDO_LABELS, KENDO_BUTTONS, KENDO_DATEINPUTS],
     templateUrl: './transaction-detail.component.html',
     styleUrl: './transaction-detail.component.css',

@@ -7,7 +7,6 @@ import { IntlService, NumberFormatOptions } from '@progress/kendo-angular-intl';
 
 @Component({
     selector: 'app-currency-mover',
-    standalone: true,
     imports: [CommonModule, KENDO_ICONS],
     templateUrl: './currency-mover.component.html',
     styleUrl: './currency-mover.component.css',

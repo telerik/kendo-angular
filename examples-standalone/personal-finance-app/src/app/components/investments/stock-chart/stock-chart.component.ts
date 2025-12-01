@@ -9,7 +9,6 @@ import { CustomMessagesService } from '../../../services/custom-messages.service
 
 @Component({
     selector: 'app-stock-chart',
-    standalone: true,
     imports: [KENDO_LAYOUT, KENDO_CHARTS],
     templateUrl: './stock-chart.component.html',
 })
