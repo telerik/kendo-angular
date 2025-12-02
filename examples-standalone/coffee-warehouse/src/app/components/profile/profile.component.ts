@@ -11,7 +11,8 @@ import { ProfileImageService } from '../../services/profile-image.service';
 
 @Component({
     selector: 'app-profile-component',
-    templateUrl: './profile.component.html'
+    templateUrl: './profile.component.html',
+    standalone: false
 })
 export class ProfileComponent {
     public formGroup: FormGroup = new FormGroup({});

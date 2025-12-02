@@ -11,7 +11,8 @@ import { CustomMessagesService } from '../../services/custom-messages.service';
 
 @Component({
     selector: 'app-team-component',
-    templateUrl: './team.component.html'
+    templateUrl: './team.component.html',
+    standalone: false
 })
 export class TeamComponent implements OnInit {
     @ViewChild(DataBindingDirective) dataBinding?: DataBindingDirective;

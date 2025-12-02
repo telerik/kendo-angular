@@ -7,7 +7,8 @@ import { teams } from '../../../resources/teams';
 
 @Component({
     selector: 'app-card-component',
-    templateUrl: './card.component.html'
+    templateUrl: './card.component.html',
+    standalone: false
 })
 export class CardComponent {
     @Output() public toggleEvents: EventEmitter<Employee> = new EventEmitter();
