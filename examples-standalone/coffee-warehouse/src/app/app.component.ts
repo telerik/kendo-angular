@@ -1,18 +1,20 @@
 import { Component, OnDestroy, OnInit } from "@angular/core";
-import { NavigationStart, Router, RouterEvent } from "@angular/router";
+import { NavigationStart, Router, RouterOutlet } from "@angular/router";
 import { MessageService } from "@progress/kendo-angular-l10n";
 import {
   DrawerComponent,
   DrawerMode,
   DrawerSelectEvent,
+  KENDO_LAYOUT,
 } from "@progress/kendo-angular-layout";
 import { CustomMessagesService } from "./services/custom-messages.service";
 import { gridIcon, chartLineMarkersIcon, calendarIcon, userIcon, infoCircleIcon } from "@progress/kendo-svg-icons";
+import { HeaderComponent } from "./header/header.component";
 
 @Component({
     selector: "app-root",
     templateUrl: "./app.component.html",
-    standalone: false
+    imports: [KENDO_LAYOUT, RouterOutlet, HeaderComponent]
 })
 export class AppComponent implements OnInit, OnDestroy {
   public selected = "Team";

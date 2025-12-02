@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 
-import { DataBindingDirective } from '@progress/kendo-angular-grid';
+import { DataBindingDirective, KENDO_GRID } from '@progress/kendo-angular-grid';
 import { MessageService } from '@progress/kendo-angular-l10n';
 import { process } from '@progress/kendo-data-query';
 import { SVGIcon, fileExcelIcon, filePdfIcon } from '@progress/kendo-svg-icons';
@@ -8,11 +8,17 @@ import { Employee } from '../../models/employee.model';
 import { employees } from '../../resources/employees';
 import { images } from '../../resources/images';
 import { CustomMessagesService } from '../../services/custom-messages.service';
+import { KENDO_BUTTONS } from '@progress/kendo-angular-buttons';
+import { KENDO_ICONS } from '@progress/kendo-angular-icons';
+import { KENDO_INPUTS } from '@progress/kendo-angular-inputs';
+import { RatingComponent } from './rating.component';
+import { KENDO_CHARTS } from '@progress/kendo-angular-charts';
+import { CommonModule } from '@angular/common';
 
 @Component({
     selector: 'app-team-component',
     templateUrl: './team.component.html',
-    standalone: false
+    imports: [KENDO_GRID, KENDO_BUTTONS, KENDO_ICONS, KENDO_INPUTS, RatingComponent, KENDO_CHARTS, CommonModule]
 })
 export class TeamComponent implements OnInit {
     @ViewChild(DataBindingDirective) dataBinding?: DataBindingDirective;
