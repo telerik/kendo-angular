@@ -20,8 +20,21 @@ $container-max-widths: (
     xl: 1200px
 );
 
-@import "bootstrap/scss/functions";
-@import "bootstrap/scss/variables";
-@import "bootstrap/scss/mixins";
-@import "bootstrap/scss/reboot";
-@import "bootstrap/scss/bootstrap";
+@use "bootstrap/scss/bootstrap" with (
+    $font-family-base: "Roboto" #{"," } Helvetica#{"," } Arial#{"," } sans-serif,
+    $grid-columns: 12,
+    $grid-gutter-width: 32px,
+    $grid-breakpoints: (
+        xs: 0,
+        sm: 576px,
+        md: 768px,
+        lg: 992px,
+        xl: 1200px
+    ),
+    $container-max-widths: (
+        sm: 540px,
+        md: 720px,
+        lg: 992px,
+        xl: 1200px
+    )
+);
