@@ -3,8 +3,7 @@ import { DropDownListComponent } from '@progress/kendo-angular-dropdowns';
 import { Subscription } from 'rxjs';
 
 @Directive({
-    selector: '[appDropDownListPopupSelector]',
-    standalone: false
+    selector: '[appDropDownListPopupSelector]'
 })
 export class DropDownListPopupSelectorDirective implements AfterViewInit, OnDestroy {
     private valueChangeSubscription: Subscription | undefined;

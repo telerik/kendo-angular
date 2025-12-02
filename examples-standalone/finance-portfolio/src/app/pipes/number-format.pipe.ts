@@ -3,8 +3,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 import { formatCurrency } from './helpers';
 
 @Pipe({
-    name: 'numberFormat',
-    standalone: false
+    name: 'numberFormat'
 })
 export class NumberFormatPipe implements PipeTransform {
     transform(value: number): any {

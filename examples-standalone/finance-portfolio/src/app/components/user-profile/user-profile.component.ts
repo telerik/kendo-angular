@@ -1,14 +1,19 @@
 import { Subscription } from 'rxjs';
 import { Component, ViewEncapsulation, OnDestroy } from '@angular/core';
+import { CommonModule, CurrencyPipe } from '@angular/common';
+import { RouterLink } from '@angular/router';
 import { Stock } from '../../models';
 import { StockDataService } from '../../services/stock-data.service';
+import { KENDO_CHARTS } from '@progress/kendo-angular-charts';
+import { KENDO_GRID } from '@progress/kendo-angular-grid';
+import { KENDO_ICONS } from '@progress/kendo-angular-icons';
 
 @Component({
     selector: 'app-user-profile',
     templateUrl: './user-profile.component.html',
     styleUrls: ['./user-profile.component.scss'],
     encapsulation: ViewEncapsulation.None,
-    standalone: false
+    imports: [CommonModule, RouterLink, KENDO_CHARTS, KENDO_GRID, CurrencyPipe, KENDO_ICONS]
 })
 export class UserProfileComponent implements OnDestroy {
     public chartData: any[] = [];

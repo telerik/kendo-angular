@@ -1,6 +1,7 @@
 import { Component, ViewEncapsulation, Input, SimpleChanges, OnChanges } from '@angular/core';
+import { CommonModule, DatePipe } from '@angular/common';
 import { SelectionRange } from '@progress/kendo-angular-dateinputs';
-import { PlotBand } from '@progress/kendo-angular-charts';
+import { PlotBand, KENDO_CHARTS } from '@progress/kendo-angular-charts';
 import { Interval, IntervalUnitsMap, StockIntervalDetails, defaultRange } from '../../models';
 import { StockDataService } from '../../services/stock-data.service';
 
@@ -15,7 +16,7 @@ const currencies = {
     templateUrl: './stock-details.component.html',
     styleUrls: ['./stock-details.component.scss'],
     encapsulation: ViewEncapsulation.None,
-    standalone: false
+    imports: [CommonModule, KENDO_CHARTS, DatePipe]
 })
 export class StockDetailsComponent implements OnChanges {
     @Input() public chartType: 'candle' | 'line' | 'area' = 'candle';
