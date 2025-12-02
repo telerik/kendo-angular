@@ -10,11 +10,11 @@ import { SelectSeriesComponent } from '../../common/select-series/select-series.
 import { SelectChartTypeComponent } from '../../common/select-chart-type/select-chart-type.component';
 import { ButtonsModule } from '@progress/kendo-angular-buttons';
 import { TooltipsModule } from '@progress/kendo-angular-tooltip';
-import { CommonModule } from '@angular/common';
+
 
 @Component({
     selector: 'stocks-component',
-    imports: [LayoutModule, ChartsModule, SelectSeriesComponent, SelectChartTypeComponent, ButtonsModule, TooltipsModule, CommonModule],
+    imports: [LayoutModule, ChartsModule, SelectSeriesComponent, SelectChartTypeComponent, ButtonsModule, TooltipsModule],
     templateUrl: './stocks-chart.component.html'
 })
 export class StocksChartComponent {

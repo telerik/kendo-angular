@@ -1,8 +1,14 @@
-<stocks-component *ngIf="isSimpleChart()" [data]="data" [chartConfiguration]="chartConfiguration">
-</stocks-component>
+@if (isSimpleChart()) {
+  <stocks-component [data]="data" [chartConfiguration]="chartConfiguration">
+  </stocks-component>
+}
 
-<pie-donut-stocks *ngIf="isCircularChart()" [data]="data" [chartConfiguration]="chartConfiguration">
-</pie-donut-stocks>
+@if (isCircularChart()) {
+  <pie-donut-stocks [data]="data" [chartConfiguration]="chartConfiguration">
+  </pie-donut-stocks>
+}
 
-<scatter-bubble-charts *ngIf="isBubbleOrSeriesChart()" [data]="data" [chartConfiguration]="chartConfiguration">
-</scatter-bubble-charts>
+@if (isBubbleOrSeriesChart()) {
+  <scatter-bubble-charts [data]="data" [chartConfiguration]="chartConfiguration">
+  </scatter-bubble-charts>
+}

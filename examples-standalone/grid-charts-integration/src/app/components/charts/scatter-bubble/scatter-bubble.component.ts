@@ -10,11 +10,11 @@ import { SVGIcon, gearIcon, downloadIcon } from '@progress/kendo-svg-icons';
 import { SelectChartTypeComponent } from '../../common/select-chart-type/select-chart-type.component';
 import { SelectSeriesComponent } from '../../common/select-series/select-series.component';
 import { TooltipsModule } from '@progress/kendo-angular-tooltip';
-import { CommonModule } from '@angular/common';
+
 
 @Component({
     selector: 'scatter-bubble-charts',
-    imports: [LayoutModule, ChartsModule, ButtonsModule, SelectChartTypeComponent, SelectSeriesComponent, TooltipsModule, CommonModule],
+    imports: [LayoutModule, ChartsModule, ButtonsModule, SelectChartTypeComponent, SelectSeriesComponent, TooltipsModule],
     templateUrl: './scatter-bubble.component.html'
 })
 export class ScatterBubbleComponent {

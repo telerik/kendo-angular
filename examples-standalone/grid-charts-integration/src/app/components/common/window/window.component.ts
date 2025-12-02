@@ -4,11 +4,11 @@ import { ScatterBubbleComponent } from '../../charts/scatter-bubble/scatter-bubb
 import { PieDonutComponent } from '../../charts/pie-donut/pie-donut.component';
 import { StocksChartComponent } from '../../charts/common/stocks-chart.component';
 
-import { CommonModule } from '@angular/common';
+
 
 @Component({
     selector: 'window-component',
-    imports: [ScatterBubbleComponent, PieDonutComponent, StocksChartComponent, CommonModule],
+    imports: [ScatterBubbleComponent, PieDonutComponent, StocksChartComponent],
     templateUrl: './window.component.html'
 })
 export class WindowComponent {
