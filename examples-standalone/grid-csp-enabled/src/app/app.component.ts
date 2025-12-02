@@ -1,11 +1,10 @@
 import { Component } from '@angular/core';
-
-import { GridModule } from '@progress/kendo-angular-grid';
+import { KENDO_GRID } from '@progress/kendo-angular-grid';
 import { customers } from './customers';
 
 @Component({
     selector: 'app-root',
-    imports: [GridModule],
+    imports: [KENDO_GRID],
     templateUrl: './app.component.html',
     styleUrl: './app.component.css'
 })
