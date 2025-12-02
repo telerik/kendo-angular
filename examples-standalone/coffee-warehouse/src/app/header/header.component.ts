@@ -9,7 +9,8 @@ import { ProfileImageService } from '../services/profile-image.service';
 
 @Component({
     selector: 'app-header-component',
-    templateUrl: './header.commponent.html'
+    templateUrl: './header.commponent.html',
+    standalone: false
 })
 export class HeaderComponent {
     @Output() public toggle = new EventEmitter();

@@ -10,8 +10,9 @@ import { CustomMessagesService } from "./services/custom-messages.service";
 import { gridIcon, chartLineMarkersIcon, calendarIcon, userIcon, infoCircleIcon } from "@progress/kendo-svg-icons";
 
 @Component({
-  selector: "app-root",
-  templateUrl: "./app.component.html",
+    selector: "app-root",
+    templateUrl: "./app.component.html",
+    standalone: false
 })
 export class AppComponent implements OnInit, OnDestroy {
   public selected = "Team";

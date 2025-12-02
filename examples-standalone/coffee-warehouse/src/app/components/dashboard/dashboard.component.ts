@@ -8,7 +8,8 @@ import { orders } from '../../resources/orders';
 
 @Component({
     selector: 'app-dashboard-component',
-    templateUrl: './dashboard.component.html'
+    templateUrl: './dashboard.component.html',
+    standalone: false
 })
 export class DashboardComponent {
     public selectedChart: 'Trend' | 'Volume' = 'Trend';

@@ -13,7 +13,8 @@ import { Employee } from '../../models/employee.model';
 
 @Component({
     selector: 'app-planning-component',
-    templateUrl: './planning.component.html'
+    templateUrl: './planning.component.html',
+    standalone: false
 })
 export class PlanningComponent {
     public data: Event[];

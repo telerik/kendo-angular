@@ -10,7 +10,8 @@ import { SVGIcon, starIcon, starOutlineIcon } from '@progress/kendo-svg-icons';
                 color: #ffa600;
             }
         `
-    ]
+    ],
+    standalone: false
 })
 export class RatingComponent implements OnInit {
     @Input() public value: number = 0;
