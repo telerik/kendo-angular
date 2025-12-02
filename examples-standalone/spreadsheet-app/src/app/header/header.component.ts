@@ -1,10 +1,18 @@
 import { Component } from "@angular/core";
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, RouterLink } from "@angular/router";
 import { SVGIcon, logoutIcon } from "@progress/kendo-svg-icons";
+import { KENDO_NAVIGATION } from "@progress/kendo-angular-navigation";
+import { KENDO_ICONS } from "@progress/kendo-angular-icons";
+import { KENDO_BUTTONS } from "@progress/kendo-angular-buttons";
 
 @Component({
     selector: "app-header",
-    standalone: false,
+    imports: [
+        RouterLink,
+        KENDO_BUTTONS,
+        KENDO_NAVIGATION,
+        KENDO_ICONS
+    ],
     templateUrl: "./header.component.html",
     styleUrl: "./header.component.css",
 })

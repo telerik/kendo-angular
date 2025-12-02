@@ -1,12 +1,23 @@
 import { Component, TemplateRef, ViewChild } from "@angular/core";
-import { FormBuilder, FormGroup } from "@angular/forms";
-import { NotificationService } from "@progress/kendo-angular-notification";
+import { FormBuilder, FormGroup, ReactiveFormsModule } from "@angular/forms";
+import { KENDO_NOTIFICATION, NotificationService } from "@progress/kendo-angular-notification";
 import { ExcelDataService } from "../data/services/excel-data.service";
 import { TicketPrices } from "../data/models/interfaces";
+import { HeaderComponent } from "../header/header.component";
+import { KENDO_INPUTS } from "@progress/kendo-angular-inputs";
+import { KENDO_LABELS } from "@progress/kendo-angular-label";
+import { KENDO_BUTTONS } from "@progress/kendo-angular-buttons";
 
 @Component({
     selector: "app-ticket-view",
-    standalone: false,
+    imports: [
+        HeaderComponent,
+        ReactiveFormsModule,
+        KENDO_INPUTS,
+        KENDO_LABELS,
+        KENDO_BUTTONS,
+        KENDO_NOTIFICATION
+    ],
     templateUrl: "./ticket-view.component.html",
     styleUrls: ["./ticket-view.component.css"],
 })
