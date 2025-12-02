@@ -7,7 +7,6 @@ import { MessageService } from '@progress/kendo-angular-l10n';
 
 @Component({
     selector: 'app-transactions',
-    standalone: true,
     imports: [TransactionsGridComponent, TransactionDetailComponent],
     templateUrl: './transactions.component.html',
 })

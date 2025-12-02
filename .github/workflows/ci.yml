@@ -71,6 +71,12 @@ jobs:
           npm ci
       # npm run lint
 
+      - name: Build Grid Performance app
+        working-directory: ./examples-standalone/grid-performance
+        run: |
+          npm ci
+          npm run build
+
       - name: Translation of Messages
         working-directory: ./examples-standalone/integration-i18n
         run: |

@@ -14,7 +14,6 @@ import { SavingItemComponent } from './saving-item/saving-item.component';
 
 @Component({
     selector: 'app-home',
-    standalone: true,
     imports: [CardTripleViewComponent, SavingItemComponent, TransactionsGridComponent, KENDO_CHARTS, KENDO_GAUGES],
     templateUrl: './home.component.html',
     styleUrl: './home.component.css',

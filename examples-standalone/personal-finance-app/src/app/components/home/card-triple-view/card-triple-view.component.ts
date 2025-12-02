@@ -7,7 +7,6 @@ import { MessageService } from '@progress/kendo-angular-l10n';
 
 @Component({
     selector: 'app-card-triple-view',
-    standalone: true,
     imports: [CommonModule, IntlModule],
     templateUrl: './card-triple-view.component.html',
     styleUrl: './card-triple-view.component.css',
