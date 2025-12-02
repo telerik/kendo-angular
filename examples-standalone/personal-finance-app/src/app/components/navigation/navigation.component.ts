@@ -21,7 +21,6 @@ import { filter } from 'rxjs';
 
 @Component({
     selector: 'app-navigation',
-    standalone: true,
     imports: [RouterModule, KENDO_LAYOUT, KENDO_ICONS, HeaderComponent, FooterComponent],
     templateUrl: './navigation.component.html',
     styleUrl: './navigation.component.css',

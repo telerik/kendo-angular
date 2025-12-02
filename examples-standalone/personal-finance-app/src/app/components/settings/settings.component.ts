@@ -15,7 +15,6 @@ import { CustomMessagesService } from '../../services/custom-messages.service';
 
 @Component({
     selector: 'app-settings',
-    standalone: true,
     imports: [
         ReactiveFormsModule,
         KENDO_INPUTS,

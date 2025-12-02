@@ -7,7 +7,6 @@ import { MessageService } from '@progress/kendo-angular-l10n';
 
 @Component({
     selector: 'app-saving-item',
-    standalone: true,
     imports: [KENDO_PROGRESSBARS],
     templateUrl: './saving-item.component.html',
 })

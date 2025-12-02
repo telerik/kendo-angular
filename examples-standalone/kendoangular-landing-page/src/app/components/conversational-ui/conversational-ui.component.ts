@@ -13,7 +13,6 @@ import {
 } from '@progress/kendo-angular-conversational-ui';
 import { KENDO_INPUTS } from '@progress/kendo-angular-inputs';
 import { KENDO_LAYOUT } from '@progress/kendo-angular-layout';
-import { eyeIcon, SVGIcon, xIcon } from '@progress/kendo-svg-icons';
 import { from, merge, Observable, Subject } from 'rxjs';
 import { map, scan } from 'rxjs/operators';
 import { defaultResponse, promptData } from '../../data/ai-prompt-data';
@@ -42,6 +41,7 @@ export class ConversationalUiComponent {
 
     constructor(private svc: ChatService) {
         const hello: Message = {
+            id: guid(),
             author: this.bot,
             suggestedActions: [
                 {
@@ -63,6 +63,7 @@ export class ConversationalUiComponent {
             this.svc.responses.pipe(
                 map(
                     (response): Message => ({
+                        id: guid(),
                         author: this.bot,
                         text: response,
                     })
@@ -75,11 +76,12 @@ export class ConversationalUiComponent {
         this.local.next(e.message);
 
         this.local.next({
+            id: guid(),
             author: this.bot,
             typing: true,
         });
 
-        if (e.message.text) {
+        if (e.message.text !== undefined) {
             this.svc.submit(e.message.text);
         }
     }

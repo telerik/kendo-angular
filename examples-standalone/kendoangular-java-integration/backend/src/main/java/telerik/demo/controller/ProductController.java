@@ -4,6 +4,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.*;
 
+import telerik.demo.datasource.DataSourceRequest;
+import telerik.demo.datasource.DataSourceResult;
+import telerik.demo.datasource.QueryableExtensions;
 import telerik.demo.models.Product;
 import telerik.demo.models.ProductDataResult;
 
@@ -39,6 +42,24 @@ public class ProductController {
     public ProductDataResult getProducts() {
         logger.info("Products requested");
         return new ProductDataResult(products, products.size());
+    }
+
+    /**
+     * Example using the new DataSourceRequest helper - similar to ASP.NET MVC
+     * This endpoint accepts POST with DataSourceRequest in the body
+     */
+    @PostMapping("/get-products")
+    public DataSourceResult getProductsWithDataSource(@RequestBody DataSourceRequest request) {
+        logger.info("Products requested with DataSourceRequest: {}", request);
+        
+        // Use the helper method similar to ASP.NET: products.ToDataSourceResult(request)
+        DataSourceResult result = QueryableExtensions.toDataSourceResult(products, request);
+        
+        logger.info("Returning {} items out of {} total", 
+            result.getData() instanceof List ? ((List<?>) result.getData()).size() : "grouped",
+            result.getTotal());
+        
+        return result;
     }
 
     @PostMapping("/create-product")
