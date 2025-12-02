@@ -2,19 +2,19 @@ import { Component, Input } from '@angular/core';
 import { ChartConfig, Stock } from '../../../model';
 import { series, seriesTypes } from '../../../data';
 import { getChartType, getTitle } from '../../../utils';
-import { LayoutModule } from '@progress/kendo-angular-layout';
-import { ChartComponent, ChartsModule, SeriesType } from '@progress/kendo-angular-charts';
-import { ButtonsModule } from '@progress/kendo-angular-buttons';
+import { KENDO_LAYOUT } from '@progress/kendo-angular-layout';
+import { ChartComponent, KENDO_CHARTS, SeriesType } from '@progress/kendo-angular-charts';
+import { KENDO_BUTTONS } from '@progress/kendo-angular-buttons';
 import { saveAs } from '@progress/kendo-file-saver';
 import { SVGIcon, gearIcon, downloadIcon } from '@progress/kendo-svg-icons';
 import { SelectChartTypeComponent } from '../../common/select-chart-type/select-chart-type.component';
 import { SelectSeriesComponent } from '../../common/select-series/select-series.component';
-import { TooltipsModule } from '@progress/kendo-angular-tooltip';
+import { KENDO_TOOLTIP } from '@progress/kendo-angular-tooltip';
 
 
 @Component({
     selector: 'scatter-bubble-charts',
-    imports: [LayoutModule, ChartsModule, ButtonsModule, SelectChartTypeComponent, SelectSeriesComponent, TooltipsModule],
+    imports: [KENDO_LAYOUT, KENDO_CHARTS, KENDO_BUTTONS, SelectChartTypeComponent, SelectSeriesComponent, KENDO_TOOLTIP],
     templateUrl: './scatter-bubble.component.html'
 })
 export class ScatterBubbleComponent {

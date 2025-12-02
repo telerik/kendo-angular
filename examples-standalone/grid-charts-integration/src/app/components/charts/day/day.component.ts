@@ -1,9 +1,9 @@
 import { Component, Input } from '@angular/core';
-import { ChartsModule } from '@progress/kendo-angular-charts';
+import { KENDO_CHARTS } from '@progress/kendo-angular-charts';
 
 @Component({
     selector: 'day-chart',
-    imports: [ChartsModule],
+    imports: [KENDO_CHARTS],
     templateUrl: './day.component.html',
     styleUrl: './day.component.scss'
 })

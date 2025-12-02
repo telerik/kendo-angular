@@ -2,19 +2,19 @@ import { Component, Input } from '@angular/core';
 import { ChartConfig, Stock } from '../../../model';
 import { series, seriesTypes } from '../../../data';
 import { getChartStack, getChartType, getTitle } from '../../../utils';
-import { ChartComponent, ChartsModule, SeriesType } from '@progress/kendo-angular-charts';
+import { ChartComponent, KENDO_CHARTS, SeriesType } from '@progress/kendo-angular-charts';
 import { saveAs } from '@progress/kendo-file-saver';
 import { SVGIcon, gearIcon, downloadIcon } from '@progress/kendo-svg-icons';
-import { LayoutModule } from '@progress/kendo-angular-layout';
+import { KENDO_LAYOUT } from '@progress/kendo-angular-layout';
 import { SelectSeriesComponent } from '../../common/select-series/select-series.component';
 import { SelectChartTypeComponent } from '../../common/select-chart-type/select-chart-type.component';
-import { ButtonsModule } from '@progress/kendo-angular-buttons';
-import { TooltipsModule } from '@progress/kendo-angular-tooltip';
+import { KENDO_BUTTONS } from '@progress/kendo-angular-buttons';
+import { KENDO_TOOLTIP } from '@progress/kendo-angular-tooltip';
 
 
 @Component({
     selector: 'stocks-component',
-    imports: [LayoutModule, ChartsModule, SelectSeriesComponent, SelectChartTypeComponent, ButtonsModule, TooltipsModule],
+    imports: [KENDO_LAYOUT, KENDO_CHARTS, SelectSeriesComponent, SelectChartTypeComponent, KENDO_BUTTONS, KENDO_TOOLTIP],
     templateUrl: './stocks-chart.component.html'
 })
 export class StocksChartComponent {
