@@ -1,9 +1,11 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { SVGIcon, starIcon, starOutlineIcon } from '@progress/kendo-svg-icons';
+import { KENDO_ICONS } from '@progress/kendo-angular-icons';
+import { NgClass } from '@angular/common';
 
 @Component({
     selector: 'app-kendo-rating',
-    template: ` <kendo-svgicon *ngFor="let item of stars" [icon]="starIcon" [ngClass]="{'yellow': item<=value}"></kendo-svgicon> `,
+    template: ` @for (item of stars; track item) {<kendo-svgicon [icon]="starIcon" [ngClass]="{'yellow': item<=value}"></kendo-svgicon>} `,
     styles: [
         `
             .yellow {
@@ -11,7 +13,7 @@ import { SVGIcon, starIcon, starOutlineIcon } from '@progress/kendo-svg-icons';
             }
         `
     ],
-    standalone: false
+    imports: [KENDO_ICONS, NgClass]
 })
 export class RatingComponent implements OnInit {
     @Input() public value: number = 0;

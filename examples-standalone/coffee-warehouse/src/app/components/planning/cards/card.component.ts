@@ -4,11 +4,14 @@ import { Team } from '../../../models/team.model';
 import { employees } from '../../../resources/employees';
 import { images } from '../../../resources/images';
 import { teams } from '../../../resources/teams';
+import { KENDO_LAYOUT } from '@progress/kendo-angular-layout';
+import { KENDO_BUTTONS } from '@progress/kendo-angular-buttons';
+import { CommonModule } from '@angular/common';
 
 @Component({
     selector: 'app-card-component',
     templateUrl: './card.component.html',
-    standalone: false
+    imports: [KENDO_LAYOUT, KENDO_BUTTONS, CommonModule]
 })
 export class CardComponent {
     @Output() public toggleEvents: EventEmitter<Employee> = new EventEmitter();
