@@ -19,7 +19,6 @@ import {
 
 @Component({
     selector: 'app-header',
-    standalone: true,
     imports: [KENDO_INPUTS, KENDO_LAYOUT, KENDO_ICONS, KENDO_BUTTONS, KENDO_DROPDOWNS, RouterModule],
     templateUrl: './header.component.html',
     styleUrl: './header.component.css',

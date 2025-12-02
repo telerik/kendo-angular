@@ -12,7 +12,6 @@ import { CustomMessagesService } from '../../services/custom-messages.service';
 
 @Component({
     selector: 'app-transactions-grid',
-    standalone: true,
     imports: [KENDO_GRID, KENDO_PAGER, IntlModule, KENDO_BUTTONS, PDFModule],
     templateUrl: './transactions-grid.component.html',
 })

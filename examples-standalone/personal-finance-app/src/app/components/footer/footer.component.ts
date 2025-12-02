@@ -4,7 +4,6 @@ import { MessageService } from '@progress/kendo-angular-l10n';
 
 @Component({
     selector: 'app-footer',
-    standalone: true,
     imports: [],
     templateUrl: './footer.component.html',
 })

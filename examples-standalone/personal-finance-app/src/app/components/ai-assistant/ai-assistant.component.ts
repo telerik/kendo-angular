@@ -25,7 +25,6 @@ import { CustomMessagesService } from '../../services/custom-messages.service';
 
 @Component({
     selector: 'app-ai-assistant',
-    standalone: true,
     imports: [KENDO_LAYOUT, KENDO_CONVERSATIONALUI, KENDO_LABELS, KENDO_INPUTS],
     templateUrl: './ai-assistant.component.html',
     styleUrl: './ai-assistant.component.css',

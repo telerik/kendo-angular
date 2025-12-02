@@ -3,12 +3,12 @@ import { KENDO_DROPDOWNS } from '@progress/kendo-angular-dropdowns';
 import { employees } from '../../data/employees';
 import { Employee } from '../../models/employee';
 import { dropdowntreeData } from '../../data/tree-data';
-import { CommonModule } from '@angular/common';
+
 import { TreeItem } from '../../models/tree-item';
 
 @Component({
     selector: 'app-dropdowns',
-    imports: [KENDO_DROPDOWNS, CommonModule],
+    imports: [KENDO_DROPDOWNS],
     templateUrl: './dropdowns.component.html',
     styleUrl: './dropdowns.component.css',
 })
