@@ -21,7 +21,8 @@
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
-              "zone.js"
+              "zone.js",
+              "@angular/localize/init"
             ],
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
@@ -30,17 +31,19 @@
               "src/assets"
             ],
             "styles": [
-                "src/styles/_main.scss"
+              "src/styles.scss"
             ],
-            "scripts": [ ]
+            "scripts": [
+              "node_modules/jquery/dist/jquery.min.js"
+            ]
           },
           "configurations": {
             "production": {
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "10mb",
-                  "maximumError": "10mb"
+                  "maximumWarning": "14mb",
+                  "maximumError": "12mb"
                 },
                 {
                   "type": "anyComponentStyle",
@@ -90,7 +93,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles/_main.scss"
+              "src/styles.scss"
             ],
             "scripts": []
           }

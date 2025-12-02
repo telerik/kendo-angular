@@ -1,8 +1,8 @@
-@import './bootstrap';
-@import './typography';
-@import './variables';
-@import './kendo';
-@import './responsive';
+@use './bootstrap';
+@use './typography';
+@use './variables' as *;
+@use './kendo';
+@use './responsive';
 
 body {
     font-family: $roboto;

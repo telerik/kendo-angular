@@ -1,10 +1,5 @@
-$font-family-base: 'Roboto', Helvetica, Arial, sans-serif;
-
-@import '../../node_modules/bootstrap/scss/functions';
-@import '../../node_modules/bootstrap/scss/variables';
-@import '../../node_modules/bootstrap/scss/mixins';
-@import '../../node_modules/bootstrap/scss/reboot';
-@import '../../node_modules/bootstrap/scss/utilities';
+// Override Bootstrap variables before importing
+$font-family-base: "Roboto", Helvetica, Arial, sans-serif;
 
 $grid-columns: 12;
 $grid-gutter-width: 32px;
@@ -25,4 +20,8 @@ $container-max-widths: (
     xl: 1200px
 );
 
-@import '../../node_modules/bootstrap/scss/bootstrap.scss';
+@import "bootstrap/scss/functions";
+@import "bootstrap/scss/variables";
+@import "bootstrap/scss/mixins";
+@import "bootstrap/scss/reboot";
+@import "bootstrap/scss/bootstrap";

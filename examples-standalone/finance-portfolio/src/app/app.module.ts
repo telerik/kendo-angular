@@ -10,9 +10,7 @@ import { ButtonsModule } from '@progress/kendo-angular-buttons';
 import { DialogsModule } from '@progress/kendo-angular-dialog';
 import { DateInputsModule } from '@progress/kendo-angular-dateinputs';
 import { ChartsModule } from '@progress/kendo-angular-charts';
-import 'hammerjs';
 import '@progress/kendo-ui';
-import * as $ from 'jquery';
 
 import { AppRoutingModule } from './app-routing.module';
 

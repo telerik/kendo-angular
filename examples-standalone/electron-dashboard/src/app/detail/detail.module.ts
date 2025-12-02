@@ -9,9 +9,6 @@ import { ChartsModule } from '@progress/kendo-angular-charts';
 import { IntlModule } from "@progress/kendo-angular-intl";
 
 
-import 'hammerjs';
-
-
 @NgModule({
   declarations: [DetailComponent],
   imports: [CommonModule, SharedModule, ChartsModule,IntlModule, DetailRoutingModule]

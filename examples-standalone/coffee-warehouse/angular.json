@@ -22,7 +22,6 @@
           "builder": "@angular-devkit/build-angular:application",
           "options": {
             "allowedCommonJsDependencies": [
-              "hammerjs",
               "@progress/kendo-angular-intl/locales/en/all",
               "@progress/kendo-angular-intl/locales/es/all",
               "@progress/kendo-angular-intl/locales/fr/all"

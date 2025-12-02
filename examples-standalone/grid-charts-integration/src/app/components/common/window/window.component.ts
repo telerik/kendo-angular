@@ -4,8 +4,6 @@ import { ScatterBubbleComponent } from '../../charts/scatter-bubble/scatter-bubb
 import { PieDonutComponent } from '../../charts/pie-donut/pie-donut.component';
 import { StocksChartComponent } from '../../charts/common/stocks-chart.component';
 
-
-
 @Component({
     selector: 'window-component',
     imports: [ScatterBubbleComponent, PieDonutComponent, StocksChartComponent],

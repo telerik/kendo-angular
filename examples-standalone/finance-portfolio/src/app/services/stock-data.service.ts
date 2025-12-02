@@ -93,6 +93,10 @@ export class StockDataService {
     private generateDataForSymbol(stock: Stock, intervalInMinutes: number, range: SelectionRange): StockIntervalDetails[] {
         const data: StockIntervalDetails[] = [];
 
+        if (!range.start || !range.end) {
+            return data;
+        }
+
         const minutesPerDay = 1440;
         const standingPoint = {
             close: stock.intraday[0],

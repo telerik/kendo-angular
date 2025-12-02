@@ -73,7 +73,7 @@ export class StockChartComponent {
         this.selectFirstCompatibleInterval(duration);
     }
 
-    public handleRangeChange(start: Date, end: Date): void {
+    public handleRangeChange(start: Date | null, end: Date | null): void {
         this.normalizedRange = normalizeSelectionRange(start, end, this.calendarMin, this.calendarMax);
 
         if (this.normalizedRange.start && this.normalizedRange.end) {

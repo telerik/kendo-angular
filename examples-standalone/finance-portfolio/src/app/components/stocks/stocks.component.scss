@@ -1,4 +1,4 @@
-@import '../../../styles/variables';
+@use '../../../styles/variables' as *;
 
 .k-splitter {
     border-width: 0;
