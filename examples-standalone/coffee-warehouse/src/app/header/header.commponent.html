@@ -23,6 +23,7 @@
         [popupSettings]="popupSettings"
         [ngClass]="{'material-bg':selectedTheme.text==='Material'}"
         class="ddl-locale"
+        [style.width.px]="140"
         >
       </kendo-dropdownlist>
 
@@ -35,6 +36,7 @@
         [popupSettings]="popupSettings"
         [ngClass]="{'material-bg':selectedTheme.text==='Material'}"
         class="ddl-theme"
+        [style.width.px]="100"
         >
         <ng-template kendoDropDownListValueTemplate let-dataItem>
           <kendo-svgicon [icon]="paletteIcon"></kendo-svgicon>
