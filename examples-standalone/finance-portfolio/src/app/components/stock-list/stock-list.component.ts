@@ -14,7 +14,8 @@ import { SVGIcon, plusIcon, trashIcon } from '@progress/kendo-svg-icons';
     selector: 'app-stock-list',
     templateUrl: './stock-list.component.html',
     styleUrls: ['./stock-list.component.scss'],
-    encapsulation: ViewEncapsulation.None
+    encapsulation: ViewEncapsulation.None,
+    standalone: false
 })
 export class StockListComponent implements OnDestroy {
     public trashIcon: SVGIcon = trashIcon;

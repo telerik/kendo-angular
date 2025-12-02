@@ -9,7 +9,8 @@ declare var kendo: any;
     selector: 'app-heatmap',
     templateUrl: './heatmap.component.html',
     styleUrls: ['./heatmap.component.scss'],
-    encapsulation: ViewEncapsulation.None
+    encapsulation: ViewEncapsulation.None,
+    standalone: false
 })
 export class HeatmapComponent implements AfterViewInit, OnDestroy {
     @ViewChild('heatmap') heatmap: ElementRef | undefined;

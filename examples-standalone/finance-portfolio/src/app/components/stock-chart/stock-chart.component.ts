@@ -10,7 +10,8 @@ import { normalizeSelectionRange, rangeAndIntervalCompatible } from '../../pipes
 @Component({
     selector: 'app-stock-chart',
     templateUrl: './stock-chart.component.html',
-    styleUrls: ['./stock-chart.component.scss']
+    styleUrls: ['./stock-chart.component.scss'],
+    standalone: false
 })
 export class StockChartComponent {
     public range: SelectionRange = defaultRange;

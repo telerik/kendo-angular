@@ -7,7 +7,8 @@ import { StockDataService } from '../../services/stock-data.service';
     selector: 'app-user-profile',
     templateUrl: './user-profile.component.html',
     styleUrls: ['./user-profile.component.scss'],
-    encapsulation: ViewEncapsulation.None
+    encapsulation: ViewEncapsulation.None,
+    standalone: false
 })
 export class UserProfileComponent implements OnDestroy {
     public chartData: any[] = [];

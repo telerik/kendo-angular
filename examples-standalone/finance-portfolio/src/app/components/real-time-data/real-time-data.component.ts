@@ -6,7 +6,8 @@ import { StockDataService } from '../../services/stock-data.service';
     selector: 'app-real-time-data',
     templateUrl: './real-time-data.component.html',
     styleUrls: ['./real-time-data.component.scss'],
-    encapsulation: ViewEncapsulation.None
+    encapsulation: ViewEncapsulation.None,
+    standalone: false
 })
 export class RealTimeDataComponent implements OnInit, OnDestroy {
     public gridView: GridDataResult = { data: [], total: 0 };

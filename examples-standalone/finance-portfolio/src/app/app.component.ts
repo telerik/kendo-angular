@@ -11,6 +11,7 @@ import { Component } from '@angular/core';
         </main>
 
         <app-footer></app-footer>
-    `
+    `,
+    standalone: false
 })
 export class AppComponent {}

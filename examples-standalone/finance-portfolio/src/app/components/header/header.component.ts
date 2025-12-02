@@ -6,7 +6,8 @@ import { StockDataService } from '../../services/stock-data.service';
     selector: 'app-header',
     templateUrl: './header.component.html',
     styleUrls: ['./header.component.scss'],
-    encapsulation: ViewEncapsulation.None
+    encapsulation: ViewEncapsulation.None,
+    standalone: false
 })
 export class HeaderComponent {
     public listItems: Array<string> = ['USD', 'EUR', 'GBP'];

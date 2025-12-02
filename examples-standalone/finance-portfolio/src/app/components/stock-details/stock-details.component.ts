@@ -14,7 +14,8 @@ const currencies = {
     selector: 'app-stock-details',
     templateUrl: './stock-details.component.html',
     styleUrls: ['./stock-details.component.scss'],
-    encapsulation: ViewEncapsulation.None
+    encapsulation: ViewEncapsulation.None,
+    standalone: false
 })
 export class StockDetailsComponent implements OnChanges {
     @Input() public chartType: 'candle' | 'line' | 'area' = 'candle';
