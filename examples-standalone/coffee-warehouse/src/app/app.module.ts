@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { NgModule, LOCALE_ID } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
@@ -45,8 +45,7 @@ import '@progress/kendo-angular-intl/locales/en/all';
 import '@progress/kendo-angular-intl/locales/es/all';
 import '@progress/kendo-angular-intl/locales/fr/all';
 
-@NgModule({
-    declarations: [
+@NgModule({ declarations: [
         AppComponent,
         RatingComponent,
         DashboardComponent,
@@ -57,8 +56,7 @@ import '@progress/kendo-angular-intl/locales/fr/all';
         InfoComponent,
         TeamComponent
     ],
-    imports: [
-        BrowserModule,
+    bootstrap: [AppComponent], imports: [BrowserModule,
         BrowserAnimationsModule,
         FormsModule,
         ReactiveFormsModule,
@@ -71,7 +69,6 @@ import '@progress/kendo-angular-intl/locales/fr/all';
         ButtonsModule,
         EditorModule,
         FileSelectModule,
-        HttpClientModule,
         ChartsModule,
         IntlModule,
         DateInputsModule,
@@ -79,13 +76,10 @@ import '@progress/kendo-angular-intl/locales/fr/all';
         DropDownsModule,
         RouterModule.forRoot(drawerRoutes),
         NotificationModule,
-        IconsModule
-    ],
-    providers: [
+        IconsModule], providers: [
         { provide: MessageService, useClass: CustomMessagesService },
         { provide: LOCALE_ID, useValue: 'en-US' },
-        ProfileImageService
-    ],
-    bootstrap: [AppComponent]
-})
+        ProfileImageService,
+        provideHttpClient(withInterceptorsFromDi())
+    ] })
 export class AppModule {}
