@@ -9,7 +9,6 @@ import { TotalPortfolioComponent } from './total-portfolio/total-portfolio.compo
 
 @Component({
   selector: 'app-root',
-  standalone: true,
   imports: [GridComponent, HeaderComponent, MainPanelComponent, MyPortfolioComponent, TotalPortfolioComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'

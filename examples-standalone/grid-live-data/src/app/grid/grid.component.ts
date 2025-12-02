@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { GridModule, RowClassArgs } from '@progress/kendo-angular-grid';
+import { KENDO_GRID, RowClassArgs } from '@progress/kendo-angular-grid';
 import { Observable } from 'rxjs';
 import {
   trigger,
@@ -15,17 +15,14 @@ import {
   caretAltUpIcon,
 } from '@progress/kendo-svg-icons';
 import { Stock, StocksService } from '../../services/stocks.service';
-import { IconsModule } from '@progress/kendo-angular-icons';
-import { HttpClientModule } from '@angular/common/http';
+import { KENDO_ICONS } from '@progress/kendo-angular-icons';
 import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'grid',
   templateUrl: './grid.component.html',
-  standalone: true,
   styleUrls: ['./grid.component.css'],
-  imports: [GridModule, IconsModule, HttpClientModule, CommonModule],
-  providers: [StocksService],
+  imports: [KENDO_GRID, KENDO_ICONS, CommonModule],
   animations: [
     trigger('positiveState', [
       transition('void => *', []),

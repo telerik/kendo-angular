@@ -4,14 +4,13 @@ import { cards } from './card-data';
 import { Stock } from '../../services/stocks.service';
 import { IntlService } from '@progress/kendo-angular-intl';
 import { Observable } from 'rxjs';
-import { IconsModule } from '@progress/kendo-angular-icons';
-import { LayoutModule } from '@progress/kendo-angular-layout';
+import { KENDO_ICONS } from '@progress/kendo-angular-icons';
+import { KENDO_LAYOUT } from '@progress/kendo-angular-layout';
 import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'my-portfolio',
-  standalone: true,
-  imports: [IconsModule, LayoutModule, CommonModule],
+  imports: [KENDO_ICONS, KENDO_LAYOUT, CommonModule],
   templateUrl: './my-portfolio.component.html',
   styleUrl: './my-portfolio.component.css',
   encapsulation: ViewEncapsulation.None

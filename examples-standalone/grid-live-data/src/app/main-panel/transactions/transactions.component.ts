@@ -1,13 +1,12 @@
 import { Component } from '@angular/core';
 import { Transactions } from '../../models/transaction.model';
 import { accountTransactions } from '../transaction-data/transactions';
-import { LayoutModule } from '@progress/kendo-angular-layout';
+import { KENDO_LAYOUT } from '@progress/kendo-angular-layout';
 
 
 @Component({
   selector: 'transactions',
-  standalone: true,
-  imports: [LayoutModule],
+  imports: [KENDO_LAYOUT],
   templateUrl: './transactions.component.html',
   styleUrl: './transactions.component.css'
 })
