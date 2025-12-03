@@ -1,21 +1,20 @@
 import { Component, Input } from '@angular/core';
-import { ChartComponent, ChartsModule, SeriesType } from '@progress/kendo-angular-charts';
-import { DropDownsModule } from '@progress/kendo-angular-dropdowns';
-import { LayoutModule } from '@progress/kendo-angular-layout';
+import { ChartComponent, KENDO_CHARTS, SeriesType } from '@progress/kendo-angular-charts';
+import { KENDO_DROPDOWNS } from '@progress/kendo-angular-dropdowns';
+import { KENDO_LAYOUT } from '@progress/kendo-angular-layout';
 import { SelectChartTypeComponent } from '../../common/select-chart-type/select-chart-type.component';
-import { ButtonsModule } from '@progress/kendo-angular-buttons';
+import { KENDO_BUTTONS } from '@progress/kendo-angular-buttons';
 import { ChartConfig, Stock } from '../../../model';
 import { SVGIcon, downloadIcon, gearIcon } from '@progress/kendo-svg-icons';
 import { series, seriesTypes } from '../../../data';
 import { getChartType, getTitle } from '../../../utils';
 import { saveAs } from '@progress/kendo-file-saver';
-import { TooltipsModule } from '@progress/kendo-angular-tooltip';
+import { KENDO_TOOLTIP } from '@progress/kendo-angular-tooltip';
 
 @Component({
-  selector: 'pie-donut-stocks',
-  standalone: true,
-  imports: [LayoutModule, DropDownsModule, ChartsModule, SelectChartTypeComponent, ButtonsModule, TooltipsModule],
-  templateUrl: './pie-donut.component.html',
+    selector: 'pie-donut-stocks',
+    imports: [KENDO_LAYOUT, KENDO_DROPDOWNS, KENDO_CHARTS, SelectChartTypeComponent, KENDO_BUTTONS, KENDO_TOOLTIP],
+    templateUrl: './pie-donut.component.html'
 })
 export class PieDonutComponent {
     @Input() public data: Stock[] = [];

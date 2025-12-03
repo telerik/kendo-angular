@@ -1,11 +1,10 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { DropDownsModule } from '@progress/kendo-angular-dropdowns';
+import { KENDO_DROPDOWNS } from '@progress/kendo-angular-dropdowns';
 
 @Component({
-  selector: 'select-series',
-  standalone: true,
-  imports: [DropDownsModule],
-  templateUrl: './select-series.component.html',
+    selector: 'select-series',
+    imports: [KENDO_DROPDOWNS],
+    templateUrl: './select-series.component.html'
 })
 export class SelectSeriesComponent {
     @Input() public data: object[] = [];

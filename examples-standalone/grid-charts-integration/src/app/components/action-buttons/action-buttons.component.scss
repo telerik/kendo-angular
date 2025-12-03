@@ -1,13 +1,13 @@
-@import "../../../styles/variables";
+@use "../../../styles/variables" as vars;
 
 .action-buttons {
-    padding: $action-buttons-padding;
+    padding: vars.$action-buttons-padding;
     position: fixed;
-    right: $action-buttons-right;
-    bottom: $action-buttons-bottom;
-    border-radius: $action-buttons-border-radius;
-    background-color: $white;
-    box-shadow: $action-buttons-shadow;
+    right: vars.$action-buttons-right;
+    bottom: vars.$action-buttons-bottom;
+    border-radius: vars.$action-buttons-border-radius;
+    background-color: vars.$white;
+    box-shadow: vars.$action-buttons-shadow;
 
     > a {
         display: block;

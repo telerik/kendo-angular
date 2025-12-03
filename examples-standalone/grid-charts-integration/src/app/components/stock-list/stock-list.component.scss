@@ -1,5 +1,5 @@
 @use "sass:math";
-@import '../../../styles/variables';
+@use '../../../styles/variables' as vars;
 
 .k-grid {
     margin-bottom: 100px;
@@ -16,20 +16,20 @@
             display: block;
             margin: 0;
             font-weight: normal;
-            font-size: $grid-header-subtitle;
+            font-size: vars.$grid-header-subtitle;
         }
 
         .k-link>.k-icon.k-i-sort-asc-sm,
         .k-link>.k-icon.k-i-sort-desc-sm {
-            margin-left: $grid-sorting-icon-margin;
+            margin-left: vars.$grid-sorting-icon-margin;
         }
 
         .grid-header-subtitle+.k-icon.k-i-sort-asc-sm,
         .grid-header-subtitle+.k-i-sort-desc-sm {
             position: absolute;
             top: 50%;
-            margin-top: - math.div($grid-sorting-icon-right-position, 2);
-            right: $grid-sorting-icon-right-position;
+            margin-top: - math.div(vars.$grid-sorting-icon-right-position, 2);
+            right: vars.$grid-sorting-icon-right-position;
         }
     }
 
@@ -42,11 +42,11 @@
     }
 
     tr.k-state-selected>td.symbol-col {
-        color: $grid-row-selection-bg;
+        color: vars.$grid-row-selection-bg;
     }
 
     .symbol-col {
-        color: $grid-row-selection-bg;
+        color: vars.$grid-row-selection-bg;
     }
 
     th,
@@ -56,16 +56,16 @@
     }
 
     .grid-cell-positive {
-        color: $grid-cell-positive-color;
+        color: vars.$grid-cell-positive-color;
     }
 
     .grid-cell-negative {
-        color: $grid-cell-negative-color;
+        color: vars.$grid-cell-negative-color;
     }
 }
 
 .k-custom-notification {
-    margin: $notification-margin 0;
+    margin: vars.$notification-margin 0;
 }
 
 .k-notification-wrap{
