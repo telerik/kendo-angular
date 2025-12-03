@@ -4,6 +4,8 @@ import { StockDataService } from '../../services/stock-data.service';
 import { Stock } from '../../models';
 import { NavigationComponent } from '../navigation/navigation.component';
 
+import '@progress/kendo-ui';
+
 declare var kendo: any;
 
 @Component({

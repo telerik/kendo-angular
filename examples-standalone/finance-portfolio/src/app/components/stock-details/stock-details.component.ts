@@ -60,6 +60,11 @@ export class StockDetailsComponent implements OnChanges {
 
     public itemColor = (args: any) => {
         const current: StockIntervalDetails = args.dataItem;
+
+        if (!current) {
+            return '#5CB85C';
+        }
+
         const currentLargerThenPrev = !this.previousColumnChartItem || current.volume >= this.previousColumnChartItem.volume;
 
         if (current.volume) {
