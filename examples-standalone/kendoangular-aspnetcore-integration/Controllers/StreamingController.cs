@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace upload.Controllers
 {
+    [ApiController]
     public class StreamingController : Controller
     {
         private readonly IWebHostEnvironment _webHostingEnvironment;
@@ -16,7 +17,7 @@ namespace upload.Controllers
 
         [Route("upload")]
         [HttpPost]
-        public IActionResult OnPostUpload(List<IFormFile> files)
+        public async Task<IActionResult> OnPostUpload(List<IFormFile> files)
         {
             foreach (var formFile in files)
             {
@@ -28,16 +29,22 @@ namespace upload.Controllers
                     // We are only interested in the file name.
                     var fileName = Path.GetFileName(fileContent.FileName.ToString().Trim('"'));
 
-                    // Implement your own saving logic here
-                    // var physicalPath = Path.Combine(_webHostingEnvironment.WebRootPath, "Upload_Directory", fileName);
-                    // _logger.LogInformation("Uploading file: {FileName} to {Path}", fileName, physicalPath);
-                    // using (var fileStream = new FileStream(physicalPath, FileMode.Create))
-                    // {
-                    //     await formFile.CopyToAsync(fileStream);
-                    // }
-                    // _logger.LogInformation("File uploaded successfully: {FileName}", fileName);
+                    // Create upload directory if it doesn't exist
+                    var uploadDirectory = Path.Combine(_webHostingEnvironment.WebRootPath, "Upload_Directory");
+                    if (!Directory.Exists(uploadDirectory))
+                    {
+                        Directory.CreateDirectory(uploadDirectory);
+                    }
 
-                    _logger.LogInformation("Received file: {FileName}", fileName);
+                    var physicalPath = Path.Combine(uploadDirectory, fileName);
+                    _logger.LogInformation("Uploading file: {FileName} to {Path}", fileName, physicalPath);
+                    
+                    using (var fileStream = new FileStream(physicalPath, FileMode.Create))
+                    {
+                        await formFile.CopyToAsync(fileStream);
+                    }
+                    
+                    _logger.LogInformation("File uploaded successfully: {FileName}", fileName);
                 }
             }
 
@@ -53,21 +60,20 @@ namespace upload.Controllers
                 foreach (var fullName in fileNames)
                 {
                     var fileName = Path.GetFileName(fullName);
-                    // Implement your own logic to delete the file
-                    // var physicalPath = Path.Combine(_webHostingEnvironment.WebRootPath, "Upload_Directory", fileName);
+                    var physicalPath = Path.Combine(_webHostingEnvironment.WebRootPath, "Upload_Directory", fileName);
 
                     // TODO: Verify user permissions
 
-                    // if (System.IO.File.Exists(physicalPath))
-                    // {
-                    //     _logger.LogInformation("Deleting file: {FileName} from {Path}", fileName, physicalPath);
-                    //     System.IO.File.Delete(physicalPath);
-                    //     _logger.LogInformation("File deleted successfully: {FileName}", fileName);
-                    // }
-                    // else
-                    // {
-                    //     _logger.LogWarning("File not found: {FileName}", fileName);
-                    // }
+                    if (System.IO.File.Exists(physicalPath))
+                    {
+                        _logger.LogInformation("Deleting file: {FileName} from {Path}", fileName, physicalPath);
+                        System.IO.File.Delete(physicalPath);
+                        _logger.LogInformation("File deleted successfully: {FileName}", fileName);
+                    }
+                    else
+                    {
+                        _logger.LogWarning("File not found: {FileName}", fileName);
+                    }
                 }
             }
 

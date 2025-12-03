@@ -1,24 +1,19 @@
 <kendo-drawer-container class="k-h-full">
-    <kendo-drawer
-        #drawer
-        class="!k-flex-none k-overflow-y-auto !k-pos-fixed k-h-screen"
-        [items]="items"
-        [mini]="true"
-        [(expanded)]="expanded"
-        mode="overlay"
-        (select)="onItemSelection($event)"
-    >
+    <kendo-drawer #drawer class="!k-flex-none k-overflow-y-auto !k-pos-fixed k-h-screen" [items]="items" [mini]="true"
+        [(expanded)]="expanded" mode="overlay" (select)="onItemSelection($event)">
         <ng-template kendoDrawerHeaderTemplate>
-            <div class="k-drawer-item k-level-0" (click)="drawer.toggle()">
-                <kendo-svg-icon [icon]="menuIcon"></kendo-svg-icon>
-                @if(expanded){
-                <span>{{ customMsgService.translate('menu') }}</span>
-                }
+            <div class="k-drawer-items">
+                <div class="k-drawer-item header-item" (click)="drawer.toggle()">
+                    <kendo-svg-icon [icon]="menuIcon"></kendo-svg-icon>
+                    @if(expanded){
+                    <span>{{ customMsgService.translate('menu') }}</span>
+                    }
+                </div>
             </div>
         </ng-template>
         <ng-template kendoDrawerItemTemplate let-item>
             <div class="k-drawer-link" [routerLink]="'./' + item.path">
-                <kendo-svgicon [icon]="item.svgIcon"></kendo-svgicon>
+                <kendo-svg-icon [icon]="item.svgIcon"></kendo-svg-icon>
                 @if(expanded){
                 <span>{{ item.text }}</span>
                 }

@@ -29,14 +29,14 @@ jobs:
           npm run lint
           npm run build-all
 
-  standalone-examples-node18:
+  standalone-examples-node20:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Use NodeJS v18
+      - name: Use NodeJS v20
         uses: actions/setup-node@v4
         with:
-          node-version: "18"
+          node-version: "20"
 
       - name: Check out repository
         uses: actions/checkout@v4
@@ -64,8 +64,9 @@ jobs:
         run: |
           npm ci
       # npm run lint
-      - name: Build Grid Live Data app
-        working-directory: ./examples-standalone/grid-live-data
+
+      - name: Build Grid Performance app
+        working-directory: ./examples-standalone/grid-performance
         run: |
           npm ci
           npm run build
@@ -87,7 +88,7 @@ jobs:
         run: |
           npm ci
 
-      - name: Build ASP.NET Core Integration app
+      - name: Build Java Integration app
         working-directory: ./examples-standalone/kendoangular-java-integration/ClientApp
         run: |
           npm ci

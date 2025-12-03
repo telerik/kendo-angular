@@ -1,5 +1,6 @@
-import { Component, inject, OnInit } from "@angular/core";
+import { Component, inject, signal, Signal } from "@angular/core";
 import { FormGroup, FormControl, Validators } from "@angular/forms";
+import { rxResource } from "@angular/core/rxjs-interop";
 
 import {
     AddEvent,
@@ -10,6 +11,7 @@ import {
     GridDataResult,
     RemoveEvent,
     SaveEvent,
+    KENDO_GRID,
 } from "@progress/kendo-angular-grid";
 import { State } from "@progress/kendo-data-query";
 
@@ -18,39 +20,42 @@ import { ProductService } from "./products.service";
 @Component({
     selector: "app-fetch-data",
     templateUrl: "./fetch-data.component.html",
+    imports: [KENDO_GRID]
 })
-export class FetchDataComponent implements OnInit {
-    public gridData!: GridDataResult;
-    public productService = inject(ProductService);
-    public editedRowIndex: number | undefined = undefined;
-    public formGroup?: FormGroup;
-    public state: State = {
+export class FetchDataComponent {
+    private productService = inject(ProductService);
+    public editedRowIndex = signal<number | undefined>(undefined);
+    public formGroup = signal<FormGroup | undefined>(undefined);
+    public state = signal<State>({
         skip: 0,
         take: 5,
         filter: { filters: [], logic: "or" },
         group: [],
         sort: [],
-    };
+    });
 
-    ngOnInit(): void {
-        this.getProducts(this.state);
-    }
+    private productsResource = rxResource({
+        params: () => this.state(),
+        stream: ({ params }) => this.productService.getProducts(params)
+    });
+
+    public gridData: Signal<GridDataResult | undefined> = this.productsResource.value;
 
     public dataStateChange(state: DataStateChangeEvent): void {
-        this.state = state;
-        this.getProducts(state);
+        this.state.set(state);
     }
 
     public addHandler(addEvent: AddEvent): void {
         this.closeEditor(addEvent.sender);
 
-        this.formGroup = new FormGroup({
+        const newFormGroup = new FormGroup({
             productID: new FormControl(null, Validators.required),
             productName: new FormControl(null, Validators.required),
             unitPrice: new FormControl(null, [Validators.required, Validators.min(0)]),
         });
 
-        addEvent.sender.addRow(this.formGroup);
+        this.formGroup.set(newFormGroup);
+        addEvent.sender.addRow(newFormGroup);
     }
 
     public editHandler(editEvent: EditEvent): void {
@@ -58,14 +63,15 @@ export class FetchDataComponent implements OnInit {
 
         const { productID, productName, unitPrice } = editEvent.dataItem;
 
-        this.formGroup = new FormGroup({
+        const newFormGroup = new FormGroup({
             productID: new FormControl(productID),
             productName: new FormControl(productName),
             unitPrice: new FormControl(unitPrice),
         });
 
-        this.editedRowIndex = editEvent.rowIndex;
-        editEvent.sender.editRow(editEvent.rowIndex, this.formGroup);
+        this.formGroup.set(newFormGroup);
+        this.editedRowIndex.set(editEvent.rowIndex);
+        editEvent.sender.editRow(editEvent.rowIndex, newFormGroup);
     }
 
     public cancelHandler(cancelEvent: CancelEvent): void {
@@ -76,13 +82,13 @@ export class FetchDataComponent implements OnInit {
         const product = saveEvent.formGroup.value;
         if (saveEvent.isNew) {
             this.productService.createProduct(product).subscribe({
-                next: () => this.getProducts(this.state),
+                next: () => this.productsResource.reload(),
                 error: (error) => console.error(error),
             });
         } else {
             const productId = saveEvent.dataItem.productID;
             this.productService.updateProduct(productId, product).subscribe({
-                next: () => this.getProducts(this.state),
+                next: () => this.productsResource.reload(),
                 error: (error) => console.error(error),
             });
         }
@@ -91,23 +97,14 @@ export class FetchDataComponent implements OnInit {
 
     public removeHandler(removeEvent: RemoveEvent): void {
         this.productService.deleteProduct(removeEvent.dataItem.productID).subscribe({
-            next: () => this.getProducts(this.state),
+            next: () => this.productsResource.reload(),
             error: (error) => console.error(error),
         });
     }
 
-    private closeEditor(grid: GridComponent, rowIndex: number | undefined = this.editedRowIndex): void {
+    private closeEditor(grid: GridComponent, rowIndex: number | undefined = this.editedRowIndex()): void {
         grid.closeRow(rowIndex);
-        this.editedRowIndex = undefined;
-        this.formGroup = undefined;
-    }
-
-    private getProducts(state: State): void {
-        this.productService.getProducts(state).subscribe({
-            next: (result) => {
-                this.gridData = result;
-            },
-            error: (error) => console.error(error),
-        });
+        this.editedRowIndex.set(undefined);
+        this.formGroup.set(undefined);
     }
 }

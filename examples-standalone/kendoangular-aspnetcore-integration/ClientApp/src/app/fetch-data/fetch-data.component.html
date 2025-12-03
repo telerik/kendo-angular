@@ -3,16 +3,16 @@
     from the server with CRUD operations.
 </p>
 <kendo-grid
-    [data]="gridData"
+    [data]="gridData() ?? { data: [], total: 0 }"
     [groupable]="true"
     [sortable]="true"
     [pageable]="true"
     [filterable]="true"
-    [skip]="state.skip"
-    [pageSize]="state.take"
-    [group]="state.group"
-    [sort]="state.sort"
-    [filter]="state.filter"
+    [skip]="state().skip"
+    [pageSize]="state().take"
+    [group]="state().group"
+    [sort]="state().sort"
+    [filter]="state().filter"
     (edit)="editHandler($event)"
     (cancel)="cancelHandler($event)"
     (save)="saveHandler($event)"
@@ -31,7 +31,7 @@
         <ng-template kendoGridCellTemplate let-isNew="isNew">
             <button kendoGridEditCommand [primary]="true">Edit</button>
             <button kendoGridRemoveCommand>Remove</button>
-            <button kendoGridSaveCommand [disabled]="formGroup?.invalid ?? false">
+            <button kendoGridSaveCommand [disabled]="formGroup()?.invalid ?? false">
                 {{ isNew ? "Add" : "Update" }}
             </button>
             <button kendoGridCancelCommand>

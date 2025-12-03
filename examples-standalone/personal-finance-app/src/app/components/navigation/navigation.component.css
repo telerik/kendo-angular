@@ -21,3 +21,20 @@
     --webkit-backdrop-filter: blur(2px) contrast(0.7);
     opacity: 1;
 }
+
+.k-drawer-mini .k-drawer-wrapper {
+    width: calc(var(--kendo-spacing-4, 1rem) * 2 + 16px + var(--kendo-spacing-1, 0.25rem) * 2 + var(--kendo-spacing-3, 0.75rem 12px) * 2)!important;
+}
+
+.k-drawer-items:has(.header-item) {
+    padding-block-end: 0;
+}
+
+.k-drawer-items {
+    padding-block-start: 0;
+}
+
+.k-drawer-container .k-drawer-content {
+    padding-block: 0px;
+    padding-inline: 0px;
+}
