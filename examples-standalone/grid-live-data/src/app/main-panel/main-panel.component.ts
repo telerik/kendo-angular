@@ -8,7 +8,6 @@ import { TransactionsComponent } from './transactions/transactions.component';
     templateUrl: './main-panel.component.html',
     styleUrls: ['./main-panel.component.css'],
     imports: [BalanceComponent, NewsComponent, TransactionsComponent],
-    standalone: true,
     encapsulation: ViewEncapsulation.None
 })
 export class MainPanelComponent {}

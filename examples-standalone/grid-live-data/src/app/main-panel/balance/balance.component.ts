@@ -1,12 +1,11 @@
 import { Component } from '@angular/core';
-import { ButtonsModule } from '@progress/kendo-angular-buttons';
-import { LayoutModule } from '@progress/kendo-angular-layout';
+import { KENDO_BUTTONS } from '@progress/kendo-angular-buttons';
+import { KENDO_LAYOUT } from '@progress/kendo-angular-layout';
 import { SVGIcon, caretAltUpIcon } from '@progress/kendo-svg-icons';
 
 @Component({
   selector: 'balance',
-  standalone: true,
-  imports: [LayoutModule, ButtonsModule],
+  imports: [KENDO_LAYOUT, KENDO_BUTTONS],
   templateUrl: './balance.component.html',
   styleUrl: './balance.component.css'
 })
