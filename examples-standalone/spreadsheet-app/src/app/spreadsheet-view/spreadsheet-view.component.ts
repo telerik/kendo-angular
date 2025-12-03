@@ -1,14 +1,24 @@
 import { Component, ViewChild, ViewEncapsulation } from '@angular/core';
 import {
+  KENDO_SPREADSHEET,
   SheetDescriptor,
-  SpreadsheetComponent,
+  SpreadsheetComponent
 } from '@progress/kendo-angular-spreadsheet';
 import { ExcelDataService } from '../data/services/excel-data.service';
-import { NotificationService } from '@progress/kendo-angular-notification';
+import { KENDO_NOTIFICATION, NotificationService } from '@progress/kendo-angular-notification';
+import { HeaderComponent } from '../header/header.component';
+import { KENDO_TOOLBAR } from '@progress/kendo-angular-toolbar';
+import { KENDO_BUTTONS } from '@progress/kendo-angular-buttons';
 
 @Component({
   selector: 'app-spreadsheet-view',
-  standalone: false,
+  imports: [
+    HeaderComponent,
+    KENDO_SPREADSHEET,
+    KENDO_TOOLBAR,
+    KENDO_BUTTONS,
+    KENDO_NOTIFICATION
+  ],
   templateUrl: './spreadsheet-view.component.html',
   styleUrl: './spreadsheet-view.component.css',
   encapsulation: ViewEncapsulation.None,
