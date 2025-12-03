@@ -64,6 +64,15 @@ export class TeamComponent implements OnInit {
         this.dataBinding ? (this.dataBinding.skip = 0) : null;
     }
 
+    public onKeydown(ev: KeyboardEvent, wrapper: HTMLDivElement): void {
+        if (ev.key === "Escape") {
+            wrapper.focus();
+        }
+        if (ev.key === "ArrowLeft" || ev.key === "ArrowRight") {
+            ev.stopImmediatePropagation();
+        }
+    }
+
     public getField = (args: Employee) => {
         return `${args.fullName}_${args.jobTitle}_${args.budget}_${args.phone}_${args.address}`;
     };

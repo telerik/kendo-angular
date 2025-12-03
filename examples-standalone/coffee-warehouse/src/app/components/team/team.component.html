@@ -29,8 +29,11 @@
       [columnMenu]="{ filter: true }"
       >
       <ng-template kendoGridToolbarTemplate>
-        <kendo-textbox [placeholder]="customMsgService.translate('gridSearch')" kendoTextBox (valueChange)="onFilter($event)">
-        </kendo-textbox>
+        <div #wrapper kendoGridToolbarFocusable (keydown.enter)="textbox.focus()">
+          <kendo-textbox #textbox (click)="$event.stopImmediatePropagation()" (keydown)="onKeydown($event, wrapper)"
+            [placeholder]="customMsgService.translate('gridSearch')" (valueChange)="onFilter($event)">
+          </kendo-textbox>
+        </div>
         <kendo-grid-spacer></kendo-grid-spacer>
         <button kendoGridExcelCommand type="button" [svgIcon]="excelIcon">
           {{ customMsgService.translate('exportExcel') }}
