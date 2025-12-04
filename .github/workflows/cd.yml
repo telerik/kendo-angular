@@ -14,7 +14,8 @@ jobs:
     runs-on: ubuntu-24.04
 
     permissions:
-      id-token: write # Required by Akeyless
+      pages: write
+      id-token: write
       contents: read
       packages: read
 
