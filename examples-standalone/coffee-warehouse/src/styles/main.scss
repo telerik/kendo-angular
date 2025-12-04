@@ -1,6 +1,6 @@
-@import './variables';
-@import './typography';
-@import './common';
+@use './variables';
+@use './typography';
+@use './common';
 
 //Grid
 .customer-photo {
@@ -113,16 +113,8 @@ kendo-recurrence-frequency-editor .k-edit-field {
     border-bottom-width: 2px;
 }
 
-.ddl-theme {
-    width: 80px;
-}
-
-.k-dropdownlist {
+.k-dropdownlist.k-picker {
     margin: 5px;
-}
-
-.ddl-locale {
-    width: 120px;
 }
 
 .daterange-center {

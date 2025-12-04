@@ -5,10 +5,18 @@ import { SVGIcon, calendarIcon } from '@progress/kendo-svg-icons';
 import { CustomMessagesService } from '../../services/custom-messages.service';
 import { Order } from '../../models/order.model';
 import { orders } from '../../resources/orders';
+import { KENDO_CHARTS } from '@progress/kendo-angular-charts';
+import { KENDO_DATEINPUTS } from '@progress/kendo-angular-dateinputs';
+import { KENDO_LABELS } from '@progress/kendo-angular-label';
+import { KENDO_BUTTONS } from '@progress/kendo-angular-buttons';
+import { KENDO_ICONS } from '@progress/kendo-angular-icons';
+import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 @Component({
     selector: 'app-dashboard-component',
-    templateUrl: './dashboard.component.html'
+    templateUrl: './dashboard.component.html',
+    imports: [KENDO_CHARTS, KENDO_DATEINPUTS, KENDO_LABELS, KENDO_BUTTONS, KENDO_ICONS, FormsModule, CommonModule]
 })
 export class DashboardComponent {
     public selectedChart: 'Trend' | 'Volume' = 'Trend';

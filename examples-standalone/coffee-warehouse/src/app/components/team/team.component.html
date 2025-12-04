@@ -1,109 +1,116 @@
 <div class="card-container">
-    <div class="card-header-wrapper">
-        <h3 class="card-title">{{ customMsgService.translate('teamMembers') }}</h3>
-        <div class="card-buttons">
-            <kendo-buttongroup selection="single">
-                <button kendoButton [toggleable]="true" [selected]="true" (click)="onTeamChange(25)">
-                    {{ customMsgService.translate('myTeam') }}
-                </button>
-                <button kendoButton [toggleable]="true" (click)="onTeamChange(100)">
-                    {{ customMsgService.translate('allTeams') }}
-                </button>
-            </kendo-buttongroup>
-        </div>
-        <span></span>
+  <div class="card-header-wrapper">
+    <h3 class="card-title">{{ customMsgService.translate('teamMembers') }}</h3>
+    <div class="card-buttons">
+      <kendo-buttongroup selection="single">
+        <button kendoButton [toggleable]="true" [selected]="true" (click)="onTeamChange(25)">
+          {{ customMsgService.translate('myTeam') }}
+        </button>
+        <button kendoButton [toggleable]="true" (click)="onTeamChange(100)">
+          {{ customMsgService.translate('allTeams') }}
+        </button>
+      </kendo-buttongroup>
     </div>
+    <span></span>
+  </div>
 
-    <div class="card-component">
-        <kendo-grid
-            [kendoGridBinding]="gridView"
-            kendoGridSelectBy="id"
-            [selectedKeys]="mySelection"
-            [pageSize]="10"
-            [pageable]="true"
-            [sortable]="true"
-            [groupable]="true"
-            [reorderable]="true"
-            [resizable]="true"
-            [height]="480"
-            [columnMenu]="{ filter: true }"
+  <div class="card-component">
+    <kendo-grid
+      [kendoGridBinding]="gridView"
+      kendoGridSelectBy="id"
+      [selectedKeys]="mySelection"
+      [pageSize]="10"
+      [pageable]="true"
+      [sortable]="true"
+      [groupable]="true"
+      [reorderable]="true"
+      [resizable]="true"
+      [height]="480"
+      [columnMenu]="{ filter: true }"
+      >
+      <ng-template kendoGridToolbarTemplate>
+        <div #wrapper kendoGridToolbarFocusable (keydown.enter)="textbox.focus()">
+          <kendo-textbox #textbox (click)="$event.stopImmediatePropagation()" (keydown)="onKeydown($event, wrapper)"
+            [placeholder]="customMsgService.translate('gridSearch')" (valueChange)="onFilter($event)">
+          </kendo-textbox>
+        </div>
+        <kendo-grid-spacer></kendo-grid-spacer>
+        <button kendoGridExcelCommand type="button" [svgIcon]="excelIcon">
+          {{ customMsgService.translate('exportExcel') }}
+        </button>
+        <button kendoGridPDFCommand [svgIcon]="pdfIcon">{{ customMsgService.translate('exportPdf') }}</button>
+      </ng-template>
+      <kendo-grid-checkbox-column
+        [width]="45"
+        [headerClass]="{ 'text-center': true }"
+        [class]="{ 'text-center': true }"
+        [resizable]="false"
+        [columnMenu]="false"
+        [showSelectAll]="true"
         >
-            <ng-template kendoGridToolbarTemplate>
-                <kendo-textbox [placeholder]="customMsgService.translate('gridSearch')" kendoTextBox (valueChange)="onFilter($event)">
-                </kendo-textbox>
-                <kendo-grid-spacer></kendo-grid-spacer>
-                <button kendoGridExcelCommand type="button" [svgIcon]="excelIcon">
-                    {{ customMsgService.translate('exportExcel') }}
-                </button>
-                <button kendoGridPDFCommand [svgIcon]="pdfIcon">{{ customMsgService.translate('exportPdf') }}</button>
-            </ng-template>
-            <kendo-grid-checkbox-column
-                [width]="45"
-                [headerClass]="{ 'text-center': true }"
-                [class]="{ 'text-center': true }"
-                [resizable]="false"
-                [columnMenu]="false"
-                [showSelectAll]="true"
-            >
-            </kendo-grid-checkbox-column>
-            <kendo-grid-column-group [title]="customMsgService.translate('employee')" [columnMenu]="false">
-                <kendo-grid-column field="fullName" [title]="customMsgService.translate('contactName')" [width]="220">
-                    <ng-template kendoGridCellTemplate let-dataItem>
-                        <div class="customer-photo" [ngStyle]="{ 'background-image': photoURL(dataItem) }"></div>
-                        <div class="customer-name">{{ dataItem.fullName }}</div>
-                    </ng-template>
-                </kendo-grid-column>
-                <kendo-grid-column field="jobTitle" [title]="customMsgService.translate('jobTitle')" [width]="220"> </kendo-grid-column>
-                <kendo-grid-column
-                    field="country"
-                    [title]="customMsgService.translate('country')"
-                    [width]="100"
-                    [class]="{ 'text-center': true }"
-                    [resizable]="false"
-                >
-                    <ng-template kendoGridCellTemplate let-dataItem>
-                        <img class="flag" [src]="flagURL(dataItem)" width="30" />
-                    </ng-template>
-                </kendo-grid-column>
-                <kendo-grid-column
-                    field="isOnline"
-                    [title]="customMsgService.translate('status')"
-                    [width]="100"
-                    [class]="{ 'text-center': true }"
-                    [resizable]="false"
-                    filter="boolean"
-                >
-                    <ng-template kendoGridCellTemplate let-dataItem>
-                        <span *ngIf="dataItem.isOnline === true" class="badge badge-success"> Online </span>
-                        <span *ngIf="dataItem.isOnline === false" class="badge badge-danger"> Offline </span>
-                    </ng-template>
-                </kendo-grid-column>
-            </kendo-grid-column-group>
-            <kendo-grid-column-group [title]="customMsgService.translate('performance')" [columnMenu]="false">
-                <kendo-grid-column
-                    field="rating"
-                    [title]="customMsgService.translate('rating')"
-                    [width]="110"
-                    [resizable]="false"
-                    filter="numeric"
-                >
-                    <ng-template kendoGridCellTemplate let-dataItem>
-                        <app-kendo-rating [value]="dataItem.rating" [max]="5"></app-kendo-rating>
-                    </ng-template>
-                </kendo-grid-column>
-                <kendo-grid-column
-                    field="target"
-                    [title]="customMsgService.translate('engagement')"
-                    [width]="230"
-                    [resizable]="false"
-                    filter="numeric"
-                >
-                    <ng-template kendoGridCellTemplate let-dataItem>
-                        <kendo-sparkline
-                            type="bar"
-                            [data]="dataItem.target"
-                            [tooltip]="{ visible: false }"
-                            [transitions]="true"
+      </kendo-grid-checkbox-column>
+      <kendo-grid-column-group [title]="customMsgService.translate('employee')" [columnMenu]="false">
+        <kendo-grid-column field="fullName" [title]="customMsgService.translate('contactName')" [width]="220">
+          <ng-template kendoGridCellTemplate let-dataItem>
+            <div class="customer-photo" [ngStyle]="{ 'background-image': photoURL(dataItem) }"></div>
+            <div class="customer-name">{{ dataItem.fullName }}</div>
+          </ng-template>
+        </kendo-grid-column>
+        <kendo-grid-column field="jobTitle" [title]="customMsgService.translate('jobTitle')" [width]="220"> </kendo-grid-column>
+        <kendo-grid-column
+          field="country"
+          [title]="customMsgService.translate('country')"
+          [width]="100"
+          [class]="{ 'text-center': true }"
+          [resizable]="false"
+          >
+          <ng-template kendoGridCellTemplate let-dataItem>
+            <img class="flag" [src]="flagURL(dataItem)" width="30" />
+          </ng-template>
+        </kendo-grid-column>
+        <kendo-grid-column
+          field="isOnline"
+          [title]="customMsgService.translate('status')"
+          [width]="100"
+          [class]="{ 'text-center': true }"
+          [resizable]="false"
+          filter="boolean"
+          >
+          <ng-template kendoGridCellTemplate let-dataItem>
+            @if (dataItem.isOnline === true) {
+              <span class="badge badge-success"> Online </span>
+            }
+            @if (dataItem.isOnline === false) {
+              <span class="badge badge-danger"> Offline </span>
+            }
+          </ng-template>
+        </kendo-grid-column>
+      </kendo-grid-column-group>
+      <kendo-grid-column-group [title]="customMsgService.translate('performance')" [columnMenu]="false">
+        <kendo-grid-column
+          field="rating"
+          [title]="customMsgService.translate('rating')"
+          [width]="110"
+          [resizable]="false"
+          filter="numeric"
+          >
+          <ng-template kendoGridCellTemplate let-dataItem>
+            <app-kendo-rating [value]="dataItem.rating" [max]="5"></app-kendo-rating>
+          </ng-template>
+        </kendo-grid-column>
+        <kendo-grid-column
+          field="target"
+          [title]="customMsgService.translate('engagement')"
+          [width]="230"
+          [resizable]="false"
+          filter="numeric"
+          >
+          <ng-template kendoGridCellTemplate let-dataItem>
+            <kendo-sparkline
+              type="bar"
+              [data]="dataItem.target"
+              [tooltip]="{ visible: false }"
+              [transitions]="true"
                             [seriesDefaults]="{
                                 labels: {
                                     background: 'none',
@@ -111,27 +118,27 @@
                                     format: '{0}%'
                                 }
                             }"
-                        >
-                            <kendo-chart-area [opacity]="0" [width]="200"></kendo-chart-area>
-                            <kendo-chart-value-axis>
-                                <kendo-chart-value-axis-item [min]="0" [max]="130"> </kendo-chart-value-axis-item>
-                            </kendo-chart-value-axis>
-                        </kendo-sparkline>
-                    </ng-template>
-                </kendo-grid-column>
-                <kendo-grid-column field="budget" [title]="customMsgService.translate('budget')" [width]="100" filter="numeric">
-                    <ng-template kendoGridCellTemplate let-dataItem>
-                        <span [ngClass]="{ 'red text-bold': dataItem.budget < 0 }"> {{ dataItem.budget | currency }} </span>
-                    </ng-template>
-                </kendo-grid-column>
-            </kendo-grid-column-group>
-            <kendo-grid-column-group [title]="customMsgService.translate('contacts')" [columnMenu]="false">
-                <kendo-grid-column field="phone" [title]="customMsgService.translate('phone')" [width]="130"> </kendo-grid-column>
-                <kendo-grid-column field="address" [title]="customMsgService.translate('address')" [width]="200"> </kendo-grid-column>
-            </kendo-grid-column-group>
+            >
+            <kendo-chart-area [opacity]="0" [width]="200"></kendo-chart-area>
+            <kendo-chart-value-axis>
+              <kendo-chart-value-axis-item [min]="0" [max]="130"> </kendo-chart-value-axis-item>
+            </kendo-chart-value-axis>
+          </kendo-sparkline>
+        </ng-template>
+      </kendo-grid-column>
+      <kendo-grid-column field="budget" [title]="customMsgService.translate('budget')" [width]="100" filter="numeric">
+        <ng-template kendoGridCellTemplate let-dataItem>
+          <span [ngClass]="{ 'red text-bold': dataItem.budget < 0 }"> {{ dataItem.budget | currency }} </span>
+        </ng-template>
+      </kendo-grid-column>
+    </kendo-grid-column-group>
+    <kendo-grid-column-group [title]="customMsgService.translate('contacts')" [columnMenu]="false">
+      <kendo-grid-column field="phone" [title]="customMsgService.translate('phone')" [width]="130"> </kendo-grid-column>
+      <kendo-grid-column field="address" [title]="customMsgService.translate('address')" [width]="200"> </kendo-grid-column>
+    </kendo-grid-column-group>
 
-            <kendo-grid-pdf fileName="Employees.pdf" [repeatHeaders]="true"></kendo-grid-pdf>
-            <kendo-grid-excel fileName="Employees.xlsx"></kendo-grid-excel>
-        </kendo-grid>
-    </div>
+    <kendo-grid-pdf fileName="Employees.pdf" [repeatHeaders]="true"></kendo-grid-pdf>
+    <kendo-grid-excel fileName="Employees.xlsx"></kendo-grid-excel>
+  </kendo-grid>
+</div>
 </div>
