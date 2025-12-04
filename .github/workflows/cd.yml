@@ -12,6 +12,7 @@ env:
 jobs:
   build:
     runs-on: ubuntu-24.04
+    environment: github-pages
 
     permissions:
       pages: write
