@@ -1,12 +1,13 @@
-@import "./bootstrap";
-@import "./typography";
-@import "./variables";
-@import "./kendo";
-@import "./responsive";
+@use "./variables" as vars;
+@use "./bootstrap";
+@use "./kendo";
+@use "./typography";
+@use "./responsive";
 
+// Global styles
 body {
-  font-family: $roboto;
-  background: $body-base-bg;
+  font-family: vars.$roboto;
+  background: vars.$body-base-bg;
 }
 
 .k-drawer-content,

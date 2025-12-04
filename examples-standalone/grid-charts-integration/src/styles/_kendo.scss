@@ -1,28 +1,38 @@
-// colors
-$accent: #1C7CD5;
+// Kendo theme customization variables
+// Use the standard Kendo theme variable names to avoid conflicts
 
-// buttons
-$button-bg: #e4e7eb;
+// Primary color customization (this is the main theme variable)
+$kendo-color-primary: #1C7CD5 !default;
 
-// grid
-$grid-padding-x: 0.4rem;
-$grid-padding-y: 0.4rem;
-$grid-alt-bg: transparent;
-$grid-cell-vertical-border-width: 0;
-$grid-cell-horizontal-border-width: 1px;
-$grid-header-bg: #ECEEEF;
-$grid-header-text: #55595C;
-$grid-sorting-index-font-size: 20px;
+// Import the complete Kendo Bootstrap theme (Bootstrap 4 version)
+// Using CSS import to avoid Sass @import deprecation warnings
+@import "@progress/kendo-theme-bootstrap/dist/bootstrap-4.css";
 
-@import "@progress/kendo-theme-bootstrap/scss/button";
-@import "@progress/kendo-theme-bootstrap/scss/grid";
-@import "@progress/kendo-theme-bootstrap/scss/menu";
-@import "@progress/kendo-theme-bootstrap/scss/checkbox";
-@import "@progress/kendo-theme-bootstrap/scss/dropdownlist";
-@import "@progress/kendo-theme-bootstrap/scss/multiselect";
-@import "@progress/kendo-theme-bootstrap/scss/dataviz";
-@import "@progress/kendo-theme-bootstrap/scss/window";
-@import "@progress/kendo-theme-bootstrap/scss/drawer";
-@import "@progress/kendo-theme-bootstrap/scss/notification";
-@import "@progress/kendo-theme-bootstrap/scss/tooltip";
+// Custom overrides after the theme is loaded
+// This approach avoids variable conflicts
+.k-button {
+    background-color: #e4e7eb;
+}
+
+.k-grid {
+    .k-grid-content {
+        .k-table-td {
+            padding: 0.4rem;
+        }
+    }
+
+    .k-grid-header {
+        background-color: #ECEEEF;
+        color: #55595C;
+
+        .k-header {
+            background-color: #ECEEEF;
+            color: #55595C;
+        }
+    }
+
+    .k-alt {
+        background-color: transparent;
+    }
+}
 

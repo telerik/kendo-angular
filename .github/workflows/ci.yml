@@ -64,11 +64,6 @@ jobs:
         run: |
           npm ci
       # npm run lint
-      - name: Build Grid Live Data app
-        working-directory: ./examples-standalone/grid-live-data
-        run: |
-          npm ci
-          npm run build
 
       - name: Build Grid Performance app
         working-directory: ./examples-standalone/grid-performance

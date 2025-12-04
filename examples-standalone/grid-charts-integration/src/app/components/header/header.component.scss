@@ -1,15 +1,15 @@
-@import "../../../styles//variables";
+@use "../../../styles/variables" as vars;
 
 .header {
-    height: $header-height;
+    height: vars.$header-height;
     background: url('../../../assets/header-bg.svg');
     background-position: bottom;
     background-repeat: no-repeat;
 
     h1 {
-        font-family: $ubunto;
-        font-weight: $font-weight-200;
-        color: $white;
+        font-family: vars.$ubunto;
+        font-weight: vars.$font-weight-200;
+        color: vars.$white;
     }
 
     .profile-wrapper {
@@ -18,8 +18,8 @@
 
     .profile-image {
         align-self: center;
-        width: $profile-image-width;
-        height: $profile-image-height;
+        width: vars.$profile-image-width;
+        height: vars.$profile-image-height;
         border-radius: 50%;
         background-image: url('../../../assets/user.jpg');
         background-size: cover;

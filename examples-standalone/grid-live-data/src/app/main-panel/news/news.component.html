@@ -1,16 +1,18 @@
 <p class="right-panel-title">News Feed</p>
 <div class="card-container">
-    <kendo-card width="400px" class="news-feed-card" *ngFor="let news of newsFeedData">
-        <kendo-card-header class="k-hstack">
-            <h1 kendoCardTitle class="news-feed">
-                {{ news.title }}
-            </h1>
-            <kendo-avatar
-                width="112px"
-                height="60px"
-                [imageSrc]="getNewsImg(news)"
-                class="news-img"
-            ></kendo-avatar>
-        </kendo-card-header>
+  @for (news of newsFeedData; track news) {
+    <kendo-card width="400px" class="news-feed-card">
+      <kendo-card-header class="k-hstack">
+        <h1 kendoCardTitle class="news-feed">
+          {{ news.title }}
+        </h1>
+        <kendo-avatar
+          width="112px"
+          height="60px"
+          [imageSrc]="getNewsImg(news)"
+          class="news-img"
+        ></kendo-avatar>
+      </kendo-card-header>
     </kendo-card>
+  }
 </div>
