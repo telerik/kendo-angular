@@ -15,12 +15,12 @@ jobs:
 
     steps:
       - name: Use NodeJS v14
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
           node-version: "14"
 
       - name: Check out repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Build general examples
         working-directory: ./examples
@@ -34,12 +34,12 @@ jobs:
 
     steps:
       - name: Use NodeJS v20
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
           node-version: "20"
 
       - name: Check out repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Build Coffee warehouse app
         working-directory: ./examples-standalone/coffee-warehouse
@@ -111,12 +111,12 @@ jobs:
 
     steps:
       - name: Use NodeJS v14
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
           node-version: "14"
 
       - name: Check out repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Build Angular Universal Node example
         working-directory: ./examples-standalone/angular-universal/node_sample_application
@@ -138,3 +138,4 @@ jobs:
 
       - name: Cleanup
         run: git clean -xdf
+
