@@ -1,5 +1,5 @@
 @use "sass:math";
-@import '../../../styles/variables';
+@use '../../../styles/variables' as *;
 
 .dropdownlist-add-new {
     padding-left: 0;

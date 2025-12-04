@@ -1,14 +1,16 @@
-<nav class="navbar navbar-expand-lg py-3 header" *ngIf="router.url !== '/profile'">
+@if (router.url !== '/profile') {
+  <nav class="navbar navbar-expand-lg py-3 header">
     <div class="container d-flex justify-content-between">
-        <div>
-            <h1 class="mb-0 header-title">My Stocks Portfolio</h1>
-            <kendo-dropdownlist [data]="listItems" [style.width.px]="200" [(value)]="selected" (valueChange)="onCurrencyChange($event)">
-                <ng-template kendoDropDownListValueTemplate let-dataItem> Currency in {{ dataItem }} </ng-template>
-            </kendo-dropdownlist>
-        </div>
-        <div class="profile-wrapper d-flex flex-column align-self-center" routerLink="/profile">
-            <div class="profile-image"></div>
-            <div class="text-white-50">Collin Johnson</div>
-        </div>
+      <div>
+        <h1 class="mb-0 header-title">My Stocks Portfolio</h1>
+        <kendo-dropdownlist [data]="listItems" [style.width.px]="200" [(value)]="selected" (valueChange)="onCurrencyChange($event)">
+          <ng-template kendoDropDownListValueTemplate let-dataItem> Currency in {{ dataItem }} </ng-template>
+        </kendo-dropdownlist>
+      </div>
+      <div class="profile-wrapper d-flex flex-column align-self-center" routerLink="/profile">
+        <div class="profile-image"></div>
+        <div class="text-white-50">Collin Johnson</div>
+      </div>
     </div>
-</nav>
+  </nav>
+}

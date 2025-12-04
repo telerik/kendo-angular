@@ -1,16 +1,21 @@
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import { MS_PER_DAY, addDays, addMonths } from '@progress/kendo-date-math';
-import { SelectionRange } from '@progress/kendo-angular-dateinputs';
-import { ItemArgs } from '@progress/kendo-angular-dropdowns';
+import { SelectionRange, KENDO_DATEINPUTS } from '@progress/kendo-angular-dateinputs';
+import { KENDO_DROPDOWNS, ItemArgs } from '@progress/kendo-angular-dropdowns';
+import { KENDO_BUTTONS } from '@progress/kendo-angular-buttons';
 
 import { defaultRange, Interval } from '../../models';
 import { StockDataService } from '../../services/stock-data.service';
 import { normalizeSelectionRange, rangeAndIntervalCompatible } from '../../pipes/helpers';
+import { StockDetailsComponent } from '../stock-details/stock-details.component';
 
 @Component({
     selector: 'app-stock-chart',
     templateUrl: './stock-chart.component.html',
-    styleUrls: ['./stock-chart.component.scss']
+    styleUrls: ['./stock-chart.component.scss'],
+    imports: [CommonModule, FormsModule, KENDO_DATEINPUTS, KENDO_DROPDOWNS, KENDO_BUTTONS, StockDetailsComponent]
 })
 export class StockChartComponent {
     public range: SelectionRange = defaultRange;
@@ -72,7 +77,7 @@ export class StockChartComponent {
         this.selectFirstCompatibleInterval(duration);
     }
 
-    public handleRangeChange(start: Date, end: Date): void {
+    public handleRangeChange(start: Date | null, end: Date | null): void {
         this.normalizedRange = normalizeSelectionRange(start, end, this.calendarMin, this.calendarMax);
 
         if (this.normalizedRange.start && this.normalizedRange.end) {

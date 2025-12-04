@@ -41,8 +41,6 @@ const drawerRoutes = [
     { path: 'info', component: InfoComponent }
 ];
 
-import 'hammerjs';
-
 import '@progress/kendo-angular-intl/locales/en/all';
 import '@progress/kendo-angular-intl/locales/es/all';
 import '@progress/kendo-angular-intl/locales/fr/all';

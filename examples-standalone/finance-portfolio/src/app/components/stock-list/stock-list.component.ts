@@ -1,20 +1,29 @@
 import { Component, ViewEncapsulation, OnDestroy } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { take, filter } from 'rxjs/operators';
 
-import { SelectionEvent } from '@progress/kendo-angular-grid';
-import { DialogService, DialogCloseResult } from '@progress/kendo-angular-dialog';
+import { KENDO_GRID, SelectionEvent } from '@progress/kendo-angular-grid';
+import { KENDO_DIALOGS, DialogService, DialogCloseResult } from '@progress/kendo-angular-dialog';
+import { KENDO_DROPDOWNS } from '@progress/kendo-angular-dropdowns';
+import { KENDO_BUTTONS } from '@progress/kendo-angular-buttons';
+import { KENDO_CHARTS } from '@progress/kendo-angular-charts';
+import { KENDO_ICONS } from '@progress/kendo-angular-icons';
 import { SortDescriptor } from '@progress/kendo-data-query';
 
 import { Subscription } from 'rxjs';
 import { Stock } from '../../models';
 import { StockDataService } from '../../services/stock-data.service';
 import { SVGIcon, plusIcon, trashIcon } from '@progress/kendo-svg-icons';
+import { BadgeComponent } from '../badge/badge.component';
+import { NavigationComponent } from '../navigation/navigation.component';
+import { NumberFormatPipe } from '../../pipes/number-format.pipe';
 
 @Component({
     selector: 'app-stock-list',
     templateUrl: './stock-list.component.html',
     styleUrls: ['./stock-list.component.scss'],
-    encapsulation: ViewEncapsulation.None
+    encapsulation: ViewEncapsulation.None,
+    imports: [CommonModule, KENDO_GRID, KENDO_DIALOGS, KENDO_DROPDOWNS, KENDO_BUTTONS, KENDO_CHARTS, KENDO_ICONS, BadgeComponent, NavigationComponent, NumberFormatPipe]
 })
 export class StockListComponent implements OnDestroy {
     public trashIcon: SVGIcon = trashIcon;

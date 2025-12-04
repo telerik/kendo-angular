@@ -2,6 +2,7 @@ import { Component, ElementRef, ViewChild, AfterViewInit, ViewEncapsulation, OnD
 import { formatCurrency } from '../../pipes/helpers';
 import { StockDataService } from '../../services/stock-data.service';
 import { Stock } from '../../models';
+import { NavigationComponent } from '../navigation/navigation.component';
 
 declare var kendo: any;
 
@@ -9,7 +10,8 @@ declare var kendo: any;
     selector: 'app-heatmap',
     templateUrl: './heatmap.component.html',
     styleUrls: ['./heatmap.component.scss'],
-    encapsulation: ViewEncapsulation.None
+    encapsulation: ViewEncapsulation.None,
+    imports: [NavigationComponent]
 })
 export class HeatmapComponent implements AfterViewInit, OnDestroy {
     @ViewChild('heatmap') heatmap: ElementRef | undefined;

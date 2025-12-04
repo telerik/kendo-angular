@@ -1,6 +1,7 @@
 import { Component, ViewEncapsulation, Input, SimpleChanges, OnChanges } from '@angular/core';
+import { CommonModule, DatePipe } from '@angular/common';
 import { SelectionRange } from '@progress/kendo-angular-dateinputs';
-import { PlotBand } from '@progress/kendo-angular-charts';
+import { PlotBand, KENDO_CHARTS } from '@progress/kendo-angular-charts';
 import { Interval, IntervalUnitsMap, StockIntervalDetails, defaultRange } from '../../models';
 import { StockDataService } from '../../services/stock-data.service';
 
@@ -14,7 +15,8 @@ const currencies = {
     selector: 'app-stock-details',
     templateUrl: './stock-details.component.html',
     styleUrls: ['./stock-details.component.scss'],
-    encapsulation: ViewEncapsulation.None
+    encapsulation: ViewEncapsulation.None,
+    imports: [CommonModule, KENDO_CHARTS, DatePipe]
 })
 export class StockDetailsComponent implements OnChanges {
     @Input() public chartType: 'candle' | 'line' | 'area' = 'candle';
@@ -58,6 +60,11 @@ export class StockDetailsComponent implements OnChanges {
 
     public itemColor = (args: any) => {
         const current: StockIntervalDetails = args.dataItem;
+
+        if (!current) {
+            return '#5CB85C';
+        }
+
         const currentLargerThenPrev = !this.previousColumnChartItem || current.volume >= this.previousColumnChartItem.volume;
 
         if (current.volume) {

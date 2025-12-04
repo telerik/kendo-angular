@@ -37,7 +37,7 @@ export const dateInRange = (candidate: Date, min: Date, max: Date): Date => {
 export const isDateInRange = (candidate: Date, min: Date, max: Date): boolean =>
     !candidate || !((min && min > candidate) || (max && max < candidate));
 
-export const normalizeSelectionRange = (start: Date, end: Date, min: Date, max: Date): SelectionRange => {
+export const normalizeSelectionRange = (start: Date | null, end: Date | null, min: Date, max: Date): SelectionRange => {
     if (!(start && end && isDateInRange(start, min, max) && isDateInRange(end, min, max))) {
         return defaultRange;
     }

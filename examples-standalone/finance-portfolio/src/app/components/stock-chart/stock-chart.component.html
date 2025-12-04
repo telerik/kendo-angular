@@ -5,8 +5,6 @@
                 <kendo-dateinput
                     kendoDateRangeStartInput
                     [autoCorrectOn]="'change'"
-                    [min]="calendarMin"
-                    [max]="calendarMax"
                     [(ngModel)]="range.start"
                     (valueChange)="handleRangeChange($event, range.end)"
                 >
@@ -14,17 +12,17 @@
                 <kendo-dateinput
                     kendoDateRangeEndInput
                     [autoCorrectOn]="'change'"
-                    [min]="calendarMin"
-                    [max]="calendarMax"
                     [(ngModel)]="range.end"
                     (valueChange)="handleRangeChange(range.start, $event)"
                 >
                 </kendo-dateinput>
+                <kendo-daterange-popup [min]="calendarMin" [max]="calendarMax"> </kendo-daterange-popup>
             </kendo-daterange>
         </div>
 
         <ul class="k-reset d-flex col-12 col-sm-8 col-md-6 col-lg-3 justify-content-center justify-content-sm-start">
-            <li class="ms-3" *ngFor="let filter of timeFilters">
+            @for (filter of timeFilters; track filter) {
+            <li class="ms-3">
                 <span
                     [ngClass]="{ active: activeTimeFilter === filter.duration }"
                     class="list-item time-filter-item"
@@ -33,12 +31,13 @@
                     {{ filter.name }}
                 </span>
             </li>
+            }
         </ul>
 
         <div class="col-12 col-sm-4 col-md-6 col-lg-4 text-center text-sm-right mt-3 mt-sm-0">
             <kendo-dropdownlist
                 class="dropdown-list-selection interval"
-                [style.width.px]="150"
+                [style.width.px]="160"
                 [style.marginRight.px]="8"
                 [data]="intervals"
                 [textField]="'name'"
