@@ -1,17 +1,26 @@
-import { AfterViewInit, Component } from '@angular/core';
-import { Validators, FormGroup, FormControl } from '@angular/forms';
+import { Component } from '@angular/core';
+import { Validators, FormGroup, FormControl, ReactiveFormsModule } from '@angular/forms';
 
-import { SelectEvent, FileRestrictions } from '@progress/kendo-angular-upload';
+import { SelectEvent, FileRestrictions, KENDO_UPLOADS } from '@progress/kendo-angular-upload';
 import { MessageService } from '@progress/kendo-angular-l10n';
-import { NotificationService } from '@progress/kendo-angular-notification';
+import { NotificationService, KENDO_NOTIFICATION } from '@progress/kendo-angular-notification';
 import { countries } from '../../resources/countries';
 import { FormModel } from '../../models/form.model';
 import { CustomMessagesService } from '../../services/custom-messages.service';
 import { ProfileImageService } from '../../services/profile-image.service';
+import { KENDO_EDITOR } from '@progress/kendo-angular-editor';
+import { KENDO_INPUTS } from '@progress/kendo-angular-inputs';
+import { KENDO_LABELS } from '@progress/kendo-angular-label';
+import { KENDO_DROPDOWNS } from '@progress/kendo-angular-dropdowns';
+import { KENDO_BUTTONS } from '@progress/kendo-angular-buttons';
+import { KENDO_LAYOUT } from '@progress/kendo-angular-layout';
+import { KENDO_TOOLBAR } from '@progress/kendo-angular-toolbar';
 
 @Component({
     selector: 'app-profile-component',
-    templateUrl: './profile.component.html'
+    templateUrl: './profile.component.html',
+    imports: [ReactiveFormsModule, KENDO_UPLOADS, KENDO_NOTIFICATION, KENDO_EDITOR, KENDO_INPUTS, KENDO_LABELS, KENDO_DROPDOWNS, KENDO_BUTTONS, KENDO_LAYOUT, KENDO_TOOLBAR],
+    providers: [NotificationService]
 })
 export class ProfileComponent {
     public formGroup: FormGroup = new FormGroup({});

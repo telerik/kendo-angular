@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { MessageService } from '@progress/kendo-angular-l10n';
 
-import { CreateFormGroupArgs, EventStyleArgs, EditMode } from '@progress/kendo-angular-scheduler';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { CreateFormGroupArgs, EventStyleArgs, EditMode, KENDO_SCHEDULER } from '@progress/kendo-angular-scheduler';
+import { FormGroup, FormBuilder, ReactiveFormsModule } from '@angular/forms';
 
 import { CustomMessagesService } from '../../services/custom-messages.service';
 import { sampleData } from '../../resources/events';
@@ -10,10 +10,17 @@ import { teams } from '../../resources/teams';
 import { Team } from '../../models/team.model';
 import { Event } from '../../models/event.model';
 import { Employee } from '../../models/employee.model';
+import { CardComponent } from './cards/card.component';
+import { KENDO_DATEINPUTS } from '@progress/kendo-angular-dateinputs';
+import { KENDO_INPUTS } from '@progress/kendo-angular-inputs';
+import { KENDO_LABELS } from '@progress/kendo-angular-label';
+import { KENDO_DROPDOWNS } from '@progress/kendo-angular-dropdowns';
+import { CommonModule } from '@angular/common';
 
 @Component({
     selector: 'app-planning-component',
-    templateUrl: './planning.component.html'
+    templateUrl: './planning.component.html',
+    imports: [KENDO_SCHEDULER, CardComponent, ReactiveFormsModule, KENDO_DATEINPUTS, KENDO_INPUTS, KENDO_LABELS, KENDO_DROPDOWNS, CommonModule]
 })
 export class PlanningComponent {
     public data: Event[];

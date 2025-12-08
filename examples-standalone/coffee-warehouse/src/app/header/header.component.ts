@@ -6,10 +6,16 @@ import { SVGIcon, menuIcon, paletteIcon } from '@progress/kendo-svg-icons';
 import { locales } from '../resources/locales';
 import { profileBase64 } from '../resources/profile-base64';
 import { ProfileImageService } from '../services/profile-image.service';
+import { KENDO_BUTTONS } from '@progress/kendo-angular-buttons';
+import { KENDO_ICONS } from '@progress/kendo-angular-icons';
+import { KENDO_DROPDOWNS } from '@progress/kendo-angular-dropdowns';
+import { KENDO_LAYOUT } from '@progress/kendo-angular-layout';
+import { CommonModule } from '@angular/common';
 
 @Component({
     selector: 'app-header-component',
-    templateUrl: './header.commponent.html'
+    templateUrl: './header.commponent.html',
+    imports: [KENDO_BUTTONS, KENDO_ICONS, KENDO_DROPDOWNS, KENDO_LAYOUT, CommonModule]
 })
 export class HeaderComponent {
     @Output() public toggle = new EventEmitter();
@@ -52,6 +58,20 @@ export class HeaderComponent {
 
         this.customMsgService = this.messages as CustomMessagesService;
         this.customMsgService.language = this.selectedLanguage.localeId;
+
+        // Initialize theme link element
+        this.initializeTheme();
+    }
+
+    private initializeTheme(): void {
+        let themeEl = document.getElementById('theme') as HTMLLinkElement;
+        if (!themeEl) {
+            themeEl = document.createElement('link');
+            themeEl.id = 'theme';
+            themeEl.rel = 'stylesheet';
+            themeEl.href = this.selectedTheme.href;
+            document.head.appendChild(themeEl);
+        }
     }
 
     public setProfileImage(): void {

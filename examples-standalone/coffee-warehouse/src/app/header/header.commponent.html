@@ -1,45 +1,49 @@
 <div class="header header-bg">
-    <div class="nav-container">
-        <div class="menu-button">
-            <kendo-svgicon [icon]="menuIcon" (click)="onButtonClick()" class="menu-icon"></kendo-svgicon>
-        </div>
-
-        <div class="title">
-            <h1>{{ this.customMsgService.translate('warehouse') }}</h1>
-            <span class="vl"></span>
-            <h2 *ngIf="selectedPage">{{ this.customMsgService.translate(selectedPage.toLowerCase()) }}</h2>
-        </div>
-
-        <div class="settings">
-            <span> {{ this.customMsgService.translate('language') }} </span>
-            <kendo-dropdownlist
-                [data]="locales"
-                textField="locale"
-                valueField="localeId"
-                [value]="selectedLanguage"
-                (valueChange)="changeLanguage($event)"
-                [popupSettings]="popupSettings"
-                [ngClass]="{'material-bg':selectedTheme.text==='Material'}"
-                class="ddl-locale"
-            >
-            </kendo-dropdownlist>
-
-            <kendo-dropdownlist
-                [data]="themes"
-                textField="text"
-                valueField="href"
-                [value]="selectedTheme"
-                (valueChange)="changeTheme($event)"
-                [popupSettings]="popupSettings"
-                [ngClass]="{'material-bg':selectedTheme.text==='Material'}"
-                class="ddl-theme"
-            >
-                <ng-template kendoDropDownListValueTemplate let-dataItem>
-                    <kendo-svgicon [icon]="paletteIcon"></kendo-svgicon>
-                </ng-template>
-            </kendo-dropdownlist>
-        </div>
-
-        <kendo-avatar [imageSrc]="profileImage" shape="circle"> </kendo-avatar>
+  <div class="nav-container">
+    <div class="menu-button">
+      <kendo-svgicon [icon]="menuIcon" (click)="onButtonClick()" class="menu-icon"></kendo-svgicon>
     </div>
+
+    <div class="title">
+      <h1>{{ this.customMsgService.translate('warehouse') }}</h1>
+      <span class="vl"></span>
+      @if (selectedPage) {
+        <h2>{{ this.customMsgService.translate(selectedPage.toLowerCase()) }}</h2>
+      }
+    </div>
+
+    <div class="settings">
+      <span> {{ this.customMsgService.translate('language') }} </span>
+      <kendo-dropdownlist
+        [data]="locales"
+        textField="locale"
+        valueField="localeId"
+        [value]="selectedLanguage"
+        (valueChange)="changeLanguage($event)"
+        [popupSettings]="popupSettings"
+        [ngClass]="{'material-bg':selectedTheme.text==='Material'}"
+        class="ddl-locale"
+        [style.width.px]="140"
+        >
+      </kendo-dropdownlist>
+
+      <kendo-dropdownlist
+        [data]="themes"
+        textField="text"
+        valueField="href"
+        [value]="selectedTheme"
+        (valueChange)="changeTheme($event)"
+        [popupSettings]="popupSettings"
+        [ngClass]="{'material-bg':selectedTheme.text==='Material'}"
+        class="ddl-theme"
+        [style.width.px]="100"
+        >
+        <ng-template kendoDropDownListValueTemplate let-dataItem>
+          <kendo-svgicon [icon]="paletteIcon"></kendo-svgicon>
+        </ng-template>
+      </kendo-dropdownlist>
+    </div>
+
+    <kendo-avatar [imageSrc]="profileImage" shape="circle"> </kendo-avatar>
+  </div>
 </div>
