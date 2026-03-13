@@ -21,8 +21,6 @@
       if (window.trustedTypes && trustedTypes.createPolicy) {
         trustedTypes.createPolicy("default", {
           createHTML: (input) => input,
-          createScript: (input) => input,
-          createScriptURL: (input) => input,
         });
       }
     </script>
