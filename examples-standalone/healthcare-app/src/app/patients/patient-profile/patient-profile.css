@@ -1,0 +1,356 @@
+.page-section {
+  width: 100%;
+  margin-top: 24px;
+}
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.page-header > :first-child {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex-grow: 1;
+}
+
+.page-title {
+  margin: 0;
+  font-weight: 600;
+  font-size: 42px;
+  line-height: 120%;
+}
+
+/* Breadcrumb */
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  line-height: 150%;
+  color: #4A5666;
+}
+
+.breadcrumb-link {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  text-decoration: none;
+  color: #4A5666;
+  transition: color 0.2s ease;
+}
+
+.breadcrumb-link:hover {
+  color: #232A36;
+}
+
+.breadcrumb-current {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: #232A36;
+}
+
+/* Page Actions */
+.page-actions {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.page-actions .k-button {
+  height: 34px;
+  padding: 4px 8px;
+  gap: 4px;
+  border-radius: 9999px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 150%;
+  background: #334155;
+  border-color: #334155;
+  color: #FFFFFF;
+}
+
+.page-actions .k-button:hover {
+  background: #1d293b !important;
+  border-color: #1d293b !important;
+  color: #FFFFFF !important;
+}
+
+.page-actions .k-button-outline {
+  background: #F3F5F7;
+  border: 1px solid rgba(23, 56, 99, 0.08);
+  color: #232A36;
+}
+
+/* Profile Grid Layout */
+.profile-grid {
+  display: flex;
+  flex-direction: row;
+  gap: 32px;
+  margin-bottom: 24px;
+  width: 100%;
+}
+
+/* Profile Cards */
+.profile-card {
+  display: block;
+  border: 1px solid rgba(23, 56, 99, 0.08);
+  border-radius: 12px;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.04), 0px 2px 6px -1px rgba(0, 0, 0, 0.06);
+  background: #FFFFFF;
+  overflow: hidden;
+  min-width: 0;
+}
+
+.basic-info-card {
+  flex: 1 1 408px;
+  min-width: 300px;
+}
+
+.vitals-card,
+.admission-card {
+  flex: 1 1 590px;
+  min-width: 400px;
+}
+
+.profile-card kendo-card-body {
+  padding: 20px;
+}
+
+/* Card Details Section */
+.card-details {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  min-height: 100px;
+}
+
+.name-and-avatar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+}
+
+.patient-avatar {
+  font-size: 24px;
+  font-weight: 600;
+  flex: none;
+}
+
+.name {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+  min-height: 30px;
+}
+
+.patient-name {
+  margin: 0;
+  font-size: 20px;
+  line-height: 150%;
+  display: flex;
+  align-items: center;
+}
+
+/* Card Content Section */
+.card-content {
+  display: flex;
+  flex-direction: column;
+  padding: 0 20px 20px;
+  gap: 8px;
+  flex: 1;
+}
+
+/* Status Badge */
+.status-badge {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 6px;
+  border-radius: 9999px;
+  font-size: 12px;
+  line-height: 133%;
+}
+
+.status-critical {
+  background: #FCDDDA;
+  border: 1px solid #F76F60;
+  color: #7A0C00;
+}
+
+.status-monitoring {
+  background: #FFF4D3;
+  border: 1px solid #FFD760;
+  color: #5E4700;
+}
+
+.status-stable {
+  background: #DCF0D3;
+  border: 1px solid #81D15F;
+  color: #1C5A00;
+}
+
+/* Common Card Content Styles */
+.info-rows,
+.vitals-container,
+.admission-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 12px;
+  flex: 1;
+}
+
+.vitals-container,
+.admission-container {
+  gap: 0;
+}
+
+.section-title,
+.vitals-title,
+.admission-title {
+  margin: 0;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 150%;
+}
+
+.info-row,
+.vital-row,
+.admission-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 34px;
+  min-height: 24px;
+}
+
+/* Labels and Values */
+.info-label,
+.vital-label,
+.admission-label {
+  font-size: 16px;
+  line-height: 150%;
+}
+
+.info-value,
+.vital-value,
+.admission-value {
+  font-size: 16px;
+  line-height: 150%;
+  text-align: right;
+}
+
+.info-value {
+  font-weight: 700;
+}
+
+/* Vitals Content */
+.vitals-content,
+.admission-content {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  gap: 8px;
+  height: 100%;
+}
+
+.vital-alert {
+  color: #F31700;
+}
+
+/* Patient Note Card */
+.patient-note-card {
+  border: none;
+  border-radius: 16px;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.04), 0px 2px 6px -1px rgba(0, 0, 0, 0.06);
+  background: #FFFFFF;
+  overflow: hidden;
+  margin-top: 24px;
+}
+
+.patient-note-card kendo-card-body {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.note-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.note-title {
+  margin: 0;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 150%;
+}
+
+.save-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 14px;
+  line-height: 142%;
+  color: #232A36;
+}
+
+.save-button:hover {
+  background: rgba(56, 66, 80, 0.05);
+}
+
+.patient-note-editor {
+  width: 100%;
+}
+
+.patient-note-editor .k-editor-toolbar .ask-ai-button {
+  background: #7C3AED;
+  color: #FFFFFF;
+  border-color: #7C3AED;
+  margin-left: auto;
+}
+
+.patient-note-editor .k-editor-toolbar .ask-ai-button:hover {
+  background: #6D28D9;
+  border-color: #6D28D9;
+}
+
+/* Lab Results Card */
+.lab-results-card {
+  border: none;
+  border-radius: 16px;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.04), 0px 2px 6px -1px rgba(0, 0, 0, 0.06);
+  background: #FFFFFF;
+  overflow: hidden;
+  margin-top: 24px;
+}
+
+.lab-results-card kendo-card-body {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.lab-results-title {
+  margin: 0;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 150%;
+}
+
+.lab-results-grid {
+  width: 100%;
+}
+

@@ -1,0 +1,207 @@
+.analytics-section {
+  width: 100%;
+  margin-top: 24px;
+  padding: 0;
+}
+
+.analytics-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.analytics-header-left .page-title {
+  margin: 0;
+  font-weight: 600;
+  font-size: 42px;
+  line-height: 120%;
+  color: #232A36;
+}
+
+.analytics-header-left .page-subtitle {
+  margin: 8px 0 0;
+  font-size: 16px;
+  line-height: 150%;
+  color: #4A5666;
+}
+
+.analytics-header-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-top: 8px;
+}
+
+.patient-dropdown {
+  width: 260px;
+  height: 34px;
+}
+
+.patient-dropdown .k-input-solid {
+  height: 34px;
+  padding: 8px 16px !important;
+  background: #F3F5F7 !important;
+  border: 1px solid rgba(23, 56, 99, 0.08) !important;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.patient-dropdown .k-input-solid:hover {
+  background: #E8ECEF !important;
+}
+
+.patient-dropdown .k-input-inner {
+  font-weight: 500;
+  font-size: 14px;
+  color: #232A36;
+}
+
+.export-btn {
+  display: flex;
+  align-items: center;
+  height: 34px;
+  padding: 8px 16px !important;
+  background: #F3F5F7 !important;
+  border: 1px solid rgba(23, 56, 99, 0.08) !important;
+  color: #232A36 !important;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.export-btn:hover {
+  background: #E8ECEF !important;
+}
+
+.vitals-card {
+  background: #fff;
+  border: 1px solid #E8ECF1;
+  border-radius: 16px;
+  padding: 28px 32px 24px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+.vitals-card + .vitals-card {
+  margin-top: 24px;
+}
+
+.vitals-card-header {
+  margin-bottom: 12px;
+}
+
+.card-title {
+  margin: 0;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 140%;
+  color: #232A36;
+}
+
+.card-subtitle {
+  margin: 4px 0 0;
+  font-size: 14px;
+  line-height: 150%;
+  color: #6B7A8D;
+}
+
+.vitals-chart {
+  height: 440px;
+}
+
+.alerts-chart {
+  height: 400px;
+}
+
+.lab-range-charts {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.lab-range-chart {
+  height: 100px;
+}
+
+.charts-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-top: 24px;
+}
+
+.charts-row .vitals-card {
+  margin-top: 0;
+}
+
+.category-chart {
+  height: 380px;
+}
+
+.risk-score-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 16px;
+}
+
+.risk-gauge-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.risk-gauge {
+  width: 280px;
+  height: 200px;
+}
+
+.risk-gauge-value {
+  font-size: 40px;
+  font-weight: 600;
+  color: #C5A84E;
+  line-height: 1;
+}
+
+.risk-gauge-label {
+  font-size: 14px;
+  color: #6B7A8D;
+  margin-top: 4px;
+}
+
+.risk-legend {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.risk-legend-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 48px;
+}
+
+.risk-legend-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.risk-legend-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.risk-legend-label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #232A36;
+}
+
+.risk-legend-range {
+  font-size: 14px;
+  color: #6B7A8D;
+}

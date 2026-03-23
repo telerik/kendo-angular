@@ -1,0 +1,173 @@
+<section class="schedule-page">
+  <div class="schedule-layout">
+    <!-- Left: Scheduler -->
+    <kendo-card class="scheduler-card" width="100%">
+      <kendo-card-body>
+        <kendo-scheduler
+          [selectedDate]="selectedDate"
+          [events]="events"
+          [editable]="false"
+          startTime="07:00"
+          endTime="21:00"
+          [style.height.%]="100"
+        >
+          <kendo-scheduler-day-view
+            [eventClass]="eventClass"
+            [eventStyles]="eventStyles"
+          >
+            <ng-template kendoSchedulerEventTemplate let-event="event">
+              <div class="event-content" role="listitem">
+                <span class="event-title">{{ event.dataItem.reason }} – {{ event.title }}</span>
+                <span class="event-time">{{ formatEventTime(event.start, event.end) }} · {{ event.dataItem.description }}</span>
+              </div>
+            </ng-template>
+          </kendo-scheduler-day-view>
+          <kendo-scheduler-week-view
+            [eventClass]="eventClass"
+            [eventStyles]="eventStyles"
+          >
+            <ng-template kendoSchedulerEventTemplate let-event="event">
+              <div class="event-content" role="listitem">
+                <span class="event-title">{{ event.title }}</span>
+                <span class="event-time">{{ formatEventTime(event.start, event.end) }} · {{ event.dataItem.description }}</span>
+              </div>
+            </ng-template>
+          </kendo-scheduler-week-view>
+          <kendo-scheduler-month-view
+            [eventClass]="eventClass"
+            [eventStyles]="eventStyles"
+          >
+            <ng-template kendoSchedulerEventTemplate let-event="event">
+              <span class="event-title-compact">{{ event.title }}</span>
+            </ng-template>
+          </kendo-scheduler-month-view>
+          <kendo-scheduler-agenda-view> </kendo-scheduler-agenda-view>
+        </kendo-scheduler>
+      </kendo-card-body>
+    </kendo-card>
+
+    <!-- Right: Daily Tasks -->
+    <kendo-card class="daily-tasks-card" width="100%">
+      <kendo-card-header>
+        <div class="tasks-header">
+          <h2 class="tasks-title">Daily Tasks</h2>
+          <div class="tasks-actions">
+            <kendo-textbox
+              [(value)]="taskSearch"
+              placeholder="Search daily tasks"
+              [clearButton]="true"
+              rounded="full"
+              [style.height.px]="40"
+              class="tasks-search"
+              aria-label="Search daily tasks"
+            >
+              <ng-template kendoTextBoxPrefixTemplate>
+                <kendo-svgicon [icon]="searchIcon"></kendo-svgicon>
+              </ng-template>
+            </kendo-textbox>
+            <button
+              kendoButton
+              fillMode="solid"
+              themeColor="dark"
+              rounded="full"
+              class="add-task-btn"
+              aria-label="Add new task"
+              (click)="openAddTaskDialog()"
+            >
+              <kendo-svgicon [icon]="plusIcon"></kendo-svgicon>
+              <span class="add-task-text">Add Task</span>
+            </button>
+          </div>
+        </div>
+      </kendo-card-header>
+      <kendo-card-body>
+        <ul class="tasks-list">
+          @for (task of filteredTasks; track task.id) {
+            <li class="task-item" (click)="openAddTaskDialog(task)">
+              <button
+                class="task-checkbox"
+                [ngClass]="{ 'task-completed': task.completed }"
+                (click)="toggleTask(task); $event.stopPropagation()"
+                [attr.aria-label]="(task.completed ? 'Mark incomplete: ' : 'Mark complete: ') + task.title"
+              >
+                @if (task.completed) {
+                  <kendo-svgicon [icon]="checkCircleIcon"></kendo-svgicon>
+                } @else {
+                  <kendo-svgicon [icon]="circleIcon"></kendo-svgicon>
+                }
+              </button>
+              <span class="task-title" [ngClass]="{ 'task-completed': task.completed }">{{ task.title }}</span>
+              <span
+                class="task-priority"
+                [ngClass]="{
+                  'priority-high': task.priority === 'High',
+                  'priority-medium': task.priority === 'Medium',
+                  'priority-low': task.priority === 'Low'
+                }"
+              >
+                {{ task.priority }}
+              </span>
+            </li>
+          }
+        </ul>
+      </kendo-card-body>
+    </kendo-card>
+  </div>
+</section>
+
+<!-- Add Task Dialog -->
+@if (addTaskDialogOpened) {
+<kendo-dialog
+  [width]="680"
+  [height]="580"
+  (close)="closeAddTaskDialog()"
+  class="add-task-dialog">
+
+  <kendo-dialog-titlebar>
+    <div class="dialog-title">{{ dialogTitle }}</div>
+  </kendo-dialog-titlebar>
+
+  <div class="dialog-content">
+    <div class="form-field">
+      <kendo-label text="Task Name" labelCssClass="field-label">
+        <kendo-textbox
+          [(ngModel)]="newTaskName"
+          placeholder="Review insurance authorization requests"
+          class="task-name-input">
+        </kendo-textbox>
+      </kendo-label>
+    </div>
+
+    <div class="form-field">
+      <kendo-label text="Priority" labelCssClass="field-label">
+        <kendo-dropdownlist
+          [data]="priorities"
+          [(ngModel)]="newTaskPriority"
+          [popupSettings]="{ appendTo: 'component' }"
+          [style.width.px]="250">
+        </kendo-dropdownlist>
+      </kendo-label>
+    </div>
+
+    <div class="form-field">
+      <kendo-label text="Description" labelCssClass="field-label">
+        <kendo-textarea
+          [(ngModel)]="newTaskDescription"
+          placeholder="Review and evaluate incoming insurance authorization requests to ensure all information is accurate, complete, and compliant with relevant policies and guidelines before proceeding with approval or further action."
+          [style.height.px]="200"
+          class="task-description">
+        </kendo-textarea>
+      </kendo-label>
+    </div>
+  </div>
+
+  <kendo-dialog-actions layout="end">
+    <button kendoButton (click)="closeAddTaskDialog()" class="discard-btn">
+      Discard
+    </button>
+    <button kendoButton themeColor="dark" (click)="saveTask()" class="save-btn">
+      {{ saveButtonText }}
+    </button>
+  </kendo-dialog-actions>
+</kendo-dialog>
+}
