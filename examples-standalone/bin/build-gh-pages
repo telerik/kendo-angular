@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Builds example projects and deploys them to GH Pages
-STANDALONE_PROJECTS=(finance-portfolio grid-charts-integration coffee-warehouse grid-live-data spreadsheet-app personal-finance-app kendoangular-landing-page)
+STANDALONE_PROJECTS=(finance-portfolio grid-charts-integration coffee-warehouse healthcare-app grid-live-data spreadsheet-app personal-finance-app kendoangular-landing-page)
 
 set -e
 
@@ -11,7 +11,7 @@ mkdir -p ./examples-standalone/dist
 for PROJECT in "${STANDALONE_PROJECTS[@]}"
 do
     pushd ./examples-standalone/${PROJECT} > /dev/null
-    
+
     echo Building ${PROJECT}
     npm ci
     rm -rf dist
@@ -22,7 +22,7 @@ do
         mv dist/${PROJECT}/3rdpartylicenses.txt dist/${PROJECT}/browser/3rdpartylicenses.txt
         mv dist/${PROJECT}/browser ../../examples-standalone/dist/${PROJECT}
     fi
-    
+
     popd > /dev/null
 done
 
