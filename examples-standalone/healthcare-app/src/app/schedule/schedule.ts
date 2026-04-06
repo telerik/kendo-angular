@@ -15,7 +15,7 @@ import {
   plusIcon,
   checkCircleIcon,
   calendarIcon,
-  circleShapeIcon
+  circleShapeIcon,
 } from '@progress/kendo-svg-icons';
 import { AppointmentsService, SchedulerAppointment } from '../services/appointments.service';
 
@@ -41,8 +41,8 @@ interface DailyTask {
     KENDO_ICONS,
     KENDO_DIALOG,
     KENDO_DROPDOWNS,
-    KENDO_LABELS
-  ]
+    KENDO_LABELS,
+  ],
 })
 export class ScheduleComponent implements OnInit {
   public searchIcon: SVGIcon = searchIcon;
@@ -68,7 +68,7 @@ export class ScheduleComponent implements OnInit {
   public eventStyles = (args: EventStyleArgs) => {
     const base: Record<string, string> = {
       'background-color': '#C7C2F6',
-      color: '#1E1B4B'
+      color: '#1E1B4B',
     };
 
     if (args.event.dataItem.striped) {
@@ -76,27 +76,48 @@ export class ScheduleComponent implements OnInit {
         ...base,
         'background-color': '#f5f6ff',
         'border-left': '6px solid transparent',
-        'border-image': 'repeating-linear-gradient(-45deg, #6C63FF, #6C63FF 2px, #C7C2F6 2px, #C7C2F6 5px) 6'
+        'border-image':
+          'repeating-linear-gradient(-45deg, #6C63FF, #6C63FF 2px, #C7C2F6 2px, #C7C2F6 5px) 6',
       };
     }
 
     return {
       ...base,
-      'border-left': '4px solid #6C63FF'
+      'border-left': '4px solid #6C63FF',
     };
   };
 
   public tasks: DailyTask[] = [
-    { id: 1, title: 'Complete discharge paperwork for John Smith', priority: 'High', completed: false },
-    { id: 2, title: 'Call pharmacy for Emma Davis prescription', priority: 'Medium', completed: true },
+    {
+      id: 1,
+      title: 'Complete discharge paperwork for John Smith',
+      priority: 'High',
+      completed: false,
+    },
+    {
+      id: 2,
+      title: 'Call pharmacy for Emma Davis prescription',
+      priority: 'Medium',
+      completed: true,
+    },
     { id: 3, title: 'Sign off on radiology reports', priority: 'Low', completed: false },
     { id: 4, title: 'Review insurance authorization requests', priority: 'High', completed: true },
     { id: 5, title: 'Update treatment plan for Mike Davis', priority: 'High', completed: false },
     { id: 6, title: 'Sign off on radiology reports', priority: 'Medium', completed: false },
     { id: 7, title: 'Review lab results for Sarah Johnson', priority: 'Low', completed: true },
-    { id: 8, title: 'Complete discharge paperwork for John Smith', priority: 'High', completed: false },
+    {
+      id: 8,
+      title: 'Complete discharge paperwork for John Smith',
+      priority: 'High',
+      completed: false,
+    },
     { id: 9, title: 'Review lab results for Sarah Johnson', priority: 'High', completed: true },
-    { id: 10, title: 'Review insurance authorization requests', priority: 'Medium', completed: true }
+    {
+      id: 10,
+      title: 'Review insurance authorization requests',
+      priority: 'Medium',
+      completed: true,
+    },
   ];
 
   constructor(private appointmentsService: AppointmentsService) {
@@ -114,7 +135,7 @@ export class ScheduleComponent implements OnInit {
       return this.tasks;
     }
     const search = this.taskSearch.toLowerCase();
-    return this.tasks.filter(t => t.title.toLowerCase().includes(search));
+    return this.tasks.filter((t) => t.title.toLowerCase().includes(search));
   }
 
   public toggleTask(task: DailyTask): void {
@@ -169,10 +190,10 @@ export class ScheduleComponent implements OnInit {
     } else {
       // Add new task
       const newTask: DailyTask = {
-        id: Math.max(...this.tasks.map(t => t.id), 0) + 1,
+        id: Math.max(...this.tasks.map((t) => t.id), 0) + 1,
         title: this.newTaskName,
         priority: this.newTaskPriority,
-        completed: false
+        completed: false,
       };
       this.tasks.unshift(newTask);
       console.log('Task added:', newTask);

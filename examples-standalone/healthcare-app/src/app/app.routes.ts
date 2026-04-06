@@ -10,5 +10,5 @@ export const routes: Routes = [
   { path: 'schedule', component: ScheduleComponent },
   { path: 'patients', component: PatientsComponent },
   { path: 'patients/:id', component: PatientProfileComponent, runGuardsAndResolvers: 'always' },
-  { path: 'analytics', component: AnalyticsComponent }
+  { path: 'analytics', component: AnalyticsComponent },
 ];

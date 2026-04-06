@@ -1,40 +1,39 @@
-import { Component, ViewEncapsulation, OnInit, ViewChild, ElementRef } from '@angular/core';
-import { NgClass } from '@angular/common';
-import { Router } from '@angular/router';
+import { Component, ElementRef, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { KENDO_BUTTONS } from '@progress/kendo-angular-buttons';
-import { KENDO_ICONS } from '@progress/kendo-angular-icons';
-import { KENDO_INDICATORS } from '@progress/kendo-angular-indicators';
-import { KENDO_LAYOUT } from '@progress/kendo-angular-layout';
-import { KENDO_GRID } from '@progress/kendo-angular-grid';
-import { KENDO_DIALOG } from '@progress/kendo-angular-dialog';
-import { KENDO_DROPDOWNS } from '@progress/kendo-angular-dropdowns';
-import { KENDO_INPUTS } from '@progress/kendo-angular-inputs';
-import { KENDO_LABELS } from '@progress/kendo-angular-label';
-import { KENDO_POPUP } from '@progress/kendo-angular-popup';
+import { Router } from '@angular/router';
+import { ChipThemeColor, KENDO_BUTTONS } from '@progress/kendo-angular-buttons';
+import { guid } from '@progress/kendo-angular-common';
 import {
+  ChatSuggestion,
   KENDO_CONVERSATIONALUI,
   Message,
   SendMessageEvent,
   User,
-  ChatSuggestion,
 } from '@progress/kendo-angular-conversational-ui';
-import { guid } from '@progress/kendo-angular-common';
+import { KENDO_DIALOG } from '@progress/kendo-angular-dialog';
+import { KENDO_DROPDOWNS } from '@progress/kendo-angular-dropdowns';
+import { KENDO_GRID } from '@progress/kendo-angular-grid';
+import { KENDO_ICONS } from '@progress/kendo-angular-icons';
+import { KENDO_INDICATORS } from '@progress/kendo-angular-indicators';
+import { KENDO_INPUTS } from '@progress/kendo-angular-inputs';
+import { KENDO_LABELS } from '@progress/kendo-angular-label';
+import { KENDO_LAYOUT } from '@progress/kendo-angular-layout';
+import { KENDO_POPUP } from '@progress/kendo-angular-popup';
 import {
-  stickyNoteIcon,
-  commentIcon,
-  plusIcon,
-  clockIcon,
+  SVGIcon,
   chevronRightIcon,
   clipboardIcon,
-  pillsSolidIcon,
-  SVGIcon,
+  clockIcon,
+  commentIcon,
   hyperlinkOpenIcon,
+  pillsSolidIcon,
+  plusIcon,
   sparklesIcon,
+  stickyNoteIcon,
 } from '@progress/kendo-svg-icons';
-import { AppointmentsService, GridAppointment } from '../services/appointments.service';
 import { PATIENTS_DATA, PatientProfile } from '../data/patients.data';
 import { MarkdownPipe } from '../pipes/markdown.pipe';
+import { AppointmentsService, GridAppointment } from '../services/appointments.service';
 
 @Component({
   selector: 'app-home',
@@ -42,7 +41,6 @@ import { MarkdownPipe } from '../pipes/markdown.pipe';
   templateUrl: './home.html',
   styleUrls: ['./home.css'],
   imports: [
-    NgClass,
     FormsModule,
     KENDO_BUTTONS,
     KENDO_ICONS,
@@ -61,6 +59,16 @@ import { MarkdownPipe } from '../pipes/markdown.pipe';
 export class HomeComponent implements OnInit {
   // Quick Actions Icons
   public stickyNoteIcon: SVGIcon = stickyNoteIcon;
+
+  public getAppointmentStatusColor(status: string): ChipThemeColor {
+    const colorMap: Record<string, ChipThemeColor> = {
+      Complete: 'success',
+      'In Progress': 'warning',
+      Upcoming: 'info',
+      Cancelled: 'error',
+    };
+    return colorMap[status] ?? 'base';
+  }
 
   public fileDataIcon: SVGIcon = {
     name: 'lab-text',
@@ -120,7 +128,7 @@ export class HomeComponent implements OnInit {
     {
       id: guid(),
       author: this.aiAssistant,
-      text: `👋 Hello! I'm your AI Assistant`
+      text: `👋 Hello! I'm your AI Assistant`,
     },
     {
       id: guid(),

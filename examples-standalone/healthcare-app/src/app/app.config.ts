@@ -7,14 +7,15 @@ import { routes } from './app.routes';
 export const appConfig: ApplicationConfig = {
   providers: [
     provideZoneChangeDetection({ eventCoalescing: true }),
-    provideRouter(routes,
+    provideRouter(
+      routes,
       withInMemoryScrolling({
         scrollPositionRestoration: 'top',
       }),
       withRouterConfig({
-        onSameUrlNavigation: 'reload'
-      })
+        onSameUrlNavigation: 'reload',
+      }),
     ),
-    provideAnimations()
-  ]
+    provideAnimations(),
+  ],
 };

@@ -1,26 +1,19 @@
-import { Component, ViewEncapsulation, OnInit, ViewChild } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Component, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { NgClass, CommonModule } from '@angular/common';
-import { KENDO_BUTTONS } from '@progress/kendo-angular-buttons';
+import { ChipThemeColor, KENDO_BUTTONS } from '@progress/kendo-angular-buttons';
+import { KENDO_EDITOR } from '@progress/kendo-angular-editor';
+import { ExcelExportData } from '@progress/kendo-angular-excel-export';
+import { GridComponent, KENDO_GRID, KENDO_GRID_EXCEL_EXPORT } from '@progress/kendo-angular-grid';
 import { KENDO_ICONS } from '@progress/kendo-angular-icons';
 import { KENDO_INDICATORS } from '@progress/kendo-angular-indicators';
 import { KENDO_LAYOUT } from '@progress/kendo-angular-layout';
-import { KENDO_EDITOR } from '@progress/kendo-angular-editor';
-import { KENDO_TOOLBAR } from '@progress/kendo-angular-toolbar';
-import { KENDO_GRID, GridComponent, KENDO_GRID_EXCEL_EXPORT } from '@progress/kendo-angular-grid';
-import { ExcelExportData } from '@progress/kendo-angular-excel-export';
+import { BreadCrumbItem, KENDO_BREADCRUMB } from '@progress/kendo-angular-navigation';
 import { KENDO_PAGER } from '@progress/kendo-angular-pager';
+import { KENDO_TOOLBAR } from '@progress/kendo-angular-toolbar';
 
-import {
-  downloadIcon,
-  sparklesIcon,
-  homeIcon,
-  chevronRightIcon,
-  userIcon,
-  SVGIcon,
-} from '@progress/kendo-svg-icons';
-import { KENDO_DROPDOWNS } from '@progress/kendo-angular-dropdowns';
-import { PatientProfile, LabResult } from '../../data/patients.data';
+import { downloadIcon, homeIcon, sparklesIcon, SVGIcon, userIcon } from '@progress/kendo-svg-icons';
+import { LabResult, PatientProfile } from '../../data/patients.data';
 import { PatientsService } from '../../services/patients.service';
 
 @Component({
@@ -31,7 +24,7 @@ import { PatientsService } from '../../services/patients.service';
   styleUrls: ['./patient-profile.css'],
   imports: [
     CommonModule,
-    NgClass,
+    KENDO_BREADCRUMB,
     KENDO_BUTTONS,
     KENDO_ICONS,
     KENDO_INDICATORS,
@@ -48,9 +41,20 @@ export class PatientProfileComponent implements OnInit {
 
   public downloadIcon: SVGIcon = downloadIcon;
   public sparklesIcon: SVGIcon = sparklesIcon;
-  public homeIcon: SVGIcon = homeIcon;
-  public chevronRightIcon: SVGIcon = chevronRightIcon;
-  public userIcon: SVGIcon = userIcon;
+
+  public getPatientStatusColor(status: string): ChipThemeColor {
+    const colorMap: Record<string, ChipThemeColor> = {
+      Stable: 'success',
+      Monitoring: 'warning',
+      Critical: 'error',
+    };
+    return colorMap[status] ?? 'base';
+  }
+
+  public breadcrumbItems: BreadCrumbItem[] = [
+    { text: 'Patients', svgIcon: homeIcon, title: 'Patients' },
+    { text: 'Patient Profile', svgIcon: userIcon, title: 'Patient Profile' },
+  ];
 
   public patientId: number = 0;
   public patient: PatientProfile | null = null;
@@ -59,12 +63,12 @@ export class PatientProfileComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private patientsService: PatientsService
+    private patientsService: PatientsService,
   ) {}
 
   ngOnInit(): void {
     // Subscribe to route parameter changes to handle navigation between different patients
-    this.route.paramMap.subscribe(params => {
+    this.route.paramMap.subscribe((params) => {
       const id = params.get('id');
       if (id) {
         this.patientId = parseInt(id, 10);
@@ -86,6 +90,12 @@ export class PatientProfileComponent implements OnInit {
 
   public navigateToPatients(): void {
     this.router.navigate(['/patients']);
+  }
+
+  public onBreadcrumbItemClick(item: BreadCrumbItem): void {
+    if (item.text === 'Patients') {
+      this.navigateToPatients();
+    }
   }
 
   public saveNotes(): void {

@@ -1,9 +1,8 @@
 import { Component, ViewEncapsulation, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
-import { NgClass } from '@angular/common';
 import { KENDO_GRID, GridComponent, KENDO_GRID_EXCEL_EXPORT } from '@progress/kendo-angular-grid';
 import { ExcelExportData } from '@progress/kendo-angular-excel-export';
-import { KENDO_BUTTONS } from '@progress/kendo-angular-buttons';
+import { ChipThemeColor, KENDO_BUTTONS } from '@progress/kendo-angular-buttons';
 import { KENDO_ICONS } from '@progress/kendo-angular-icons';
 import { KENDO_INDICATORS } from '@progress/kendo-angular-indicators';
 import { KENDO_LAYOUT } from '@progress/kendo-angular-layout';
@@ -32,7 +31,6 @@ import { MarkdownPipe } from '../pipes/markdown.pipe';
   templateUrl: './patients.html',
   styleUrls: ['./patients.css'],
   imports: [
-    NgClass,
     KENDO_GRID,
     KENDO_GRID_EXCEL_EXPORT,
     KENDO_BUTTONS,
@@ -51,6 +49,15 @@ export class PatientsComponent implements OnInit {
   public eyeIcon: SVGIcon = eyeIcon;
   public downloadIcon: SVGIcon = downloadIcon;
   public sparklesIcon: SVGIcon = sparklesIcon;
+
+  public getPatientStatusColor(status: string): ChipThemeColor {
+    const colorMap: Record<string, ChipThemeColor> = {
+      Stable: 'success',
+      Monitoring: 'warning',
+      Critical: 'error',
+    };
+    return colorMap[status] ?? 'base';
+  }
   public patients: Patient[] = [];
 
   // Chat properties
@@ -73,14 +80,15 @@ export class PatientsComponent implements OnInit {
     {
       id: guid(),
       author: this.aiAssistant,
-      text: `I can help you with your daily clinical tasks, patient information, and quick actions. Try one of the suggestions below!`,
+      text: `I can help you review patient statuses, identify critical cases, and summarize ward activity. Try one of the suggestions below!`,
     },
   ];
 
   public chatSuggestions: ChatSuggestion[] = [
-    { id: 1, text: 'Summarize patient history' },
-    { id: 2, text: 'Highlight risk patients' },
-    { id: 3, text: 'Show critical cases' },
+    { id: 1, text: 'Show ward distribution' },
+    { id: 2, text: 'List critical patients' },
+    { id: 3, text: 'Summarize patient statuses' },
+    { id: 4, text: 'Show diagnoses overview' },
   ];
 
   constructor(
@@ -111,19 +119,7 @@ export class PatientsComponent implements OnInit {
   }
 
   public onSendChatMessage(e: SendMessageEvent): void {
-    console.log('User message:', e.message.text);
     this.chatMessages = [...this.chatMessages, e.message];
-
-    // Simulate AI response
-    setTimeout(() => {
-      const responseMessage: Message = {
-        id: guid(),
-        author: this.aiAssistant,
-        text: 'I can help you analyze patient data, identify trends, and provide insights based on the current patient list.',
-        timestamp: new Date(),
-      };
-      this.chatMessages = [...this.chatMessages, responseMessage];
-    }, 1000);
   }
 
   public onSuggestionClick(suggestion: ChatSuggestion): void {
@@ -143,40 +139,56 @@ export class PatientsComponent implements OnInit {
       let responseText = '';
 
       if (suggestion.id === 1) {
-        responseText = `📋 **Patient History Summary**
+        const wardCounts: Record<string, number> = {};
+        this.patients.forEach(p => {
+          wardCounts[p.ward] = (wardCounts[p.ward] || 0) + 1;
+        });
+        const wardList = Object.entries(wardCounts)
+          .sort((a, b) => b[1] - a[1])
+          .map(([ward, count]) => `• **${ward}**: ${count} patient${count > 1 ? 's' : ''}`)
+          .join('\n');
+        responseText = `🏥 **Ward Distribution**
 
-Based on the current patient list, I can see **${this.patients.length} patients** with varying conditions and statuses.
+**Total Patients:** ${this.patients.length}
 
-**Key Insights:**
-• Multiple patients across different wards (Cardiology, Oncology, Endocrinology, etc.)
-• Range of ages from young adults to seniors
-• Various blood types and conditions being monitored
+${wardList}
 
-Would you like me to focus on a specific patient or condition?`;
+Use the grid filters to view patients by a specific ward.`;
       } else if (suggestion.id === 2) {
         const criticalPatients = this.patients.filter(p => p.status === 'Critical');
-        responseText = `⚠️ **High Risk Patients**
+        responseText = `🚨 **Critical Patients** (${criticalPatients.length})
 
-I've identified **${criticalPatients.length} critical patients** requiring immediate attention:
+${criticalPatients.map((p, i) => `${i + 1}. **${p.name}** — ${p.diagnosis}, ${p.ward} (Age ${p.age})`).join('\n')}
 
-${criticalPatients.map((p, i) => `${i + 1}. **${p.name}** - ${p.diagnosis} (${p.ward})`).join('\n')}
-
-These patients should be prioritized for rounds and monitoring.`;
+These patients require immediate attention. Click **View Profile** to review their vitals and lab results.`;
       } else if (suggestion.id === 3) {
-        const criticalPatients = this.patients.filter(p => p.status === 'Critical');
-        responseText = `🚨 **Critical Cases Overview**
+        const critical = this.patients.filter(p => p.status === 'Critical').length;
+        const monitoring = this.patients.filter(p => p.status === 'Monitoring').length;
+        const stable = this.patients.filter(p => p.status === 'Stable').length;
+        responseText = `📊 **Patient Status Summary**
 
-**Total Critical Cases:** ${criticalPatients.length}
+| Status | Count |
+|---|---|
+| 🔴 Critical | ${critical} |
+| 🟡 Monitoring | ${monitoring} |
+| 🟢 Stable | ${stable} |
+| **Total** | **${this.patients.length}** |
 
-${criticalPatients.map((p, i) => `
-**${i + 1}. ${p.name}**
-• Age: ${p.age} years
-• Ward: ${p.ward}
-• Diagnosis: ${p.diagnosis}
-• Blood Type: ${p.bloodType}
-`).join('\n')}
+${critical > 0 ? `⚠️ ${critical} patient${critical > 1 ? 's require' : ' requires'} urgent review.` : '✅ No critical patients at this time.'}`;
+      } else if (suggestion.id === 4) {
+        const diagnosisCounts: Record<string, number> = {};
+        this.patients.forEach(p => {
+          diagnosisCounts[p.diagnosis] = (diagnosisCounts[p.diagnosis] || 0) + 1;
+        });
+        const diagnosisList = Object.entries(diagnosisCounts)
+          .sort((a, b) => b[1] - a[1])
+          .map(([diagnosis, count]) => `• **${diagnosis}**: ${count} patient${count > 1 ? 's' : ''}`)
+          .join('\n');
+        responseText = `🩺 **Diagnoses Overview**
 
-Immediate attention recommended for all listed patients.`;
+${diagnosisList}
+
+Use the **Diagnosis** column filter in the grid to focus on a specific condition.`;
       }
 
       const responseMessage: Message = {

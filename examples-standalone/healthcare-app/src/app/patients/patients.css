@@ -49,41 +49,38 @@
   color: #ffffff;
 }
 
-.page-actions .k-button:hover {
-  background: #1d293b !important;
-  border-color: #1d293b !important;
-  color: #ffffff !important;
-}
-
-.page-actions .k-button-outline {
-  display: flex;
-  align-items: center;
-  padding: 8px 16px !important;
-  background: #f3f5f7;
-  border: 1px solid rgba(23, 56, 99, 0.08);
-  color: #232a36;
-  font-weight: 500;
-  font-size: 14px;
-}
-.ai-assistance-btn {
-  display: flex;
-  align-items: center;
-  padding: 8px 16px;
-  background-color: #334155 !important;
-  border-color: #334155 !important;
-  color: #ffffff !important;
-  font-weight: 500;
-  font-size: 14px;
-}
-
+.page-actions .k-button:hover,
 .ai-assistance-btn:hover {
   background: #1d293b !important;
   border-color: #1d293b !important;
   color: #ffffff !important;
 }
 
-/* Patients Card */
-.patients-card {
+.page-actions .k-button-outline,
+.ai-assistance-btn {
+  display: flex;
+  align-items: center;
+  padding: 8px 16px;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.page-actions .k-button-outline {
+  padding: 8px 16px !important;
+  background: #f3f5f7;
+  border: 1px solid rgba(23, 56, 99, 0.08);
+  color: #232a36;
+}
+
+.ai-assistance-btn {
+  background-color: #334155 !important;
+  border-color: #334155 !important;
+  color: #ffffff !important;
+}
+
+/* Patients Card / AI Chat Card */
+.patients-card,
+.ai-chat-card {
   border: none;
   border-radius: 16px;
   box-shadow:
@@ -94,11 +91,6 @@
   display: flex;
   flex-direction: column;
   align-self: flex-start;
-}
-
-.patients-card kendo-card-header {
-  padding: 20px 20px 10px;
-  border-bottom: none;
 }
 
 .patients-card kendo-card-body {
@@ -183,16 +175,6 @@
   min-width: 400px;
   height: 658px;
   max-height: 820px;
-  border: none;
-  border-radius: 16px;
-  box-shadow:
-    0px 1px 3px rgba(0, 0, 0, 0.04),
-    0px 2px 6px -1px rgba(0, 0, 0, 0.06);
-  background: #ffffff;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  align-self: flex-start;
 }
 
 .ai-chat-card kendo-card-body {

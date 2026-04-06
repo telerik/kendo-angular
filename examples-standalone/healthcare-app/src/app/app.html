@@ -2,7 +2,7 @@
   <!-- Logo Section -->
   <kendo-appbar-section>
     <a href="/" class="app-logo" aria-label="Logo">
-      <img src="assets/logo.svg" alt="Logo" />
+      <img ngSrc="assets/logo.svg" alt="Logo" width="153" height="38" priority />
     </a>
   </kendo-appbar-section>
 
@@ -44,9 +44,7 @@
         <kendo-svgicon [icon]="searchIcon"></kendo-svgicon>
       </ng-template>
       <ng-template kendoComboBoxItemTemplate let-dataItem>
-        <div>
-          {{ dataItem.name }} - ID {{ dataItem.id }}
-        </div>
+        <div>{{ dataItem.name }} - ID {{ dataItem.id }}</div>
       </ng-template>
     </kendo-combobox>
   </kendo-appbar-section>
@@ -110,7 +108,13 @@
       <div class="profile-image-section">
         <h3 class="section-label">Profile Image</h3>
         <div class="profile-image-container">
-          <img src="assets/profile.jpg" alt="Profile" class="profile-large-image" />
+          <img
+            ngSrc="assets/profile.jpg"
+            alt="Profile"
+            class="profile-large-image"
+            width="300"
+            height="300"
+          />
         </div>
         <button
           kendoButton
@@ -167,35 +171,36 @@
 }
 
 <!-- Notifications Popup -->
-<kendo-popup
-  *ngIf="notificationsOpened"
-  [anchor]="notificationAnchor"
-  [popupAlign]="{ horizontal: 'right', vertical: 'top' }"
-  [anchorAlign]="{ horizontal: 'left', vertical: 'bottom' }"
-  [margin]="{horizontal: -20, vertical: 0}"
-  (anchorViewportLeave)="closeNotifications()"
-  class="notifications-popup"
->
-  <div class="notifications-container">
-    <div class="notifications-header">
-      <h2 class="notifications-title">Notifications</h2>
-      <button class="mark-all-read" (click)="markAllAsRead()">Mark all read</button>
-    </div>
-    <div class="notifications-list">
-      @for (notification of notifications; track notification.id) {
-        <div class="notification-item">
-          <div class="notification-icon">
-            <kendo-svgicon [icon]="bellIcon"></kendo-svgicon>
-          </div>
-          <div class="notification-content">
-            <div class="notification-title">{{ notification.title }}</div>
-            <div class="notification-description-wrapper">
-              <div class="notification-description">{{ notification.description }}</div>
-              <div class="notification-time">{{ notification.time }}</div>
+@if (notificationsOpened) {
+  <kendo-popup
+    [anchor]="notificationAnchor"
+    [popupAlign]="{ horizontal: 'right', vertical: 'top' }"
+    [anchorAlign]="{ horizontal: 'left', vertical: 'bottom' }"
+    [margin]="{ horizontal: -20, vertical: 0 }"
+    (anchorViewportLeave)="closeNotifications()"
+    class="notifications-popup"
+  >
+    <div class="notifications-container">
+      <div class="notifications-header">
+        <h2 class="notifications-title">Notifications</h2>
+        <button kendoButton fillMode="flat" class="mark-all-read" (click)="markAllAsRead()">Mark all read</button>
+      </div>
+      <div class="notifications-list">
+        @for (notification of notifications; track notification.id) {
+          <div class="notification-item">
+            <div class="notification-icon">
+              <kendo-svgicon [icon]="bellIcon"></kendo-svgicon>
+            </div>
+            <div class="notification-content">
+              <div class="notification-title">{{ notification.title }}</div>
+              <div class="notification-description-wrapper">
+                <div class="notification-description">{{ notification.description }}</div>
+                <div class="notification-time">{{ notification.time }}</div>
+              </div>
             </div>
           </div>
-        </div>
-      }
+        }
+      </div>
     </div>
-  </div>
-</kendo-popup>
+  </kendo-popup>
+}

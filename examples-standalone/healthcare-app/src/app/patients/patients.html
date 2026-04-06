@@ -2,13 +2,27 @@
   <div class="page-header">
     <div>
       <h1 class="page-title">Patients</h1>
-      <p class="page-subtitle">Monitor patient trends, vitals, lab results, and risk levels in one place</p>
+      <p class="page-subtitle">
+        Monitor patient trends, vitals, lab results, and risk levels in one place
+      </p>
     </div>
     <div class="page-actions">
-      <button kendoButton class="ai-assistance-btn" rounded="full" [svgIcon]="sparklesIcon" (click)="toggleChat()">
+      <button
+        kendoButton
+        class="ai-assistance-btn"
+        rounded="full"
+        [svgIcon]="sparklesIcon"
+        (click)="toggleChat()"
+      >
         AI Assistance
       </button>
-      <button kendoButton fillMode="outline" rounded="full" [svgIcon]="downloadIcon" (click)="exportToExcel()">
+      <button
+        kendoButton
+        fillMode="outline"
+        rounded="full"
+        [svgIcon]="downloadIcon"
+        (click)="exportToExcel()"
+      >
         Export
       </button>
     </div>
@@ -24,32 +38,35 @@
           [pageable]="{
             pageSizes: [10, 15, 20],
             previousNext: true,
-            info: true
+            info: true,
           }"
           [pageSize]="10"
         >
           <kendo-grid-column field="name" title="Patient Name" [width]="220">
             <ng-template kendoGridCellTemplate let-dataItem>
               <div class="patient-cell">
-                <kendo-avatar
-                  [imageSrc]="dataItem.avatar"
-                  size="medium"
-                  shape="circle">
+                <kendo-avatar [imageSrc]="dataItem.avatar" size="medium" shape="circle">
                 </kendo-avatar>
                 <span>{{ dataItem.name }}</span>
               </div>
             </ng-template>
           </kendo-grid-column>
 
-          <kendo-grid-column field="age" title="Age" [width]="120" filter="numeric"></kendo-grid-column>
+          <kendo-grid-column
+            field="age"
+            title="Age"
+            [width]="120"
+            filter="numeric"
+          ></kendo-grid-column>
 
           <kendo-grid-column field="status" title="Status" [width]="160">
             <ng-template kendoGridCellTemplate let-dataItem>
-              <span class="status-badge" [ngClass]="{
-                'status-critical': dataItem.status === 'Critical',
-                'status-monitoring': dataItem.status === 'Monitoring',
-                'status-stable': dataItem.status === 'Stable'
-              }">{{ dataItem.status }}</span>
+              <kendo-chip
+                [label]="dataItem.status"
+                [themeColor]="getPatientStatusColor(dataItem.status)"
+                [removable]="false"
+                rounded="full"
+              ></kendo-chip>
             </ng-template>
           </kendo-grid-column>
 
@@ -63,7 +80,12 @@
 
           <kendo-grid-column title="Actions" [width]="160" [sortable]="false" [filterable]="false">
             <ng-template kendoGridCellTemplate let-dataItem>
-              <button kendoButton fillMode="flat" class="view-profile-link" (click)="viewProfile(dataItem.id)">
+              <button
+                kendoButton
+                fillMode="flat"
+                class="view-profile-link"
+                (click)="viewProfile(dataItem.id)"
+              >
                 <kendo-svgicon [icon]="eyeIcon" size="small"></kendo-svgicon>
                 View Profile
               </button>
@@ -91,10 +113,10 @@
             [style.height.%]="100"
           >
             <ng-template kendoChatHeaderTemplate>
-              <div style="display: flex; align-items: center; padding: 8px;">
+              <div style="display: flex; align-items: center; padding: 8px">
                 <kendo-svg-icon
                   [icon]="sparklesIcon"
-                  style="margin-right: 8px; color: #4B5FFA"
+                  style="margin-right: 8px; color: #4b5ffa"
                 ></kendo-svg-icon>
                 <strong>AI Assistant</strong>
               </div>

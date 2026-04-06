@@ -1,4 +1,5 @@
 import { Component, signal, ViewEncapsulation, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { NgOptimizedImage } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { Router, RouterOutlet, NavigationEnd } from '@angular/router';
@@ -38,6 +39,7 @@ import {
     RouterOutlet,
     FormsModule,
     CommonModule,
+    NgOptimizedImage,
     KENDO_NAVIGATION,
     KENDO_BUTTONS,
     KENDO_DROPDOWNS,
@@ -112,7 +114,7 @@ export class App implements OnInit {
     {
       id: 2,
       title: 'Extended Request',
-      description: 'Based on Emma\'s current conditi...',
+      description: "Based on Emma's current conditi...",
       time: '35 min ago',
     },
     {
@@ -123,7 +125,10 @@ export class App implements OnInit {
     },
   ];
 
-  constructor(private router: Router, private patientsService: PatientsService) {
+  constructor(
+    private router: Router,
+    private patientsService: PatientsService,
+  ) {
     // Set initial selected nav based on current route
     this.updateSelectedNavFromRoute();
     // Load patients data for combobox

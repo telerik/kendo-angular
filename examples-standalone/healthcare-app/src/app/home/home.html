@@ -114,16 +114,12 @@
         <kendo-grid-column field="reason" title="Reason"></kendo-grid-column>
         <kendo-grid-column field="status" title="Status" [width]="120">
           <ng-template kendoGridCellTemplate let-dataItem>
-            <span
-              class="status-badge"
-              [ngClass]="{
-                'status-complete': dataItem.status === 'Complete',
-                'status-in-progress': dataItem.status === 'In Progress',
-                'status-upcoming': dataItem.status === 'Upcoming',
-                'status-cancelled': dataItem.status === 'Cancelled',
-              }"
-              >{{ dataItem.status }}</span
-            >
+            <kendo-chip
+              [label]="dataItem.status"
+              [themeColor]="getAppointmentStatusColor(dataItem.status)"
+              [removable]="false"
+              rounded="full"
+            ></kendo-chip>
           </ng-template>
         </kendo-grid-column>
         <kendo-grid-column field="room" title="Room" [width]="130"></kendo-grid-column>
@@ -170,7 +166,7 @@
                   <span class="time">2:00 PM</span>
                 </div>
               </div>
-              <p>Appointment time</p  >
+              <p>Appointment time</p>
             </div>
           </div>
         }
@@ -554,7 +550,7 @@
 
     <kendo-dialog-actions layout="end">
       <button kendoButton (click)="closeReasonForVisitDialog()" class="discard-btn">Close</button>
-      <button kendoButton themeColor="dark" class="save-btn">Start Visit</button>
+      <button kendoButton themeColor="dark" (click)="closeReasonForVisitDialog()" class="save-btn">Start Visit</button>
     </kendo-dialog-actions>
   </kendo-dialog>
 }
@@ -649,7 +645,7 @@
 
     <kendo-dialog-actions layout="end">
       <button kendoButton (click)="closeAllergyAlertDialog()" class="discard-btn">Close</button>
-      <button kendoButton themeColor="dark" class="save-btn">Acknowledge</button>
+      <button kendoButton themeColor="dark" (click)="closeAllergyAlertDialog()" class="save-btn">Acknowledge</button>
     </kendo-dialog-actions>
   </kendo-dialog>
 }
@@ -727,7 +723,7 @@
 
     <kendo-dialog-actions layout="end">
       <button kendoButton (click)="closeReasonForVisitDialog()" class="discard-btn">Close</button>
-      <button kendoButton themeColor="dark" class="save-btn">Start Visit</button>
+      <button kendoButton themeColor="dark" (click)="closeReasonForVisitDialog()" class="save-btn">Start Visit</button>
     </kendo-dialog-actions>
   </kendo-dialog>
 }
@@ -822,7 +818,7 @@
 
     <kendo-dialog-actions layout="end">
       <button kendoButton (click)="closeAllergyAlertDialog()" class="discard-btn">Close</button>
-      <button kendoButton themeColor="dark" class="save-btn">Acknowledge</button>
+      <button kendoButton themeColor="dark" (click)="closeAllergyAlertDialog()" class="save-btn">Acknowledge</button>
     </kendo-dialog-actions>
   </kendo-dialog>
 }
@@ -846,7 +842,7 @@
     [anchorAlign]="{ horizontal: 'left', vertical: 'bottom' }"
     [popupAlign]="{ horizontal: 'right', vertical: 'top' }"
     (anchorViewportLeave)="closeChatPopup()"
-    [margin]="{horizontal: -35, vertical: 0}"
+    [margin]="{ horizontal: -35, vertical: 0 }"
   >
     <div class="ai-chat-popup">
       <kendo-chat
@@ -861,19 +857,18 @@
         [style.width.%]="100"
         [style.height.%]="100"
       >
-      <ng-template kendoChatHeaderTemplate>
-        <div style="display: flex; align-items: center; padding: 8px;">
-          <kendo-svg-icon
-            [icon]="sparklesIcon"
-            style="margin-right: 8px; color: #4B5FFA"
-          ></kendo-svg-icon>
-          <strong>AI Assistant</strong>
-        </div>
-      </ng-template>
-      <ng-template kendoChatReceiverMessageTemplate let-message>
-        <div [innerHTML]="message.text | markdown"></div>
-      </ng-template>
-
+        <ng-template kendoChatHeaderTemplate>
+          <div style="display: flex; align-items: center; padding: 8px">
+            <kendo-svg-icon
+              [icon]="sparklesIcon"
+              style="margin-right: 8px; color: #4b5ffa"
+            ></kendo-svg-icon>
+            <strong>AI Assistant</strong>
+          </div>
+        </ng-template>
+        <ng-template kendoChatReceiverMessageTemplate let-message>
+          <div [innerHTML]="message.text | markdown"></div>
+        </ng-template>
       </kendo-chat>
     </div>
   </kendo-popup>

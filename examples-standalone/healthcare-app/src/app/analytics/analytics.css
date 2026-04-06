@@ -11,12 +11,16 @@
   margin-bottom: 24px;
 }
 
-.analytics-header-left .page-title {
+.analytics-header-left .page-title,
+.card-title {
   margin: 0;
   font-weight: 600;
+  color: #232A36;
+}
+
+.analytics-header-left .page-title {
   font-size: 42px;
   line-height: 120%;
-  color: #232A36;
 }
 
 .analytics-header-left .page-subtitle {
@@ -38,7 +42,8 @@
   height: 34px;
 }
 
-.patient-dropdown .k-input-solid {
+.patient-dropdown .k-input-solid,
+.export-btn {
   height: 34px;
   padding: 8px 16px !important;
   background: #F3F5F7 !important;
@@ -47,7 +52,8 @@
   font-size: 14px;
 }
 
-.patient-dropdown .k-input-solid:hover {
+.patient-dropdown .k-input-solid:hover,
+.export-btn:hover {
   background: #E8ECEF !important;
 }
 
@@ -60,17 +66,7 @@
 .export-btn {
   display: flex;
   align-items: center;
-  height: 34px;
-  padding: 8px 16px !important;
-  background: #F3F5F7 !important;
-  border: 1px solid rgba(23, 56, 99, 0.08) !important;
   color: #232A36 !important;
-  font-weight: 500;
-  font-size: 14px;
-}
-
-.export-btn:hover {
-  background: #E8ECEF !important;
 }
 
 .vitals-card {
@@ -90,18 +86,20 @@
 }
 
 .card-title {
-  margin: 0;
-  font-weight: 600;
   font-size: 20px;
   line-height: 140%;
-  color: #232A36;
+}
+
+.card-subtitle,
+.risk-gauge-label,
+.risk-legend-range {
+  font-size: 14px;
+  color: #6B7A8D;
 }
 
 .card-subtitle {
   margin: 4px 0 0;
-  font-size: 14px;
   line-height: 150%;
-  color: #6B7A8D;
 }
 
 .vitals-chart {
@@ -162,8 +160,6 @@
 }
 
 .risk-gauge-label {
-  font-size: 14px;
-  color: #6B7A8D;
   margin-top: 4px;
 }
 
@@ -201,7 +197,4 @@
   color: #232A36;
 }
 
-.risk-legend-range {
-  font-size: 14px;
-  color: #6B7A8D;
-}
+

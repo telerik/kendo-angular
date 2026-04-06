@@ -223,36 +223,11 @@
 }
 
 /* Badges */
-.status-badge {
-  display: inline-flex;
-  align-items: center;
-  padding: 2px 10px;
-  border-radius: 9999px;
-  font-weight: 500;
-  font-size: 12px;
-  line-height: 166%;
-  white-space: nowrap;
-}
 
-.status-complete {
-  background: #def7ec;
-  color: #03543f;
-}
-
-.status-in-progress {
-  background: #e0f2fe;
-  color: #075985;
-}
-
-.status-upcoming {
-  background: #ede9fe;
-  color: #5b21b6;
-}
-
-.status-cancelled {
-  background: #fee2e2;
-  color: #991b1b;
-}
+.status-complete { background: #def7ec; color: #03543f; }
+.status-in-progress { background: #e0f2fe; color: #075985; }
+.status-upcoming { background: #ede9fe; color: #5b21b6; }
+.status-cancelled { background: #fee2e2; color: #991b1b; }
 
 .condition-badge {
   display: inline-flex;
@@ -319,32 +294,6 @@
 }
 
 /* Scrollable areas */
-.next-patient-section section.cards-container,
-.daily-alerts {
-  scrollbar-width: thin;
-  scrollbar-color: rgba(74, 86, 102, 0.5) transparent;
-}
-
-.next-patient-section section.cards-container::-webkit-scrollbar,
-.daily-alerts::-webkit-scrollbar {
-  width: 8px;
-}
-
-.next-patient-section section.cards-container::-webkit-scrollbar-track,
-.daily-alerts::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-.next-patient-section section.cards-container::-webkit-scrollbar-thumb,
-.daily-alerts::-webkit-scrollbar-thumb {
-  background: rgba(74, 86, 102, 0.5);
-  border-radius: 12px;
-}
-
-.next-patient-section section.cards-container::-webkit-scrollbar-thumb:hover,
-.daily-alerts::-webkit-scrollbar-thumb:hover {
-  background: rgba(74, 86, 102, 0.7);
-}
 
 .next-patient-section section.cards-container {
   display: flex;
@@ -464,25 +413,16 @@
   flex-shrink: 0;
 }
 
-.info-card-icon.blue-bg {
-  background: #d2e2fb;
-}
+.info-card-icon.blue-bg { background: #d2e2fb; }
+.info-card-icon.yellow-bg { background: #fff4d3; }
 
-.info-card-icon.yellow-bg {
-  background: #fff4d3;
-}
-
-.info-card-icon.blue-bg kendo-svgicon {
-  color: #6098f2;
+:is(.info-card-icon.blue-bg, .info-card-icon.yellow-bg) kendo-svgicon {
   width: 22px;
   height: 22px;
 }
 
-.info-card-icon.yellow-bg kendo-svgicon {
-  color: #ffd760;
-  width: 22px;
-  height: 22px;
-}
+.info-card-icon.blue-bg kendo-svgicon { color: #6098f2; }
+.info-card-icon.yellow-bg kendo-svgicon { color: #ffd760; }
 
 .info-card-content {
   display: flex;
@@ -588,24 +528,14 @@
 }
 
 /* Dialogs */
-.clinical-note-dialog .k-window,
-.message-nurse-dialog .k-window,
-.lab-test-dialog .k-window,
-.alert-dialog .k-window,
-.reason-visit-dialog .k-window,
-.allergy-dialog .k-window {
+:is(.clinical-note-dialog, .message-nurse-dialog, .lab-test-dialog, .alert-dialog, .reason-visit-dialog, .allergy-dialog) .k-window {
   background: #ffffff;
   border: 1px solid rgba(23, 56, 99, 0.08);
   border-radius: 12px;
   filter: drop-shadow(0px 8px 20px rgba(0, 0, 0, 0.07)) drop-shadow(0px 20px 48px rgba(0, 0, 0, 0.11));
 }
 
-.clinical-note-dialog .k-window-titlebar,
-.message-nurse-dialog .k-window-titlebar,
-.lab-test-dialog .k-window-titlebar,
-.alert-dialog .k-window-titlebar,
-.reason-visit-dialog .k-window-titlebar,
-.allergy-dialog .k-window-titlebar {
+:is(.clinical-note-dialog, .message-nurse-dialog, .lab-test-dialog, .alert-dialog, .reason-visit-dialog, .allergy-dialog) .k-window-titlebar {
   padding: 16px;
   background: #ffffff;
   border-bottom: 1px solid rgba(23, 56, 99, 0.08);
@@ -619,27 +549,6 @@
   margin: 0;
 }
 
-.clinical-note-dialog .k-window-titlebar .k-window-actions,
-.message-nurse-dialog .k-window-titlebar .k-window-actions,
-.lab-test-dialog .k-window-titlebar .k-window-actions,
-.alert-dialog .k-window-titlebar .k-window-actions,
-.reason-visit-dialog .k-window-titlebar .k-window-actions,
-.allergy-dialog .k-window-titlebar .k-window-actions {
-  gap: 8px;
-}
-
-.clinical-note-dialog .k-dialog-buttongroup,
-.message-nurse-dialog .k-dialog-buttongroup,
-.lab-test-dialog .k-dialog-buttongroup,
-.alert-dialog .k-dialog-buttongroup,
-.reason-visit-dialog .k-dialog-buttongroup,
-.allergy-dialog .k-dialog-buttongroup {
-  padding: 16px;
-  gap: 8px;
-  border-top: none;
-  background: #ffffff;
-  justify-content: flex-end;
-}
 
 .dialog-content {
   padding: 16px;
@@ -668,50 +577,6 @@
 }
 
 /* Form Controls - TextBox/TextArea */
-.clinical-note-textarea,
-.message-recipient,
-.message-subject,
-.message-description,
-.lab-test-search {
-  width: 100%;
-}
-
-.clinical-note-textarea .k-input-solid,
-.message-recipient .k-input-solid,
-.message-subject .k-input-solid,
-.message-description .k-input-solid,
-.lab-test-search .k-input-solid {
-  background: #ffffff;
-  border: 1px solid rgba(23, 56, 99, 0.08);
-  border-radius: 6px;
-  padding: 0;
-}
-
-.clinical-note-textarea .k-input-solid {
-  height: 208px;
-}
-
-.clinical-note-textarea .k-input-solid:hover,
-.message-recipient .k-input-solid:hover,
-.message-subject .k-input-solid:hover,
-.message-description .k-input-solid:hover,
-.lab-test-search .k-input-solid:hover {
-  border-color: rgba(23, 56, 99, 0.15);
-}
-
-.clinical-note-textarea .k-input-solid:focus,
-.clinical-note-textarea .k-input-solid.k-focus,
-.message-recipient .k-input-solid:focus,
-.message-recipient .k-input-solid.k-focus,
-.message-subject .k-input-solid:focus,
-.message-subject .k-input-solid.k-focus,
-.message-description .k-input-solid:focus,
-.message-description .k-input-solid.k-focus,
-.lab-test-search .k-input-solid:focus,
-.lab-test-search .k-input-solid.k-focus {
-  border-color: rgba(23, 56, 99, 0.2);
-  filter: none;
-}
 
 .message-recipient .k-input-inner,
 .message-subject .k-input-inner,
@@ -737,9 +602,7 @@
   min-height: 184px;
 }
 
-.clinical-note-textarea .k-input-inner::placeholder,
-.message-recipient .k-input-inner::placeholder,
-.message-description .k-input-inner::placeholder {
+:is(.clinical-note-textarea, .message-recipient, .message-description) .k-input-inner::placeholder {
   color: #4a5666;
   opacity: 0.6;
   font-size: 16px;
@@ -849,15 +712,7 @@
 }
 
 /* Alert Dialog Content */
-.alert-patient-info,
-.alert-condition-section,
-.alert-values-section,
-.alert-details-section,
-.alert-recommendations-section {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
+
 
 .patient-info-grid,
 .values-grid {
@@ -904,13 +759,8 @@
   font-weight: 700;
 }
 
-.value-number.current {
-  color: #dc2626;
-}
-
-.value-number.normal {
-  color: #64748b;
-}
+.value-number.current { color: #dc2626; }
+.value-number.normal { color: #64748b; }
 
 .details-text {
   font-size: 16px;
@@ -959,12 +809,14 @@
   padding: 0 !important;
   background: linear-gradient(135deg, #ac58ff 0%, #4b5ffa 100%) !important;
   border: none !important;
-  filter: drop-shadow(0px 1px 3px rgba(99, 102, 251, 0.24)) drop-shadow(0px 2px 6px rgba(0, 0, 0, 0.12));
+  filter: drop-shadow(0px 1px 3px rgba(99, 102, 251, 0.24))
+    drop-shadow(0px 2px 6px rgba(0, 0, 0, 0.12));
   z-index: 1000;
 }
 
 .fab-button:hover {
-  filter: drop-shadow(0px 1px 3px rgba(99, 102, 251, 0.32)) drop-shadow(0px 2px 6px rgba(0, 0, 0, 0.16));
+  filter: drop-shadow(0px 1px 3px rgba(99, 102, 251, 0.32))
+    drop-shadow(0px 2px 6px rgba(0, 0, 0, 0.16));
   background: linear-gradient(135deg, #9b47ee 0%, #3a4ee9 100%) !important;
 }
 
@@ -979,7 +831,8 @@
   height: 600px;
   background: #ffffff;
   border-radius: 16px;
-  filter: drop-shadow(0px 8px 24px rgba(0, 0, 0, 0.12)) drop-shadow(0px 4px 12px rgba(0, 0, 0, 0.08));
+  filter: drop-shadow(0px 8px 24px rgba(0, 0, 0, 0.12))
+    drop-shadow(0px 4px 12px rgba(0, 0, 0, 0.08));
   display: flex;
   flex-direction: column;
   overflow: hidden;
