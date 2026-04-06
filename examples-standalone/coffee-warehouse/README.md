@@ -1,45 +1,62 @@
-[<img src="./src/assets/logo-kendo.png" width="225" />](https://www.telerik.com/kendo-angular-ui/) [![Angular Logo](./src/assets/logo-angular.png)](https://angular.io/)
+<div align="center">
+  <a href="https://www.telerik.com/kendo-angular-ui/"><img src="./src/assets/logo-kendo.png" width="200" alt="Kendo UI for Angular" /></a>
+  &nbsp;&nbsp;&nbsp;
+  <a href="https://angular.io/"><img src="./src/assets/logo-angular.png" width="60" alt="Angular" /></a>
+</div>
 
-# Using Kendo UI for Angular
+<h1 align="center">Coffee Warehouse — Kendo UI for Angular</h1>
 
-This Kendo UI for Angular sample project demonstrates how to use [Kendo UI for Angular components](https://www.telerik.com/kendo-angular-ui/components) within a coffee warehouse prototype application and visualize data. Currently, [the example is deployed on GitHub pages](https://telerik.github.io/kendo-angular/coffee-warehouse).
+<p align="center">
+  A coffee warehouse prototype application built with <a href="https://www.telerik.com/kendo-angular-ui/components">Kendo UI for Angular</a>, showcasing data management and visualization.
+  <br />
+  <a href="https://telerik.github.io/kendo-angular/coffee-warehouse"><strong>View Live Demo »</strong></a>
+</p>
 
-Used Kendo UI for Angular Components:
- - [Buttons](https://www.telerik.com/kendo-angular-ui/components/buttons/button/)
- - [Charts](https://www.telerik.com/kendo-angular-ui/components/charts/)
- - [DateInputs](https://www.telerik.com/kendo-angular-ui/components/dateinputs/)
- - [DropDonws](https://www.telerik.com/kendo-angular-ui/components/dropdowns/)
- - [Editor](https://www.telerik.com/kendo-angular-ui/components/editor/)
- - [Grid](https://www.telerik.com/kendo-angular-ui/components/grid/)
- - [Inputs](https://www.telerik.com/kendo-angular-ui/components/inputs/)
- - [Layout](https://www.telerik.com/kendo-angular-ui/components/layout/)
- - [Notification](https://www.telerik.com/kendo-angular-ui/components/notification/)
- - [Scheduler](https://www.telerik.com/kendo-angular-ui/components/scheduler/)
- - [Uploads](https://www.telerik.com/kendo-angular-ui/components/uploads/)
+---
 
-## In This Article
+## Components Used
 
-* [Setting Up the Project](#setting-up-the-project)
-* [Getting Started](#getting-started)
-* [Building for Development](building-for-development)
-* [Serve in Production](serve-in-production)
+| Component | Docs |
+|-----------|------|
+| Buttons | [Buttons](https://www.telerik.com/kendo-angular-ui/components/buttons/button/) |
+| Charts | [Charts](https://www.telerik.com/kendo-angular-ui/components/charts/) |
+| DateInputs | [DateInputs](https://www.telerik.com/kendo-angular-ui/components/dateinputs/) |
+| DropDowns | [DropDowns](https://www.telerik.com/kendo-angular-ui/components/dropdowns/) |
+| Editor | [Editor](https://www.telerik.com/kendo-angular-ui/components/editor/) |
+| Grid | [Grid Component](https://www.telerik.com/kendo-angular-ui/components/grid/) |
+| Inputs | [Inputs](https://www.telerik.com/kendo-angular-ui/components/inputs/) |
+| Layout | [Layout](https://www.telerik.com/kendo-angular-ui/components/layout/) |
+| Notification | [Notification](https://www.telerik.com/kendo-angular-ui/components/notification/) |
+| Scheduler | [Scheduler](https://www.telerik.com/kendo-angular-ui/components/scheduler/) |
+| Uploads | [Uploads](https://www.telerik.com/kendo-angular-ui/components/uploads/) |
 
-## Setting Up the Project
-
-The sample project runs with the [currently supported Angular version](https://www.telerik.com/kendo-angular-ui/components/installation/requirements/#toc-angular).
+---
 
 ## Getting Started
 
-1. Clone the repository of the sample application locally by running `git clone https://github.com/telerik/kendo-angular.git`.
-1. Navigate to the project folder by running `cd examples-standalone/coffee-warehouse`.
-1. Install dependencies with NPM by running `npm install`.
+> The sample project runs with the [currently supported Angular version](https://www.telerik.com/kendo-angular-ui/components/installation/requirements/#toc-angular).
 
-## Building for Development
+```bash
+# 1. Clone the repository
+git clone https://github.com/telerik/kendo-angular.git
 
-To run the project:
-1. Execute the `ng serve` command in the terminal window for a dev server.
-1. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+# 2. Navigate to the project folder
+cd examples-standalone/coffee-warehouse
 
-## Serve in Production
+# 3. Install dependencies
+npm install
+```
 
-Run `npm run serve-prod` to run the project in production mode.
+## Development Server
+
+```bash
+ng serve
+```
+
+Navigate to `http://localhost:4200/`. The app reloads automatically when source files change.
+
+## Production
+
+```bash
+npm run serve-prod
+```

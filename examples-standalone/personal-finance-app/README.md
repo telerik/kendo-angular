@@ -1,59 +1,73 @@
-# PersonalFinanceApp
+<div align="center">
+  <a href="https://www.telerik.com/kendo-angular-ui/"><img src="https://d585tldpucybw.cloudfront.net/sfimages/default-source/productsimages/kendo-ui-for-angular/kendoka_with_logo-min.png?sfvrsn=568f4b7c_1" height="60" alt="Kendo UI for Angular" /></a>
+  &nbsp;&nbsp;&nbsp;
+  <a href="https://angular.io/"><img src="https://www.vectorlogo.zone/logos/angular/angular-icon.svg" height="60" alt="Angular" /></a>
+</div>
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.0.5.
+<h1 align="center">Personal Finance App — Kendo UI for Angular</h1>
 
-## Development server
+<p align="center">
+  A personal finance prototype application built with <a href="https://www.telerik.com/kendo-angular-ui/components">Kendo UI for Angular</a>.
+</p>
 
-To start a local development server, run:
+---
+
+## Components Used
+
+| Component | Docs |
+|-----------|------|
+| Buttons | [Buttons](https://www.telerik.com/kendo-angular-ui/components/buttons/button/) |
+| Charts | [Charts](https://www.telerik.com/kendo-angular-ui/components/charts/) |
+| Conversational UI | [AI Prompt](https://www.telerik.com/kendo-angular-ui/components/conversational-ui/aiprompt/) |
+| DateInputs | [DateInputs](https://www.telerik.com/kendo-angular-ui/components/dateinputs/) |
+| DropDowns | [DropDowns](https://www.telerik.com/kendo-angular-ui/components/dropdowns/) |
+| Gauges | [Gauges](https://www.telerik.com/kendo-angular-ui/components/gauges/) |
+| Grid | [Grid Component](https://www.telerik.com/kendo-angular-ui/components/grid/) |
+| Icons | [Icons](https://www.telerik.com/kendo-angular-ui/components/icons/icon/) |
+| Inputs | [Inputs](https://www.telerik.com/kendo-angular-ui/components/inputs/) |
+| Layout | [Layout](https://www.telerik.com/kendo-angular-ui/components/layout/) |
+| ProgressBar | [ProgressBar](https://www.telerik.com/kendo-angular-ui/components/progressbar/) |
+
+---
+
+## Getting Started
+
+> The sample project runs with the [currently supported Angular version](https://www.telerik.com/kendo-angular-ui/components/installation/requirements/#toc-angular).
+
+```bash
+# 1. Clone the repository
+git clone https://github.com/telerik/kendo-angular.git
+
+# 2. Navigate to the project folder
+cd examples-standalone/personal-finance-app
+
+# 3. Install dependencies
+npm install
+```
+
+## Development Server
 
 ```bash
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Navigate to `http://localhost:4200/`. The app reloads automatically when source files change.
 
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
+## Build
 
 ```bash
 ng build
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+Build artifacts are stored in the `dist/` directory.
 
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+## Tests
 
 ```bash
+# Unit tests
 ng test
-```
 
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
+# End-to-end tests
 ng e2e
 ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.

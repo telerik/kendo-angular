@@ -1,27 +1,65 @@
-# SpreadsheetApp
+<div align="center">
+  <a href="https://www.telerik.com/kendo-angular-ui/"><img src="https://d585tldpucybw.cloudfront.net/sfimages/default-source/productsimages/kendo-ui-for-angular/kendoka_with_logo-min.png?sfvrsn=568f4b7c_1" height="60" alt="Kendo UI for Angular" /></a>
+  &nbsp;&nbsp;&nbsp;
+  <a href="https://angular.io/"><img src="https://www.vectorlogo.zone/logos/angular/angular-icon.svg" height="60" alt="Angular" /></a>
+</div>
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.10.
+<h1 align="center">Spreadsheet App — Kendo UI for Angular</h1>
 
-## Development server
+<p align="center">
+  A spreadsheet-like application built with <a href="https://www.telerik.com/kendo-angular-ui/components">Kendo UI for Angular</a>.
+</p>
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+---
 
-## Code scaffolding
+## Components Used
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+| Component | Docs |
+|-----------|------|
+| Buttons | [Buttons](https://www.telerik.com/kendo-angular-ui/components/buttons/button/) |
+| Notification | [Notification](https://www.telerik.com/kendo-angular-ui/components/notification/) |
+| Toolbar | [Toolbar](https://www.telerik.com/kendo-angular-ui/components/toolbar/) |
+
+---
+
+## Getting Started
+
+> The sample project runs with the [currently supported Angular version](https://www.telerik.com/kendo-angular-ui/components/installation/requirements/#toc-angular).
+
+```bash
+# 1. Clone the repository
+git clone https://github.com/telerik/kendo-angular.git
+
+# 2. Navigate to the project folder
+cd examples-standalone/spreadsheet-app
+
+# 3. Install dependencies
+npm install
+```
+
+## Development Server
+
+```bash
+ng serve
+```
+
+Navigate to `http://localhost:4200/`. The app reloads automatically when source files change.
 
 ## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+```bash
+ng build
+```
 
-## Running unit tests
+Build artifacts are stored in the `dist/` directory.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Tests
 
-## Running end-to-end tests
+```bash
+# Unit tests
+ng test
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+# End-to-end tests
+ng e2e
+```
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.

@@ -1,50 +1,63 @@
-# Using Kendo UI for Angular Grid and Upload component with ASP.NET Core 8.0
+<div align="center">
+  <a href="https://www.telerik.com/kendo-angular-ui/"><img src="https://d585tldpucybw.cloudfront.net/sfimages/default-source/productsimages/kendo-ui-for-angular/kendoka_with_logo-min.png?sfvrsn=568f4b7c_1" height="60" alt="Kendo UI for Angular" /></a>
+  &nbsp;&nbsp;&nbsp;
+  <a href="https://angular.io/"><img src="https://www.vectorlogo.zone/logos/angular/angular-icon.svg" height="60" alt="Angular" /></a>
+</div>
 
-This is a sample project that demonstrates how to use Kendo UI for Angular [Grid](https://www.telerik.com/kendo-angular-ui/components/grid/) and [Upload](https://www.telerik.com/kendo-angular-ui/components/uploads/upload/) component with ASP.NET Core based on the Microsoft [ASP.NET Core template](https://learn.microsoft.com/en-us/aspnet/core/client-side/spa/angular?view=aspnetcore-8.0&tabs=visual-studio).
+<h1 align="center">ASP.NET Core Integration — Kendo UI for Angular</h1>
+
+<p align="center">
+  Demonstrates the <a href="https://www.telerik.com/kendo-angular-ui/components/grid/">Grid</a> and <a href="https://www.telerik.com/kendo-angular-ui/components/uploads/upload/">Upload</a> components with an <strong>ASP.NET Core 8.0</strong> backend.
+  Based on the <a href="https://learn.microsoft.com/en-us/aspnet/core/client-side/spa/angular?view=aspnetcore-8.0&tabs=visual-studio">Microsoft ASP.NET Core Angular template</a>.
+</p>
+
+---
+
+## Components Used
+
+| Component | Docs |
+|-----------|------|
+| Grid | [Grid Component](https://www.telerik.com/kendo-angular-ui/components/grid/) |
+| Upload | [Upload Component](https://www.telerik.com/kendo-angular-ui/components/uploads/upload/) |
+
+---
+
+## Prerequisites
+
+- [.NET Core 8 SDK](https://dotnet.microsoft.com/download)
+- [Angular CLI 18.0.6+](https://v17.angular.io/guide/setup-local#install-the-angular-cli)
 
 ## Getting Started
 
-1. Clone this repository by running the following command:
+```bash
+# 1. Clone the repository
+git clone https://github.com/telerik/kendo-angular/
 
-    ```bash
-    git clone https://github.com/telerik/kendo-angular/
-    ```
+# 2. Navigate to the project folder
+cd examples-standalone/kendoangular-aspnetcore-integration
 
-1. Make sure to have the [.NET Core 8 SDK](https://dotnet.microsoft.com/download) installed on your machine, along with [Angular CLI 18.0.6](https://v17.angular.io/guide/setup-local#install-the-angular-cli).
+# 3. Build the project
+dotnet build
 
-1. Navigate to the project folder:
+# 4. Run the project
+dotnet run
+```
 
-    ```bash
-    cd examples-standalone/kendoangular-aspnetcore-integration
-    ```
+ASP.NET Core will print the local address where the project is available. Open it in your browser and wait for Angular CLI to finish building (may take a few seconds on first load).
 
-1. Build the project:
-
-    ```bash
-    dotnet build
-    ```
-
-1. Run the project:
-
-    ```bash
-    dotnet run
-    ```
-
-1. ASP.NET Core will provide local host addresses where the project is running. Open the provided address in your browser.
-
-1. Wait for the project to load and you will see the Kendo UI for Angular Grid and Upload component in action. This might take a few seconds as Angular CLI will be building the project.
+---
 
 ## Additional Information
 
-For more information on how to add Telerik Private NuGet feed to your project, refer to the [Adding the Telerik Private NuGet Feed to VS](https://docs.telerik.com/reporting/getting-started/installation/adding-private-nuget-feed) or [Blazor Private NuGet Source](https://docs.telerik.com/blazor-ui/installation/nuget#use-the-net-cli) articles.
-This will provide you access to use [ToDataSourceResult](https://docs.telerik.com/aspnet-mvc/api/kendo.mvc.extensions/queryableextensions#todatasourceresultsystemdatadatatablekendomvcuidatasourcerequest) method and other helpers for your own projects.
+To use helpers like `ToDataSourceResult`, add the Telerik Private NuGet feed to your project:
+- [Adding the Telerik Private NuGet Feed to VS](https://docs.telerik.com/reporting/getting-started/installation/adding-private-nuget-feed)
+- [Blazor Private NuGet Source](https://docs.telerik.com/blazor-ui/installation/nuget#use-the-net-cli)
 
-Do keep in mind that the ASP.NET Core template uses older version of Angular and ASP.NET Core. You can update both both frameworks to their latest version by following the [ASP.NET Core](https://learn.microsoft.com/en-us/aspnet/core/migration/70-80?view=aspnetcore-8.0&tabs=visual-studio) and [Angular](https://angular.dev/update-guide) update guides. This project was updated to use Angular 18 and ASP.NET Core 8.0.
+This project uses Angular 18 and ASP.NET Core 8.0. To upgrade further, follow the [ASP.NET Core](https://learn.microsoft.com/en-us/aspnet/core/migration/70-80?view=aspnetcore-8.0&tabs=visual-studio) and [Angular](https://angular.dev/update-guide) update guides.
 
 ## See Also
 
 - [Kendo UI for Angular Components](https://www.telerik.com/kendo-angular-ui)
-- [Kendo UI for Angular Documentation](https://www.telerik.com/kendo-angular-ui/components/)
-- [Kendo UI for Angular Grid Component](https://www.telerik.com/kendo-angular-ui/components/grid/)
-- [Kendo UI for Angular Upload Component](https://www.telerik.com/kendo-angular-ui/components/uploads/upload/)
+- [Grid Component Docs](https://www.telerik.com/kendo-angular-ui/components/grid/)
+- [Upload Component Docs](https://www.telerik.com/kendo-angular-ui/components/uploads/upload/)
 - [ASP.NET Core Documentation](https://learn.microsoft.com/en-us/aspnet/core/?view=aspnetcore-8.0)

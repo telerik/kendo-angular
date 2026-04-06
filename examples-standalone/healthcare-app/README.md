@@ -1,59 +1,79 @@
-# HealthcareAppNew
+<div align="center">
+  <a href="https://www.telerik.com/kendo-angular-ui/"><img src="https://d585tldpucybw.cloudfront.net/sfimages/default-source/productsimages/kendo-ui-for-angular/kendoka_with_logo-min.png?sfvrsn=568f4b7c_1" height="60" alt="Kendo UI for Angular" /></a>
+  &nbsp;&nbsp;&nbsp;
+  <a href="https://angular.io/"><img src="https://www.vectorlogo.zone/logos/angular/angular-icon.svg" height="60" alt="Angular" /></a>
+</div>
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.2.
+<h1 align="center">Healthcare Application — Kendo UI for Angular</h1>
 
-## Development server
+<p align="center">
+  A full-featured healthcare dashboard built with <a href="https://www.telerik.com/kendo-angular-ui/components">Kendo UI for Angular</a>, designed to demonstrate how clinical workflows can be modeled in a modern Angular application.
+  <br />
+  <a href="https://telerik.github.io/kendo-angular/healthcare-app"><strong>View Live Demo »</strong></a>
+</p>
 
-To start a local development server, run:
+<p align="center">
+  The app is organized into four main views:
+</p>
+
+<ul>
+  <li><strong>Home</strong> — Personalized dashboard for a physician, featuring quick-action cards (add clinical notes, request lab tests), upcoming appointments, and an at-a-glance patient summary.</li>
+  <li><strong>Patients</strong> — A searchable, sortable, and filterable grid of patients with vitals, risk levels, and lab results. Includes an AI Assistance panel and Excel export.</li>
+  <li><strong>Patient Profile</strong> — Detailed view of an individual patient showing basic information, recent vitals (heart rate, blood pressure, O2 saturation, temperature), and medical history.</li>
+  <li><strong>Schedule</strong> — A multi-view scheduler (day, week, month, agenda) for managing appointments, paired with a daily task list that supports search and inline task creation.</li>
+  <li><strong>Clinical Analytics</strong> — Charts tracking patient vitals over time (systolic/diastolic BP, heart rate, SpO2, temperature) and a risk assessment overview with export support.</li>
+</ul>
+
+---
+
+## Components Used
+
+| Component | Docs |
+|-----------|------|
+| Breadcrumb | [Breadcrumb](https://www.telerik.com/kendo-angular-ui/components/navigation/breadcrumb/) |
+| Buttons | [Buttons](https://www.telerik.com/kendo-angular-ui/components/buttons/button/) |
+| Dialog | [Dialog](https://www.telerik.com/kendo-angular-ui/components/dialog/) |
+| DropDowns | [DropDowns](https://www.telerik.com/kendo-angular-ui/components/dropdowns/) |
+| Editor | [Editor](https://www.telerik.com/kendo-angular-ui/components/editor/) |
+| Gauges | [Gauges](https://www.telerik.com/kendo-angular-ui/components/gauges/) |
+| Grid | [Grid Component](https://www.telerik.com/kendo-angular-ui/components/grid/) |
+| Icons | [Icons](https://www.telerik.com/kendo-angular-ui/components/icons/icon/) |
+| Indicators | [Indicators](https://www.telerik.com/kendo-angular-ui/components/indicators/) |
+| Inputs | [Inputs](https://www.telerik.com/kendo-angular-ui/components/inputs/) |
+| Layout | [Layout](https://www.telerik.com/kendo-angular-ui/components/layout/) |
+| Scheduler | [Scheduler](https://www.telerik.com/kendo-angular-ui/components/scheduler/) |
+| Toolbar | [Toolbar](https://www.telerik.com/kendo-angular-ui/components/toolbar/) |
+
+---
+
+## Getting Started
+
+> The sample project runs with the [currently supported Angular version](https://www.telerik.com/kendo-angular-ui/components/installation/requirements/#toc-angular).
+
+```bash
+# 1. Clone the repository
+git clone https://github.com/telerik/kendo-angular.git
+
+# 2. Navigate to the project folder
+cd examples-standalone/healthcare-app
+
+# 3. Install dependencies
+npm install
+```
+
+## Development Server
 
 ```bash
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Navigate to `http://localhost:4200/`. The app reloads automatically when source files change.
 
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
+## Build
 
 ```bash
 ng build
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+Build artifacts are stored in the `dist/` directory.
 
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.

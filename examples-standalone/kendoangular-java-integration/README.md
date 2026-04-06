@@ -1,91 +1,83 @@
-# Kendo UI for Angular with Java Spring Boot Integration
+<div align="center">
+  <a href="https://www.telerik.com/kendo-angular-ui/"><img src="https://d585tldpucybw.cloudfront.net/sfimages/default-source/productsimages/kendo-ui-for-angular/kendoka_with_logo-min.png?sfvrsn=568f4b7c_1" height="60" alt="Kendo UI for Angular" /></a>
+  &nbsp;&nbsp;&nbsp;
+  <a href="https://angular.io/"><img src="https://www.vectorlogo.zone/logos/angular/angular-icon.svg" height="60" alt="Angular" /></a>
+</div>
 
-This sample project demonstrates how to utilize Kendo UI for Angular's [Grid](https://www.telerik.com/kendo-angular-ui/components/grid/) and [Upload](https://www.telerik.com/kendo-angular-ui/components/uploads/upload/) components with a Java Spring Boot Maven backend.
+<h1 align="center">Java Spring Boot Integration — Kendo UI for Angular</h1>
 
-For more detailed information, refer to the [Java integration article](https://www.telerik.com/kendo-angular-ui/components/installation/java-spring).
+<p align="center">
+  Demonstrates the <a href="https://www.telerik.com/kendo-angular-ui/components/grid/">Grid</a> and <a href="https://www.telerik.com/kendo-angular-ui/components/uploads/upload/">Upload</a> components with a <strong>Java Spring Boot</strong> Maven backend.
+  <br />
+  See the <a href="https://www.telerik.com/kendo-angular-ui/components/installation/java-spring">Java integration article</a> for full details.
+</p>
+
+---
+
+## Components Used
+
+| Component | Docs |
+|-----------|------|
+| Grid | [Grid Component](https://www.telerik.com/kendo-angular-ui/components/grid/) |
+| Upload | [Upload Component](https://www.telerik.com/kendo-angular-ui/components/uploads/upload/) |
+
+---
 
 ## Project Structure
 
-The project consists of two main parts:
-
-- **Frontend**: Contains the Angular application, located in the `frontend` directory.
-- **Backend**: Contains the Java Spring Boot application, located in the `backend` directory.
+| Directory | Description |
+|-----------|-------------|
+| `frontend/` | Angular application |
+| `backend/` | Java Spring Boot application |
 
 ## Prerequisites
 
-Ensure you have the following tools installed on your machine:
+- [Angular CLI 18.0.0+](https://angular.io/cli)
+- [JDK 23](https://www.oracle.com/java/technologies/downloads/) — download the correct build for your architecture (arm64 for Apple Silicon, x64 for Intel)
+- [Apache Maven](https://formulae.brew.sh/formula/maven) — install via Homebrew on macOS or [download manually](https://maven.apache.org/install.html)
 
-- **Angular CLI (18.0.0 or later)**: A command-line interface for Angular. [Download Angular CLI](https://angular.io/cli).
-- **Java Development Kit (JDK 23)**: Essential for running Java applications. [Download JDK](https://www.oracle.com/java/technologies/downloads/).
-  - Note: For macOS, ensure you download the correct installer for your architecture:
-    - **arm64**: For Apple Silicon (M1, M2, etc.) Macs.
-    - **x64**: For Intel-based Macs.
+## Getting Started
 
-- **Apache Maven**: A build automation tool for Java projects. Install using [Homebrew](https://formulae.brew.sh/formula/maven) on macOS, or [download manually](https://maven.apache.org/install.html).
+```bash
+# Clone the repository
+git clone https://github.com/telerik/kendo-angular/
+```
 
-- **Clone the Repository**: Clone the repository to your local machine to get the project files.
+### Start the Backend
 
-    ```bash
-    git clone https://github.com/telerik/kendo-angular/
-    ```
+```bash
+cd examples-standalone/kendoangular-java-integration/backend
+mvn spring-boot:run
+```
 
-## Setup and Run the Java Spring Boot Application
+Backend available at `http://localhost:8080`.
 
-1. **Navigate to the Backend Directory**:
+### Start the Frontend
 
-    ```bash
-    cd kendo-angular/examples-standalone/kendoangular-java-integration/backend
-    ```
+```bash
+cd examples-standalone/kendoangular-java-integration/ClientApp
+npm install
+ng serve
+```
 
-2. **Run the Java Spring Boot Application**:
+Frontend available at `http://localhost:4200`.
 
-    ```bash
-    mvn spring-boot:run
-    ```
+---
 
-3. **Access the Java Spring Boot Application**:
-    - Open your browser and navigate to [http://localhost:8080](http://localhost:8080).
+## Features
 
-## Setup and Run the Angular Application
+**Grid Component**
+- Displays a list of products
+- Client-side sorting, filtering, grouping, and paging via the [process helper](https://www.telerik.com/kendo-angular-ui/components/data-query/bulk-operations)
+- Full CRUD operations against the server
 
-1. **Navigate to the Frontend Directory**:
-
-    ```bash
-    cd kendo-angular/examples-standalone/kendoangular-java-integration/ClientApp
-    ```
-
-2. **Install Project Dependencies**:
-
-    ```bash
-    npm install
-    ```
-
-3. **Run the Angular Application**:
-
-    ```bash
-    ng serve
-    ```
-
-4. **Open Your Browser**:
-    - Navigate to [http://localhost:4200](http://localhost:4200) to view the Angular application.
-
-## Functionality
-
-The application demonstrates the following features:
-
-- **Grid Component**:
-  - Displays a list of products.
-  - Supports client-side sorting, filtering, grouping, and paging using the [process helper](https://www.telerik.com/kendo-angular-ui/components/data-query/bulk-operations).
-  - Performs Create, Read, Update, and Delete (CRUD) operations on the server.
-
-- **Upload Component**:
-  - Allows users to upload files to the server.
+**Upload Component**
+- File upload to the backend server
 
 ## See Also
 
-- [Kendo UI for Angular integration with ASP.NET Core](https://www.telerik.com/kendo-angular-ui/components/installation/dotnet-core)
+- [Kendo UI for Angular with ASP.NET Core](https://www.telerik.com/kendo-angular-ui/components/installation/dotnet-core)
 - [Kendo UI for Angular Components](https://www.telerik.com/kendo-angular-ui)
-- [Kendo UI for Angular Documentation](https://www.telerik.com/kendo-angular-ui/components/)
-- [Kendo UI for Angular Grid Component](https://www.telerik.com/kendo-angular-ui/components/grid/)
-- [Kendo UI for Angular Upload Component](https://www.telerik.com/kendo-angular-ui/components/uploads/upload/)
+- [Grid Component Docs](https://www.telerik.com/kendo-angular-ui/components/grid/)
+- [Upload Component Docs](https://www.telerik.com/kendo-angular-ui/components/uploads/upload/)
 - [Java Spring Initializr](https://start.spring.io/)
