@@ -1,0 +1,182 @@
+<section class="page-section">
+  <div class="page-header">
+    <div>
+      <h1 class="page-title">Patients</h1>
+      <kendo-breadcrumb [items]="breadcrumbItems" (itemClick)="onBreadcrumbItemClick($event)"></kendo-breadcrumb>
+    </div>
+    <div class="page-actions">
+      <button
+        kendoButton
+        fillMode="outline"
+        rounded="full"
+        [svgIcon]="downloadIcon"
+        (click)="exportToExcel()"
+      >
+        Export
+      </button>
+    </div>
+  </div>
+
+  @if (patient) {
+    <div class="profile-grid">
+      <!-- Basic Information Card -->
+      <kendo-card class="profile-card basic-info-card">
+        <div class="card-details">
+          <div class="name-and-avatar">
+            <kendo-avatar
+              [imageSrc]="patient.avatar"
+              size="large"
+              shape="circle"
+              class="patient-avatar"
+            >
+            </kendo-avatar>
+            <div class="name">
+              <h2 class="patient-name">{{ patient.name }}</h2>
+              <kendo-chip
+                [label]="patient.status"
+                [themeColor]="getPatientStatusColor(patient.status)"
+                [removable]="false"
+                rounded="full"
+              ></kendo-chip>
+            </div>
+          </div>
+        </div>
+        <div class="card-content">
+          <h3 class="section-title">Basic Information</h3>
+          <div class="info-rows">
+            <div class="info-row">
+              <span class="info-label">Patient ID</span>
+              <span class="info-value">{{ patient.patientCode }}</span>
+            </div>
+            <div class="info-row">
+              <span class="info-label">Age/Gender</span>
+              <span class="info-value">{{ patient.age }} years, {{ patient.gender }}</span>
+            </div>
+          </div>
+        </div>
+      </kendo-card>
+
+      <!-- Recent Vitals Card -->
+      <kendo-card class="profile-card vitals-card">
+        <div class="vitals-content">
+          <div class="vitals-container">
+            <h3 class="vitals-title">Recent Vitals</h3>
+            <div class="vital-row">
+              <span class="vital-label">Heart Rate</span>
+              <span class="vital-value">{{ patient.vitals.heartRate }}</span>
+            </div>
+            <div class="vital-row">
+              <span class="vital-label">Blood Pressure</span>
+              <span class="vital-value">{{ patient.vitals.bloodPressure }}</span>
+            </div>
+            <div class="vital-row">
+              <span class="vital-label">Temperature</span>
+              <span class="vital-value">{{ patient.vitals.temperature }}</span>
+            </div>
+            <div class="vital-row">
+              <span class="vital-label">O2 Saturation</span>
+              <span class="vital-value vital-alert">{{ patient.vitals.o2Saturation }}</span>
+            </div>
+            <div class="vital-row">
+              <span class="vital-label">Respiratory Rate</span>
+              <span class="vital-value">{{ patient.vitals.respiratoryRate }}</span>
+            </div>
+          </div>
+        </div>
+      </kendo-card>
+
+      <!-- Admission Details Card -->
+      <kendo-card class="profile-card admission-card">
+        <div class="admission-content">
+          <div class="admission-container">
+            <h3 class="admission-title">Admission Details</h3>
+            <div class="admission-row">
+              <span class="admission-label">Department</span>
+              <span class="admission-value">{{ patient.admission.department }}</span>
+            </div>
+            <div class="admission-row">
+              <span class="admission-label">Ward</span>
+              <span class="admission-value">{{ patient.admission.ward }}</span>
+            </div>
+            <div class="admission-row">
+              <span class="admission-label">Room</span>
+              <span class="admission-value">{{ patient.admission.room }}</span>
+            </div>
+            <div class="admission-row">
+              <span class="admission-label">Admission Date</span>
+              <span class="admission-value">{{ patient.admission.admissionDate }}</span>
+            </div>
+            <div class="admission-row">
+              <span class="admission-label">Assigned Nurse</span>
+              <span class="admission-value">{{ patient.admission.assignedNurse }}</span>
+            </div>
+          </div>
+        </div>
+      </kendo-card>
+    </div>
+  }
+
+  <!-- Patient Note Editor -->
+  <kendo-card class="patient-note-card" width="100%">
+    <kendo-card-body>
+      <div class="note-header">
+        <h3 class="note-title">Patient Note</h3>
+        <button kendoButton fillMode="flat" class="save-button" (click)="saveNotes()">
+          <kendo-svgicon [icon]="downloadIcon" size="small"></kendo-svgicon>
+          Save
+        </button>
+      </div>
+      <kendo-editor
+        class="patient-note-editor"
+        [value]="patient?.notes || ''"
+        [style.height.px]="250"
+        [iframeCss]="{
+          content:
+            'body { font-family: \'Poppins\', sans-serif; font-size: 16px; line-height: 150%; }',
+        }"
+      >
+      </kendo-editor>
+    </kendo-card-body>
+  </kendo-card>
+
+  <!-- Lab Results Grid -->
+  <kendo-card class="lab-results-card" width="100%">
+    <kendo-card-body>
+      <h3 class="lab-results-title">Laboratory Results</h3>
+      <kendo-grid
+        class="lab-results-grid"
+        [kendoGridBinding]="labResults"
+        [height]="500"
+        [sortable]="true"
+        [filterable]="true"
+        [pageable]="{
+          pageSizes: [3, 5, 10],
+          previousNext: true,
+          info: true,
+        }"
+        [pageSize]="10"
+      >
+        <kendo-grid-column field="testName" title="Test Name" [width]="250"> </kendo-grid-column>
+
+        <kendo-grid-column field="value" title="Value" [width]="150"> </kendo-grid-column>
+
+        <kendo-grid-column field="referenceRange" title="Reference Range" [width]="180">
+        </kendo-grid-column>
+
+        <kendo-grid-column field="status" title="Status" [width]="150">
+          <ng-template kendoGridCellTemplate let-dataItem>
+            <kendo-chip
+              [label]="dataItem.status"
+              [themeColor]="getPatientStatusColor(dataItem.status)"
+              [removable]="false"
+              rounded="full"
+            ></kendo-chip>
+          </ng-template>
+        </kendo-grid-column>
+
+        <kendo-grid-column field="notes" title="Notes" [width]="400"> </kendo-grid-column>
+        <kendo-grid-excel fileName="Lab-Results.xlsx" [fetchData]="allData"></kendo-grid-excel>
+      </kendo-grid>
+    </kendo-card-body>
+  </kendo-card>
+</section>

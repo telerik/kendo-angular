@@ -1,0 +1,229 @@
+.page-section {
+  width: 100%;
+  margin-top: 24px;
+}
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.page-header > :first-child {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex-grow: 1;
+}
+
+.page-title {
+  margin: 0;
+  font-weight: 600;
+  font-size: 42px;
+  line-height: 120%;
+}
+
+.page-subtitle {
+  margin: 0;
+  font-size: 16px;
+  line-height: 150%;
+  color: #4a5666;
+}
+
+/* Page Actions */
+.page-actions {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.page-actions .k-button {
+  height: 34px;
+  padding: 4px 8px;
+  border-radius: 9999px;
+  font-size: 16px;
+  line-height: 150%;
+  background: #334155;
+  border-color: #334155;
+  color: #ffffff;
+}
+
+.page-actions .k-button:hover,
+.ai-assistance-btn:hover {
+  background: #1d293b !important;
+  border-color: #1d293b !important;
+  color: #ffffff !important;
+}
+
+.page-actions .k-button-outline,
+.ai-assistance-btn {
+  display: flex;
+  align-items: center;
+  padding: 8px 16px;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.page-actions .k-button-outline {
+  padding: 8px 16px !important;
+  background: #f3f5f7;
+  border: 1px solid rgba(23, 56, 99, 0.08);
+  color: #232a36;
+}
+
+.ai-assistance-btn {
+  background-color: #334155 !important;
+  border-color: #334155 !important;
+  color: #ffffff !important;
+}
+
+/* Patients Card / AI Chat Card */
+.patients-card,
+.ai-chat-card {
+  border: none;
+  border-radius: 16px;
+  box-shadow:
+    0px 1px 3px rgba(0, 0, 0, 0.04),
+    0px 2px 6px -1px rgba(0, 0, 0, 0.06);
+  background: #ffffff;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-self: flex-start;
+}
+
+.patients-card kendo-card-body {
+  padding: 10px 20px 20px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.patients-card kendo-card-body kendo-grid {
+  flex: 1;
+}
+
+/* Patient Name Cell */
+.patient-cell {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Status Badges */
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px;
+  border-radius: 9999px;
+  font-size: 12px;
+  line-height: 133%;
+}
+
+.status-critical {
+  background: #fcddda;
+  border: 1px solid #f76f60;
+  color: #7a0c00;
+}
+
+.status-monitoring {
+  background: #fff4d3;
+  border: 1px solid #ffd760;
+  color: #5e4700;
+}
+
+.status-stable {
+  background: #dcf0d3;
+  border: 1px solid #81d15f;
+  color: #1c5a00;
+}
+
+/* View Profile Link */
+.view-profile-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 8px;
+  border-radius: 9999px;
+  text-decoration: none;
+  font-size: 14px;
+  line-height: 142%;
+}
+
+.view-profile-link:hover {
+  background: rgba(56, 66, 80, 0.05);
+}
+
+/* Content Wrapper for Grid and Chat */
+.patients-content-wrapper {
+  display: flex;
+  gap: 32px;
+  width: 100%;
+  align-items: flex-start;
+  transition: all 0.3s ease;
+}
+
+.patients-content-wrapper.chat-visible .patients-card {
+  flex: 1;
+  min-width: 0;
+}
+
+/* AI Chat Card */
+.ai-chat-card {
+  width: 400px;
+  min-width: 400px;
+  height: 658px;
+  max-height: 820px;
+}
+
+.ai-chat-card kendo-card-body {
+  padding: 0;
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+  min-height: 0;
+}
+
+.ai-chat-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* Chat Message Styling */
+.k-message-group-sender .k-chat-bubble,
+.k-message-group-sender .k-selected,
+.k-message-group-sender .k-selected.k-focus {
+  background-color: #334155;
+  border: none;
+  box-shadow: none;
+}
+
+.k-message-group-sender .k-chat-bubble:hover {
+  background-color: #1e293b;
+}
+
+.receiver-message {
+  line-height: 1.6;
+}
+
+.receiver-message h3,
+.receiver-message h4 {
+  margin-top: 12px;
+  margin-bottom: 8px;
+}
+
+.receiver-message p {
+  margin: 8px 0;
+}
+
+.receiver-message ul {
+  margin: 8px 0;
+  padding-left: 20px;
+}
+
+.receiver-message strong {
+  font-weight: 600;
+}

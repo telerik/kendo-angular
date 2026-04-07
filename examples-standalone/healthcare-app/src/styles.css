@@ -1,0 +1,33 @@
+/* You can add global styles to this file, and also import other style files */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  color: #232a36;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #fafafa;
+  background-image: url('/assets/bg.svg');
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: cover;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Popup Components - Rounded Edges */
+.k-popup,
+.k-animation-container > .k-popup {
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.k-list-container.k-popup {
+  border-radius: 12px;
+}

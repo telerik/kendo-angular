@@ -1,0 +1,312 @@
+<section class="analytics-section" aria-labelledby="analytics-heading">
+  <div class="analytics-header">
+    <div class="analytics-header-left">
+      <h1 id="analytics-heading" class="page-title">Clinical Analytics</h1>
+      <p class="page-subtitle">Patient trends, vitals, lab results, and risk assessment overview</p>
+    </div>
+    <div class="analytics-header-right">
+      <kendo-dropdownlist
+        [data]="patients"
+        textField="name"
+        valueField="id"
+        [(value)]="selectedPatient"
+        [valuePrimitive]="false"
+        class="patient-dropdown"
+        [popupSettings]="{ appendTo: 'component' }"
+        aria-label="Select patient"
+        rounded="full"
+      >
+        <ng-template kendoDropDownListValueTemplate let-dataItem>
+          {{ dataItem?.name }} ({{ dataItem?.id }})
+        </ng-template>
+      </kendo-dropdownlist>
+      <button
+        kendoButton
+        fillMode="outline"
+        class="export-btn"
+        aria-label="Export analytics data"
+        rounded="full"
+        [svgIcon]="downloadIcon"
+        (click)="exportChart()"
+      >
+        Export
+      </button>
+    </div>
+  </div>
+
+  <div class="vitals-card">
+    <div class="vitals-card-header">
+      <h2 class="card-title">Vitals Over Time</h2>
+      <p class="card-subtitle">
+        Multi-series tracking of blood pressure, heart rate, SpO2, and temperature
+      </p>
+    </div>
+
+    <kendo-chart
+      #vitalsChart
+      class="vitals-chart"
+      aria-label="Vitals over time chart showing systolic BP, diastolic BP, heart rate, SpO2, temperature, and pulse"
+    >
+      <kendo-chart-tooltip [shared]="false" format="{0}"></kendo-chart-tooltip>
+      <kendo-chart-category-axis>
+        <kendo-chart-category-axis-item
+          [categories]="categories"
+          [justified]="true"
+          [majorGridLines]="{ visible: false }"
+          [labels]="{
+            font: '13px Inter, sans-serif',
+            color: '#8E99AB',
+            margin: { top: 8 },
+            rotation: 270,
+          }"
+        >
+        </kendo-chart-category-axis-item>
+      </kendo-chart-category-axis>
+
+      <kendo-chart-value-axis>
+        <kendo-chart-value-axis-item
+          [min]="0"
+          [max]="35"
+          [majorGridLines]="{ color: '#F0F2F5', dashType: 'solid' }"
+          [labels]="{ font: '13px Inter, sans-serif', color: '#8E99AB' }"
+        >
+        </kendo-chart-value-axis-item>
+      </kendo-chart-value-axis>
+
+      <kendo-chart-series>
+        @for (series of seriesData; track series.name) {
+          <kendo-chart-series-item
+            type="line"
+            [style]="lineType"
+            [data]="series.data"
+            [name]="series.name"
+            [color]="series.color"
+            [markers]="{
+              visible: true,
+              type: 'circle',
+              size: 8,
+              background: '#fff',
+              border: { color: series.color, width: 2 },
+            }"
+          >
+          </kendo-chart-series-item>
+        }
+      </kendo-chart-series>
+
+      <kendo-chart-legend
+        position="bottom"
+        [labels]="{ font: '13px Inter, sans-serif', color: '#4A5666' }"
+        [item]="{ visual: legendItemVisual }"
+      >
+      </kendo-chart-legend>
+    </kendo-chart>
+  </div>
+
+  <!-- Alerts Over Time -->
+  <div class="vitals-card">
+    <div class="vitals-card-header">
+      <h2 class="card-title">Alerts Over Time</h2>
+      <p class="card-subtitle">Alert count trendy by severity level</p>
+    </div>
+
+    <kendo-chart
+      class="alerts-chart"
+      aria-label="Stacked bar chart showing alert counts by severity level over months"
+    >
+      <kendo-chart-tooltip [shared]="false" format="{0}"></kendo-chart-tooltip>
+      <kendo-chart-category-axis>
+        <kendo-chart-category-axis-item
+          [categories]="alertsCategories"
+          [majorGridLines]="{ visible: false }"
+          [labels]="{ font: '13px Inter, sans-serif', color: '#8E99AB', margin: { top: 8 } }"
+        ></kendo-chart-category-axis-item>
+      </kendo-chart-category-axis>
+      <kendo-chart-value-axis>
+        <kendo-chart-value-axis-item
+          [min]="0"
+          [max]="35"
+          [majorGridLines]="{ color: '#F0F2F5', dashType: 'solid' }"
+          [labels]="{ font: '13px Inter, sans-serif', color: '#8E99AB' }"
+        ></kendo-chart-value-axis-item>
+      </kendo-chart-value-axis>
+      <kendo-chart-series>
+        <kendo-chart-series-item
+          type="column"
+          [stack]="true"
+          [data]="alertsInfo"
+          name="Info"
+          color="#5B8FF9"
+          [gap]="1.5"
+        ></kendo-chart-series-item>
+        <kendo-chart-series-item
+          type="column"
+          [stack]="true"
+          [data]="alertsWarning"
+          name="Warning"
+          color="#F5C542"
+        ></kendo-chart-series-item>
+        <kendo-chart-series-item
+          type="column"
+          [stack]="true"
+          [data]="alertsCritical"
+          name="Critical"
+          color="#E65548"
+        ></kendo-chart-series-item>
+      </kendo-chart-series>
+      <kendo-chart-legend
+        position="bottom"
+        [labels]="{ font: '13px Inter, sans-serif', color: '#4A5666' }"
+        [item]="{ visual: legendItemVisual }"
+      ></kendo-chart-legend>
+    </kendo-chart>
+  </div>
+
+  <!-- Lab Results Range -->
+  <div class="vitals-card">
+    <div class="vitals-card-header">
+      <h2 class="card-title">Lab Results Range</h2>
+      <p class="card-subtitle">
+        Multi-metric range chart showing latest lab results against optimal ranges
+      </p>
+    </div>
+
+    <div class="lab-range-charts">
+      @for (metric of labMetrics; track metric.name) {
+        <kendo-chart class="lab-range-chart" aria-label="Bullet chart for {{ metric.name }}">
+          <kendo-chart-tooltip format="Max: {0}&lt;br/&gt;Ave: {1}"></kendo-chart-tooltip>
+          <kendo-chart-category-axis>
+            <kendo-chart-category-axis-item
+              [categories]="[metric.name]"
+              [visible]="false"
+            ></kendo-chart-category-axis-item>
+          </kendo-chart-category-axis>
+          <kendo-chart-value-axis>
+            <kendo-chart-value-axis-item
+              [min]="metric.min"
+              [max]="metric.max"
+              [majorUnit]="5"
+              [majorGridLines]="{ visible: false }"
+              [labels]="{ font: '13px Inter, sans-serif', color: '#8E99AB' }"
+              [plotBands]="metric.plotBands"
+              [notes]="{
+                data: [
+                  {
+                    value: metric.markerValue,
+                    label: {
+                      text: metric.markerLabel,
+                      font: '12px Inter, sans-serif',
+                      color: '#4A5666',
+                      position: 'outside',
+                    },
+                    line: { length: 30, color: '#333', width: 2 },
+                  },
+                ],
+                position: 'top',
+              }"
+            ></kendo-chart-value-axis-item>
+          </kendo-chart-value-axis>
+          <kendo-chart-series>
+            <kendo-chart-series-item
+              type="bar"
+              [data]="[metric.current]"
+              [color]="metric.color"
+              [gap]="2"
+              [border]="{ width: 0 }"
+            ></kendo-chart-series-item>
+          </kendo-chart-series>
+          <kendo-chart-legend [visible]="false"></kendo-chart-legend>
+        </kendo-chart>
+      }
+    </div>
+  </div>
+
+  <div class="charts-row">
+    <!-- Alerts by Category -->
+    <div class="vitals-card">
+      <div class="vitals-card-header">
+        <h2 class="card-title">Alerts by Category</h2>
+        <p class="card-subtitle">Distribution of alerts by clinical category</p>
+      </div>
+
+      <kendo-chart
+        class="category-chart"
+        aria-label="Donut chart showing alerts distribution by clinical category"
+      >
+        <kendo-chart-series>
+          <kendo-chart-series-item
+            type="donut"
+            [data]="alertsCategoryData"
+            field="value"
+            categoryField="category"
+            colorField="color"
+            [holeSize]="80"
+            [labels]="{
+              visible: true,
+              content: labelContent,
+              font: '13px Inter, sans-serif',
+              color: '#4A5666',
+              position: 'outsideEnd',
+              align: 'column',
+            }"
+          ></kendo-chart-series-item>
+        </kendo-chart-series>
+        <kendo-chart-legend
+          position="bottom"
+          [labels]="{ font: '13px Inter, sans-serif', color: '#4A5666' }"
+          [item]="{ visual: donutLegendItemVisual }"
+        ></kendo-chart-legend>
+      </kendo-chart>
+    </div>
+
+    <!-- Risk Score -->
+    <div class="vitals-card">
+      <div class="vitals-card-header">
+        <h2 class="card-title">Risk Score</h2>
+        <p class="card-subtitle">Patient health risk assessment</p>
+      </div>
+
+      <div class="risk-score-content">
+        <div class="risk-gauge-wrapper">
+          <kendo-arcgauge
+            [value]="riskScore"
+            [scale]="{
+              rangeSize: 20,
+              startAngle: 0,
+              endAngle: 180,
+              min: 0,
+              max: 100,
+              majorTicks: { visible: false },
+              minorTicks: { visible: false },
+              labels: { visible: false },
+              rangeLineCap: 'round',
+            }"
+            [colors]="[
+              { from: 0, to: 39, color: '#E65548' },
+              { from: 40, to: 69, color: '#C5A84E' },
+              { from: 70, to: 100, color: '#4CAF50' },
+            ]"
+            class="risk-gauge"
+          >
+            <ng-template kendoArcGaugeCenterTemplate>
+              <span class="risk-gauge-value">{{ riskScore }}%</span>
+              <br />
+              <span class="risk-gauge-label">Out of 100</span>
+            </ng-template>
+          </kendo-arcgauge>
+        </div>
+
+        <div class="risk-legend">
+          @for (level of riskLevels; track level.label) {
+            <div class="risk-legend-item">
+              <div class="risk-legend-left">
+                <span class="risk-legend-dot" [style.background-color]="level.color"></span>
+                <span class="risk-legend-label">{{ level.label }}</span>
+              </div>
+              <span class="risk-legend-range">{{ level.range }}</span>
+            </div>
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

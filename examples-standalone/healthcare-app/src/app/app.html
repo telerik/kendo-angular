@@ -1,0 +1,206 @@
+<kendo-appbar themeColor="light" [class.opacity-mode-appbar]="opacityMode()">
+  <!-- Logo Section -->
+  <kendo-appbar-section>
+    <a href="/" class="app-logo" aria-label="Logo">
+      <img ngSrc="assets/logo.svg" alt="Logo" width="153" height="38" priority />
+    </a>
+  </kendo-appbar-section>
+
+  <kendo-appbar-spacer></kendo-appbar-spacer>
+  <kendo-appbar-spacer></kendo-appbar-spacer>
+
+  <!-- Navigation Section -->
+  <kendo-appbar-section class="nav-section">
+    <kendo-segmented-control
+      [items]="navItems"
+      [selected]="selectedNavIndex"
+      (selectedChange)="onNavChange($event)"
+      aria-label="Main navigation"
+      size="large"
+    >
+    </kendo-segmented-control>
+  </kendo-appbar-section>
+
+  <kendo-appbar-spacer></kendo-appbar-spacer>
+
+  <!-- Search Section -->
+  <kendo-appbar-section class="search-section">
+    <kendo-combobox
+      [value]="selectedPatient"
+      [data]="patients"
+      textField="name"
+      valueField="id"
+      [valuePrimitive]="false"
+      [kendoDropDownFilter]="{ caseSensitive: false, operator: 'contains' }"
+      (valueChange)="onPatientSelect($event)"
+      placeholder="Search patient name or ID"
+      [popupSettings]="{ appendTo: 'component' }"
+      [clearButton]="true"
+      [filterable]="true"
+      rounded="full"
+      aria-label="Search patient name or ID"
+    >
+      <ng-template kendoPrefixTemplate>
+        <kendo-svgicon [icon]="searchIcon"></kendo-svgicon>
+      </ng-template>
+      <ng-template kendoComboBoxItemTemplate let-dataItem>
+        <div>{{ dataItem.name }} - ID {{ dataItem.id }}</div>
+      </ng-template>
+    </kendo-combobox>
+  </kendo-appbar-section>
+
+  <!-- Action Buttons Section -->
+  <kendo-appbar-section class="actions-section">
+    <button
+      kendoButton
+      fillMode="flat"
+      [svgIcon]="customContrastIcon"
+      aria-label="Toggle contrast"
+      title="Toggle contrast"
+      (click)="toggleOpacityMode()"
+    ></button>
+    <button
+      kendoButton
+      fillMode="flat"
+      [svgIcon]="bellIcon"
+      aria-label="Notifications"
+      title="Notifications"
+      class="notification-btn"
+      #notificationAnchor
+      (click)="toggleNotifications()"
+    >
+      <span class="notification-dot"></span>
+    </button>
+
+    <button
+      kendoButton
+      fillMode="flat"
+      aria-label="User profile menu"
+      title="Profile"
+      class="profile-btn"
+      (click)="openProfileDialog()"
+    >
+      <kendo-avatar
+        imageSrc="assets/profile.jpg"
+        width="40"
+        height="40"
+        shape="circle"
+        themeColor="primary"
+      >
+      </kendo-avatar>
+    </button>
+  </kendo-appbar-section>
+</kendo-appbar>
+
+<main class="app-content" [class.opacity-mode]="opacityMode()">
+  <router-outlet />
+</main>
+
+<!-- User Profile Dialog -->
+@if (profileDialogOpened) {
+  <kendo-dialog [width]="600" [height]="800" (close)="closeProfileDialog()" class="profile-dialog">
+    <kendo-dialog-titlebar>
+      <div class="dialog-title">Profile Management</div>
+    </kendo-dialog-titlebar>
+
+    <div class="dialog-content">
+      <!-- Profile Image Section -->
+      <div class="profile-image-section">
+        <h3 class="section-label">Profile Image</h3>
+        <div class="profile-image-container">
+          <img
+            ngSrc="assets/profile.jpg"
+            alt="Profile"
+            class="profile-large-image"
+            width="300"
+            height="300"
+          />
+        </div>
+        <button
+          kendoButton
+          themeColor="dark"
+          class="upload-image-btn"
+          [svgIcon]="uploadIcon"
+          (click)="uploadImage()"
+        >
+          Upload Image
+        </button>
+      </div>
+
+      <!-- Personal Information Section -->
+      <div class="personal-info-section">
+        <h3 class="section-label">Personal Information</h3>
+
+        <!-- Password Policy Box -->
+        <div class="password-policy-box">
+          <div class="policy-title">Password Policy</div>
+          <div class="policy-text">• Please change your password every two weeks</div>
+        </div>
+
+        <!-- Form Fields -->
+        <div class="form-field">
+          <kendo-label text="Full Name" class="field-label-text">
+            <kendo-textbox [(ngModel)]="profileFullName" [clearButton]="true" class="profile-input">
+            </kendo-textbox>
+          </kendo-label>
+        </div>
+
+        <div class="form-field">
+          <kendo-label text="Email Address" class="field-label-text">
+            <kendo-textbox [(ngModel)]="profileEmail" [clearButton]="true" class="profile-input">
+            </kendo-textbox>
+          </kendo-label>
+        </div>
+
+        <div class="form-field">
+          <kendo-label text="Phone Number" class="field-label-text">
+            <kendo-textbox [(ngModel)]="profilePhone" [clearButton]="true" class="profile-input">
+            </kendo-textbox>
+          </kendo-label>
+        </div>
+      </div>
+    </div>
+
+    <kendo-dialog-actions layout="end">
+      <button kendoButton (click)="clearProfileForm()" class="discard-btn">Clear</button>
+      <button kendoButton themeColor="dark" (click)="submitProfile()" class="save-btn">
+        Submit
+      </button>
+    </kendo-dialog-actions>
+  </kendo-dialog>
+}
+
+<!-- Notifications Popup -->
+@if (notificationsOpened) {
+  <kendo-popup
+    [anchor]="notificationAnchor"
+    [popupAlign]="{ horizontal: 'right', vertical: 'top' }"
+    [anchorAlign]="{ horizontal: 'left', vertical: 'bottom' }"
+    [margin]="{ horizontal: -20, vertical: 0 }"
+    (anchorViewportLeave)="closeNotifications()"
+    class="notifications-popup"
+  >
+    <div class="notifications-container">
+      <div class="notifications-header">
+        <h2 class="notifications-title">Notifications</h2>
+        <button kendoButton fillMode="flat" class="mark-all-read" (click)="markAllAsRead()">Mark all read</button>
+      </div>
+      <div class="notifications-list">
+        @for (notification of notifications; track notification.id) {
+          <div class="notification-item">
+            <div class="notification-icon">
+              <kendo-svgicon [icon]="bellIcon"></kendo-svgicon>
+            </div>
+            <div class="notification-content">
+              <div class="notification-title">{{ notification.title }}</div>
+              <div class="notification-description-wrapper">
+                <div class="notification-description">{{ notification.description }}</div>
+                <div class="notification-time">{{ notification.time }}</div>
+              </div>
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+  </kendo-popup>
+}

@@ -47,6 +47,12 @@ jobs:
           npm ci
           npm run build
 
+      - name: Build Healthcare app
+        working-directory: ./examples-standalone/healthcare-app
+        run: |
+          npm ci
+          npm run build
+
       - name: Build Finance portfolio app
         working-directory: ./examples-standalone/finance-portfolio
         run: |
