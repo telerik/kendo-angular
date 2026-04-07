@@ -125,33 +125,25 @@
 }
 
 .add-task-btn {
-  width: 42px;
   height: 42px;
   min-width: 42px;
-  padding: 0 !important;
+  max-width: 42px;
+  padding: 0 12px !important;
   overflow: hidden;
-  transition:
-    width 0.3s ease,
-    padding 0.3s ease;
   white-space: nowrap;
   position: relative;
+  justify-content: flex-start !important;
+  transition: max-width var(--kendo-duration-speedy, 300ms) var(--kendo-easing-standard, cubic-bezier(0.42, 0, 0.58, 1));
 }
 
 .add-task-btn:hover {
-  width: auto;
-  padding: 0 16px !important;
+  max-width: 200px;
 }
 
 .add-task-btn .k-button-text {
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 0;
-  transition: gap 0.3s ease;
-}
-
-.add-task-btn:hover .k-button-text {
-  gap: 8px;
+  gap: 6px;
 }
 
 .add-task-btn kendo-svgicon {
@@ -161,17 +153,13 @@
 
 .add-task-text {
   opacity: 0;
-  width: 0;
-  transition:
-    opacity 0.3s ease,
-    width 0.3s ease;
   overflow: hidden;
   display: inline-block;
+  transition: opacity var(--kendo-duration-swift, 250ms) var(--kendo-easing-decelerate, cubic-bezier(0, 0, 0.58, 1));
 }
 
 .add-task-btn:hover .add-task-text {
   opacity: 1;
-  width: auto;
 }
 
 /* Tasks List */

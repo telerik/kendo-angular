@@ -34,7 +34,6 @@
       [kendoDropDownFilter]="{ caseSensitive: false, operator: 'contains' }"
       (valueChange)="onPatientSelect($event)"
       placeholder="Search patient name or ID"
-      [popupSettings]="{ appendTo: 'component' }"
       [clearButton]="true"
       [filterable]="true"
       rounded="full"
@@ -113,7 +112,7 @@
             alt="Profile"
             class="profile-large-image"
             width="300"
-            height="300"
+            height="375"
           />
         </div>
         <button
@@ -173,6 +172,7 @@
 <!-- Notifications Popup -->
 @if (notificationsOpened) {
   <kendo-popup
+    #notificationsPopup
     [anchor]="notificationAnchor"
     [popupAlign]="{ horizontal: 'right', vertical: 'top' }"
     [anchorAlign]="{ horizontal: 'left', vertical: 'bottom' }"
@@ -183,7 +183,7 @@
     <div class="notifications-container">
       <div class="notifications-header">
         <h2 class="notifications-title">Notifications</h2>
-        <button kendoButton fillMode="flat" class="mark-all-read" (click)="markAllAsRead()">Mark all read</button>
+        <button kendoButton fillMode="flat" (click)="markAllAsRead()">Mark all read</button>
       </div>
       <div class="notifications-list">
         @for (notification of notifications; track notification.id) {

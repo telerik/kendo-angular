@@ -104,6 +104,16 @@
   flex: 1;
 }
 
+/* Disable row hover effect */
+.patients-card .k-grid tbody .k-table-row:hover {
+  background-color: inherit !important;
+}
+
+.patients-card .k-grid tbody .k-table-alt-row:hover {
+  background-color: var(--kendo-table-alt-row-bg, #f5f5f5) !important;
+}
+
+
 /* Patient Name Cell */
 .patient-cell {
   display: flex;
