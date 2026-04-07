@@ -122,34 +122,26 @@
 }
 
 .card-action-btn {
-  width: 42px;
   height: 42px;
   min-width: 42px;
-  padding: 0 !important;
-  overflow: hidden;
-  transition: width 0.3s ease, padding 0.3s ease;
-  white-space: nowrap;
-  position: relative;
+  max-width: 42px;
+  padding: 0 12px !important;
+  justify-content: flex-start !important;
   background: #334155 !important;
   border: 1px solid #334155 !important;
+  transition: max-width var(--kendo-duration-speedy, 300ms) var(--kendo-easing-standard, cubic-bezier(0.42, 0, 0.58, 1));
 }
 
 .card-action-btn:hover {
-  width: auto;
-  padding: 0 16px !important;
+  max-width: 200px;
   background: #1d293b !important;
 }
 
 .card-action-btn .k-button-text {
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 0;
-  transition: gap 0.3s ease;
-}
-
-.card-action-btn:hover .k-button-text {
-  gap: 8px;
+  justify-content: flex-start;
+  gap: 6px;
 }
 
 .card-action-btn kendo-svgicon {
@@ -162,16 +154,14 @@
 
 .card-action-text {
   opacity: 0;
-  width: 0;
-  transition: opacity 0.3s ease, width 0.3s ease;
   overflow: hidden;
   display: inline-block;
   color: #ffffff;
+  transition: opacity var(--kendo-duration-swift, 250ms) var(--kendo-easing-decelerate, cubic-bezier(0, 0, 0.58, 1));
 }
 
 .card-action-btn:hover .card-action-text {
   opacity: 1;
-  width: auto;
 }
 
 .card-bg-icon {

@@ -1,4 +1,5 @@
-import { Component, signal, ViewEncapsulation, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, signal, ViewEncapsulation, OnInit, ViewChild, ElementRef, HostListener } from '@angular/core';
+import { PopupComponent } from '@progress/kendo-angular-popup';
 import { NgOptimizedImage } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
@@ -103,6 +104,7 @@ export class App implements OnInit {
 
   // Notifications state
   @ViewChild('notificationAnchor', { read: ElementRef }) notificationAnchor!: ElementRef;
+  @ViewChild('notificationsPopup') notificationsPopupRef?: PopupComponent;
   public notificationsOpened = false;
   public notifications = [
     {
@@ -186,8 +188,16 @@ export class App implements OnInit {
     }
   }
 
+  // Default profile data
+  private readonly defaultProfileFullName = 'Emily Carter';
+  private readonly defaultProfileEmail = 'drcarter@email.com';
+  private readonly defaultProfilePhone = '+(555) 776-90-84';
+
   // Profile dialog methods
   public openProfileDialog(): void {
+    this.profileFullName = this.defaultProfileFullName;
+    this.profileEmail = this.defaultProfileEmail;
+    this.profilePhone = this.defaultProfilePhone;
     this.profileDialogOpened = true;
   }
 
@@ -213,6 +223,26 @@ export class App implements OnInit {
   public uploadImage(): void {
     console.log('Upload image clicked');
     // Here you would typically open a file picker
+  }
+
+  @HostListener('window:scroll')
+  onWindowScroll(): void {
+    if (this.notificationsOpened) {
+      this.closeNotifications();
+    }
+  }
+
+  @HostListener('document:click', ['$event'])
+  onDocumentClick(event: MouseEvent): void {
+    if (!this.notificationsOpened) return;
+
+    const target = event.target as Node;
+    const isInsideAnchor = this.notificationAnchor?.nativeElement?.contains(target);
+    const isInsidePopup = this.notificationsPopupRef?.container?.nativeElement?.contains(target);
+
+    if (!isInsideAnchor && !isInsidePopup) {
+      this.closeNotifications();
+    }
   }
 
   // Notification methods

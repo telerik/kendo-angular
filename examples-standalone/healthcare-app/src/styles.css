@@ -6,13 +6,13 @@
 
 body {
   margin: 0;
-  padding: 0;
+  padding-top: 40px;
   font-family: 'Poppins', sans-serif;
   color: #232a36;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #fafafa;
-  background-image: url('/assets/bg.svg');
+  background-image: url('assets/bg.svg');
   background-repeat: no-repeat;
   background-position: center top;
   background-size: cover;
