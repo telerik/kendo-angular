@@ -70,6 +70,7 @@
   align-items: center;
   gap: 22px;
   width: 100%;
+  overflow-x: auto;
 }
 
 /* Action Cards */
@@ -78,7 +79,7 @@
   flex-direction: column;
   margin: 0;
   flex: 1 1 0;
-  min-width: 0;
+  min-width: 230px;
   min-height: 142px;
   background: #f1f5f9;
   border: 1px solid rgba(23, 56, 99, 0.08);
