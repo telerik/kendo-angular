@@ -3,7 +3,7 @@ import { PopupComponent } from '@progress/kendo-angular-popup';
 import { NgOptimizedImage } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { Router, RouterOutlet, NavigationEnd } from '@angular/router';
+import { Router, RouterLink, RouterOutlet, NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs/operators';
 import { KENDO_BUTTONS, SegmentedItemSettings } from '@progress/kendo-angular-buttons';
 import { KENDO_DIALOG } from '@progress/kendo-angular-dialog';
@@ -38,6 +38,7 @@ import {
   styleUrls: ['./app.css'],
   imports: [
     RouterOutlet,
+    RouterLink,
     FormsModule,
     CommonModule,
     NgOptimizedImage,
