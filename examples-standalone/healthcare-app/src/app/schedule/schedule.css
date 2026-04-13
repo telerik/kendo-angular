@@ -12,8 +12,8 @@
 
 /* Scheduler Card */
 .scheduler-card {
-  flex: 1;
-  min-width: 0;
+  flex: 1 1 500px;
+  min-width: 570px;
   display: flex;
   flex-direction: column;
   border: none;
@@ -80,7 +80,8 @@
 
 /* Daily Tasks Card */
 .daily-tasks-card {
-  flex: 0 0 610px;
+  flex: 0 1 610px;
+  min-width: 450px;
   display: flex;
   flex-direction: column;
   border: none;
@@ -122,6 +123,7 @@
 
 .tasks-search {
   width: 207px;
+  max-width: 100%;
 }
 
 .add-task-btn {
@@ -456,6 +458,41 @@
   background: #334155;
   border: 1px solid #334155;
   border-radius: 8px;
+}
+
+/* Responsive Layout */
+@media (max-width: 1110px) {
+  .schedule-layout {
+    flex-direction: column;
+  }
+
+  .schedule-layout > .daily-tasks-card {
+    flex: none !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    height: auto;
+    max-height: 700px;
+    box-sizing: border-box;
+  }
+
+  .scheduler-card {
+    min-width: 0 !important;
+    flex: none !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box;
+  }
+}
+
+@media (max-width: 600px) {
+  .tasks-header {
+    flex-wrap: wrap;
+  }
+
+  .tasks-search {
+    width: 100%;
+  }
 }
 
 .save-btn:hover {

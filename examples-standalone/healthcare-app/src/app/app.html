@@ -126,7 +126,7 @@
 
 <!-- User Profile Dialog -->
 @if (profileDialogOpened) {
-  <kendo-dialog [width]="600" [height]="800" (close)="closeProfileDialog()" class="profile-dialog">
+  <kendo-dialog [width]="dialogWidth()" [height]="dialogHeight()" (close)="closeProfileDialog()" class="profile-dialog">
     <kendo-dialog-titlebar>
       <div class="dialog-title">Profile Management</div>
     </kendo-dialog-titlebar>
