@@ -104,7 +104,7 @@
         </button>
       </div>
 
-      <kendo-grid [data]="appointments" [height]="450">
+      <kendo-grid [data]="appointments" [height]="450" adaptiveMode="auto">
         <kendo-grid-column field="time" title="Time" [width]="110"></kendo-grid-column>
         <kendo-grid-column
           field="patientName"
@@ -251,6 +251,7 @@
             valueField="id"
             [valuePrimitive]="false"
             [style.width.px]="250"
+            adaptiveMode="auto"
           >
           </kendo-dropdownlist>
         </kendo-label>
@@ -295,6 +296,7 @@
             valueField="id"
             [valuePrimitive]="false"
             [style.width.px]="250"
+            adaptiveMode="auto"
           >
             <ng-template kendoDropDownListItemTemplate let-dataItem>
               <span>{{ dataItem.name }} ({{ dataItem.patientId }})</span>
