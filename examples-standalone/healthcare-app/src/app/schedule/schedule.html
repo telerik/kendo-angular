@@ -1,7 +1,7 @@
 <section class="schedule-page">
   <div class="schedule-layout">
     <!-- Left: Scheduler -->
-    <kendo-card class="scheduler-card" width="100%">
+    <kendo-card class="scheduler-card">
       <kendo-card-body>
         <kendo-scheduler
           [selectedDate]="selectedDate"
@@ -10,6 +10,7 @@
           startTime="07:00"
           endTime="21:00"
           [style.height.%]="100"
+          (eventClick)="handleEventClick($event)"
         >
           <kendo-scheduler-day-view [eventClass]="eventClass" [eventStyles]="eventStyles">
             <ng-template kendoSchedulerEventTemplate let-event="event">
@@ -44,7 +45,7 @@
     </kendo-card>
 
     <!-- Right: Daily Tasks -->
-    <kendo-card class="daily-tasks-card" width="100%">
+    <kendo-card class="daily-tasks-card">
       <kendo-card-header>
         <div class="tasks-header">
           <h2 class="tasks-title">Daily Tasks</h2>
@@ -115,6 +116,45 @@
     </kendo-card>
   </div>
 </section>
+
+<!-- Event Detail Dialog -->
+@if (eventDialogOpened && selectedEvent) {
+  <kendo-dialog [width]="420" (close)="closeEventDialog()" class="event-detail-dialog">
+    <kendo-dialog-titlebar>
+      <div class="event-dialog-title-row">
+        <span class="event-dialog-title">{{ selectedEvent.reason }} - {{ selectedEvent.title }}</span>
+      </div>
+    </kendo-dialog-titlebar>
+
+    <div class="event-dialog-content">
+      <p class="event-dialog-section-label">Appointment time</p>
+
+      <div class="event-dialog-detail-row">
+        <kendo-svgicon [icon]="calendarIcon" class="event-dialog-icon"></kendo-svgicon>
+        <span>{{ formatDialogDate(selectedEvent.start) }}</span>
+      </div>
+
+      <div class="event-dialog-detail-row">
+        <kendo-svgicon [icon]="clockIcon" class="event-dialog-icon"></kendo-svgicon>
+        <span>{{ formatDialogTime(selectedEvent.start, selectedEvent.end) }}</span>
+      </div>
+
+      <div class="event-dialog-detail-row">
+        <kendo-svgicon [icon]="mapMarkerIcon" class="event-dialog-icon"></kendo-svgicon>
+        <span>{{ selectedEvent.description }}</span>
+      </div>
+
+      <div class="event-dialog-detail-row">
+        <kendo-svgicon [icon]="userIcon" class="event-dialog-icon"></kendo-svgicon>
+        <span>In-person visit</span>
+      </div>
+    </div>
+
+    <kendo-dialog-actions layout="end">
+      <button kendoButton (click)="closeEventDialog()" class="event-dialog-cancel-btn">Close</button>
+    </kendo-dialog-actions>
+  </kendo-dialog>
+}
 
 <!-- Add Task Dialog -->
 @if (addTaskDialogOpened) {

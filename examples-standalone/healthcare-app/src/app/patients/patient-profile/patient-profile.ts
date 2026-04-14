@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+import { CommonModule, Location } from '@angular/common';
 import { Component, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ChipThemeColor, KENDO_BUTTONS } from '@progress/kendo-angular-buttons';
@@ -64,7 +64,12 @@ export class PatientProfileComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private patientsService: PatientsService,
+    private location: Location,
   ) {}
+
+  public getAvatarUrl(path: string): string {
+    return this.location.prepareExternalUrl(path);
+  }
 
   ngOnInit(): void {
     // Subscribe to route parameter changes to handle navigation between different patients

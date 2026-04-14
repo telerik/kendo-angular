@@ -12,8 +12,8 @@
 
 /* Scheduler Card */
 .scheduler-card {
-  flex: 1;
-  min-width: 0;
+  flex: 1 1 500px;
+  min-width: 570px;
   display: flex;
   flex-direction: column;
   border: none;
@@ -80,7 +80,8 @@
 
 /* Daily Tasks Card */
 .daily-tasks-card {
-  flex: 0 0 610px;
+  flex: 0 1 610px;
+  min-width: 450px;
   display: flex;
   flex-direction: column;
   border: none;
@@ -122,6 +123,7 @@
 
 .tasks-search {
   width: 207px;
+  max-width: 100%;
 }
 
 .add-task-btn {
@@ -458,6 +460,129 @@
   border-radius: 8px;
 }
 
+/* Responsive Layout */
+@media (max-width: 1110px) {
+  .schedule-layout {
+    flex-direction: column;
+  }
+
+  .schedule-layout > .daily-tasks-card {
+    flex: none !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    height: auto;
+    max-height: 700px;
+    box-sizing: border-box;
+  }
+
+  .scheduler-card {
+    min-width: 0 !important;
+    flex: none !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box;
+  }
+}
+
+@media (max-width: 600px) {
+  .tasks-header {
+    flex-wrap: wrap;
+  }
+
+  .tasks-search {
+    width: 100%;
+  }
+}
+
 .save-btn:hover {
   background: #475569;
+}
+
+/* Event Detail Dialog */
+.event-detail-dialog .k-window {
+  background: #ffffff;
+  border: 1px solid rgba(23, 56, 99, 0.08);
+  border-radius: 16px;
+  box-shadow:
+    0px 8px 20px rgba(0, 0, 0, 0.07),
+    0px 20px 48px -8px rgba(0, 0, 0, 0.11);
+}
+
+.event-detail-dialog .k-window-titlebar {
+  padding: 20px 20px 16px;
+  background: #ffffff;
+  border-bottom: 1px solid rgba(23, 56, 99, 0.08);
+  border-radius: 16px 16px 0 0;
+}
+
+.event-detail-dialog .k-window-titlebar .k-window-actions {
+  display: none;
+}
+
+.event-dialog-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  gap: 12px;
+}
+
+.event-dialog-title {
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 1.4;
+  color: #1e1b4b;
+}
+
+.event-dialog-expand-btn {
+  color: #6c757d;
+  padding: 4px;
+  flex-shrink: 0;
+}
+
+.event-dialog-content {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  background: #ffffff;
+}
+
+.event-dialog-section-label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #9ca3af;
+  margin: 0;
+}
+
+.event-dialog-detail-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 15px;
+  color: #232a36;
+}
+
+.event-dialog-icon {
+  color: #6b7280;
+  flex-shrink: 0;
+}
+
+.event-detail-dialog .k-dialog-buttongroup {
+  padding: 16px 20px;
+  gap: 8px;
+  border-top: 1px solid rgba(23, 56, 99, 0.08);
+  background: #ffffff;
+  border-radius: 0 0 16px 16px;
+}
+
+.event-dialog-cancel-btn {
+  border-color: rgba(23, 56, 99, 0.12);
+  color: #374151;
+  border-radius: 9999px;
+}
+
+.event-dialog-save-btn {
+  padding: 0 24px;
 }

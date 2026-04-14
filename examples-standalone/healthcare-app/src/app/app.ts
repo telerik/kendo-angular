@@ -3,7 +3,7 @@ import { PopupComponent } from '@progress/kendo-angular-popup';
 import { NgOptimizedImage } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { Router, RouterOutlet, NavigationEnd } from '@angular/router';
+import { Router, RouterLink, RouterOutlet, NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs/operators';
 import { KENDO_BUTTONS, SegmentedItemSettings } from '@progress/kendo-angular-buttons';
 import { KENDO_DIALOG } from '@progress/kendo-angular-dialog';
@@ -25,6 +25,7 @@ import {
   eyeSlashIcon,
   filterIcon,
   homeIcon,
+  menuIcon,
   searchIcon,
   SVGIcon,
   uploadIcon,
@@ -38,6 +39,7 @@ import {
   styleUrls: ['./app.css'],
   imports: [
     RouterOutlet,
+    RouterLink,
     FormsModule,
     CommonModule,
     NgOptimizedImage,
@@ -65,14 +67,58 @@ export class App implements OnInit {
   public contrastIcon: SVGIcon = eyeSlashIcon;
   public bellIcon: SVGIcon = bellIcon;
   public uploadIcon: SVGIcon = uploadIcon;
+  public menuIcon: SVGIcon = menuIcon;
 
   // Navigation items for Segmented Control
-  public navItems: SegmentedItemSettings[] = [
+  private readonly fullNavItems: SegmentedItemSettings[] = [
     { svgIcon: homeIcon, text: 'Home', title: 'Home' },
     { svgIcon: calendarIcon, text: 'Schedule', title: 'Schedule' },
     { svgIcon: userIcon, text: 'Patients', title: 'Patients' },
     { svgIcon: chartLineMarkersIcon, text: 'Clinical Analytics', title: 'Clinical Analytics' },
   ];
+
+  private readonly iconOnlyNavItems: SegmentedItemSettings[] = [
+    { svgIcon: homeIcon, title: 'Home' },
+    { svgIcon: calendarIcon, title: 'Schedule' },
+    { svgIcon: userIcon, title: 'Patients' },
+    { svgIcon: chartLineMarkersIcon, title: 'Clinical Analytics' },
+  ];
+
+  public navItems: SegmentedItemSettings[] = this.getNavItems();
+  public isNarrowNav = signal(window.innerWidth < 576);
+  public isCompact = signal(window.innerWidth <= 1440);
+  public isSmallLogo = signal(window.innerWidth < 900);
+  public dialogWidth = signal(this.getDialogWidth());
+  public dialogHeight = signal(this.getDialogHeight());
+
+  private getDialogWidth(): number {
+    return window.innerWidth < 1000 ? Math.min(600, window.innerWidth - 32) : 600;
+  }
+
+  private getDialogHeight(): number {
+    return window.innerWidth < 1000 ? Math.min(800, window.innerHeight - 32) : 800;
+  }
+
+  public navDropdownItems = [
+    { text: 'Home', svgIcon: homeIcon, route: '/' },
+    { text: 'Schedule', svgIcon: calendarIcon, route: '/schedule' },
+    { text: 'Patients', svgIcon: userIcon, route: '/patients' },
+    { text: 'Clinical Analytics', svgIcon: chartLineMarkersIcon, route: '/analytics' },
+  ];
+
+  private getNavItems(): SegmentedItemSettings[] {
+    return window.innerWidth <= 1440 ? this.iconOnlyNavItems : this.fullNavItems;
+  }
+
+  @HostListener('window:resize')
+  onResize(): void {
+    this.navItems = this.getNavItems();
+    this.isNarrowNav.set(window.innerWidth < 576);
+    this.isCompact.set(window.innerWidth <= 1440);
+    this.isSmallLogo.set(window.innerWidth < 900);
+    this.dialogWidth.set(this.getDialogWidth());
+    this.dialogHeight.set(this.getDialogHeight());
+  }
 
   public selectedNavIndex = 0;
   public customContrastIcon: SVGIcon = {
@@ -160,6 +206,13 @@ export class App implements OnInit {
     this.selectedNavIndex = index;
     const routes = ['/', '/schedule', '/patients', '/analytics'];
     this.router.navigate([routes[index]]);
+  }
+
+  public onNavDropdownSelect(item: { text: string; route: string }): void {
+    const routes = ['/', '/schedule', '/patients', '/analytics'];
+    const index = routes.indexOf(item.route);
+    if (index !== -1) this.selectedNavIndex = index;
+    this.router.navigate([item.route]);
   }
 
   // Update selected nav index based on current route

@@ -11,4 +11,5 @@ export const routes: Routes = [
   { path: 'patients', component: PatientsComponent },
   { path: 'patients/:id', component: PatientProfileComponent, runGuardsAndResolvers: 'always' },
   { path: 'analytics', component: AnalyticsComponent },
+  { path: '**', redirectTo: '' },
 ];

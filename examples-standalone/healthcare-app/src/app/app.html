@@ -1,51 +1,80 @@
 <kendo-appbar themeColor="light" [class.opacity-mode-appbar]="opacityMode()">
   <!-- Logo Section -->
-  <kendo-appbar-section>
-    <a href="/" class="app-logo" aria-label="Logo">
+  <a routerLink="/" class="app-logo" aria-label="Logo">
+    @if (isSmallLogo()) {
+      <img ngSrc="assets/small-logo.svg" alt="Logo" width="38" height="38" priority />
+    } @else {
       <img ngSrc="assets/logo.svg" alt="Logo" width="153" height="38" priority />
-    </a>
-  </kendo-appbar-section>
-
-  <kendo-appbar-spacer></kendo-appbar-spacer>
+    }
+  </a>
+  @if (isNarrowNav()) {
+    <span class="k-appbar-separator" style="color: #17386314; height: 38px; border-width: 0 0 0 2px;"></span>
+    <kendo-dropdownbutton
+      [svgIcon]="menuIcon"
+      [data]="navDropdownItems"
+      (itemClick)="onNavDropdownSelect($event)"
+      fillMode="flat"
+      size="small"
+      aria-label="Main navigation"
+      class="nav-dropdown-btn"
+    >
+      <ng-template kendoDropDownButtonItemTemplate let-dataItem>
+        <kendo-svgicon [icon]="dataItem.svgIcon"></kendo-svgicon>
+        <span>{{ dataItem.text }}</span>
+      </ng-template>
+    </kendo-dropdownbutton>
+  }
   <kendo-appbar-spacer></kendo-appbar-spacer>
 
   <!-- Navigation Section -->
   <kendo-appbar-section class="nav-section">
-    <kendo-segmented-control
-      [items]="navItems"
-      [selected]="selectedNavIndex"
-      (selectedChange)="onNavChange($event)"
-      aria-label="Main navigation"
-      size="large"
-    >
-    </kendo-segmented-control>
+    @if (!isNarrowNav()) {
+      <kendo-segmented-control
+        [items]="navItems"
+        [selected]="selectedNavIndex"
+        (selectedChange)="onNavChange($event)"
+        aria-label="Main navigation"
+        size="large"
+      >
+      </kendo-segmented-control>
+    }
   </kendo-appbar-section>
 
   <kendo-appbar-spacer></kendo-appbar-spacer>
 
   <!-- Search Section -->
   <kendo-appbar-section class="search-section">
-    <kendo-combobox
-      [value]="selectedPatient"
-      [data]="patients"
-      textField="name"
-      valueField="id"
-      [valuePrimitive]="false"
-      [kendoDropDownFilter]="{ caseSensitive: false, operator: 'contains' }"
-      (valueChange)="onPatientSelect($event)"
-      placeholder="Search patient name or ID"
-      [clearButton]="true"
-      [filterable]="true"
-      rounded="full"
-      aria-label="Search patient name or ID"
-    >
-      <ng-template kendoPrefixTemplate>
-        <kendo-svgicon [icon]="searchIcon"></kendo-svgicon>
-      </ng-template>
-      <ng-template kendoComboBoxItemTemplate let-dataItem>
-        <div>{{ dataItem.name }} - ID {{ dataItem.id }}</div>
-      </ng-template>
-    </kendo-combobox>
+    @if (isCompact()) {
+      <button
+        kendoButton
+        fillMode="flat"
+        [svgIcon]="searchIcon"
+        aria-label="Search patient"
+        title="Search patient"
+      ></button>
+    } @else {
+      <kendo-combobox
+        [value]="selectedPatient"
+        [data]="patients"
+        textField="name"
+        valueField="id"
+        [valuePrimitive]="false"
+        [kendoDropDownFilter]="{ caseSensitive: false, operator: 'contains' }"
+        (valueChange)="onPatientSelect($event)"
+        placeholder="Search patient name or ID"
+        [clearButton]="true"
+        [filterable]="true"
+        rounded="full"
+        aria-label="Search patient name or ID"
+      >
+        <ng-template kendoPrefixTemplate>
+          <kendo-svgicon [icon]="searchIcon"></kendo-svgicon>
+        </ng-template>
+        <ng-template kendoComboBoxItemTemplate let-dataItem>
+          <div>{{ dataItem.name }} - ID {{ dataItem.id }}</div>
+        </ng-template>
+      </kendo-combobox>
+    }
   </kendo-appbar-section>
 
   <!-- Action Buttons Section -->
@@ -97,7 +126,7 @@
 
 <!-- User Profile Dialog -->
 @if (profileDialogOpened) {
-  <kendo-dialog [width]="600" [height]="800" (close)="closeProfileDialog()" class="profile-dialog">
+  <kendo-dialog [width]="dialogWidth()" [height]="dialogHeight()" (close)="closeProfileDialog()" class="profile-dialog">
     <kendo-dialog-titlebar>
       <div class="dialog-title">Profile Management</div>
     </kendo-dialog-titlebar>

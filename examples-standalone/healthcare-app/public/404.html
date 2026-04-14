@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Healthcare App</title>
+    <script>
+      (function () {
+        var basePath = '/kendo-angular/healthcare-app';
+        var path = window.location.pathname;
+        var route = path.slice(basePath.length) || '/';
+        var search = window.location.search;
+        window.location.replace(
+          window.location.origin + basePath + '/#' + route + search
+        );
+      })();
+    </script>
+  </head>
+  <body>
+    Redirecting&hellip;
+  </body>
+</html>

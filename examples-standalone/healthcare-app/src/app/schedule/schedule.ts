@@ -1,7 +1,7 @@
-import { Component, ViewEncapsulation, OnInit } from '@angular/core';
+import { Component, ViewEncapsulation, OnInit, HostListener } from '@angular/core';
 import { NgClass } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { KENDO_SCHEDULER, EventStyleArgs } from '@progress/kendo-angular-scheduler';
+import { KENDO_SCHEDULER, EventStyleArgs, EventClickEvent } from '@progress/kendo-angular-scheduler';
 import { KENDO_LAYOUT } from '@progress/kendo-angular-layout';
 import { KENDO_BUTTONS } from '@progress/kendo-angular-buttons';
 import { KENDO_INPUTS } from '@progress/kendo-angular-inputs';
@@ -16,6 +16,10 @@ import {
   checkCircleIcon,
   calendarIcon,
   circleShapeIcon,
+  clockIcon,
+  mapMarkerIcon,
+  userIcon,
+  hyperlinkOpenIcon,
 } from '@progress/kendo-svg-icons';
 import { AppointmentsService, SchedulerAppointment } from '../services/appointments.service';
 
@@ -50,10 +54,18 @@ export class ScheduleComponent implements OnInit {
   public checkCircleIcon: SVGIcon = checkCircleIcon;
   public circleIcon: SVGIcon = circleShapeIcon;
   public calendarIcon: SVGIcon = calendarIcon;
+  public clockIcon: SVGIcon = clockIcon;
+  public mapMarkerIcon: SVGIcon = mapMarkerIcon;
+  public userIcon: SVGIcon = userIcon;
+  public hyperlinkOpenIcon: SVGIcon = hyperlinkOpenIcon;
 
   public selectedDate: Date;
   public taskSearch = '';
   public events: SchedulerAppointment[] = [];
+
+  // Event Detail Dialog
+  public eventDialogOpened = false;
+  public selectedEvent: SchedulerAppointment | null = null;
 
   // Add Task Dialog
   public addTaskDialogOpened = false;
@@ -208,5 +220,41 @@ export class ScheduleComponent implements OnInit {
 
   public get saveButtonText(): string {
     return this.editingTask ? 'Save changes' : 'Add task';
+  }
+
+  @HostListener('document:mousedown', ['$event'])
+  public onDocumentMouseDown(event: MouseEvent): void {
+    if (this.eventDialogOpened && (event.target as HTMLElement).classList.contains('k-overlay')) {
+      this.closeEventDialog();
+    }
+  }
+
+  public handleEventClick(e: EventClickEvent): void {
+    this.selectedEvent = e.event.dataItem as SchedulerAppointment;
+    this.eventDialogOpened = true;
+  }
+
+  public closeEventDialog(): void {
+    this.eventDialogOpened = false;
+    this.selectedEvent = null;
+  }
+
+  public formatDialogDate(date: Date): string {
+    return date.toLocaleDateString('en-US', {
+      weekday: 'short',
+      month: 'long',
+      day: 'numeric',
+      year: 'numeric',
+    });
+  }
+
+  public formatDialogTime(start: Date, end: Date): string {
+    const fmt = (d: Date): string => {
+      const h = d.getHours() % 12 || 12;
+      const m = d.getMinutes();
+      const ampm = d.getHours() < 12 ? 'AM' : 'PM';
+      return m === 0 ? `${h} ${ampm}` : `${h}:${m.toString().padStart(2, '0')} ${ampm}`;
+    };
+    return `${fmt(start)} - ${fmt(end)}`;
   }
 }

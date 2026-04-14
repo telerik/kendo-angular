@@ -39,7 +39,7 @@
   flex-direction: column;
   gap: 32px;
   flex: 1;
-  min-width: 0;
+  min-width: 840px;
 }
 
 /* Quick Actions Section */
@@ -78,7 +78,7 @@
   flex-direction: column;
   margin: 0;
   flex: 1 1 0;
-  min-width: 0;
+  min-width: 252px;
   min-height: 142px;
   background: #f1f5f9;
   border: 1px solid rgba(23, 56, 99, 0.08);
@@ -245,8 +245,8 @@
 .next-patient-section {
   display: flex;
   flex-direction: column;
-  flex: 0 0 610px;
-  width: 610px;
+  flex: 0 1 610px;
+  min-width: 495px;
   background: #ffffff;
   filter: drop-shadow(0px 1px 3px rgba(0, 0, 0, 0.04)) drop-shadow(0px 2px 6px rgba(0, 0, 0, 0.06));
   border-radius: 16px;
@@ -288,10 +288,10 @@
 .next-patient-section section.cards-container {
   display: flex;
   flex-direction: column;
+  flex-wrap: nowrap;
   padding: 10px 20px 20px;
   gap: 20px;
-  max-height: 306px;
-  overflow-y: auto;
+  overflow-y: visible;
 }
 
 .next-patient-section .patient-info-card,
@@ -305,14 +305,15 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 68px;
+  gap: 16px;
 }
 
 .patient-left-group {
   display: flex;
   align-items: center;
   gap: 12px;
-  width: 342px;
+  flex: 1;
+  min-width: 0;
   height: 72px;
 }
 
@@ -326,7 +327,8 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 320px;
+  flex: 1;
+  min-width: 0;
   height: 72px;
 }
 
@@ -838,4 +840,53 @@
 
 .k-message-group-sender .k-chat-bubble:hover {
   background-color: #1e293b;
+}
+
+/* Responsive Layout */
+@media (max-width: 1440px) {
+  .main-content-wrapper {
+    flex-direction: column;
+  }
+
+  .left-column {
+    min-width: 0;
+  }
+
+  .main-content-wrapper > .next-patient-section {
+    flex: none !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    align-self: stretch;
+    box-sizing: border-box;
+  }
+}
+
+@media (max-width: 889px) {
+  .quick-actions-section .cards-container {
+    flex-wrap: wrap;
+  }
+
+  .action-card {
+    flex: 1 1 252px;
+    max-width: calc(50% - 11px);
+  }
+}
+
+@media (max-width: 757px) {
+  .action-card {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 574px) {
+  .patient-info-card {
+    flex-wrap: wrap;
+  }
+
+  .patient-left-group {
+    flex: 1 1 100%;
+    height: auto;
+  }
 }

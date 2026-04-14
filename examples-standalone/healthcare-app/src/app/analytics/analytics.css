@@ -196,4 +196,10 @@
   color: #232A36;
 }
 
+@media (max-width: 1270px) {
+  .charts-row {
+    grid-template-columns: 1fr;
+  }
+}
+
 
