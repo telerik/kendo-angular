@@ -3,13 +3,23 @@
   <head>
     <meta charset="utf-8">
     <title>Kendo UI for Angular - Sample Applications</title>
-    <link rel="stylesheet" type="text/css" href="styles.css">
+    <script>
+      (function () {
+        var siteBase = '/kendo-angular';
+        var path = window.location.pathname;
+        var relative = path.startsWith(siteBase) ? path.slice(siteBase.length) : path;
+        var segments = relative.split('/').filter(Boolean);
+        if (segments.length > 0) {
+          var appRoot = siteBase + '/' + segments[0];
+          var subPath = segments.slice(1).join('/');
+          window.location.replace(
+            window.location.origin + appRoot + '/#/' + subPath + window.location.search
+          );
+        }
+      })();
+    </script>
   </head>
   <body>
-    <h1>Error</h1>
-
-    <p>
-      Resource not found.
-    <p>
+    Redirecting&hellip;
   </body>
 </html>
