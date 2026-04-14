@@ -12,6 +12,9 @@
         if (segments.length > 0) {
           var appRoot = siteBase + '/' + segments[0];
           var subPath = segments.slice(1).join('/');
+          if (segments[0] === 'healthcare-app' && segments[1] === 'analytics') {
+            subPath = '';
+          }
           window.location.replace(
             window.location.origin + appRoot + '/#/' + subPath + window.location.search
           );
