@@ -22,6 +22,7 @@
   font-weight: 600;
   font-size: 42px;
   line-height: 120%;
+  color: var(--kendo-color-on-app-surface, #232a36);
 }
 
 /* Breadcrumb */
@@ -93,8 +94,8 @@
 
 /* Profile Grid Layout */
 .profile-grid {
-  display: flex;
-  flex-direction: row;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
   gap: 32px;
   margin-bottom: 24px;
   width: 100%;
@@ -113,15 +114,26 @@
   min-width: 0;
 }
 
-.basic-info-card {
-  flex: 1 1 408px;
-  min-width: 300px;
+/* ~1200px: admission card drops to second row, full width */
+@media (max-width: 1300px) {
+  .profile-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .admission-card {
+    grid-column: 1 / -1;
+  }
 }
 
-.vitals-card,
-.admission-card {
-  flex: 1 1 590px;
-  min-width: 400px;
+/* ~500px: all cards stack full-width */
+@media (max-width: 1000px) {
+  .profile-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .admission-card {
+    grid-column: auto;
+  }
 }
 
 .profile-card kendo-card-body {
@@ -172,35 +184,6 @@
   padding: 0 20px 20px;
   gap: 8px;
   flex: 1;
-}
-
-/* Status Badge */
-.status-badge {
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  padding: 6px;
-  border-radius: 9999px;
-  font-size: 12px;
-  line-height: 133%;
-}
-
-.status-critical {
-  background: #fcddda;
-  border: 1px solid #f76f60;
-  color: #7a0c00;
-}
-
-.status-monitoring {
-  background: #fff4d3;
-  border: 1px solid #ffd760;
-  color: #5e4700;
-}
-
-.status-stable {
-  background: #dcf0d3;
-  border: 1px solid #81d15f;
-  color: #1c5a00;
 }
 
 /* Common Card Content Styles */
@@ -341,4 +324,102 @@
 /* Lab Results Card */
 .lab-results-grid {
   width: 100%;
+}
+
+/* 1440px – 1759px: reduce card gap to 24px */
+@media (min-width: 1440px) and (max-width: 1759px) {
+  .profile-grid {
+    gap: 24px;
+  }
+}
+
+/* 900px – 1439px: card gap 24px, page top/bottom padding 32px */
+@media (min-width: 900px) and (max-width: 1439px) {
+  .page-section {
+    padding-top: 32px;
+    padding-bottom: 32px;
+  }
+
+  .profile-grid {
+    gap: 24px;
+  }
+}
+
+/* 576px – 889px: card padding 16px, page top/bottom padding 24px */
+@media (min-width: 576px) and (max-width: 889px) {
+  .page-title {
+    font-size: 32px;
+  }
+
+  .page-section {
+    padding-top: 24px;
+    padding-bottom: 24px;
+  }
+
+  .card-details {
+    padding: 16px;
+  }
+
+  .card-content {
+    padding: 0 16px 16px;
+  }
+
+  .vitals-content,
+  .admission-content {
+    padding: 16px;
+  }
+
+  .profile-card kendo-card-body {
+    padding: 16px;
+  }
+
+  .patient-note-card kendo-card-body,
+  .lab-results-card kendo-card-body {
+    padding: 16px;
+  }
+}
+
+/* Below 575px: 12px gaps and 12px top/bottom page padding */
+@media (max-width: 575px) {
+  .page-title {
+    font-size: 24px;
+  }
+
+  .page-section {
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+
+  .profile-grid {
+    gap: 12px;
+  }
+
+  .card-details {
+    padding: 12px;
+  }
+
+  .card-content {
+    padding: 0 12px 12px;
+  }
+
+  .vitals-content,
+  .admission-content {
+    padding: 12px;
+  }
+
+  .profile-card kendo-card-body {
+    padding: 12px;
+  }
+
+  .patient-note-card kendo-card-body,
+  .lab-results-card kendo-card-body {
+    padding: 12px;
+  }
+}
+
+/* Above 1440px: 40px bottom padding */
+@media (min-width: 1440px) {
+  .page-section {
+    padding-bottom: 40px;
+  }
 }

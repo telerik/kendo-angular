@@ -119,7 +119,7 @@
 
 <!-- Event Detail Dialog -->
 @if (eventDialogOpened && selectedEvent) {
-  <kendo-dialog [width]="420" (close)="closeEventDialog()" class="event-detail-dialog">
+  <kendo-dialog [width]="dlgW(420)" (close)="closeEventDialog()" class="event-detail-dialog">
     <kendo-dialog-titlebar>
       <div class="event-dialog-title-row">
         <span class="event-dialog-title">{{ selectedEvent.reason }} - {{ selectedEvent.title }}</span>
@@ -158,7 +158,7 @@
 
 <!-- Add Task Dialog -->
 @if (addTaskDialogOpened) {
-  <kendo-dialog [width]="680" [height]="580" (close)="closeAddTaskDialog()" class="add-task-dialog">
+  <kendo-dialog [width]="dlgW(680)" [height]="dlgH(580)" (close)="closeAddTaskDialog()" class="add-task-dialog">
     <kendo-dialog-titlebar>
       <div class="dialog-title">{{ dialogTitle }}</div>
     </kendo-dialog-titlebar>

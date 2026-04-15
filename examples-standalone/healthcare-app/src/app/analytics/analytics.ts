@@ -12,31 +12,23 @@ import { KENDO_ICONS } from '@progress/kendo-angular-icons';
 import { drawing, exportPDF, geometry, Group, Layout, Text } from '@progress/kendo-drawing';
 import { saveAs } from '@progress/kendo-file-saver';
 import { downloadIcon, SVGIcon } from '@progress/kendo-svg-icons';
+import {
+  AnalyticsPatient,
+  VitalSeries,
+  LabMetric,
+  AlertCategoryItem,
+  ANALYTICS_PATIENTS,
+  VITALS_SERIES_DATA,
+  ALERTS_CATEGORIES,
+  ALERTS_INFO,
+  ALERTS_WARNING,
+  ALERTS_CRITICAL,
+  LAB_METRICS,
+  ALERTS_CATEGORY_DATA,
+  RISK_LEVELS,
+} from '../data/analytics.data';
 const { Rect: GeoRect, Size } = geometry;
 const { Circle, Path } = drawing;
-
-interface Patient {
-  name: string;
-  id: string;
-}
-
-interface VitalSeries {
-  name: string;
-  data: (number | null)[];
-  color: string;
-}
-
-interface LabMetric {
-  name: string;
-  current: number; // Average/current value
-  target: number; // Target value for the range
-  min: number; // Min value for the range
-  max: number; // Absolute max for the scale
-  markerLabel: string;
-  markerValue: number;
-  color: string; // Color for current value
-  plotBands: { from: number; to: number; color: string }[]; // Multiple grey bands
-}
 
 @Component({
   selector: 'app-analytics',
@@ -51,59 +43,22 @@ export class AnalyticsComponent {
   public downloadIcon: SVGIcon = downloadIcon;
   public lineType: LineStyle = 'smooth';
 
-  public patients: Patient[] = [
-    { name: 'James Wilson', id: 'P-104582' },
-    { name: 'Sophia Martinez', id: 'P-103291' },
-    { name: "Michael O'Connor", id: 'P-105847' },
-    { name: 'Ava Patel', id: 'P-102156' },
-    { name: 'Emily Chen', id: 'P-106733' },
-  ];
+  public patients: AnalyticsPatient[] = [...ANALYTICS_PATIENTS];
 
-  private _selectedPatient: Patient = this.patients[0];
+  private _selectedPatient: AnalyticsPatient = this.patients[0];
 
-  public get selectedPatient(): Patient {
+  public get selectedPatient(): AnalyticsPatient {
     return this._selectedPatient;
   }
 
-  public set selectedPatient(value: Patient) {
+  public set selectedPatient(value: AnalyticsPatient) {
     this._selectedPatient = value;
     this.generateRandomChartData();
   }
 
   public categories: string[] = ['Jan', 'Feb', 'Mar', 'Apr', 'May'];
 
-  public seriesData: VitalSeries[] = [
-    {
-      name: 'Systolic BP',
-      color: '#FF8a83',
-      data: [27, 25, 27.5, 26, 33],
-    },
-    {
-      name: 'Diastolic BP',
-      color: '#F5C542',
-      data: [25, 25, 33, 25, 15],
-    },
-    {
-      name: 'Heart Rate',
-      color: '#4CAF50',
-      data: [14, 20, 25, 21, 15],
-    },
-    {
-      name: 'SpO2 (%)',
-      color: '#3F7FD4',
-      data: [8.5, 15, 18, 20.5, 18],
-    },
-    {
-      name: 'Temperature',
-      color: '#9C5BC0',
-      data: [8.5, 6, 15, 9, 11],
-    },
-    {
-      name: 'Pulse',
-      color: '#E75B8D',
-      data: [1, 6.5, 9, 10, 13],
-    },
-  ];
+  public seriesData: VitalSeries[] = [...VITALS_SERIES_DATA];
 
   public legendItemVisual = (args: LegendItemVisualArgs): Group => {
     const group = new Group();
@@ -133,80 +88,16 @@ export class AnalyticsComponent {
   };
 
   // Alerts Over Time data
-  public alertsCategories: string[] = [
-    'Jan',
-    'Feb',
-    'Mar',
-    'Apr',
-    'May',
-    'Jun',
-    'Jul',
-    'Aug',
-    'Sep',
-    'Oct',
-  ];
-  public alertsInfo: number[] = [19, 8.5, 17.5, 22, 8.5, 9, 17, 12, 20, 10];
-  public alertsWarning: number[] = [5, 8.5, 0, 1, 11, 3, 5, 8, 0, 3];
-  public alertsCritical: number[] = [5, 9, 3, 9, 7, 3, 6, 6, 10, 1];
+  public alertsCategories: string[] = [...ALERTS_CATEGORIES];
+  public alertsInfo: number[] = [...ALERTS_INFO];
+  public alertsWarning: number[] = [...ALERTS_WARNING];
+  public alertsCritical: number[] = [...ALERTS_CRITICAL];
 
   // Lab Results Range data
-  public labMetrics: LabMetric[] = [
-    {
-      name: 'Glucose',
-      current: 11, // Average value
-      target: 13, // Target/optimal max range
-      min: 0,
-      max: 20,
-      markerLabel: 'MIN',
-      markerValue: 10,
-      color: '#F5C542',
-      plotBands: [
-        { from: 0, to: 4, color: '#B8B8B8' }, // Dark grey
-        { from: 4, to: 9, color: '#D0D0D0' }, // Medium grey
-        { from: 9, to: 13, color: '#E8E8E8' }, // Light grey
-      ],
-    },
-    {
-      name: 'Hemoglobin',
-      current: 7, // Average value
-      target: 12.5, // Target/optimal max range
-      min: 0,
-      max: 20,
-      markerLabel: 'MIN',
-      markerValue: 7,
-      color: '#F4A0A0',
-      plotBands: [
-        { from: 0, to: 4, color: '#B8B8B8' }, // Dark grey
-        { from: 4, to: 8, color: '#D0D0D0' }, // Medium grey
-        { from: 8, to: 12.5, color: '#E8E8E8' }, // Light grey
-      ],
-    },
-    {
-      name: 'WBC Count',
-      current: 16, // Average value
-      target: 18, // Target/optimal max range
-      min: 0,
-      max: 20,
-      markerLabel: 'MAX',
-      markerValue: 15,
-      color: '#81D4A4',
-      plotBands: [
-        { from: 0, to: 6, color: '#B8B8B8' }, // Dark grey
-        { from: 6, to: 12, color: '#D0D0D0' }, // Medium grey
-        { from: 12, to: 18, color: '#E8E8E8' }, // Light grey
-      ],
-    },
-  ];
+  public labMetrics: LabMetric[] = [...LAB_METRICS];
 
   // Alerts by Category data
-  public alertsCategoryData: { category: string; value: number; color: string }[] = [
-    { category: 'High Cholesterol', value: 12, color: '#F4A0A0' },
-    { category: 'Arrhythmia', value: 8, color: '#F5C542' },
-    { category: 'Hypertension', value: 5, color: '#4CAF50' },
-    { category: 'Medication Adherence', value: 4, color: '#5B8FF9' },
-    { category: 'Cardiac Risk', value: 3, color: '#9C5BC0' },
-    { category: 'Inflammation', value: 1, color: '#E75B8D' },
-  ];
+  public alertsCategoryData: AlertCategoryItem[] = [...ALERTS_CATEGORY_DATA];
 
   public labelContent = (e: any): string => e.category;
 
@@ -242,11 +133,7 @@ export class AnalyticsComponent {
   // Risk Score data
   public riskScore = 50;
 
-  public riskLevels = [
-    { label: 'High Risk', range: '0\u201339', color: '#E65548' },
-    { label: 'Medium Risk', range: '40\u201369', color: '#C5A84E' },
-    { label: 'Low Risk', range: '70\u2013100', color: '#4CAF50' },
-  ];
+  public riskLevels = [...RISK_LEVELS];
 
   /**
    * Generates random data for all charts when a patient is selected

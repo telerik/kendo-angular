@@ -1,124 +1,154 @@
-<kendo-appbar themeColor="light" [class.opacity-mode-appbar]="opacityMode()">
-  <!-- Logo Section -->
-  <a routerLink="/" class="app-logo" aria-label="Logo">
-    @if (isSmallLogo()) {
-      <img ngSrc="assets/small-logo.svg" alt="Logo" width="38" height="38" priority />
-    } @else {
-      <img ngSrc="assets/logo.svg" alt="Logo" width="153" height="38" priority />
-    }
-  </a>
-  @if (isNarrowNav()) {
-    <span class="k-appbar-separator" style="color: #17386314; height: 38px; border-width: 0 0 0 2px;"></span>
-    <kendo-dropdownbutton
-      [svgIcon]="menuIcon"
-      [data]="navDropdownItems"
-      (itemClick)="onNavDropdownSelect($event)"
-      fillMode="flat"
-      size="small"
-      aria-label="Main navigation"
-      class="nav-dropdown-btn"
+<kendo-appbar themeColor="light" [class.opacity-mode-appbar]="opacityMode()" [class.search-expanded-appbar]="searchExpanded()">
+  @if (isCompact() && searchExpanded()) {
+    <!-- Expanded Search Mode: full-width combobox, closes on blur -->
+    <kendo-combobox
+      #searchCombobox
+      [value]="selectedPatient"
+      [data]="patients"
+      textField="name"
+      valueField="id"
+      [valuePrimitive]="false"
+      [kendoDropDownFilter]="{ caseSensitive: false, operator: 'contains' }"
+      (valueChange)="onPatientSelect($event)"
+      (blur)="closeSearch()"
+      placeholder="Search patient name or ID"
+      [clearButton]="true"
+      [filterable]="true"
+      rounded="full"
+      aria-label="Search patient name or ID"
+      adaptiveMode="auto"
+      class="search-expanded-combobox"
     >
-      <ng-template kendoDropDownButtonItemTemplate let-dataItem>
-        <kendo-svgicon [icon]="dataItem.svgIcon"></kendo-svgicon>
-        <span>{{ dataItem.text }}</span>
+      <ng-template kendoPrefixTemplate>
+        <kendo-svgicon [icon]="searchIcon"></kendo-svgicon>
       </ng-template>
-    </kendo-dropdownbutton>
-  }
-  <kendo-appbar-spacer></kendo-appbar-spacer>
-
-  <!-- Navigation Section -->
-  <kendo-appbar-section class="nav-section">
-    @if (!isNarrowNav()) {
-      <kendo-segmented-control
-        [items]="navItems"
-        [selected]="selectedNavIndex"
-        (selectedChange)="onNavChange($event)"
+      <ng-template kendoComboBoxItemTemplate let-dataItem>
+        <div>{{ dataItem.name }} - ID {{ dataItem.id }}</div>
+      </ng-template>
+    </kendo-combobox>
+  } @else {
+    <!-- Normal Appbar Layout -->
+    <!-- Logo Section -->
+    <a routerLink="/" class="app-logo" aria-label="Logo">
+      @if (isSmallLogo()) {
+        <img ngSrc="assets/small-logo.svg" alt="Logo" width="38" height="38" priority />
+      } @else {
+        <img ngSrc="assets/logo.svg" alt="Logo" width="153" height="38" priority />
+      }
+    </a>
+    @if (isNarrowNav()) {
+      <span class="nav-separator"></span>
+      <kendo-dropdownbutton
+        [svgIcon]="menuIcon"
+        [data]="navDropdownItems"
+        (itemClick)="onNavDropdownSelect($event)"
+        fillMode="flat"
         aria-label="Main navigation"
-        size="large"
+        class="nav-dropdown-btn"
       >
-      </kendo-segmented-control>
+        <ng-template kendoDropDownButtonItemTemplate let-dataItem>
+          <kendo-svgicon [icon]="dataItem.svgIcon"></kendo-svgicon>
+          <span>{{ dataItem.text }}</span>
+        </ng-template>
+      </kendo-dropdownbutton>
     }
-  </kendo-appbar-section>
+    <kendo-appbar-spacer></kendo-appbar-spacer>
 
-  <kendo-appbar-spacer></kendo-appbar-spacer>
+    <!-- Navigation Section -->
+    <kendo-appbar-section class="nav-section">
+      @if (!isNarrowNav()) {
+        <kendo-segmented-control
+          [items]="navItems"
+          [selected]="selectedNavIndex"
+          (selectedChange)="onNavChange($event)"
+          aria-label="Main navigation"
+          size="large"
+        >
+        </kendo-segmented-control>
+      }
+    </kendo-appbar-section>
 
-  <!-- Search Section -->
-  <kendo-appbar-section class="search-section">
-    @if (isCompact()) {
+    <kendo-appbar-spacer></kendo-appbar-spacer>
+
+    <!-- Search Section -->
+    <kendo-appbar-section class="search-section">
+      @if (isCompact()) {
+        <button
+          kendoButton
+          fillMode="flat"
+          [svgIcon]="searchIcon"
+          aria-label="Search patient"
+          title="Search patient"
+          (click)="openSearch()"
+        ></button>
+      } @else {
+        <kendo-combobox
+          [value]="selectedPatient"
+          [data]="patients"
+          textField="name"
+          valueField="id"
+          [valuePrimitive]="false"
+          [kendoDropDownFilter]="{ caseSensitive: false, operator: 'contains' }"
+          (valueChange)="onPatientSelect($event)"
+          placeholder="Search patient name or ID"
+          [clearButton]="true"
+          [filterable]="true"
+          rounded="full"
+          aria-label="Search patient name or ID"
+          adaptiveMode="auto"
+        >
+          <ng-template kendoPrefixTemplate>
+            <kendo-svgicon [icon]="searchIcon"></kendo-svgicon>
+          </ng-template>
+          <ng-template kendoComboBoxItemTemplate let-dataItem>
+            <div>{{ dataItem.name }} - ID {{ dataItem.id }}</div>
+          </ng-template>
+        </kendo-combobox>
+      }
+    </kendo-appbar-section>
+
+    <!-- Action Buttons Section -->
+    <kendo-appbar-section class="actions-section">
       <button
         kendoButton
         fillMode="flat"
-        [svgIcon]="searchIcon"
-        aria-label="Search patient"
-        title="Search patient"
+        [svgIcon]="customContrastIcon"
+        aria-label="Toggle contrast"
+        title="Toggle contrast"
+        (click)="toggleOpacityMode()"
       ></button>
-    } @else {
-      <kendo-combobox
-        [value]="selectedPatient"
-        [data]="patients"
-        textField="name"
-        valueField="id"
-        [valuePrimitive]="false"
-        [kendoDropDownFilter]="{ caseSensitive: false, operator: 'contains' }"
-        (valueChange)="onPatientSelect($event)"
-        placeholder="Search patient name or ID"
-        [clearButton]="true"
-        [filterable]="true"
-        rounded="full"
-        aria-label="Search patient name or ID"
-        adaptiveMode="auto"
+      <button
+        kendoButton
+        fillMode="flat"
+        [svgIcon]="bellIcon"
+        aria-label="Notifications"
+        title="Notifications"
+        class="notification-btn"
+        #notificationAnchor
+        (click)="toggleNotifications()"
       >
-        <ng-template kendoPrefixTemplate>
-          <kendo-svgicon [icon]="searchIcon"></kendo-svgicon>
-        </ng-template>
-        <ng-template kendoComboBoxItemTemplate let-dataItem>
-          <div>{{ dataItem.name }} - ID {{ dataItem.id }}</div>
-        </ng-template>
-      </kendo-combobox>
-    }
-  </kendo-appbar-section>
+        <span class="notification-dot"></span>
+      </button>
 
-  <!-- Action Buttons Section -->
-  <kendo-appbar-section class="actions-section">
-    <button
-      kendoButton
-      fillMode="flat"
-      [svgIcon]="customContrastIcon"
-      aria-label="Toggle contrast"
-      title="Toggle contrast"
-      (click)="toggleOpacityMode()"
-    ></button>
-    <button
-      kendoButton
-      fillMode="flat"
-      [svgIcon]="bellIcon"
-      aria-label="Notifications"
-      title="Notifications"
-      class="notification-btn"
-      #notificationAnchor
-      (click)="toggleNotifications()"
-    >
-      <span class="notification-dot"></span>
-    </button>
-
-    <button
-      kendoButton
-      fillMode="flat"
-      aria-label="User profile menu"
-      title="Profile"
-      class="profile-btn"
-      (click)="openProfileDialog()"
-    >
-      <kendo-avatar
-        imageSrc="assets/profile.jpg"
-        width="40"
-        height="40"
-        shape="circle"
-        themeColor="primary"
+      <button
+        kendoButton
+        fillMode="flat"
+        aria-label="User profile menu"
+        title="Profile"
+        class="profile-btn"
+        (click)="openProfileDialog()"
       >
-      </kendo-avatar>
-    </button>
-  </kendo-appbar-section>
+        <kendo-avatar
+          imageSrc="assets/profile.jpg"
+          width="40"
+          height="40"
+          shape="circle"
+          themeColor="primary"
+        >
+        </kendo-avatar>
+      </button>
+    </kendo-appbar-section>
+  }
 </kendo-appbar>
 
 <main class="app-content" [class.opacity-mode]="opacityMode()">

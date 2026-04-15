@@ -1,5 +1,6 @@
 import { Component, signal, ViewEncapsulation, OnInit, ViewChild, ElementRef, HostListener } from '@angular/core';
 import { PopupComponent } from '@progress/kendo-angular-popup';
+import { ComboBoxComponent } from '@progress/kendo-angular-dropdowns';
 import { NgOptimizedImage } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
@@ -87,6 +88,7 @@ export class App implements OnInit {
   public navItems: SegmentedItemSettings[] = this.getNavItems();
   public isNarrowNav = signal(window.innerWidth < 576);
   public isCompact = signal(window.innerWidth <= 1440);
+  public searchExpanded = signal(false);
   public isSmallLogo = signal(window.innerWidth < 900);
   public dialogWidth = signal(this.getDialogWidth());
   public dialogHeight = signal(this.getDialogHeight());
@@ -118,6 +120,9 @@ export class App implements OnInit {
     this.isSmallLogo.set(window.innerWidth < 900);
     this.dialogWidth.set(this.getDialogWidth());
     this.dialogHeight.set(this.getDialogHeight());
+    if (window.innerWidth > 1440) {
+      this.searchExpanded.set(false);
+    }
   }
 
   public selectedNavIndex = 0;
@@ -151,6 +156,7 @@ export class App implements OnInit {
   // Notifications state
   @ViewChild('notificationAnchor', { read: ElementRef }) notificationAnchor!: ElementRef;
   @ViewChild('notificationsPopup') notificationsPopupRef?: PopupComponent;
+  @ViewChild('searchCombobox') searchCombobox?: ComboBoxComponent;
   public notificationsOpened = false;
   public notifications = [
     {
@@ -235,10 +241,20 @@ export class App implements OnInit {
       this.selectedPatient = value;
       // Simply navigate - Angular will handle route reuse properly
       this.router.navigate(['/patients', value.id]);
+      this.searchExpanded.set(false);
     } else if (value === null || value === undefined) {
       // User cleared the search
       this.selectedPatient = null;
     }
+  }
+
+  public openSearch(): void {
+    this.searchExpanded.set(true);
+    setTimeout(() => this.searchCombobox?.focus());
+  }
+
+  public closeSearch(): void {
+    this.searchExpanded.set(false);
   }
 
   // Default profile data
