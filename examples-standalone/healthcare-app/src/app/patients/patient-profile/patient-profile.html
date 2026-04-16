@@ -20,11 +20,11 @@
   @if (patient) {
     <div class="profile-grid">
       <!-- Basic Information Card -->
-      <kendo-card class="profile-card basic-info-card">
+      <kendo-card class="profile-card basic-info-card" width="100%">
         <div class="card-details">
           <div class="name-and-avatar">
             <kendo-avatar
-              [imageSrc]="getAvatarUrl(patient.avatar)"
+              [imageSrc]="patient.avatar"
               size="large"
               shape="circle"
               class="patient-avatar"
@@ -57,7 +57,7 @@
       </kendo-card>
 
       <!-- Recent Vitals Card -->
-      <kendo-card class="profile-card vitals-card">
+      <kendo-card class="profile-card vitals-card" width="100%">
         <div class="vitals-content">
           <div class="vitals-container">
             <h3 class="vitals-title">Recent Vitals</h3>
@@ -86,7 +86,7 @@
       </kendo-card>
 
       <!-- Admission Details Card -->
-      <kendo-card class="profile-card admission-card">
+      <kendo-card class="profile-card admission-card" width="100%">
         <div class="admission-content">
           <div class="admission-container">
             <h3 class="admission-title">Admission Details</h3>

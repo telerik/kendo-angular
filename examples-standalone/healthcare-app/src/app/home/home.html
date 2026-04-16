@@ -104,7 +104,7 @@
         </button>
       </div>
 
-      <kendo-grid [data]="appointments" [height]="450" adaptiveMode="auto">
+      <kendo-grid [data]="appointments" adaptiveMode="auto">
         <kendo-grid-column field="time" title="Time" [width]="110"></kendo-grid-column>
         <kendo-grid-column
           field="patientName"
@@ -146,6 +146,7 @@
                   <h3 class="patient-name">{{ nextPatient.name }}</h3>
                   <button
                     kendoButton
+                    class="view-profile-btn"
                     (click)="navigateToPatientProfile(nextPatient.id)"
                     rounded="full"
                     [svgIcon]="linkIcon"
@@ -178,12 +179,14 @@
           </div>
           <div class="info-card-content">
             <h4 class="info-card-title">Reason for visit</h4>
-            <span class="info-card-text">Cardiology Follow-up</span>
+            <div class="info-card-bottom">
+              <span class="info-card-text">Cardiology Follow-up</span>
+              <span class="info-card-link">
+                <span class="link-text">Details</span>
+                <kendo-svgicon [icon]="chevronRightIcon"></kendo-svgicon>
+              </span>
+            </div>
           </div>
-          <span class="info-card-link">
-            Details
-            <kendo-svgicon [icon]="chevronRightIcon"></kendo-svgicon>
-          </span>
         </div>
 
         <!-- Allergy Alert Card -->
@@ -193,12 +196,14 @@
           </div>
           <div class="info-card-content">
             <h4 class="info-card-title">Allergy Alert</h4>
-            <span class="info-card-text">Penicillin</span>
+            <div class="info-card-bottom">
+              <span class="info-card-text">Penicillin</span>
+              <span class="info-card-link">
+                <span class="link-text">Details</span>
+                <kendo-svgicon [icon]="chevronRightIcon"></kendo-svgicon>
+              </span>
+            </div>
           </div>
-          <span class="info-card-link">
-            Details
-            <kendo-svgicon [icon]="chevronRightIcon"></kendo-svgicon>
-          </span>
         </div>
       </section>
 
@@ -215,12 +220,14 @@
             <div>
               <div class="alert-content">
                 <span class="alert-title">{{ alert.title }}</span>
-                <p class="alert-time">{{ alert.time }}</p>
+                <div class="alert-bottom">
+                  <span class="alert-time">{{ alert.time }}</span>
+                  <span class="alert-link">
+                    <span class="link-text">View</span>
+                    <kendo-svgicon [icon]="chevronRightIcon"></kendo-svgicon>
+                  </span>
+                </div>
               </div>
-              <span class="alert-link">
-                View
-                <kendo-svgicon [icon]="chevronRightIcon"></kendo-svgicon>
-              </span>
             </div>
           </div>
         }
@@ -232,8 +239,8 @@
 <!-- Clinical Note Dialog -->
 @if (clinicalNoteDialogOpened) {
   <kendo-dialog
-    [width]="680"
-    [height]="500"
+    [width]="dlgW(680)"
+    [height]="dlgH(500)"
     (close)="closeClinicalNoteDialog()"
     class="clinical-note-dialog"
   >
@@ -281,7 +288,7 @@
 
 <!-- Lab Test Dialog -->
 @if (labTestDialogOpened) {
-  <kendo-dialog [width]="690" [height]="580" (close)="closeLabTestDialog()" class="lab-test-dialog">
+  <kendo-dialog [width]="dlgW(690)" [height]="dlgH(580)" (close)="closeLabTestDialog()" class="lab-test-dialog">
     <kendo-dialog-titlebar>
       <div class="dialog-title">Request Lab Tests</div>
     </kendo-dialog-titlebar>
@@ -302,7 +309,7 @@
               <span>{{ dataItem.name }} ({{ dataItem.patientId }})</span>
             </ng-template>
             <ng-template kendoDropDownListValueTemplate let-dataItem>
-              <span>{{ dataItem.name }} ({{ dataItem.patientId }})</span>
+              <span>{{ dataItem?.name }} ({{ dataItem?.patientId }})</span>
             </ng-template>
           </kendo-dropdownlist>
         </kendo-label>
@@ -347,8 +354,8 @@
 <!-- Message Nurse Dialog -->
 @if (messageNurseDialogOpened) {
   <kendo-dialog
-    [width]="690"
-    [height]="650"
+    [width]="dlgW(690)"
+    [height]="dlgH(650)"
     (close)="closeMessageNurseDialog()"
     class="message-nurse-dialog"
   >
@@ -403,7 +410,7 @@
 
 <!-- Alert Details Dialog -->
 @if (alertDialogOpened && selectedAlert) {
-  <kendo-dialog [width]="720" [height]="650" (close)="closeAlertDialog()" class="alert-dialog">
+  <kendo-dialog [width]="dlgW(720)" [height]="dlgH(650)" (close)="closeAlertDialog()" class="alert-dialog">
     <kendo-dialog-titlebar>
       <div class="dialog-title">Clinical Alert Details</div>
     </kendo-dialog-titlebar>
@@ -480,8 +487,8 @@
 <!-- Reason for Visit Dialog -->
 @if (reasonForVisitDialogOpened) {
   <kendo-dialog
-    [width]="740"
-    [height]="680"
+    [width]="dlgW(740)"
+    [height]="dlgH(680)"
     (close)="closeReasonForVisitDialog()"
     class="reason-visit-dialog"
   >
@@ -558,8 +565,8 @@
 <!-- Allergy Alert Dialog -->
 @if (allergyAlertDialogOpened) {
   <kendo-dialog
-    [width]="740"
-    [height]="700"
+    [width]="dlgW(740)"
+    [height]="dlgH(700)"
     (close)="closeAllergyAlertDialog()"
     class="allergy-dialog"
   >
@@ -653,8 +660,8 @@
 <!-- Reason for Visit Dialog -->
 @if (reasonForVisitDialogOpened) {
   <kendo-dialog
-    [width]="740"
-    [height]="680"
+    [width]="dlgW(740)"
+    [height]="dlgH(680)"
     (close)="closeReasonForVisitDialog()"
     class="reason-visit-dialog"
   >
@@ -731,8 +738,8 @@
 <!-- Allergy Alert Dialog -->
 @if (allergyAlertDialogOpened) {
   <kendo-dialog
-    [width]="740"
-    [height]="700"
+    [width]="dlgW(740)"
+    [height]="dlgH(700)"
     (close)="closeAllergyAlertDialog()"
     class="allergy-dialog"
   >

@@ -1,5 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
 
+:root {
+  --kendo-color-primary-subtle: #F1F5F9;
+  --kendo-color-primary-subtle-hover: #EAEFF5;
+  --kendo-color-primary-subtle-active: #E2E8F0;
+  --kendo-color-primary: #334155;
+  --kendo-color-primary-hover: #1E293B;
+  --kendo-color-primary-active: #0F172A;
+  --kendo-color-primary-emphasis: #CBD5E1;
+  --kendo-color-on-primary: #FFFFFF;
+  --kendo-color-primary-on-surface: #1E293B;
+  --kendo-color-primary-on-subtle: #000214;
+}
+
 * {
   box-sizing: border-box;
 }

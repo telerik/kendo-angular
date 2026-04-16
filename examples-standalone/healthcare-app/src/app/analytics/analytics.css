@@ -6,7 +6,9 @@
 
 .analytics-header {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
+  gap: 16px;
   margin-bottom: 24px;
 }
 
@@ -20,17 +22,19 @@
 .analytics-header-left .page-title {
   font-size: 42px;
   line-height: 120%;
+  color: var(--kendo-color-on-app-surface, #232a36);
 }
 
 .analytics-header-left .page-subtitle {
   margin: 8px 0 0;
   font-size: 16px;
   line-height: 150%;
-  color: #4A5666;
+  color: var(--kendo-color-on-app-surface, #232a36);
 }
 
 .analytics-header-right {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   gap: 12px;
   padding-top: 8px;
@@ -199,6 +203,66 @@
 @media (max-width: 1270px) {
   .charts-row {
     grid-template-columns: 1fr;
+  }
+}
+
+/* 900px – 1439px: page top/bottom padding 32px */
+@media (min-width: 900px) and (max-width: 1439px) {
+  .analytics-section {
+    padding-top: 32px;
+    padding-bottom: 32px;
+  }
+}
+
+/* 576px – 889px: card padding 16px, page top/bottom padding 24px */
+@media (min-width: 576px) and (max-width: 889px) {
+  .analytics-header-left .page-title {
+    font-size: 32px;
+  }
+
+  .analytics-section {
+    padding-top: 24px;
+    padding-bottom: 24px;
+  }
+
+  .vitals-card {
+    padding: 16px;
+  }
+}
+
+/* Below 575px: 12px gaps and 12px top/bottom page padding */
+@media (max-width: 575px) {
+  .analytics-header-left .page-title {
+    font-size: 24px;
+  }
+
+  .analytics-header-left .page-subtitle {
+    font-size: 14px;
+  }
+
+  .analytics-section {
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+
+  .vitals-card {
+    padding: 12px;
+  }
+
+  .charts-row {
+    gap: 12px;
+    margin-top: 12px;
+  }
+
+  .vitals-card + .vitals-card {
+    margin-top: 12px;
+  }
+}
+
+/* Above 1440px: 40px bottom padding */
+@media (min-width: 1440px) {
+  .analytics-section {
+    padding-bottom: 40px;
   }
 }
 

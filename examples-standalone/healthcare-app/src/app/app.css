@@ -1,3 +1,11 @@
+/* Search Expanded Mode */
+.search-expanded-combobox {
+  flex: 1;
+  height: 35px;
+  background: #ffffff;
+  min-width: 0;
+}
+
 /* AppBar */
 .k-appbar {
   padding: 16px;
@@ -60,6 +68,12 @@
   }
 }
 
+@media (min-width: 576px) and (max-width: 889px) {
+  .k-appbar {
+    height: 68px !important;
+  }
+}
+
 @media (max-width: 575px) {
   .k-appbar {
     margin: 0 12px;
@@ -67,6 +81,12 @@
 
   .app-content {
     padding: 0 12px;
+  }
+}
+
+@media (min-width: 360px) and (max-width: 575px) {
+  .k-appbar {
+    height: 58px !important;
   }
 }
 
@@ -94,25 +114,24 @@
 
 /* Navigation - Segmented Control */
 
+.nav-separator {
+  width: 1px;
+  height: 20px;
+  background: rgba(23, 56, 99, 0.08);
+}
+
 .nav-section nav {
   pointer-events: auto;
 }
 
-.nav-dropdown-btn .k-button-text {
-  display: none;
+.k-popup ul{
+  padding: 8px;
 }
 
-.nav-dropdown-btn + .k-popup .k-item {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 10px 16px;
-  font-size: 16px;
-}
-
-.nav-dropdown-btn + .k-popup kendo-svgicon {
-  width: 18px;
-  height: 18px;
+.k-popup ul .k-item.k-focus>.k-link{
+  box-shadow: none;
+  background-color: var(--kendo-color-primary-subtle-active);
+  border-radius: var(--kendo-border-radius-md);
 }
 
 .k-menu-group .k-item.k-focus > .k-link{
@@ -290,7 +309,7 @@ a:focus-visible {
   font-size: 18px;
   line-height: 150%;
   margin: 0;
-  color: #1e293b;
+  color: var(--kendo-color-primary-on-surface);
 }
 
 .profile-image-container {
@@ -318,8 +337,8 @@ a:focus-visible {
   font-size: 16px;
   line-height: 150%;
   font-weight: 500;
-  background: #334155;
-  border: 1px solid #334155;
+  background: var(--kendo-color-primary);
+  border: 1px solid var(--kendo-color-primary);
   border-radius: 8px;
   display: flex;
   align-items: center;
@@ -328,8 +347,8 @@ a:focus-visible {
 }
 
 .upload-image-btn:hover {
-  background: #1e293b;
-  border-color: #1e293b;
+  background: var(--kendo-color-primary-hover);
+  border-color: var(--kendo-color-primary-hover);
 }
 
 /* Personal Information Section */
@@ -364,7 +383,7 @@ a:focus-visible {
   font-weight: 400;
   font-size: 16px;
   line-height: 150%;
-  color: #1e293b;
+  color: var(--kendo-color-primary-on-surface);
   margin-bottom: 8px;
 }
 
@@ -426,15 +445,15 @@ a:focus-visible {
   padding: 4px 8px;
   font-size: 14px;
   line-height: 142%;
-  color: #ffffff;
-  background: #334155;
-  border: 1px solid #334155;
+  color: var(--kendo-color-on-primary);
+  background: var(--kendo-color-primary);
+  border: 1px solid var(--kendo-color-primary);
   border-radius: 8px;
 }
 
 .save-btn:hover {
-  background: #1e293b;
-  border-color: #1e293b;
+  background: var(--kendo-color-primary-hover);
+  border-color: var(--kendo-color-primary-hover);
 }
 
 /* Notifications Popup */
@@ -453,6 +472,7 @@ a:focus-visible {
 
 .notifications-container {
   width: 420px;
+  max-width: calc(100vw - 24px);
   background: #ffffff;
   border-radius: 12px;
   overflow: hidden;
@@ -470,7 +490,7 @@ a:focus-visible {
   font-weight: 700;
   font-size: 16px;
   line-height: 133%;
-  color: #1e293b;
+  color: var(--kendo-color-primary-on-surface);
   margin: 0;
 }
 
@@ -497,7 +517,7 @@ a:focus-visible {
   flex-shrink: 0;
   width: 48px;
   height: 48px;
-  background: #e2e8f0;
+  background: var(--kendo-color-primary-subtle-active);
   border-radius: 50%;
   display: flex;
   align-items: center;

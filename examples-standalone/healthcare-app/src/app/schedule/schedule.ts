@@ -1,4 +1,4 @@
-import { Component, ViewEncapsulation, OnInit, HostListener } from '@angular/core';
+import { Component, ViewEncapsulation, OnInit, HostListener, signal } from '@angular/core';
 import { NgClass } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { KENDO_SCHEDULER, EventStyleArgs, EventClickEvent } from '@progress/kendo-angular-scheduler';
@@ -22,13 +22,7 @@ import {
   hyperlinkOpenIcon,
 } from '@progress/kendo-svg-icons';
 import { AppointmentsService, SchedulerAppointment } from '../services/appointments.service';
-
-interface DailyTask {
-  id: number;
-  title: string;
-  priority: 'High' | 'Medium' | 'Low';
-  completed: boolean;
-}
+import { DailyTask, INITIAL_TASKS } from '../data/schedule.data';
 
 @Component({
   selector: 'app-schedule',
@@ -49,6 +43,26 @@ interface DailyTask {
   ],
 })
 export class ScheduleComponent implements OnInit {
+  // Responsive dialog dimensions
+  public isNarrowScreen = signal(window.innerWidth < 1000);
+  public vw = signal(window.innerWidth);
+  public vh = signal(window.innerHeight);
+
+  public dlgW(base: number): number {
+    return this.isNarrowScreen() ? Math.min(base, this.vw() - 32) : base;
+  }
+
+  public dlgH(base: number): number {
+    return this.isNarrowScreen() ? Math.min(base, this.vh() - 32) : base;
+  }
+
+  @HostListener('window:resize')
+  onResize(): void {
+    this.isNarrowScreen.set(window.innerWidth < 1000);
+    this.vw.set(window.innerWidth);
+    this.vh.set(window.innerHeight);
+  }
+
   public searchIcon: SVGIcon = searchIcon;
   public plusIcon: SVGIcon = plusIcon;
   public checkCircleIcon: SVGIcon = checkCircleIcon;
@@ -99,38 +113,7 @@ export class ScheduleComponent implements OnInit {
     };
   };
 
-  public tasks: DailyTask[] = [
-    {
-      id: 1,
-      title: 'Complete discharge paperwork for John Smith',
-      priority: 'High',
-      completed: false,
-    },
-    {
-      id: 2,
-      title: 'Call pharmacy for Emma Davis prescription',
-      priority: 'Medium',
-      completed: true,
-    },
-    { id: 3, title: 'Sign off on radiology reports', priority: 'Low', completed: false },
-    { id: 4, title: 'Review insurance authorization requests', priority: 'High', completed: true },
-    { id: 5, title: 'Update treatment plan for Mike Davis', priority: 'High', completed: false },
-    { id: 6, title: 'Sign off on radiology reports', priority: 'Medium', completed: false },
-    { id: 7, title: 'Review lab results for Sarah Johnson', priority: 'Low', completed: true },
-    {
-      id: 8,
-      title: 'Complete discharge paperwork for John Smith',
-      priority: 'High',
-      completed: false,
-    },
-    { id: 9, title: 'Review lab results for Sarah Johnson', priority: 'High', completed: true },
-    {
-      id: 10,
-      title: 'Review insurance authorization requests',
-      priority: 'Medium',
-      completed: true,
-    },
-  ];
+  public tasks: DailyTask[] = [...INITIAL_TASKS];
 
   constructor(private appointmentsService: AppointmentsService) {
     // Initialize selected date to current year - 1 (2025)

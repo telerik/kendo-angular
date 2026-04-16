@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild, ViewEncapsulation, HostListener, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ChipThemeColor, KENDO_BUTTONS } from '@progress/kendo-angular-buttons';
@@ -32,6 +32,7 @@ import {
   stickyNoteIcon,
 } from '@progress/kendo-svg-icons';
 import { PATIENTS_DATA, PatientProfile } from '../data/patients.data';
+import { DAILY_ALERTS, HOME_PATIENTS, LAB_TESTS, DailyAlert, HomePatient, LabTest } from '../data/home.data';
 import { MarkdownPipe } from '../pipes/markdown.pipe';
 import { AppointmentsService, GridAppointment } from '../services/appointments.service';
 
@@ -57,6 +58,26 @@ import { AppointmentsService, GridAppointment } from '../services/appointments.s
   ],
 })
 export class HomeComponent implements OnInit {
+  // Responsive dialog dimensions
+  public isNarrowScreen = signal(window.innerWidth < 1000);
+  public vw = signal(window.innerWidth);
+  public vh = signal(window.innerHeight);
+
+  public dlgW(base: number): number {
+    return this.isNarrowScreen() ? Math.min(base, this.vw() - 32) : base;
+  }
+
+  public dlgH(base: number): number {
+    return this.isNarrowScreen() ? Math.min(base, this.vh() - 32) : base;
+  }
+
+  @HostListener('window:resize')
+  onResize(): void {
+    this.isNarrowScreen.set(window.innerWidth < 1000);
+    this.vw.set(window.innerWidth);
+    this.vh.set(window.innerHeight);
+  }
+
   // Quick Actions Icons
   public stickyNoteIcon: SVGIcon = stickyNoteIcon;
 
@@ -144,87 +165,7 @@ export class HomeComponent implements OnInit {
   ];
 
   // Daily Alerts data
-  public dailyAlerts = [
-    {
-      id: 1,
-      title: 'CRP elevated - Sophia Martinez',
-      patient: 'Sophia Martinez',
-      patientId: 'P-105328',
-      time: 'Now',
-      condition: 'CRP Elevated',
-      value: '12.5 mg/L',
-      normalRange: '0-10 mg/L',
-      priority: 'High',
-      details:
-        'C-reactive protein (CRP) levels are significantly elevated, indicating possible inflammation or infection. Recent lab results show a marked increase from the last test.',
-      recommendations: [
-        'Order additional inflammatory markers panel',
-        'Review recent medical history for infection symptoms',
-        'Schedule follow-up appointment within 48 hours',
-        'Consider antibiotic treatment if infection is suspected',
-      ],
-    },
-    {
-      id: 2,
-      title: 'Blood pressure high - James Carter',
-      patient: 'James Carter',
-      patientId: 'P-104582',
-      time: '2 min ago',
-      condition: 'Blood Pressure High',
-      value: '165/98 mmHg',
-      normalRange: '120/80 mmHg',
-      priority: 'High',
-      details:
-        'Blood pressure readings are consistently elevated above normal range. Patient has history of hypertension but readings have increased despite current medication.',
-      recommendations: [
-        'Review current antihypertensive medication dosage',
-        'Check for medication compliance',
-        'Order ECG and kidney function tests',
-        'Consider adjusting or adding medication',
-        'Advise lifestyle modifications (diet, exercise, stress management)',
-      ],
-    },
-    {
-      id: 3,
-      title: 'Glucose levels elevated - Daniel Rivera',
-      patient: 'Daniel Rivera',
-      patientId: 'P-103847',
-      time: '8 min ago',
-      condition: 'Glucose Levels Elevated',
-      value: '185 mg/dL',
-      normalRange: '70-100 mg/dL',
-      priority: 'Medium',
-      details:
-        'Fasting glucose levels are elevated above normal range. Patient has pre-diabetes diagnosis and recent readings show progression.',
-      recommendations: [
-        'Order HbA1c test to assess long-term glucose control',
-        'Review dietary habits and suggest nutritionist consultation',
-        'Discuss diabetes prevention program enrollment',
-        'Consider starting metformin if HbA1c confirms progression',
-        'Schedule follow-up in 2 weeks to monitor glucose levels',
-      ],
-    },
-    {
-      id: 4,
-      title: 'High cholesterol detected - Ava Thompson',
-      patient: 'Ava Thompson',
-      patientId: 'P-106749',
-      time: '15 min ago',
-      condition: 'High Cholesterol',
-      value: 'Total: 265 mg/dL, LDL: 175 mg/dL',
-      normalRange: 'Total: <200 mg/dL, LDL: <100 mg/dL',
-      priority: 'Medium',
-      details:
-        'Lipid panel shows significantly elevated total cholesterol and LDL levels, increasing cardiovascular risk. Patient has family history of heart disease.',
-      recommendations: [
-        'Prescribe statin therapy (e.g., atorvastatin 20mg)',
-        'Order comprehensive cardiovascular risk assessment',
-        'Refer to dietitian for heart-healthy diet plan',
-        'Recommend regular aerobic exercise program',
-        'Recheck lipid panel in 6-8 weeks after treatment initiation',
-      ],
-    },
-  ];
+  public dailyAlerts: DailyAlert[] = [...DAILY_ALERTS];
 
   public selectedAlert: any = null;
 
@@ -301,31 +242,14 @@ export class HomeComponent implements OnInit {
   };
 
   // Clinical Note Dialog data
-  public patients = [
-    { id: 1, name: 'James Wilson', patientId: 'P-104582' },
-    { id: 2, name: 'Sarah Johnson', patientId: 'P-102439' },
-    { id: 3, name: 'Michael Chen', patientId: 'P-105821' },
-    { id: 4, name: 'Emily Davis', patientId: 'P-103764' },
-    { id: 5, name: 'Robert Martinez', patientId: 'P-106235' },
-  ];
+  public patients: HomePatient[] = [...HOME_PATIENTS];
   public selectedPatient = this.patients[0];
   public clinicalNoteText = '';
 
   // Lab Test Dialog data
-  public labTestPatient = this.patients[0];
+  public labTestPatient: HomePatient = this.patients[0];
   public labTestSearchQuery = '';
-  public labTests = [
-    { id: 1, name: 'Complete blood count (CBC)', selected: false },
-    { id: 2, name: 'Comprehensive metabolic panel (CMP)', selected: true },
-    { id: 3, name: 'Basic metabolic panel (BMP)', selected: false },
-    { id: 4, name: 'Lipid panel', selected: false },
-    { id: 5, name: 'Thyroid function tests (TSH, T3, T4)', selected: false },
-    { id: 6, name: 'Hemoglobin A1C (HbA1c)', selected: false },
-    { id: 7, name: 'Liver function tests (LFTs)', selected: false },
-    { id: 8, name: 'Urinalysis', selected: false },
-    { id: 9, name: 'Vitamin D levels', selected: false },
-    { id: 10, name: 'Prostate-specific antigen (PSA)', selected: false },
-  ];
+  public labTests: LabTest[] = [...LAB_TESTS];
 
   // Message Nurse Dialog data
   public recipientEmail = 'oliviaparker@email.com';
@@ -392,7 +316,7 @@ Dr. Carter`;
 
   public sendLabTestRequest(): void {
     const selectedTests = this.labTests.filter((test) => test.selected);
-    console.log('Sending lab test request for:', this.labTestPatient.name, 'Tests:', selectedTests);
+    console.log('Sending lab test request for:', this.labTestPatient?.name, 'Tests:', selectedTests);
     // Here you would typically send via a service
     this.closeLabTestDialog();
   }

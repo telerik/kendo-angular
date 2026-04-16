@@ -6,7 +6,7 @@
 
 .schedule-layout {
   display: flex;
-  gap: 24px;
+  gap: 32px;
   align-items: flex-start;
 }
 
@@ -32,7 +32,7 @@
 }
 
 .scheduler-card kendo-card-body {
-  padding: 10px 20px 20px;
+  padding: 20px 20px 20px;
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -80,8 +80,8 @@
 
 /* Daily Tasks Card */
 .daily-tasks-card {
-  flex: 0 1 610px;
-  min-width: 450px;
+  flex: 0 0 610px;
+  width: 610px;
   display: flex;
   flex-direction: column;
   border: none;
@@ -223,7 +223,7 @@
 }
 
 .task-checkbox.task-completed kendo-svgicon {
-  color: #334155;
+  color: var(--kendo-color-primary);
 }
 
 /* Task Title */
@@ -454,13 +454,33 @@
   padding: 4px 8px;
   font-size: 14px;
   line-height: 142%;
-  color: #ffffff;
-  background: #334155;
-  border: 1px solid #334155;
+  color: var(--kendo-color-on-primary);
+  background: var(--kendo-color-primary);
+  border: 1px solid var(--kendo-color-primary);
   border-radius: 8px;
 }
 
 /* Responsive Layout */
+@media (max-width: 1440px) {
+  .schedule-layout {
+    flex-wrap: wrap;
+  }
+
+  .scheduler-card {
+    flex: 0 0 100%;
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+  }
+
+  .daily-tasks-card {
+    flex: 0 0 100%;
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+  }
+}
+
 @media (max-width: 1110px) {
   .schedule-layout {
     flex-direction: column;
@@ -485,18 +505,81 @@
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 650px) {
   .tasks-header {
     flex-wrap: wrap;
   }
 
-  .tasks-search {
+  .tasks-actions {
     width: 100%;
+  }
+
+  .tasks-search {
+    flex: 1;
   }
 }
 
 .save-btn:hover {
   background: #475569;
+}
+
+/* 1440px – 1759px: reduce layout gap to 24px */
+@media (min-width: 1440px) and (max-width: 1759px) {
+  .schedule-layout {
+    gap: 24px;
+  }
+}
+
+/* 900px – 1439px: page top/bottom padding 32px, layout gap 24px */
+@media (min-width: 900px) and (max-width: 1439px) {
+  .schedule-page {
+    padding-top: 32px;
+    padding-bottom: 32px;
+  }
+
+  .schedule-layout {
+    gap: 24px;
+  }
+}
+
+/* 576px – 889px: card padding 16px, page top/bottom padding 24px */
+@media (min-width: 576px) and (max-width: 889px) {
+  .schedule-page {
+    padding-top: 24px;
+    padding-bottom: 24px;
+  }
+
+  .scheduler-card kendo-card-header,
+  .daily-tasks-card kendo-card-header {
+    padding: 16px 16px 10px;
+  }
+
+  .scheduler-card kendo-card-body,
+  .daily-tasks-card kendo-card-body {
+    padding: 10px 16px 16px;
+  }
+}
+
+/* Below 575px: 12px gaps and 12px top/bottom page padding */
+@media (max-width: 575px) {
+  .schedule-page {
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+
+  .schedule-layout {
+    gap: 12px;
+  }
+
+  .scheduler-card kendo-card-header,
+  .daily-tasks-card kendo-card-header {
+    padding: 12px 12px 10px;
+  }
+
+  .scheduler-card kendo-card-body,
+  .daily-tasks-card kendo-card-body {
+    padding: 10px 12px 12px;
+  }
 }
 
 /* Event Detail Dialog */
@@ -585,4 +668,11 @@
 
 .event-dialog-save-btn {
   padding: 0 24px;
+}
+
+/* Above 1440px: 40px bottom padding */
+@media (min-width: 1440px) {
+  .schedule-page {
+    padding-bottom: 40px;
+  }
 }
