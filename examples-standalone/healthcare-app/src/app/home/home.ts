@@ -30,6 +30,7 @@ import {
   plusIcon,
   sparklesIcon,
   stickyNoteIcon,
+  xIcon,
 } from '@progress/kendo-svg-icons';
 import { PATIENTS_DATA, PatientProfile } from '../data/patients.data';
 import { DAILY_ALERTS, HOME_PATIENTS, LAB_TESTS, DailyAlert, HomePatient, LabTest } from '../data/home.data';
@@ -112,6 +113,7 @@ export class HomeComponent implements OnInit {
   public linkIcon: SVGIcon = hyperlinkOpenIcon;
   public clipboardIcon: SVGIcon = clipboardIcon;
   public pillIcon: SVGIcon = pillsSolidIcon;
+  public xIcon: SVGIcon = xIcon;
 
   public currentDate: string;
 
