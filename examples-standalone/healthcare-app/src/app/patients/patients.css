@@ -5,12 +5,13 @@
 
 .page-header {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
-  align-items: center;
+  gap: 16px;
   margin-bottom: 24px;
 }
 
-.page-header > :first-child {
+.page-header-left {
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -33,13 +34,14 @@
 }
 
 /* Page Actions */
-.page-actions {
+.page-header-right {
   display: flex;
+  flex-wrap: wrap;
   gap: 16px;
   align-items: center;
 }
 
-.page-actions .k-button {
+.page-header-right .k-button {
   height: 34px;
   padding: 4px 8px;
   border-radius: 9999px;
@@ -50,14 +52,14 @@
   color: #ffffff;
 }
 
-.page-actions .k-button:hover,
+.page-header-right .k-button:hover,
 .ai-assistance-btn:hover {
   background: #1d293b !important;
   border-color: #1d293b !important;
   color: #ffffff !important;
 }
 
-.page-actions .k-button-outline,
+.page-header-right .k-button-outline,
 .ai-assistance-btn {
   display: flex;
   align-items: center;
@@ -66,7 +68,7 @@
   font-size: 14px;
 }
 
-.page-actions .k-button-outline {
+.page-header-right .k-button-outline {
   padding: 8px 16px !important;
   background: #f3f5f7;
   border: 1px solid rgba(23, 56, 99, 0.08);
@@ -230,8 +232,8 @@
   }
 }
 
-/* 576px – 889px: card padding 16px, page top/bottom padding 24px */
-@media (min-width: 576px) and (max-width: 889px) {
+/* 576px – 899px: card padding 16px, page top/bottom padding 24px */
+@media (min-width: 576px) and (max-width: 899px) {
   .page-title {
     font-size: 32px;
   }

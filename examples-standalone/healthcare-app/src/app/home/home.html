@@ -865,12 +865,22 @@
         [style.height.%]="100"
       >
         <ng-template kendoChatHeaderTemplate>
-          <div style="display: flex; align-items: center; padding: 8px">
-            <kendo-svg-icon
-              [icon]="sparklesIcon"
-              style="margin-right: 8px; color: #4b5ffa"
-            ></kendo-svg-icon>
-            <strong>AI Assistant</strong>
+          <div class="chat-header">
+            <div style="display: flex; align-items: center">
+              <kendo-svg-icon
+                [icon]="sparklesIcon"
+                style="margin-right: 8px; color: #4b5ffa"
+              ></kendo-svg-icon>
+              <strong>AI Assistant</strong>
+            </div>
+            <button
+              kendoButton
+              class="chat-close-btn"
+              [svgIcon]="xIcon"
+              fillMode="flat"
+              (click)="closeChatPopup()"
+              aria-label="Close chat"
+            ></button>
           </div>
         </ng-template>
         <ng-template kendoChatReceiverMessageTemplate let-message>
