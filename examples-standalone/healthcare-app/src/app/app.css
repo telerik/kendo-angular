@@ -4,6 +4,11 @@
   height: 35px;
   background: #ffffff;
   min-width: 0;
+  border: none;
+}
+
+.search-expanded-combobox.k-input.k-focus {
+  box-shadow: none;
 }
 
 /* AppBar */
@@ -68,7 +73,7 @@
   }
 }
 
-@media (min-width: 576px) and (max-width: 889px) {
+@media (min-width: 576px) and (max-width: 899px) {
   .k-appbar {
     height: 68px !important;
   }
@@ -124,18 +129,22 @@
   pointer-events: auto;
 }
 
-.k-popup ul{
+.k-popup ul {
   padding: 8px;
 }
 
-.k-popup ul .k-item.k-focus>.k-link{
+.k-popup ul .k-item.k-focus > .k-link {
   box-shadow: none;
   background-color: var(--kendo-color-primary-subtle-active);
   border-radius: var(--kendo-border-radius-md);
 }
 
-.k-menu-group .k-item.k-focus > .k-link{
-box-shadow: inset 0 0 0 1px var(--kendo-color-border-alt, rgba(0, 0, 0, 0.16));
+.k-popup ul .k-link:hover {
+  border-radius: var(--kendo-border-radius-md);
+}
+
+.k-menu-group .k-item.k-focus > .k-link {
+  box-shadow: inset 0 0 0 1px var(--kendo-color-border-alt, rgba(0, 0, 0, 0.16));
 }
 
 /* Search Section */

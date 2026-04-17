@@ -842,8 +842,47 @@
   aria-label="AI Assistant"
 ></button>
 
-<!-- AI Chat Popup -->
-@if (chatPopupOpened) {
+<!-- Shared Chat Template -->
+<ng-template #chatTemplate>
+  <kendo-chat
+    [messages]="chatMessages"
+    [authorId]="currentUser.id"
+    [suggestions]="chatSuggestions"
+    [showUsername]="false"
+    [messageContextMenuActions]="[]"
+    timestampVisibility="hidden"
+    (sendMessage)="onSendChatMessage($event)"
+    (suggestionExecute)="onSuggestionClick($event)"
+    [style.width.%]="100"
+    [style.height.%]="100"
+  >
+    <ng-template kendoChatHeaderTemplate>
+      <div class="chat-header">
+        <div style="display: flex; align-items: center">
+          <kendo-svg-icon
+            [icon]="sparklesIcon"
+            style="margin-right: 8px; color: #4b5ffa"
+          ></kendo-svg-icon>
+          <strong>AI Assistant</strong>
+        </div>
+        <button
+          kendoButton
+          class="chat-close-btn"
+          [svgIcon]="xIcon"
+          fillMode="flat"
+          (click)="closeChatPopup()"
+          aria-label="Close chat"
+        ></button>
+      </div>
+    </ng-template>
+    <ng-template kendoChatReceiverMessageTemplate let-message>
+      <div [innerHTML]="message.text | markdown"></div>
+    </ng-template>
+  </kendo-chat>
+</ng-template>
+
+<!-- AI Chat Popup (Desktop) -->
+@if (chatPopupOpened && vw() > 899) {
   <kendo-popup
     [anchor]="fabButton"
     [anchorAlign]="{ horizontal: 'left', vertical: 'bottom' }"
@@ -852,31 +891,14 @@
     [margin]="{ horizontal: -35, vertical: 0 }"
   >
     <div class="ai-chat-popup">
-      <kendo-chat
-        [messages]="chatMessages"
-        [authorId]="currentUser.id"
-        [suggestions]="chatSuggestions"
-        [showUsername]="false"
-        [messageContextMenuActions]="[]"
-        timestampVisibility="hidden"
-        (sendMessage)="onSendChatMessage($event)"
-        (suggestionExecute)="onSuggestionClick($event)"
-        [style.width.%]="100"
-        [style.height.%]="100"
-      >
-        <ng-template kendoChatHeaderTemplate>
-          <div style="display: flex; align-items: center; padding: 8px">
-            <kendo-svg-icon
-              [icon]="sparklesIcon"
-              style="margin-right: 8px; color: #4b5ffa"
-            ></kendo-svg-icon>
-            <strong>AI Assistant</strong>
-          </div>
-        </ng-template>
-        <ng-template kendoChatReceiverMessageTemplate let-message>
-          <div [innerHTML]="message.text | markdown"></div>
-        </ng-template>
-      </kendo-chat>
+      <ng-container *ngTemplateOutlet="chatTemplate"></ng-container>
     </div>
   </kendo-popup>
+}
+
+<!-- AI Chat Full Screen (Mobile) -->
+@if (chatPopupOpened && vw() <= 899) {
+  <div class="ai-chat-fullscreen">
+    <ng-container *ngTemplateOutlet="chatTemplate"></ng-container>
+  </div>
 }

@@ -857,6 +857,22 @@
   overflow: hidden;
 }
 
+.chat-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.chat-close-btn {
+  display: none;
+  padding: 4px;
+  min-width: 32px;
+  height: 32px;
+}
+
 .k-message-group-sender .k-chat-bubble,
 .k-message-group-sender .k-selected,
 .k-message-group-sender .k-selected.k-focus {
@@ -867,6 +883,27 @@
 
 .k-message-group-sender .k-chat-bubble:hover {
   background-color: #1e293b;
+}
+
+/* AI Chat Full Screen (Mobile) */
+.ai-chat-fullscreen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #ffffff;
+  z-index: 10001;
+  display: flex;
+  flex-direction: column;
+  padding: 0 16px 0 0;
+  box-sizing: border-box;
+}
+
+.ai-chat-fullscreen .chat-close-btn {
+  display: flex;
 }
 
 /* Responsive Layout */
@@ -889,7 +926,7 @@
   }
 }
 
-@media (max-width: 889px) {
+@media (max-width: 899px) {
   .quick-actions-section .cards-container {
     flex-wrap: wrap;
   }
@@ -949,14 +986,19 @@
   }
 }
 
-/* 576px – 889px: card padding 16px, page top/bottom padding 24px */
-@media (min-width: 576px) and (max-width: 889px) {
+/* 576px – 899px: 16px gaps, card padding 16px, page top/bottom padding 24px */
+@media (min-width: 576px) and (max-width: 899px) {
   .greeting-heading {
     font-size: 32px;
   }
 
   .main-content-wrapper {
+    gap: 16px;
     margin-bottom: 24px;
+  }
+
+  .left-column {
+    gap: 16px;
   }
 
   .quick-actions-section,
@@ -972,6 +1014,13 @@
   .next-patient-section section.cards-container,
   .daily-alerts {
     padding: 10px 16px 16px;
+  }
+}
+
+@media (max-width: 899px) {
+  .fab-button {
+    bottom: 16px;
+    right: 16px;
   }
 }
 
@@ -1027,6 +1076,10 @@
 
   .quick-actions-section .cards-container {
     gap: 12px;
+  }
+
+  .section-title {
+    font-size: 18px;
   }
 }
 

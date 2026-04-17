@@ -345,8 +345,8 @@
   }
 }
 
-/* 576px – 889px: card padding 16px, page top/bottom padding 24px */
-@media (min-width: 576px) and (max-width: 889px) {
+/* 576px – 899px: card padding 16px, page top/bottom padding 24px */
+@media (min-width: 576px) and (max-width: 899px) {
   .page-title {
     font-size: 32px;
   }
