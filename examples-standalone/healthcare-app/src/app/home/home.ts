@@ -1,5 +1,6 @@
 import { Component, ElementRef, OnInit, ViewChild, ViewEncapsulation, HostListener, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { NgTemplateOutlet } from '@angular/common';
 import { Router } from '@angular/router';
 import { ChipThemeColor, KENDO_BUTTONS } from '@progress/kendo-angular-buttons';
 import { guid } from '@progress/kendo-angular-common';
@@ -30,6 +31,7 @@ import {
   plusIcon,
   sparklesIcon,
   stickyNoteIcon,
+  xIcon,
 } from '@progress/kendo-svg-icons';
 import { PATIENTS_DATA, PatientProfile } from '../data/patients.data';
 import { DAILY_ALERTS, HOME_PATIENTS, LAB_TESTS, DailyAlert, HomePatient, LabTest } from '../data/home.data';
@@ -43,6 +45,7 @@ import { AppointmentsService, GridAppointment } from '../services/appointments.s
   styleUrls: ['./home.css'],
   imports: [
     FormsModule,
+    NgTemplateOutlet,
     KENDO_BUTTONS,
     KENDO_ICONS,
     KENDO_INDICATORS,
@@ -112,6 +115,7 @@ export class HomeComponent implements OnInit {
   public linkIcon: SVGIcon = hyperlinkOpenIcon;
   public clipboardIcon: SVGIcon = clipboardIcon;
   public pillIcon: SVGIcon = pillsSolidIcon;
+  public xIcon: SVGIcon = xIcon;
 
   public currentDate: string;
 
