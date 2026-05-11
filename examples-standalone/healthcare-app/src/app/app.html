@@ -1,4 +1,5 @@
-<kendo-appbar themeColor="light" [class.opacity-mode-appbar]="opacityMode()" [class.search-expanded-appbar]="searchExpanded()">
+<div class="sticky-header-wrapper" [class.opacity-mode-header]="opacityMode()">
+  <kendo-appbar themeColor="light" [class.opacity-mode-appbar]="opacityMode()" [class.search-expanded-appbar]="searchExpanded()">
   @if (isCompact() && searchExpanded()) {
     <!-- Expanded Search Mode: full-width combobox, closes on blur -->
     <kendo-combobox
@@ -20,7 +21,7 @@
       class="search-expanded-combobox"
     >
       <ng-template kendoPrefixTemplate>
-        <kendo-svgicon [icon]="searchIcon"></kendo-svgicon>
+        <kendo-svgicon [icon]="searchIcon" [style.marginLeft.px]="10"></kendo-svgicon>
       </ng-template>
       <ng-template kendoComboBoxItemTemplate let-dataItem>
         <div>{{ dataItem.name }} - ID {{ dataItem.id }}</div>
@@ -33,7 +34,7 @@
       @if (isSmallLogo()) {
         <img ngSrc="assets/small-logo.svg" alt="Logo" width="38" height="38" priority />
       } @else {
-        <img ngSrc="assets/logo.svg" alt="Logo" width="153" height="38" priority />
+        <img ngSrc="assets/logo.svg" alt="Logo" width="171" height="40" priority />
       }
     </a>
     @if (isNarrowNav()) {
@@ -98,7 +99,7 @@
           adaptiveMode="auto"
         >
           <ng-template kendoPrefixTemplate>
-            <kendo-svgicon [icon]="searchIcon"></kendo-svgicon>
+            <kendo-svgicon [icon]="searchIcon" [style.marginLeft.px]="10"></kendo-svgicon>
           </ng-template>
           <ng-template kendoComboBoxItemTemplate let-dataItem>
             <div>{{ dataItem.name }} - ID {{ dataItem.id }}</div>
@@ -114,6 +115,7 @@
         fillMode="flat"
         [svgIcon]="customContrastIcon"
         aria-label="Toggle contrast"
+        rounded="full"
         title="Toggle contrast"
         (click)="toggleOpacityMode()"
       ></button>
@@ -124,11 +126,24 @@
         aria-label="Notifications"
         title="Notifications"
         class="notification-btn"
+        rounded="full"
         #notificationAnchor
         (click)="toggleNotifications()"
       >
-        <span class="notification-dot"></span>
+        <span class="notification-dot" [class.hidden]="!notifications.some(n => n.unread)"></span>
       </button>
+
+      <button
+        kendoButton
+        fillMode="flat"
+        [svgIcon]="githubIcon"
+        aria-label="Get the source code on GitHub"
+        title="Get the Source Code"
+        class="github-btn"
+        #githubAnchor
+        (click)="toggleGithubPopup()"
+        rounded="full"
+      ></button>
 
       <button
         kendoButton
@@ -136,20 +151,39 @@
         aria-label="User profile menu"
         title="Profile"
         class="profile-btn"
+        rounded="full"
         (click)="openProfileDialog()"
       >
         <kendo-avatar
-          imageSrc="assets/profile.jpg"
+          [imageSrc]="profileImageSrc"
           width="40"
           height="40"
           shape="circle"
+          rounded="full"
           themeColor="primary"
         >
         </kendo-avatar>
       </button>
     </kendo-appbar-section>
   }
-</kendo-appbar>
+  </kendo-appbar>
+
+  @if (pageHeaderService.title()) {
+    <div class="sticky-page-header">
+      <div class="sticky-page-header-left">
+        <h1 class="sticky-page-title">{{ pageHeaderService.title() }}</h1>
+        @if (pageHeaderService.subtitle()) {
+          <p class="sticky-page-subtitle">{{ pageHeaderService.subtitle() }}</p>
+        }
+      </div>
+      @if (pageHeaderService.actions()) {
+        <div class="sticky-page-header-actions">
+          <ng-container *ngTemplateOutlet="pageHeaderService.actions()"></ng-container>
+        </div>
+      }
+    </div>
+  }
+</div>
 
 <main class="app-content" [class.opacity-mode]="opacityMode()">
   <router-outlet />
@@ -168,13 +202,20 @@
         <h3 class="section-label">Profile Image</h3>
         <div class="profile-image-container">
           <img
-            ngSrc="assets/profile.jpg"
+            [src]="dialogImageSrc"
             alt="Profile"
-            class="profile-large-image"
             width="300"
-            height="375"
+            height="300"
+            class="profile-large-image"
           />
         </div>
+        <input
+          id="profileFileInput"
+          type="file"
+          accept="image/*"
+          style="display:none"
+          (change)="onProfileFileSelected($event)"
+        />
         <button
           kendoButton
           themeColor="dark"
@@ -197,32 +238,58 @@
         </div>
 
         <!-- Form Fields -->
-        <div class="form-field">
-          <kendo-label text="Full Name" class="field-label-text">
-            <kendo-textbox [(ngModel)]="profileFullName" [clearButton]="true" class="profile-input">
-            </kendo-textbox>
-          </kendo-label>
-        </div>
+        <form #profileForm="ngForm" id="profileForm" aria-label="Edit profile information">
+          <kendo-formfield>
+            <kendo-label text="Full Name" class="field-label-text"></kendo-label>
+            <kendo-textbox
+              name="fullName"
+              [(ngModel)]="dialogFullName"
+              [clearButton]="true"
+              class="profile-input"
+              required
+              #fullNameCtrl="ngModel"
+            ></kendo-textbox>
+            <kendo-formerror>Full Name is required.</kendo-formerror>
+          </kendo-formfield>
 
-        <div class="form-field">
-          <kendo-label text="Email Address" class="field-label-text">
-            <kendo-textbox [(ngModel)]="profileEmail" [clearButton]="true" class="profile-input">
-            </kendo-textbox>
-          </kendo-label>
-        </div>
+          <kendo-formfield>
+            <kendo-label text="Email Address" class="field-label-text"></kendo-label>
+            <kendo-textbox
+              name="email"
+              [(ngModel)]="dialogEmail"
+              [clearButton]="true"
+              class="profile-input"
+              required
+              email
+              #emailCtrl="ngModel"
+            ></kendo-textbox>
+            @if (emailCtrl.errors?.['required']) {
+              <kendo-formerror>Email Address is required.</kendo-formerror>
+            }
+            @if (emailCtrl.errors?.['email']) {
+              <kendo-formerror>Please enter a valid email address.</kendo-formerror>
+            }
+          </kendo-formfield>
 
-        <div class="form-field">
-          <kendo-label text="Phone Number" class="field-label-text">
-            <kendo-textbox [(ngModel)]="profilePhone" [clearButton]="true" class="profile-input">
-            </kendo-textbox>
-          </kendo-label>
-        </div>
+          <kendo-formfield>
+            <kendo-label text="Phone Number" class="field-label-text"></kendo-label>
+            <kendo-textbox
+              name="phone"
+              [(ngModel)]="dialogPhone"
+              [clearButton]="true"
+              class="profile-input"
+              required
+              #phoneCtrl="ngModel"
+            ></kendo-textbox>
+            <kendo-formerror>Phone Number is required.</kendo-formerror>
+          </kendo-formfield>
+        </form>
       </div>
     </div>
 
     <kendo-dialog-actions layout="end">
-      <button kendoButton (click)="clearProfileForm()" class="discard-btn">Clear</button>
-      <button kendoButton themeColor="dark" (click)="submitProfile()" class="save-btn">
+      <button kendoButton (click)="clearProfileForm(profileForm)" class="discard-btn">Clear</button>
+      <button kendoButton themeColor="dark" (click)="submitProfile(profileForm)" class="save-btn">
         Submit
       </button>
     </kendo-dialog-actions>
@@ -258,9 +325,40 @@
                 <div class="notification-time">{{ notification.time }}</div>
               </div>
             </div>
+            @if (notification.unread) {
+              <span class="notification-unread-dot"></span>
+            }
           </div>
         }
       </div>
+    </div>
+  </kendo-popup>
+}
+
+<!-- GitHub Popup -->
+@if (githubPopupOpened) {
+  <kendo-popup
+    #githubPopup
+    [anchor]="githubAnchor"
+    [popupAlign]="{ horizontal: 'right', vertical: 'top' }"
+    [anchorAlign]="{ horizontal: 'right', vertical: 'bottom' }"
+    [margin]="{ horizontal: 0, vertical: 8 }"
+    (anchorViewportLeave)="closeGithubPopup()"
+    class="github-popup"
+  >
+    <div class="github-popup-container">
+      <div class="github-popup-icon">
+        <kendo-svgicon [icon]="githubIcon"></kendo-svgicon>
+      </div>
+      <a
+        href="https://github.com/telerik/kendo-angular/tree/master/examples-standalone/healthcare-app"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="github-popup-title"
+      >Get the Source Code</a>
+      <p class="github-popup-copy">
+        Copyright &copy; {{ currentYear }} Progress Software.<br />All rights reserved.
+      </p>
     </div>
   </kendo-popup>
 }

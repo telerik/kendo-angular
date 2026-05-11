@@ -1,7 +1,6 @@
 <section class="page-section">
   <div class="page-header">
     <div>
-      <h1 class="page-title">Patients</h1>
       <kendo-breadcrumb [items]="breadcrumbItems" (itemClick)="onBreadcrumbItemClick($event)"></kendo-breadcrumb>
     </div>
     <div class="page-actions">
@@ -148,6 +147,8 @@
         [kendoGridBinding]="labResults"
         [height]="500"
         [sortable]="true"
+        [sort]="labResultsSort"
+        (sortChange)="labResultsSort = $event"
         [filterable]="true"
         [pageable]="{
           pageSizes: [3, 5, 10],

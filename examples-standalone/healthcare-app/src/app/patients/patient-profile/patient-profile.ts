@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
+import { Component, OnDestroy, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ChipThemeColor, KENDO_BUTTONS } from '@progress/kendo-angular-buttons';
 import { KENDO_EDITOR } from '@progress/kendo-angular-editor';
@@ -12,8 +12,11 @@ import { BreadCrumbItem, KENDO_BREADCRUMB } from '@progress/kendo-angular-naviga
 import { KENDO_PAGER } from '@progress/kendo-angular-pager';
 import { KENDO_TOOLBAR } from '@progress/kendo-angular-toolbar';
 
+import { SortDescriptor } from '@progress/kendo-data-query';
 import { downloadIcon, homeIcon, sparklesIcon, SVGIcon, userIcon } from '@progress/kendo-svg-icons';
+
 import { LabResult, PatientProfile } from '../../data/patients.data';
+import { PageHeaderService } from '../../services/page-header.service';
 import { PatientsService } from '../../services/patients.service';
 
 @Component({
@@ -36,7 +39,7 @@ import { PatientsService } from '../../services/patients.service';
     KENDO_PAGER,
   ],
 })
-export class PatientProfileComponent implements OnInit {
+export class PatientProfileComponent implements OnInit, OnDestroy {
   @ViewChild(GridComponent) private grid!: GridComponent;
 
   public downloadIcon: SVGIcon = downloadIcon;
@@ -59,14 +62,19 @@ export class PatientProfileComponent implements OnInit {
   public patientId: number = 0;
   public patient: PatientProfile | null = null;
   public labResults: LabResult[] = [];
+  public labResultsSort: SortDescriptor[] = [{ field: 'status', dir: 'asc' }];
 
   constructor(
+    private pageHeaderService: PageHeaderService,
     private route: ActivatedRoute,
     private router: Router,
     private patientsService: PatientsService,
   ) {}
 
   ngOnInit(): void {
+    this.pageHeaderService.title.set('Patients');
+    this.pageHeaderService.subtitle.set('');
+
     // Subscribe to route parameter changes to handle navigation between different patients
     this.route.paramMap.subscribe((params) => {
       const id = params.get('id');
@@ -75,6 +83,11 @@ export class PatientProfileComponent implements OnInit {
         this.loadPatientData();
       }
     });
+  }
+
+  ngOnDestroy(): void {
+    this.pageHeaderService.title.set('');
+    this.pageHeaderService.subtitle.set('');
   }
 
   private loadPatientData(): void {

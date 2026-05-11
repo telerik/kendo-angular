@@ -27,7 +27,6 @@ export class AppointmentsService {
     this.ensureAppointmentsLoaded();
 
     const today = new Date();
-    today.setFullYear(today.getFullYear() - 1); // Match the year of mocked data (2025)
     today.setHours(0, 0, 0, 0);
 
     // Filter today's appointments from cached data

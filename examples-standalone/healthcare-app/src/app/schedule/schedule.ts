@@ -116,9 +116,8 @@ export class ScheduleComponent implements OnInit {
   public tasks: DailyTask[] = [...INITIAL_TASKS];
 
   constructor(private appointmentsService: AppointmentsService) {
-    // Initialize selected date to current year - 1 (2025)
+    // Initialize selected date to the current real date.
     this.selectedDate = new Date();
-    this.selectedDate.setFullYear(this.selectedDate.getFullYear() - 1);
   }
 
   ngOnInit(): void {
@@ -152,7 +151,7 @@ export class ScheduleComponent implements OnInit {
       this.editingTask = task;
       this.newTaskName = task.title;
       this.newTaskPriority = task.priority;
-      this.newTaskDescription = '';
+      this.newTaskDescription = task.description || '';
     } else {
       // Adding new task
       this.editingTask = null;
@@ -181,7 +180,7 @@ export class ScheduleComponent implements OnInit {
       // Update existing task
       this.editingTask.title = this.newTaskName;
       this.editingTask.priority = this.newTaskPriority;
-      console.log('Task updated:', this.editingTask);
+      this.editingTask.description = this.newTaskDescription;
     } else {
       // Add new task
       const newTask: DailyTask = {
@@ -189,9 +188,9 @@ export class ScheduleComponent implements OnInit {
         title: this.newTaskName,
         priority: this.newTaskPriority,
         completed: false,
+        description: this.newTaskDescription,
       };
-      this.tasks.unshift(newTask);
-      console.log('Task added:', newTask);
+      this.tasks = [newTask, ...this.tasks];
     }
 
     this.closeAddTaskDialog();

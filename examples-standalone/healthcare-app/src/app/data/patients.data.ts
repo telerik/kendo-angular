@@ -760,7 +760,7 @@ export const PATIENTS_DATA: PatientProfile[] = [
         testName: 'Oxygen Partial Pressure',
         value: '88 mmHg',
         referenceRange: '80-100',
-        status: 'Monitoring',
+        status: 'Stable',
         notes: 'Slightly low at rest',
       },
       {
@@ -1217,7 +1217,7 @@ export const PATIENTS_DATA: PatientProfile[] = [
         testName: 'eGFR',
         value: '65 mL/min',
         referenceRange: '>60',
-        status: 'Monitoring',
+        status: 'Stable',
         notes: 'Reduced from dehydration, improving',
       },
     ],
@@ -3668,7 +3668,7 @@ export const PATIENTS_DATA: PatientProfile[] = [
         testName: 'Hemoglobin',
         value: '13.2 g/dL',
         referenceRange: '13.5-17.5',
-        status: 'Stable',
+        status: 'Monitoring',
         notes: 'Slightly low',
       },
       {
@@ -4386,7 +4386,7 @@ export const PATIENTS_DATA: PatientProfile[] = [
         testName: 'Glucose (Random)',
         value: '128 mg/dL',
         referenceRange: '70-140',
-        status: 'Monitoring',
+        status: 'Stable',
         notes: 'Borderline elevated',
       },
       {

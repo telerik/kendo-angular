@@ -3,45 +3,9 @@
   margin-top: 24px;
 }
 
-.page-header {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 16px;
-  margin-bottom: 24px;
-}
-
-.page-header-left {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  flex-grow: 1;
-}
-
-.page-title {
-  margin: 0;
-  font-weight: 600;
-  font-size: 42px;
-  line-height: 120%;
-  color: var(--kendo-color-on-app-surface, #232a36);
-}
-
-.page-subtitle {
-  margin: 0;
-  font-size: 16px;
-  line-height: 150%;
-  color: var(--kendo-color-on-app-surface, #232a36);
-}
-
-/* Page Actions */
-.page-header-right {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 16px;
-  align-items: center;
-}
-
-.page-header-right .k-button {
+/* Page Actions — rendered inside .sticky-page-header-actions */
+.ai-assistance-btn,
+.sticky-page-header-actions .k-button {
   height: 34px;
   padding: 4px 8px;
   border-radius: 9999px;
@@ -52,15 +16,16 @@
   color: #ffffff;
 }
 
-.page-header-right .k-button:hover,
+.sticky-page-header-actions .k-button:hover,
 .ai-assistance-btn:hover {
   background: #1d293b !important;
   border-color: #1d293b !important;
   color: #ffffff !important;
 }
 
-.page-header-right .k-button-outline,
-.ai-assistance-btn {
+.ai-assistance-btn,
+.sticky-page-header-actions .k-button-outline,
+.sticky-page-header-actions .k-button {
   display: flex;
   align-items: center;
   padding: 8px 16px;
@@ -68,7 +33,7 @@
   font-size: 14px;
 }
 
-.page-header-right .k-button-outline {
+.sticky-page-header-actions .k-button-outline {
   padding: 8px 16px !important;
   background: #f3f5f7;
   border: 1px solid rgba(23, 56, 99, 0.08);
@@ -234,10 +199,6 @@
 
 /* 576px – 899px: card padding 16px, page top/bottom padding 24px */
 @media (min-width: 576px) and (max-width: 899px) {
-  .page-title {
-    font-size: 32px;
-  }
-
   .ai-chat-card {
     flex: 1 0 100%;
   }
@@ -254,14 +215,6 @@
 
 /* Below 575px: 12px gaps and 12px top/bottom page padding */
 @media (max-width: 575px) {
-  .page-title {
-    font-size: 24px;
-  }
-
-  .page-subtitle {
-    font-size: 14px;
-  }
-
   .ai-chat-card {
     flex: 1 0 100%;
   }

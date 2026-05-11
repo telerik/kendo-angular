@@ -3,6 +3,7 @@ export interface DailyTask {
   title: string;
   priority: 'High' | 'Medium' | 'Low';
   completed: boolean;
+  description?: string;
 }
 
 export const INITIAL_TASKS: DailyTask[] = [

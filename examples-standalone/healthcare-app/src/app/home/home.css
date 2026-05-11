@@ -365,7 +365,6 @@
 }
 
 .patient-meta {
-  font-family: 'Poppins', sans-serif;
   font-size: 14px;
   line-height: 142%;
   color: #4a5666;
@@ -596,7 +595,6 @@
 }
 
 /* Form Controls - TextBox/TextArea */
-
 .message-recipient .k-input-inner,
 .message-subject .k-input-inner,
 .lab-test-search .k-input-inner {
@@ -640,7 +638,7 @@
   font-size: 14px;
   line-height: 142%;
   background: #f3f5f7;
-  border: 1px solid rgba(255, 255, 255, 0.0001);
+  border: 1px solid transparent;
   border-radius: 8px;
 }
 

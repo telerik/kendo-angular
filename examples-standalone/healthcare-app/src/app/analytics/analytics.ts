@@ -1,4 +1,4 @@
-import { Component, ViewChild, ViewEncapsulation } from '@angular/core';
+import { AfterViewInit, Component, OnDestroy, OnInit, TemplateRef, ViewChild, ViewEncapsulation } from '@angular/core';
 import { KENDO_BUTTONS } from '@progress/kendo-angular-buttons';
 import {
   ChartComponent,
@@ -27,6 +27,7 @@ import {
   ALERTS_CATEGORY_DATA,
   RISK_LEVELS,
 } from '../data/analytics.data';
+import { PageHeaderService } from '../services/page-header.service';
 const { Rect: GeoRect, Size } = geometry;
 const { Circle, Path } = drawing;
 
@@ -37,8 +38,26 @@ const { Circle, Path } = drawing;
   styleUrls: ['./analytics.css'],
   imports: [KENDO_CHARTS, KENDO_DROPDOWNS, KENDO_BUTTONS, KENDO_ICONS, KENDO_GAUGES],
 })
-export class AnalyticsComponent {
+export class AnalyticsComponent implements OnInit, AfterViewInit, OnDestroy {
   @ViewChild('vitalsChart') vitalsChart!: ChartComponent;
+  @ViewChild('analyticsActions') analyticsActions!: TemplateRef<any>;
+
+  constructor(private pageHeaderService: PageHeaderService) {}
+
+  ngOnInit(): void {
+    this.pageHeaderService.title.set('Clinical Analytics');
+    this.pageHeaderService.subtitle.set('Patient trends, vitals, lab results, and risk assessment overview');
+  }
+
+  ngAfterViewInit(): void {
+    this.pageHeaderService.actions.set(this.analyticsActions);
+  }
+
+  ngOnDestroy(): void {
+    this.pageHeaderService.title.set('');
+    this.pageHeaderService.subtitle.set('');
+    this.pageHeaderService.actions.set(null);
+  }
 
   public downloadIcon: SVGIcon = downloadIcon;
   public lineType: LineStyle = 'smooth';
@@ -116,8 +135,8 @@ export class AnalyticsComponent {
     });
 
     const pointIndex = args.pointIndex ?? 0;
-    const value = this.alertsCategoryData[pointIndex]?.value ?? '';
-    const labelText = new Text(`${pointIndex}:${value}`, new geometry.Point(0, 0), {
+    const value = this.alertsCategoryData[pointIndex]?.value ?? 0;
+    const labelText = new Text(`${value}`, new geometry.Point(0, 0), {
       font: '13px Inter, sans-serif',
       fill: { color: '#4A5666' },
     });
@@ -150,12 +169,13 @@ export class AnalyticsComponent {
     this.alertsWarning = this.alertsCategories.map(() => Math.floor(Math.random() * 12) + 1);
     this.alertsCritical = this.alertsCategories.map(() => Math.floor(Math.random() * 10) + 1);
 
-    // Randomize Lab Results Range
-    this.labMetrics = this.labMetrics.map((metric) => ({
-      ...metric,
-      current: Math.floor(Math.random() * (metric.target - 2)) + 2,
-      markerValue: Math.floor(Math.random() * metric.target) + 1,
-    }));
+    // Randomize Lab Results Range — only current & average change per patient; reference ranges are static
+    this.labMetrics = this.labMetrics.map((metric) => {
+      const range = metric.max * 0.9 - metric.min;
+      const current = +(Math.random() * range + metric.min).toFixed(1);
+      const average = +(Math.random() * range + metric.min).toFixed(1);
+      return { ...metric, current, average };
+    });
 
     // Randomize Alerts by Category
     this.alertsCategoryData = this.alertsCategoryData.map((alert) => ({

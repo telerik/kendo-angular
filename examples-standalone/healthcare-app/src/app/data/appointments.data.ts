@@ -20,7 +20,7 @@ export interface GridAppointment {
 
 export function getAppointmentsData(): SchedulerAppointment[] {
   const today = new Date();
-  const year = today.getFullYear() - 1; // Use previous year (2025)
+  const year = today.getFullYear();
   const month = today.getMonth();
   const day = today.getDate();
 

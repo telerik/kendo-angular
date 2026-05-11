@@ -441,7 +441,7 @@
   font-size: 14px;
   line-height: 142%;
   background: #f3f5f7;
-  border: 1px solid rgba(255, 255, 255, 0.0001);
+  border: 1px solid transparent;
   border-radius: 8px;
   color: #232a36;
 }
