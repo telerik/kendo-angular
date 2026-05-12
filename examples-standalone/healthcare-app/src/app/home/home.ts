@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild, ViewEncapsulation, HostListener, signal } from '@angular/core';
+import { Component, ElementRef, OnInit, OnDestroy, ViewChild, ViewEncapsulation, HostListener, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { NgTemplateOutlet } from '@angular/common';
 import { Router } from '@angular/router';
@@ -37,6 +37,7 @@ import { PATIENTS_DATA, PatientProfile } from '../data/patients.data';
 import { DAILY_ALERTS, HOME_PATIENTS, LAB_TESTS, DailyAlert, HomePatient, LabTest } from '../data/home.data';
 import { MarkdownPipe } from '../pipes/markdown.pipe';
 import { AppointmentsService, GridAppointment } from '../services/appointments.service';
+import { PageHeaderService } from '../services/page-header.service';
 
 @Component({
   selector: 'app-home',
@@ -60,7 +61,7 @@ import { AppointmentsService, GridAppointment } from '../services/appointments.s
     MarkdownPipe,
   ],
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit, OnDestroy {
   // Responsive dialog dimensions
   public isNarrowScreen = signal(window.innerWidth < 1000);
   public vw = signal(window.innerWidth);
@@ -266,11 +267,11 @@ Thanks,
 Dr. Carter`;
 
   constructor(
+    private pageHeaderService: PageHeaderService,
     private router: Router,
     private appointmentsService: AppointmentsService,
   ) {
     const date = new Date();
-    date.setFullYear(date.getFullYear() - 1); // Use previous year (2025)
     const options: Intl.DateTimeFormatOptions = {
       weekday: 'long',
       year: 'numeric',
@@ -281,10 +282,17 @@ Dr. Carter`;
   }
 
   ngOnInit(): void {
+    this.pageHeaderService.title.set('Good morning, Dr. Carter');
+    this.pageHeaderService.subtitle.set('Today is ' + this.currentDate);
     this.appointments = this.appointmentsService.getTodaysAppointments();
 
     // Set next patient to Isabella Rossi (id: 3)
     this.nextPatient = PATIENTS_DATA.find((p) => p.id === 3) || null;
+  }
+
+  ngOnDestroy(): void {
+    this.pageHeaderService.title.set('');
+    this.pageHeaderService.subtitle.set('');
   }
 
   public navigateToSchedule(): void {
@@ -403,10 +411,23 @@ Dr. Carter`;
   }
 
   public onSendChatMessage(e: SendMessageEvent): void {
-    console.log('User message:', e.message.text);
-
-    // Add user message to chat
     this.chatMessages = [...this.chatMessages, e.message];
+
+    setTimeout(() => {
+      this.chatMessages = [
+        ...this.chatMessages,
+        {
+          id: guid(),
+          author: this.aiAssistant,
+          timestamp: new Date(),
+          text: `ℹ️ **This is a demo assistant.**
+
+Free-text queries are not supported in this preview. In your production app, connect a **real AI service** (e.g. OpenAI, Azure OpenAI, or your own clinical LLM) to handle any message.
+
+**In this demo, you can use the suggestion chips** to see pre-built responses.`,
+        },
+      ];
+    }, 800);
   }
 
   public onSuggestionClick(suggestion: ChatSuggestion): void {

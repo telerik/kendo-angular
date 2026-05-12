@@ -1,43 +1,14 @@
 .analytics-section {
   width: 100%;
   margin-top: 24px;
-  padding: 0;
+  padding: 0 0 24px;
+  background: transparent;
 }
 
-.analytics-header {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 16px;
-  margin-bottom: 24px;
-}
-
-.analytics-header-left .page-title,
 .card-title {
   margin: 0;
   font-weight: 600;
   color: #232A36;
-}
-
-.analytics-header-left .page-title {
-  font-size: 42px;
-  line-height: 120%;
-  color: var(--kendo-color-on-app-surface, #232a36);
-}
-
-.analytics-header-left .page-subtitle {
-  margin: 8px 0 0;
-  font-size: 16px;
-  line-height: 150%;
-  color: var(--kendo-color-on-app-surface, #232a36);
-}
-
-.analytics-header-right {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 12px;
-  padding-top: 8px;
 }
 
 .patient-dropdown {
@@ -119,6 +90,35 @@
   gap: 12px;
 }
 
+.lab-metric-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.lab-metric-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 0 4px 2px;
+}
+
+.lab-metric-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: #232A36;
+}
+
+.lab-metric-value {
+  font-size: 13px;
+  font-weight: 600;
+  color: #232A36;
+}
+
+.lab-metric-value.out-of-range {
+  color: #E65548;
+}
+
 .lab-range-chart {
   height: 100px;
 }
@@ -142,16 +142,20 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-between;
+  min-height: 380px;
   padding-top: 16px;
 }
 
 .risk-gauge-wrapper {
   display: flex;
+  width: 100%;
+  align-items: center;
   justify-content: center;
 }
 
 .risk-gauge {
-  width: 280px;
+  width: 350px;
   height: 200px;
 }
 
@@ -169,16 +173,18 @@
 .risk-legend {
   width: 100%;
   display: flex;
-  flex-direction: column;
-  gap: 12px;
-  margin-top: 24px;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px 24px;
+  margin-top: 0;
 }
 
 .risk-legend-item {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 48px;
+  justify-content: flex-start;
+  gap: 10px;
 }
 
 .risk-legend-left {
@@ -206,45 +212,15 @@
   }
 }
 
-/* 900px – 1439px: page top/bottom padding 32px */
-@media (min-width: 900px) and (max-width: 1439px) {
-  .analytics-section {
-    padding-top: 32px;
-    padding-bottom: 32px;
-  }
-}
-
-/* 576px – 899px: card padding 16px, page top/bottom padding 24px */
+/* 576px – 899px: card padding 16px */
 @media (min-width: 576px) and (max-width: 899px) {
-  .analytics-header-left .page-title {
-    font-size: 32px;
-  }
-
-  .analytics-section {
-    padding-top: 24px;
-    padding-bottom: 24px;
-  }
-
   .vitals-card {
     padding: 16px;
   }
 }
 
-/* Below 575px: 12px gaps and 12px top/bottom page padding */
+/* Below 575px: 12px gaps */
 @media (max-width: 575px) {
-  .analytics-header-left .page-title {
-    font-size: 24px;
-  }
-
-  .analytics-header-left .page-subtitle {
-    font-size: 14px;
-  }
-
-  .analytics-section {
-    padding-top: 12px;
-    padding-bottom: 12px;
-  }
-
   .vitals-card {
     padding: 12px;
   }
@@ -256,13 +232,6 @@
 
   .vitals-card + .vitals-card {
     margin-top: 12px;
-  }
-}
-
-/* Above 1440px: 40px bottom padding */
-@media (min-width: 1440px) {
-  .analytics-section {
-    padding-bottom: 40px;
   }
 }
 

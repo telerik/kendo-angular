@@ -1,32 +1,24 @@
 <section class="page-section">
-  <div class="page-header">
-    <div class="page-header-left">
-      <h1 class="page-title">Patients</h1>
-      <p class="page-subtitle">
-        Monitor patient trends, vitals, lab results, and risk levels in one place
-      </p>
-    </div>
-    <div class="page-header-right">
-      <button
-        kendoButton
-        class="ai-assistance-btn"
-        rounded="full"
-        [svgIcon]="sparklesIcon"
-        (click)="toggleChat()"
-      >
-        AI Assistance
-      </button>
-      <button
-        kendoButton
-        fillMode="outline"
-        rounded="full"
-        [svgIcon]="downloadIcon"
-        (click)="exportToExcel()"
-      >
-        Export
-      </button>
-    </div>
-  </div>
+  <ng-template #patientsActions>
+    <button
+      kendoButton
+      class="ai-assistance-btn"
+      rounded="full"
+      [svgIcon]="sparklesIcon"
+      (click)="toggleChat()"
+    >
+      AI Assistance
+    </button>
+    <button
+      kendoButton
+      fillMode="outline"
+      rounded="full"
+      [svgIcon]="downloadIcon"
+      (click)="exportToExcel()"
+    >
+      Export
+    </button>
+  </ng-template>
 
   <div class="patients-content-wrapper" [class.chat-visible]="chatVisible">
     <kendo-card class="patients-card" width="100%">
@@ -34,6 +26,7 @@
         <kendo-grid
           [kendoGridBinding]="patients"
           [sortable]="true"
+          [sort]="sort"
           [filterable]="true"
           [pageable]="{
             pageSizes: [10, 15, 20],

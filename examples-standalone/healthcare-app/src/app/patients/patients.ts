@@ -1,4 +1,4 @@
-import { Component, ViewEncapsulation, OnInit, ViewChild } from '@angular/core';
+import { Component, ViewEncapsulation, OnInit, OnDestroy, AfterViewInit, ViewChild, TemplateRef } from '@angular/core';
 import { Router } from '@angular/router';
 import { KENDO_GRID, GridComponent, KENDO_GRID_EXCEL_EXPORT } from '@progress/kendo-angular-grid';
 import { ExcelExportData } from '@progress/kendo-angular-excel-export';
@@ -22,8 +22,10 @@ import {
   SVGIcon,
 } from '@progress/kendo-svg-icons';
 import { Patient } from '../data/patients.data';
+import { PageHeaderService } from '../services/page-header.service';
 import { PatientsService } from '../services/patients.service';
 import { MarkdownPipe } from '../pipes/markdown.pipe';
+import { SortDescriptor } from '@progress/kendo-data-query';
 
 @Component({
   selector: 'app-patients',
@@ -43,8 +45,9 @@ import { MarkdownPipe } from '../pipes/markdown.pipe';
     MarkdownPipe,
   ],
 })
-export class PatientsComponent implements OnInit {
+export class PatientsComponent implements OnInit, AfterViewInit, OnDestroy {
   @ViewChild(GridComponent) private grid!: GridComponent;
+  @ViewChild('patientsActions') patientsActions!: TemplateRef<any>;
 
   public eyeIcon: SVGIcon = eyeIcon;
   public downloadIcon: SVGIcon = downloadIcon;
@@ -59,6 +62,7 @@ export class PatientsComponent implements OnInit {
     return colorMap[status] ?? 'base';
   }
   public patients: Patient[] = [];
+  public sort: SortDescriptor[] = [{ field: 'age', dir: 'desc' }];
 
   // Chat properties
   public chatVisible = false;
@@ -92,12 +96,25 @@ export class PatientsComponent implements OnInit {
   ];
 
   constructor(
+    private pageHeaderService: PageHeaderService,
     private router: Router,
     private patientsService: PatientsService
   ) {}
 
   ngOnInit(): void {
+    this.pageHeaderService.title.set('Patients');
+    this.pageHeaderService.subtitle.set('Monitor patient trends, vitals, lab results, and risk levels in one place');
     this.patients = this.patientsService.getAllPatients();
+  }
+
+  ngAfterViewInit(): void {
+    this.pageHeaderService.actions.set(this.patientsActions);
+  }
+
+  ngOnDestroy(): void {
+    this.pageHeaderService.title.set('');
+    this.pageHeaderService.subtitle.set('');
+    this.pageHeaderService.actions.set(null);
   }
 
   public viewProfile(patientId: number): void {
@@ -120,6 +137,22 @@ export class PatientsComponent implements OnInit {
 
   public onSendChatMessage(e: SendMessageEvent): void {
     this.chatMessages = [...this.chatMessages, e.message];
+
+    setTimeout(() => {
+      this.chatMessages = [
+        ...this.chatMessages,
+        {
+          id: guid(),
+          author: this.aiAssistant,
+          timestamp: new Date(),
+          text: `ℹ️ **This is a demo assistant.**
+
+Free-text queries are not supported in this preview. In your production app, connect a **real AI service** (e.g. OpenAI, Azure OpenAI, or your own clinical LLM) to handle any message.
+
+**In this demo, you can use the suggestion chips** to see pre-built responses.`,
+        },
+      ];
+    }, 800);
   }
 
   public onSuggestionClick(suggestion: ChatSuggestion): void {

@@ -2,7 +2,7 @@ import { Component, signal, ViewEncapsulation, OnInit, ViewChild, ElementRef, Ho
 import { PopupComponent } from '@progress/kendo-angular-popup';
 import { ComboBoxComponent } from '@progress/kendo-angular-dropdowns';
 import { NgOptimizedImage } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, NgForm } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { Router, RouterLink, RouterOutlet, NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs/operators';
@@ -16,6 +16,7 @@ import { KENDO_LABELS } from '@progress/kendo-angular-label';
 import { KENDO_LAYOUT } from '@progress/kendo-angular-layout';
 import { KENDO_NAVIGATION } from '@progress/kendo-angular-navigation';
 import { KENDO_POPUP } from '@progress/kendo-angular-popup';
+import { PageHeaderService } from './services/page-header.service';
 import { PatientsService } from './services/patients.service';
 import { Patient } from './data/patients.data';
 import {
@@ -67,6 +68,12 @@ export class App implements OnInit {
   public themeIcon: SVGIcon = brightnessContrastIcon;
   public contrastIcon: SVGIcon = eyeSlashIcon;
   public bellIcon: SVGIcon = bellIcon;
+  public githubIcon: SVGIcon = {
+    name: 'github',
+    viewBox: '0 0 24 24',
+    content: `<svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>`,
+  };
+  public currentYear = new Date().getFullYear();
   public uploadIcon: SVGIcon = uploadIcon;
   public menuIcon: SVGIcon = menuIcon;
 
@@ -156,30 +163,37 @@ export class App implements OnInit {
   // Notifications state
   @ViewChild('notificationAnchor', { read: ElementRef }) notificationAnchor!: ElementRef;
   @ViewChild('notificationsPopup') notificationsPopupRef?: PopupComponent;
+  @ViewChild('githubAnchor', { read: ElementRef }) githubAnchor!: ElementRef;
+  @ViewChild('githubPopup') githubPopupRef?: PopupComponent;
   @ViewChild('searchCombobox') searchCombobox?: ComboBoxComponent;
   public notificationsOpened = false;
+  public githubPopupOpened = false;
   public notifications = [
     {
       id: 1,
       title: 'Follow-up Reminder',
       description: 'A follow-up consultation is recom...',
       time: '5 min ago',
+      unread: true,
     },
     {
       id: 2,
       title: 'Extended Request',
       description: "Based on Emma's current conditi...",
       time: '35 min ago',
+      unread: true,
     },
     {
       id: 3,
       title: 'Medication Check',
       description: 'Ensure patient is taking medications...',
       time: '1 h ago',
+      unread: true,
     },
   ];
 
   constructor(
+    public pageHeaderService: PageHeaderService,
     private router: Router,
     private patientsService: PatientsService,
   ) {
@@ -198,10 +212,17 @@ export class App implements OnInit {
       });
   }
 
-  // Profile data for logged-in user (Dr. Carter)
+  // Profile data for logged-in user (Dr. Carter) — session-persisted
+  public profileImageSrc = 'assets/profile.jpg';
   public profileFullName = 'Emily Carter';
   public profileEmail = 'drcarter@email.com';
   public profilePhone = '+(555) 776-90-84';
+
+  // Staging values while dialog is open
+  public dialogImageSrc = 'assets/profile.jpg';
+  public dialogFullName = 'Emily Carter';
+  public dialogEmail = 'drcarter@email.com';
+  public dialogPhone = '+(555) 776-90-84';
 
   public toggleOpacityMode(): void {
     this.opacityMode.update((v) => !v);
@@ -257,16 +278,13 @@ export class App implements OnInit {
     this.searchExpanded.set(false);
   }
 
-  // Default profile data
-  private readonly defaultProfileFullName = 'Emily Carter';
-  private readonly defaultProfileEmail = 'drcarter@email.com';
-  private readonly defaultProfilePhone = '+(555) 776-90-84';
-
   // Profile dialog methods
   public openProfileDialog(): void {
-    this.profileFullName = this.defaultProfileFullName;
-    this.profileEmail = this.defaultProfileEmail;
-    this.profilePhone = this.defaultProfilePhone;
+    // Load current persisted values into dialog staging area
+    this.dialogImageSrc = this.profileImageSrc;
+    this.dialogFullName = this.profileFullName;
+    this.dialogEmail = this.profileEmail;
+    this.dialogPhone = this.profilePhone;
     this.profileDialogOpened = true;
   }
 
@@ -274,24 +292,40 @@ export class App implements OnInit {
     this.profileDialogOpened = false;
   }
 
-  public clearProfileForm(): void {
-    this.profileFullName = '';
-    this.profileEmail = '';
-    this.profilePhone = '';
+  public clearProfileForm(form: NgForm): void {
+    form.resetForm({ fullName: '', email: '', phone: '' });
   }
 
-  public submitProfile(): void {
-    console.log('Submitting profile:', {
-      name: this.profileFullName,
-      email: this.profileEmail,
-      phone: this.profilePhone,
-    });
+  public submitProfile(form: NgForm): void {
+    if (form.invalid) {
+      form.control.markAllAsTouched();
+      return;
+    }
+    // Persist dialog values to session state
+    this.profileImageSrc = this.dialogImageSrc;
+    this.profileFullName = this.dialogFullName;
+    this.profileEmail = this.dialogEmail;
+    this.profilePhone = this.dialogPhone;
     this.closeProfileDialog();
   }
 
   public uploadImage(): void {
-    console.log('Upload image clicked');
-    // Here you would typically open a file picker
+    const fileInput = document.getElementById('profileFileInput') as HTMLInputElement;
+    fileInput?.click();
+  }
+
+  public onProfileFileSelected(event: Event): void {
+    const input = event.target as HTMLInputElement;
+    const file = input.files?.[0];
+    if (!file) return;
+    if (!file.type.startsWith('image/')) return;
+    const reader = new FileReader();
+    reader.onload = () => {
+      this.dialogImageSrc = reader.result as string;
+    };
+    reader.readAsDataURL(file);
+    // Reset so the same file can be selected again
+    input.value = '';
   }
 
   @HostListener('window:scroll')
@@ -303,19 +337,28 @@ export class App implements OnInit {
 
   @HostListener('document:click', ['$event'])
   onDocumentClick(event: MouseEvent): void {
-    if (!this.notificationsOpened) return;
-
     const target = event.target as Node;
-    const isInsideAnchor = this.notificationAnchor?.nativeElement?.contains(target);
-    const isInsidePopup = this.notificationsPopupRef?.container?.nativeElement?.contains(target);
 
-    if (!isInsideAnchor && !isInsidePopup) {
-      this.closeNotifications();
+    if (this.notificationsOpened) {
+      const isInsideAnchor = this.notificationAnchor?.nativeElement?.contains(target);
+      const isInsidePopup = this.notificationsPopupRef?.container?.nativeElement?.contains(target);
+      if (!isInsideAnchor && !isInsidePopup) {
+        this.closeNotifications();
+      }
+    }
+
+    if (this.githubPopupOpened) {
+      const isInsideAnchor = this.githubAnchor?.nativeElement?.contains(target);
+      const isInsidePopup = this.githubPopupRef?.container?.nativeElement?.contains(target);
+      if (!isInsideAnchor && !isInsidePopup) {
+        this.closeGithubPopup();
+      }
     }
   }
 
   // Notification methods
   public toggleNotifications(): void {
+    this.githubPopupOpened = false;
     this.notificationsOpened = !this.notificationsOpened;
   }
 
@@ -323,9 +366,16 @@ export class App implements OnInit {
     this.notificationsOpened = false;
   }
 
+  public toggleGithubPopup(): void {
+    this.notificationsOpened = false;
+    this.githubPopupOpened = !this.githubPopupOpened;
+  }
+
+  public closeGithubPopup(): void {
+    this.githubPopupOpened = false;
+  }
+
   public markAllAsRead(): void {
-    console.log('Mark all as read clicked');
-    // Here you would typically update the notification status
-    this.closeNotifications();
+    this.notifications = this.notifications.map((n) => ({ ...n, unread: false }));
   }
 }

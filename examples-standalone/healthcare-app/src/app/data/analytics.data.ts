@@ -11,13 +11,15 @@ export interface VitalSeries {
 
 export interface LabMetric {
   name: string;
+  unit: string;
   current: number;
+  average: number;
   target: number;
   min: number;
   max: number;
-  markerLabel: string;
-  markerValue: number;
-  color: string;
+  majorUnit: number;
+  minRef: number;
+  maxRef: number;
   plotBands: { from: number; to: number; color: string }[];
 }
 
@@ -94,47 +96,58 @@ export const ALERTS_CRITICAL: number[] = [5, 9, 3, 9, 7, 3, 6, 6, 10, 1];
 export const LAB_METRICS: LabMetric[] = [
   {
     name: 'Glucose',
-    current: 11,
-    target: 13,
+    unit: 'mg/dL',
+    current: 142,
+    average: 118,
+    target: 90,
     min: 0,
-    max: 20,
-    markerLabel: 'MIN',
-    markerValue: 10,
-    color: '#F5C542',
+    max: 300,
+    majorUnit: 50,
+    minRef: 70,
+    maxRef: 100,
     plotBands: [
-      { from: 0, to: 4, color: '#B8B8B8' },
-      { from: 4, to: 9, color: '#D0D0D0' },
-      { from: 9, to: 13, color: '#E8E8E8' },
+      { from: 0, to: 54, color: '#FECACA' },
+      { from: 54, to: 70, color: '#FDE68A' },
+      { from: 70, to: 100, color: '#BBF7D0' },
+      { from: 100, to: 126, color: '#FDE68A' },
+      { from: 126, to: 300, color: '#FECACA' },
     ],
   },
   {
     name: 'Hemoglobin',
-    current: 7,
-    target: 12.5,
+    unit: 'g/dL',
+    current: 10.5,
+    average: 11.8,
+    target: 14,
     min: 0,
     max: 20,
-    markerLabel: 'MIN',
-    markerValue: 7,
-    color: '#F4A0A0',
+    majorUnit: 2,
+    minRef: 12,
+    maxRef: 17,
     plotBands: [
-      { from: 0, to: 4, color: '#B8B8B8' },
-      { from: 4, to: 8, color: '#D0D0D0' },
-      { from: 8, to: 12.5, color: '#E8E8E8' },
+      { from: 0, to: 7, color: '#FECACA' },
+      { from: 7, to: 12, color: '#FDE68A' },
+      { from: 12, to: 17, color: '#BBF7D0' },
+      { from: 17, to: 20, color: '#FDE68A' },
     ],
   },
   {
     name: 'WBC Count',
-    current: 16,
-    target: 18,
+    unit: '\u00d710\u00b3/\u00b5L',
+    current: 12.5,
+    average: 9.8,
+    target: 7,
     min: 0,
-    max: 20,
-    markerLabel: 'MAX',
-    markerValue: 15,
-    color: '#81D4A4',
+    max: 30,
+    majorUnit: 5,
+    minRef: 4,
+    maxRef: 10,
     plotBands: [
-      { from: 0, to: 6, color: '#B8B8B8' },
-      { from: 6, to: 12, color: '#D0D0D0' },
-      { from: 12, to: 18, color: '#E8E8E8' },
+      { from: 0, to: 2, color: '#FECACA' },
+      { from: 2, to: 4, color: '#FDE68A' },
+      { from: 4, to: 10, color: '#BBF7D0' },
+      { from: 10, to: 20, color: '#FDE68A' },
+      { from: 20, to: 30, color: '#FECACA' },
     ],
   },
 ];
@@ -149,7 +162,7 @@ export const ALERTS_CATEGORY_DATA: AlertCategoryItem[] = [
 ];
 
 export const RISK_LEVELS: RiskLevel[] = [
-  { label: 'High Risk', range: '0\u201339', color: '#E65548' },
+  { label: 'Low Risk', range: '0\u201339', color: '#4CAF50' },
   { label: 'Medium Risk', range: '40\u201369', color: '#C5A84E' },
-  { label: 'Low Risk', range: '70\u2013100', color: '#4CAF50' },
+  { label: 'High Risk', range: '70\u2013100', color: '#E65548' },
 ];
