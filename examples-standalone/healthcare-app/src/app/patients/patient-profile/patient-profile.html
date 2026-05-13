@@ -129,10 +129,7 @@
         class="patient-note-editor"
         [value]="patient?.notes || ''"
         [style.height.px]="250"
-        [iframeCss]="{
-          content:
-            'body { font-family: \'Poppins\', sans-serif; font-size: 16px; line-height: 150%; }',
-        }"
+        [iframeCss]="editorIframeCss"
       >
       </kendo-editor>
     </kendo-card-body>

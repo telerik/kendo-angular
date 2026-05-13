@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, OnDestroy, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ChipThemeColor, KENDO_BUTTONS } from '@progress/kendo-angular-buttons';
-import { KENDO_EDITOR } from '@progress/kendo-angular-editor';
+import { EditorCssSettings, KENDO_EDITOR } from '@progress/kendo-angular-editor';
 import { ExcelExportData } from '@progress/kendo-angular-excel-export';
 import { GridComponent, KENDO_GRID, KENDO_GRID_EXCEL_EXPORT } from '@progress/kendo-angular-grid';
 import { KENDO_ICONS } from '@progress/kendo-angular-icons';
@@ -44,6 +44,14 @@ export class PatientProfileComponent implements OnInit, OnDestroy {
 
   public downloadIcon: SVGIcon = downloadIcon;
   public sparklesIcon: SVGIcon = sparklesIcon;
+
+  public editorIframeCss: EditorCssSettings = {
+    path: 'https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap',
+    content: `.k-content {
+        font-family: 'Poppins', sans-serif;
+        font-size: 16px;
+    }`,
+  };
 
   public getPatientStatusColor(status: string): ChipThemeColor {
     const colorMap: Record<string, ChipThemeColor> = {
