@@ -1,0 +1,61 @@
+<div class="k-d-flex k-flex-col k-gap-4 k-w-full" [formGroup]="group()">
+  <div
+    class="k-p-4 k-border k-rounded-md k-bg-primary-subtle"
+    role="status"
+    aria-live="polite"
+  >
+    <strong class="k-d-block k-mb-1">Demo data only</strong>
+    <p class="k-m-0 k-font-size-sm k-text-primary-on-subtle">
+      Tax IDs and bank numbers shown here are mock fields for UI review. Do not enter real government IDs,
+      account numbers, or confidential banking data. Production onboarding should collect this through your
+      payroll provider or a secured HRIS integration.
+    </p>
+  </div>
+
+  <kendo-formfield showHints="always" showErrors="initial">
+    <kendo-label [for]="taxId" text="Tax identifier (placeholder)"></kendo-label>
+    <kendo-textbox
+      #taxId
+      formControlName="taxIdPlaceholder"
+      placeholder="e.g. ***-**-6789 (mock format)"
+      autocomplete="off"
+    ></kendo-textbox>
+    <kendo-formhint>Example format only; not stored securely in this demo.</kendo-formhint>
+  </kendo-formfield>
+
+  <kendo-formfield showHints="always" showErrors="initial">
+    <kendo-label [for]="bank" text="Bank name (placeholder)"></kendo-label>
+    <kendo-textbox #bank formControlName="bankNamePlaceholder" placeholder="Mock bank name"></kendo-textbox>
+  </kendo-formfield>
+
+  <kendo-formfield showHints="always" showErrors="initial">
+    <kendo-label [for]="acct" text="Account number (placeholder)"></kendo-label>
+    <kendo-textbox
+      #acct
+      formControlName="accountNumberPlaceholder"
+      placeholder="Not a real account number"
+      autocomplete="off"
+    ></kendo-textbox>
+  </kendo-formfield>
+
+  <kendo-formfield showHints="always" showErrors="initial">
+    <kendo-label [for]="rt" text="Routing number (placeholder)"></kendo-label>
+    <kendo-textbox
+      #rt
+      formControlName="routingPlaceholder"
+      placeholder="e.g. 021000021 (example only)"
+      autocomplete="off"
+    ></kendo-textbox>
+  </kendo-formfield>
+
+  <kendo-formfield showHints="always" showErrors="initial">
+    <kendo-label [for]="payPref" text="Payment preference"></kendo-label>
+    <kendo-dropdownlist
+      #payPref
+      formControlName="paymentPreference"
+      [data]="paymentPreferences"
+      [valuePrimitive]="true"
+    ></kendo-dropdownlist>
+    <kendo-formhint>How you prefer to receive pay once payroll is configured.</kendo-formhint>
+  </kendo-formfield>
+</div>

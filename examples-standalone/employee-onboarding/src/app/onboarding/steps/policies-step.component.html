@@ -1,0 +1,70 @@
+<div class="k-d-flex k-flex-col k-gap-4 k-w-full" [formGroup]="group()">
+  <p class="k-m-0 k-text-subtle k-font-size-sm">
+    Please review the policies that apply to your role. Checking each box confirms you have read and agree
+    to comply.
+  </p>
+
+  <fieldset class="k-d-flex k-flex-col k-gap-3 k-p-0 k-m-0 k-border-0">
+    <legend class="k-m-0 k-font-size-md k-font-weight-semibold">Policy acknowledgements</legend>
+
+    <kendo-formfield showErrors="initial">
+      <div class="k-d-flex k-align-items-start k-gap-2">
+        <kendo-checkbox #hb formControlName="handbook"></kendo-checkbox>
+        <kendo-label
+          class="k-flex-1"
+          [for]="hb"
+          text="I confirm I have read the employee handbook and understand my obligations as an employee."
+          [optional]="false"
+        ></kendo-label>
+      </div>
+      @if (group().get('handbook')?.invalid && group().get('handbook')?.touched) {
+        <kendo-formerror>You must acknowledge the employee handbook.</kendo-formerror>
+      }
+    </kendo-formfield>
+
+    <kendo-formfield showErrors="initial">
+      <div class="k-d-flex k-align-items-start k-gap-2">
+        <kendo-checkbox #sec formControlName="securityPolicy"></kendo-checkbox>
+        <kendo-label
+          class="k-flex-1"
+          [for]="sec"
+          text="I agree to follow company information security policies, including acceptable use and data handling requirements."
+          [optional]="false"
+        ></kendo-label>
+      </div>
+      @if (group().get('securityPolicy')?.invalid && group().get('securityPolicy')?.touched) {
+        <kendo-formerror>Security policy acknowledgement is required.</kendo-formerror>
+      }
+    </kendo-formfield>
+
+    <kendo-formfield showErrors="initial">
+      <div class="k-d-flex k-align-items-start k-gap-2">
+        <kendo-checkbox #cc formControlName="codeOfConduct"></kendo-checkbox>
+        <kendo-label
+          class="k-flex-1"
+          [for]="cc"
+          text="I agree to the code of conduct and commit to a respectful, inclusive workplace."
+          [optional]="false"
+        ></kendo-label>
+      </div>
+      @if (group().get('codeOfConduct')?.invalid && group().get('codeOfConduct')?.touched) {
+        <kendo-formerror>Code of conduct acknowledgement is required.</kendo-formerror>
+      }
+    </kendo-formfield>
+
+    <kendo-formfield showErrors="initial">
+      <div class="k-d-flex k-align-items-start k-gap-2">
+        <kendo-checkbox #ack formControlName="accurateInfo"></kendo-checkbox>
+        <kendo-label
+          class="k-flex-1"
+          [for]="ack"
+          text="I confirm the information I provided is accurate to the best of my knowledge."
+          [optional]="false"
+        ></kendo-label>
+      </div>
+      @if (group().get('accurateInfo')?.invalid && group().get('accurateInfo')?.touched) {
+        <kendo-formerror>Confirm that your responses are accurate.</kendo-formerror>
+      }
+    </kendo-formfield>
+  </fieldset>
+</div>

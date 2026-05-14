@@ -1,0 +1,40 @@
+.wizard-page {
+  max-width: 100%;
+}
+
+.wizard-inner {
+  max-width: 52rem;
+}
+
+.progress-line {
+  min-width: 8rem;
+}
+
+/* Smooth height when step feedback appears (grid 0fr → 1fr; no fixed min-height). */
+.wizard-step-message-slot {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.35s ease-out;
+}
+
+.wizard-step-message-slot--open {
+  grid-template-rows: 1fr;
+}
+
+.wizard-step-message-slot-inner {
+  overflow: hidden;
+  min-height: 0;
+}
+
+/* Screen-reader-only helper */
+:host ::ng-deep .k-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
