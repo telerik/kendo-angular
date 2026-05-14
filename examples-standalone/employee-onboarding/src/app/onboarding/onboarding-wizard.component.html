@@ -1,0 +1,145 @@
+@if (submitted()) {
+  <section
+    class="k-d-flex k-flex-col k-align-items-center k-justify-content-center k-min-h-screen k-p-6 k-bg-app-surface"
+    aria-labelledby="success-title"
+  >
+    <kendo-card class="k-w-full wizard-inner" width="100%">
+      <kendo-card-header>
+        <h1 class="k-m-0 k-font-size-xl" id="success-title">You’re all set</h1>
+      </kendo-card-header>
+      <kendo-card-body>
+        <p class="k-m-0 k-mb-4">
+          Thanks for completing the employee onboarding intake. This demo didn’t send data anywhere — in
+          production, HR or your workflow engine would process the submission next.
+        </p>
+        <p class="k-m-0 k-text-subtle k-font-size-sm k-mb-4" role="status">
+          A confirmation email would normally arrive within a few minutes after submission.
+        </p>
+        <button kendoButton themeColor="primary" type="button" (click)="newApplication()">
+          Start another application
+        </button>
+      </kendo-card-body>
+    </kendo-card>
+  </section>
+} @else {
+  <div class="k-d-flex k-flex-col k-min-h-screen k-bg-app-surface k-p-4 k-py-6 k-px-5 wizard-page">
+    <div class="k-mx-auto k-w-full wizard-inner">
+      <header class="k-mb-4 k-text-start">
+        <p class="k-m-0 k-text-subtle k-font-size-sm k-mb-1">Human Resources</p>
+        <h1 class="k-m-0 k-font-size-xl k-font-weight-semibold">Employee onboarding</h1>
+        <p class="k-m-0 k-mt-2 k-text-subtle k-font-size-sm">
+          Complete each step to set up your profile, access, and policy acknowledgements. Your progress
+          saves automatically in this browser.
+        </p>
+      </header>
+
+      <kendo-card class="k-w-full" width="100%">
+        <kendo-card-body class="k-d-flex k-flex-col k-gap-4">
+          <div class="k-d-flex k-flex-col k-gap-2">
+            <kendo-stepper
+              [steps]="stepperSteps"
+              stepType="full"
+              [currentStep]="currentStep()"
+              (currentStepChange)="onStepIndexChange($event)"
+              (activate)="onStepActivate($event)"
+              [linear]="true"
+            ></kendo-stepper>
+            <div class="k-d-flex k-align-items-center k-gap-3 k-flex-wrap">
+              <span class="k-font-size-sm k-text-subtle k-flex-none">Overall progress</span>
+              <kendo-progressbar
+                class="k-flex-1 progress-line"
+                [value]="progressValue()"
+                [max]="100"
+                [label]="false"
+              ></kendo-progressbar>
+              <span class="k-font-size-sm k-text-subtle k-flex-none">{{ progressValue() }}%</span>
+            </div>
+          </div>
+
+          <div class="k-d-flex k-flex-col k-gap-4">
+            <div
+              class="wizard-step-message-slot"
+              [class.wizard-step-message-slot--open]="stepMessage() !== null"
+            >
+              <div class="wizard-step-message-slot-inner">
+                @if (stepMessage(); as msg) {
+                  <div
+                    [class]="stepMessageClass()"
+                    [attr.role]="stepMessageRole()"
+                    [attr.aria-live]="stepMessageRole() === 'alert' ? 'assertive' : 'polite'"
+                  >
+                    {{ msg }}
+                  </div>
+                }
+              </div>
+            </div>
+
+            <form
+              kendoForm
+              [formGroup]="form"
+              class="k-d-flex k-flex-col k-gap-4"
+              novalidate
+              aria-describedby="wizard-instructions"
+            >
+              <span id="wizard-instructions" class="k-sr-only">
+                Use the stepper or Next and Back buttons to move between sections. Required fields are
+                marked in each step.
+              </span>
+
+              @switch (currentStep()) {
+                @case (0) {
+                  <app-personal-info-step [group]="form.controls.personal" />
+                }
+                @case (1) {
+                  <app-job-details-step [group]="form.controls.job" />
+                }
+                @case (2) {
+                  <app-tax-payroll-step [group]="form.controls.tax" />
+                }
+                @case (3) {
+                  <app-equipment-step [group]="form.controls.equipment" />
+                }
+                @case (4) {
+                  <app-policies-step [group]="form.controls.policies" />
+                }
+                @case (5) {
+                  <app-review-step [form]="form" (editSection)="editSection($event)" />
+                }
+              }
+            </form>
+          </div>
+
+          <kendo-card-actions class="k-justify-content-between k-flex-wrap k-gap-2">
+            <button
+              kendoButton
+              fillMode="outline"
+              type="button"
+              [disabled]="currentStep() === 0"
+              (click)="previous()"
+            >
+              Back
+            </button>
+            <div class="k-d-flex k-gap-2 k-flex-wrap">
+              <button
+                kendoButton
+                fillMode="outline"
+                type="button"
+                [disabled]="!canPopulateCurrentStep()"
+                (click)="populateCurrentStep()"
+              >
+                Populate this step
+              </button>
+              @if (currentStep() < 5) {
+                <button kendoButton themeColor="primary" type="button" (click)="next()">Next</button>
+              } @else {
+                <button kendoButton themeColor="primary" type="button" (click)="submit()">
+                  Submit application
+                </button>
+              }
+            </div>
+          </kendo-card-actions>
+        </kendo-card-body>
+      </kendo-card>
+    </div>
+  </div>
+}

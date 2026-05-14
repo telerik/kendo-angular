@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Builds example projects and deploys them to GH Pages
-STANDALONE_PROJECTS=(finance-portfolio grid-charts-integration coffee-warehouse healthcare-app grid-live-data spreadsheet-app personal-finance-app kendoangular-landing-page)
+STANDALONE_PROJECTS=(finance-portfolio grid-charts-integration coffee-warehouse healthcare-app grid-live-data spreadsheet-app personal-finance-app kendoangular-landing-page employee-onboarding)
 
 set -e
 

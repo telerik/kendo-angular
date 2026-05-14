@@ -112,6 +112,12 @@ jobs:
           npm ci
           npm run build
 
+      - name: Employee Onboarding App
+        working-directory: ./examples-standalone/employee-onboarding
+        run: |
+          npm ci
+          npm run build
+
   standalone-examples-node14:
     runs-on: ubuntu-latest
 

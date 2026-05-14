@@ -1,0 +1,138 @@
+@let f = form().value;
+
+<div class="k-d-flex k-flex-col k-gap-4 k-w-full">
+  <p class="k-m-0 k-text-subtle k-font-size-sm">
+    Review your answers before submitting. Use Edit to jump back to any section.
+  </p>
+
+  <div class="k-d-flex k-flex-col k-gap-3">
+    <section class="k-border k-rounded-md k-p-4 k-bg-surface-alt" aria-labelledby="rev-personal">
+      <div class="k-d-flex k-justify-content-between k-align-items-start k-gap-2 k-mb-2">
+        <h3 class="k-m-0 k-font-size-md" id="rev-personal">Personal information</h3>
+        <button
+          kendoButton
+          fillMode="flat"
+          themeColor="primary"
+          type="button"
+          (click)="sectionEdit(0)"
+        >
+          Edit
+        </button>
+      </div>
+      <dl class="k-m-0 k-d-grid k-gap-2 k-grid-cols-2">
+        <dt class="k-font-weight-semibold">Full name</dt>
+        <dd class="k-m-0">{{ f.personal?.fullName || '—' }}</dd>
+        <dt class="k-font-weight-semibold">Email</dt>
+        <dd class="k-m-0">{{ f.personal?.email || '—' }}</dd>
+        <dt class="k-font-weight-semibold">Phone</dt>
+        <dd class="k-m-0">{{ f.personal?.phone || '—' }}</dd>
+        <dt class="k-font-weight-semibold">Address</dt>
+        <dd class="k-m-0 k-text-pre-wrap">{{ f.personal?.address || '—' }}</dd>
+        <dt class="k-font-weight-semibold">Emergency contact</dt>
+        <dd class="k-m-0 k-text-pre-wrap">{{ f.personal?.emergencyContact || '—' }}</dd>
+      </dl>
+    </section>
+
+    <section class="k-border k-rounded-md k-p-4 k-bg-surface-alt" aria-labelledby="rev-job">
+      <div class="k-d-flex k-justify-content-between k-align-items-start k-gap-2 k-mb-2">
+        <h3 class="k-m-0 k-font-size-md" id="rev-job">Job details</h3>
+        <button
+          kendoButton
+          fillMode="flat"
+          themeColor="primary"
+          type="button"
+          (click)="sectionEdit(1)"
+        >
+          Edit
+        </button>
+      </div>
+      <dl class="k-m-0 k-d-grid k-gap-2 k-grid-cols-2">
+        <dt class="k-font-weight-semibold">Department</dt>
+        <dd class="k-m-0">{{ f.job?.department || '—' }}</dd>
+        <dt class="k-font-weight-semibold">Job title</dt>
+        <dd class="k-m-0">{{ f.job?.jobTitle || '—' }}</dd>
+        <dt class="k-font-weight-semibold">Manager</dt>
+        <dd class="k-m-0">{{ f.job?.manager || '—' }}</dd>
+        <dt class="k-font-weight-semibold">Start date</dt>
+        <dd class="k-m-0">{{ f.job?.startDate | date: 'mediumDate' }}</dd>
+        <dt class="k-font-weight-semibold">Employment type</dt>
+        <dd class="k-m-0">{{ f.job?.employmentType || '—' }}</dd>
+        <dt class="k-font-weight-semibold">Work mode</dt>
+        <dd class="k-m-0">{{ f.job?.workMode || '—' }}</dd>
+      </dl>
+    </section>
+
+    <section class="k-border k-rounded-md k-p-4 k-bg-surface-alt" aria-labelledby="rev-tax">
+      <div class="k-d-flex k-justify-content-between k-align-items-start k-gap-2 k-mb-2">
+        <h3 class="k-m-0 k-font-size-md" id="rev-tax">Tax / payroll (mock)</h3>
+        <button
+          kendoButton
+          fillMode="flat"
+          themeColor="primary"
+          type="button"
+          (click)="sectionEdit(2)"
+        >
+          Edit
+        </button>
+      </div>
+      <dl class="k-m-0 k-d-grid k-gap-2 k-grid-cols-2">
+        <dt class="k-font-weight-semibold">Tax ID (placeholder)</dt>
+        <dd class="k-m-0">{{ f.tax?.taxIdPlaceholder || '—' }}</dd>
+        <dt class="k-font-weight-semibold">Bank (placeholder)</dt>
+        <dd class="k-m-0">{{ f.tax?.bankNamePlaceholder || '—' }}</dd>
+        <dt class="k-font-weight-semibold">Account # (placeholder)</dt>
+        <dd class="k-m-0">{{ f.tax?.accountNumberPlaceholder || '—' }}</dd>
+        <dt class="k-font-weight-semibold">Routing (placeholder)</dt>
+        <dd class="k-m-0">{{ f.tax?.routingPlaceholder || '—' }}</dd>
+        <dt class="k-font-weight-semibold">Payment preference</dt>
+        <dd class="k-m-0">{{ f.tax?.paymentPreference || '—' }}</dd>
+      </dl>
+    </section>
+
+    <section class="k-border k-rounded-md k-p-4 k-bg-surface-alt" aria-labelledby="rev-eq">
+      <div class="k-d-flex k-justify-content-between k-align-items-start k-gap-2 k-mb-2">
+        <h3 class="k-m-0 k-font-size-md" id="rev-eq">Equipment and access</h3>
+        <button
+          kendoButton
+          fillMode="flat"
+          themeColor="primary"
+          type="button"
+          (click)="sectionEdit(3)"
+        >
+          Edit
+        </button>
+      </div>
+      <dl class="k-m-0 k-d-grid k-gap-2 k-grid-cols-2">
+        <dt class="k-font-weight-semibold">Laptop</dt>
+        <dd class="k-m-0">{{ f.equipment?.laptop || '—' }}</dd>
+        <dt class="k-font-weight-semibold">Accessories</dt>
+        <dd class="k-m-0">{{ (f.equipment?.accessories || []).join(', ') || '—' }}</dd>
+        <dt class="k-font-weight-semibold">Software</dt>
+        <dd class="k-m-0">{{ (f.equipment?.softwareAccess || []).join(', ') || '—' }}</dd>
+        <dt class="k-font-weight-semibold">Systems / accounts</dt>
+        <dd class="k-m-0 k-text-pre-wrap">{{ f.equipment?.systemsNeeded || '—' }}</dd>
+      </dl>
+    </section>
+
+    <section class="k-border k-rounded-md k-p-4 k-bg-surface-alt" aria-labelledby="rev-pol">
+      <div class="k-d-flex k-justify-content-between k-align-items-start k-gap-2 k-mb-2">
+        <h3 class="k-m-0 k-font-size-md" id="rev-pol">Policies</h3>
+        <button
+          kendoButton
+          fillMode="flat"
+          themeColor="primary"
+          type="button"
+          (click)="sectionEdit(4)"
+        >
+          Edit
+        </button>
+      </div>
+      <ul class="k-m-0 k-pl-5">
+        <li>Employee handbook: {{ f.policies?.handbook ? 'Acknowledged' : 'Not acknowledged' }}</li>
+        <li>Security policy: {{ f.policies?.securityPolicy ? 'Acknowledged' : 'Not acknowledged' }}</li>
+        <li>Code of conduct: {{ f.policies?.codeOfConduct ? 'Acknowledged' : 'Not acknowledged' }}</li>
+        <li>Information accuracy: {{ f.policies?.accurateInfo ? 'Confirmed' : 'Not confirmed' }}</li>
+      </ul>
+    </section>
+  </div>
+</div>

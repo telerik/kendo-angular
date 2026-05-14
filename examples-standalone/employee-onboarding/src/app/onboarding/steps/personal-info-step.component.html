@@ -1,0 +1,80 @@
+<div class="k-d-flex k-flex-col k-gap-4 k-w-full" [formGroup]="group()">
+  <p class="k-m-0 k-text-subtle k-font-size-sm" id="personal-hint">
+    Tell us how to reach you and where you are located. Fields marked with an asterisk are required.
+  </p>
+
+  <kendo-formfield showHints="initial" showErrors="initial">
+    <kendo-label [for]="fullName" text="Full name" [optional]="false"></kendo-label>
+    <kendo-textbox
+      #fullName
+      formControlName="fullName"
+      placeholder="e.g. Sam Rivera"
+    ></kendo-textbox>
+    <kendo-formhint>Use your legal name as it should appear on payroll records.</kendo-formhint>
+    @if (group().get('fullName')?.invalid && group().get('fullName')?.touched) {
+      <kendo-formerror id="fullName-error">Enter your full name.</kendo-formerror>
+    }
+  </kendo-formfield>
+
+  <kendo-formfield showHints="initial" showErrors="initial">
+    <kendo-label [for]="email" text="Work email" [optional]="false"></kendo-label>
+    <kendo-textbox
+      #email
+      formControlName="email"
+      placeholder="you@company.com"
+      autocomplete="email"
+    ></kendo-textbox>
+    <kendo-formhint>We will send onboarding tasks and account invites to this address.</kendo-formhint>
+    @if (group().get('email')?.errors?.['required'] && group().get('email')?.touched) {
+      <kendo-formerror>Email is required.</kendo-formerror>
+    } @else if (group().get('email')?.errors?.['email'] && group().get('email')?.touched) {
+      <kendo-formerror>Enter a valid email address.</kendo-formerror>
+    }
+  </kendo-formfield>
+
+  <kendo-formfield showHints="initial" showErrors="initial">
+    <kendo-label [for]="phone" text="Phone" [optional]="false"></kendo-label>
+    <kendo-textbox
+      #phone
+      formControlName="phone"
+      placeholder="+1 555 0100"
+      autocomplete="tel"
+    ></kendo-textbox>
+    <kendo-formhint>Include country code if outside the US.</kendo-formhint>
+    @if (group().get('phone')?.invalid && group().get('phone')?.touched) {
+      <kendo-formerror
+        >Enter a phone number using digits (7–20 characters; optional +, spaces, or dashes).</kendo-formerror
+      >
+    }
+  </kendo-formfield>
+
+  <kendo-formfield showHints="initial" showErrors="initial">
+    <kendo-label [for]="address" text="Mailing address" [optional]="false"></kendo-label>
+    <kendo-textarea
+      #address
+      formControlName="address"
+      placeholder="Street, city, region, postal code"
+      [rows]="3"
+      resizable="vertical"
+    ></kendo-textarea>
+    <kendo-formhint>Used for equipment shipping and tax locality where applicable.</kendo-formhint>
+    @if (group().get('address')?.invalid && group().get('address')?.touched) {
+      <kendo-formerror>Enter your mailing address.</kendo-formerror>
+    }
+  </kendo-formfield>
+
+  <kendo-formfield showHints="initial" showErrors="initial">
+    <kendo-label [for]="emergencyContact" text="Emergency contact" [optional]="false"></kendo-label>
+    <kendo-textarea
+      #emergencyContact
+      formControlName="emergencyContact"
+      placeholder="Name, relationship, and phone number"
+      [rows]="2"
+      resizable="vertical"
+    ></kendo-textarea>
+    <kendo-formhint>Someone we can contact if we cannot reach you during work hours.</kendo-formhint>
+    @if (group().get('emergencyContact')?.invalid && group().get('emergencyContact')?.touched) {
+      <kendo-formerror>Describe who to contact in an emergency.</kendo-formerror>
+    }
+  </kendo-formfield>
+</div>

@@ -1,0 +1,56 @@
+<div class="k-d-flex k-flex-col k-gap-4 k-w-full" [formGroup]="group()">
+  <p class="k-m-0 k-text-subtle k-font-size-sm">
+    Request the hardware and access you need for your first week. IT will follow up if anything requires
+    approval.
+  </p>
+
+  <kendo-formfield showHints="initial" showErrors="initial">
+    <kendo-label [for]="lap" text="Laptop preference" [optional]="false"></kendo-label>
+    <kendo-dropdownlist
+      #lap
+      formControlName="laptop"
+      [data]="laptops"
+      [valuePrimitive]="true"
+      required
+    ></kendo-dropdownlist>
+    @if (group().get('laptop')?.invalid && group().get('laptop')?.touched) {
+      <kendo-formerror>Select a laptop option.</kendo-formerror>
+    }
+  </kendo-formfield>
+
+  <kendo-formfield showHints="always" showErrors="initial">
+    <kendo-label [for]="acc" text="Accessories"></kendo-label>
+    <kendo-multiselect
+      #acc
+      formControlName="accessories"
+      [data]="accessories"
+      placeholder="Select accessories"
+      [valuePrimitive]="true"
+    ></kendo-multiselect>
+    <kendo-formhint>Optional — choose any standard peripherals you need.</kendo-formhint>
+  </kendo-formfield>
+
+  <kendo-formfield showHints="always" showErrors="initial">
+    <kendo-label [for]="sw" text="Software access"></kendo-label>
+    <kendo-multiselect
+      #sw
+      formControlName="softwareAccess"
+      [data]="software"
+      placeholder="Select applications"
+      [valuePrimitive]="true"
+    ></kendo-multiselect>
+    <kendo-formhint>We will map these to your identity provider and license entitlements.</kendo-formhint>
+  </kendo-formfield>
+
+  <kendo-formfield showHints="always" showErrors="initial">
+    <kendo-label [for]="sys" text="Systems and accounts"></kendo-label>
+    <kendo-textarea
+      #sys
+      formControlName="systemsNeeded"
+      placeholder="CRM, design systems, internal wikis, shared drives…"
+      [rows]="4"
+      resizable="vertical"
+    ></kendo-textarea>
+    <kendo-formhint>List any additional tools or environments you expect to use.</kendo-formhint>
+  </kendo-formfield>
+</div>
