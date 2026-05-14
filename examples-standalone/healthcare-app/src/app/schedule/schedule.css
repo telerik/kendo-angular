@@ -26,22 +26,11 @@
   height: 700px;
 }
 
-.scheduler-card kendo-card-header {
-  padding: 20px 20px 10px;
-  border-bottom: none;
-}
-
 .scheduler-card kendo-card-body {
-  padding: 20px 20px 20px;
   flex: 1;
   display: flex;
   flex-direction: column;
   overflow: hidden;
-}
-
-.scheduler-card kendo-card-body kendo-scheduler {
-  flex: 1;
-  min-height: 0;
 }
 
 /* Event Template Content */
@@ -272,192 +261,12 @@
 }
 
 /* Dialog Styles */
-.add-task-dialog .k-window {
-  background: #ffffff;
-  border: 1px solid rgba(23, 56, 99, 0.08);
-  border-radius: 12px;
-  box-shadow:
-    0px 8px 20px rgba(0, 0, 0, 0.07),
-    0px 20px 48px -8px rgba(0, 0, 0, 0.11);
-}
-
-.add-task-dialog .k-window-titlebar {
-  padding: 16px;
-  background: #ffffff;
-  border-bottom: 1px solid rgba(23, 56, 99, 0.08);
-  border-radius: 12px 12px 0 0;
-}
-
-.dialog-title {
-  font-weight: 700;
-  font-size: 20px;
-  line-height: 150%;
-  margin: 0;
-}
-
-.add-task-dialog .k-window-titlebar .k-window-actions {
-  gap: 8px;
-}
-
-.add-task-dialog .k-dialog-buttongroup {
-  padding: 16px;
-  gap: 8px;
-  border-top: none;
-  background: #ffffff;
-  justify-content: flex-end;
-}
-
-.dialog-content {
-  padding: 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  background: #ffffff;
-}
-
-.form-field {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
 
 .form-field kendo-label {
   display: flex;
   flex-direction: column;
   gap: 8px;
   width: 100%;
-}
-
-.field-label {
-  font-size: 16px;
-  line-height: 150%;
-}
-
-/* DropDownList Styles */
-.add-task-dialog .k-dropdownlist .k-input-solid {
-  background: #ffffff;
-  border: 1px solid rgba(23, 56, 99, 0.08);
-  border-radius: 6px;
-  padding: 0;
-}
-
-.add-task-dialog .k-dropdownlist .k-input-solid:hover {
-  border-color: rgba(23, 56, 99, 0.15);
-}
-
-.add-task-dialog .k-dropdownlist .k-input-solid:focus,
-.add-task-dialog .k-dropdownlist .k-input-solid.k-focus {
-  border-color: rgba(23, 56, 99, 0.2);
-  box-shadow: none;
-}
-
-.add-task-dialog .k-dropdownlist .k-input-inner {
-  padding: 4px 12px;
-  font-family: 'Inter', sans-serif;
-  font-size: 16px;
-  line-height: 150%;
-  border: none !important;
-}
-
-.add-task-dialog .k-dropdownlist .k-input-button {
-  padding: 6px;
-  border-left: 1px solid rgba(255, 255, 255, 0.0001);
-  border-radius: 0 4px 4px 0;
-}
-
-/* TextBox Styles */
-.task-name-input {
-  width: 100%;
-}
-
-.task-name-input .k-input-solid {
-  background: #ffffff;
-  border: 1px solid rgba(23, 56, 99, 0.08);
-  border-radius: 6px;
-  padding: 0;
-}
-
-.task-name-input .k-input-solid:hover {
-  border-color: rgba(23, 56, 99, 0.15);
-}
-
-.task-name-input .k-input-solid:focus,
-.task-name-input .k-input-solid.k-focus {
-  border-color: rgba(23, 56, 99, 0.2);
-  box-shadow: none;
-}
-
-.task-name-input .k-input-inner {
-  padding: 4px 12px;
-  font-size: 16px;
-  line-height: 150%;
-  border: none !important;
-}
-
-/* TextArea Styles */
-.task-description {
-  width: 100%;
-}
-
-.task-description .k-input-solid {
-  background: #ffffff;
-  border: 1px solid rgba(23, 56, 99, 0.08);
-  border-radius: 6px;
-  padding: 0;
-  height: 248px;
-}
-
-.task-description .k-input-solid:hover {
-  border-color: rgba(23, 56, 99, 0.15);
-}
-
-.task-description .k-input-solid:focus,
-.task-description .k-input-solid.k-focus {
-  border-color: rgba(23, 56, 99, 0.2);
-  box-shadow: none;
-}
-
-.task-description .k-input-inner {
-  padding: 4px 12px;
-  font-size: 16px;
-  line-height: 150%;
-  border: none !important;
-  min-height: 224px;
-  height: 100%;
-  resize: vertical;
-  overflow-y: auto;
-}
-
-.task-description .k-input-inner::placeholder {
-  color: #4a5666;
-  opacity: 0.6;
-  font-size: 16px;
-  line-height: 150%;
-}
-
-/* Dialog Button Styles */
-.discard-btn {
-  padding: 4px 8px;
-  font-size: 14px;
-  line-height: 142%;
-  background: #f3f5f7;
-  border: 1px solid transparent;
-  border-radius: 8px;
-  color: #232a36;
-}
-
-.discard-btn:hover {
-  background: #e8ecef;
-}
-
-.save-btn {
-  padding: 4px 8px;
-  font-size: 14px;
-  line-height: 142%;
-  color: var(--kendo-color-on-primary);
-  background: var(--kendo-color-primary);
-  border: 1px solid var(--kendo-color-primary);
-  border-radius: 8px;
 }
 
 /* Responsive Layout */
@@ -517,10 +326,6 @@
   .tasks-search {
     flex: 1;
   }
-}
-
-.save-btn:hover {
-  background: #475569;
 }
 
 /* 1440px – 1759px: reduce layout gap to 24px */
@@ -583,45 +388,10 @@
 }
 
 /* Event Detail Dialog */
-.event-detail-dialog .k-window {
-  background: #ffffff;
-  border: 1px solid rgba(23, 56, 99, 0.08);
-  border-radius: 16px;
-  box-shadow:
-    0px 8px 20px rgba(0, 0, 0, 0.07),
-    0px 20px 48px -8px rgba(0, 0, 0, 0.11);
-}
-
-.event-detail-dialog .k-window-titlebar {
-  padding: 20px 20px 16px;
-  background: #ffffff;
-  border-bottom: 1px solid rgba(23, 56, 99, 0.08);
-  border-radius: 16px 16px 0 0;
-}
-
-.event-detail-dialog .k-window-titlebar .k-window-actions {
-  display: none;
-}
-
-.event-dialog-title-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  gap: 12px;
-}
-
 .event-dialog-title {
   font-weight: 600;
   font-size: 18px;
-  line-height: 1.4;
   color: #1e1b4b;
-}
-
-.event-dialog-expand-btn {
-  color: #6c757d;
-  padding: 4px;
-  flex-shrink: 0;
 }
 
 .event-dialog-content {
@@ -629,14 +399,6 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
-  background: #ffffff;
-}
-
-.event-dialog-section-label {
-  font-size: 14px;
-  font-weight: 500;
-  color: #9ca3af;
-  margin: 0;
 }
 
 .event-dialog-detail-row {
@@ -650,24 +412,6 @@
 .event-dialog-icon {
   color: #6b7280;
   flex-shrink: 0;
-}
-
-.event-detail-dialog .k-dialog-buttongroup {
-  padding: 16px 20px;
-  gap: 8px;
-  border-top: 1px solid rgba(23, 56, 99, 0.08);
-  background: #ffffff;
-  border-radius: 0 0 16px 16px;
-}
-
-.event-dialog-cancel-btn {
-  border-color: rgba(23, 56, 99, 0.12);
-  color: #374151;
-  border-radius: 9999px;
-}
-
-.event-dialog-save-btn {
-  padding: 0 24px;
 }
 
 /* Above 1440px: 40px bottom padding */

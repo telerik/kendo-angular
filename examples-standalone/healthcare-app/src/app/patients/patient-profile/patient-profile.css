@@ -17,34 +17,6 @@
   flex-grow: 1;
 }
 
-/* Breadcrumb */
-.breadcrumb {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 14px;
-  line-height: 150%;
-  color: #4a5666;
-}
-
-.breadcrumb-link,
-.breadcrumb-current {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-}
-
-.breadcrumb-link {
-  text-decoration: none;
-  color: #4a5666;
-  transition: color 0.2s ease;
-}
-
-.breadcrumb-link:hover,
-.breadcrumb-current {
-  color: #232a36;
-}
-
 /* Kendo Breadcrumb overrides */
 .k-breadcrumb-last-item .k-breadcrumb-link,
 .k-breadcrumb-last-item .k-breadcrumb-link:hover,
@@ -57,31 +29,6 @@
   display: flex;
   gap: 16px;
   align-items: center;
-}
-
-.page-actions .k-button {
-  height: 34px;
-  padding: 4px 8px;
-  gap: 4px;
-  border-radius: 9999px;
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 150%;
-  background: #334155;
-  border-color: #334155;
-  color: #ffffff;
-}
-
-.page-actions .k-button:hover {
-  background: #1d293b !important;
-  border-color: #1d293b !important;
-  color: #ffffff !important;
-}
-
-.page-actions .k-button-outline {
-  background: #f3f5f7;
-  border: 1px solid rgba(23, 56, 99, 0.08);
-  color: #232a36;
 }
 
 /* Profile Grid Layout */
@@ -282,35 +229,8 @@
   line-height: 150%;
 }
 
-.save-button {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  padding: 4px 8px;
-  border-radius: 4px;
-  font-size: 14px;
-  line-height: 142%;
-  color: #232a36;
-}
-
-.save-button:hover {
-  background: rgba(56, 66, 80, 0.05);
-}
-
 .patient-note-editor {
   width: 100%;
-}
-
-.patient-note-editor .k-editor-toolbar .ask-ai-button {
-  background: #7c3aed;
-  color: #ffffff;
-  border-color: #7c3aed;
-  margin-left: auto;
-}
-
-.patient-note-editor .k-editor-toolbar .ask-ai-button:hover {
-  background: #6d28d9;
-  border-color: #6d28d9;
 }
 
 /* Lab Results Card */

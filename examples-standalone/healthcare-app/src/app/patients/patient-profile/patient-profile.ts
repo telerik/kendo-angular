@@ -70,7 +70,7 @@ export class PatientProfileComponent implements OnInit, OnDestroy {
   public patientId: number = 0;
   public patient: PatientProfile | null = null;
   public labResults: LabResult[] = [];
-  public labResultsSort: SortDescriptor[] = [{ field: 'status', dir: 'asc' }];
+  public labResultsSort: SortDescriptor[] = [{ field: 'testName', dir: 'asc' }];
 
   constructor(
     private pageHeaderService: PageHeaderService,
