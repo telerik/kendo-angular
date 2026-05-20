@@ -66,7 +66,7 @@
             <button
               kendoButton
               fillMode="solid"
-              themeColor="dark"
+              themeColor="primary"
               rounded="full"
               class="add-task-btn"
               aria-label="Add new task"
@@ -121,62 +121,64 @@
 @if (eventDialogOpened && selectedEvent) {
   <kendo-dialog [width]="dlgW(420)" (close)="closeEventDialog()" class="event-detail-dialog">
     <kendo-dialog-titlebar>
-      <div class="event-dialog-title-row">
-        <span class="event-dialog-title">{{ selectedEvent.reason }} - {{ selectedEvent.title }}</span>
-      </div>
+      <span class="event-dialog-title">{{ selectedEvent.reason }} – {{ selectedEvent.title }}</span>
     </kendo-dialog-titlebar>
 
     <div class="event-dialog-content">
-      <p class="event-dialog-section-label">Appointment time</p>
-
+      <div class="event-dialog-detail-row">
+        <kendo-svgicon [icon]="userIcon" class="event-dialog-icon"></kendo-svgicon>
+        <span>{{ selectedEvent.title }}</span>
+      </div>
       <div class="event-dialog-detail-row">
         <kendo-svgicon [icon]="calendarIcon" class="event-dialog-icon"></kendo-svgicon>
         <span>{{ formatDialogDate(selectedEvent.start) }}</span>
       </div>
-
       <div class="event-dialog-detail-row">
         <kendo-svgicon [icon]="clockIcon" class="event-dialog-icon"></kendo-svgicon>
         <span>{{ formatDialogTime(selectedEvent.start, selectedEvent.end) }}</span>
       </div>
-
       <div class="event-dialog-detail-row">
         <kendo-svgicon [icon]="mapMarkerIcon" class="event-dialog-icon"></kendo-svgicon>
         <span>{{ selectedEvent.description }}</span>
       </div>
-
-      <div class="event-dialog-detail-row">
-        <kendo-svgicon [icon]="userIcon" class="event-dialog-icon"></kendo-svgicon>
-        <span>In-person visit</span>
-      </div>
+      @if (selectedEvent.status) {
+        <div class="event-dialog-detail-row">
+          <kendo-chip
+            [label]="selectedEvent.status"
+            [themeColor]="getStatusColor(selectedEvent.status)"
+            [removable]="false"
+            rounded="full"
+          ></kendo-chip>
+        </div>
+      }
     </div>
 
     <kendo-dialog-actions layout="end">
-      <button kendoButton (click)="closeEventDialog()" class="event-dialog-cancel-btn">Close</button>
+      <button kendoButton (click)="closeEventDialog()">Close</button>
     </kendo-dialog-actions>
   </kendo-dialog>
 }
 
 <!-- Add Task Dialog -->
 @if (addTaskDialogOpened) {
-  <kendo-dialog [width]="dlgW(680)" [height]="dlgH(580)" (close)="closeAddTaskDialog()" class="add-task-dialog">
+  <kendo-dialog [width]="dlgW(680)" [height]="dlgH(580)" (close)="closeAddTaskDialog()">
     <kendo-dialog-titlebar>
-      <div class="dialog-title">{{ dialogTitle }}</div>
+      <div>{{ dialogTitle }}</div>
     </kendo-dialog-titlebar>
 
-    <div class="dialog-content">
+    <div>
       <div class="form-field">
-        <kendo-label text="Task Name" labelCssClass="field-label">
+        <kendo-label text="Task Name">
           <kendo-textbox
             [(ngModel)]="newTaskName"
             placeholder="Review insurance authorization requests"
-            class="task-name-input"
           >
           </kendo-textbox>
         </kendo-label>
       </div>
 
       <div class="form-field">
-        <kendo-label text="Priority" labelCssClass="field-label">
+        <kendo-label text="Priority">
           <kendo-dropdownlist
             [data]="priorities"
             [(ngModel)]="newTaskPriority"
@@ -188,12 +190,11 @@
       </div>
 
       <div class="form-field">
-        <kendo-label text="Description" labelCssClass="field-label">
+        <kendo-label text="Description">
           <kendo-textarea
             [(ngModel)]="newTaskDescription"
             placeholder="Review and evaluate incoming insurance authorization requests to ensure all information is accurate, complete, and compliant with relevant policies and guidelines before proceeding with approval or further action."
-            [style.height.px]="200"
-            class="task-description"
+            [rows]="6"
           >
           </kendo-textarea>
         </kendo-label>
@@ -201,8 +202,8 @@
     </div>
 
     <kendo-dialog-actions layout="end">
-      <button kendoButton (click)="closeAddTaskDialog()" class="discard-btn">Discard</button>
-      <button kendoButton themeColor="dark" (click)="saveTask()" class="save-btn">
+      <button kendoButton (click)="closeAddTaskDialog()">Discard</button>
+      <button kendoButton themeColor="primary" (click)="saveTask()" >
         {{ saveButtonText }}
       </button>
     </kendo-dialog-actions>

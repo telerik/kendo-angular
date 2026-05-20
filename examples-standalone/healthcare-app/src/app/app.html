@@ -1,5 +1,5 @@
-<div class="sticky-header-wrapper" [class.opacity-mode-header]="opacityMode()">
-  <kendo-appbar themeColor="light" [class.opacity-mode-appbar]="opacityMode()" [class.search-expanded-appbar]="searchExpanded()">
+<div class="sticky-header-wrapper">
+  <kendo-appbar [class.opacity-mode-appbar]="opacityMode()">
   @if (isCompact() && searchExpanded()) {
     <!-- Expanded Search Mode: full-width combobox, closes on blur -->
     <kendo-combobox
@@ -30,7 +30,7 @@
   } @else {
     <!-- Normal Appbar Layout -->
     <!-- Logo Section -->
-    <a routerLink="/" class="app-logo" aria-label="Logo">
+    <a routerLink="/" aria-label="Logo">
       @if (isSmallLogo()) {
         <img ngSrc="assets/small-logo.svg" alt="Logo" width="38" height="38" priority />
       } @else {
@@ -38,14 +38,13 @@
       }
     </a>
     @if (isNarrowNav()) {
-      <span class="nav-separator"></span>
+      <span></span>
       <kendo-dropdownbutton
         [svgIcon]="menuIcon"
         [data]="navDropdownItems"
         (itemClick)="onNavDropdownSelect($event)"
         fillMode="flat"
         aria-label="Main navigation"
-        class="nav-dropdown-btn"
       >
         <ng-template kendoDropDownButtonItemTemplate let-dataItem>
           <kendo-svgicon [icon]="dataItem.svgIcon"></kendo-svgicon>
@@ -56,14 +55,13 @@
     <kendo-appbar-spacer></kendo-appbar-spacer>
 
     <!-- Navigation Section -->
-    <kendo-appbar-section class="nav-section">
+    <kendo-appbar-section>
       @if (!isNarrowNav()) {
         <kendo-segmented-control
           [items]="navItems"
           [selected]="selectedNavIndex"
           (selectedChange)="onNavChange($event)"
           aria-label="Main navigation"
-          size="large"
         >
         </kendo-segmented-control>
       }
@@ -125,7 +123,6 @@
         [svgIcon]="bellIcon"
         aria-label="Notifications"
         title="Notifications"
-        class="notification-btn"
         rounded="full"
         #notificationAnchor
         (click)="toggleNotifications()"
@@ -218,10 +215,10 @@
         />
         <button
           kendoButton
-          themeColor="dark"
-          class="upload-image-btn"
+          themeColor="primary"
           [svgIcon]="uploadIcon"
           (click)="uploadImage()"
+          class="upload-image-btn"
         >
           Upload Image
         </button>
@@ -234,18 +231,17 @@
         <!-- Password Policy Box -->
         <div class="password-policy-box">
           <div class="policy-title">Password Policy</div>
-          <div class="policy-text">• Please change your password every two weeks</div>
+          <div>• Please change your password every two weeks</div>
         </div>
 
         <!-- Form Fields -->
         <form #profileForm="ngForm" id="profileForm" aria-label="Edit profile information">
           <kendo-formfield>
-            <kendo-label text="Full Name" class="field-label-text"></kendo-label>
+            <kendo-label text="Full Name"></kendo-label>
             <kendo-textbox
               name="fullName"
               [(ngModel)]="dialogFullName"
               [clearButton]="true"
-              class="profile-input"
               required
               #fullNameCtrl="ngModel"
             ></kendo-textbox>
@@ -253,12 +249,11 @@
           </kendo-formfield>
 
           <kendo-formfield>
-            <kendo-label text="Email Address" class="field-label-text"></kendo-label>
+            <kendo-label text="Email Address"></kendo-label>
             <kendo-textbox
               name="email"
               [(ngModel)]="dialogEmail"
               [clearButton]="true"
-              class="profile-input"
               required
               email
               #emailCtrl="ngModel"
@@ -272,12 +267,11 @@
           </kendo-formfield>
 
           <kendo-formfield>
-            <kendo-label text="Phone Number" class="field-label-text"></kendo-label>
+            <kendo-label text="Phone Number"></kendo-label>
             <kendo-textbox
               name="phone"
               [(ngModel)]="dialogPhone"
               [clearButton]="true"
-              class="profile-input"
               required
               #phoneCtrl="ngModel"
             ></kendo-textbox>
@@ -288,8 +282,8 @@
     </div>
 
     <kendo-dialog-actions layout="end">
-      <button kendoButton (click)="clearProfileForm(profileForm)" class="discard-btn">Clear</button>
-      <button kendoButton themeColor="dark" (click)="submitProfile(profileForm)" class="save-btn">
+      <button kendoButton (click)="clearProfileForm(profileForm)">Clear</button>
+      <button kendoButton themeColor="primary" (click)="submitProfile(profileForm)">
         Submit
       </button>
     </kendo-dialog-actions>
@@ -307,17 +301,14 @@
     (anchorViewportLeave)="closeNotifications()"
     class="notifications-popup"
   >
-    <div class="notifications-container">
+    <div>
       <div class="notifications-header">
         <h2 class="notifications-title">Notifications</h2>
-        <button kendoButton fillMode="flat" (click)="markAllAsRead()">Mark all read</button>
+        <button kendoButton fillMode="flat" (click)="markAllAsRead()" size="small" class="mark-all-read-btn">Mark all read</button>
       </div>
-      <div class="notifications-list">
+      <div>
         @for (notification of notifications; track notification.id) {
           <div class="notification-item">
-            <div class="notification-icon">
-              <kendo-svgicon [icon]="bellIcon"></kendo-svgicon>
-            </div>
             <div class="notification-content">
               <div class="notification-title">{{ notification.title }}</div>
               <div class="notification-description-wrapper">

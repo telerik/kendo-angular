@@ -2,8 +2,8 @@
   <ng-template #patientsActions>
     <button
       kendoButton
-      class="ai-assistance-btn"
       rounded="full"
+      themeColor="primary"
       [svgIcon]="sparklesIcon"
       (click)="toggleChat()"
     >
@@ -11,7 +11,6 @@
     </button>
     <button
       kendoButton
-      fillMode="outline"
       rounded="full"
       [svgIcon]="downloadIcon"
       (click)="exportToExcel()"
@@ -34,7 +33,6 @@
             info: true,
           }"
           [pageSize]="10"
-          adaptiveMode="auto"
         >
           <kendo-grid-column field="name" title="Patient Name" [width]="220">
             <ng-template kendoGridCellTemplate let-dataItem>
@@ -65,19 +63,15 @@
           </kendo-grid-column>
 
           <kendo-grid-column field="gender" title="Gender" [width]="130"></kendo-grid-column>
-
           <kendo-grid-column field="bloodType" title="Blood Type" [width]="150"></kendo-grid-column>
-
           <kendo-grid-column field="ward" title="Ward" [width]="170"></kendo-grid-column>
-
           <kendo-grid-column field="diagnosis" title="Diagnosis" [width]="190"></kendo-grid-column>
-
-          <kendo-grid-column title="Actions" [width]="160" [sortable]="false" [filterable]="false">
+          <kendo-grid-column title="Actions" [width]="160" [sortable]="false" [filterable]="false" [sticky]="true">
             <ng-template kendoGridCellTemplate let-dataItem>
               <button
                 kendoButton
                 fillMode="flat"
-                class="view-profile-link"
+                rounded="full"
                 (click)="viewProfile(dataItem.id)"
               >
                 <kendo-svgicon [icon]="eyeIcon" size="small"></kendo-svgicon>
@@ -116,7 +110,7 @@
               </div>
             </ng-template>
             <ng-template kendoChatReceiverMessageTemplate let-message>
-              <div class="receiver-message" [innerHTML]="message.text | markdown"></div>
+              <div [innerHTML]="message.text | markdown"></div>
             </ng-template>
           </kendo-chat>
         </kendo-card-body>

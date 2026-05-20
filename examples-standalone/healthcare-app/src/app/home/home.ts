@@ -27,7 +27,7 @@ import {
   clockIcon,
   commentIcon,
   hyperlinkOpenIcon,
-  pillsSolidIcon,
+  pillsIcon,
   plusIcon,
   sparklesIcon,
   stickyNoteIcon,
@@ -115,7 +115,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   public chevronRightIcon: SVGIcon = chevronRightIcon;
   public linkIcon: SVGIcon = hyperlinkOpenIcon;
   public clipboardIcon: SVGIcon = clipboardIcon;
-  public pillIcon: SVGIcon = pillsSolidIcon;
+  public pillIcon: SVGIcon = pillsIcon;
   public xIcon: SVGIcon = xIcon;
 
   public currentDate: string;

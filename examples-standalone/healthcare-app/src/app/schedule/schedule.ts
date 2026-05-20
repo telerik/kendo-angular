@@ -3,7 +3,7 @@ import { NgClass } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { KENDO_SCHEDULER, EventStyleArgs, EventClickEvent } from '@progress/kendo-angular-scheduler';
 import { KENDO_LAYOUT } from '@progress/kendo-angular-layout';
-import { KENDO_BUTTONS } from '@progress/kendo-angular-buttons';
+import { ChipThemeColor, KENDO_BUTTONS } from '@progress/kendo-angular-buttons';
 import { KENDO_INPUTS } from '@progress/kendo-angular-inputs';
 import { KENDO_ICONS } from '@progress/kendo-angular-icons';
 import { KENDO_DIALOG } from '@progress/kendo-angular-dialog';
@@ -19,7 +19,6 @@ import {
   clockIcon,
   mapMarkerIcon,
   userIcon,
-  hyperlinkOpenIcon,
 } from '@progress/kendo-svg-icons';
 import { AppointmentsService, SchedulerAppointment } from '../services/appointments.service';
 import { DailyTask, INITIAL_TASKS } from '../data/schedule.data';
@@ -71,7 +70,6 @@ export class ScheduleComponent implements OnInit {
   public clockIcon: SVGIcon = clockIcon;
   public mapMarkerIcon: SVGIcon = mapMarkerIcon;
   public userIcon: SVGIcon = userIcon;
-  public hyperlinkOpenIcon: SVGIcon = hyperlinkOpenIcon;
 
   public selectedDate: Date;
   public taskSearch = '';
@@ -204,6 +202,13 @@ export class ScheduleComponent implements OnInit {
     return this.editingTask ? 'Save changes' : 'Add task';
   }
 
+  @HostListener('document:keydown.escape')
+  public onEscapeKey(): void {
+    if (this.eventDialogOpened) {
+      this.closeEventDialog();
+    }
+  }
+
   @HostListener('document:mousedown', ['$event'])
   public onDocumentMouseDown(event: MouseEvent): void {
     if (this.eventDialogOpened && (event.target as HTMLElement).classList.contains('k-overlay')) {
@@ -228,6 +233,16 @@ export class ScheduleComponent implements OnInit {
       day: 'numeric',
       year: 'numeric',
     });
+  }
+
+  public getStatusColor(status: string): ChipThemeColor {
+    const map: Record<string, ChipThemeColor> = {
+      Complete: 'success',
+      'In Progress': 'warning',
+      Upcoming: 'info',
+      Cancelled: 'error',
+    };
+    return map[status] ?? 'base';
   }
 
   public formatDialogTime(start: Date, end: Date): string {

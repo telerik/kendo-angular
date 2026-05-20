@@ -19,7 +19,7 @@
                 kendoButton
                 class="card-action-btn"
                 fillMode="solid"
-                themeColor="dark"
+                themeColor="primary"
                 rounded="full"
                 aria-label="Add new clinical note"
               >
@@ -43,7 +43,7 @@
                 kendoButton
                 class="card-action-btn"
                 fillMode="solid"
-                themeColor="dark"
+                themeColor="primary"
                 rounded="full"
                 aria-label="Request lab test"
               >
@@ -67,7 +67,7 @@
                 kendoButton
                 class="card-action-btn"
                 fillMode="solid"
-                themeColor="dark"
+                themeColor="primary"
                 rounded="full"
                 aria-label="Message nurse"
               >
@@ -87,11 +87,11 @@
         <h2 class="section-title">Today's Appointments</h2>
         <button
           kendoButton
-          class="view-schedule-btn"
           rounded="full"
           aria-label="View full schedule"
           [svgIcon]="plusIcon"
           (click)="navigateToSchedule()"
+          themeColor="primary"
         >
           View Schedule
         </button>
@@ -105,7 +105,7 @@
           [width]="170"
         ></kendo-grid-column>
         <kendo-grid-column field="reason" title="Reason"></kendo-grid-column>
-        <kendo-grid-column field="status" title="Status" [width]="120">
+        <kendo-grid-column field="status" title="Status" [width]="140">
           <ng-template kendoGridCellTemplate let-dataItem>
             <kendo-chip
               [label]="dataItem.status"
@@ -145,6 +145,7 @@
                     [svgIcon]="linkIcon"
                     look="flat"
                     aria-label="View patient profile"
+                    fillMode="flat"
                   >
                     View profile
                   </button>
@@ -262,8 +263,8 @@
           <kendo-textarea
             [(ngModel)]="clinicalNoteText"
             placeholder="Add clinical notes, observations, treatment plans, etc."
-            [style.height.px]="200"
-            class="clinical-note-textarea"
+            [rows]="7"
+            resizeable="vertical"
           >
           </kendo-textarea>
         </kendo-label>
@@ -271,8 +272,8 @@
     </div>
 
     <kendo-dialog-actions layout="end">
-      <button kendoButton (click)="closeClinicalNoteDialog()" class="discard-btn">Discard</button>
-      <button kendoButton themeColor="dark" (click)="saveClinicalNote()" class="save-btn">
+      <button kendoButton (click)="closeClinicalNoteDialog()">Discard</button>
+      <button kendoButton themeColor="primary" (click)="saveClinicalNote()">
         Save note
       </button>
     </kendo-dialog-actions>
@@ -313,7 +314,6 @@
           <kendo-textbox
             [(ngModel)]="labTestSearchQuery"
             placeholder="Search Lab Tests"
-            class="lab-test-search"
           >
           </kendo-textbox>
         </kendo-label>
@@ -336,8 +336,8 @@
     </div>
 
     <kendo-dialog-actions layout="end">
-      <button kendoButton (click)="closeLabTestDialog()" class="discard-btn">Discard</button>
-      <button kendoButton themeColor="dark" (click)="sendLabTestRequest()" class="save-btn">
+      <button kendoButton (click)="closeLabTestDialog()">Discard</button>
+      <button kendoButton themeColor="primary" (click)="sendLabTestRequest()">
         Send request
       </button>
     </kendo-dialog-actions>
@@ -362,7 +362,6 @@
           <kendo-textbox
             [(ngModel)]="recipientEmail"
             placeholder="Enter recipient email"
-            class="message-recipient"
           >
           </kendo-textbox>
         </kendo-label>
@@ -373,7 +372,6 @@
           <kendo-textbox
             [(ngModel)]="messageSubject"
             placeholder="Enter subject"
-            class="message-subject"
           >
           </kendo-textbox>
         </kendo-label>
@@ -384,8 +382,8 @@
           <kendo-textarea
             [(ngModel)]="messageDescription"
             placeholder="Type your message here..."
-            [style.height.px]="240"
-            class="message-description"
+            [rows]="10"
+            resizable="vertical"
           >
           </kendo-textarea>
         </kendo-label>
@@ -393,8 +391,8 @@
     </div>
 
     <kendo-dialog-actions layout="end">
-      <button kendoButton (click)="closeMessageNurseDialog()" class="discard-btn">Discard</button>
-      <button kendoButton themeColor="dark" (click)="sendMessage()" class="save-btn">
+      <button kendoButton (click)="closeMessageNurseDialog()">Discard</button>
+      <button kendoButton themeColor="primary" (click)="sendMessage()">
         Send message
       </button>
     </kendo-dialog-actions>
@@ -410,7 +408,7 @@
 
     <div class="dialog-content">
       <!-- Patient Information -->
-      <div class="alert-patient-info">
+      <div>
         <h3 class="field-label">Patient Information</h3>
         <div class="patient-info-grid">
           <div class="info-item">
@@ -425,7 +423,7 @@
       </div>
 
       <!-- Alert Condition -->
-      <div class="alert-condition-section">
+      <div>
         <h3 class="field-label">Condition</h3>
         <div
           class="condition-badge"
@@ -437,7 +435,7 @@
       </div>
 
       <!-- Lab Values -->
-      <div class="alert-values-section">
+      <div>
         <h3 class="field-label">Lab Values</h3>
         <div class="values-grid">
           <div class="value-item">
@@ -452,13 +450,13 @@
       </div>
 
       <!-- Details -->
-      <div class="alert-details-section">
+      <div>
         <h3 class="field-label">Details</h3>
         <p class="details-text">{{ selectedAlert.details }}</p>
       </div>
 
       <!-- Recommendations -->
-      <div class="alert-recommendations-section">
+      <div>
         <h3 class="field-label">Recommended Actions</h3>
         <ul class="recommendations-list">
           @for (rec of selectedAlert.recommendations; track $index) {
@@ -469,8 +467,8 @@
     </div>
 
     <kendo-dialog-actions layout="end">
-      <button kendoButton (click)="closeAlertDialog()" class="discard-btn">Close</button>
-      <button kendoButton themeColor="dark" (click)="acknowledgeAlert()" class="save-btn">
+      <button kendoButton (click)="closeAlertDialog()">Close</button>
+      <button kendoButton themeColor="primary" (click)="acknowledgeAlert()">
         Acknowledge
       </button>
     </kendo-dialog-actions>
@@ -549,8 +547,8 @@
     </div>
 
     <kendo-dialog-actions layout="end">
-      <button kendoButton (click)="closeReasonForVisitDialog()" class="discard-btn">Close</button>
-      <button kendoButton themeColor="dark" (click)="closeReasonForVisitDialog()" class="save-btn">Start Visit</button>
+      <button kendoButton (click)="closeReasonForVisitDialog()">Close</button>
+      <button kendoButton themeColor="primary" (click)="closeReasonForVisitDialog()">Start Visit</button>
     </kendo-dialog-actions>
   </kendo-dialog>
 }
@@ -644,8 +642,8 @@
     </div>
 
     <kendo-dialog-actions layout="end">
-      <button kendoButton (click)="closeAllergyAlertDialog()" class="discard-btn">Close</button>
-      <button kendoButton themeColor="dark" (click)="closeAllergyAlertDialog()" class="save-btn">Acknowledge</button>
+      <button kendoButton (click)="closeAllergyAlertDialog()">Close</button>
+      <button kendoButton themeColor="primary" (click)="closeAllergyAlertDialog()">Acknowledge</button>
     </kendo-dialog-actions>
   </kendo-dialog>
 }
@@ -722,8 +720,8 @@
     </div>
 
     <kendo-dialog-actions layout="end">
-      <button kendoButton (click)="closeReasonForVisitDialog()" class="discard-btn">Close</button>
-      <button kendoButton themeColor="dark" (click)="closeReasonForVisitDialog()" class="save-btn">Start Visit</button>
+      <button kendoButton (click)="closeReasonForVisitDialog()">Close</button>
+      <button kendoButton themeColor="primary" (click)="closeReasonForVisitDialog()">Start Visit</button>
     </kendo-dialog-actions>
   </kendo-dialog>
 }
@@ -817,8 +815,8 @@
     </div>
 
     <kendo-dialog-actions layout="end">
-      <button kendoButton (click)="closeAllergyAlertDialog()" class="discard-btn">Close</button>
-      <button kendoButton themeColor="dark" (click)="closeAllergyAlertDialog()" class="save-btn">Acknowledge</button>
+      <button kendoButton (click)="closeAllergyAlertDialog()">Close</button>
+      <button kendoButton themeColor="primary" (click)="closeAllergyAlertDialog()">Acknowledge</button>
     </kendo-dialog-actions>
   </kendo-dialog>
 }
@@ -829,7 +827,6 @@
   kendoButton
   class="fab-button"
   [svgIcon]="commentIcon"
-  fillMode="solid"
   rounded="full"
   (click)="toggleChatPopup()"
   aria-label="AI Assistant"
