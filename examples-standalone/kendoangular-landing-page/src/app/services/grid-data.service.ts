@@ -439,7 +439,7 @@ export class GridDataService {
   private gridData: GridItem[] = [
     {
       time: "7:15 AM",
-      amount: "+$789.32",
+      amount: "+$789.33",
       positive: true,
       company: "Zentronix Ltd",
       status: "Approved",
