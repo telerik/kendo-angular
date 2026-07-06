@@ -1,95 +1,173 @@
-# Kendo UI for Angular  🚀
+<h1 align="center">Kendo UI for Angular</h1>
 
-<img src="./assets/kendo.png" align="right" width="420" alt="Kendo UI for Angular">
+<p align="center">
+  <img src="./assets/kendo.png" width="500" alt="Kendo UI for Angular" />
+</p>
 
-Kendo UI for Angular uses GitHub Issues as its official bug tracker. The repository also serves as the central hub for support resources and sample projects referenced in the [official Kendo UI for Angular documentation](https://www.telerik.com/kendo-angular-ui/components/).
+<p align="center">
+  <strong>Accelerate Angular development with enterprise-grade UI components, AI-powered tools, and IDE-integrated MCP servers that help you build polished, responsive applications faster than ever.</strong>
+</p>
 
-<br clear="right">
+<p align="center">
+  This is the official GitHub repository for <strong>Kendo UI for Angular</strong>, serving as the central hub for bug reports, sample applications, integration demos, and community resources.
+</p>
+
+<div align="center">
+
+[![NPM version](https://img.shields.io/npm/v/@progress/kendo-angular-grid.svg?style=for-the-badge&color=0F766E)](https://www.npmjs.com/package/@progress/kendo-angular-grid)
+[![Downloads](https://img.shields.io/npm/dm/@progress/kendo-angular-grid.svg?style=for-the-badge&color=0891B2)](https://www.npmjs.com/package/@progress/kendo-angular-grid)
+[![GitHub Issues](https://img.shields.io/github/issues/telerik/kendo-angular?style=for-the-badge&color=DC2626)](https://github.com/telerik/kendo-angular/issues)
+[![GitHub Closed Issues](https://img.shields.io/github/issues-closed/telerik/kendo-angular?style=for-the-badge&color=16A34A)](https://github.com/telerik/kendo-angular/issues?q=is%3Aissue+is%3Aclosed)
+
+</div>
 
 ---
 
-[![NPM version](https://img.shields.io/npm/v/@progress/kendo-angular-grid.svg)](https://www.npmjs.com/package/@progress/kendo-angular-grid)
-[![Kendo Angular Grid NPM downloads](https://img.shields.io/npm/dm/@progress/kendo-angular-grid.svg)](https://www.npmjs.com/package/@progress/kendo-angular-grid)
-[![GitHub Repo](https://img.shields.io/badge/github-kendo--angular-blue?logo=github)](https://github.com/telerik/kendo-angular)
-[![GitHub stars](https://img.shields.io/github/stars/telerik/kendo-angular.svg?logo=github)](https://github.com/telerik/kendo-angular/stargazers)
-[![GitHub forks](https://img.shields.io/github/forks/telerik/kendo-angular.svg?logo=github)](https://github.com/telerik/kendo-angular/network/members)
+## Repository Overview
 
+This repository is the official GitHub home for **Kendo UI for Angular**.
 
-> [!IMPORTANT]
->  **This repository does not contain the actual source code of the components.** It provides access to support options, guidance resources, and sample applications.
+Here you can:
 
-## In This Article 📜
+* 🐞 Report bugs and track issues
+* 📂 Explore sample applications and integration demos
+* 🚀 Browse standalone examples
+* 💬 Find support resources and community channels
+* 📖 Access the latest product documentation and roadmap
 
-* [Available Support Options](#support-options)
+> [!NOTE]
+> This repository **does not contain the source code** of the commercial Kendo UI for Angular components. It provides issue tracking, sample projects, documentation resources, and community support.
 
-  * [Information on Using Specific Features](#how-do-i-)
-  * [Questions About Future Releases](#when-do-you-plan-on-releasing-feature-x-%EF%B8%8F)
-  * [Bug Discovery](#i-think-i-found-a-bug-)
-  * [Bug Reports](#i-want-to-report-a-bug-)
-  * [Tailor-Made Solutions](#i-need-a-tailor-made-solution-)
-* [Sample Projects and Applications](#sample-projects-)
+---
 
-## Support Options ❓
+## 🚀 Quick Links
 
-Kendo UI for Angular provides multiple support channels for different types of inquiries.
+| 📖 Docs & Features | 🆘 Get Help | 🐞 Report & Track | 🔍 Explore |
+| :--- | :--- | :--- | :--- |
+| <a href="https://www.telerik.com/kendo-angular-ui/components/getting-started">Getting Started</a> | <a href="https://www.telerik.com/account/support-tickets">Open a Support Ticket</a> | <a href="https://github.com/telerik/kendo-angular/issues">Open a Bug</a> | <a href="https://github.com/telerik/kendo-angular/tree/master/examples-standalone">Sample Projects</a> |
+| <a href="https://www.telerik.com/kendo-angular-ui/components/">Components & Demos</a> | <a href="https://www.telerik.com/forums/kendo-angular-ui">Ask on the Forums</a> | <a href="https://github.com/telerik/kendo-angular/issues?q=is%3Aissue+is%3Aclosed">Search Closed Issues</a> | <a href="https://www.telerik.com/support/whats-new/kendo-ui/roadmap#angular-roadmap">See the Roadmap</a> |
+| <a href="https://www.telerik.com/kendo-angular-ui/components/ai-components">AI Components & Features</a> | <a href="https://stackoverflow.com/questions/tagged/kendo-ui-angular2">Ask on Stack Overflow</a> | <a href="https://feedback.telerik.com/kendo-angular-ui">Open a Feature Request</a> | |
+| <a href="https://www.telerik.com/kendo-angular-ui/components/ai-tools/agentic-ui-generator/getting-started">AI Tools</a> | <a href="https://www.telerik.com/kendo-angular-ui/components/faq/">Browse the FAQ</a> | | |
+| | <a href="https://www.telerik.com/kendo-angular-ui/components/troubleshooting/">Troubleshoot</a> | | |
 
-### How do I...? 🤔
+---
 
-1. Explore the [Components](http://www.telerik.com/kendo-angular-ui/components/), [FAQ](http://www.telerik.com/kendo-angular-ui/components/faq/), and [Troubleshooting](http://www.telerik.com/kendo-angular-ui/components/troubleshooting/) sections.
-2. Review community-driven answers on Stack Overflow under the [kendo-ui-angular2](http://stackoverflow.com/questions/tagged/kendo-ui-angular2) tag.
-3. Submit an issue through the official support channel using the [Support Ticket](https://www.telerik.com/account/support-tickets) system.
+# 🐞 Reporting Bugs
 
-### When do you plan on releasing Feature X? 🗓️
+Before opening a new issue, please:
 
-1. Check the [Roadmap](https://www.telerik.com/support/whats-new/kendo-ui/roadmap#angular-roadmap) to see planned items.
-2. Visit the [Feedback Portal](https://feedback.telerik.com/kendo-angular-ui) to upvote existing feature requests or propose new ideas.
+* Search the existing <a href="https://github.com/telerik/kendo-angular/issues">GitHub Issues</a>
+* Check whether the issue has already been resolved in the <a href="https://github.com/telerik/kendo-angular/issues?q=is%3Aissue+is%3Aclosed">Closed Issues</a>
+* Create a minimal reproducible example using <a href="https://stackblitz.com">StackBlitz</a>
 
-### I think I found a bug 🐛
+When submitting a bug report, include:
 
-1. Look through existing reports on the [Issue Tracker](https://github.com/telerik/kendo-angular/issues) to check if it has already been reported.
-2. Verify whether the issue is already resolved by reviewing the [Closed Issues](https://github.com/telerik/kendo-angular/issues?q=is%3Aissue+is%3Aclosed).
-3. If the issue is new, continue with the reporting steps below.
+* A runnable StackBlitz reproduction
+* Angular version
+* Kendo UI for Angular version
+* Browser and operating system
+* Steps to reproduce
+* Expected behavior
+* Actual behavior
 
-### I want to report a bug 🐞
+> [!TIP]
+> Issues that include a runnable StackBlitz example can usually be investigated much faster.
 
-1. Locate an example in the [documentation](http.telerik.com/kendo-angular-ui/components/) relevant to your case.
-2. Open the example in StackBlitz via the **Edit in StackBlitz** option.
-3. Reproduce the issue using the smallest possible amount of code.
-4. Save the example using the **Fork** button.
-5. Copy the resulting StackBlitz URL link.
-6. [Open a new issue](https://github.com/telerik/kendo-angular/issues/new) and include the link.
-7. Add details such as browser version and reproduction steps.
+---
 
-> Issues without a runnable demo may not be actionable.
+# 📂 Sample Projects
 
-For troubleshooting assistance, you may also request a remote session through the [Support Ticket](https://www.telerik.com/account/support-tickets) system. Remote Assistance is included in the [DevCraft Ultimate](http://www.telerik.com/purchase/kendo-ui) subscription.
+This repository hosts sample applications that demonstrate the usage of Kendo UI for Angular components in real-world scenarios. These projects are organized into two main directories:
 
-### I need a tailor-made solution 💼
+### Featured Examples
 
-The [Progress Services](https://www.progress.com/services) team can help build custom functional blocks or full applications using Kendo UI, enabling you to focus on core business needs.
+| Example                                                                                                                          | Description                   |
+| :------------------------------------------------------------------------------------------------------------------------------- | :---------------------------- |
+| 🏥 <a href="https://github.com/telerik/kendo-angular/tree/master/examples-standalone/healthcare-app">Healthcare App</a>                     | Healthcare management         |
+| 🔒 <a href="https://github.com/telerik/kendo-angular/tree/master/examples-standalone/grid-csp-enabled">Grid with CSP</a>                    | Content Security Policy       |
+| 📈 <a href="https://github.com/telerik/kendo-angular/tree/master/examples-standalone/finance-portfolio">Finance Portfolio</a>               | Financial dashboard           |
+| ☕ <a href="https://github.com/telerik/kendo-angular/tree/master/examples-standalone/coffee-warehouse">Coffee Warehouse</a>                  | Complete business application |
+| 🌐 <a href="https://github.com/telerik/kendo-angular/tree/master/examples-standalone/integration-i18n">Internationalization</a>             | Localization support          |
+| 📊 <a href="https://github.com/telerik/kendo-angular/tree/master/examples-standalone/grid-charts-integration">Grid & Charts Integration</a> | Component integration         |
+| ⚡ <a href="https://github.com/telerik/kendo-angular/tree/master/examples-standalone/grid-performance">Grid Performance</a>                  | Performance optimization      |
+| ⚙️ <a href="https://github.com/telerik/kendo-angular/tree/master/examples-standalone/electron-dashboard">Electron Dashboard</a>             | Electron desktop application  |
+| 🌍 <a href="https://github.com/telerik/kendo-angular/tree/master/examples-standalone/angular-universal">Angular Universal</a>               | Server-side rendering         |
+| 👥 <a href="https://github.com/telerik/kendo-angular/tree/master/examples-standalone/employee-onboarding">Employee Onboarding</a>           | HR workflow example           |
 
-## Sample Projects 📂
+Explore all <a href="https://github.com/telerik/kendo-angular/tree/master/examples-standalone">sample applications</a>.
 
-All sample applications referenced in the documentation are available in this repository under:
+---
 
-* [examples/projects/](https://github.com/telerik/kendo-angular/tree/master/examples/projects)
-* [examples-standalone](https://github.com/telerik/kendo-angular/tree/master/examples-standalone)
+# 💬 Getting Support
 
-### Explore our Standalone Projects 🚀
+All documentation, troubleshooting guides, forums, and support channels are listed in the <a href="#-quick-links">Quick Links</a> table above.
 
-*   [Angular Universal](https://github.com/telerik/kendo-angular/tree/master/examples-standalone/angular-universal)
-*   [Coffee Warehouse](https://github.com/telerik/kendo-angular/tree/master/examples-standalone/coffee-warehouse)
-*   [DialogFlow Integration](https://github.com/telerik/kendo-angular/tree/master/examples-standalone/dialogflow-integration)
-*   [Electron Dashboard](https://github.com/telerik/kendo-angular/tree/master/examples-standalone/electron-dashboard)
-*   [Finance Portfolio](https://github.com/telerik/kendo-angular/tree/master/examples-standalone/finance-portfolio)
-*   [Grid & Charts Integration](https://github.com/telerik/kendo-angular/tree/master/examples-standalone/grid-charts-integration)
-*   [Grid with CSP](https://github.com/telerik/kendo-angular/tree/master/examples-standalone/grid-csp-enabled)
-*   [Grid with Live Data](https://github.com/telerik/kendo-angular/tree/master/examples-standalone/grid-live-data)
-*   [Grid Performance](https://github.com/telerik/kendo-angular/tree/master/examples-standalone/grid-performance)
-*   [i18n Integration](https://github.com/telerik/kendo-angular/tree/master/examples-standalone/integration-i18n)
-*   [ASP.NET Core Integration](https://github.com/telerik/kendo-angular/tree/master/examples-standalone/kendoangular-aspnetcore-integration)
-*   [Java Integration](https://github.com/telerik/kendo-angular/tree/master/examples-standalone/kendoangular-java-integration)
-*   [Landing Page](https://github.com/telerik/kendo-angular/tree/master/examples-standalone/kendoangular-landing-page)
-*   [Personal Finance App](https://github.com/telerik/kendo-angular/tree/master/examples-standalone/personal-finance-app)
-*   [Spreadsheet App](https://github.com/telerik/kendo-angular/tree/master/examples-standalone/spreadsheet-app)
-*   [UMD Bundles](https://github.com/telerik/kendo-angular/tree/master/examples-standalone/umd-bundles)
+Need custom development or architecture assistance?
+
+The <a href="https://www.progress.com/services">Progress Services</a> team can help with custom implementations, migrations, consulting, and full application development.
+
+---
+
+# 💡 Feature Requests
+
+Help shape the future of Kendo UI for Angular.
+
+* Use the <a href="https://feedback.telerik.com/kendo-angular-ui">Feedback Portal</a> to vote on ideas and submit new requests
+* <a href="https://www.telerik.com/account/support-center/contact-us/technical-support">Contact our support team</a> if you have concerns, questions, or need further clarifications
+
+---
+
+# 🔐 Licensing
+
+Kendo UI for Angular is **commercial software** and requires a valid license for production use.
+
+Get started with:
+
+* <a href="https://www.telerik.com/try/kendo-angular-ui">Free Trial</a>
+* <a href="https://www.telerik.com/purchase/kendo-ui">Purchase a License</a>
+* <a href="https://www.telerik.com/kendo-angular-ui/components/my-license/">License Activation Guide</a>
+
+Additional information:
+
+* <a href="https://www.telerik.com/purchase/license-agreement/kendo-ui">Telerik End User License Agreement</a>
+
+---
+
+<div align="center">
+
+## 🌐 Explore More Kendo UI Products
+
+<table>
+<tr>
+<td align="center" width="50%">
+
+<a href="https://github.com/telerik/kendo-react">
+<img src="./assets/react.png" width="120" alt="KendoReact" />
+<p><strong><a href="https://github.com/telerik/kendo-react">KendoReact</a></strong></p>
+</a>
+
+</td>
+<td align="center" width="50%">
+<a href="https://github.com/telerik/kendo-vue">
+<img src="./assets/vue.png" width="120" alt="Kendo UI for Vue" />
+<p><strong><a href="https://github.com/telerik/kendo-vue">Kendo UI for Vue</a></strong></p>
+</a>
+
+</td>
+</tr>
+</table>
+
+</div>
+
+---
+
+<div align="center">
+
+### Stay Connected
+
+[![X](https://img.shields.io/badge/X-black?style=for-the-badge\&logo=x)](https://x.com/KendoUI)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge\&logo=linkedin)](https://www.linkedin.com/showcase/telerik-and-kendo-ui/)
+[![YouTube](https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge\&logo=youtube)](https://www.youtube.com/c/telerik)
+[![Blog](https://img.shields.io/badge/Blog-2DB245?style=for-the-badge&logo=rss&logoColor=white)](https://www.telerik.com/blogs)
+
+</div>
