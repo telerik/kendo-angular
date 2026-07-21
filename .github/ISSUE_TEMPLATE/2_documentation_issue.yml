@@ -20,6 +20,12 @@ body:
     description: Provide screenshots or a video of the issue.
   validations:
     required: false
+- type: textarea
+  attributes:
+    label: Expected behavior
+    description: Describe the expected behavior or correct information that should be present in the documentation.
+  validations:
+    required: true
 - type: dropdown
   attributes:
     label: Browser
