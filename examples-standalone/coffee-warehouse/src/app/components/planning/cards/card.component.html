@@ -1,10 +1,10 @@
 @for (card of cards; track card) {
   <kendo-card
     (click)="onCardClick(card)"
-    style="border-width: 0px; cursor: pointer; display: table-cell"
+    class="team-card"
     [ngClass]="{ 'card-opacity': card.selected }"
     >
-    <kendo-card-header class="k-hbox">
+    <kendo-card-header class="team-card__header">
       <kendo-avatar
         width="41px"
         height="41px"
@@ -14,7 +14,7 @@
             }"
         [shape]="'circle'"
         class="employee-photo"
-        style="border-width: 2px"
+        class="team-card__avatar"
         >
       </kendo-avatar>
       <div>

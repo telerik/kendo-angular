@@ -2,7 +2,7 @@ import { Component, EventEmitter, Inject, Input, LOCALE_ID, Output } from '@angu
 import { CldrIntlService, IntlService } from '@progress/kendo-angular-intl';
 import { MessageService } from '@progress/kendo-angular-l10n';
 import { CustomMessagesService } from '../services/custom-messages.service';
-import { SVGIcon, menuIcon, paletteIcon } from '@progress/kendo-svg-icons';
+import { SVGIcon, menuIcon } from '@progress/kendo-svg-icons';
 import { locales } from '../resources/locales';
 import { profileBase64 } from '../resources/profile-base64';
 import { ProfileImageService } from '../services/profile-image.service';
@@ -22,27 +22,11 @@ export class HeaderComponent {
     @Input() public selectedPage?: string;
 
     public menuIcon: SVGIcon = menuIcon;
-    public paletteIcon: SVGIcon = paletteIcon;
     public customMsgService: CustomMessagesService;
 
     public selectedLanguage = { locale: 'English', localeId: 'en-US' };
     public locales = locales;
     public popupSettings = { width: '150' };
-    public themes: { href: string; text: string }[] = [
-        {
-            href: 'assets/kendo-theme-default/dist/all.css',
-            text: 'Default'
-        },
-        {
-            href: 'assets/kendo-theme-bootstrap/dist/all.css',
-            text: 'Bootstrap'
-        },
-        {
-            href: 'assets/kendo-theme-material/dist/all.css',
-            text: 'Material'
-        }
-    ];
-    public selectedTheme = this.themes[0];
     public profileImage: string = '';
 
     constructor(
@@ -59,31 +43,12 @@ export class HeaderComponent {
         this.customMsgService = this.messages as CustomMessagesService;
         this.customMsgService.language = this.selectedLanguage.localeId;
 
-        // Initialize theme link element
-        this.initializeTheme();
-    }
-
-    private initializeTheme(): void {
-        let themeEl = document.getElementById('theme') as HTMLLinkElement;
-        if (!themeEl) {
-            themeEl = document.createElement('link');
-            themeEl.id = 'theme';
-            themeEl.rel = 'stylesheet';
-            themeEl.href = this.selectedTheme.href;
-            document.head.appendChild(themeEl);
-        }
     }
 
     public setProfileImage(): void {
         this.profileService.profileImage$.subscribe((image: string) => {
             this.profileImage = image;
         });
-    }
-
-    public changeTheme(theme: { href: string; text: string }): void {
-        this.selectedTheme = theme;
-        const themeEl: any = document.getElementById('theme');
-        themeEl.href = theme.href;
     }
 
     public changeLanguage(item: any): void {

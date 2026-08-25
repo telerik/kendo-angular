@@ -1,11 +1,9 @@
-// Global variables here
-$background-color: #D4D6E4;
-$info-background: #151950;
-$angular-color: #e21e36;
-$link-color: #71A6FF;
-$white: #FFFFFF;
-
-$tiger-team: #FF6358;
-$lemon-team: #FFD246;
-$organic-team: #55AB1D;
-$ocean-team: #28B4C8;
+:root {
+    --kendo-color-app-surface: #d4d6e4;
+    --kendo-color-primary: #151950;
+    --kendo-color-error: #e21e36;
+    --kendo-color-info: #71a6ff;
+    --kendo-font-family: "Roboto", sans-serif;
+    --kendo-translucency-base: 25%;
+    --app-header-height: 5rem;
+}

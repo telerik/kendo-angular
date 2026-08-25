@@ -10,7 +10,7 @@
         [selectedDate]="selectedDate"
         [selectedViewIndex]="1"
         [timezone]="'Etc/UTC'"
-        style="height: 600px"
+        class="planning-scheduler"
         startTime="08:00"
         endTime="19:00"
         [eventStyles]="setEventStyles"
@@ -86,7 +86,7 @@
           </form>
 
           <!-- Separate form for recurrence editor -->
-          <form [formGroup]="formGroup" style="margin-top: 35px">
+          <form class="recurrence-form" [formGroup]="formGroup">
             @if (isEditingSeries(editMode)) {
               <div>
                 <kendo-recurrence-editor [formControl]="formGroup.get('recurrenceRule')"> </kendo-recurrence-editor>

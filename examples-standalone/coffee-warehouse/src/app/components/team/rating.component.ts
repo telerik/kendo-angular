@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { SVGIcon, starIcon, starOutlineIcon } from '@progress/kendo-svg-icons';
+import { SVGIcon, starIcon } from '@progress/kendo-svg-icons';
 import { KENDO_ICONS } from '@progress/kendo-angular-icons';
 import { NgClass } from '@angular/common';
 
@@ -9,7 +9,7 @@ import { NgClass } from '@angular/common';
     styles: [
         `
             .yellow {
-                color: #ffa600;
+                color: var(--kendo-color-warning);
             }
         `
     ],

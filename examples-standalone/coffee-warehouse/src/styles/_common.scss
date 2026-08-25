@@ -1,5 +1,3 @@
-@use './variables' as *;
-
 // Normalization
 body,
 h1,
@@ -15,10 +13,10 @@ a {
 
 // App styles
 .k-drawer-container {
-    background-color: $background-color;
+    background-color: var(--kendo-color-app-surface);
 
     .k-drawer {
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        box-shadow: var(--kendo-elevation-3);
 
         &.k-drawer-start {
             border-right-width: 0;
@@ -27,8 +25,8 @@ a {
 
     &.k-drawer-push .k-drawer {
         position: sticky;
-        top: 80px;
-        height: calc(100vh - 80px);
+        top: var(--app-header-height);
+        height: calc(100vh - var(--app-header-height));
     }
 
     .k-drawer-item {
@@ -41,21 +39,21 @@ a {
 }
 
 .card-container {
-    background-color: $white;
-    padding: 40px 0;
+    background-color: var(--kendo-color-surface-alt);
+    padding: var(--kendo-spacing-10) 0;
     text-align: center;
 
     .card-header-wrapper {
         display: flex;
         justify-content: space-between;
-        margin-bottom: 1rem;
+        margin-bottom: var(--kendo-spacing-4);
     }
 
     &.grid {
         display: grid;
         grid-template-columns: repeat(1, 1fr);
-        column-gap: 10px;
-        row-gap: 1em;
+        column-gap: var(--kendo-spacing-3);
+        row-gap: var(--kendo-spacing-4);
     }
 
     .card-buttons {
@@ -70,12 +68,12 @@ a {
 
     .chart-tooltip {
         text-align: center;
-        font-size: 15px;
+        font-size: var(--kendo-font-size-sm);
         font-weight: bold;
     }
 
     .calendar-icon {
-        color: #656565;
+        color: var(--kendo-color-subtle);
         cursor: pointer;
         margin-right: 5px;
     }
@@ -105,7 +103,7 @@ a {
 @media (min-width: 480px) {
     .card-container {
         text-align: initial;
-        padding: 30px;
+        padding: var(--kendo-spacing-8);
 
         &.grid {
             grid-template-columns: repeat(2, 1fr);
@@ -132,9 +130,9 @@ a {
 
 @media (min-width: 840px) {
     .card-container {
-        margin: 25px;
-        border-radius: 5px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        margin: var(--kendo-spacing-6);
+        border-radius: var(--kendo-border-radius-md);
+        box-shadow: var(--kendo-elevation-2);
 
         &.grid {
             grid-template-columns: repeat(3, 1fr);
@@ -184,7 +182,7 @@ a {
 }
 
 .header {
-    height: 80px;
+    height: var(--app-header-height);
     position: sticky;
     top: 0;
     z-index: 3;
@@ -195,7 +193,7 @@ a {
         align-items: center;
         justify-content: space-between;
         height: 100%;
-        color: $white;
+        color: var(--kendo-color-on-primary);
     }
 
     .menu-button {
@@ -222,7 +220,7 @@ a {
         height: 40px;
         flex-basis: 40px;
         margin: 0 25px;
-        box-shadow: 0 0 0px 1px $white;
+        box-shadow: 0 0 0 var(--kendo-spacing-1px) var(--kendo-color-on-primary);
     }
 
     .settings {
@@ -237,7 +235,7 @@ a {
             align-items: center;
         }
         .vl {
-            border-left: 1px solid $white;
+            border-left: var(--kendo-spacing-1px) solid var(--kendo-color-on-primary);
             height: 25px;
             margin: 6px 15px;
         }
@@ -300,18 +298,8 @@ a {
         row-gap: 1em;
     }
 
-    .k-card-header {
-        padding-left: 10px;
-        padding-right: 10px;
-    }
-
     .card-title {
         grid-column: 1 / -1;
-    }
-    .k-hbox {
-        padding: 0 20px;
-        background: transparent;
-        align-items: center;
     }
     .k-card-title {
         font-size: 15px;
@@ -335,7 +323,7 @@ a {
             grid-template-columns: repeat(2, 1fr);
         }
 
-        .k-hbox {
+        .team-card__header {
             padding-left: 0;
         }
     }
@@ -343,10 +331,39 @@ a {
 
 @media (min-width: 840px) {
     .planning-page {
-        .k-hbox {
+        .team-card__header {
             border-width: 0;
         }
     }
+}
+
+.team-card {
+    border-width: 0;
+    cursor: pointer;
+    display: table-cell;
+}
+
+.team-card__header {
+    align-items: center;
+    background: transparent;
+    display: flex;
+    padding: 0 var(--kendo-spacing-5);
+}
+
+.team-card__avatar {
+    border-width: var(--kendo-spacing-1);
+}
+
+.planning-scheduler {
+    height: 37.5rem;
+}
+
+.recurrence-form {
+    margin-top: var(--kendo-spacing-9);
+}
+
+.profile-form {
+    max-width: 43.75rem;
 }
 
 @media (min-width: 960px) {
@@ -449,10 +466,10 @@ a {
 
 // Info page
 .info-page {
-    background-color: #06163e;
+    background-color: var(--kendo-color-primary-active);
     background-image: url('../assets/info-bg.jpg');
     background-position: right 0px top 0px;
-    color: $white;
+    color: var(--kendo-color-on-primary);
     background-repeat: no-repeat;
     opacity: 0.9;
 
@@ -463,7 +480,7 @@ a {
         font-family: Metric, Helvetica, Arial, sans-serif;
     }
     a:not(.k-button) {
-        color: $link-color;
+        color: var(--kendo-color-info);
     }
 
     .content {
@@ -534,7 +551,7 @@ a {
 
     .package-title a {
         font-size: 17px;
-        color: #cccccc;
+        color: var(--kendo-color-on-primary);
         text-transform: uppercase;
     }
 

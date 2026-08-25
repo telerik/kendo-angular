@@ -1,7 +1,7 @@
 <div class="profile-page main-content">
   <div class="card-container">
     <div class="card-component">
-      <form class="k-form k-form-horizontal" style="max-width: 700px" [formGroup]="formGroup">
+      <form class="k-form k-form-horizontal profile-form" [formGroup]="formGroup">
         <fieldset class="k-form-fieldset">
           <kendo-formfield orientation="horizontal">
             <label class="k-label">
@@ -130,7 +130,7 @@
             <button kendoButton (click)="cancelChanges()">
               {{ customMsgService.translate('cancel') }}
             </button>
-            <button kendoButton [primary]="true" [disabled]="formGroup.invalid || formGroup.pristine" (click)="saveChanges()">
+            <button kendoButton themeColor="primary" [disabled]="formGroup.invalid || formGroup.pristine" (click)="saveChanges()">
               {{ customMsgService.translate('saveChanges') }}
             </button>
           </div>
