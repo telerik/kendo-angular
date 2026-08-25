@@ -1,5 +1,12 @@
 <div class="planning-page main-content">
   <div class="card-container grid">
+    <header class="page-header">
+      <div>
+        <h1>{{ customMsgService.translate('planning') }}</h1>
+        <p>{{ customMsgService.translate('planningDescription') }}</p>
+      </div>
+      <span class="page-status">{{ customMsgService.translate('lastUpdated') }}</span>
+    </header>
     <h3 class="card-title">{{ customMsgService.translate('teamCalendar') }}</h3>
     <app-card-component class="card-component personal-card" (toggleEvents)="toggleEvents($event)"> </app-card-component>
 

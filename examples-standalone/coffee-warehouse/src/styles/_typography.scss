@@ -33,7 +33,7 @@ a {
     font-size: var(--kendo-font-size);
 }
 
-@media (min-width: 480px) {
+@media (min-width: 576px) {
     h1 {
         font-size: calc(var(--kendo-font-size-xl) * 1.2);
         font-weight: var(--kendo-font-weight-normal);
@@ -44,7 +44,7 @@ a {
     }
 }
 
-@media (min-width: 840px) {
+@media (min-width: 768px) {
     h1 {
         font-size: calc(var(--kendo-font-size-xl) * 1.4);
         font-weight: var(--kendo-font-weight-normal);

@@ -2,7 +2,7 @@ import { Component, EventEmitter, Inject, Input, LOCALE_ID, Output } from '@angu
 import { CldrIntlService, IntlService } from '@progress/kendo-angular-intl';
 import { MessageService } from '@progress/kendo-angular-l10n';
 import { CustomMessagesService } from '../services/custom-messages.service';
-import { SVGIcon, menuIcon } from '@progress/kendo-svg-icons';
+import { SVGIcon, bellIcon, menuIcon } from '@progress/kendo-svg-icons';
 import { locales } from '../resources/locales';
 import { profileBase64 } from '../resources/profile-base64';
 import { ProfileImageService } from '../services/profile-image.service';
@@ -22,6 +22,7 @@ export class HeaderComponent {
     @Input() public selectedPage?: string;
 
     public menuIcon: SVGIcon = menuIcon;
+    public bellIcon: SVGIcon = bellIcon;
     public customMsgService: CustomMessagesService;
 
     public selectedLanguage = { locale: 'English', localeId: 'en-US' };

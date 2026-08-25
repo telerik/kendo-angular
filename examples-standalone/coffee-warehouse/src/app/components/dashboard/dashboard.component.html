@@ -1,4 +1,11 @@
 <div class="card-container">
+  <header class="page-header">
+    <div>
+      <h1>{{ customMsgService.translate('dashboard') }}</h1>
+      <p>{{ customMsgService.translate('dashboardDescription') }}</p>
+    </div>
+    <span class="page-status">{{ customMsgService.translate('lastUpdated') }}</span>
+  </header>
   <div class="card-header-wrapper">
     <h3 class="card-title">
       {{ customMsgService.translate('teamEfficiency') }}
