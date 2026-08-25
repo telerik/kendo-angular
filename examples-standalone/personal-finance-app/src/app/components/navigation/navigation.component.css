@@ -57,3 +57,14 @@
     padding-block: var(--kendo-spacing-0);
     padding-inline: var(--kendo-spacing-0);
 }
+
+@media (max-width: 35.9375rem) {
+    .application-content {
+        height: auto;
+        min-height: 100vh;
+    }
+
+    .application-main {
+        min-width: 0;
+    }
+}

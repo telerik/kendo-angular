@@ -1,0 +1,31 @@
+:host {
+    display: block;
+}
+
+.not-found-page {
+    display: grid;
+    min-height: 100%;
+    padding: var(--kendo-spacing-8);
+    place-items: center;
+}
+
+.not-found-card {
+    width: min(100%, 26rem);
+    padding: var(--kendo-spacing-8);
+    border: 1px solid var(--kendo-color-border);
+    border-radius: var(--kendo-border-radius-xl);
+    background-color: var(--kendo-color-surface-alt);
+    text-align: center;
+}
+
+.not-found-code {
+    margin-block-end: var(--kendo-spacing-4);
+    color: var(--kendo-color-primary);
+    font-size: var(--kendo-font-size-xl);
+    font-weight: var(--kendo-font-weight-semibold);
+}
+
+.not-found-description {
+    margin-block: var(--kendo-spacing-4) var(--kendo-spacing-6);
+    color: var(--kendo-color-subtle);
+}

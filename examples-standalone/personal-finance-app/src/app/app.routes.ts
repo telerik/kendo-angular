@@ -5,6 +5,7 @@ import { SettingsComponent } from './components/settings/settings.component';
 import { TransactionsComponent } from './components/transactions/transactions.component';
 import { InvestmentsComponent } from './components/investments/investments.component';
 import { AiAssistantComponent } from './components/ai-assistant/ai-assistant.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 export const routes: Routes = [
     { path: '', component: HomeComponent },
@@ -13,4 +14,6 @@ export const routes: Routes = [
     { path: 'analytics', component: AnalyticsComponent },
     { path: 'ai-assistant', component: AiAssistantComponent },
     { path: 'settings', component: SettingsComponent },
+    { path: '404', component: NotFoundComponent },
+    { path: '**', redirectTo: '404' },
 ];

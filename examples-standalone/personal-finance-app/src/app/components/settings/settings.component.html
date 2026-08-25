@@ -113,22 +113,6 @@
                 </div>
             </form>
         </div>
-        <div
-            class="settings-panel calendar-panel"
-        >
-            <div class="panel-heading">
-                <h6 class="k-h6 panel-title">
-                    {{ customMsgService.translate('calendar') }}
-                </h6>
-            </div>
-            <div class="calendar-content">
-                <kendo-calendar
-                    class="settings-calendar"
-                    #calendar
-                    [navigation]="false"
-                ></kendo-calendar>
-            </div>
-        </div>
     </div>
     <div class="settings-layout">
         <div
@@ -209,33 +193,6 @@
                         </div>
                     </div>
                 </form>
-            </div>
-        </div>
-        <div
-            class="settings-panel weather-panel"
-        >
-            <div class="panel-heading">
-                <h6 class="k-h6 panel-title">
-                    {{ customMsgService.translate('weather') }}
-                </h6>
-            </div>
-            <div class="weather-content">
-                <div class="weather-summary">
-                    <kendo-svg-icon [icon]="cloudIcon" class="weather-icon"></kendo-svg-icon>
-                    <span class="weather-description">{{ customMsgService.translate('partlyCloudy') }}</span>
-                    <span class="k-h4 weather-temperature">12&#x2103;</span>
-                </div>
-                <span class="weather-divider"></span>
-                <div class="weather-details">
-                    <span>{{ customMsgService.translate('humidity') }}: 56%</span>
-                    <span>{{ customMsgService.translate('dew') }}: 2 &deg;C</span>
-                    <span
-                        >{{ customMsgService.translate('pressure') }}: 1043 mb</span
-                    >
-                    <span
-                        >{{ customMsgService.translate('windSpeed') }}: 30km/h NW</span
-                    >
-                </div>
             </div>
         </div>
     </div>

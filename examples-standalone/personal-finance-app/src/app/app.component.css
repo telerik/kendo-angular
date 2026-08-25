@@ -137,7 +137,7 @@
     margin-block: 0;
 }
 
-@media (min-width: 64rem) {
+@media (min-width: 62rem) {
     :host ::ng-deep .investments-grid,
     :host ::ng-deep .transactions-layout {
         gap: var(--kendo-spacing-6);
