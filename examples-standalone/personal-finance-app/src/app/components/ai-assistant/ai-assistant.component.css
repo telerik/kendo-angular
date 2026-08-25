@@ -1,3 +1,75 @@
-.k-text-blue {
-    color: #9fa8da;
+.assistant-page {
+    padding: var(--kendo-spacing-8) var(--kendo-spacing-15) var(--kendo-spacing-2);
+    margin-block-end: var(--kendo-spacing-4);
+}
+
+.page-title {
+    margin-block: 0 var(--kendo-spacing-6);
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.assistant-layout {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    gap: var(--kendo-spacing-4);
+    margin-block-end: var(--kendo-spacing-5);
+    overflow: hidden;
+}
+
+.assistant-panel {
+    display: flex;
+    grid-column: span 12;
+    flex-direction: column;
+    gap: var(--kendo-spacing-1);
+    padding: var(--kendo-spacing-4);
+    border-radius: var(--kendo-border-radius-xxl);
+    background: var(--kendo-color-surface-alt);
+}
+
+.panel-heading {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.topics-heading {
+    margin-block-end: var(--kendo-spacing-4);
+}
+
+.prompt-heading {
+    margin-block-end: var(--kendo-spacing-8);
+}
+
+.panel-title {
+    font-weight: var(--kendo-font-weight-medium);
+}
+
+.topics-list {
+    overflow: auto;
+}
+
+.topic-title {
+    color: var(--kendo-color-info-on-surface);
+}
+
+.prompt-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media (min-width: 64rem) {
+    .assistant-layout {
+        gap: var(--kendo-spacing-6);
+    }
+
+    .topics-panel {
+        grid-column: span 7;
+    }
+
+    .prompt-panel {
+        grid-column: span 5;
+    }
 }

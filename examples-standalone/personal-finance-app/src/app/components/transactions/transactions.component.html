@@ -1,19 +1,19 @@
 <div
-    class="k-px-15 k-px-sm-15 k-px-md-15 k-px-lg-15 k-px-xl-15 k-py-2 k-py-sm-1 k-py-md-1 k-py-lg-2 k-py-xl-2 k-pt-8 k-mb-4 k-gap-3"
+    class="transactions-page"
 >
-    <h4 class="k-h4 !k-mb-6 k-text-ellipsis">
+    <h4 class="k-h4 page-title">
         {{ customMsgService.translate('transactions') }}
     </h4>
-    <div class="k-d-grid k-grid-cols-12 k-gap-4 k-gap-lg-6 k-overflow-hidden">
+    <div class="transactions-layout">
         <div
-            class="k-col-span-12 k-col-span-xl-9 k-d-flex k-flex-col k-flex-basis-0 k-flex-grow k-bg-surface-alt k-rounded-xxl k-p-4"
+            class="transaction-panel transaction-list-panel"
         >
-            <div class="k-d-flex k-d-flex-col k-justify-content-between k-align-items-start k-gap-0">
-                <h6 class="k-h6 k-font-medium">
+            <div class="panel-heading">
+                <h6 class="k-h6 panel-title">
                     {{ customMsgService.translate('personalTransactions') }}
                 </h6>
             </div>
-            <div class="k-flex-1 k-d-flex k-d-flex-col k-h-full k-gap-3">
+            <div class="panel-content">
                 <app-transactions-grid
                     [pageSize]="11"
                     (rowSelection)="onRowSelectionChange($event)"
@@ -21,14 +21,14 @@
             </div>
         </div>
         <div
-            class="k-col-span-12 k-col-span-xl-3 k-d-flex k-flex-col k-flex-basis-0 k-flex-grow k-bg-surface-alt k-rounded-xxl k-gap-3 k-p-4"
+            class="transaction-panel transaction-detail-panel"
         >
-            <div class="k-d-flex k-d-flex-col k-justify-content-between k-align-items-start k-gap-0">
-                <h6 class="k-h6 k-font-medium">
+            <div class="panel-heading">
+                <h6 class="k-h6 panel-title">
                     {{ customMsgService.translate('transactionDetails') }}
                 </h6>
             </div>
-            <div class="k-flex-1 k-d-flex k-d-flex-col k-h-full k-gap-3">
+            <div class="panel-content">
                 <app-transaction-detail [transaction]="selectedTransaction"></app-transaction-detail>
             </div>
         </div>

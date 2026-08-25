@@ -2,17 +2,71 @@
     flex-direction: row-reverse;
 }
 
-.custom-dimensions {
-    width: 119px;
-    max-width: 119px;
+.application-header,
+.user-greeting,
+.header-actions {
+    display: flex;
+    align-items: center;
 }
 
-.k-font-size-custom {
-    font-size: 14px;
+.application-header {
+    flex-flow: row wrap;
+    justify-content: space-between;
+    gap: var(--kendo-spacing-4);
+    padding: var(--kendo-spacing-6\.5) var(--kendo-spacing-15);
 }
 
-@media (max-width: 992px) {
-    .k-justify-content-sm-start {
-        justify-content: start;
+.user-greeting,
+.header-search,
+.header-actions {
+    flex: 1 0 0;
+}
+
+.user-greeting {
+    gap: var(--kendo-spacing-2);
+}
+
+.greeting-copy {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: flex-start;
+    gap: var(--kendo-spacing-3);
+}
+
+.greeting-title {
+    height: var(--kendo-spacing-6);
+    font-size: var(--kendo-font-size-xl);
+    font-weight: var(--kendo-font-weight-bold);
+    white-space: nowrap;
+}
+
+.greeting-subtitle {
+    font-size: var(--kendo-font-size-md);
+    font-weight: var(--kendo-font-weight-medium);
+    white-space: nowrap;
+}
+
+.search-control {
+    display: flex;
+}
+
+.city-search {
+    --kendo-input-bg: var(--kendo-color-inverse);
+    --kendo-input-text: var(--kendo-color-subtle);
+    --kendo-input-border: transparent;
+}
+
+.header-actions {
+    justify-content: flex-end;
+    gap: var(--kendo-spacing-4);
+}
+
+.action-label {
+    font-size: var(--kendo-font-size-md);
+}
+
+@media (max-width: 62rem) {
+    .header-actions {
+        justify-content: flex-start;
     }
 }

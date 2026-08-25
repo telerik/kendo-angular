@@ -37,21 +37,21 @@ export class HomeComponent {
     public colors: ColorRange[] = [
         {
             to: 25,
-            color: '#1D84D6',
+            color: 'var(--kendo-color-info)',
         },
         {
             from: 25,
             to: 50,
-            color: '#1D84D6',
+            color: 'var(--kendo-color-info)',
         },
         {
             from: 50,
             to: 75,
-            color: '#1D84D6',
+            color: 'var(--kendo-color-info)',
         },
         {
             from: 75,
-            color: '#1D84D6',
+            color: 'var(--kendo-color-info)',
         },
     ];
 }
