@@ -2,13 +2,13 @@
 <div class="container">
   @for (card of cryptoCards; track card) {
     <kendo-card width="320px" class="card">
-      <kendo-card-header class="k-hstack">
+      <kendo-card-header class="portfolio-card__header">
         <kendo-avatar
           width="40px"
           height="40px"
           [imageSrc]="getImg(card)"
           shape="circle"
-          style="background-color: transparent;"
+          class="portfolio-card__avatar"
         ></kendo-avatar>
         <div>
           <h1 kendoCardTitle class="card-title">

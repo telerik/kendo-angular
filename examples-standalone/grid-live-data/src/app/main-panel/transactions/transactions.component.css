@@ -1,6 +1,16 @@
 .card-title {
-    font-size: 22px;
-    font-weight: 500;
-    line-height: 30px;
-    color: #424242;
+    font-size: calc(var(--kendo-font-size-lg) * 1.1);
+    font-weight: var(--kendo-font-weight-medium);
+    line-height: var(--kendo-line-height-md);
+    color: var(--kendo-color-on-surface);
+}
+
+.transaction-card__header {
+    display: flex;
+    align-items: center;
+    gap: var(--kendo-spacing-2);
+}
+
+.transaction-card__avatar {
+    background-color: transparent;
 }

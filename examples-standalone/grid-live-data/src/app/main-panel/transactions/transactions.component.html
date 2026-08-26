@@ -2,13 +2,13 @@
 <div class="card-container">
   @for (card of transactionCards; track card) {
     <kendo-card width="380px" class="transaction-card">
-      <kendo-card-header class="k-hstack">
+      <kendo-card-header class="transaction-card__header">
         <kendo-avatar
           width="40px"
           height="40px"
           [imageSrc]="getCardImg(card)"
           shape="circle"
-          style="background-color: transparent;"
+          class="transaction-card__avatar"
         ></kendo-avatar>
         <div>
           <h1 kendoCardTitle class="card-title">

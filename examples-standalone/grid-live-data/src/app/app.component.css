@@ -1,8 +1,8 @@
 .body {
     display: flex;
-    font-family: Roboto, sans-serif;
+    font-family: var(--kendo-font-family);
 }
 
 .portfolio {
-    margin: 0px 25px;
+    margin: var(--kendo-spacing-0) var(--kendo-spacing-6);
 }

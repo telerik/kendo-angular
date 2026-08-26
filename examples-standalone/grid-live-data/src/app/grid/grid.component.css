@@ -1,33 +1,34 @@
 .grid-section-title {
-    font-weight: 500;
-    font-size: 24px;
-    color: #626880;
+    font-weight: var(--kendo-font-weight-medium);
+    font-size: var(--kendo-font-size-xl);
+    color: var(--kendo-color-subtle);
 }
 
 .price-down .priceColumn,
 .arrow-down {
-    color: #f31700;
+    color: var(--kendo-color-error);
 }
 
 .price-up .priceColumn,
 .arrow-up {
-    color: #37b400;
+    color: var(--kendo-color-success);
 }
 
 .coin-logo {
-    height: 22px;
-    width: 22px;
+    height: calc(var(--kendo-icon-size) * 1.375);
+    width: calc(var(--kendo-icon-size) * 1.375);
 }
 .currency {
-    margin: 3px 5px 0px 5px;
-    color: #4b5ffa;
-    font-weight: bold;
+    margin: var(--kendo-spacing-1) var(--kendo-spacing-1\.5) var(--kendo-spacing-0) var(--kendo-spacing-1\.5);
+    color: var(--kendo-color-secondary);
+    font-weight: var(--kendo-font-weight-bold);
 }
 
 .currency-container {
     display: flex;
     align-items: center;
+    gap: var(--kendo-spacing-1);
 }
 .crypto-symbol {
-    color: #959595;
+    color: var(--kendo-color-subtle);
 }
