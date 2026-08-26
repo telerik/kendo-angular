@@ -3,13 +3,14 @@
     font-size: var(--kendo-font-size-xl);
     line-height: var(--kendo-line-height-md);
     color: var(--kendo-color-subtle);
+    margin-block: var(--kendo-spacing-2) var(--kendo-spacing-3);
 }
 
 .container {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-between;
+    gap: var(--kendo-spacing-4);
     padding-bottom: var(--kendo-spacing-4);
 }
 
@@ -41,7 +42,8 @@
 }
 
 .card {
-    flex-shrink: 0.3;
+    flex: 1 1 calc(var(--kendo-spacing-24) * 3);
+    min-width: 0;
 }
 
 .negative {
@@ -72,4 +74,10 @@
 
 .portfolio-card__avatar {
     background-color: transparent;
+}
+
+@media (max-width: 575px) {
+    .card {
+        flex-basis: 100%;
+    }
 }

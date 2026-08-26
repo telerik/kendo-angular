@@ -1,7 +1,7 @@
-<p class="my-portfolio-title">My portfolio</p>
+<h2 class="my-portfolio-title">My portfolio</h2>
 <div class="container">
   @for (card of cryptoCards; track card) {
-    <kendo-card width="320px" class="card">
+    <kendo-card class="card">
       <kendo-card-header class="portfolio-card__header">
         <kendo-avatar
           width="40px"
@@ -11,10 +11,10 @@
           class="portfolio-card__avatar"
         ></kendo-avatar>
         <div>
-          <h1 kendoCardTitle class="card-title">
+          <h3 kendoCardTitle class="card-title">
             {{ card.symbol }}
             <span class="price">{{ intl.formatNumber(card.currentPrice, 'c') }}</span>
-          </h1>
+          </h3>
           <p kendoCardSubtitle class="card-subtitle">
             {{ card.currency }}
             <span class="price" [ngClass]="{ 'negative': card.change_24h < 0, 'positive': card.change_24h > 0 }">

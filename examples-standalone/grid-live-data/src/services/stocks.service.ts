@@ -16,17 +16,28 @@ export class StocksService {
 
     getDataObservable(): Observable<Stock[]> {
         return new Observable<Stock[]>((observer) => {
-            this.http.get<Stock[]>(this.stocksUrl).subscribe((data: Stock[]) => {
-                this.immutableData = data;
-                this.previousData = data;
-                observer.next(this.immutableData);
-
-                setInterval(() => {
-                    this.immutableData = this.immutableData.map((row: Stock) => this.updateRandomRowWithData(row));
-
+            let intervalId: ReturnType<typeof setInterval> | undefined;
+            const subscription = this.http.get<Stock[]>(this.stocksUrl).subscribe({
+                next: (data) => {
+                    this.immutableData = data;
+                    this.previousData = data;
                     observer.next(this.immutableData);
-                }, this.updateFreq);
+
+                    intervalId = setInterval(() => {
+                        this.previousData = this.immutableData;
+                        this.immutableData = this.immutableData.map((row) => this.updateRandomRowWithData(row));
+                        observer.next(this.immutableData);
+                    }, this.updateFreq);
+                },
+                error: (error: unknown) => observer.error(error)
             });
+
+            return () => {
+                subscription.unsubscribe();
+                if (intervalId) {
+                    clearInterval(intervalId);
+                }
+            };
         });
     }
 
@@ -43,17 +54,14 @@ export class StocksService {
             const percentageValue = row.change_24h + changePercentage;
             const priceValue = row.currentPrice + changePrice;
 
-            let newRow = {
+            return {
                 ...row,
                 change_24h: percentageValue,
                 currentPrice: priceValue
             };
-
-            this.previousData = [...this.immutableData];
-            return newRow;
-        } else {
-            return row;
         }
+
+        return row;
     }
 }
 

@@ -1,6 +1,6 @@
 .right-panel {
-    padding: var(--kendo-spacing-2\.5) var(--kendo-spacing-8);
-    width: calc(var(--kendo-spacing-24) * 3.875);
+    min-width: 0;
+    padding: var(--kendo-spacing-6);
     background: var(--kendo-color-surface);
 }
 
@@ -9,6 +9,7 @@
     font-weight: var(--kendo-font-weight-medium);
     line-height: var(--kendo-line-height-md);
     color: var(--kendo-color-subtle);
+    margin-block: var(--kendo-spacing-2) var(--kendo-spacing-3);
 }
 
 .panel-card {
@@ -86,4 +87,23 @@ kendo-chip {
     font-weight: var(--kendo-font-weight-light);
     line-height: var(--kendo-line-height-md);
     color: var(--kendo-color-on-surface);
+}
+
+@media (max-width: 991px) {
+    .right-panel {
+        display: grid;
+        gap: var(--kendo-spacing-4);
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .right-panel > * {
+        min-width: 0;
+    }
+}
+
+@media (max-width: 767px) {
+    .right-panel {
+        grid-template-columns: 1fr;
+        padding: var(--kendo-spacing-4);
+    }
 }

@@ -1,11 +1,11 @@
-<p class="right-panel-title">News Feed</p>
+<h2 class="right-panel-title">News Feed</h2>
 <div class="card-container">
   @for (news of newsFeedData; track news) {
-    <kendo-card width="400px" class="news-feed-card">
+    <kendo-card class="news-feed-card">
       <kendo-card-header class="news-feed-card__header">
-        <h1 kendoCardTitle class="news-feed">
+        <h3 kendoCardTitle class="news-feed">
           {{ news.title }}
-        </h1>
+        </h3>
         <kendo-avatar
           width="112px"
           height="60px"

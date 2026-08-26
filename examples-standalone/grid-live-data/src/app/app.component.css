@@ -1,8 +1,24 @@
 .body {
-    display: flex;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(20rem, 28rem);
+    max-width: calc(var(--kendo-spacing-24) * 25);
+    margin: 0 auto;
     font-family: var(--kendo-font-family);
 }
 
 .portfolio {
-    margin: var(--kendo-spacing-0) var(--kendo-spacing-6);
+    min-width: 0;
+    padding: var(--kendo-spacing-6);
+}
+
+@media (max-width: 991px) {
+    .body {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}
+
+@media (max-width: 575px) {
+    .portfolio {
+        padding: var(--kendo-spacing-4);
+    }
 }

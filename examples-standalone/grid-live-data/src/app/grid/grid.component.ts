@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { KENDO_GRID, RowClassArgs } from '@progress/kendo-angular-grid';
+import { KENDO_GRID } from '@progress/kendo-angular-grid';
 import { Observable } from 'rxjs';
+import { catchError, map, of, startWith } from 'rxjs';
 import {
   trigger,
   style,
@@ -53,27 +54,34 @@ import { CommonModule } from '@angular/common';
   ],
 })
 export class GridComponent {
-  public gridData: Observable<Stock[]>;
-  public prevDataItem!: Stock;
+  public gridData: Observable<MarketDataState>;
 
   public downArrowIcon: SVGIcon = caretAltDownIcon;
   public upArrowIcon: SVGIcon = caretAltUpIcon;
 
   constructor(private stockService: StocksService) {
-    this.gridData = this.stockService.getDataObservable();
+    this.gridData = this.stockService.getDataObservable().pipe(
+      map((data) => ({ data, loading: false, error: false })),
+      startWith({ data: [], loading: true, error: false }),
+      catchError(() => of({ data: [], loading: false, error: true }))
+    );
   }
 
-  public rowCallback = (context: RowClassArgs) => {
-    const previousData = this.stockService.previousData;
-    const index = previousData.findIndex(
-      (item) => item.id === context.dataItem.id
-    );
-    this.prevDataItem = previousData[index];
+  public priceChangedUp(dataItem: Stock): boolean {
+    return dataItem.currentPrice > this.previousPrice(dataItem);
+  }
 
-    if (context.dataItem.change_24h > 0) {
-      return { 'price-up': true };
-    } else {
-      return { 'price-down': true };
-    }
-  };
+  public priceChangedDown(dataItem: Stock): boolean {
+    return dataItem.currentPrice < this.previousPrice(dataItem);
+  }
+
+  private previousPrice(dataItem: Stock): number {
+    return this.stockService.previousData.find((item) => item.id === dataItem.id)?.currentPrice ?? dataItem.currentPrice;
+  }
+}
+
+interface MarketDataState {
+  data: Stock[];
+  loading: boolean;
+  error: boolean;
 }

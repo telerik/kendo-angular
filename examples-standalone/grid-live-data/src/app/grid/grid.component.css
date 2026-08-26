@@ -1,16 +1,45 @@
+.grid-heading {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: var(--kendo-spacing-4);
+    margin-block: var(--kendo-spacing-6) var(--kendo-spacing-3);
+}
+
 .grid-section-title {
     font-weight: var(--kendo-font-weight-medium);
     font-size: var(--kendo-font-size-xl);
     color: var(--kendo-color-subtle);
+    margin: 0;
 }
 
-.price-down .priceColumn,
-.arrow-down {
+.grid-section-description {
+    color: var(--kendo-color-subtle);
+    font-size: var(--kendo-font-size-sm);
+    margin: var(--kendo-spacing-1) 0 0;
+}
+
+.market-status {
+    color: var(--kendo-color-success-on-surface);
+    font-size: var(--kendo-font-size-sm);
+    font-weight: var(--kendo-font-weight-medium);
+    white-space: nowrap;
+}
+
+.grid-feedback {
+    padding: var(--kendo-spacing-6) 0;
+    color: var(--kendo-color-subtle);
+}
+
+.grid-feedback--error {
+    color: var(--kendo-color-error-on-surface);
+}
+
+.price-down {
     color: var(--kendo-color-error);
 }
 
-.price-up .priceColumn,
-.arrow-up {
+.price-up {
     color: var(--kendo-color-success);
 }
 
@@ -31,4 +60,11 @@
 }
 .crypto-symbol {
     color: var(--kendo-color-subtle);
+}
+
+@media (max-width: 575px) {
+    .grid-heading {
+        align-items: start;
+        flex-direction: column;
+    }
 }
