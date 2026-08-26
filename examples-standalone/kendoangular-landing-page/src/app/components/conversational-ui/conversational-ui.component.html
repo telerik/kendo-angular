@@ -1,12 +1,12 @@
 <div class="container">
     <div class="wrapper">
-        <p>Conversational UI</p>
+        <h2>Conversational UI</h2>
         <kendo-chat class="chat" [messages]="(feed | async)!" (sendMessage)="sendMessage($event)" [authorId]="user.id">
         </kendo-chat>
     </div>
 
     <div class="wrapper">
-        <p>AI Prompt</p>
+        <h2>AI Prompt</h2>
         <kendo-aiprompt             
             class="prompt"
             (promptRequest)="onPromptRequest($event)"

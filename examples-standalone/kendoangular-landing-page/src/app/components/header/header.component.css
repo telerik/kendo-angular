@@ -75,9 +75,8 @@
 .header-dashboard {
     display: flex;
     flex-direction: column;
-    width: 630px;
-    height: 680px;
-    margin-left: var(--kendo-spacing-1\.5);
+    width: min(100%, 39.375rem);
+    margin: 0 auto;
     gap: var(--kendo-spacing-7\.5);
 }
 
@@ -95,4 +94,14 @@
 
 .k-form-buttons > .k-button-solid-primary {
     background-color: var(--kendo-color-primary);
+}
+
+@media (max-width: 991.98px) {
+    .header-dashboard__panels {
+        flex-direction: column;
+    }
+
+    .header-dashboard__panel {
+        max-height: none;
+    }
 }

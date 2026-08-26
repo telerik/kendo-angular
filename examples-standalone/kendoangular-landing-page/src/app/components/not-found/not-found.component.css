@@ -1,0 +1,28 @@
+.not-found {
+    max-width: 37.5rem;
+    margin: var(--kendo-spacing-16) auto;
+    padding: var(--kendo-spacing-8);
+    text-align: center;
+    background: var(--kendo-color-surface);
+    border: 1px solid var(--kendo-color-border);
+    border-radius: var(--kendo-border-radius-lg);
+}
+
+.not-found__eyebrow {
+    margin: 0 0 var(--kendo-spacing-2);
+    color: var(--kendo-color-secondary-on-surface);
+    font-size: var(--kendo-font-size-sm);
+    font-weight: var(--kendo-font-weight-semibold);
+}
+
+.not-found h2 {
+    margin: 0 0 var(--kendo-spacing-3);
+    color: var(--kendo-color-primary-on-surface);
+    font-size: var(--kendo-font-size-xl);
+    font-weight: var(--kendo-font-weight-semibold);
+}
+
+.not-found p:not(.not-found__eyebrow) {
+    margin: 0 0 var(--kendo-spacing-6);
+    color: var(--kendo-color-subtle);
+}

@@ -1,1 +1,41 @@
-<router-outlet></router-outlet>
+<a class="skip-link" href="#main-content">Skip to content</a>
+
+<div class="app-shell">
+    <header class="app-shell__header">
+        <a class="app-shell__brand" routerLink="/header" (click)="closeMenu()">Kendo UI for Angular</a>
+        <button
+            kendoButton
+            class="app-shell__menu-button"
+            fillMode="flat"
+            [svgIcon]="menuOpen ? closeIcon : menuIcon"
+            [attr.aria-expanded]="menuOpen"
+            aria-controls="gallery-navigation"
+            aria-label="Toggle component navigation"
+            (click)="menuOpen = !menuOpen"
+        ></button>
+    </header>
+
+    <div class="app-shell__body">
+        <nav id="gallery-navigation" class="app-shell__nav" [class.app-shell__nav--open]="menuOpen" aria-label="Component navigation">
+            <a routerLink="/header" routerLinkActive="is-active" (click)="closeMenu()">Overview</a>
+            <a routerLink="/grid" routerLinkActive="is-active" (click)="closeMenu()">Data Grid</a>
+            <a routerLink="/charts" routerLinkActive="is-active" (click)="closeMenu()">Charts</a>
+            <a routerLink="/scheduler" routerLinkActive="is-active" (click)="closeMenu()">Scheduler</a>
+            <a routerLink="/dateinputs" routerLinkActive="is-active" (click)="closeMenu()">Date Inputs</a>
+            <a routerLink="/dropdowns" routerLinkActive="is-active" (click)="closeMenu()">Dropdowns</a>
+            <a routerLink="/layout" routerLinkActive="is-active" (click)="closeMenu()">Layout</a>
+            <a routerLink="/chat" routerLinkActive="is-active" (click)="closeMenu()">AI and Chat</a>
+            <a routerLink="/editor" routerLinkActive="is-active" (click)="closeMenu()">Editor</a>
+            <a routerLink="/dialogs" routerLinkActive="is-active" (click)="closeMenu()">Dialogs</a>
+            <a routerLink="/treeview" routerLinkActive="is-active" (click)="closeMenu()">TreeView</a>
+        </nav>
+
+        <main id="main-content" class="app-shell__content" tabindex="-1">
+            <div class="app-shell__page-header">
+                <h1>{{ pageTitle }}</h1>
+                <p>Interactive component examples built with the Kendo UI for Angular library.</p>
+            </div>
+            <router-outlet></router-outlet>
+        </main>
+    </div>
+</div>
