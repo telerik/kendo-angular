@@ -186,6 +186,38 @@
   <router-outlet />
 </main>
 
+<button
+  kendoButton
+  themeColor="primary"
+  rounded="full"
+  class="assistant-fab"
+  [svgIcon]="sparklesIcon"
+  aria-label="Open Care Assistant"
+  title="Open Care Assistant"
+  (click)="openAssistant()"
+></button>
+
+@if (assistantOpened) {
+  <kendo-dialog
+    title="Care Assistant"
+    [width]="400"
+    [height]="560"
+    (close)="closeAssistant()"
+    class="assistant-dialog"
+  >
+    <p class="assistant-disclaimer">Demo guidance only. Do not use this assistant for diagnosis or urgent clinical decisions.</p>
+    <kendo-chat
+      [messages]="assistantMessages"
+      [authorId]="assistantUser.id"
+      [suggestions]="assistantSuggestions"
+      [showUsername]="false"
+      [messageContextMenuActions]="[]"
+      (sendMessage)="onAssistantMessage($event)"
+      (suggestionExecute)="onAssistantSuggestion($event)"
+    ></kendo-chat>
+  </kendo-dialog>
+}
+
 <!-- User Profile Dialog -->
 @if (profileDialogOpened) {
   <kendo-dialog [width]="dialogWidth()" [height]="dialogHeight()" (close)="closeProfileDialog()" class="profile-dialog">

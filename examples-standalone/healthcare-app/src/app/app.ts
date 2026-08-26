@@ -16,6 +16,8 @@ import { KENDO_LABELS } from '@progress/kendo-angular-label';
 import { KENDO_LAYOUT } from '@progress/kendo-angular-layout';
 import { KENDO_NAVIGATION } from '@progress/kendo-angular-navigation';
 import { KENDO_POPUP } from '@progress/kendo-angular-popup';
+import { ChatSuggestion, KENDO_CONVERSATIONALUI, Message, SendMessageEvent, User } from '@progress/kendo-angular-conversational-ui';
+import { guid } from '@progress/kendo-angular-common';
 import { PageHeaderService } from './services/page-header.service';
 import { PatientsService } from './services/patients.service';
 import { Patient } from './data/patients.data';
@@ -29,6 +31,7 @@ import {
   homeIcon,
   menuIcon,
   searchIcon,
+  sparklesIcon,
   SVGIcon,
   uploadIcon,
   userIcon,
@@ -55,6 +58,7 @@ import {
     KENDO_DIALOG,
     KENDO_LABELS,
     KENDO_POPUP,
+    KENDO_CONVERSATIONALUI,
   ],
 })
 export class App implements OnInit {
@@ -76,6 +80,7 @@ export class App implements OnInit {
   public currentYear = new Date().getFullYear();
   public uploadIcon: SVGIcon = uploadIcon;
   public menuIcon: SVGIcon = menuIcon;
+  public sparklesIcon: SVGIcon = sparklesIcon;
 
   // Navigation items for Segmented Control
   private readonly fullNavItems: SegmentedItemSettings[] = [
@@ -159,6 +164,22 @@ export class App implements OnInit {
 
   // Profile dialog state
   public profileDialogOpened = false;
+  public assistantOpened = false;
+  public assistantUser: User = { id: 1, name: 'Dr. Carter' };
+  public assistant: User = { id: 0, name: 'Care Assistant' };
+  public assistantMessages: Message[] = [
+    {
+      id: guid(),
+      author: { id: 0, name: 'Care Assistant' },
+      text: 'I am the Care Assistant demo. I can help you find patients, review today\'s schedule, or locate clinical workflows.',
+      timestamp: new Date(),
+    },
+  ];
+  public assistantSuggestions: ChatSuggestion[] = [
+    { id: 1, text: 'Review today\'s schedule' },
+    { id: 2, text: 'Find a patient record' },
+    { id: 3, text: 'Open clinical analytics' },
+  ];
 
   // Notifications state
   @ViewChild('notificationAnchor', { read: ElementRef }) notificationAnchor!: ElementRef;
@@ -377,5 +398,30 @@ export class App implements OnInit {
 
   public markAllAsRead(): void {
     this.notifications = this.notifications.map((n) => ({ ...n, unread: false }));
+  }
+
+  public openAssistant(): void {
+    this.assistantOpened = true;
+  }
+
+  public closeAssistant(): void {
+    this.assistantOpened = false;
+  }
+
+  public onAssistantMessage(event: SendMessageEvent): void {
+    this.assistantMessages = [...this.assistantMessages, event.message];
+  }
+
+  public onAssistantSuggestion(suggestion: ChatSuggestion): void {
+    this.assistantMessages = [
+      ...this.assistantMessages,
+      { id: guid(), author: this.assistantUser, text: suggestion.text, timestamp: new Date() },
+      {
+        id: guid(),
+        author: this.assistant,
+        text: 'This demo assistant uses pre-scripted guidance. Choose a section from the navigation or search for a patient to continue.',
+        timestamp: new Date(),
+      },
+    ];
   }
 }

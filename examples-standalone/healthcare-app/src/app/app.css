@@ -479,3 +479,40 @@
   font-size: 10px;
   color: #4a5666;
 }
+
+.assistant-fab {
+  position: fixed;
+  right: var(--kendo-spacing-6);
+  bottom: var(--kendo-spacing-6);
+  width: 56px;
+  height: 56px;
+  z-index: 1001;
+  box-shadow: var(--kendo-elevation-3);
+}
+
+.assistant-dialog .k-dialog-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--kendo-spacing-3);
+  padding: var(--kendo-spacing-4);
+}
+
+.assistant-dialog kendo-chat {
+  min-height: 420px;
+}
+
+.assistant-disclaimer {
+  margin: 0;
+  padding: var(--kendo-spacing-2);
+  color: var(--kendo-color-warning-on-subtle);
+  background: var(--kendo-color-warning-subtle);
+  border-radius: var(--kendo-border-radius-md);
+  font-size: var(--kendo-font-size-sm);
+}
+
+@media (max-width: 575px) {
+  .assistant-fab {
+    right: var(--kendo-spacing-4);
+    bottom: var(--kendo-spacing-4);
+  }
+}
