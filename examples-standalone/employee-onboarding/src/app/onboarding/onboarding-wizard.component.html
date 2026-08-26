@@ -18,6 +18,7 @@
         <button kendoButton themeColor="primary" type="button" (click)="newApplication()">
           Start another application
         </button>
+        <a class="wizard-support-link" routerLink="/support">Get onboarding help</a>
       </kendo-card-body>
     </kendo-card>
   </section>
@@ -25,12 +26,16 @@
   <div class="wizard-page">
     <div class="wizard-inner">
       <header class="wizard-header">
-        <p class="wizard-eyebrow">Human Resources</p>
+        <div class="wizard-header-row">
+          <p class="wizard-eyebrow">Human Resources</p>
+          <a class="wizard-support-link" routerLink="/support">Get help</a>
+        </div>
         <h1 class="wizard-title">Employee onboarding</h1>
         <p class="wizard-description">
           Complete each step to set up your profile, access, and policy acknowledgements. Your progress
           saves automatically in this browser.
         </p>
+        <p class="wizard-draft-status" aria-live="polite">{{ draftStatus() }}</p>
       </header>
 
       <kendo-card class="wizard-card" width="100%">

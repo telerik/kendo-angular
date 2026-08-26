@@ -8,7 +8,7 @@
 }
 
 .wizard-inner {
-  max-width: 52rem;
+  max-width: 44rem;
   width: 100%;
   margin-inline: auto;
 }
@@ -22,9 +22,17 @@
   text-align: start;
 }
 
+.wizard-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--kendo-spacing-3);
+}
+
 .wizard-eyebrow,
 .wizard-description,
-.wizard-success-status {
+.wizard-success-status,
+.wizard-draft-status {
   margin: 0;
   color: var(--kendo-color-subtle);
   font-size: var(--kendo-font-size-sm);
@@ -42,6 +50,15 @@
 
 .wizard-description {
   margin-top: var(--kendo-spacing-2);
+}
+
+.wizard-draft-status {
+  margin-top: var(--kendo-spacing-2);
+}
+
+.wizard-support-link {
+  color: var(--kendo-color-info-on-surface);
+  font-size: var(--kendo-font-size-sm);
 }
 
 .wizard-card-body,
@@ -99,6 +116,11 @@
 
 .wizard-success-status {
   margin-bottom: var(--kendo-spacing-4);
+}
+
+.wizard-success .wizard-support-link {
+  display: inline-block;
+  margin-left: var(--kendo-spacing-4);
 }
 
 .progress-line {
