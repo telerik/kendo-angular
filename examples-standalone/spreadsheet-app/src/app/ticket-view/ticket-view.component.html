@@ -3,6 +3,19 @@
     <h1 class="page-heading">Get Tickets</h1>
 </div>
 <div class="page-container">
+    @if (bookingSubmitted) {
+        <section class="booking-confirmation" aria-labelledby="booking-confirmation-title">
+            <span class="confirmation-icon" aria-hidden="true">✓</span>
+            <h2 id="booking-confirmation-title">Your booking is confirmed</h2>
+            <p>
+                Your selected tickets total <strong>{{ calculateTotalPrice() }} USD</strong>. The event budget has been
+                updated with the booking income.
+            </p>
+            <button kendoButton themeColor="primary" size="large" type="button" (click)="startNewBooking()">
+                Book more tickets
+            </button>
+        </section>
+    } @else {
     <form class="k-form k-form-md" [formGroup]="formGroup" (ngSubmit)="submitForm()">
         <div class="k-messagebox k-messagebox-info">
             This form is just an example.<br />
@@ -136,6 +149,7 @@
             </div>
         </fieldset>
     </form>
+    }
 </div>
 
 <ng-template #notificationTemplate>

@@ -1,6 +1,6 @@
 <div class="page-container">
     <div class="login-form">
-        <form class="k-form k-form-md" [formGroup]="form">
+        <form class="k-form k-form-md" [formGroup]="form" (ngSubmit)="login()">
             <fieldset class="k-form-fieldset">
                 <h2 class="form-heading form-header">Event Budgeting</h2>
 
@@ -13,24 +13,30 @@
                             formControlName="username"
                             size="large"
                             [clearButton]="true"
+                            autocomplete="username"
                         ></kendo-textbox>
-                        <kendo-formerror>Error: Username is required</kendo-formerror>
+                        @if (form.controls["username"].invalid && form.controls["username"].touched) {
+                            <kendo-formerror>Enter your username.</kendo-formerror>
+                        }
                     </kendo-formfield>
 
                     <kendo-formfield class="password-input">
                         <kendo-label [for]="password" text="Password"></kendo-label>
-                        <kendo-textbox #password required formControlName="password" size="large" [type]="inputType">
+                        <kendo-textbox #password required formControlName="password" size="large" [type]="inputType" autocomplete="current-password">
                             <ng-template kendoTextBoxSuffixTemplate>
                                 <button
                                     class="show-password"
                                     kendoButton
                                     look="clear"
                                     [svgIcon]="eyeIcon"
+                                    type="button"
                                     (click)="toggleVisibility()"
                                 ></button>
                             </ng-template>
                         </kendo-textbox>
-                        <kendo-formerror>Error: Password is required</kendo-formerror>
+                        @if (form.controls["password"].invalid && form.controls["password"].touched) {
+                            <kendo-formerror>Enter your password.</kendo-formerror>
+                        }
                     </kendo-formfield>
 
                     <button
@@ -38,8 +44,7 @@
                         class="login-button"
                         size="large"
                         themeColor="primary"
-                        routerLink="/event-budget"
-                        [queryParams]="{ role: 'Administrator' }"
+                        type="submit"
                     >
                         <div class="button-icon-text-container">
                             <div class="icon-container">
@@ -61,6 +66,7 @@
                         kendoButton
                         class="event-guest-button"
                         size="large"
+                        type="button"
                         routerLink="/tickets"
                         [queryParams]="{ role: 'Guest' }"
                     >
@@ -75,6 +81,7 @@
                         kendoButton
                         class="event-speaker-button"
                         size="large"
+                        type="button"
                         routerLink="/speakers"
                         [queryParams]="{ role: 'Speaker' }"
                     >

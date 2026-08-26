@@ -23,6 +23,9 @@
                         [clearButton]="true"
                     >
                     </kendo-textbox>
+                    @if (formGroup.controls['firstName'].invalid && formGroup.controls['firstName'].touched) {
+                        <kendo-formerror>Enter your first name.</kendo-formerror>
+                    }
                 </kendo-formfield>
                 <kendo-formfield>
                     <kendo-label [for]="lastNameinput">Last Name</kendo-label>
@@ -34,6 +37,9 @@
                         [clearButton]="true"
                     >
                     </kendo-textbox>
+                    @if (formGroup.controls['lastName'].invalid && formGroup.controls['lastName'].touched) {
+                        <kendo-formerror>Enter your last name.</kendo-formerror>
+                    }
                 </kendo-formfield>
             </div>
             <kendo-formfield>
@@ -46,6 +52,9 @@
                     [clearButton]="true"
                 >
                 </kendo-textbox>
+                @if (formGroup.controls['email'].invalid && formGroup.controls['email'].touched) {
+                    <kendo-formerror>Enter a valid email address.</kendo-formerror>
+                }
             </kendo-formfield>
             <kendo-formfield>
                 <kendo-label 
@@ -124,6 +133,7 @@
                 type="submit" 
                 size="large" 
                 class="form-submit-button"
+                [disabled]="formGroup.invalid"
             > Apply
             </button>
             <button
