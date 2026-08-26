@@ -1,6 +1,7 @@
 import { CommonModule } from "@angular/common";
 import { Component, Input } from "@angular/core";
 import { KENDO_BUTTONS } from "@progress/kendo-angular-buttons";
+import { SVGIcon, heartIcon, commentIcon, shareIcon } from "@progress/kendo-svg-icons";
 
 export interface MyComment {
     likes: number;
@@ -41,7 +42,10 @@ export class CommentActionsComponent {
         card.postLiked = !card.postLiked;
     }
 
-    public postHeartIcon(card: MyCardComponent): string {
-        return card.postLiked ? "k-icon k-font-icon k-i-heart" : "k-icon k-font-icon k-i-heart-outline";
+    public readonly commentIcon: SVGIcon = commentIcon;
+    public readonly shareIcon: SVGIcon = shareIcon;
+
+    public postHeartIcon(_card: MyCardComponent): SVGIcon {
+        return heartIcon;
     }
 }

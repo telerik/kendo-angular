@@ -7,23 +7,23 @@
     visibility: hidden;
 }
 .teamMate h2 {
-    font-size: 1.3em;
-    font-weight: normal;
-    padding-top: 17px;
+    font-size: var(--kendo-font-size-xl);
+    font-weight: var(--kendo-font-weight-normal);
+    padding-top: var(--kendo-spacing-4);
     margin: 0;
 }
 .teamMate p {
     margin: 0;
-    font-size: 0.8em;
+    font-size: var(--kendo-font-size-sm);
 }
 .teamMate img {
     display: inline-block;
     vertical-align: top;
     width: 50px;
     height: 50px;
-    margin: 10px;
-    border: 1px solid #ccc;
-    border-radius: 50%;
+    margin: var(--kendo-spacing-2\.5);
+    border: 1px solid var(--kendo-color-border);
+    border-radius: var(--kendo-border-radius-full);
 }
 .mate-info {
     display: inline-block;

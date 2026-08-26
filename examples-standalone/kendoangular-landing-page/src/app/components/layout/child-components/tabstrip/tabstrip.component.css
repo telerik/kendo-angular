@@ -1,4 +1,4 @@
 kendo-tabstrip p {
     margin: 0;
-    padding: 8px;
+    padding: var(--kendo-spacing-2);
 }

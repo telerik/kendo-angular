@@ -1,0 +1,5 @@
+.card-header {
+    display: flex;
+    align-items: center;
+    gap: var(--kendo-spacing-4);
+}

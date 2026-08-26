@@ -1,20 +1,20 @@
-<div style="display: flex; gap: 14px; flex-direction: column">
-    <div style="display: flex; gap: 19px; flex-direction: row">
-        <div style="display: flex; gap: 19px; position: relative">
-            <div style="position: absolute; width: 105px; height: 153px; left: 12px">
+<div class="dashboard-controls">
+    <div class="dashboard-controls__illustration-row">
+        <div class="dashboard-controls__illustration">
+            <div class="dashboard-controls__figure">
                 <div [innerHTML]="getKendokaSvg()"></div>
             </div>
-            <div style="position: absolute; left: 112px; top: 50px; z-index: 101">
+            <div class="dashboard-controls__hand">
                 <div [innerHTML]="getKendokaHand()"></div>
             </div>
         </div>
 
         <div
-            class="k-d-flex k-flex-column k-border k-border-solid k-border-border k-rounded-lg k-bg-surface-alt"
-            style="position: relative; height: 38px; left: 108px; box-shadow: 0px 3px 6px 0px rgba(4, 20, 42, 0.06)"
+            class="dashboard-surface dashboard-surface--slider"
+            class="dashboard-surface dashboard-surface--slider"
         >
             <kendo-slider
-                style="width: 175px; padding: 4px 8px 3px 8px"
+                class="dashboard-controls__slider"
                 [fixedTickWidth]="9.5"
                 [min]="1"
                 [max]="10"
@@ -25,34 +25,33 @@
         </div>
     </div>
 
-    <div style="position: relative">
+    <div class="dashboard-controls__chart-wrapper">
         <div
-            class="k-d-flex k-flex-column k-border k-border-solid k-border-border k-rounded-lg k-bg-surface-alt"
-            style="z-index: 100; box-shadow: 0px 3px 6px 0px rgba(4, 20, 42, 0.06)"
+            class="dashboard-surface dashboard-surface--chart"
         >
-            <div style="padding: 6px">
-                <kendo-chart style="height: 186px; width: 100%">
+            <div class="dashboard-controls__chart-content">
+                <kendo-chart class="dashboard-controls__chart">
                     <kendo-chart-title
                         text="Work Week Tracker"
-                        font="14px sans-serif"
+                        font="var(--kendo-font-size-sm) var(--kendo-font-family)"
                         [padding]="0"
                     ></kendo-chart-title>
                     <kendo-chart-legend
                         position="bottom"
                         orientation="horizontal"
-                        [labels]="{ font: '10px sans-serif' }"
+                        [labels]="{ font: 'var(--kendo-font-size-xs) var(--kendo-font-family)' }"
                         [padding]="0"
                         [margin]="0"
                     ></kendo-chart-legend>
                     <kendo-chart-category-axis>
                         <kendo-chart-category-axis-item
                             [categories]="categories"
-                            [labels]="{ padding: 0, margin: 0, font: '8px Arial, sans-serif' }"
+                            [labels]="{ padding: 0, margin: 0, font: 'var(--kendo-font-size-xs) var(--kendo-font-family)' }"
                         ></kendo-chart-category-axis-item>
                     </kendo-chart-category-axis>
                     <kendo-chart-value-axis>
                         <kendo-chart-value-axis-item
-                            [labels]="{ padding: 0, margin: 0, font: '8px Arial, sans-serif' }"
+                            [labels]="{ padding: 0, margin: 0, font: 'var(--kendo-font-size-xs) var(--kendo-font-family)' }"
                         ></kendo-chart-value-axis-item>
                     </kendo-chart-value-axis>
                     <kendo-chart-series>
@@ -62,21 +61,21 @@
                             [gap]="2"
                             [spacing]="0.25"
                             [data]="chartFirstSeries"
-                            color="#C0EAF5"
+                            color="var(--kendo-color-series-a-subtler)"
                         >
                         </kendo-chart-series-item>
                         <kendo-chart-series-item
                             type="column"
                             name="Commits"
                             [data]="chartSecondSeries"
-                            color="#90B6FF"
+                            color="var(--kendo-color-series-b)"
                         >
                         </kendo-chart-series-item>
                         <kendo-chart-series-item
                             type="column"
                             name="Push-ups"
                             [data]="chartThirdSeries"
-                            color="#5777EA"
+                            color="var(--kendo-color-primary)"
                         >
                         </kendo-chart-series-item>
                     </kendo-chart-series>
@@ -85,20 +84,18 @@
         </div>
     </div>
 
-    <div style="display: flex; gap: 14px; flex-direction: row">
+    <div class="dashboard-controls__actions">
         <div
-            class="k-d-flex k-flex-column k-border k-border-solid k-border-border k-rounded-lg k-bg-surface-alt"
-            style="box-shadow: 0px 3px 6px 0px rgba(4, 20, 42, 0.06)"
+            class="dashboard-surface dashboard-surface--action"
         >
-            <div style="padding: 2px; width: 200px; justify-content: center; align-items: center; display: flex">
+            <div class="dashboard-controls__rating">
                 <kendo-rating [(value)]="ratingValue" [precision]="'half'"></kendo-rating>
             </div>
         </div>
         <div
-            class="k-d-flex k-flex-column k-border k-border-solid k-border-border k-rounded-lg k-bg-surface-alt"
-            style="box-shadow: 0px 3px 6px 0px rgba(4, 20, 42, 0.06)"
+            class="dashboard-surface dashboard-surface--action"
         >
-            <div style="padding: 6px; width: 70px; justify-content: center; align-items: center; display: flex">
+            <div class="dashboard-controls__switch">
                 <kendo-switch [(ngModel)]="switchValue" [size]="'small'"></kendo-switch>
             </div>
         </div>

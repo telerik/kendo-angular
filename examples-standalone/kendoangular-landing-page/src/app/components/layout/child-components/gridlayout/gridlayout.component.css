@@ -1,24 +1,24 @@
 .example-wrapper {
     width: 340px;
     margin: 0 auto;
-    box-shadow: 0px 10px 20px #00000029;
-    border-radius: 30px;
+    box-shadow: var(--kendo-elevation-3);
+    border-radius: var(--kendo-border-radius-xxxl);
 }
 .page {
-    padding: 20px 10px;
+    padding: var(--kendo-spacing-5) var(--kendo-spacing-2\.5);
 }
 .content {
-    background: #f9f9f9;
+    background: var(--kendo-color-surface);
     height: 420px;
     overflow: auto;
 }
 .box {
-    padding: 4px;
-    background-color: #87dfce;
+    padding: var(--kendo-spacing-1);
+    background-color: var(--kendo-color-success-subtle);
 }
 .big {
-    background-color: #fea69c;
+    background-color: var(--kendo-color-error-subtle);
 }
 .rect {
-    background-color: #fee47c;
+    background-color: var(--kendo-color-warning-subtle);
 }

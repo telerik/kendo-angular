@@ -7,7 +7,7 @@
             @if (formSubmitted) {
             <div class="success-message">
                 <p>Profile saved successfully for {{ firstName }} {{ lastName }}</p>
-                <button kendoButton themeColor="light" (click)="reset()">Reset Demo</button>
+                <button kendoButton themeColor="base" (click)="reset()">Reset Demo</button>
             </div>
             }
         </div>
@@ -21,7 +21,7 @@
                 <p>
                     You chose: <strong>{{ confirmationResult }}</strong>
                 </p>
-                <button kendoButton themeColor="light" (click)="reset()">Reset Demo</button>
+                <button kendoButton themeColor="base" (click)="reset()">Reset Demo</button>
             </div>
             }
         </div>
@@ -77,13 +77,13 @@
     </kendo-window>
     } @if (dialogOpened) {
     <kendo-dialog title="Confirm Action" [minWidth]="250" [width]="450" (close)="closeDialog()">
-        <p style="margin: 30px; text-align: center">
+        <p class="dialog-message">
             Are you sure you want to proceed with this action?<br />
             This change cannot be undone.
         </p>
 
         <kendo-dialog-actions>
-            <button kendoButton (click)="onDialogAction('Cancelled')" themeColor="light">Cancel</button>
+            <button kendoButton (click)="onDialogAction('Cancelled')" themeColor="base">Cancel</button>
             <button kendoButton (click)="onDialogAction('Confirmed')" themeColor="primary">Confirm</button>
         </kendo-dialog-actions>
     </kendo-dialog>

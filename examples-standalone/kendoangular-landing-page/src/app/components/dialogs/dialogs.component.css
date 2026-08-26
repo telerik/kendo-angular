@@ -1,75 +1,80 @@
 .example-wrapper {
-    padding: 20px;
-    font-family: Arial, Helvetica, sans-serif;
+    padding: var(--kendo-spacing-5);
+    font-family: var(--kendo-font-family);
 }
 
 .controls-container {
     display: flex;
     flex-wrap: wrap;
-    gap: 30px;
-    margin-bottom: 30px;
+    gap: var(--kendo-spacing-7\.5);
+    margin-bottom: var(--kendo-spacing-7\.5);
 }
 
 .demo-section {
     flex: 1;
     min-width: 300px;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-    background-color: #ffffff;
+    padding: var(--kendo-spacing-5);
+    border-radius: var(--kendo-border-radius-lg);
+    box-shadow: var(--kendo-elevation-2);
+    background-color: var(--kendo-color-surface-alt);
 }
 
 .demo-section h4 {
     margin-top: 0;
-    color: #333;
-    font-size: 20px;
+    color: var(--kendo-color-on-app-surface);
+    font-size: var(--kendo-font-size-lg);
 }
 
 kendo-window {
-    --kendo-window-titlebar-bg: #3f51b5;
-    --kendo-window-titlebar-text: white;
+    --kendo-window-titlebar-bg: var(--kendo-color-primary);
+    --kendo-window-titlebar-text: var(--kendo-color-on-primary);
     margin-top: 0;
 }
 
 .window-content {
-    padding: 15px;
+    padding: var(--kendo-spacing-4);
 }
 
 .success-message,
 .dialog-result {
-    margin-top: 15px;
-    padding: 12px;
-    border-radius: 6px;
-    background-color: #e8f5e9;
-    border-left: 4px solid #4caf50;
+    margin-top: var(--kendo-spacing-4);
+    padding: var(--kendo-spacing-3);
+    border-radius: var(--kendo-border-radius-md);
+    background-color: var(--kendo-color-success-subtle);
+    border-left: var(--kendo-spacing-1) solid var(--kendo-color-success);
 }
 
 .dialog-result {
-    background-color: #e3f2fd;
-    border-left-color: #2196f3;
+    background-color: var(--kendo-color-info-subtle);
+    border-left-color: var(--kendo-color-info);
 }
 
 .k-form-field {
-    margin-bottom: 15px;
+    margin-bottom: var(--kendo-spacing-4);
 }
 
 fieldset {
-    border: 1px solid #e0e0e0;
-    border-radius: 4px;
-    padding: 15px;
-    margin-bottom: 20px;
+    border: 1px solid var(--kendo-color-border);
+    border-radius: var(--kendo-border-radius-sm);
+    padding: var(--kendo-spacing-4);
+    margin-bottom: var(--kendo-spacing-5);
 }
 
 legend {
-    padding: 0 10px;
-    font-size: 14px;
-    font-weight: bold;
-    margin-bottom: 5px;
-    color: #455a64;
+    padding: 0 var(--kendo-spacing-2\.5);
+    font-size: var(--kendo-font-size-sm);
+    font-weight: var(--kendo-font-weight-bold);
+    margin-bottom: var(--kendo-spacing-1\.5);
+    color: var(--kendo-color-subtle);
 }
 
 .k-actions {
-    margin-top: 15px;
+    margin-top: var(--kendo-spacing-4);
+}
+
+.dialog-message {
+    margin: var(--kendo-spacing-7\.5);
+    text-align: center;
 }
 
 @media (max-width: 768px) {

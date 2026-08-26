@@ -34,7 +34,7 @@
             ],
             "styles": [
               {
-                "input": "node_modules/@progress/kendo-theme-default/dist/default-ocean-blue.scss"
+                "input": "node_modules/@progress/kendo-theme-meridian/dist/meridian-main.scss"
               },
               "src/styles.css"
             ],
@@ -101,7 +101,7 @@
             ],
             "styles": [
               {
-                "input": "node_modules/@progress/kendo-theme-default/dist/all.css"
+                "input": "node_modules/@progress/kendo-theme-meridian/dist/meridian-main.css"
               },
               "src/styles.css"
             ],

@@ -38,8 +38,8 @@ export class SchedulerComponent {
         {
             name: 'Rooms',
             data: [
-                { text: 'Meeting Room 101', value: 1, color: '#5392E4' },
-                { text: 'Meeting Room 201', value: 2, color: '#FF7272' },
+                { text: 'Meeting Room 101', value: 1, color: 'var(--kendo-color-series-a)' },
+                { text: 'Meeting Room 201', value: 2, color: 'var(--kendo-color-series-b)' },
             ],
             field: 'RoomID',
             valueField: 'value',
@@ -49,8 +49,8 @@ export class SchedulerComponent {
         {
             name: 'Persons',
             data: [
-                { text: 'Peter', value: 1, color: '#5392E4' },
-                { text: 'Alex', value: 2, color: '#54677B' },
+                { text: 'Peter', value: 1, color: 'var(--kendo-color-series-a)' },
+                { text: 'Alex', value: 2, color: 'var(--kendo-color-series-d)' },
             ],
             field: 'PersonIDs',
             valueField: 'value',

@@ -3,11 +3,11 @@
     flex-direction: row;
     justify-content: center;
     align-items: stretch;
-    gap: 16px;
+    gap: var(--kendo-spacing-4);
     width: 80%;
     min-width: 800px;
     height: 400px;
-    margin: 20px auto;
+    margin: var(--kendo-spacing-5) auto;
     max-width: 1500px;
 }
 

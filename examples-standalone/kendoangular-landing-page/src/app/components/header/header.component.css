@@ -1,6 +1,6 @@
 #app,
 .k-animation-container {
-    font-family: "Roboto", sans-serif;
+    font-family: var(--kendo-font-family);
 }
 
 .k-list-item:hover,
@@ -8,12 +8,12 @@
 .k-list-item.k-hover,
 .k-hover.k-list-optionlabel,
 .k-columnmenu-item:hover {
-    background-color: color-mix(in srgb, #5777ea 11%, transparent);
+    background-color: color-mix(in srgb, var(--kendo-color-primary) 11%, transparent);
 }
 
 .k-grid .k-table-tbody > .k-table-row:not(.k-detail-row):hover,
 .k-grid .k-table-tbody > .k-table-row:not(.k-detail-row).k-hover {
-    background-color: color-mix(in srgb, #5777ea 16%, transparent);
+    background-color: color-mix(in srgb, var(--kendo-color-primary) 16%, transparent);
 }
 
 .k-columnmenu-item.k-selected,
@@ -21,57 +21,78 @@
 .k-list-item.k-selected:hover,
 .k-list-optionlabel.k-selected,
 .k-list-optionlabel.k-selected:hover {
-    background-color: #5777ea;
-    color: #fff;
+    background-color: var(--kendo-color-primary);
+    color: var(--kendo-color-on-primary);
 }
 
 .k-grid .k-table-row.k-table-alt-row {
-    background-color: color-mix(in srgb, #5777ea 10%, transparent);
+    background-color: color-mix(in srgb, var(--kendo-color-primary) 10%, transparent);
 }
 
 .k-button-flat-primary {
-    color: #5777ea;
+    color: var(--kendo-color-primary);
 }
 
 .k-button-solid-primary,
 .k-button-solid-primary:hover {
-    border-color: #5777ea;
-    background-color: #5777ea;
+    border-color: var(--kendo-color-primary);
+    background-color: var(--kendo-color-primary);
 }
 
 .k-svg-icon.k-icon-lg {
-    width: 22.5px;
-    height: 12px;
+    width: var(--kendo-icon-size);
+    height: var(--kendo-icon-size);
 }
 
 .k-switch-on .k-switch-track {
-    background-color: #5777ea !important;
-    color: #fff;
+    background-color: var(--kendo-color-primary) !important;
+    color: var(--kendo-color-on-primary);
 }
 
 .k-rating-item,
 .k-rating-item.k-selected {
-    color: #90b6ff;
+    color: var(--kendo-color-primary-emphasis);
 }
 
 .k-slider .k-slider-selection {
-    background-color: #90b6ff;
+    background-color: var(--kendo-color-primary-emphasis);
 }
 
 .k-slider .k-draghandle {
-    border-color: #5777ea;
-    color: var(--kendo-color-on-primary, white);
-    background-color: #5777ea;
-    border-radius: 50%;
+    border-color: var(--kendo-color-primary);
+    color: var(--kendo-color-on-primary);
+    background-color: var(--kendo-color-primary);
+    border-radius: var(--kendo-border-radius-full);
 }
 
 .form-header {
-    font-family: var(--kendo-font-family, inherit);
-    font-size: var(--kendo-font-size, inherit);
-    line-height: 19.88px;
-    font-weight: 400;
+    font-family: var(--kendo-font-family);
+    font-size: var(--kendo-font-size);
+    line-height: var(--kendo-line-height-md);
+    font-weight: var(--kendo-font-weight-normal);
+}
+
+.header-dashboard {
+    display: flex;
+    flex-direction: column;
+    width: 630px;
+    height: 680px;
+    margin-left: var(--kendo-spacing-1\.5);
+    gap: var(--kendo-spacing-7\.5);
+}
+
+.header-dashboard__panels {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    gap: var(--kendo-spacing-7\.5);
+}
+
+.header-dashboard__panel {
+    max-height: 310px;
+    flex: 1;
 }
 
 .k-form-buttons > .k-button-solid-primary {
-    background-color: #5777ea;
+    background-color: var(--kendo-color-primary);
 }
