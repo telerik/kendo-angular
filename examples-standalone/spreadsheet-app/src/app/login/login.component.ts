@@ -1,9 +1,10 @@
 import { Component, ViewEncapsulation } from "@angular/core";
-import { SVGIcon, eyeIcon } from "@progress/kendo-svg-icons";
+import { SVGIcon, eyeIcon, loginIcon, microphoneIcon, usersIcon } from "@progress/kendo-svg-icons";
 import { InputType, KENDO_INPUTS } from "@progress/kendo-angular-inputs";
 import { FormControl, FormGroup, ReactiveFormsModule } from "@angular/forms";
 import { KENDO_LABELS } from "@progress/kendo-angular-label";
 import { KENDO_BUTTONS } from "@progress/kendo-angular-buttons";
+import { KENDO_ICONS } from "@progress/kendo-angular-icons";
 import { RouterLink } from "@angular/router";
 
 @Component({
@@ -13,6 +14,7 @@ import { RouterLink } from "@angular/router";
         KENDO_INPUTS,
         KENDO_LABELS,
         KENDO_BUTTONS,
+        KENDO_ICONS,
         RouterLink
     ],
     templateUrl: "./login.component.html",
@@ -22,6 +24,9 @@ import { RouterLink } from "@angular/router";
 export class LoginComponent {
     public inputType: InputType = "password";
     public eyeIcon: SVGIcon = eyeIcon;
+    public loginIcon: SVGIcon = loginIcon;
+    public usersIcon: SVGIcon = usersIcon;
+    public microphoneIcon: SVGIcon = microphoneIcon;
 
     public form: FormGroup = new FormGroup({
         username: new FormControl("Administrator"),

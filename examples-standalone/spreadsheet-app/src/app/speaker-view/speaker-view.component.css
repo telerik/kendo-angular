@@ -31,3 +31,11 @@
     gap: var(--kendo-spacing-2);
     margin-top: var(--kendo-spacing-3\.5);
 }
+
+.form-submit-button {
+    min-width: calc(var(--kendo-spacing-20) + var(--kendo-spacing-1\.5));
+}
+
+.form-clear-button {
+    min-width: var(--kendo-spacing-20);
+}

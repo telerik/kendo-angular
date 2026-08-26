@@ -1,6 +1,6 @@
 <app-header></app-header>
 <div class="page-title">
-    <h1 class="k-h1">Apply to Speak at Conference</h1>
+    <h1 class="page-heading">Apply to Speak at Conference</h1>
 </div>
 <div class="page-container">
     <form class="k-form k-form-md" [formGroup]="formGroup" (ngSubmit)="submitForm()">
@@ -123,7 +123,7 @@
                 themeColor="primary" 
                 type="submit" 
                 size="large" 
-                style="width: 86px"
+                class="form-submit-button"
             > Apply
             </button>
             <button
@@ -131,7 +131,7 @@
               type="button" 
               (click)="clearForm()" 
               size="large" 
-              style="width: 80px"
+              class="form-clear-button"
             > Clear
             </button>
         </div>

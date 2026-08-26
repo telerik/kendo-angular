@@ -2,7 +2,7 @@
     <div class="login-form">
         <form class="k-form k-form-md" [formGroup]="form">
             <fieldset class="k-form-fieldset">
-                <h2 class="k-h2 form-header">Event Budgeting</h2>
+                <h2 class="form-heading form-header">Event Budgeting</h2>
 
                 <div class="form-container">
                     <kendo-formfield class="username-input">
@@ -43,7 +43,7 @@
                     >
                         <div class="button-icon-text-container">
                             <div class="icon-container">
-                                <i class="material-symbols-outlined">passkey</i>
+                                <kendo-svgicon class="login-action-icon" [icon]="loginIcon"></kendo-svgicon>
                             </div>
                             <span class="button-text">Login as Administrator</span>
                         </div>
@@ -52,7 +52,7 @@
 
                 <div class="text-container">
                     <span class="line-separator"></span>
-                    <span class="k-font-size-lg">or continue as</span>
+                    <span class="login-continue-label">or continue as</span>
                     <span class="line-separator"></span>
                 </div>
 
@@ -66,7 +66,7 @@
                     >
                         <div class="button-icon-text-container">
                             <div class="icon-container">
-                                <i class="material-symbols-outlined">supervisor_account</i>
+                                <kendo-svgicon class="login-action-icon" [icon]="usersIcon"></kendo-svgicon>
                             </div>
                             <span class="button-text">Event Guest</span>
                         </div>
@@ -80,7 +80,7 @@
                     >
                         <div class="button-icon-text-container">
                             <div class="icon-container">
-                                <i class="material-symbols-outlined">record_voice_over</i>
+                                <kendo-svgicon class="login-action-icon" [icon]="microphoneIcon"></kendo-svgicon>
                             </div>
                             <span class="button-text">Event Speaker</span>
                         </div>

@@ -31,6 +31,12 @@ app-login {
     text-align: center;
 }
 
+.form-heading {
+    font-size: var(--app-form-heading-size);
+    font-weight: var(--kendo-font-weight-semibold);
+    line-height: var(--kendo-line-height-md);
+}
+
 .k-form-fieldset {
     display: flex;
     flex-direction: column;
@@ -58,7 +64,12 @@ app-login {
     align-items: center;
 }
 
-.material-symbols-outlined {
+.login-action-icon {
+    width: calc(var(--kendo-icon-size) * 1.125);
+    height: calc(var(--kendo-icon-size) * 1.125);
+}
+
+.login-continue-label {
     font-size: var(--kendo-font-size-lg);
 }
 

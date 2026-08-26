@@ -62,3 +62,15 @@ kendo-label {
     display: flex;
     gap: var(--kendo-spacing-2);
 }
+
+.ticket-price__multiplier {
+    font-weight: var(--kendo-font-weight-normal);
+}
+
+.form-submit-button {
+    min-width: calc(var(--kendo-spacing-20) + var(--kendo-spacing-1\.5));
+}
+
+.form-clear-button {
+    min-width: var(--kendo-spacing-20);
+}
