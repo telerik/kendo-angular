@@ -3,11 +3,11 @@
 .k-grid {
     tbody td {
         white-space: nowrap;
-        line-height: 20px;
-        padding: 0.4rem 0.4rem;
+        line-height: var(--kendo-line-height);
+        padding: var(--kendo-spacing-1\.5);
     }
     .grid-price-cell {
-        padding: 4px 12px;
+        padding: var(--kendo-spacing-1) var(--kendo-spacing-3);
     }
 
     .price-up {
@@ -21,11 +21,11 @@
 
 .price-down,
 .price-up {
-    animation-duration: 700ms;
+    animation-duration: var(--kendo-duration-leisurely);
     animation-name: blink;
     animation-iteration-count: 1;
     animation-direction: alternate;
-    animation-timing-function: ease-in-out;
+    animation-timing-function: var(--kendo-easing-standard);
 }
 @keyframes blink {
     from {
@@ -37,7 +37,7 @@
 }
 
 .back-icon {
-    font-size: 2em;
+    font-size: var(--kendo-font-size-xl);
     cursor: pointer;
     outline: none;
 }

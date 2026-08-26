@@ -18,17 +18,17 @@
     }
 
     .header-title {
-        font-size: 1.8rem;
+        font-size: var(--kendo-font-size-xl);
     }
 }
 
 @media screen and (max-width: 769px) {
     .dropdownlist-add-new {
-        padding-left: 16px !important;
+        padding-left: var(--kendo-spacing-4) !important;
     }
 
     .k-button-group {
-        margin-top: 10px;
+        margin-top: var(--kendo-spacing-2\.5);
     }
 
     .profile-wrapper div:last-child {

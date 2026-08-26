@@ -17,12 +17,11 @@
         >
         <ng-template kendoDropDownListValueTemplate>
           <kendo-svg-icon [icon]="plusIcon"></kendo-svg-icon>
-          <span class="k-icon k-i-plus"></span>
           Add new
         </ng-template>
       </kendo-dropdownlist>
       @if (selectedRows.length) {
-        <button kendoButton [look]="'flat'" [svgIcon]="trashIcon" (click)="removeStockFromPortfolio()">
+        <button kendoButton fillMode="flat" [svgIcon]="trashIcon" (click)="removeStockFromPortfolio()">
           Remove
         </button>
       }

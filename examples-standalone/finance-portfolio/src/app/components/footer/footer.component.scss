@@ -7,7 +7,7 @@
     background: url('../../../assets/footer-bg.svg');
     background-repeat: no-repeat;
     background-size: cover;
-    background-color: blue;
+    background-color: var(--kendo-color-primary);
     z-index: 999;
     font-size: $footer-font-size;
     color: $white;

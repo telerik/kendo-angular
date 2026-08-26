@@ -32,19 +32,15 @@ td:last-of-type {
     color: $grid-row-selection-bg;
 }
 
-.k-icon {
+.user-profile__close {
     cursor: pointer;
     outline: none;
-
-    &.icon-close {
-        background: url('../../../assets/cross-out.svg') center no-repeat;
-        width: $profile-icon-size;
-        height: $profile-icon-size;
-    }
+    width: $profile-icon-size;
+    height: $profile-icon-size;
 }
 
 .profile-stocks-grid {
-    border-width: 1px;
+    border-width: var(--kendo-spacing-1px);
 }
 
 .user-profile-wrapper {
@@ -54,7 +50,7 @@ td:last-of-type {
         align-self: center;
         width: 2 * $profile-image-width;
         height: 2 * $profile-image-height;
-        border-radius: 50%;
+        border-radius: var(--kendo-border-radius-full);
         background-image: url('../../../assets/user.jpg');
         background-size: cover;
         background-position: center;

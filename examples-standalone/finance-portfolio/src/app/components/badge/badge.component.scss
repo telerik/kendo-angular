@@ -4,10 +4,10 @@
     height: $badge-height;
     color: $white;
     padding: $badge-padding;
-    border-radius: 2 * $badge-padding;
+    border-radius: var(--kendo-border-radius-full);
 
     span:first-child {
-        margin-right: 2 * $margin-sm;
+        margin-right: var(--kendo-spacing-2);
     }
 
     &.badge-positive-value {

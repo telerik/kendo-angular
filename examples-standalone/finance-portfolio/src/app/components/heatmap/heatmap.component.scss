@@ -20,7 +20,7 @@ body {
 }
 
 .heatmap-container {
-    margin-bottom: 50px;
+    margin-bottom: calc(var(--kendo-spacing-12) + var(--kendo-spacing-0\.5));
 }
 
 .k-widget {
@@ -47,7 +47,7 @@ body {
 
     .hm-symbol {
         font-weight: bold;
-        font-size: 16px;
+        font-size: var(--kendo-font-size);
         color: $active-state-base;
     }
 

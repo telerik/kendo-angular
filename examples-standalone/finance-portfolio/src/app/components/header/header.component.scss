@@ -22,7 +22,7 @@
         align-self: center;
         width: $profile-image-width;
         height: $profile-image-height;
-        border-radius: 50%;
+        border-radius: var(--kendo-border-radius-full);
         background-image: url('../../../assets/user.jpg');
         background-size: cover;
         background-position: center;

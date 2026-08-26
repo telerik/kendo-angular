@@ -7,6 +7,7 @@ import { StockDataService } from '../../services/stock-data.service';
 import { KENDO_CHARTS } from '@progress/kendo-angular-charts';
 import { KENDO_GRID } from '@progress/kendo-angular-grid';
 import { KENDO_ICONS } from '@progress/kendo-angular-icons';
+import { SVGIcon, xIcon } from '@progress/kendo-svg-icons';
 
 @Component({
     selector: 'app-user-profile',
@@ -16,6 +17,7 @@ import { KENDO_ICONS } from '@progress/kendo-angular-icons';
     imports: [CommonModule, RouterLink, KENDO_CHARTS, KENDO_GRID, CurrencyPipe, KENDO_ICONS]
 })
 export class UserProfileComponent implements OnDestroy {
+    public closeIcon: SVGIcon = xIcon;
     public chartData: any[] = [];
     public gridData: any[] = [];
 

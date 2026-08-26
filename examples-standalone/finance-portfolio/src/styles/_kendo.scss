@@ -1,1 +1,14 @@
-@use '@progress/kendo-theme-bootstrap/scss/all.scss' as *;
+@use '@progress/kendo-theme-meridian/scss/all.scss' as *;
+
+:root {
+    --kendo-font-family: 'Roboto', Helvetica, Arial, sans-serif;
+    --kendo-color-app-surface: rgba(236, 238, 239, 0.5);
+    --kendo-color-on-app-surface: #373a3c;
+    --kendo-color-border: #ddd;
+    --kendo-color-secondary: #1c7cd5;
+    --kendo-color-success: #5cb85c;
+    --kendo-color-error: #d9534f;
+    --kendo-translucency-base: 24%;
+    --kendo-translucency-blur-base: 8px;
+    --kendo-translucency-blur-step: 2px;
+}
