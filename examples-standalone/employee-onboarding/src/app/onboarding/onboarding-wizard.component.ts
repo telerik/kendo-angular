@@ -83,8 +83,8 @@ export class OnboardingWizardComponent {
   );
   readonly stepMessageClass = computed(() =>
     this.stepMessageTone() === 'error'
-      ? 'k-p-3 k-rounded-md k-border-error k-bg-error-subtle k-text-error'
-      : 'k-p-3 k-rounded-md k-border-info k-bg-info-subtle'
+      ? 'wizard-step-message wizard-step-message--error'
+      : 'wizard-step-message wizard-step-message--info'
   );
 
   readonly form = this.fb.group({

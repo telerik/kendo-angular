@@ -7,7 +7,8 @@ import { KENDO_LABELS } from '@progress/kendo-angular-label';
   selector: 'app-policies-step',
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [ReactiveFormsModule, KENDO_INPUTS, KENDO_LABELS],
-  templateUrl: './policies-step.component.html'
+  templateUrl: './policies-step.component.html',
+  styleUrl: './policies-step.component.css'
 })
 export class PoliciesStepComponent {
   readonly group = input.required<FormGroup>();
