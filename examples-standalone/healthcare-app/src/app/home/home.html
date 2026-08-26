@@ -251,7 +251,7 @@
             textField="name"
             valueField="id"
             [valuePrimitive]="false"
-            [style.width.px]="250"
+            class="patient-select"
             adaptiveMode="auto"
           >
           </kendo-dropdownlist>
@@ -296,7 +296,7 @@
             textField="name"
             valueField="id"
             [valuePrimitive]="false"
-            [style.width.px]="250"
+            class="patient-select"
             adaptiveMode="auto"
           >
             <ng-template kendoDropDownListItemTemplate let-dataItem>
@@ -848,10 +848,10 @@
   >
     <ng-template kendoChatHeaderTemplate>
       <div class="chat-header">
-        <div style="display: flex; align-items: center">
+        <div class="chat-header__identity">
           <kendo-svg-icon
             [icon]="sparklesIcon"
-            style="margin-right: 8px; color: #4b5ffa"
+            class="chat-header__icon"
           ></kendo-svg-icon>
           <strong>AI Assistant</strong>
         </div>

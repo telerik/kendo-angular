@@ -21,7 +21,7 @@
       class="search-expanded-combobox"
     >
       <ng-template kendoPrefixTemplate>
-        <kendo-svgicon [icon]="searchIcon" [style.marginLeft.px]="10"></kendo-svgicon>
+        <kendo-svgicon [icon]="searchIcon" class="search-prefix-icon"></kendo-svgicon>
       </ng-template>
       <ng-template kendoComboBoxItemTemplate let-dataItem>
         <div>{{ dataItem.name }} - ID {{ dataItem.id }}</div>
@@ -97,7 +97,7 @@
           adaptiveMode="auto"
         >
           <ng-template kendoPrefixTemplate>
-            <kendo-svgicon [icon]="searchIcon" [style.marginLeft.px]="10"></kendo-svgicon>
+            <kendo-svgicon [icon]="searchIcon" class="search-prefix-icon"></kendo-svgicon>
           </ng-template>
           <ng-template kendoComboBoxItemTemplate let-dataItem>
             <div>{{ dataItem.name }} - ID {{ dataItem.id }}</div>
@@ -210,7 +210,7 @@
           id="profileFileInput"
           type="file"
           accept="image/*"
-          style="display:none"
+          class="profile-file-input"
           (change)="onProfileFileSelected($event)"
         />
         <button

@@ -17,10 +17,10 @@
 /* Quick Actions Section */
 .quick-actions-section,
 .appointments-section {
-  padding: 20px;
-  background: #ffffff;
-  filter: drop-shadow(0px 1px 3px rgba(0, 0, 0, 0.04)) drop-shadow(0px 2px 6px rgba(0, 0, 0, 0.06));
-  border-radius: 16px;
+  padding: var(--kendo-spacing-5);
+  background: var(--kendo-color-surface-alt);
+  box-shadow: var(--kendo-elevation-1);
+  border-radius: var(--kendo-border-radius-xl);
 }
 
 .quick-actions-wrapper {
@@ -46,12 +46,12 @@
 /* Action Cards */
 .action-card {
   flex: 1 1 0;
-  background: #f1f5f9;
+  background: var(--kendo-color-primary-subtle);
   cursor: pointer;
 }
 
 .action-card:hover {
-  filter: drop-shadow(0px 1px 3px rgba(0, 0, 0, 0.04)) drop-shadow(0px 2px 6px rgba(0, 0, 0, 0.06));
+  box-shadow: var(--kendo-elevation-1);
 }
 
 .action-card .k-card-body {
@@ -114,9 +114,9 @@
   right: 16px;
   top: 12px;
   opacity: 0.4;
-  color: #6366fb;
+  color: var(--kendo-color-secondary);
   pointer-events: none;
-  transition: transform 0.3s ease, opacity 0.3s ease;
+  transition: transform var(--kendo-transition-enter), opacity var(--kendo-transition-enter);
 }
 
 .action-card:hover .card-bg-icon {
@@ -170,9 +170,9 @@
   flex: 0 1 610px;
   min-width: 495px;
   height: 1060px;
-  background: #ffffff;
-  filter: drop-shadow(0px 1px 3px rgba(0, 0, 0, 0.04)) drop-shadow(0px 2px 6px rgba(0, 0, 0, 0.06));
-  border-radius: 16px;
+  background: var(--kendo-color-surface-alt);
+  box-shadow: var(--kendo-elevation-1);
+  border-radius: var(--kendo-border-radius-xl);
   border: none;
   overflow: hidden;
 }
@@ -276,7 +276,7 @@
   font-weight: 400;
   font-size: 20px;
   line-height: 150%;
-  color: #232a36;
+  color: var(--kendo-color-on-app-surface);
   margin: 0;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -287,7 +287,7 @@
 .patient-meta {
   font-size: 14px;
   line-height: 142%;
-  color: #4a5666;
+  color: var(--kendo-color-subtle);
   margin: 0;
 }
 
@@ -307,16 +307,16 @@
 .info-card {
   display: flex;
   align-items: center;
-  padding: 16px;
-  gap: 16px;
-  background: #ffffff;
-  border: 1px solid rgba(23, 56, 99, 0.08);
-  border-radius: 12px;
+  padding: var(--kendo-spacing-4);
+  gap: var(--kendo-spacing-4);
+  background: var(--kendo-color-surface-alt);
+  border: 1px solid var(--kendo-color-border);
+  border-radius: var(--kendo-border-radius-lg);
   cursor: pointer;
 }
 
 .info-card:hover {
-  filter: drop-shadow(0px 1px 3px rgba(0, 0, 0, 0.04)) drop-shadow(0px 2px 6px rgba(0, 0, 0, 0.06));
+  box-shadow: var(--kendo-elevation-1);
 }
 
 .info-card-icon {
@@ -353,7 +353,7 @@
 
 .info-card-text {
   font-size: 14px;
-  color: #4a5666;
+  color: var(--kendo-color-subtle);
   margin: 0;
 }
 
@@ -385,7 +385,7 @@
 }
 
 .alert-item:hover {
-  filter: drop-shadow(0px 1px 3px rgba(0, 0, 0, 0.04)) drop-shadow(0px 2px 6px rgba(0, 0, 0, 0.06));
+  box-shadow: var(--kendo-elevation-1);
 }
 
 .alert-item > div {
@@ -416,14 +416,14 @@
 .alert-title {
   font-size: 16px;
   line-height: 150%;
-  color: #232a36;
+  color: var(--kendo-color-on-app-surface);
   margin: 0;
 }
 
 .alert-time {
   font-size: 14px;
   line-height: 142%;
-  color: #4a5666;
+  color: var(--kendo-color-subtle);
 }
 
 /* Dialogs */
@@ -679,12 +679,26 @@
   bottom: 0;
   width: 100vw;
   height: 100vh;
-  background: #ffffff;
+  background: var(--kendo-color-surface-alt);
   z-index: 10001;
   display: flex;
   flex-direction: column;
   padding: 0 16px 0 0;
   box-sizing: border-box;
+}
+
+.patient-select {
+  width: calc(var(--kendo-spacing-4) * 15.625);
+}
+
+.chat-header__identity {
+  display: flex;
+  align-items: center;
+}
+
+.chat-header__icon {
+  margin-right: var(--kendo-spacing-2);
+  color: var(--kendo-color-secondary);
 }
 
 .ai-chat-fullscreen .chat-close-btn {
