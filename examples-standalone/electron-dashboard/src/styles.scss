@@ -1,53 +1,66 @@
-/* You can add global styles to this file, and also import other style files */
-html, body {
+@import "@progress/kendo-theme-meridian/dist/all.css";
+
+:root {
+  --kendo-font-family: Arial, Helvetica, sans-serif;
+  --kendo-color-primary: #ed3330;
+  --kendo-color-secondary: #3367d6;
+  --kendo-border-radius-base: 5px;
+  --kendo-translucency-base: 30%;
+}
+
+html,
+body {
   margin: 0;
   padding: 0;
 
   height: 100%;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--kendo-font-family);
+  font-size: var(--kendo-font-size);
+  line-height: var(--kendo-line-height);
+  color: var(--kendo-color-on-app-surface);
+  background-color: var(--kendo-color-app-surface);
 }
 
-/* CAN (MUST) BE REMOVED ! Sample Global style */
 .container {
   height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: var(--kendo-spacing-4);
 
   background: url(./assets/background.jpg) no-repeat center fixed;
-  -webkit-background-size: cover; /* pour anciens Chrome et Safari */
-  background-size: cover; /* version standardisée */
+  background-size: cover;
 
   .title {
-    color: white;
+    color: var(--kendo-color-on-inverse);
     margin: 0;
-    padding: 50px 20px;
+    padding: var(--kendo-spacing-12) var(--kendo-spacing-5);
   }
 
   .navigation {
-    color: #fff !important;
+    color: var(--kendo-color-on-primary) !important;
     text-transform: uppercase;
     text-decoration: none;
-    background: #ed3330;
-    padding: 20px;
-    border-radius: 5px;
+    background: var(--kendo-color-primary);
+    padding: var(--kendo-spacing-5);
+    border-radius: var(--kendo-border-radius-md);
     display: inline-block;
     border: none;
-    transition: all 0.4s ease 0s;
+    transition:
+      background-color var(--kendo-duration-prompt) var(--kendo-easing-standard),
+      color var(--kendo-duration-prompt) var(--kendo-easing-standard),
+      letter-spacing var(--kendo-duration-prompt) var(--kendo-easing-standard),
+      box-shadow var(--kendo-duration-prompt) var(--kendo-easing-standard);
 
     &:hover {
-      background: #fff;
-      color: #ed3330 !important;
-      letter-spacing: 1px;
-      -webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
-      -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
-      box-shadow: 5px 40px -10px rgba(0,0,0,0.57);
-      transition: all 0.4s ease 0s;
+      background: var(--kendo-color-surface-alt);
+      color: var(--kendo-color-primary) !important;
+      letter-spacing: var(--kendo-letter-spacing-wide);
+      box-shadow: var(--kendo-elevation-3);
     }
   }
 }
-
 
 .banner {
   background-image: url('https://d585tldpucybw.cloudfront.net/sfimages/default-source/blogs/templates/kendo-angulart2-dark-1200x303.png?sfvrsn=f6440e00_3');
@@ -55,32 +68,35 @@ html, body {
   height: 150px;
   width: 45.7%;
   text-align: center;
-  color: #ffffff;
-  padding: 40px;
+  color: var(--kendo-color-on-inverse);
+  padding: var(--kendo-spacing-10);
   filter: brightness(100%);
 }
 
 h1 {
-  font-size: 2em;
-  margin-bottom: 15px;
+  font-size: var(--kendo-font-size-xl);
+  font-weight: var(--kendo-font-weight-semibold);
+  line-height: var(--kendo-line-height-md);
+  margin-bottom: var(--kendo-spacing-4);
 }
 
 p {
-  font-size: 1.1em;
-  margin-bottom: 20px;
+  font-size: var(--kendo-font-size-md);
+  line-height: var(--kendo-line-height-md);
+  margin-bottom: var(--kendo-spacing-5);
 }
 
 .try-button {
   display: inline-block;
-  padding: 12px 24px;
-  font-size: 1em;
+  padding: var(--kendo-spacing-3) var(--kendo-spacing-6);
+  font-size: var(--kendo-font-size-md);
   text-decoration: none;
-  color: #ffffff;
-  background-color: #3367d6;
-  border-radius: 5px;
-  transition: background-color 0.3s ease;
+  color: var(--kendo-color-on-secondary);
+  background-color: var(--kendo-color-secondary);
+  border-radius: var(--kendo-border-radius-md);
+  transition: background-color var(--kendo-duration-speedy) var(--kendo-easing-standard);
 }
 
 .try-button:hover {
-  background-color: #1a4d8f;
+  background-color: var(--kendo-color-secondary-hover);
 }
