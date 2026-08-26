@@ -1,4 +1,4 @@
-@media screen and (max-width: 992px) {
+@media screen and (max-width: 991px) {
     .scale-wrap,
     .scale-blocks,
     .user-data,
@@ -6,13 +6,9 @@
         display: none !important;
     }
 
-    app-navigation {
-        flex-grow: 0 !important;
-    }
 }
 
-@media screen and (max-width: 480px) {
-    .k-button-group,
+@media screen and (max-width: 575px) {
     .profile-wrapper {
         display: none;
     }
@@ -22,13 +18,9 @@
     }
 }
 
-@media screen and (max-width: 769px) {
+@media screen and (max-width: 767px) {
     .dropdownlist-add-new {
         padding-left: var(--kendo-spacing-4) !important;
-    }
-
-    .k-button-group {
-        margin-top: var(--kendo-spacing-2\.5);
     }
 
     .profile-wrapper div:last-child {

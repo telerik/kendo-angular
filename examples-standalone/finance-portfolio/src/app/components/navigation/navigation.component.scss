@@ -1,18 +1,29 @@
-@use '../../../styles/variables' as *;
+.primary-navigation {
+    align-items: center;
+    border-bottom: 1px solid var(--kendo-color-border);
+    display: flex;
+    gap: var(--kendo-spacing-2);
+    justify-content: center;
+    overflow-x: auto;
+    padding: var(--kendo-spacing-2) var(--kendo-spacing-4);
+    white-space: nowrap;
+}
 
-.k-button {
-    width: $nav-button-width;
+.primary-navigation a {
+    border-radius: var(--kendo-border-radius-md);
+    color: var(--kendo-color-primary-on-surface);
+    font-size: var(--kendo-font-size-sm);
+    font-weight: var(--kendo-font-weight-medium);
+    padding: var(--kendo-spacing-2) var(--kendo-spacing-3);
+    text-decoration: none;
+}
 
-    &.k-state-active {
-        color: $white;
-    }
+.primary-navigation a:hover,
+.primary-navigation a:focus-visible {
+    background: var(--kendo-color-primary-subtle);
+}
 
-    &:focus {
-        box-shadow: none;
-    }
-
-    &.k-state-active {
-        background: $nav-button-active-bg;
-        border-color: $nav-button-active-bg;
-    }
+.primary-navigation .is-active {
+    background: var(--kendo-color-secondary-subtle);
+    color: var(--kendo-color-secondary-on-surface);
 }

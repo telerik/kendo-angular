@@ -2,14 +2,13 @@ import { Component, OnInit, ViewEncapsulation, OnDestroy } from '@angular/core';
 import { CommonModule, CurrencyPipe } from '@angular/common';
 import { KENDO_GRID, GridDataResult, PageChangeEvent } from '@progress/kendo-angular-grid';
 import { StockDataService } from '../../services/stock-data.service';
-import { NavigationComponent } from '../navigation/navigation.component';
 
 @Component({
     selector: 'app-real-time-data',
     templateUrl: './real-time-data.component.html',
     styleUrls: ['./real-time-data.component.scss'],
     encapsulation: ViewEncapsulation.None,
-    imports: [CommonModule, KENDO_GRID, CurrencyPipe, NavigationComponent]
+    imports: [CommonModule, KENDO_GRID, CurrencyPipe]
 })
 export class RealTimeDataComponent implements OnInit, OnDestroy {
     public gridView: GridDataResult = { data: [], total: 0 };

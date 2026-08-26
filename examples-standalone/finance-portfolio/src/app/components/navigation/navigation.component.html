@@ -1,5 +1,7 @@
-<kendo-buttongroup [selection]="'single'">
-    <button kendoButton routerLink="/stocks" routerLinkActive="k-state-active">Result List</button>
-    <button kendoButton routerLink="/heatmap" routerLinkActive="k-state-active">Heatmap View</button>
-    <button kendoButton routerLink="/real-time" routerLinkActive="k-state-active">Data Virtualization</button>
-</kendo-buttongroup>
+<nav class="primary-navigation" aria-label="Primary navigation">
+    <a routerLink="/portfolio" routerLinkActive="is-active" [routerLinkActiveOptions]="{ exact: true }">Portfolio</a>
+    <a routerLink="/watchlist" routerLinkActive="is-active">Watchlist</a>
+    <a routerLink="/markets" routerLinkActive="is-active">Markets</a>
+    <a routerLink="/notifications" routerLinkActive="is-active">Activity</a>
+    <a routerLink="/settings" routerLinkActive="is-active">Settings</a>
+</nav>

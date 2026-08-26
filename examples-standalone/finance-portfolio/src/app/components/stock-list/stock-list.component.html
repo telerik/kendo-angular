@@ -27,10 +27,8 @@
       }
     </div>
 
-    <app-navigation class="col"></app-navigation>
-
-    <div class="col-3">
-      <!-- filter drop-down placeholder -->
+    <div class="col-3 ms-auto">
+      <span class="text-muted">Select a holding to update the chart.</span>
     </div>
   </div>
 
@@ -66,7 +64,7 @@
       <kendo-grid-column field="day_change" title="Change" media="(min-width: 768px)">
         <ng-template kendoGridCellTemplate let-dataItem>
           <span [ngClass]="{ 'grid-cell-positive': dataItem.day_change > 0, 'grid-cell-negative': dataItem.day_change < 0 }">
-            {{ dataItem.day_change > 0 ? '+' + dataItem.day_change : dataItem.day_change }}
+            {{ dataItem.day_change > 0 ? '↑ +' + dataItem.day_change : dataItem.day_change < 0 ? '↓ ' + dataItem.day_change : '— 0' }}
           </span>
         </ng-template>
       </kendo-grid-column>
@@ -74,7 +72,7 @@
       <kendo-grid-column field="change_pct" title="%Change" media="(min-width: 768px)">
         <ng-template kendoGridCellTemplate let-dataItem>
           <span [ngClass]="{ 'grid-cell-positive': dataItem.change_pct > 0, 'grid-cell-negative': dataItem.change_pct < 0 }">
-            {{ dataItem.change_pct > 0 ? '+' + dataItem.change_pct : dataItem.change_pct }}%
+            {{ dataItem.change_pct > 0 ? '↑ +' + dataItem.change_pct : dataItem.change_pct < 0 ? '↓ ' + dataItem.change_pct : '— 0' }}%
           </span>
         </ng-template>
       </kendo-grid-column>
