@@ -1,11 +1,7 @@
 @import "@progress/kendo-theme-meridian/dist/all.css";
 
 :root {
-  --kendo-font-family: Arial, Helvetica, sans-serif;
-  --kendo-color-primary: #ed3330;
-  --kendo-color-secondary: #3367d6;
-  --kendo-border-radius-base: 5px;
-  --kendo-translucency-base: 30%;
+  --kendo-translucency-base: 0%;
 }
 
 html,
@@ -19,84 +15,4 @@ body {
   line-height: var(--kendo-line-height);
   color: var(--kendo-color-on-app-surface);
   background-color: var(--kendo-color-app-surface);
-}
-
-.container {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: var(--kendo-spacing-4);
-
-  background: url(./assets/background.jpg) no-repeat center fixed;
-  background-size: cover;
-
-  .title {
-    color: var(--kendo-color-on-inverse);
-    margin: 0;
-    padding: var(--kendo-spacing-12) var(--kendo-spacing-5);
-  }
-
-  .navigation {
-    color: var(--kendo-color-on-primary) !important;
-    text-transform: uppercase;
-    text-decoration: none;
-    background: var(--kendo-color-primary);
-    padding: var(--kendo-spacing-5);
-    border-radius: var(--kendo-border-radius-md);
-    display: inline-block;
-    border: none;
-    transition:
-      background-color var(--kendo-duration-prompt) var(--kendo-easing-standard),
-      color var(--kendo-duration-prompt) var(--kendo-easing-standard),
-      letter-spacing var(--kendo-duration-prompt) var(--kendo-easing-standard),
-      box-shadow var(--kendo-duration-prompt) var(--kendo-easing-standard);
-
-    &:hover {
-      background: var(--kendo-color-surface-alt);
-      color: var(--kendo-color-primary) !important;
-      letter-spacing: var(--kendo-letter-spacing-wide);
-      box-shadow: var(--kendo-elevation-3);
-    }
-  }
-}
-
-.banner {
-  background-image: url('https://d585tldpucybw.cloudfront.net/sfimages/default-source/blogs/templates/kendo-angulart2-dark-1200x303.png?sfvrsn=f6440e00_3');
-  background-size: cover;
-  height: 150px;
-  width: 45.7%;
-  text-align: center;
-  color: var(--kendo-color-on-inverse);
-  padding: var(--kendo-spacing-10);
-  filter: brightness(100%);
-}
-
-h1 {
-  font-size: var(--kendo-font-size-xl);
-  font-weight: var(--kendo-font-weight-semibold);
-  line-height: var(--kendo-line-height-md);
-  margin-bottom: var(--kendo-spacing-4);
-}
-
-p {
-  font-size: var(--kendo-font-size-md);
-  line-height: var(--kendo-line-height-md);
-  margin-bottom: var(--kendo-spacing-5);
-}
-
-.try-button {
-  display: inline-block;
-  padding: var(--kendo-spacing-3) var(--kendo-spacing-6);
-  font-size: var(--kendo-font-size-md);
-  text-decoration: none;
-  color: var(--kendo-color-on-secondary);
-  background-color: var(--kendo-color-secondary);
-  border-radius: var(--kendo-border-radius-md);
-  transition: background-color var(--kendo-duration-speedy) var(--kendo-easing-standard);
-}
-
-.try-button:hover {
-  background-color: var(--kendo-color-secondary-hover);
 }

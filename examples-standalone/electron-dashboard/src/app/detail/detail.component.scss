@@ -1,3 +1,66 @@
 :host {
-  
+  display: block;
+}
+
+.page-heading,
+.panel-header {
+  align-items: flex-start;
+  display: flex;
+  gap: var(--kendo-spacing-4);
+  justify-content: space-between;
+}
+
+.page-heading {
+  margin-bottom: var(--kendo-spacing-8);
+}
+
+.eyebrow {
+  color: var(--kendo-color-secondary-on-surface);
+  font-size: var(--kendo-font-size-sm);
+  font-weight: var(--kendo-font-weight-semibold);
+  margin: 0 0 var(--kendo-spacing-1);
+  text-transform: uppercase;
+}
+
+h1,
+h2,
+p {
+  margin-top: 0;
+}
+
+h1 {
+  margin-bottom: var(--kendo-spacing-2);
+}
+
+.page-heading p:not(.eyebrow),
+.panel-header p,
+.panel-header span {
+  color: var(--kendo-color-subtle);
+}
+
+.chart-panel {
+  background: var(--kendo-color-surface);
+  border: 1px solid var(--kendo-color-border);
+  border-radius: var(--kendo-border-radius-md);
+  padding: var(--kendo-spacing-5);
+}
+
+.panel-header {
+  margin-bottom: var(--kendo-spacing-4);
+}
+
+.panel-header h2,
+.panel-header p {
+  margin-bottom: var(--kendo-spacing-1);
+}
+
+@media (max-width: 48rem) {
+  .page-heading,
+  .panel-header {
+    flex-direction: column;
+  }
+
+  .page-heading a {
+    width: 100%;
+  }
 }
