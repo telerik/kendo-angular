@@ -58,24 +58,24 @@ a {
 
     .card-buttons {
         .k-button {
-            min-width: 105px;
+            min-width: var(--kendo-spacing-24);
         }
     }
 
     .card-ranges .k-dateinput {
-        width: 105px;
+        width: var(--kendo-spacing-24);
     }
 
     .chart-tooltip {
         text-align: center;
         font-size: var(--kendo-font-size-sm);
-        font-weight: bold;
+        font-weight: var(--kendo-font-weight-bold);
     }
 
     .calendar-icon {
         color: var(--kendo-color-subtle);
         cursor: pointer;
-        margin-right: 5px;
+        margin-right: var(--kendo-spacing-1);
     }
 
     .card-ranges {
@@ -85,7 +85,7 @@ a {
             .k-textbox-container,
             .k-floating-label-container {
                 padding-top: 0;
-                min-width: 105px;
+                min-width: var(--kendo-spacing-24);
             }
 
             .k-label {
@@ -202,7 +202,7 @@ a {
 
         .card-buttons,
         .card-ranges {
-            margin-top: 1rem;
+            margin-top: var(--kendo-spacing-4);
             text-align: left;
         }
     }
@@ -229,7 +229,7 @@ a {
     }
 
     .menu-button {
-        flex: 0 0 50px;
+        flex: 0 0 var(--kendo-spacing-12);
         text-align: center;
     }
 
@@ -259,15 +259,15 @@ a {
         flex: 1 0 auto;
         flex-direction: column;
         align-items: flex-start;
-        margin-left: 25px;
+        margin-left: var(--kendo-spacing-6);
     }
 
     .k-avatar {
         display: block;
-        width: 40px;
-        height: 40px;
-        flex-basis: 40px;
-        margin: 0 25px;
+        width: var(--kendo-spacing-10);
+        height: var(--kendo-spacing-10);
+        flex-basis: var(--kendo-spacing-10);
+        margin: 0 var(--kendo-spacing-6);
         box-shadow: 0 0 0 var(--kendo-spacing-1px) var(--kendo-color-on-primary);
     }
 
@@ -284,8 +284,8 @@ a {
         }
         .vl {
             border-left: var(--kendo-spacing-1px) solid var(--kendo-color-on-primary);
-            height: 25px;
-            margin: 6px 15px;
+            height: var(--kendo-spacing-6);
+            margin: var(--kendo-spacing-2) var(--kendo-spacing-4);
         }
     }
 }
@@ -299,8 +299,8 @@ a {
         }
 
         .k-dropdown {
-            max-width: 90px;
-            margin-left: 15px;
+            max-width: var(--kendo-spacing-23);
+            margin-left: var(--kendo-spacing-4);
         }
     }
 }
@@ -308,7 +308,7 @@ a {
 // Dashboard page
 .dashboard-page {
     .k-grid-toolbar .k-textbox {
-        margin-bottom: 10px;
+        margin-bottom: var(--kendo-spacing-3);
     }
 }
 
@@ -328,7 +328,7 @@ a {
 @media (min-width: 768px) {
     .dashboard-page {
         .card-container:last-of-type {
-            padding-top: 30px;
+            padding-top: var(--kendo-spacing-12);
         }
     }
 }
@@ -342,8 +342,8 @@ a {
     .personal-card {
         display: grid;
         grid-template-columns: repeat(1, 1fr);
-        grid-row-gap: 1em;
-        row-gap: 1em;
+        grid-row-gap: var(--kendo-spacing-4);
+        row-gap: var(--kendo-spacing-4);
     }
 
     .card-title {
@@ -355,8 +355,8 @@ a {
         margin-bottom: 0;
     }
     .k-card-title {
-        font-size: 15px;
-        margin-bottom: -6px;
+        font-size: var(--kendo-font-size-sm);
+        margin-bottom: 0;
         text-align: left;
     }
 
@@ -394,7 +394,7 @@ a {
     .k-card-subtitle {
         margin-top: 0;
         text-transform: uppercase;
-        font-size: 11px;
+        font-size: var(--kendo-font-size-xs);
     }
     .disabled {
         opacity: 0.5;
@@ -439,6 +439,46 @@ a {
     border-width: var(--kendo-spacing-1);
 }
 
+.team-card__avatar--1 {
+    border-color: var(--kendo-color-series-a);
+}
+
+.team-card__avatar--2 {
+    border-color: var(--kendo-color-series-b);
+}
+
+.team-card__avatar--3 {
+    border-color: var(--kendo-color-series-c);
+}
+
+.team-card__avatar--4 {
+    border-color: var(--kendo-color-series-d);
+}
+
+.team-card__avatar--5 {
+    border-color: var(--kendo-color-series-e);
+}
+
+.team-card__title--1 {
+    color: var(--kendo-color-series-a);
+}
+
+.team-card__title--2 {
+    color: var(--kendo-color-series-b);
+}
+
+.team-card__title--3 {
+    color: var(--kendo-color-series-c);
+}
+
+.team-card__title--4 {
+    color: var(--kendo-color-series-d);
+}
+
+.team-card__title--5 {
+    color: var(--kendo-color-series-e);
+}
+
 .planning-scheduler {
     height: 37.5rem;
 }
@@ -449,6 +489,11 @@ a {
 
 .profile-form {
     max-width: 43.75rem;
+}
+
+.profile-avatar {
+    width: var(--kendo-spacing-20);
+    height: var(--kendo-spacing-20);
 }
 
 @media (min-width: 992px) {
@@ -495,8 +540,8 @@ a {
 
     .k-form .k-form-field {
         display: block;
-        padding: 0 15px;
-        margin-top: 1.5rem;
+        padding: 0 var(--kendo-spacing-4);
+        margin-top: var(--kendo-spacing-6);
     }
 
     .k-form .k-label {
@@ -508,11 +553,11 @@ a {
     }
 
     .k-form-field:first-of-type .k-avatar {
-        margin: 0 auto 1rem;
+        margin: 0 auto var(--kendo-spacing-4);
     }
 
     hr {
-        margin-top: 2rem;
+        margin-top: var(--kendo-spacing-8);
         opacity: 0.2;
     }
 
@@ -520,7 +565,7 @@ a {
         justify-content: center;
 
         & > * {
-            min-width: 140px;
+            min-width: calc(var(--kendo-spacing-24) + var(--kendo-spacing-11));
         }
     }
 }
@@ -562,14 +607,14 @@ a {
     h2,
     h3,
     .component-link {
-        font-family: Metric, Helvetica, Arial, sans-serif;
+        font-family: var(--kendo-font-family);
     }
     a:not(.k-button) {
         color: var(--kendo-color-info);
     }
 
     .content {
-        padding-top: 40px;
+        padding-top: var(--kendo-spacing-10);
         margin: 0 auto;
         position: relative;
         max-width: 1040px;
@@ -578,22 +623,22 @@ a {
     .section-1 {
         text-align: center;
         h1 {
-            font-size: 48px;
-            font-weight: bold;
+            font-size: calc(var(--kendo-font-size-xl) * 2 + var(--kendo-spacing-2));
+            font-weight: var(--kendo-font-weight-bold);
         }
 
         h2 {
-            font-size: 30px;
-            margin-bottom: 53px;
+            font-size: calc(var(--kendo-font-size-xl) + var(--kendo-spacing-3));
+            margin-bottom: var(--kendo-spacing-13);
         }
 
         .button-group {
-            margin-bottom: 30px;
+            margin-bottom: var(--kendo-spacing-8);
 
             .k-button {
                 display: block;
-                margin: 10px auto;
-                min-width: 145px;
+                margin: var(--kendo-spacing-2) auto;
+                min-width: calc(var(--kendo-spacing-24) + var(--kendo-spacing-12));
                 width: 60%;
             }
         }
@@ -605,21 +650,21 @@ a {
             align-content: center;
 
             .github-text {
-                margin-left: 15px;
+                margin-left: var(--kendo-spacing-4);
             }
         }
     }
 
     .section-2 {
         text-align: center;
-        margin-top: 40px;
-        padding: 0 15px;
+        margin-top: var(--kendo-spacing-10);
+        padding: 0 var(--kendo-spacing-4);
     }
 
     .section-3 {
         column-count: 2;
-        margin-top: 40px;
-        padding: 0 15px;
+        margin-top: var(--kendo-spacing-10);
+        padding: 0 var(--kendo-spacing-4);
         text-align: center;
 
         ul {
@@ -631,20 +676,20 @@ a {
 
     .package-item {
         display: inline-block;
-        margin-top: 20px;
+        margin-top: var(--kendo-spacing-5);
     }
 
     .package-title a {
-        font-size: 17px;
+        font-size: var(--kendo-font-size-md);
         color: var(--kendo-color-on-primary);
         text-transform: uppercase;
     }
 
     .component-link {
-        padding: 5px 0;
+        padding: var(--kendo-spacing-1) 0;
 
         a {
-            font-size: 20px;
+            font-size: var(--kendo-font-size-xl);
         }
     }
 
@@ -659,22 +704,22 @@ a {
 @media (min-width: 576px) {
     .info-page {
         .content {
-            padding: 40px 40px 0;
+            padding: var(--kendo-spacing-10) var(--kendo-spacing-10) 0;
         }
 
         .section-1 {
             h1 {
-                font-size: 71px;
+                font-size: calc(var(--kendo-font-size-xl) * 3 + var(--kendo-spacing-3));
             }
 
             h2 {
-                font-size: 38px;
+                font-size: calc(var(--kendo-font-size-xl) * 2);
             }
 
             .button-group {
                 .k-button {
                     display: inline-block;
-                    margin-right: 10px;
+                    margin-right: var(--kendo-spacing-2);
                     width: auto;
                 }
             }
@@ -693,7 +738,7 @@ a {
 @media (min-width: 1400px) {
     .info-page {
         .content {
-            padding: 120px 40px 0;
+            padding: calc(var(--kendo-spacing-24) * 2 + var(--kendo-spacing-12)) var(--kendo-spacing-10) 0;
         }
         .section-1,
         .section-2 {

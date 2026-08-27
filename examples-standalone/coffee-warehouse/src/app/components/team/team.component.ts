@@ -81,7 +81,7 @@ export class TeamComponent implements OnInit {
         const code: string = dataItem.imgId + dataItem.gender;
         const image: any = images;
 
-        return image[code];
+        return this.imageSource(image[code]);
     }
 
     public flagURL(dataItem: any): string {
@@ -89,5 +89,9 @@ export class TeamComponent implements OnInit {
         const image: any = images;
 
         return image[code];
+    }
+
+    private imageSource(value: string): string {
+        return value.startsWith('url(') ? value.slice(5, -2) : value;
     }
 }

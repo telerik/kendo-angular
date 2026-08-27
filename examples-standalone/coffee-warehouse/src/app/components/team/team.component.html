@@ -1,4 +1,4 @@
-<div class="card-container">
+<div class="team-page card-container">
   <header class="page-header">
     <div>
       <h1>{{ customMsgService.translate('team') }}</h1>
@@ -59,7 +59,7 @@
       <kendo-grid-column-group [title]="customMsgService.translate('employee')" [columnMenu]="false">
         <kendo-grid-column field="fullName" [title]="customMsgService.translate('contactName')" [width]="220">
           <ng-template kendoGridCellTemplate let-dataItem>
-            <div class="customer-photo" [ngStyle]="{ 'background-image': photoURL(dataItem) }"></div>
+            <img class="customer-photo" [src]="photoURL(dataItem)" alt="" aria-hidden="true" />
             <div class="customer-name">{{ dataItem.fullName }}</div>
           </ng-template>
         </kendo-grid-column>
@@ -85,10 +85,10 @@
           >
           <ng-template kendoGridCellTemplate let-dataItem>
             @if (dataItem.isOnline === true) {
-              <span class="badge badge-success"> Online </span>
+              <span class="status-badge status-badge--success"> Online </span>
             }
             @if (dataItem.isOnline === false) {
-              <span class="badge badge-danger"> Offline </span>
+              <span class="status-badge status-badge--danger"> Offline </span>
             }
           </ng-template>
         </kendo-grid-column>
@@ -135,7 +135,7 @@
       </kendo-grid-column>
       <kendo-grid-column field="budget" [title]="customMsgService.translate('budget')" [width]="100" filter="numeric">
         <ng-template kendoGridCellTemplate let-dataItem>
-          <span [ngClass]="{ 'red text-bold': dataItem.budget < 0 }"> {{ dataItem.budget | currency }} </span>
+          <span [ngClass]="{ 'budget-negative budget-amount': dataItem.budget < 0 }"> {{ dataItem.budget | currency }} </span>
         </ng-template>
       </kendo-grid-column>
     </kendo-grid-column-group>

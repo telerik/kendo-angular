@@ -1,56 +1,53 @@
-@font-face {
-    font-family: "Roboto";
-    src: url("fonts/Roboto-Regular.ttf") format("truetype");
-}
 body {
     font-family: var(--kendo-font-family);
-    font-size: var(--kendo-font-size);
-    line-height: var(--kendo-line-height);
+    font-size: var(--kendo-font-size-md);
+    line-height: var(--kendo-line-height-md);
 }
 
 h1 {
     font-size: var(--kendo-font-size-xl);
-    font-weight: var(--kendo-font-weight-normal);
+    font-weight: var(--kendo-font-weight-semibold);
+    line-height: var(--kendo-line-height-md);
 }
 h2 {
     font-size: var(--kendo-font-size-lg);
-    font-weight: var(--kendo-font-weight-light);
+    font-weight: var(--kendo-font-weight-semibold);
+    line-height: var(--kendo-line-height-md);
 }
 h3 {
-    font-size: var(--kendo-font-size-xl);
-    font-weight: var(--kendo-font-weight-normal);
+    font-size: var(--kendo-font-size-md);
+    font-weight: var(--kendo-font-weight-semibold);
+    line-height: var(--kendo-line-height-md);
 }
 h4 {
-    font-size: var(--kendo-font-size-xl);
+    font-size: var(--kendo-font-size-sm);
+    font-weight: var(--kendo-font-weight-semibold);
 }
 h5 {
-    font-size: var(--kendo-font-size-xl);
+    font-size: var(--kendo-font-size-sm);
+    font-weight: var(--kendo-font-weight-semibold);
 }
 p {
-    font-size: var(--kendo-font-size);
+    font-size: var(--kendo-font-size-md);
 }
 a {
-    font-size: var(--kendo-font-size);
+    font-size: var(--kendo-font-size-md);
 }
 
 @media (min-width: 576px) {
     h1 {
         font-size: calc(var(--kendo-font-size-xl) * 1.2);
-        font-weight: var(--kendo-font-weight-normal);
     }
     h2 {
         font-size: var(--kendo-font-size-xl);
-        font-weight: var(--kendo-font-weight-light);
     }
 }
 
 @media (min-width: 768px) {
     h1 {
         font-size: calc(var(--kendo-font-size-xl) * 1.4);
-        font-weight: var(--kendo-font-weight-normal);
     }
     h2 {
         font-size: calc(var(--kendo-font-size-xl) * 1.4);
-        font-weight: var(--kendo-font-weight-light);
     }
 }

@@ -1,9 +1,7 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { Employee } from '../../../models/employee.model';
-import { Team } from '../../../models/team.model';
 import { employees } from '../../../resources/employees';
 import { images } from '../../../resources/images';
-import { teams } from '../../../resources/teams';
 import { KENDO_LAYOUT } from '@progress/kendo-angular-layout';
 import { KENDO_BUTTONS } from '@progress/kendo-angular-buttons';
 import { CommonModule } from '@angular/common';
@@ -23,11 +21,6 @@ export class CardComponent {
         this.cards.map(card=>card.selected = false)
     }
 
-    public setCardColor(card: Employee): string | undefined {
-        const currentTeam: Team | undefined = teams.find((team: Team) => team.teamID === card.teamId);
-        return currentTeam?.teamColor;
-    }
-
     public onCardClick(card: Employee): void {
         const currentEmployee: Employee = <Employee>this.cards.find((employee) => employee.id === card.id);
         currentEmployee.selected = !currentEmployee.selected;
@@ -36,6 +29,7 @@ export class CardComponent {
 
     public fetchAvatar(card: Employee): string {
         const imgURL: string = `${card.imgId}${card.gender}`;
-        return this.images[imgURL];
+        const image: string = this.images[imgURL];
+        return image.startsWith('url(') ? image.slice(5, -2) : image;
     }
 }

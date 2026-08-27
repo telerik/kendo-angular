@@ -36,22 +36,22 @@ export class DashboardComponent {
         {
             name: 'Tiger Team',
             data: this.fetchData(1),
-            color: '#FF6358'
+            color: 'var(--kendo-color-series-a)'
         },
         {
             name: 'Lemon Team',
             data: this.fetchData(2),
-            color: '#F7C62F'
+            color: 'var(--kendo-color-series-b)'
         },
         {
             name: 'Organic Team',
             data: this.fetchData(3),
-            color: '#55AB1D'
+            color: 'var(--kendo-color-series-c)'
         },
         {
             name: 'Ocean Team',
             data: this.fetchData(4),
-            color: '#28B4C8'
+            color: 'var(--kendo-color-series-d)'
         }
     ];
 

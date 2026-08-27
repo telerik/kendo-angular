@@ -1,4 +1,4 @@
-<div class="card-container">
+<div class="dashboard-page card-container">
   <header class="page-header">
     <div>
       <h1>{{ customMsgService.translate('dashboard') }}</h1>
@@ -58,7 +58,7 @@
         <kendo-chart-legend
           position="bottom"
           orientation="horizontal"
-          background="#f4f5f8"
+          [background]="'var(--kendo-color-surface)'"
           [spacing]="140"
           [padding]="{ left: 80, right: 80 }"
         ></kendo-chart-legend>
@@ -93,7 +93,7 @@
         <kendo-chart-legend
           position="bottom"
           orientation="horizontal"
-          background="#f4f5f8"
+          [background]="'var(--kendo-color-surface)'"
           [spacing]="140"
           [padding]="{ left: 80, right: 80 }"
         ></kendo-chart-legend>

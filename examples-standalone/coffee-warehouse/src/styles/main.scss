@@ -5,13 +5,11 @@
 //Grid
 .customer-photo {
     display: inline-block;
-    width: 32px;
-    height: 32px;
+    width: var(--kendo-spacing-8);
+    height: var(--kendo-spacing-8);
     border-radius: var(--kendo-border-radius-full);
-    background-size: 32px 35px;
-    background-position: center center;
+    object-fit: cover;
     vertical-align: middle;
-    line-height: 32px;
     box-shadow: inset 0 0 var(--kendo-spacing-1px) var(--kendo-color-border), var(--kendo-elevation-1);
     margin-left: var(--kendo-spacing-1);
 }
@@ -19,19 +17,19 @@
 .customer-name {
     display: inline-block;
     vertical-align: middle;
-    line-height: 32px;
+    line-height: var(--kendo-spacing-8);
     padding-left: var(--kendo-spacing-3);
 }
 
-.red {
+.budget-negative {
     color: var(--kendo-color-error-on-surface);
 }
 
-.text-bold {
-    font-weight: 600;
+.budget-amount {
+    font-weight: var(--kendo-font-weight-semibold);
 }
 
-.badge {
+.status-badge {
     display: inline-block;
     padding: var(--kendo-spacing-1) var(--kendo-spacing-2);
     font-size: var(--kendo-font-size-xs);
@@ -43,12 +41,12 @@
     border-radius: var(--kendo-border-radius-sm);
 }
 
-.badge-success {
+.status-badge--success {
     color: var(--kendo-color-on-success);
     background-color: var(--kendo-color-success);
 }
 
-.badge-danger {
+.status-badge--danger {
     color: var(--kendo-color-on-error);
     background-color: var(--kendo-color-error);
 }
@@ -58,16 +56,6 @@
     text-align: center;
     font-size: var(--kendo-font-size-sm);
     font-weight: var(--kendo-font-weight-bold);
-}
-
-// Card
-.employee-photo {
-    display: inline-block;
-    border-radius: var(--kendo-border-radius-full);
-    background-size: 38px 41px;
-    background-position: center center;
-    vertical-align: middle;
-    line-height: 32px;
 }
 
 .card-opacity {
@@ -85,12 +73,32 @@ kendo-recurrence-frequency-editor .k-edit-field {
     float: none;
 }
 
-.k-team-mark {
+.team-mark {
     width: 1em;
     height: 1em;
     display: inline-block;
     vertical-align: middle;
     margin-right: var(--kendo-spacing-2);
+}
+
+.team-mark--1 {
+    background-color: var(--kendo-color-series-a);
+}
+
+.team-mark--2 {
+    background-color: var(--kendo-color-series-b);
+}
+
+.team-mark--3 {
+    background-color: var(--kendo-color-series-c);
+}
+
+.team-mark--4 {
+    background-color: var(--kendo-color-series-d);
+}
+
+.team-mark--5 {
+    background-color: var(--kendo-color-series-e);
 }
 
 // Header

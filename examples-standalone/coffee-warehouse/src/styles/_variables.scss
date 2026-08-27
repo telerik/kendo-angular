@@ -1,9 +1,4 @@
 :root {
-    --kendo-color-app-surface: #d4d6e4;
-    --kendo-color-primary: #151950;
-    --kendo-color-error: #e21e36;
-    --kendo-color-info: #71a6ff;
-    --kendo-font-family: "Roboto", sans-serif;
     --kendo-translucency-base: 25%;
-    --app-header-height: 5rem;
+    --app-header-height: var(--kendo-spacing-20);
 }

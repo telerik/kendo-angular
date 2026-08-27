@@ -79,12 +79,12 @@
                   [formControl]="formGroup.get('teamID')"
                   >
                   <ng-template kendoDropDownListValueTemplate let-dataItem>
-                    <span class="k-team-mark" [ngStyle]="{ 'background-color': dataItem.teamColor }"></span>&nbsp;{{
+                    <span class="team-mark team-mark--{{ dataItem.teamID }}"></span>&nbsp;{{
                     dataItem?.teamName
                     }}
                   </ng-template>
                   <ng-template kendoDropDownListItemTemplate let-dataItem>
-                    <span class="k-team-mark" [ngStyle]="{ 'background-color': dataItem.teamColor }"></span>
+                    <span class="team-mark team-mark--{{ dataItem.teamID }}"></span>
                     {{ dataItem.teamName }}
                   </ng-template>
                 </kendo-dropdownlist>

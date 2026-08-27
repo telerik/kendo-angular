@@ -6,19 +6,13 @@
     >
     <kendo-card-header class="team-card__header">
       <kendo-avatar
-        width="41px"
-        height="41px"
-            [ngStyle]="{
-                'background-image': fetchAvatar(card),
-                'border-color': setCardColor(card)
-            }"
-        [shape]="'circle'"
-        class="employee-photo"
-        class="team-card__avatar"
-        >
+          [imageSrc]="fetchAvatar(card)"
+      [shape]="'circle'"
+      [ngClass]="'team-card__avatar team-card__avatar--' + card.teamId"
+      >
       </kendo-avatar>
       <div>
-        <p kendoCardTitle [ngStyle]="{ color: setCardColor(card) }">
+        <p kendoCardTitle [ngClass]="'team-card__title team-card__title--' + card.teamId">
           {{ card.fullName }}
         </p>
         <p kendoCardSubtitle>{{ card.jobTitle }}</p>
