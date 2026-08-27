@@ -11,14 +11,14 @@ import { CategoryAxisLabels, KENDO_CHARTS, SeriesLine, ValueAxisLabels } from '@
 export class TotalPortfolioComponent {
     public categories: Array<string> = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
     public seriesData: Array<number> = [300, 246, 340, 212, 240, 156, 250];
-    public lineStyle: SeriesLine = { width: 2, style: 'smooth', color: '#4B5FFA' };
+    public lineStyle: SeriesLine = { width: 2, style: 'smooth', color: 'var(--kendo-color-secondary)' };
     public categoryAxisLabels: CategoryAxisLabels = {
         font: "12px Roboto, sans-serif",
-        color: '#424242'
+        color: 'var(--kendo-color-subtle)'
     };
     public valueAxisLabels: ValueAxisLabels = {
         font: "12px Roboto, sans-serif",
-        color: '#424242',
+        color: 'var(--kendo-color-subtle)',
         step: 2
     };
 }

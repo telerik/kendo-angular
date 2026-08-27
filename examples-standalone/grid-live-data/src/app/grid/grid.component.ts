@@ -32,7 +32,7 @@ import { CommonModule } from '@angular/common';
         animate(
           1500,
           keyframes([
-            style({ backgroundColor: '#32CD32', offset: 0.0 }),
+            style({ backgroundColor: 'var(--kendo-color-success)', offset: 0.0 }),
             style({ backgroundColor: 'inherit', offset: 1.0 }),
           ])
         ),
@@ -45,7 +45,7 @@ import { CommonModule } from '@angular/common';
         animate(
           1500,
           keyframes([
-            style({ backgroundColor: '#FF0000', offset: 0.0 }),
+            style({ backgroundColor: 'var(--kendo-color-error)', offset: 0.0 }),
             style({ backgroundColor: 'inherit', offset: 1.0 }),
           ])
         ),
