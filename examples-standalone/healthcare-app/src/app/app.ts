@@ -98,19 +98,19 @@ export class App implements OnInit {
   ];
 
   public navItems: SegmentedItemSettings[] = this.getNavItems();
-  public isNarrowNav = signal(window.innerWidth < 576);
+  public isNarrowNav = signal(window.innerWidth <= 390);
   public isCompact = signal(window.innerWidth <= 1440);
   public searchExpanded = signal(false);
-  public isSmallLogo = signal(window.innerWidth < 900);
+  public isSmallLogo = signal(window.innerWidth <= 768);
   public dialogWidth = signal(this.getDialogWidth());
   public dialogHeight = signal(this.getDialogHeight());
 
   private getDialogWidth(): number {
-    return window.innerWidth < 1000 ? Math.min(600, window.innerWidth - 32) : 600;
+    return window.innerWidth <= 1024 ? Math.min(600, window.innerWidth - 32) : 600;
   }
 
   private getDialogHeight(): number {
-    return window.innerWidth < 1000 ? Math.min(800, window.innerHeight - 32) : 800;
+    return window.innerWidth <= 1024 ? Math.min(800, window.innerHeight - 32) : 800;
   }
 
   public navDropdownItems = [
@@ -127,9 +127,9 @@ export class App implements OnInit {
   @HostListener('window:resize')
   onResize(): void {
     this.navItems = this.getNavItems();
-    this.isNarrowNav.set(window.innerWidth < 576);
+    this.isNarrowNav.set(window.innerWidth <= 390);
     this.isCompact.set(window.innerWidth <= 1440);
-    this.isSmallLogo.set(window.innerWidth < 900);
+    this.isSmallLogo.set(window.innerWidth <= 768);
     this.dialogWidth.set(this.getDialogWidth());
     this.dialogHeight.set(this.getDialogHeight());
     if (window.innerWidth > 1440) {

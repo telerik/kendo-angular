@@ -178,21 +178,20 @@
   color: #232A36;
 }
 
-@media (max-width: 1270px) {
+/* Standard layout boundaries: 1440 / 1024 / 768 / 390px */
+@media (max-width: 1024px) {
   .charts-row {
     grid-template-columns: 1fr;
   }
 }
 
-/* 576px – 899px: card padding 16px */
-@media (min-width: 576px) and (max-width: 899px) {
+@media (max-width: 768px) {
   .vitals-card {
     padding: 16px;
   }
 }
 
-/* Below 575px: 12px gaps */
-@media (max-width: 575px) {
+@media (max-width: 390px) {
   .vitals-card {
     padding: 12px;
   }
@@ -206,4 +205,3 @@
     margin-top: 12px;
   }
 }
-

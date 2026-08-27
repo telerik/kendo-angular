@@ -2,6 +2,7 @@
 .schedule-page {
   width: 100%;
   margin-top: 24px;
+  padding-bottom: var(--kendo-spacing-10);
 }
 
 .schedule-layout {
@@ -278,10 +279,11 @@
   width: 100%;
 }
 
-/* Responsive Layout */
+/* Standard layout boundaries: 1440 / 1024 / 768 / 390px */
 @media (max-width: 1440px) {
   .schedule-layout {
     flex-wrap: wrap;
+    gap: var(--kendo-spacing-6);
   }
 
   .scheduler-card {
@@ -299,9 +301,15 @@
   }
 }
 
-@media (max-width: 1110px) {
+@media (max-width: 1024px) {
+  .schedule-page {
+    padding-top: var(--kendo-spacing-8);
+    padding-bottom: var(--kendo-spacing-8);
+  }
+
   .schedule-layout {
     flex-direction: column;
+    gap: var(--kendo-spacing-6);
   }
 
   .schedule-layout > .daily-tasks-card {
@@ -323,9 +331,28 @@
   }
 }
 
-@media (max-width: 650px) {
+@media (max-width: 768px) {
   .tasks-header {
     flex-wrap: wrap;
+  }
+
+  .schedule-page {
+    padding-top: var(--kendo-spacing-6);
+    padding-bottom: var(--kendo-spacing-6);
+  }
+
+  .schedule-layout {
+    gap: var(--kendo-spacing-4);
+  }
+
+  .scheduler-card kendo-card-header,
+  .daily-tasks-card kendo-card-header {
+    padding: var(--kendo-spacing-4) var(--kendo-spacing-4) 10px;
+  }
+
+  .scheduler-card kendo-card-body,
+  .daily-tasks-card kendo-card-body {
+    padding: 10px var(--kendo-spacing-4) var(--kendo-spacing-4);
   }
 
   .tasks-actions {
@@ -337,62 +364,24 @@
   }
 }
 
-/* 1440px – 1759px: reduce layout gap to 24px */
-@media (min-width: 1440px) and (max-width: 1759px) {
-  .schedule-layout {
-    gap: 24px;
-  }
-}
-
-/* 900px – 1439px: page top/bottom padding 32px, layout gap 24px */
-@media (min-width: 900px) and (max-width: 1439px) {
+@media (max-width: 390px) {
   .schedule-page {
-    padding-top: 32px;
-    padding-bottom: 32px;
+    padding-top: var(--kendo-spacing-3);
+    padding-bottom: var(--kendo-spacing-3);
   }
 
   .schedule-layout {
-    gap: 24px;
-  }
-}
-
-/* 576px – 899px: card padding 16px, page top/bottom padding 24px */
-@media (min-width: 576px) and (max-width: 899px) {
-  .schedule-page {
-    padding-top: 24px;
-    padding-bottom: 24px;
+    gap: var(--kendo-spacing-3);
   }
 
   .scheduler-card kendo-card-header,
   .daily-tasks-card kendo-card-header {
-    padding: 16px 16px 10px;
+    padding: var(--kendo-spacing-3) var(--kendo-spacing-3) 10px;
   }
 
   .scheduler-card kendo-card-body,
   .daily-tasks-card kendo-card-body {
-    padding: 10px 16px 16px;
-  }
-}
-
-/* Below 575px: 12px gaps and 12px top/bottom page padding */
-@media (max-width: 575px) {
-  .schedule-page {
-    padding-top: 12px;
-    padding-bottom: 12px;
-  }
-
-  .schedule-layout {
-    gap: 12px;
-  }
-
-  .scheduler-card kendo-card-header,
-  .daily-tasks-card kendo-card-header {
-    padding: 12px 12px 10px;
-  }
-
-  .scheduler-card kendo-card-body,
-  .daily-tasks-card kendo-card-body {
-    padding: 10px 12px 12px;
+    padding: 10px var(--kendo-spacing-3) var(--kendo-spacing-3);
   }
 }
 
@@ -421,11 +410,4 @@
 .event-dialog-icon {
   color: #6b7280;
   flex-shrink: 0;
-}
-
-/* Above 1440px: 40px bottom padding */
-@media (min-width: 1440px) {
-  .schedule-page {
-    padding-bottom: 40px;
-  }
 }

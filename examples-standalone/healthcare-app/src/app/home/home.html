@@ -872,7 +872,7 @@
 </ng-template>
 
 <!-- AI Chat Popup (Desktop) -->
-@if (chatPopupOpened && vw() > 899) {
+@if (chatPopupOpened && vw() > 768) {
   <kendo-popup
     [anchor]="fabButton"
     [anchorAlign]="{ horizontal: 'left', vertical: 'bottom' }"
@@ -887,7 +887,7 @@
 }
 
 <!-- AI Chat Full Screen (Mobile) -->
-@if (chatPopupOpened && vw() <= 899) {
+@if (chatPopupOpened && vw() <= 768) {
   <div class="ai-chat-fullscreen">
     <ng-container *ngTemplateOutlet="chatTemplate"></ng-container>
   </div>

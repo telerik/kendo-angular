@@ -63,7 +63,7 @@ import { PageHeaderService } from '../services/page-header.service';
 })
 export class HomeComponent implements OnInit, OnDestroy {
   // Responsive dialog dimensions
-  public isNarrowScreen = signal(window.innerWidth < 1000);
+  public isNarrowScreen = signal(window.innerWidth <= 1024);
   public vw = signal(window.innerWidth);
   public vh = signal(window.innerHeight);
 
@@ -77,7 +77,7 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   @HostListener('window:resize')
   onResize(): void {
-    this.isNarrowScreen.set(window.innerWidth < 1000);
+    this.isNarrowScreen.set(window.innerWidth <= 1024);
     this.vw.set(window.innerWidth);
     this.vh.set(window.innerHeight);
   }

@@ -1,6 +1,7 @@
 .page-section {
   width: 100%;
   margin-top: 24px;
+  padding-bottom: var(--kendo-spacing-10);
 }
 
 /* Patients Card / AI Chat Card */
@@ -81,35 +82,31 @@
   color: var(--kendo-color-secondary);
 }
 
-/* 1440px – 1759px: reduce content wrapper gap to 24px */
-@media (min-width: 1440px) and (max-width: 1759px) {
-  .patients-content-wrapper {
-    gap: 24px;
-  }
-}
-
-/* 900px – 1439px: gap 24px, page top/bottom padding 32px */
-@media (min-width: 900px) and (max-width: 1439px) {
+/* Standard layout boundaries: 1440 / 1024 / 768 / 390px */
+@media (max-width: 1440px) {
   .page-section {
-    padding-top: 32px;
-    padding-bottom: 32px;
+    padding-top: var(--kendo-spacing-8);
+    padding-bottom: var(--kendo-spacing-8);
   }
 
   .patients-content-wrapper {
-    gap: 24px;
+    gap: var(--kendo-spacing-6);
   }
 }
 
-/* 576px – 899px: card padding 16px, page top/bottom padding 24px */
-@media (min-width: 576px) and (max-width: 899px) {
+@media (max-width: 1024px) {
   .ai-chat-card {
     flex: 1 0 100%;
     height: 650px;
   }
 
   .page-section {
-    padding-top: 24px;
-    padding-bottom: 24px;
+    padding-top: var(--kendo-spacing-6);
+    padding-bottom: var(--kendo-spacing-6);
+  }
+
+  .patients-content-wrapper {
+    gap: var(--kendo-spacing-4);
   }
 
   .patients-card kendo-card-body {
@@ -117,30 +114,24 @@
   }
 }
 
-/* Below 575px: 12px gaps and 12px top/bottom page padding */
-@media (max-width: 575px) {
-  .ai-chat-card {
-    flex: 1 0 100%;
-    height: 650px;
-  }
-
+@media (max-width: 768px) {
   .page-section {
-    padding-top: 12px;
-    padding-bottom: 12px;
+    padding-top: var(--kendo-spacing-4);
+    padding-bottom: var(--kendo-spacing-4);
   }
 
   .patients-content-wrapper {
-    gap: 12px;
+    gap: var(--kendo-spacing-3);
+  }
+}
+
+@media (max-width: 390px) {
+  .page-section {
+    padding-top: var(--kendo-spacing-3);
+    padding-bottom: var(--kendo-spacing-3);
   }
 
   .patients-card kendo-card-body {
     padding: 10px 12px 12px;
-  }
-}
-
-/* Above 1440px: 40px bottom padding */
-@media (min-width: 1440px) {
-  .page-section {
-    padding-bottom: 40px;
   }
 }

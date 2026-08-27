@@ -78,13 +78,14 @@
   gap: var(--kendo-spacing-3);
 }
 
-@media (max-width: 991px) {
+/* Standard layout boundaries: 1440 / 1024 / 768 / 390px */
+@media (max-width: 1024px) {
   .settings-grid {
     grid-template-columns: 1fr;
   }
 }
 
-@media (max-width: 575px) {
+@media (max-width: 768px) {
   .support-actions {
     flex-direction: column;
     width: 100%;
