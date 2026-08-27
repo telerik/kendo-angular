@@ -1,0 +1,28 @@
+<section class="finance-page notifications-page" aria-labelledby="notifications-title">
+    <div class="page-heading">
+        <div><p class="eyebrow">Inbox / Account updates</p><h1 id="notifications-title">Notifications Center</h1><p class="page-lede">Stay informed about account activity, payments, and helpful insights.</p></div>
+        <button kendoButton fillMode="outline" [disabled]="unreadCount === 0" (click)="markAllRead()">Mark all as read</button>
+    </div>
+    <div class="notification-toolbar">
+        <div class="category-tabs" role="tablist" aria-label="Notification categories">
+            @for (category of categories; track category) { <button kendoButton fillMode="flat" role="tab" [attr.aria-selected]="selectedCategory === category" [class.category-active]="selectedCategory === category" (click)="selectCategory(category)">{{ category }}</button> }
+        </div>
+        <kendo-textbox class="notification-search" [value]="query" (valueChange)="query = $event" placeholder="Search notifications" aria-label="Search notifications"></kendo-textbox>
+    </div>
+    <article class="surface-card notifications-card">
+        <div class="card-heading"><div><p class="card-kicker">Your inbox</p><h2>{{ unreadCount }} unread notification{{ unreadCount === 1 ? '' : 's' }}</h2></div><span class="muted-copy">{{ filteredNotifications.length }} shown</span></div>
+        @if (filteredNotifications.length === 0) {
+            <div class="state-panel" role="status"><span class="state-icon" aria-hidden="true"><kendo-svgicon [icon]="infoCircleIcon"></kendo-svgicon></span><h3>No notifications found</h3><p>Try another category or search term.</p><button kendoButton fillMode="outline" (click)="query = ''; selectedCategory = 'All'">Clear filters</button></div>
+        } @else {
+            <div class="notification-list">
+                @for (notification of filteredNotifications; track notification.id) {
+                    <div class="notification-row" [class.notification-unread]="notification.unread">
+                        <span class="notification-icon" [class.notification-security]="notification.category === 'Security'" aria-hidden="true"><kendo-svgicon [icon]="notification.category === 'Security' ? lockIcon : notification.category === 'Payments' ? bellIcon : checkCircleIcon"></kendo-svgicon></span>
+                        <div class="notification-copy"><div class="notification-title"><strong>{{ notification.title }}</strong>@if (notification.unread) { <span class="unread-dot" aria-label="Unread"></span> }</div><span>{{ notification.detail }}</span></div>
+                        <div class="notification-meta"><span>{{ notification.date }}</span>@if (notification.unread) { <button kendoButton fillMode="flat" (click)="markRead(notification)">Mark read</button> }</div>
+                    </div>
+                }
+            </div>
+        }
+    </article>
+</section>

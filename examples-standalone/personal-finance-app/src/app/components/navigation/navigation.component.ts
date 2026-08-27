@@ -7,11 +7,16 @@ import {
     arrowsSwapIcon,
     chartColumnStackedIcon,
     dollarIcon,
+    bellIcon,
+    fileTxtIcon,
     gearIcon,
     gridIcon,
     menuIcon,
+    questionCircleIcon,
     sparklesIcon,
     SVGIcon,
+    userIcon,
+    walletIcon,
 } from '@progress/kendo-svg-icons';
 import { DrawerItem } from '../../models/drawer-item';
 import { CustomMessagesService } from '../../services/custom-messages.service';
@@ -97,6 +102,51 @@ export class NavigationComponent implements OnInit {
             },
             {
                 separator: true,
+            },
+            {
+                text: 'Accounts',
+                svgIcon: walletIcon,
+                path: '/account-detail',
+                selected: selectedItem === '/account-detail',
+            },
+            {
+                text: 'Budgets',
+                svgIcon: chartColumnStackedIcon,
+                path: '/budgets',
+                selected: selectedItem === '/budgets',
+            },
+            {
+                text: 'Statements',
+                svgIcon: fileTxtIcon,
+                path: '/statements',
+                selected: selectedItem === '/statements',
+            },
+            {
+                text: 'Cards',
+                svgIcon: walletIcon,
+                path: '/cards',
+                selected: selectedItem === '/cards',
+            },
+            {
+                separator: true,
+            },
+            {
+                text: 'Notifications',
+                svgIcon: bellIcon,
+                path: '/notifications',
+                selected: selectedItem === '/notifications',
+            },
+            {
+                text: 'Help & Support',
+                svgIcon: questionCircleIcon,
+                path: '/help-support',
+                selected: selectedItem === '/help-support',
+            },
+            {
+                text: 'User Profile',
+                svgIcon: userIcon,
+                path: '/profile',
+                selected: selectedItem === '/profile',
             },
             {
                 text: this.customMsgService.translate('settings'),

@@ -36,6 +36,8 @@
         <button kendoButton themeColor="primary" rounded="large" [routerLink]="'/ai-assistant'">
             <span class="action-label">{{ customMsgService.translate('aiAssistant') }}</span>
         </button>
+        <button kendoButton fillMode="flat" rounded="large" [svgIcon]="bellIcon" aria-label="Open notifications" title="Notifications" [routerLink]="'/notifications'"></button>
+        <button kendoButton fillMode="flat" rounded="large" [svgIcon]="userIcon" aria-label="Open user profile" title="User profile" [routerLink]="'/profile'"></button>
         <kendo-dropdownbutton
             [data]="translations"
             [svgIcon]="dropDownIcon"

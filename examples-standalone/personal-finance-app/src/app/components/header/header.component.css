@@ -20,6 +20,7 @@
 .header-search,
 .header-actions {
     flex: 1 0 0;
+    min-width: 0;
 }
 
 .user-greeting {
@@ -68,5 +69,43 @@
 @media (max-width: 62rem) {
     .header-actions {
         justify-content: flex-start;
+        flex: 1 1 100%;
+        flex-wrap: wrap;
+        min-width: 0;
+    }
+}
+
+@media (max-width: 47.999rem) {
+    .application-header {
+        padding-inline: var(--kendo-spacing-4);
+        gap: var(--kendo-spacing-3);
+    }
+
+    .user-greeting,
+    .header-search,
+    .header-actions {
+        flex: 1 1 100%;
+        width: 100%;
+    }
+
+    .header-search,
+    .search-control,
+    .city-search {
+        min-width: 0 !important;
+        width: 100%;
+        max-width: none !important;
+    }
+
+    .header-actions {
+        flex-wrap: wrap;
+        gap: var(--kendo-spacing-2);
+    }
+
+    .header-actions .k-button {
+        min-width: 0;
+    }
+
+    .header-actions .language-dropdown {
+        flex: 1 1 auto;
     }
 }

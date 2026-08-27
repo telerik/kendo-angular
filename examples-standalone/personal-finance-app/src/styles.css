@@ -11,15 +11,7 @@ body {
 }
 
 :root {
-    /* Preserve the app's dark palette using Meridian's semantic base tokens. */
-    --kendo-color-on-app-surface: #e0e0e0;
-    --kendo-color-app-surface: #121212;
-    --kendo-color-surface-alt: #212121;
-    --kendo-color-success: #64805d;
-    --kendo-color-error: #d35f5f;
-
     --kendo-font-family: 'Roboto', sans-serif;
-    --kendo-font-size-md: 18px;
 
     --kendo-translucency-base: 30%;
     --kendo-translucency-blur-base: 4px;

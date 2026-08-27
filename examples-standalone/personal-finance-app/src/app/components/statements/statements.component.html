@@ -1,0 +1,28 @@
+<section class="finance-page statements-page" aria-labelledby="statements-title">
+    <div class="page-heading">
+        <div><p class="eyebrow">Documents / Everyday Checking</p><h1 id="statements-title">Statements</h1><p class="page-lede">Review account statements by period. Preview and download actions are represented for this demo.</p></div>
+        <button kendoButton fillMode="outline" [svgIcon]="fileTextIcon" (click)="setAction('Export statement history')">Export history</button>
+    </div>
+    <div class="filter-bar" role="search" aria-label="Filter statements">
+        <div class="filter-field"><label for="statement-period">Period</label><kendo-dropdownlist id="statement-period" [data]="statementPeriods" [value]="selectedPeriod" (valueChange)="selectedPeriod = $event; filterStatements()"></kendo-dropdownlist></div>
+        <div class="filter-field filter-search"><label for="statement-search">Search statements</label><kendo-textbox id="statement-search" [value]="query" (valueChange)="query = $event; filterStatements()" placeholder="Search by period or account"></kendo-textbox></div>
+    </div>
+    @if (actionMessage) { <div class="feedback-banner" role="status">{{ actionMessage }}</div> }
+    <article class="surface-card statement-card">
+        <div class="card-heading"><div><p class="card-kicker">Available documents</p><h2>{{ filteredStatements.length }} statements</h2></div><span class="muted-copy">Updated today</span></div>
+        @if (filteredStatements.length === 0) {
+            <div class="state-panel" role="status"><span class="state-icon" aria-hidden="true"><kendo-svgicon [icon]="infoCircleIcon"></kendo-svgicon></span><h3>No statements found</h3><p>Try a different period or clear the search to see available documents.</p><button kendoButton fillMode="outline" (click)="query = ''; selectedPeriod = statementPeriods[0]; filterStatements()">Clear filters</button></div>
+        } @else {
+            <div class="statement-list">
+                @for (statement of filteredStatements; track statement.id) {
+                    <div class="statement-row">
+                        <span class="document-icon" aria-hidden="true"><kendo-svgicon [icon]="fileTextIcon"></kendo-svgicon></span>
+                        <div class="statement-copy"><strong>{{ statement.period }}</strong><span>{{ statement.account }} · Issued {{ statement.issued }}</span></div>
+                        <span class="statement-meta">{{ statement.pages }} pages · {{ statement.size }}</span>
+                        <div class="row-actions"><button kendoButton fillMode="flat" [svgIcon]="eyeIcon" (click)="setAction('Preview ' + statement.period)">Preview</button><button kendoButton fillMode="outline" [svgIcon]="downloadIcon" (click)="setAction('Download ' + statement.period)">Download</button></div>
+                    </div>
+                }
+            </div>
+        }
+    </article>
+</section>
