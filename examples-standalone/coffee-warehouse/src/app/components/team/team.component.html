@@ -72,7 +72,7 @@
           [resizable]="false"
           >
           <ng-template kendoGridCellTemplate let-dataItem>
-            <img class="flag" [src]="flagURL(dataItem)" width="30" />
+            <img class="flag" [src]="flagURL(dataItem)" width="30" [alt]="dataItem.country + ' flag'" />
           </ng-template>
         </kendo-grid-column>
         <kendo-grid-column

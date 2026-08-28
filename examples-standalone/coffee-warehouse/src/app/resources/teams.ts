@@ -20,10 +20,5 @@ export const teams: Team[] = [
         teamID: 4,
         teamName: 'Ocean Team',
         teamColor: 'var(--kendo-color-series-d)'
-    },
-    {
-        teamID: 5,
-        teamName: 'Purple Team',
-        teamColor: 'var(--kendo-color-series-e)'
     }
 ];

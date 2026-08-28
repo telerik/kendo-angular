@@ -6,6 +6,24 @@
     </div>
     <span class="page-status">{{ customMsgService.translate('lastUpdated') }}</span>
   </header>
+  <section class="dashboard-summary" [attr.aria-label]="customMsgService.translate('dashboardSummary')">
+    <article class="summary-card">
+      <span class="summary-card__label">{{ customMsgService.translate('ordersInRange') }}</span>
+      <strong class="summary-card__value">{{ ordersInRange.length }}</strong>
+    </article>
+    <article class="summary-card">
+      <span class="summary-card__label">{{ customMsgService.translate('orderValue') }}</span>
+      <strong class="summary-card__value">{{ intl.formatNumber(orderValueInRange, 'c0') }}</strong>
+    </article>
+    <article class="summary-card">
+      <span class="summary-card__label">{{ customMsgService.translate('averageOrderValue') }}</span>
+      <strong class="summary-card__value">{{ intl.formatNumber(averageOrderValue, 'c0') }}</strong>
+    </article>
+    <article class="summary-card">
+      <span class="summary-card__label">{{ customMsgService.translate('activeTeams') }}</span>
+      <strong class="summary-card__value">{{ activeTeamCount }} / {{ teamCount }}</strong>
+    </article>
+  </section>
   <div class="card-header-wrapper">
     <h3 class="card-title">
       {{ customMsgService.translate('teamEfficiency') }}

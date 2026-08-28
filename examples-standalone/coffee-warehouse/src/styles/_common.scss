@@ -39,8 +39,10 @@ a {
 }
 
 .card-container {
-    background-color: var(--kendo-color-surface-alt);
-    padding: var(--kendo-spacing-10) 0;
+    background-color: color-mix(in srgb, var(--kendo-color-surface-alt) calc(100% - var(--kendo-translucency-base)), transparent);
+    border: var(--kendo-spacing-1px) solid color-mix(in srgb, var(--kendo-color-border) calc(100% - var(--kendo-translucency-base)), transparent);
+    padding: var(--kendo-spacing-4);
+    backdrop-filter: blur(var(--kendo-translucency-blur-base));
     text-align: center;
 
     .card-header-wrapper {
@@ -100,6 +102,44 @@ a {
     }
 }
 
+.dashboard-summary {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: var(--kendo-spacing-3);
+    margin-bottom: var(--kendo-spacing-8);
+    text-align: left;
+}
+
+.summary-card {
+    background-color: color-mix(in srgb, var(--kendo-color-surface) calc(100% - var(--kendo-translucency-base)), transparent);
+    border: var(--kendo-spacing-1px) solid color-mix(in srgb, var(--kendo-color-border) calc(100% - var(--kendo-translucency-base)), transparent);
+    border-radius: var(--kendo-border-radius-md);
+    display: flex;
+    flex-direction: column;
+    gap: var(--kendo-spacing-1);
+    min-height: var(--kendo-spacing-20);
+    justify-content: center;
+    padding: var(--kendo-spacing-4);
+    backdrop-filter: blur(calc(var(--kendo-translucency-blur-base) + var(--kendo-translucency-blur-step)));
+}
+
+.summary-card__label {
+    color: var(--kendo-color-subtle);
+    font-size: var(--kendo-font-size-sm);
+}
+
+.summary-card__value {
+    color: var(--kendo-color-primary-on-surface);
+    font-size: var(--kendo-font-size-lg);
+    font-weight: var(--kendo-font-weight-semibold);
+}
+
+@media (max-width: 767px) {
+    .dashboard-summary {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
 .page-header {
     display: flex;
     align-items: flex-start;
@@ -126,7 +166,7 @@ a {
     white-space: nowrap;
 }
 
-@media (max-width: 575px) {
+@media (max-width: 767px) {
     .page-header {
         flex-direction: column;
     }
@@ -135,7 +175,6 @@ a {
 @media (min-width: 576px) {
     .card-container {
         text-align: initial;
-        padding: var(--kendo-spacing-8);
 
         &.grid {
             grid-template-columns: repeat(2, 1fr);
@@ -163,6 +202,7 @@ a {
 @media (min-width: 768px) {
     .card-container {
         margin: var(--kendo-spacing-6);
+        padding: var(--kendo-spacing-6);
         border-radius: var(--kendo-border-radius-md);
         box-shadow: var(--kendo-elevation-2);
 
@@ -233,27 +273,6 @@ a {
         text-align: center;
     }
 
-    .notification-button {
-        position: relative;
-        color: inherit;
-    }
-
-    .notification-count {
-        align-items: center;
-        background-color: var(--kendo-color-error);
-        border-radius: var(--kendo-border-radius-full);
-        color: var(--kendo-color-on-error);
-        display: flex;
-        font-size: var(--kendo-font-size-xs);
-        font-weight: var(--kendo-font-weight-bold);
-        height: var(--kendo-spacing-4);
-        justify-content: center;
-        min-width: var(--kendo-spacing-4);
-        position: absolute;
-        right: var(--kendo-spacing-1);
-        top: var(--kendo-spacing-1);
-    }
-
     .title {
         display: flex;
         flex: 1 0 auto;
@@ -276,7 +295,7 @@ a {
     }
 }
 
-@media (min-width: 576px) {
+@media (min-width: 768px) {
     .header {
         .title {
             flex-direction: row;
@@ -306,10 +325,28 @@ a {
 }
 
 // Dashboard page
+.dashboard-page.card-container,
+.team-page.card-container {
+    border: 0;
+}
+
 .dashboard-page {
+    & > .card-component {
+        background-color: color-mix(in srgb, var(--kendo-color-surface) calc(100% - var(--kendo-translucency-base)), transparent);
+        border: var(--kendo-spacing-1px) solid color-mix(in srgb, var(--kendo-color-border) calc(100% - var(--kendo-translucency-base)), transparent);
+        border-radius: var(--kendo-border-radius-md);
+        padding: var(--kendo-spacing-4);
+    }
+
     .k-grid-toolbar .k-textbox {
         margin-bottom: var(--kendo-spacing-3);
     }
+}
+
+// Dense data surfaces stay opaque for readability.
+.team-page .card-component {
+    background-color: var(--kendo-color-surface);
+    border-radius: var(--kendo-border-radius-md);
 }
 
 @media (min-width: 576px) {
@@ -399,6 +436,13 @@ a {
     .disabled {
         opacity: 0.5;
     }
+
+    .card-container > .card-component {
+        background-color: var(--kendo-color-surface);
+        border: var(--kendo-spacing-1px) solid var(--kendo-color-border);
+        border-radius: var(--kendo-border-radius-md);
+        padding: var(--kendo-spacing-2);
+    }
 }
 
 @media (min-width: 576px) {
@@ -455,10 +499,6 @@ a {
     border-color: var(--kendo-color-series-d);
 }
 
-.team-card__avatar--5 {
-    border-color: var(--kendo-color-series-e);
-}
-
 .team-card__title--1 {
     color: var(--kendo-color-series-a);
 }
@@ -475,10 +515,6 @@ a {
     color: var(--kendo-color-series-d);
 }
 
-.team-card__title--5 {
-    color: var(--kendo-color-series-e);
-}
-
 .planning-scheduler {
     height: 37.5rem;
 }
@@ -492,8 +528,32 @@ a {
 }
 
 .profile-avatar {
-    width: var(--kendo-spacing-20);
-    height: var(--kendo-spacing-20);
+    --profile-avatar-size: clamp(var(--kendo-spacing-16), 16vw, var(--kendo-spacing-20));
+    width: var(--profile-avatar-size);
+    height: var(--profile-avatar-size);
+    min-width: var(--profile-avatar-size);
+    min-height: var(--profile-avatar-size);
+    flex: 0 0 var(--profile-avatar-size);
+    aspect-ratio: 1;
+    border-radius: var(--kendo-border-radius-full);
+    overflow: hidden;
+    background-color: var(--kendo-color-surface-alt);
+
+    .k-avatar-image {
+        display: block;
+        width: 100%;
+        height: 100%;
+        background-position: 50% 50%;
+        background-color: var(--kendo-color-surface-alt);
+    }
+
+    .k-avatar-image > img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        object-position: 50% 50%;
+    }
 }
 
 @media (min-width: 992px) {
@@ -536,6 +596,13 @@ a {
 .profile-page {
     .card-container {
         text-align: left;
+    }
+
+    .card-component {
+        background-color: var(--kendo-color-surface);
+        border: var(--kendo-spacing-1px) solid var(--kendo-color-border);
+        border-radius: var(--kendo-border-radius-md);
+        padding: var(--kendo-spacing-4);
     }
 
     .k-form .k-form-field {
