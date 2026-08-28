@@ -160,7 +160,7 @@ export class App implements OnInit {
   public patients: Patient[] = [];
 
   // Opacity mode toggle
-  public opacityMode = signal(false);
+  public opacityMode = signal(true);
 
   // Profile dialog state
   public profileDialogOpened = false;

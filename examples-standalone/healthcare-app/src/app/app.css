@@ -32,7 +32,8 @@
   background: var(--kendo-color-surface-alt) !important;
   box-shadow: var(--kendo-elevation-2);
   border-radius: var(--kendo-border-radius-full);
-  margin: 0 120px;
+  width: min(calc(100% - (2 * var(--kendo-spacing-8))), 1440px);
+  margin: 0 auto;
   flex-wrap: nowrap;
 }
 
@@ -52,7 +53,9 @@
 
 /* Page title bar inside the sticky wrapper */
 .sticky-page-header {
-  padding: 16px 120px 0;
+  width: min(calc(100% - (2 * var(--kendo-spacing-8))), 1440px);
+  margin-inline: auto;
+  padding: 16px 0 0;
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
@@ -94,36 +97,39 @@
 
 /* Main Content Area */
 .app-content {
-  padding: 0 120px;
+  width: min(calc(100% - (2 * var(--kendo-spacing-8))), 1440px);
+  margin-inline: auto;
 }
 
 /* Standard layout boundaries: 1440 / 1024 / 768 / 390px */
 @media (max-width: 1440px) {
   .k-appbar {
-    margin: 0 var(--kendo-spacing-8);
+    width: calc(100% - (2 * var(--kendo-spacing-8)));
   }
 
   .app-content {
-    padding: 0 var(--kendo-spacing-8);
+    width: calc(100% - (2 * var(--kendo-spacing-8)));
   }
 
   .sticky-page-header {
-    padding: var(--kendo-spacing-4) var(--kendo-spacing-8) 0;
+    width: calc(100% - (2 * var(--kendo-spacing-8)));
+    padding: var(--kendo-spacing-4) 0 0;
   }
 }
 
 @media (max-width: 1024px) {
   .k-appbar {
-    margin: 0 var(--kendo-spacing-6);
+    width: calc(100% - (2 * var(--kendo-spacing-6)));
     height: 68px;
   }
 
   .app-content {
-    padding: 0 var(--kendo-spacing-6);
+    width: calc(100% - (2 * var(--kendo-spacing-6)));
   }
 
   .sticky-page-header {
-    padding: var(--kendo-spacing-4) var(--kendo-spacing-6) 0;
+    width: calc(100% - (2 * var(--kendo-spacing-6)));
+    padding: var(--kendo-spacing-4) 0 0;
   }
 
   .sticky-page-title {
@@ -133,16 +139,17 @@
 
 @media (max-width: 768px) {
   .k-appbar {
-    margin: 0 var(--kendo-spacing-4);
+    width: calc(100% - (2 * var(--kendo-spacing-4)));
     height: 64px;
   }
 
   .app-content {
-    padding: 0 var(--kendo-spacing-4);
+    width: calc(100% - (2 * var(--kendo-spacing-4)));
   }
 
   .sticky-page-header {
-    padding: var(--kendo-spacing-4) var(--kendo-spacing-4) 0;
+    width: calc(100% - (2 * var(--kendo-spacing-4)));
+    padding: var(--kendo-spacing-4) 0 0;
   }
 
   .sticky-page-title {
@@ -152,16 +159,17 @@
 
 @media (max-width: 390px) {
   .k-appbar {
-    margin: 0 var(--kendo-spacing-3);
+    width: calc(100% - (2 * var(--kendo-spacing-3)));
     height: 58px;
   }
 
   .app-content {
-    padding: 0 var(--kendo-spacing-3);
+    width: calc(100% - (2 * var(--kendo-spacing-3)));
   }
 
   .sticky-page-header {
-    padding: var(--kendo-spacing-4) var(--kendo-spacing-3) 0;
+    width: calc(100% - (2 * var(--kendo-spacing-3)));
+    padding: var(--kendo-spacing-4) 0 0;
   }
 
   .sticky-page-title {
