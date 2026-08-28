@@ -6,8 +6,7 @@
 .eyebrow, .page-lede, .card-kicker, .summary-label, .summary-note { margin: var(--kendo-spacing-1) 0 0; color: var(--kendo-color-subtle); }
 .eyebrow, .card-kicker { font-size: var(--kendo-font-size-sm); font-weight: var(--kendo-font-weight-medium); }
 .budget-summary { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--kendo-spacing-4); margin-block-end: var(--kendo-spacing-5); }
-.summary-card, .surface-card { min-width: 0; padding: var(--kendo-spacing-5); border: 1px solid var(--kendo-color-border); border-radius: var(--kendo-border-radius-xl); background: var(--kendo-color-surface-alt); box-shadow: var(--kendo-elevation-1); }
-.summary-card { display: grid; gap: var(--kendo-spacing-1); }
+.summary-card .k-card-body { display: grid; gap: var(--kendo-spacing-1); }
 .summary-card strong { font-size: var(--kendo-font-size-xl); font-weight: var(--kendo-font-weight-semibold); }
 .summary-positive { color: var(--kendo-color-success-on-surface); }
 .summary-alert { border-color: var(--kendo-color-warning-emphasis); background: var(--kendo-color-warning-subtle); }

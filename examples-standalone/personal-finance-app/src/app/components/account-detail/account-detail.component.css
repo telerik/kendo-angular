@@ -7,10 +7,9 @@
 .eyebrow, .card-kicker { font-size: var(--kendo-font-size-sm); font-weight: var(--kendo-font-weight-medium); }
 .heading-actions, .balance-actions { display: flex; flex-wrap: wrap; gap: var(--kendo-spacing-2); }
 .account-grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--kendo-spacing-5); }
-.surface-card { grid-column: span 12; min-width: 0; padding: var(--kendo-spacing-5); border: 1px solid var(--kendo-color-border); border-radius: var(--kendo-border-radius-xl); background: var(--kendo-color-surface-alt); box-shadow: var(--kendo-elevation-1); }
+
 .card-heading { justify-content: space-between; gap: var(--kendo-spacing-3); }
 .card-heading h2 { margin-block-start: var(--kendo-spacing-1); font-size: var(--kendo-font-size-lg); }
-.balance-card { background: var(--kendo-color-primary-subtle); border-color: var(--kendo-color-primary-emphasis); }
 .balance-card h2 { margin-block: var(--kendo-spacing-3); font-size: clamp(2rem, 4vw, 3rem); }
 .icon-disc, .activity-icon { display: inline-flex; align-items: center; justify-content: center; flex: 0 0 auto; border-radius: var(--kendo-border-radius-full); }
 .icon-disc { width: var(--kendo-spacing-10); height: var(--kendo-spacing-10); }

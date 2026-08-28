@@ -20,34 +20,32 @@
     overflow: hidden;
 }
 
-:host ::ng-deep .investment-panel,
-:host ::ng-deep .analytics-panel,
-:host ::ng-deep .transaction-panel {
+:host ::ng-deep .investment-card,
+:host ::ng-deep .analytics-card,
+:host ::ng-deep .transaction-card {
     display: flex;
+    flex: 1 1 auto;
     flex-direction: column;
     gap: var(--kendo-spacing-4);
-    padding: var(--kendo-spacing-4);
-    border-radius: var(--kendo-border-radius-xxl);
-    background-color: var(--kendo-color-surface-alt);
 }
 
-:host ::ng-deep .investment-panel,
-:host ::ng-deep .transaction-panel {
+:host ::ng-deep .investment-card,
+:host ::ng-deep .transaction-card {
     grid-column: span 12;
 }
 
-:host ::ng-deep .investments-overview-panel,
-:host ::ng-deep .movers-panel {
+:host ::ng-deep .investments-overview-card,
+:host ::ng-deep .movers-card {
     margin-block-end: var(--kendo-spacing-10);
 }
 
-:host ::ng-deep .stock-chart-panel,
-:host ::ng-deep .transactions-panel {
+:host ::ng-deep .stock-chart-card,
+:host ::ng-deep .transactions-card {
     margin-block-end: var(--kendo-spacing-4);
 }
 
-:host ::ng-deep .panel-heading,
-:host ::ng-deep .panel-content,
+:host ::ng-deep .card-heading,
+:host ::ng-deep .card-content,
 :host ::ng-deep .centered-content,
 :host ::ng-deep .analytics-content {
     display: flex;
@@ -55,16 +53,16 @@
     flex-direction: column;
 }
 
-:host ::ng-deep .panel-heading {
+:host ::ng-deep .card-heading {
     align-items: flex-start;
     justify-content: space-between;
 }
 
-:host ::ng-deep .panel-title {
+:host ::ng-deep .card-title {
     font-weight: var(--kendo-font-weight-medium);
 }
 
-:host ::ng-deep .panel-value {
+:host ::ng-deep .card-value {
     font-size: var(--kendo-font-size-lg);
 }
 
@@ -87,7 +85,7 @@
     overflow: hidden;
 }
 
-:host ::ng-deep .cashflow-panel {
+:host ::ng-deep .cashflow-card {
     position: relative;
     margin-block-end: var(--kendo-spacing-10);
 }
@@ -107,7 +105,7 @@
     margin-block-end: var(--kendo-spacing-4);
 }
 
-:host ::ng-deep .transaction-panel {
+:host ::ng-deep .transaction-card {
     gap: var(--kendo-spacing-3);
 }
 
@@ -143,19 +141,19 @@
         gap: var(--kendo-spacing-6);
     }
 
-    :host ::ng-deep .investments-overview-panel {
+    :host ::ng-deep .investments-overview-card {
         grid-column: span 5;
     }
 
-    :host ::ng-deep .movers-panel {
+    :host ::ng-deep .movers-card {
         grid-column: span 7;
     }
 
-    :host ::ng-deep .transaction-list-panel {
+    :host ::ng-deep .transaction-list-card {
         grid-column: span 9;
     }
 
-    :host ::ng-deep .transaction-detail-panel {
+    :host ::ng-deep .transaction-detail-card {
         grid-column: span 3;
     }
 }

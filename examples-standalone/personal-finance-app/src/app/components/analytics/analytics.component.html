@@ -1,11 +1,12 @@
 <div class="analytics-page">
     <h4 class="k-h4 page-title">{{ customMsgService.translate('analytics') }}</h4>
 
-    <div
-        class="analytics-panel cashflow-panel"
+    <kendo-card
+        class="analytics-card cashflow-card"
     >
+        <kendo-card-body>
         <div class="cashflow-heading">
-            <h6 class="k-h6 panel-title">{{ customMsgService.translate('moneyCashflow') }}</h6>
+            <h6 class="k-h6 card-title">{{ customMsgService.translate('moneyCashflow') }}</h6>
             <kendo-dropdownlist
                 class="cashflow-period-selector"
                 [data]="drillDownLevels"
@@ -110,15 +111,18 @@
                 </kendo-chart-series>
             </kendo-chart>
         </div>
-    </div>
-    <div
-        class="analytics-panel transactions-panel"
+        </kendo-card-body>
+    </kendo-card>
+    <kendo-card
+        class="analytics-card transactions-card"
     >
-        <div class="panel-heading">
-            <h6 class="k-h6 panel-title">{{ customMsgService.translate('transactions') }}</h6>
+        <kendo-card-body>
+        <div class="card-heading">
+            <h6 class="k-h6 card-title">{{ customMsgService.translate('transactions') }}</h6>
         </div>
         <div class="analytics-content">
             <app-transactions-grid [pageSize]="7"></app-transactions-grid>
         </div>
-    </div>
+        </kendo-card-body>
+    </kendo-card>
 </div>

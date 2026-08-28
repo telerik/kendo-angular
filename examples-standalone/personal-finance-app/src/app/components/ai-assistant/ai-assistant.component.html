@@ -5,11 +5,12 @@
         {{ customMsgService.translate('aiAssistant') }}
     </h4>
     <div class="assistant-layout">
-        <div
-            class="assistant-panel topics-panel"
+        <kendo-card
+            class="assistant-card topics-card"
         >
-            <div class="panel-heading topics-heading">
-                <h6 class="k-h6 panel-title">
+            <kendo-card-body>
+            <div class="card-heading topics-heading">
+                <h6 class="k-h6 card-title">
                     {{ customMsgService.translate('relatedTopics') }}
                 </h6>
             </div>
@@ -23,12 +24,14 @@
                 </kendo-expansionpanel>
                 }
             </div>
-        </div>
-        <div
-            class="assistant-panel prompt-panel"
+            </kendo-card-body>
+        </kendo-card>
+        <kendo-card
+            class="assistant-card prompt-card"
         >
-            <div class="panel-heading prompt-heading">
-                <h6 class="k-h6 panel-title">
+            <kendo-card-body>
+            <div class="card-heading prompt-heading">
+                <h6 class="k-h6 card-title">
                     {{ customMsgService.translate('chatWithRoby') }}
                 </h6>
             </div>
@@ -47,6 +50,7 @@
                     <kendo-aiprompt-output-view></kendo-aiprompt-output-view>
                 </kendo-aiprompt>
             </div>
-        </div>
+            </kendo-card-body>
+        </kendo-card>
     </div>
 </div>

@@ -1,3 +1,4 @@
+import { KENDO_LAYOUT } from '@progress/kendo-angular-layout';
 import { Component, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { KENDO_BUTTONS } from '@progress/kendo-angular-buttons';
@@ -8,7 +9,7 @@ import { accountActivity, AccountActivity } from '../../data/finance-pages';
 @Component({
     selector: 'app-account-detail',
     standalone: true,
-    imports: [KENDO_BUTTONS, KENDO_ICONS, RouterLink],
+    imports: [KENDO_LAYOUT, KENDO_BUTTONS, KENDO_ICONS, RouterLink],
     templateUrl: './account-detail.component.html',
     styleUrl: './account-detail.component.css',
 })

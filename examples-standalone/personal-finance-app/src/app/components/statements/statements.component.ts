@@ -1,3 +1,4 @@
+import { KENDO_LAYOUT } from '@progress/kendo-angular-layout';
 import { Component } from '@angular/core';
 import { KENDO_BUTTONS } from '@progress/kendo-angular-buttons';
 import { KENDO_DROPDOWNS } from '@progress/kendo-angular-dropdowns';
@@ -9,7 +10,7 @@ import { statements, Statement } from '../../data/finance-pages';
 @Component({
     selector: 'app-statements',
     standalone: true,
-    imports: [KENDO_BUTTONS, KENDO_DROPDOWNS, KENDO_ICONS, KENDO_INPUTS],
+    imports: [KENDO_LAYOUT, KENDO_BUTTONS, KENDO_DROPDOWNS, KENDO_ICONS, KENDO_INPUTS],
     templateUrl: './statements.component.html',
     styleUrl: './statements.component.css',
 })

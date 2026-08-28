@@ -5,11 +5,12 @@
         {{ customMsgService.translate('settings') }}
     </h4>
     <div class="settings-layout settings-layout-spaced">
-        <div
-            class="settings-panel information-panel"
+        <kendo-card
+            class="settings-card information-card"
         >
-            <div class="panel-heading">
-                <h6 class="k-h6 panel-title">
+            <kendo-card-body>
+            <div class="card-heading">
+                <h6 class="k-h6 card-title">
                     {{ customMsgService.translate('personalInformation') }}
                 </h6>
             </div>
@@ -112,18 +113,20 @@
                     </div>
                 </div>
             </form>
-        </div>
+            </kendo-card-body>
+        </kendo-card>
     </div>
     <div class="settings-layout">
-        <div
-            class="settings-panel card-information-panel"
+        <kendo-card
+            class="settings-card card-information-card"
         >
-            <div class="panel-heading">
-                <h6 class="k-h6 panel-title">
+            <kendo-card-body>
+            <div class="card-heading">
+                <h6 class="k-h6 card-title">
                     {{ customMsgService.translate('cardInformation') }}
                 </h6>
             </div>
-            <div class="panel-content">
+            <div class="card-content">
                 <form [formGroup]="cardForm" (ngSubmit)="saveCardInfo()">
                     <div class="form-row">
                         <div class="form-field">
@@ -194,6 +197,7 @@
                     </div>
                 </form>
             </div>
-        </div>
+            </kendo-card-body>
+        </kendo-card>
     </div>
 </div>

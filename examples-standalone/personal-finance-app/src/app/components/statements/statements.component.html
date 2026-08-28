@@ -8,7 +8,8 @@
         <div class="filter-field filter-search"><label for="statement-search">Search statements</label><kendo-textbox id="statement-search" [value]="query" (valueChange)="query = $event; filterStatements()" placeholder="Search by period or account"></kendo-textbox></div>
     </div>
     @if (actionMessage) { <div class="feedback-banner" role="status">{{ actionMessage }}</div> }
-    <article class="surface-card statement-card">
+    <kendo-card class=" statement-card">
+        <kendo-card-body>
         <div class="card-heading"><div><p class="card-kicker">Available documents</p><h2>{{ filteredStatements.length }} statements</h2></div><span class="muted-copy">Updated today</span></div>
         @if (filteredStatements.length === 0) {
             <div class="state-panel" role="status"><span class="state-icon" aria-hidden="true"><kendo-svgicon [icon]="infoCircleIcon"></kendo-svgicon></span><h3>No statements found</h3><p>Try a different period or clear the search to see available documents.</p><button kendoButton fillMode="outline" (click)="query = ''; selectedPeriod = statementPeriods[0]; filterStatements()">Clear filters</button></div>
@@ -24,5 +25,6 @@
                 }
             </div>
         }
-    </article>
+        </kendo-card-body>
+    </kendo-card>
 </section>

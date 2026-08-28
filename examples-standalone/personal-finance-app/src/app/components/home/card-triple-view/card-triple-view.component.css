@@ -1,3 +1,11 @@
+:host {
+    align-self: stretch;
+}
+
+:host kendo-card {
+    flex: 1 1 auto;
+}
+
 .summary-card-content {
     display: flex;
     flex-flow: row wrap;

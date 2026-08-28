@@ -9,7 +9,8 @@
         </div>
         <kendo-textbox class="notification-search" [value]="query" (valueChange)="query = $event" placeholder="Search notifications" aria-label="Search notifications"></kendo-textbox>
     </div>
-    <article class="surface-card notifications-card">
+    <kendo-card class=" notifications-card">
+        <kendo-card-body>
         <div class="card-heading"><div><p class="card-kicker">Your inbox</p><h2>{{ unreadCount }} unread notification{{ unreadCount === 1 ? '' : 's' }}</h2></div><span class="muted-copy">{{ filteredNotifications.length }} shown</span></div>
         @if (filteredNotifications.length === 0) {
             <div class="state-panel" role="status"><span class="state-icon" aria-hidden="true"><kendo-svgicon [icon]="infoCircleIcon"></kendo-svgicon></span><h3>No notifications found</h3><p>Try another category or search term.</p><button kendoButton fillMode="outline" (click)="query = ''; selectedCategory = 'All'">Clear filters</button></div>
@@ -24,5 +25,6 @@
                 }
             </div>
         }
-    </article>
+        </kendo-card-body>
+    </kendo-card>
 </section>

@@ -12,7 +12,8 @@
     </div>
 
     <div class="account-grid">
-        <article class="surface-card balance-card">
+        <kendo-card class=" balance-card">
+            <kendo-card-body>
             <div class="card-heading">
                 <div>
                     <p class="card-kicker">Available balance</p>
@@ -28,9 +29,11 @@
                 <button kendoButton fillMode="outline" routerLink="/transactions">View activity</button>
                 <button kendoButton fillMode="flat" [svgIcon]="eyeIcon" [attr.aria-pressed]="!balanceVisible" (click)="balanceVisible = !balanceVisible">{{ balanceVisible ? 'Hide balance' : 'Show balance' }}</button>
             </div>
-        </article>
+            </kendo-card-body>
+        </kendo-card>
 
-        <article class="surface-card metadata-card">
+        <kendo-card class=" metadata-card">
+            <kendo-card-body>
             <div class="card-heading">
                 <div><p class="card-kicker">Account details</p><h2>At a glance</h2></div>
             </div>
@@ -40,9 +43,11 @@
                 <div><dt>Opened</dt><dd>March 14, 2021</dd></div>
                 <div><dt>Routing number</dt><dd>•••• 0192</dd></div>
             </dl>
-        </article>
+            </kendo-card-body>
+        </kendo-card>
 
-        <article class="surface-card activity-card">
+        <kendo-card class=" activity-card">
+            <kendo-card-body>
             <div class="card-heading">
                 <div><p class="card-kicker">Recent activity</p><h2>Account activity</h2></div>
                 <button kendoButton fillMode="flat" [svgIcon]="refreshIcon" (click)="loadActivity()">Refresh</button>
@@ -70,6 +75,7 @@
                     }
                 </div>
             }
-        </article>
+            </kendo-card-body>
+        </kendo-card>
     </div>
 </section>

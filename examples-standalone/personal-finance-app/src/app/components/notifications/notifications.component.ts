@@ -1,3 +1,4 @@
+import { KENDO_LAYOUT } from '@progress/kendo-angular-layout';
 import { Component } from '@angular/core';
 import { KENDO_BUTTONS } from '@progress/kendo-angular-buttons';
 import { KENDO_ICONS } from '@progress/kendo-angular-icons';
@@ -8,7 +9,7 @@ import { financeNotifications, FinanceNotification } from '../../data/finance-pa
 @Component({
     selector: 'app-notifications',
     standalone: true,
-    imports: [KENDO_BUTTONS, KENDO_ICONS, KENDO_INPUTS],
+    imports: [KENDO_LAYOUT, KENDO_BUTTONS, KENDO_ICONS, KENDO_INPUTS],
     templateUrl: './notifications.component.html',
     styleUrl: './notifications.component.css',
 })

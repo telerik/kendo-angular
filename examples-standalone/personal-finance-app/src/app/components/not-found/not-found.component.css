@@ -11,11 +11,11 @@
 
 .not-found-card {
     width: min(100%, 26rem);
-    padding: var(--kendo-spacing-8);
-    border: 1px solid var(--kendo-color-border);
-    border-radius: var(--kendo-border-radius-xl);
-    background-color: var(--kendo-color-surface-alt);
     text-align: center;
+}
+
+.not-found-card .k-card-body {
+    padding: var(--kendo-spacing-8);
 }
 
 .not-found-code {

@@ -1,3 +1,4 @@
+import { KENDO_LAYOUT } from '@progress/kendo-angular-layout';
 import { Component } from '@angular/core';
 import { KENDO_INPUTS } from '@progress/kendo-angular-inputs';
 import { KENDO_LABELS } from '@progress/kendo-angular-label';
@@ -13,7 +14,7 @@ import { CustomMessagesService } from '../../services/custom-messages.service';
 
 @Component({
     selector: 'app-settings',
-    imports: [
+    imports: [KENDO_LAYOUT,
         ReactiveFormsModule,
         KENDO_INPUTS,
         KENDO_LABELS,

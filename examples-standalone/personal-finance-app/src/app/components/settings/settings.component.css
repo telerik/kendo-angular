@@ -20,18 +20,16 @@
     margin-block-end: var(--kendo-spacing-5);
 }
 
-.settings-panel {
+.settings-card {
     display: flex;
+    flex: 1 1 auto;
     grid-column: span 12;
     flex-direction: column;
     gap: var(--kendo-spacing-1);
-    padding: var(--kendo-spacing-4);
-    border-radius: var(--kendo-border-radius-xxl);
-    background-color: var(--kendo-color-surface-alt);
 }
 
-.panel-heading,
-.panel-content {
+.card-heading,
+.card-content {
     display: flex;
     flex: 1 1 auto;
     flex-direction: column;
@@ -39,7 +37,7 @@
     justify-content: space-between;
 }
 
-.panel-title {
+.card-title {
     font-weight: var(--kendo-font-weight-medium);
 }
 
@@ -136,13 +134,13 @@
         gap: var(--kendo-spacing-6);
     }
 
-    .information-panel,
-    .card-information-panel {
+    .information-card,
+    .card-information-card {
         grid-column: span 8;
     }
 
-    .calendar-panel,
-    .weather-panel {
+    .calendar-card,
+    .weather-card {
         grid-column: span 4;
     }
 }

@@ -1,3 +1,4 @@
+import { KENDO_LAYOUT } from '@progress/kendo-angular-layout';
 import { Component, OnInit } from '@angular/core';
 import { DecimalPipe } from '@angular/common';
 import { KENDO_BUTTONS } from '@progress/kendo-angular-buttons';
@@ -9,7 +10,7 @@ import { budgetCategories, BudgetCategory } from '../../data/finance-pages';
 @Component({
     selector: 'app-budgets',
     standalone: true,
-    imports: [DecimalPipe, KENDO_BUTTONS, KENDO_ICONS, KENDO_PROGRESSBARS],
+    imports: [KENDO_LAYOUT, DecimalPipe, KENDO_BUTTONS, KENDO_ICONS, KENDO_PROGRESSBARS],
     templateUrl: './budgets.component.html',
     styleUrl: './budgets.component.css',
 })

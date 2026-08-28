@@ -17,17 +17,15 @@
     overflow: hidden;
 }
 
-.assistant-panel {
+.assistant-card {
     display: flex;
+    flex: 1 1 auto;
     grid-column: span 12;
     flex-direction: column;
     gap: var(--kendo-spacing-1);
-    padding: var(--kendo-spacing-4);
-    border-radius: var(--kendo-border-radius-xxl);
-    background: var(--kendo-color-surface-alt);
 }
 
-.panel-heading {
+.card-heading {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -42,7 +40,7 @@
     margin-block-end: var(--kendo-spacing-8);
 }
 
-.panel-title {
+.card-title {
     font-weight: var(--kendo-font-weight-medium);
 }
 
@@ -65,11 +63,11 @@
         gap: var(--kendo-spacing-6);
     }
 
-    .topics-panel {
+    .topics-card {
         grid-column: span 7;
     }
 
-    .prompt-panel {
+    .prompt-card {
         grid-column: span 5;
     }
 }

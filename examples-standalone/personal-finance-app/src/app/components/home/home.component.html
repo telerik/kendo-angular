@@ -1,33 +1,55 @@
 <div class="overview-page">
     <h4 class="k-h4 page-title">{{ customMsgService.translate('overview') }}</h4>
     <div class="overview-grid">
+        <kendo-card class="overview-card account-snapshot-card" aria-labelledby="account-snapshot-title">
+            <kendo-card-body>
+            <div class="account-snapshot-identity">
+                <span class="account-snapshot-icon" aria-hidden="true">
+                    <kendo-svgicon [icon]="walletIcon"></kendo-svgicon>
+                </span>
+                <div>
+                    <h6 class="k-h6 card-title" id="account-snapshot-title">Account snapshot</h6>
+                    <span class="account-snapshot-detail">Everyday Checking · •••• 4821</span>
+                </div>
+                <span class="account-snapshot-status">Available now</span>
+            </div>
+            <div class="account-snapshot-metrics">
+                <div><span>Account balance</span><strong>$12,638.42</strong></div>
+                <div><span>Available cash</span><strong>$12,480.62</strong></div>
+                <div><span>Invested assets</span><strong>$35,000.00</strong></div>
+            </div>
+            </kendo-card-body>
+        </kendo-card>
         @for(card of overviewCards; track card){
         <app-card-triple-view
             class="overview-summary-card"
             [cardData]="card"
         ></app-card-triple-view>
         }
-        <div
-            class="overview-panel savings-panel"
+        <kendo-card
+            class="overview-card savings-card"
         >
-            <div class="panel-heading">
-                <h6 class="k-h6 panel-title">{{ customMsgService.translate('savings') }}</h6>
-                <span class="panel-value">{{ intl.formatNumber(104500, customCurrencyOptions) }}</span>
+            <kendo-card-body>
+            <div class="card-heading">
+                <h6 class="k-h6 card-title">{{ customMsgService.translate('savings') }}</h6>
+                <span class="card-value">{{ intl.formatNumber(104500, customCurrencyOptions) }}</span>
             </div>
-            <div class="panel-content savings-list">
+            <div class="card-content savings-list">
                 @for(saving of savings; track saving){
                 <app-saving-item [saving]="saving"></app-saving-item>
                 }
             </div>
-        </div>
-        <div
-            class="overview-panel budget-panel"
+            </kendo-card-body>
+        </kendo-card>
+        <kendo-card
+            class="overview-card budget-card"
         >
-            <div class="panel-heading">
-                <h6 class="k-h6 panel-title">{{ customMsgService.translate('budgetUtilization') }}</h6>
-                <span class="panel-value">{{ customMsgService.translate('budgetUsed') }}</span>
+            <kendo-card-body>
+            <div class="card-heading">
+                <h6 class="k-h6 card-title">{{ customMsgService.translate('budgetUtilization') }}</h6>
+                <span class="card-value">{{ customMsgService.translate('budgetUsed') }}</span>
             </div>
-            <div class="panel-content budget-content">
+            <div class="card-content budget-content">
                 <kendo-arcgauge [value]="50" [colors]="colors">
                     <ng-template kendoArcGaugeCenterTemplate let-value="value">
                         <span class="k-h5 accent-value">{{ value }}%</span>
@@ -53,16 +75,19 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <div
-            class="overview-panel transactions-panel"
+            </kendo-card-body>
+        </kendo-card>
+        <kendo-card
+            class="overview-card transactions-card"
         >
-            <div class="panel-heading">
-                <h6 class="k-h6 panel-title">{{ customMsgService.translate('transactions') }}</h6>
+            <kendo-card-body>
+            <div class="card-heading">
+                <h6 class="k-h6 card-title">{{ customMsgService.translate('transactions') }}</h6>
             </div>
-            <div class="panel-content">
+            <div class="card-content">
                 <app-transactions-grid [pageSize]="7"></app-transactions-grid>
             </div>
-        </div>
+            </kendo-card-body>
+        </kendo-card>
     </div>
 </div>

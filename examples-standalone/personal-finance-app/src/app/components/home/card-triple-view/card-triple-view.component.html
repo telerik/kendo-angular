@@ -1,20 +1,22 @@
-<div
-    class="summary-card-content"
->
-    <div class="summary-card-heading">
-        <div class="summary-card-heading">
-            <h6 class="k-h6 summary-card-title">
-                {{ customMsgService.translate(cardData.title.toLowerCase()) }}
-            </h6>
+<kendo-card>
+    <kendo-card-body>
+        <div class="summary-card-content">
+            <div class="summary-card-heading">
+                <div class="summary-card-heading">
+                    <h6 class="k-h6 summary-card-title">
+                        {{ customMsgService.translate(cardData.title.toLowerCase()) }}
+                    </h6>
+                </div>
+            </div>
+            <div class="summary-card-value">
+                <h6 class="k-h6">
+                    {{ intl.formatNumber(cardData!.value, customCurrencyOptions) }}
+                </h6>
+            </div>
+            <div class="summary-card-description">
+                <span [ngClass]="cardData!.description > 0 ? 'positive-change' : 'negative-change'">{{ cardData.description }}% </span>
+                {{ customMsgService.translate('thanLastMonth') }}
+            </div>
         </div>
-    </div>
-    <div class="summary-card-value">
-        <h6 class="k-h6">
-            {{ intl.formatNumber(cardData!.value, customCurrencyOptions) }}
-        </h6>
-    </div>
-    <div class="summary-card-description">
-        <span [ngClass]="cardData!.description > 0 ? 'positive-change' : 'negative-change'">{{ cardData.description }}% </span>
-        {{ customMsgService.translate('thanLastMonth') }}
-    </div>
-</div>
+    </kendo-card-body>
+</kendo-card>

@@ -1,3 +1,4 @@
+import { KENDO_LAYOUT } from '@progress/kendo-angular-layout';
 import { Component } from '@angular/core';
 import { KENDO_BUTTONS } from '@progress/kendo-angular-buttons';
 import { KENDO_ICONS } from '@progress/kendo-angular-icons';
@@ -7,7 +8,7 @@ import { cardActivity, CardActivity } from '../../data/finance-pages';
 @Component({
     selector: 'app-cards',
     standalone: true,
-    imports: [KENDO_BUTTONS, KENDO_ICONS],
+    imports: [KENDO_LAYOUT, KENDO_BUTTONS, KENDO_ICONS],
     templateUrl: './cards.component.html',
     styleUrl: './cards.component.css',
 })

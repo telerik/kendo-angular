@@ -15,34 +15,27 @@
     flex-direction: column;
 }
 
+.application-page-shell {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    width: min(100%, 1140px);
+    min-width: 0;
+    margin-inline: auto;
+}
+
 .application-main {
     flex-grow: 1;
+    min-width: 0;
 }
 
-.k-drawer-item.k-selected {
-    background-color: var(--kendo-color-primary);
-    color: var(--kendo-color-surface-alt);
-}
-
-.k-drawer-item.k-selected:hover {
-    background-color: var(--kendo-color-primary);
-    color: var(--kendo-color-surface-alt);
-}
-
-.k-drawer-item.k-selected:focus,
-.k-drawer-item.k-selected.k-focus {
-    background-color: var(--kendo-color-primary);
-    color: var(--kendo-color-surface-alt);
-    box-shadow: none;
+.application-main > * {
+    display: block;
+    width: 100%;
 }
 
 .k-drawer-mini .k-drawer-wrapper {
-    width: calc(
-        var(--kendo-spacing-4) * 2 +
-        var(--kendo-spacing-4) +
-        var(--kendo-spacing-1) * 2 +
-        var(--kendo-spacing-3) * 2
-    ) !important;
+    width: var(--kendo-spacing-16) !important;
 }
 
 .k-drawer-items:has(.header-item) {

@@ -5,21 +5,27 @@
     </div>
     @if (actionMessage) { <div class="feedback-banner" role="status">{{ actionMessage }}</div> }
     <div class="cards-grid">
-        <article class="card-visual">
-            <div class="card-visual-top"><span>EVERYDAY</span><span class="card-brand">VISA</span></div>
-            <div class="card-number">•••• &nbsp;•••• &nbsp;•••• &nbsp;4821</div>
-            <div class="card-visual-bottom"><span>MARIA JOHNSON</span><span>09/28</span></div>
-        </article>
-        <article class="surface-card card-status-card">
+        <kendo-card class="card-visual">
+            <kendo-card-body>
+                <div class="card-visual-top"><span>EVERYDAY</span><span class="card-brand">VISA</span></div>
+                <div class="card-number">•••• &nbsp;•••• &nbsp;•••• &nbsp;4821</div>
+                <div class="card-visual-bottom"><span>MARIA JOHNSON</span><span>09/28</span></div>
+            </kendo-card-body>
+        </kendo-card>
+        <kendo-card class=" card-status-card">
+            <kendo-card-body>
             <div class="card-heading"><div><p class="card-kicker">Primary card</p><h2>Everyday Visa</h2></div><span class="status-badge status-success">Active</span></div>
             <dl class="card-metadata"><div><dt>Credit limit</dt><dd>$8,000.00</dd></div><div><dt>Available credit</dt><dd>$5,642.18</dd></div><div><dt>Billing cycle</dt><dd>18 days remaining</dd></div></dl>
             <div class="card-actions"><button kendoButton fillMode="outline" [svgIcon]="eyeIcon" (click)="demoAction('Card details')">View details</button><button kendoButton fillMode="flat" [svgIcon]="lockIcon" [disabled]="true" aria-describedby="secure-actions-note">Lock card</button></div><p id="secure-actions-note" class="action-note">Locking a card requires a secure banking service and is unavailable in this showcase.</p>
-        </article>
-        <article class="surface-card card-activity-card">
+            </kendo-card-body>
+        </kendo-card>
+        <kendo-card class=" card-activity-card">
+            <kendo-card-body>
             <div class="card-heading"><div><p class="card-kicker">Recent purchases</p><h2>Card activity</h2></div><span class="muted-copy">This month</span></div>
             <div class="activity-list">
                 @for (item of activity; track item.id) { <div class="activity-row"><div class="activity-copy"><strong>{{ item.merchant }}</strong><span>{{ item.date }}</span></div><div class="activity-amount"><strong>{{ item.amount }}</strong><span class="status-badge" [class.status-success]="item.status === 'Completed'" [class.status-warning]="item.status === 'Pending'">{{ item.status }}</span></div></div> }
             </div>
-        </article>
+            </kendo-card-body>
+        </kendo-card>
     </div>
 </section>

@@ -4,12 +4,13 @@
     </div>
 
     <div class="budget-summary">
-        <article class="summary-card"><span class="summary-label">Total planned</span><strong>$3,830</strong><span class="summary-note">Across 4 categories</span></article>
-        <article class="summary-card"><span class="summary-label">Spent this month</span><strong>$3,388</strong><span class="summary-note summary-positive">88% of plan used</span></article>
-        <article class="summary-card summary-alert"><span class="summary-label">Needs attention</span><strong>1 category</strong><span class="summary-note">Food &amp; dining is over budget</span></article>
+        <kendo-card class="summary-card"><kendo-card-body><span class="summary-label">Total planned</span><strong>$3,830</strong><span class="summary-note">Across 4 categories</span></kendo-card-body></kendo-card>
+        <kendo-card class="summary-card"><kendo-card-body><span class="summary-label">Spent this month</span><strong>$3,388</strong><span class="summary-note summary-positive">88% of plan used</span></kendo-card-body></kendo-card>
+        <kendo-card class="summary-card summary-alert"><kendo-card-body><span class="summary-label">Needs attention</span><strong>1 category</strong><span class="summary-note">Food &amp; dining is over budget</span></kendo-card-body></kendo-card>
     </div>
 
-    <article class="surface-card categories-card">
+    <kendo-card class=" categories-card">
+        <kendo-card-body>
         <div class="card-heading"><div><p class="card-kicker">Category performance</p><h2>Monthly budget</h2></div><span class="legend"><span class="legend-dot legend-spent"></span>Actual <span class="legend-dot legend-remaining"></span>Remaining</span></div>
         @if (viewState === 'loading') {
             <div class="state-panel" role="status" aria-live="polite"><span class="loading-bar"></span><span class="loading-bar loading-bar-short"></span><p>Loading budget categories…</p></div>
@@ -30,5 +31,6 @@
                 }
             </div>
         }
-    </article>
+        </kendo-card-body>
+    </kendo-card>
 </section>
