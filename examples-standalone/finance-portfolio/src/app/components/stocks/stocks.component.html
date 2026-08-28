@@ -1,8 +1,9 @@
-<kendo-splitter [orientation]="'vertical'" style="height: 100%">
+<kendo-splitter #portfolioSplitter [orientation]="'vertical'" style="height: 100%">
     <kendo-splitter-pane class="splitter-upper-pane">
         <app-stock-chart></app-stock-chart>
     </kendo-splitter-pane>
     <kendo-splitter-pane>
+        <app-badge #selectedStockBadge [item]="stockDataService.selectedStock"></app-badge>
         <app-stock-list></app-stock-list>
     </kendo-splitter-pane>
 </kendo-splitter>

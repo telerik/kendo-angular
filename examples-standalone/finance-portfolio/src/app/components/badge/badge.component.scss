@@ -1,5 +1,14 @@
 @use '../../../styles/variables' as *;
 
+:host {
+    position: absolute;
+    z-index: 11;
+    inset-block-start: 50%;
+    inset-inline-start: 50%;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+}
+
 .selected-stock-badge {
     height: $badge-height;
     color: $white;

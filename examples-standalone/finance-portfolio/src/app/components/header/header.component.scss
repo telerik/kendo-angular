@@ -1,55 +1,43 @@
 @use '../../../styles/variables' as *;
 
 .header {
-    height: $header-height;
+    display: flex;
+    min-height: var(--kendo-spacing-24);
     background: url('../../../assets/header-bg.svg');
     background-position: bottom;
     background-repeat: no-repeat;
 
+    .header-content,
+    .header-controls {
+        align-items: center;
+        display: flex;
+    }
+
+    .header-content {
+        flex-wrap: wrap;
+        gap: var(--kendo-spacing-4);
+        justify-content: space-between;
+        padding-block: var(--kendo-spacing-4);
+    }
+
+    .header-controls {
+        gap: var(--kendo-spacing-4);
+    }
+
     h1 {
-        padding-top: $header-title-padding;
         font-family: $ubunto;
         font-weight: $font-weight-200;
         color: $white;
     }
 
-    .profile-wrapper {
-        outline: none;
-        cursor: pointer;
-    }
-
     .profile-image {
-        align-self: center;
+        flex-shrink: 0;
         width: $profile-image-width;
         height: $profile-image-height;
         border-radius: var(--kendo-border-radius-full);
-        background-image: url('../../../assets/user.jpg');
+        background-image: url('/assets/user.jpg');
         background-size: cover;
         background-position: center;
     }
-}
 
-.k-dropdown {
-    .k-dropdown-wrap .k-input {
-        font-size: $dropdownlist-font-size;
-        padding: 0;
-    }
-    .k-select {
-        color: $white;
-    }
-
-    > :hover {
-        color: $white-50;
-    }
-}
-
-.k-popup {
-    padding: 0;
-
-    .k-list {
-        .k-item.k-state-selected {
-            background: $dropdownlist-item-selected-bg;
-            color: $dropdownlist-item-selected-text;
-        }
-    }
 }
