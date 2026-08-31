@@ -48,13 +48,6 @@
     left: var(--kendo-spacing-3);
 }
 
-.dashboard-controls__hand {
-    position: absolute;
-    top: 50px;
-    left: 112px;
-    z-index: 101;
-}
-
 .dashboard-surface--slider {
     flex: 1 1 10.9375rem;
     margin-left: 6.75rem;
