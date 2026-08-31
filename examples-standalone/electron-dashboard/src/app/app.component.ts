@@ -26,9 +26,9 @@ export class AppComponent {
     } else {
       console.log('Run in browser');
     }
+  }
 
-    public get showWorkspaceNav(): boolean {
-      return !this.router.url.startsWith('/login');
-    }
+  public get showWorkspaceNav(): boolean {
+    return !this.router.url.startsWith('/login');
   }
 }
