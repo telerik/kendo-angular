@@ -64,8 +64,11 @@
 }
 
 .app-shell__nav a {
-    min-height: 44px;
-    padding: var(--kendo-spacing-2) var(--kendo-spacing-3);
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    min-height: var(--kendo-spacing-9);
+    padding: var(--kendo-spacing-1\.5) var(--kendo-spacing-3);
     color: var(--kendo-color-primary-on-surface);
     border-radius: var(--kendo-border-radius-md);
     font-size: var(--kendo-font-size-sm);

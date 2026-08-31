@@ -17,7 +17,13 @@
 .dashboard-controls__actions {
     display: flex;
     flex-direction: row;
-    gap: 19px;
+    gap: var(--kendo-spacing-4);
+}
+
+.dashboard-controls__illustration-row {
+    align-items: center;
+    min-height: 9.5625rem;
+    position: relative;
 }
 
 .dashboard-controls__illustration,
@@ -28,6 +34,11 @@
 .dashboard-controls__illustration {
     display: flex;
     gap: var(--kendo-spacing-5);
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 8.75rem;
 }
 
 .dashboard-controls__figure {
@@ -45,15 +56,18 @@
 }
 
 .dashboard-surface--slider {
-    position: relative;
-    height: 38px;
-    left: 108px;
+    flex: 1 1 10.9375rem;
+    margin-left: 6.75rem;
+    min-width: 0;
     box-shadow: var(--kendo-elevation-1);
 }
 
 .dashboard-controls__slider {
-    width: 175px;
-    padding: var(--kendo-spacing-1) var(--kendo-spacing-2) var(--kendo-spacing-0\.5);
+    display: flex;
+    flex: 1;
+    align-items: center;
+    width: 100%;
+    padding: var(--kendo-spacing-2);
 }
 
 .dashboard-surface--chart {

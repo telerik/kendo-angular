@@ -1,8 +1,7 @@
 .registration-panel {
     display: flex;
     flex-direction: column;
-    height: 100%;
-    padding: 0 var(--kendo-spacing-5);
+    padding: 0 var(--kendo-spacing-5) var(--kendo-spacing-5);
     border: 1px solid var(--kendo-color-border);
     border-radius: var(--kendo-border-radius-lg);
     background-color: var(--kendo-color-surface-alt);

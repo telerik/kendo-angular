@@ -88,7 +88,6 @@
 }
 
 .header-dashboard__panel {
-    max-height: 310px;
     flex: 1;
 }
 
@@ -101,7 +100,4 @@
         flex-direction: column;
     }
 
-    .header-dashboard__panel {
-        max-height: none;
-    }
 }
