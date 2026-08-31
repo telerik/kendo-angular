@@ -1,8 +1,8 @@
 <h2 class="right-panel-title">Recent transactions</h2>
 <div class="card-container">
   @for (card of transactionCards; track card) {
-    <kendo-card class="transaction-card">
-      <kendo-card-header class="transaction-card__header">
+    <kendo-card class="transaction-card" width="100%">
+      <kendo-card-body class="transaction-card__body">
         <kendo-avatar
           width="40px"
           height="40px"
@@ -24,7 +24,7 @@
             <span class="price"> {{ card.stamp }}</span>
           </p>
         </div>
-      </kendo-card-header>
+      </kendo-card-body>
     </kendo-card>
   }
 </div>

@@ -1,18 +1,19 @@
-<div class="grid-heading">
-  <div>
-    <h2 class="grid-section-title">Explore the market</h2>
-    <p class="grid-section-description">Live crypto prices refresh every two seconds.</p>
-  </div>
-  <span class="market-status" role="status">Live market data</span>
-</div>
-
-@if (gridData | async; as marketData) {
-  @if (marketData.loading) {
-    <p class="grid-feedback" role="status">Loading market data...</p>
-  } @else if (marketData.error) {
-    <p class="grid-feedback grid-feedback--error" role="alert">Market data is unavailable. Refresh the page to try again.</p>
-  } @else {
-    <kendo-grid [kendoGridBinding]="marketData.data">
+<kendo-card class="market-grid-card" width="100%">
+  <kendo-card-header class="grid-heading">
+    <div>
+      <h2 kendoCardTitle class="grid-section-title">Explore the market</h2>
+      <p class="grid-section-description">Live crypto prices refresh every two seconds.</p>
+    </div>
+    <span class="market-status" role="status">Live market data</span>
+  </kendo-card-header>
+  <kendo-card-body>
+    @if (gridData | async; as marketData) {
+      @if (marketData.loading) {
+        <p class="grid-feedback" role="status">Loading market data...</p>
+      } @else if (marketData.error) {
+        <p class="grid-feedback grid-feedback--error" role="alert">Market data is unavailable. Refresh the page to try again.</p>
+      } @else {
+        <kendo-grid [kendoGridBinding]="marketData.data">
       <kendo-grid-column field="currency" title="Crypto currency">
         <ng-template kendoGridCellTemplate let-dataItem>
           <div class="currency-container">
@@ -48,6 +49,8 @@
       </kendo-grid-column>
 
       <kendo-grid-column field="volume" title="Market Cap" format="c"> </kendo-grid-column>
-    </kendo-grid>
-  }
-}
+        </kendo-grid>
+      }
+    }
+  </kendo-card-body>
+</kendo-card>

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { KENDO_GRID } from '@progress/kendo-angular-grid';
+import { KENDO_LAYOUT } from '@progress/kendo-angular-layout';
 import { Observable } from 'rxjs';
 import { catchError, map, of, startWith } from 'rxjs';
 import {
@@ -23,7 +24,7 @@ import { CommonModule } from '@angular/common';
   selector: 'grid',
   templateUrl: './grid.component.html',
   styleUrls: ['./grid.component.css'],
-  imports: [KENDO_GRID, KENDO_ICONS, CommonModule],
+  imports: [KENDO_GRID, KENDO_ICONS, KENDO_LAYOUT, CommonModule],
   animations: [
     trigger('positiveState', [
       transition('void => *', []),

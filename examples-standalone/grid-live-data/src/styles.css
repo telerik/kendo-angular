@@ -5,7 +5,14 @@
 
 body {
   margin: 0;
-  background-color: var(--kendo-color-app-surface);
+  padding: var(--kendo-spacing-4);
+  background-color: var(--kendo-color-surface);
   color: var(--kendo-color-on-app-surface);
   font-family: var(--kendo-font-family);
+}
+
+@media (max-width: 575px) {
+  body {
+    padding: var(--kendo-spacing-3);
+  }
 }

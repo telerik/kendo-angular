@@ -1,23 +1,29 @@
-<h2 class="total-portfolio-title">Total portfolio</h2>
-<kendo-chart [style.height.px]="250">
-    <kendo-chart-tooltip format="${0}"> </kendo-chart-tooltip>
-    <kendo-chart-category-axis>
-        <kendo-chart-category-axis-item [categories]="categories" [labels]="categoryAxisLabels">
-        </kendo-chart-category-axis-item>
-    </kendo-chart-category-axis>
-    <kendo-chart-value-axis>
-        <kendo-chart-value-axis-item [labels]="valueAxisLabels">
-        </kendo-chart-value-axis-item>
-      </kendo-chart-value-axis>
+<kendo-card class="portfolio-chart-card" width="100%">
+    <kendo-card-header>
+        <h2 kendoCardTitle class="total-portfolio-title">Total portfolio</h2>
+    </kendo-card-header>
+    <kendo-card-body>
+        <kendo-chart [style.height.px]="250">
+            <kendo-chart-tooltip format="${0}"> </kendo-chart-tooltip>
+            <kendo-chart-category-axis>
+                <kendo-chart-category-axis-item [categories]="categories" [labels]="categoryAxisLabels">
+                </kendo-chart-category-axis-item>
+            </kendo-chart-category-axis>
+            <kendo-chart-value-axis>
+                <kendo-chart-value-axis-item [labels]="valueAxisLabels">
+                </kendo-chart-value-axis-item>
+            </kendo-chart-value-axis>
 
-    <kendo-chart-series>
-        <kendo-chart-series-item
-            type="area"
-            color="var(--kendo-color-secondary)"
-            [opacity]="0.3"
-            [data]="seriesData"
-            [line]="lineStyle"
-        >
-        </kendo-chart-series-item>
-    </kendo-chart-series>
-</kendo-chart>
+            <kendo-chart-series>
+                <kendo-chart-series-item
+                    type="area"
+                    color="var(--kendo-color-secondary)"
+                    [opacity]="0.3"
+                    [data]="seriesData"
+                    [line]="lineStyle"
+                >
+                </kendo-chart-series-item>
+            </kendo-chart-series>
+        </kendo-chart>
+    </kendo-card-body>
+</kendo-card>

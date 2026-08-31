@@ -1,7 +1,6 @@
 .right-panel {
     min-width: 0;
     padding: var(--kendo-spacing-6);
-    background: var(--kendo-color-surface);
 }
 
 .right-panel-title {
@@ -64,18 +63,9 @@ kendo-chip {
     font-weight: var(--kendo-font-weight-bold);
 }
 
-.transaction-card, .news-feed-card {
-    border: 0;
-    background-color: inherit;
-}
-
-.transaction-card > .k-card-header {
-    border-width: 0;
-    padding: var(--kendo-spacing-3) var(--kendo-spacing-0);
-}
-
-.news-feed-card > .k-card-header{
-  padding-left: var(--kendo-spacing-0);
+.card-container {
+    display: grid;
+    gap: var(--kendo-spacing-3);
 }
 
 .k-card-body p {

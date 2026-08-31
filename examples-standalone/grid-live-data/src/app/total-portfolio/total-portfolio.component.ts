@@ -1,9 +1,10 @@
 import { Component, ViewEncapsulation } from '@angular/core';
 import { CategoryAxisLabels, KENDO_CHARTS, SeriesLine, ValueAxisLabels } from '@progress/kendo-angular-charts';
+import { KENDO_LAYOUT } from '@progress/kendo-angular-layout';
 
 @Component({
   selector: 'total-portfolio',
-  imports: [KENDO_CHARTS],
+  imports: [KENDO_CHARTS, KENDO_LAYOUT],
   templateUrl: './total-portfolio.component.html',
   styleUrl: './total-portfolio.component.css',
   encapsulation: ViewEncapsulation.None

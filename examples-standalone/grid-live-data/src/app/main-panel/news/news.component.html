@@ -1,8 +1,8 @@
 <h2 class="right-panel-title">News Feed</h2>
 <div class="card-container">
   @for (news of newsFeedData; track news) {
-    <kendo-card class="news-feed-card">
-      <kendo-card-header class="news-feed-card__header">
+    <kendo-card class="news-feed-card" width="100%">
+      <kendo-card-body class="news-feed-card__body">
         <h3 kendoCardTitle class="news-feed">
           {{ news.title }}
         </h3>
@@ -12,7 +12,7 @@
           [imageSrc]="getNewsImg(news)"
           class="news-img"
         ></kendo-avatar>
-      </kendo-card-header>
+      </kendo-card-body>
     </kendo-card>
   }
 </div>

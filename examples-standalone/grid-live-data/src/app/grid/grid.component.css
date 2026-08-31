@@ -1,3 +1,11 @@
+.market-grid-card {
+    min-width: 0;
+}
+
+.market-grid-card kendo-grid {
+    display: block;
+}
+
 .grid-heading {
     display: flex;
     align-items: end;

@@ -10,8 +10,9 @@
     border-radius: var(--kendo-border-radius-xl);
 }
 
-.news-feed-card__header {
+.news-feed-card__body {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     gap: var(--kendo-spacing-2);
 }

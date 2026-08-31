@@ -8,17 +8,15 @@
 
 .portfolio {
     min-width: 0;
-    padding: var(--kendo-spacing-6);
+}
+
+grid {
+    display: block;
+    margin-block-start: var(--kendo-spacing-4);
 }
 
 @media (max-width: 991px) {
     .body {
         grid-template-columns: minmax(0, 1fr);
-    }
-}
-
-@media (max-width: 575px) {
-    .portfolio {
-        padding: var(--kendo-spacing-4);
     }
 }

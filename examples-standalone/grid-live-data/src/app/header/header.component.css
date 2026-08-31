@@ -1,7 +1,15 @@
+:host {
+    position: sticky;
+    top: var(--kendo-spacing-4);
+    z-index: 1000;
+    display: block;
+}
+
 .appbar {
     width: 100%;
     min-width: calc(var(--kendo-spacing-24) * 8.5);
     background: linear-gradient(90deg, var(--kendo-color-secondary) 0%, var(--kendo-color-primary) 100%);
+    box-shadow: var(--kendo-elevation-2);
 }
 
 .badge {
@@ -38,4 +46,10 @@
 
 .notification-icon {
     color: var(--kendo-color-on-secondary);
+}
+
+@media (max-width: 575px) {
+    :host {
+        top: var(--kendo-spacing-3);
+    }
 }
