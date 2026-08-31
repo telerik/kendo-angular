@@ -43,7 +43,7 @@
 }
 
 .primary-nav a,
-.account-actions a {
+.account-settings {
   border-radius: var(--kendo-border-radius-md);
   color: var(--kendo-color-subtle);
   min-height: 2.75rem;
@@ -56,9 +56,14 @@
   display: inline-flex;
 }
 
+.account-settings {
+  align-items: center;
+  display: inline-flex;
+}
+
 .primary-nav a.active,
 .primary-nav a:hover,
-.account-actions a:hover {
+.account-settings:hover {
   background: var(--kendo-color-primary-subtle);
   color: var(--kendo-color-primary-on-surface);
 }
@@ -69,6 +74,8 @@
 
 .account-actions .avatar {
   color: var(--kendo-color-on-secondary);
+  flex: 0 0 2rem;
+  min-height: 2rem;
   padding: 0;
 }
 
