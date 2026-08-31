@@ -12,6 +12,10 @@
   }
 }
 
+.page-container > kendo-toolbar {
+  margin-bottom: var(--kendo-spacing-4);
+}
+
 .kendo-spreadsheet {
   margin-bottom: var(--kendo-spacing-15);
 }
