@@ -1,5 +1,5 @@
-<kendo-drawer-container class="k-h-full">
-    <kendo-drawer #drawer class="!k-flex-none k-overflow-y-auto !k-pos-fixed k-h-screen" [items]="items" [mini]="true"
+<kendo-drawer-container class="application-shell">
+    <kendo-drawer #drawer class="application-drawer" [items]="items" [mini]="true"
         [(expanded)]="expanded" mode="overlay" (select)="onItemSelection($event)">
         <ng-template kendoDrawerHeaderTemplate>
             <div class="k-drawer-items">
@@ -21,11 +21,13 @@
         </ng-template>
     </kendo-drawer>
 
-    <kendo-drawer-content [style.paddingLeft.px]="50" class="k-d-flex k-flex-col k-h-screen">
-        <app-header></app-header>
-        <div class="k-flex-grow">
-            <router-outlet></router-outlet>
+    <kendo-drawer-content [style.paddingLeft.px]="50" class="application-content">
+        <div class="application-page-shell">
+            <app-header></app-header>
+            <div class="application-main">
+                <router-outlet></router-outlet>
+            </div>
+            <app-footer></app-footer>
         </div>
-        <app-footer></app-footer>
     </kendo-drawer-content>
 </kendo-drawer-container>

@@ -1,14 +1,11 @@
 @use '../../../styles/variables' as *;
 
 .footer {
-    position: fixed;
-    bottom: 0;
     padding: $footer-padding;
     background: url('../../../assets/footer-bg.svg');
     background-repeat: no-repeat;
     background-size: cover;
-    background-color: blue;
-    z-index: 999;
+    background-color: var(--kendo-color-primary);
     font-size: $footer-font-size;
     color: $white;
 

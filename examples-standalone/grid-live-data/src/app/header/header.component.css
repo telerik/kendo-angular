@@ -1,28 +1,55 @@
+:host {
+    position: sticky;
+    top: var(--kendo-spacing-4);
+    z-index: 1000;
+    display: block;
+}
+
 .appbar {
     width: 100%;
-    min-width: 820px;
-    background: linear-gradient(90deg, #6626ed 0%, #4b5ffa 100%);
+    min-width: calc(var(--kendo-spacing-24) * 8.5);
+    background: linear-gradient(90deg, var(--kendo-color-secondary) 0%, var(--kendo-color-primary) 100%);
+    box-shadow: var(--kendo-elevation-2);
 }
 
 .badge {
     position: absolute;
-    left: 20px;
+    left: var(--kendo-spacing-5);
 }
 
 .title {
-    font-family: 'Helvetica Neue', sans-serif;
-    font-weight: 700;
-    line-height: 20px;
-    color: #ffffff;
-    margin: 0px 10px;
+    font-family: var(--kendo-font-family);
+    font-weight: var(--kendo-font-weight-bold);
+    line-height: var(--kendo-line-height-sm);
+    color: var(--kendo-color-on-secondary);
+    margin: var(--kendo-spacing-0) var(--kendo-spacing-2\.5);
 }
 
 .k-appbar-separator {
-    color: #ffffff;
+    color: var(--kendo-color-on-secondary);
 }
 
-.docs-icon{
-    color: white;
-    width: 25px;
-    height: 25px;
+.docs-icon {
+    color: var(--kendo-color-on-secondary);
+    width: calc(var(--kendo-icon-size) * 1.5);
+    height: calc(var(--kendo-icon-size) * 1.5);
+}
+
+.header__link {
+    text-align: right;
+}
+
+.header__github-icon {
+    width: calc(var(--kendo-icon-size) * 1.5);
+    height: calc(var(--kendo-icon-size) * 1.5);
+}
+
+.notification-icon {
+    color: var(--kendo-color-on-secondary);
+}
+
+@media (max-width: 575px) {
+    :host {
+        top: var(--kendo-spacing-3);
+    }
 }

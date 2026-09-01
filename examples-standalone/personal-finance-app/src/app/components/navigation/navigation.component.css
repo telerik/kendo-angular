@@ -1,29 +1,41 @@
-.k-drawer-item.k-selected {
-    background-color: var(--kendo-color-primary, #9fa8da);
-    color: var(--kendo-color-surface-alt, #212121);
+.application-shell,
+.application-content {
+    height: 100vh;
 }
 
-.k-drawer-item.k-selected:hover {
-    background-color: var(--kendo-color-primary, #9fa8da);
-    color: var(--kendo-color-surface-alt, #212121);
+.application-drawer {
+    position: fixed;
+    flex: none;
+    height: 100vh;
+    overflow-y: auto;
 }
 
-.k-drawer-item.k-selected:focus,
-.k-drawer-item.k-selected.k-focus {
-    background-color: var(--kendo-color-primary, #9fa8da);
-    color: var(--kendo-color-surface-alt, #212121);
-    box-shadow: none;
+.application-content {
+    display: flex;
+    flex-direction: column;
 }
 
-.k-overlay {
-    background: transparent;
-    backdrop-filter: blur(2px) contrast(0.7);
-    --webkit-backdrop-filter: blur(2px) contrast(0.7);
-    opacity: 1;
+.application-page-shell {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    width: min(100%, 1140px);
+    min-width: 0;
+    margin-inline: auto;
+}
+
+.application-main {
+    flex-grow: 1;
+    min-width: 0;
+}
+
+.application-main > * {
+    display: block;
+    width: 100%;
 }
 
 .k-drawer-mini .k-drawer-wrapper {
-    width: calc(var(--kendo-spacing-4, 1rem) * 2 + 16px + var(--kendo-spacing-1, 0.25rem) * 2 + var(--kendo-spacing-3, 0.75rem 12px) * 2)!important;
+    width: var(--kendo-spacing-16) !important;
 }
 
 .k-drawer-items:has(.header-item) {
@@ -35,6 +47,17 @@
 }
 
 .k-drawer-container .k-drawer-content {
-    padding-block: 0px;
-    padding-inline: 0px;
+    padding-block: var(--kendo-spacing-0);
+    padding-inline: var(--kendo-spacing-0);
+}
+
+@media (max-width: 35.9375rem) {
+    .application-content {
+        height: auto;
+        min-height: 100vh;
+    }
+
+    .application-main {
+        min-width: 0;
+    }
 }

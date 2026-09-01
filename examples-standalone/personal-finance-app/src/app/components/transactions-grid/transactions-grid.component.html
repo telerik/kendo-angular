@@ -33,7 +33,7 @@
     <kendo-grid-column field="orderStatus" title="Status" [width]="130">
         <ng-template kendoGridCellTemplate let-dataItem>
             <kendo-chip
-                class="k-rounded-lg k-font-size-sm"
+                class="status-chip"
                 [themeColor]="getThemeColor(dataItem.orderStatus)"
                 [label]="dataItem.orderStatus"
             ></kendo-chip>

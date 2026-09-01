@@ -1,25 +1,29 @@
+.refresh-rate-label {
+    display: block;
+}
+
 .grid-wrapper {
     display: flex;
     grid: auto auto / 1fr 1fr;
-    grid-gap: 40px;
+    grid-gap: var(--kendo-spacing-10);
     justify-content: center;
     align-items: center;
-    padding: 30px 0;
+    padding: var(--kendo-spacing-7\.5) 0;
 }
 
 .asset-type {
     display: flex;
     flex-direction: row;
-    gap: 5px;
+    gap: var(--kendo-spacing-1\.5);
     align-items: center;
 }
 
 .red {
-    color: #d51923;
+    color: var(--kendo-color-error);
 }
 
 .green {
-    color: #278200;
+    color: var(--kendo-color-success);
 }
 
 .k-grid .k-table-row.k-table-alt-row {
@@ -28,23 +32,23 @@
 
 .status-chip-filled,
 .status-chip-filled:hover {
-    background-color: rgb(0, 88, 233);
-    border-color: var(--kendo-color-info-emphasis, #4082ef);
-    color: rgb(255, 255, 255);
+    background-color: var(--kendo-color-info);
+    border-color: var(--kendo-color-info-emphasis);
+    color: var(--kendo-color-on-info);
 }
 
 .status-chip-open,
 .status-chip-open:hover {
-    background-color: rgb(40, 133, 0);
-    border-color: var(--kendo-color-success-emphasis, #37b400);
-    color: rgb(255, 255, 255);
+    background-color: var(--kendo-color-success);
+    border-color: var(--kendo-color-success-emphasis);
+    color: var(--kendo-color-on-success);
 }
 
 .status-chip-rejected,
 .status-chip-rejected:hover {
-    background-color: rgb(235, 23, 0);
-    border-color: var(--kendo-color-error-emphasis, #d51923);
-    color: rgb(255, 255, 255);
+    background-color: var(--kendo-color-error);
+    border-color: var(--kendo-color-error-emphasis);
+    color: var(--kendo-color-on-error);
 }
 .k-chip {
     width: 45px;
@@ -53,6 +57,6 @@
 .k-chip-content {
     justify-content: center;
     font-weight: 400;
-    font-size: 10px;
-    font-family: 'Roboto', sans-serif;
+    font-size: var(--kendo-font-size-xs);
+    font-family: var(--kendo-font-family);
 }

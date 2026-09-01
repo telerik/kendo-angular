@@ -6,10 +6,14 @@
   margin: -125px auto 0;
   max-width: 1136px;
 
-  @media (max-width: 1179.98px) {
+  @media (max-width: 1199.98px) {
     max-width: 100%;
     margin-inline: var(--kendo-spacing-5);
   }
+}
+
+.page-container > kendo-toolbar {
+  margin-bottom: var(--kendo-spacing-4);
 }
 
 .kendo-spreadsheet {

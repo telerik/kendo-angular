@@ -1,12 +1,130 @@
 .wizard-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
   max-width: 100%;
+  padding: var(--kendo-spacing-6) var(--kendo-spacing-5);
+  background: var(--kendo-color-app-surface);
 }
 
 .wizard-inner {
-  max-width: 52rem;
+  max-width: 44rem;
+  width: 100%;
+  margin-inline: auto;
+}
+
+.wizard-card {
+  width: 100%;
+}
+
+.wizard-header {
+  margin-bottom: var(--kendo-spacing-4);
+  text-align: start;
+}
+
+.wizard-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--kendo-spacing-3);
+}
+
+.wizard-eyebrow,
+.wizard-description,
+.wizard-success-status,
+.wizard-draft-status {
+  margin: 0;
+  color: var(--kendo-color-subtle);
+  font-size: var(--kendo-font-size-sm);
+}
+
+.wizard-eyebrow {
+  margin-bottom: var(--kendo-spacing-1);
+}
+
+.wizard-title {
+  margin: 0;
+  font-size: var(--kendo-font-size-xl);
+  font-weight: var(--kendo-font-weight-semibold);
+}
+
+.wizard-description {
+  margin-top: var(--kendo-spacing-2);
+}
+
+.wizard-draft-status {
+  margin-top: var(--kendo-spacing-2);
+}
+
+.wizard-support-link {
+  color: var(--kendo-color-info-on-surface);
+  font-size: var(--kendo-font-size-sm);
+}
+
+.wizard-card-body,
+.wizard-progress,
+.wizard-content,
+.wizard-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--kendo-spacing-4);
+}
+
+.wizard-progress {
+  gap: var(--kendo-spacing-2);
+}
+
+.wizard-progress-summary,
+.wizard-actions,
+.wizard-action-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--kendo-spacing-2);
+}
+
+.wizard-progress-summary {
+  align-items: center;
+  gap: var(--kendo-spacing-3);
+}
+
+.wizard-progress-label {
+  flex: none;
+  color: var(--kendo-color-subtle);
+  font-size: var(--kendo-font-size-sm);
+}
+
+.wizard-actions {
+  justify-content: space-between;
+}
+
+.wizard-action-group {
+  margin-left: auto;
+}
+
+.wizard-success {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: var(--kendo-spacing-6);
+  background: var(--kendo-color-app-surface);
+}
+
+.wizard-success-copy {
+  margin: 0 0 var(--kendo-spacing-4);
+}
+
+.wizard-success-status {
+  margin-bottom: var(--kendo-spacing-4);
+}
+
+.wizard-success .wizard-support-link {
+  display: inline-block;
+  margin-left: var(--kendo-spacing-4);
 }
 
 .progress-line {
+  flex: 1;
   min-width: 8rem;
 }
 
@@ -14,7 +132,7 @@
 .wizard-step-message-slot {
   display: grid;
   grid-template-rows: 0fr;
-  transition: grid-template-rows 0.35s ease-out;
+  transition: grid-template-rows var(--kendo-duration-brisk) var(--kendo-easing-accelerate);
 }
 
 .wizard-step-message-slot--open {
@@ -26,8 +144,25 @@
   min-height: 0;
 }
 
-/* Screen-reader-only helper */
-:host ::ng-deep .k-sr-only {
+.wizard-step-message {
+  padding: var(--kendo-spacing-3);
+  border: 1px solid;
+  border-radius: var(--kendo-border-radius-md);
+}
+
+.wizard-step-message--error {
+  color: var(--kendo-color-error-on-surface);
+  border-color: var(--kendo-color-error);
+  background: var(--kendo-color-error-subtle);
+}
+
+.wizard-step-message--info {
+  color: var(--kendo-color-info-on-surface);
+  border-color: var(--kendo-color-info);
+  background: var(--kendo-color-info-subtle);
+}
+
+.wizard-screen-reader-only {
   position: absolute;
   width: 1px;
   height: 1px;
@@ -37,4 +172,10 @@
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border: 0;
+}
+
+@media (min-width: 48rem) {
+  .wizard-page {
+    padding: var(--kendo-spacing-6);
+  }
 }

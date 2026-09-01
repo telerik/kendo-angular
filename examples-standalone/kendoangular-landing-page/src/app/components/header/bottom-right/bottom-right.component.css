@@ -1,23 +1,38 @@
+.registration-panel {
+    display: flex;
+    flex-direction: column;
+    padding: 0 var(--kendo-spacing-5) var(--kendo-spacing-5);
+    border: 1px solid var(--kendo-color-border);
+    border-radius: var(--kendo-border-radius-lg);
+    background-color: var(--kendo-color-surface-alt);
+    box-shadow: var(--kendo-elevation-1);
+}
+
+.registration-panel__title {
+    margin-top: var(--kendo-spacing-5);
+    text-align: center;
+}
+
 .k-form-field-wrap {
-    margin-bottom: 1rem;
+    margin-bottom: var(--kendo-spacing-4);
 }
 
 .k-form-buttons {
-    margin-top: 1.5rem;
+    margin-top: var(--kendo-spacing-6);
     display: flex;
     justify-content: flex-start;
-    gap: 0.5rem;
+    gap: var(--kendo-spacing-2);
 }
 
 kendo-formfield {
-    margin-bottom: 1rem;
+    margin-bottom: var(--kendo-spacing-4);
     display: block;
 }
 
 .k-radio-list-horizontal {
     display: flex;
     flex-flow: row wrap;
-    gap: 1rem;
+    gap: var(--kendo-spacing-4);
 }
 .k-radio-list-horizontal input[type="radio"] {
     margin-right: -0.65rem; 
@@ -25,15 +40,15 @@ kendo-formfield {
 
 .k-radio:checked,
 .k-radio.k-checked {
-    border-color: #5777ea;
-    background-color: #5777ea;
-    box-shadow: 0 0 0 2px rgba(87, 119, 234, 0.5);
+    border-color: var(--kendo-color-primary);
+    background-color: var(--kendo-color-primary);
+    box-shadow: 0 0 0 var(--kendo-spacing-0\.5) color-mix(in srgb, var(--kendo-color-primary) 50%, transparent);
 }
 
 .k-radio:focus,
 .k-radio.k-focus {
-    box-shadow: 0 0 0 2px rgba(87, 119, 234, 0.5) !important;
+    box-shadow: 0 0 0 var(--kendo-spacing-0\.5) color-mix(in srgb, var(--kendo-color-primary) 50%, transparent) !important;
 }
 .k-radio {
-    border: 1px solid var(--kendo-color-border, rgba(0, 0, 0, 0.08)) !important;
+    border: 1px solid var(--kendo-color-border) !important;
 }

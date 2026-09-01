@@ -1,54 +1,53 @@
-@font-face {
-    font-family: "Roboto";
-    src: url("fonts/Roboto-Regular.ttf") format("truetype");
-}
 body {
-    font-family: "Roboto", sans-serif;
+    font-family: var(--kendo-font-family);
+    font-size: var(--kendo-font-size-md);
+    line-height: var(--kendo-line-height-md);
 }
 
 h1 {
-    font-size: 1.25rem;
-    font-weight: 400;
+    font-size: var(--kendo-font-size-xl);
+    font-weight: var(--kendo-font-weight-semibold);
+    line-height: var(--kendo-line-height-md);
 }
 h2 {
-    font-size: 1.0rem;;
-    font-weight: 200;
+    font-size: var(--kendo-font-size-lg);
+    font-weight: var(--kendo-font-weight-semibold);
+    line-height: var(--kendo-line-height-md);
 }
 h3 {
-    font-size: 1.25rem;
-    font-weight: 400;
+    font-size: var(--kendo-font-size-md);
+    font-weight: var(--kendo-font-weight-semibold);
+    line-height: var(--kendo-line-height-md);
 }
 h4 {
-    font-size: 1.25rem;
+    font-size: var(--kendo-font-size-sm);
+    font-weight: var(--kendo-font-weight-semibold);
 }
 h5 {
-    font-size: 1.25rem;
+    font-size: var(--kendo-font-size-sm);
+    font-weight: var(--kendo-font-weight-semibold);
 }
 p {
-    font-size: 1rem;
+    font-size: var(--kendo-font-size-md);
 }
 a {
-    font-size: 1rem;
+    font-size: var(--kendo-font-size-md);
 }
 
-@media (min-width: 480px) {
+@media (min-width: 576px) {
     h1 {
-        font-size: 1.5rem;
-        font-weight: 400;
+        font-size: calc(var(--kendo-font-size-xl) * 1.2);
     }
     h2 {
-        font-size: 1.25rem;;
-        font-weight: 200;
+        font-size: var(--kendo-font-size-xl);
     }
 }
 
-@media (min-width: 840px) {
+@media (min-width: 768px) {
     h1 {
-        font-size: 1.75rem;
-        font-weight: 400;
+        font-size: calc(var(--kendo-font-size-xl) * 1.4);
     }
     h2 {
-        font-size: 1.75rem;;
-        font-weight: 200;
+        font-size: calc(var(--kendo-font-size-xl) * 1.4);
     }
 }

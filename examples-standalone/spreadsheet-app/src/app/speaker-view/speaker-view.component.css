@@ -4,9 +4,9 @@
 
 .page-container {
     margin: -125px auto 0;
-    max-width: 560px;
+    max-width: 640px;
 
-    @media (max-width: 559.98px) {
+    @media (max-width: 575.98px) {
         max-width: 100%;
         margin-inline: var(--kendo-spacing-5);
     }
@@ -19,6 +19,10 @@
 .fields-wrapper {
     display: flex;
     gap: var(--kendo-spacing-3\.5);
+
+    @media (max-width: 575.98px) {
+        flex-direction: column;
+    }
 }
 
 .fields-wrapper .k-form-field {
@@ -30,4 +34,12 @@
     display: flex;
     gap: var(--kendo-spacing-2);
     margin-top: var(--kendo-spacing-3\.5);
+}
+
+.form-submit-button {
+    min-width: calc(var(--kendo-spacing-20) + var(--kendo-spacing-1\.5));
+}
+
+.form-clear-button {
+    min-width: var(--kendo-spacing-20);
 }

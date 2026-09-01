@@ -1,18 +1,39 @@
-<div class="container">
-  <div class="banner">
-    <h1>Kendo UI for Angular</h1>
-    <p>
-      Build responsive and powerful web applications with Kendo UI for Angular.
-    </p>
-    <a
-      href="https://www.telerik.com/try/kendo-angular-ui"
-      class="try-button"
-      target="_blank"
-      >Try it out</a
-    >
+<section class="page-heading">
+  <div>
+    <p class="eyebrow">Revenue overview</p>
+    <h1>Sales dashboard</h1>
+    <p>Monitor the pipeline, customer activity, and team performance from one workspace.</p>
+  </div>
+  <a kendoButton themeColor="primary" routerLink="/detail">View analytics</a>
+</section>
+
+<section class="kpi-grid" aria-label="Sales highlights">
+  <article class="kpi-card">
+    <span>Quarterly revenue</span>
+    <strong>$1.24M</strong>
+    <small>Up 12.4% from last quarter</small>
+  </article>
+  <article class="kpi-card">
+    <span>Open opportunities</span>
+    <strong>48</strong>
+    <small>8 deals close this month</small>
+  </article>
+  <article class="kpi-card">
+    <span>Average deal size</span>
+    <strong>$26,180</strong>
+    <small>Up $1,340 from last quarter</small>
+  </article>
+</section>
+
+<section class="data-panel" aria-labelledby="customers-heading">
+  <div class="panel-header">
+    <div>
+      <h2 id="customers-heading">Customer directory</h2>
+      <p>Review customer records and prioritize follow-up.</p>
+    </div>
+    <span class="updated">Updated today at 9:45 AM</span>
   </div>
   <kendo-grid
-    [style.width.%]="50"
     [kendoGridBinding]="gridData"
     [pageSize]="10"
     [pageable]="true"
@@ -21,13 +42,11 @@
     [groupable]="true"
     [height]="422"
     [size]="'small'"
+    class="customer-grid"
   >
     <kendo-grid-column field="CompanyName" [width]="140"></kendo-grid-column>
     <kendo-grid-column field="ContactName" [width]="120"></kendo-grid-column>
     <kendo-grid-column field="City" [width]="100"></kendo-grid-column>
     <kendo-grid-column field="ContactTitle" [width]="130"></kendo-grid-column>
   </kendo-grid>
-  <a class="navigation" routerLink="/detail">{{
-    "PAGES.HOME.GO_TO_DETAIL" | translate
-  }}</a>
-</div>
+</section>

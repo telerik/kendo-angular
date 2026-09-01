@@ -1,0 +1,36 @@
+<section class="finance-page budgets-page" aria-labelledby="budgets-title">
+    <div class="page-heading">
+        <div><p class="eyebrow">Planning / August 2026</p><h1 id="budgets-title">Budgets</h1><p class="page-lede">Stay ahead of your goals with limits, actuals, and month-over-month trends.</p></div>
+    </div>
+
+    <div class="budget-summary">
+        <kendo-card class="summary-card"><kendo-card-body><span class="summary-label">Total planned</span><strong>$3,830</strong><span class="summary-note">Across 4 categories</span></kendo-card-body></kendo-card>
+        <kendo-card class="summary-card"><kendo-card-body><span class="summary-label">Spent this month</span><strong>$3,388</strong><span class="summary-note summary-positive">88% of plan used</span></kendo-card-body></kendo-card>
+        <kendo-card class="summary-card summary-alert"><kendo-card-body><span class="summary-label">Needs attention</span><strong>1 category</strong><span class="summary-note">Food &amp; dining is over budget</span></kendo-card-body></kendo-card>
+    </div>
+
+    <kendo-card class=" categories-card">
+        <kendo-card-body>
+        <div class="card-heading"><div><p class="card-kicker">Category performance</p><h2>Monthly budget</h2></div><span class="legend"><span class="legend-dot legend-spent"></span>Actual <span class="legend-dot legend-remaining"></span>Remaining</span></div>
+        @if (viewState === 'loading') {
+            <div class="state-panel" role="status" aria-live="polite"><span class="loading-bar"></span><span class="loading-bar loading-bar-short"></span><p>Loading budget categories…</p></div>
+        } @else if (viewState === 'empty') {
+            <div class="state-panel" role="status"><span class="state-icon" aria-hidden="true"><kendo-svgicon [icon]="infoCircleIcon"></kendo-svgicon></span><h3>No budgets yet</h3><p>Create a monthly category budget to start tracking your spending.</p></div>
+        } @else if (viewState === 'error') {
+            <div class="state-panel state-error" role="alert"><span class="state-icon" aria-hidden="true"><kendo-svgicon [icon]="warningCircleIcon"></kendo-svgicon></span><h3>Budget data unavailable</h3><p>We couldn't load the latest totals. Try again or check back later.</p><button kendoButton fillMode="outline" (click)="loadBudgets()">Try again</button></div>
+        } @else {
+            <div class="category-list">
+                @for (category of categories; track category.id) {
+                    <div class="category-row">
+                        <span class="category-icon" aria-hidden="true"><kendo-svgicon [icon]="categoryIcons[category.icon]"></kendo-svgicon></span>
+                        <div class="category-name"><strong>{{ category.name }}</strong><span>${{ category.actual | number:'1.0-0' }} of ${{ category.limit | number:'1.0-0' }}</span></div>
+                        <div class="category-progress"><div class="budget-track" role="progressbar" [attr.aria-valuenow]="getProgress(category)" aria-valuemin="0" aria-valuemax="100" [attr.aria-label]="category.name + ' budget used'"><span class="budget-fill" [class.budget-fill-over]="category.overBudget" [style.width.%]="getProgress(category)"></span></div><span class="progress-value">{{ getProgress(category) }}%</span></div>
+                        <div class="category-trend" [class.trend-over]="category.overBudget"><kendo-svgicon [icon]="category.overBudget ? arrowUpIcon : arrowDownIcon"></kendo-svgicon><span>{{ category.trend }}</span></div>
+                        @if (category.overBudget) { <span class="status-badge status-error">Over budget</span> }
+                    </div>
+                }
+            </div>
+        }
+        </kendo-card-body>
+    </kendo-card>
+</section>

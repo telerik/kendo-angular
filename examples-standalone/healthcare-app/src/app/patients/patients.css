@@ -1,17 +1,16 @@
 .page-section {
   width: 100%;
   margin-top: 24px;
+  padding-bottom: var(--kendo-spacing-10);
 }
 
 /* Patients Card / AI Chat Card */
 .patients-card,
 .ai-chat-card {
   border: none;
-  border-radius: 16px;
-  box-shadow:
-    0px 1px 3px rgba(0, 0, 0, 0.04),
-    0px 2px 6px -1px rgba(0, 0, 0, 0.06);
-  background: #ffffff;
+  border-radius: var(--kendo-border-radius-xl);
+  box-shadow: var(--kendo-elevation-1);
+  background: var(--kendo-color-surface-alt);
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -43,7 +42,7 @@
   gap: 32px;
   width: 100%;
   align-items: stretch;
-  transition: all 0.3s ease;
+  transition: gap var(--kendo-transition-enter);
 }
 
 .patients-content-wrapper.chat-visible .patients-card {
@@ -72,35 +71,42 @@
   overflow: hidden;
 }
 
-/* 1440px – 1759px: reduce content wrapper gap to 24px */
-@media (min-width: 1440px) and (max-width: 1759px) {
-  .patients-content-wrapper {
-    gap: 24px;
-  }
+.ai-chat-header {
+  display: flex;
+  align-items: center;
+  padding: var(--kendo-spacing-2);
 }
 
-/* 900px – 1439px: gap 24px, page top/bottom padding 32px */
-@media (min-width: 900px) and (max-width: 1439px) {
+.ai-chat-header__icon {
+  margin-right: var(--kendo-spacing-2);
+  color: var(--kendo-color-secondary);
+}
+
+/* Standard layout boundaries: 1440 / 1024 / 768 / 390px */
+@media (max-width: 1440px) {
   .page-section {
-    padding-top: 32px;
-    padding-bottom: 32px;
+    padding-top: var(--kendo-spacing-8);
+    padding-bottom: var(--kendo-spacing-8);
   }
 
   .patients-content-wrapper {
-    gap: 24px;
+    gap: var(--kendo-spacing-6);
   }
 }
 
-/* 576px – 899px: card padding 16px, page top/bottom padding 24px */
-@media (min-width: 576px) and (max-width: 899px) {
+@media (max-width: 1024px) {
   .ai-chat-card {
     flex: 1 0 100%;
     height: 650px;
   }
 
   .page-section {
-    padding-top: 24px;
-    padding-bottom: 24px;
+    padding-top: var(--kendo-spacing-6);
+    padding-bottom: var(--kendo-spacing-6);
+  }
+
+  .patients-content-wrapper {
+    gap: var(--kendo-spacing-4);
   }
 
   .patients-card kendo-card-body {
@@ -108,30 +114,24 @@
   }
 }
 
-/* Below 575px: 12px gaps and 12px top/bottom page padding */
-@media (max-width: 575px) {
-  .ai-chat-card {
-    flex: 1 0 100%;
-    height: 650px;
-  }
-
+@media (max-width: 768px) {
   .page-section {
-    padding-top: 12px;
-    padding-bottom: 12px;
+    padding-top: var(--kendo-spacing-4);
+    padding-bottom: var(--kendo-spacing-4);
   }
 
   .patients-content-wrapper {
-    gap: 12px;
+    gap: var(--kendo-spacing-3);
+  }
+}
+
+@media (max-width: 390px) {
+  .page-section {
+    padding-top: var(--kendo-spacing-3);
+    padding-bottom: var(--kendo-spacing-3);
   }
 
   .patients-card kendo-card-body {
     padding: 10px 12px 12px;
-  }
-}
-
-/* Above 1440px: 40px bottom padding */
-@media (min-width: 1440px) {
-  .page-section {
-    padding-bottom: 40px;
   }
 }

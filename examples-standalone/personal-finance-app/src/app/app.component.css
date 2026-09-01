@@ -1,0 +1,159 @@
+:host ::ng-deep .investments-page,
+:host ::ng-deep .analytics-page,
+:host ::ng-deep .transactions-page {
+    padding: var(--kendo-spacing-8) var(--kendo-spacing-15) var(--kendo-spacing-2);
+}
+
+:host ::ng-deep .investments-page .page-title,
+:host ::ng-deep .analytics-page .page-title,
+:host ::ng-deep .transactions-page .page-title {
+    margin-block: 0 var(--kendo-spacing-6);
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+:host ::ng-deep .investments-grid,
+:host ::ng-deep .transactions-layout {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    gap: var(--kendo-spacing-4);
+    overflow: hidden;
+}
+
+:host ::ng-deep .investment-card,
+:host ::ng-deep .analytics-card,
+:host ::ng-deep .transaction-card {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    gap: var(--kendo-spacing-4);
+}
+
+:host ::ng-deep .investment-card,
+:host ::ng-deep .transaction-card {
+    grid-column: span 12;
+}
+
+:host ::ng-deep .investments-overview-card,
+:host ::ng-deep .movers-card {
+    margin-block-end: var(--kendo-spacing-10);
+}
+
+:host ::ng-deep .stock-chart-card,
+:host ::ng-deep .transactions-card {
+    margin-block-end: var(--kendo-spacing-4);
+}
+
+:host ::ng-deep .card-heading,
+:host ::ng-deep .card-content,
+:host ::ng-deep .centered-content,
+:host ::ng-deep .analytics-content {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+}
+
+:host ::ng-deep .card-heading {
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+:host ::ng-deep .card-title {
+    font-weight: var(--kendo-font-weight-medium);
+}
+
+:host ::ng-deep .card-value {
+    font-size: var(--kendo-font-size-lg);
+}
+
+:host ::ng-deep .movers-title {
+    margin-block-end: var(--kendo-spacing-10);
+}
+
+:host ::ng-deep .movers-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--kendo-spacing-6);
+}
+
+:host ::ng-deep .centered-content,
+:host ::ng-deep .analytics-content {
+    justify-content: center;
+}
+
+:host ::ng-deep .stock-chart {
+    overflow: hidden;
+}
+
+:host ::ng-deep .cashflow-card {
+    position: relative;
+    margin-block-end: var(--kendo-spacing-10);
+}
+
+:host ::ng-deep .cashflow-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-inline: var(--kendo-spacing-4);
+}
+
+:host ::ng-deep .cashflow-period-selector {
+    width: 25%;
+}
+
+:host ::ng-deep .transactions-page {
+    margin-block-end: var(--kendo-spacing-4);
+}
+
+:host ::ng-deep .transaction-card {
+    gap: var(--kendo-spacing-3);
+}
+
+:host ::ng-deep .saving-item {
+    display: flex;
+    justify-content: space-between;
+}
+
+:host ::ng-deep .saving-item-title,
+:host ::ng-deep .saving-item-value {
+    font-size: var(--kendo-font-size-lg);
+    font-weight: var(--kendo-font-weight-normal);
+}
+
+:host ::ng-deep .status-chip {
+    border-radius: var(--kendo-border-radius-lg);
+    font-size: var(--kendo-font-size-sm);
+}
+
+:host ::ng-deep .application-footer {
+    padding: var(--kendo-spacing-6) var(--kendo-spacing-15);
+    color: var(--kendo-color-subtle);
+    background-color: var(--kendo-color-inverse);
+}
+
+:host ::ng-deep .footer-copy {
+    margin-block: 0;
+}
+
+@media (min-width: 62rem) {
+    :host ::ng-deep .investments-grid,
+    :host ::ng-deep .transactions-layout {
+        gap: var(--kendo-spacing-6);
+    }
+
+    :host ::ng-deep .investments-overview-card {
+        grid-column: span 5;
+    }
+
+    :host ::ng-deep .movers-card {
+        grid-column: span 7;
+    }
+
+    :host ::ng-deep .transaction-list-card {
+        grid-column: span 9;
+    }
+
+    :host ::ng-deep .transaction-detail-card {
+        grid-column: span 3;
+    }
+}

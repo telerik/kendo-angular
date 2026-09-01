@@ -4,9 +4,9 @@
 
 .page-container {
     margin: -125px auto 0;
-    max-width: 560px;
+    max-width: 640px;
 
-    @media (max-width: 559.98px) {
+    @media (max-width: 575.98px) {
         max-width: 100%;
         margin-inline: var(--kendo-spacing-5);
     }
@@ -61,4 +61,46 @@ kendo-label {
 .buttons-container {
     display: flex;
     gap: var(--kendo-spacing-2);
+}
+
+.ticket-price__multiplier {
+    font-weight: var(--kendo-font-weight-normal);
+}
+
+.form-submit-button {
+    min-width: calc(var(--kendo-spacing-20) + var(--kendo-spacing-1\.5));
+}
+
+.form-clear-button {
+    min-width: var(--kendo-spacing-20);
+}
+
+.booking-confirmation {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--kendo-spacing-6);
+    margin-bottom: var(--kendo-spacing-15);
+    padding: var(--kendo-spacing-10);
+    text-align: center;
+    background-color: var(--kendo-color-surface);
+    border: 1px solid var(--kendo-color-border);
+    border-radius: var(--kendo-border-radius-lg);
+}
+
+.booking-confirmation h2,
+.booking-confirmation p {
+    margin: 0;
+}
+
+.confirmation-icon {
+    display: grid;
+    width: var(--kendo-spacing-12);
+    height: var(--kendo-spacing-12);
+    place-items: center;
+    color: var(--kendo-color-on-success);
+    font-size: var(--kendo-font-size-xl);
+    font-weight: var(--kendo-font-weight-semibold);
+    background-color: var(--kendo-color-success);
+    border-radius: var(--kendo-border-radius-full);
 }

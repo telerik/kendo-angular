@@ -7,6 +7,7 @@ import {
 } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
+import { RouterLink } from '@angular/router';
 import { ButtonComponent } from '@progress/kendo-angular-buttons';
 import { KENDO_INPUTS } from '@progress/kendo-angular-inputs';
 import { KENDO_CARD, KENDO_STEPPER, StepperActivateEvent } from '@progress/kendo-angular-layout';
@@ -41,6 +42,7 @@ type StepMessageTone = 'error' | 'info';
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
     ReactiveFormsModule,
+    RouterLink,
     ...KENDO_INPUTS,
     ...KENDO_STEPPER,
     ...KENDO_CARD,
@@ -64,6 +66,7 @@ export class OnboardingWizardComponent {
   readonly currentStep = signal(0);
   readonly stepMessage = signal<string | null>(null);
   readonly stepMessageTone = signal<StepMessageTone>('error');
+  readonly draftStatus = signal('Progress saves automatically in this browser.');
 
   readonly stepperSteps = [
     { label: 'Personal' },
@@ -83,8 +86,8 @@ export class OnboardingWizardComponent {
   );
   readonly stepMessageClass = computed(() =>
     this.stepMessageTone() === 'error'
-      ? 'k-p-3 k-rounded-md k-border-error k-bg-error-subtle k-text-error'
-      : 'k-p-3 k-rounded-md k-border-info k-bg-info-subtle'
+      ? 'wizard-step-message wizard-step-message--error'
+      : 'wizard-step-message wizard-step-message--info'
   );
 
   readonly form = this.fb.group({
@@ -135,6 +138,7 @@ export class OnboardingWizardComponent {
       this.currentStep.set(
         Math.min(Math.max(0, draft.currentStep), TOTAL_STEPS - 1)
       );
+      this.draftStatus.set('Draft restored from this browser.');
     }
 
     this.form.valueChanges
@@ -194,6 +198,7 @@ export class OnboardingWizardComponent {
     }
     this.clearStepMessage();
     this.storage.clear();
+    this.draftStatus.set('Progress saves automatically in this browser.');
     this.submitted.set(true);
   }
 
@@ -299,6 +304,7 @@ export class OnboardingWizardComponent {
     this.submitted.set(false);
     this.clearStepMessage();
     this.storage.clear();
+    this.draftStatus.set('Progress saves automatically in this browser.');
   }
 
   private showStepMessage(message: string, tone: StepMessageTone = 'error'): void {
@@ -338,9 +344,12 @@ export class OnboardingWizardComponent {
       return;
     }
     const formValue = this.form.getRawValue() as OnboardingFormSnapshot;
-    this.storage.save({
+    const saved = this.storage.save({
       currentStep: this.currentStep(),
       formValue
     });
+    this.draftStatus.set(
+      saved ? 'Draft saved in this browser.' : 'Draft could not be saved in this browser.'
+    );
   }
 }

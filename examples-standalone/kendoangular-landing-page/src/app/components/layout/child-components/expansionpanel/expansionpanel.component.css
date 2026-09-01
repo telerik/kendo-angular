@@ -4,7 +4,7 @@
 
 .image-container {
     height: 250px;
-    margin-right: 20px;
+    margin-right: var(--kendo-spacing-5);
 }
 
 img {

@@ -1,3 +1,24 @@
-.k-text-blue {
-    color: #8ca5da;
+.transaction-details,
+.detail-field {
+    display: flex;
+    flex-direction: column;
+}
+
+.transaction-details {
+    gap: var(--kendo-spacing-3);
+}
+
+.detail-label {
+    display: block;
+    font-size: var(--kendo-font-size-lg);
+}
+
+.detail-chip {
+    border-radius: var(--kendo-border-radius-lg);
+    font-size: var(--kendo-font-size-sm);
+    text-align: center;
+}
+
+.detail-link {
+    color: var(--kendo-color-info-on-surface);
 }

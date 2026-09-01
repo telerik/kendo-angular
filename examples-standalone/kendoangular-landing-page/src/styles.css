@@ -1,5 +1,7 @@
 :root {
     --kendo-font-family: 'Roboto', sans-serif;
+    --kendo-color-primary: #5777ea;
+    --kendo-translucency-base: 30%;
 }
 body {
     font-family: var(--kendo-font-family);

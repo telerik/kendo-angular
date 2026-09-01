@@ -1,9 +1,16 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+  --kendo-font-family: "Poppins", sans-serif;
+  --kendo-translucency-base: 28%;
+  --kendo-translucency-blur-base: 8px;
+  --kendo-translucency-blur-step: 2px;
+}
 
 body {
   margin: 0;
-  padding-top: 0;
-  font-family: 'Poppins', sans-serif;
+  padding-top: var(--kendo-spacing-0);
+  font-family: var(--kendo-font-family);
+  color: var(--kendo-color-on-app-surface);
+  background-color: var(--kendo-color-app-surface);
   background-image: url('assets/bg.svg');
   background-repeat: no-repeat;
   background-position: center top;

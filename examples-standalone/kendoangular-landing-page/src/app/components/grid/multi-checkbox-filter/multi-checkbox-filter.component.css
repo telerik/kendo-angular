@@ -1,19 +1,19 @@
 .wrapper {
-    padding: 1px;
+    padding: var(--kendo-spacing-1px);
     display: flex;
     flex-direction: column;
-    gap: 7px;
+    gap: calc(var(--kendo-spacing-1\.5) + var(--kendo-spacing-1px));
 }
 
 .items-wrapper {
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: calc(var(--kendo-spacing-1) + var(--kendo-spacing-1px));
 }
 
 .item {
     display: flex;
-    gap: 4px;
+    gap: var(--kendo-spacing-1);
     flex-direction: row;
     align-items: center;
 }

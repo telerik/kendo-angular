@@ -15,38 +15,40 @@
     justify-content: space-between;
 }
 .card-post-comment-wrapper {
-    padding: 16px 16px 0;
+    display: flex;
+    gap: var(--kendo-spacing-2);
+    padding: var(--kendo-spacing-4) var(--kendo-spacing-4) 0;
 }
 .card-comment-wrapper {
-    margin-bottom: 8px;
-    padding: 0 16px;
+    margin-bottom: var(--kendo-spacing-2);
+    padding: 0 var(--kendo-spacing-4);
 }
 .card-comment-container {
-    padding: 4px 0;
+    padding: var(--kendo-spacing-1) 0;
     align-items: center;
     display: flex;
 }
 .comment-box .comment-text {
-    font-size: 13px;
+    font-size: var(--kendo-font-size-sm);
     font-weight: bold;
     max-width: 100px;
 }
 .comment-box span {
-    font-size: 10px;
+    font-size: var(--kendo-font-size-xs);
     font-weight: normal;
     word-break: break-all;
 }
 .time span {
-    margin-left: 8px;
+    margin-left: var(--kendo-spacing-2);
 }
 .box .k-button-icon {
-    font-size: 16px;
+    font-size: var(--kendo-font-size-md);
     align-self: center;
 }
 .post-likes-count {
-    font-size: 13px;
+    font-size: var(--kendo-font-size-sm);
     align-self: center;
-    color: #656565;
+    color: var(--kendo-color-subtle);
 }
 .k-button.k-flat:focus::after {
     display: none;
@@ -54,18 +56,18 @@
 .k-button {
     outline: none;
 }
-.k-button .k-i-heart {
-    color: #ff6358;
+.k-button .k-svg-icon {
+    color: var(--kendo-color-error);
 }
 .k-card-subtitle .k-icon {
     vertical-align: baseline;
-    font-size: 12px;
+    font-size: var(--kendo-font-size-sm);
 }
 .k-card-header .k-card-title + .k-card-subtitle {
     margin-top: 0;
 }
 .k-card-title {
-    margin-bottom: 4px;
+    margin-bottom: var(--kendo-spacing-1);
 }
 .k-card-media li img {
     width: 285px;
@@ -79,5 +81,5 @@ comment-actions {
     flex: 0 0 auto;
 }
 .k-avatar {
-    margin-right: 1em;
+    margin-right: var(--kendo-spacing-4);
 }

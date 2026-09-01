@@ -1,11 +1,11 @@
-<div class="k-d-flex k-flex-col k-gap-4 k-w-full" [formGroup]="group()">
+<div class="form-step" [formGroup]="group()">
   <div
-    class="k-p-4 k-border k-rounded-md k-bg-primary-subtle"
+    class="tax-notice"
     role="status"
     aria-live="polite"
   >
-    <strong class="k-d-block k-mb-1">Demo data only</strong>
-    <p class="k-m-0 k-font-size-sm k-text-primary-on-subtle">
+    <strong class="tax-notice__title">Demo data only</strong>
+    <p class="tax-notice__copy">
       Tax IDs and bank numbers shown here are mock fields for UI review. Do not enter real government IDs,
       account numbers, or confidential banking data. Production onboarding should collect this through your
       payroll provider or a secured HRIS integration.

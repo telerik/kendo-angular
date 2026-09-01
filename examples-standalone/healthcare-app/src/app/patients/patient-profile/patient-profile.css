@@ -1,6 +1,7 @@
 .page-section {
   width: 100%;
   margin-top: 24px;
+  padding-bottom: var(--kendo-spacing-10);
 }
 
 .page-header {
@@ -43,18 +44,22 @@
 /* Profile Cards */
 .profile-card {
   display: block;
-  border: 1px solid rgba(23, 56, 99, 0.08);
-  border-radius: 12px;
-  box-shadow:
-    0px 1px 3px rgba(0, 0, 0, 0.04),
-    0px 2px 6px -1px rgba(0, 0, 0, 0.06);
-  background: #ffffff;
+  border: 1px solid var(--kendo-color-border);
+  border-radius: var(--kendo-border-radius-lg);
+  box-shadow: var(--kendo-elevation-1);
+  background: var(--kendo-color-surface-alt);
   overflow: hidden;
   min-width: 0;
 }
 
-/* ~1200px: admission card drops to second row, full width */
-@media (max-width: 1300px) {
+/* Standard layout boundaries: 1440 / 1024 / 768 / 390px */
+@media (max-width: 1440px) {
+  .profile-grid {
+    gap: var(--kendo-spacing-6);
+  }
+}
+
+@media (max-width: 1024px) {
   .profile-grid {
     grid-template-columns: 1fr 1fr;
   }
@@ -62,17 +67,32 @@
   .admission-card {
     grid-column: 1 / -1;
   }
+
+  .page-section {
+    padding-top: var(--kendo-spacing-8);
+    padding-bottom: var(--kendo-spacing-8);
+  }
+
+  .profile-grid {
+    gap: var(--kendo-spacing-6);
+  }
 }
 
-/* ~500px: all cards stack full-width */
-@media (max-width: 1000px) {
+@media (max-width: 768px) {
   .profile-grid {
     grid-template-columns: 1fr;
+    gap: var(--kendo-spacing-4);
   }
 
   .admission-card {
     grid-column: auto;
   }
+
+  .page-section {
+    padding-top: var(--kendo-spacing-6);
+    padding-bottom: var(--kendo-spacing-6);
+  }
+
 }
 
 .profile-card kendo-card-body {
@@ -198,11 +218,9 @@
 .patient-note-card,
 .lab-results-card {
   border: none;
-  border-radius: 16px;
-  box-shadow:
-    0px 1px 3px rgba(0, 0, 0, 0.04),
-    0px 2px 6px -1px rgba(0, 0, 0, 0.06);
-  background: #ffffff;
+  border-radius: var(--kendo-border-radius-xl);
+  box-shadow: var(--kendo-elevation-1);
+  background: var(--kendo-color-surface-alt);
   overflow: hidden;
   margin-top: 24px;
 }
@@ -238,92 +256,50 @@
   width: 100%;
 }
 
-/* 1440px – 1759px: reduce card gap to 24px */
-@media (min-width: 1440px) and (max-width: 1759px) {
-  .profile-grid {
-    gap: 24px;
-  }
-}
-
-/* 900px – 1439px: card gap 24px, page top/bottom padding 32px */
-@media (min-width: 900px) and (max-width: 1439px) {
-  .page-section {
-    padding-top: 32px;
-    padding-bottom: 32px;
-  }
-
-  .profile-grid {
-    gap: 24px;
-  }
-}
-
-/* 576px – 899px: card padding 16px, page top/bottom padding 24px */
-@media (min-width: 576px) and (max-width: 899px) {
-  .page-section {
-    padding-top: 24px;
-    padding-bottom: 24px;
-  }
-
-  .card-details {
-    padding: 16px;
+@media (max-width: 768px) {
+  .card-details,
+  .vitals-content,
+  .admission-content,
+  .profile-card kendo-card-body,
+  .patient-note-card kendo-card-body,
+  .lab-results-card kendo-card-body {
+    padding: var(--kendo-spacing-4);
   }
 
   .card-content {
-    padding: 0 16px 16px;
+    padding: 0 var(--kendo-spacing-4) var(--kendo-spacing-4);
+  }
+}
+
+@media (max-width: 390px) {
+  .page-section {
+    padding-top: var(--kendo-spacing-3);
+    padding-bottom: var(--kendo-spacing-3);
+  }
+
+  .profile-grid {
+    gap: var(--kendo-spacing-3);
+  }
+
+  .card-details {
+    padding: var(--kendo-spacing-3);
+  }
+
+  .card-content {
+    padding: 0 var(--kendo-spacing-3) var(--kendo-spacing-3);
   }
 
   .vitals-content,
   .admission-content {
-    padding: 16px;
+    padding: var(--kendo-spacing-3);
   }
 
   .profile-card kendo-card-body {
-    padding: 16px;
+    padding: var(--kendo-spacing-3);
   }
 
   .patient-note-card kendo-card-body,
   .lab-results-card kendo-card-body {
-    padding: 16px;
-  }
-}
-
-/* Below 575px: 12px gaps and 12px top/bottom page padding */
-@media (max-width: 575px) {
-  .page-section {
-    padding-top: 12px;
-    padding-bottom: 12px;
-  }
-
-  .profile-grid {
-    gap: 12px;
-  }
-
-  .card-details {
-    padding: 12px;
-  }
-
-  .card-content {
-    padding: 0 12px 12px;
-  }
-
-  .vitals-content,
-  .admission-content {
-    padding: 12px;
-  }
-
-  .profile-card kendo-card-body {
-    padding: 12px;
-  }
-
-  .patient-note-card kendo-card-body,
-  .lab-results-card kendo-card-body {
-    padding: 12px;
-  }
-}
-
-/* Above 1440px: 40px bottom padding */
-@media (min-width: 1440px) {
-  .page-section {
-    padding-bottom: 40px;
+    padding: var(--kendo-spacing-3);
   }
 }

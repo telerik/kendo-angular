@@ -25,6 +25,7 @@ export class TicketViewComponent {
     @ViewChild("notificationTemplate", { read: TemplateRef })
     public notificationTemplate!: TemplateRef<unknown>;
     public formGroup: FormGroup;
+    public bookingSubmitted = false;
     private ticketPrices: TicketPrices = {
         fullPackage: 510,
         workshopFirstDay: 200,
@@ -49,6 +50,7 @@ export class TicketViewComponent {
 
     public submitForm(): void {
         this.excelDataService.saveTicketData(this.formGroup.value);
+        this.bookingSubmitted = true;
         this.notificationService.show({
             content: this.notificationTemplate,
             cssClass: "button-notification",
@@ -67,6 +69,11 @@ export class TicketViewComponent {
             talksOnly: 0,
             onlineTickets: 0,
         });
+    }
+
+    public startNewBooking(): void {
+        this.bookingSubmitted = false;
+        this.clearForm();
     }
 
     public calculateTotalPrice(): number {

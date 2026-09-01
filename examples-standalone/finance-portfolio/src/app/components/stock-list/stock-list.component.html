@@ -1,12 +1,7 @@
-<div class="d-flex justify-content-center mx-0">
-  <div class="row">
-    <app-badge [item]="stockDataService.selectedStock"></app-badge>
-  </div>
-</div>
-
 <div class="container">
-  <div class="row py-4 d-flex justify-content-between">
-    <div class="col col-3 d-flex justify-content-start px-0">
+  <div class="portfolio-toolbar">
+    <div class="portfolio-toolbar__actions">
+      @if (showGrid) {
       <kendo-dropdownlist
         kendoDropDownFilter
         appDropDownListPopupSelector
@@ -17,24 +12,27 @@
         >
         <ng-template kendoDropDownListValueTemplate>
           <kendo-svg-icon [icon]="plusIcon"></kendo-svg-icon>
-          <span class="k-icon k-i-plus"></span>
           Add new
         </ng-template>
       </kendo-dropdownlist>
       @if (selectedRows.length) {
-        <button kendoButton [look]="'flat'" [svgIcon]="trashIcon" (click)="removeStockFromPortfolio()">
+        <button kendoButton fillMode="flat" [svgIcon]="trashIcon" (click)="removeStockFromPortfolio()">
           Remove
         </button>
       }
+      }
     </div>
 
-    <app-navigation class="col"></app-navigation>
+    <ng-content select="[portfolio-view-switcher]"></ng-content>
 
-    <div class="col-3">
-      <!-- filter drop-down placeholder -->
+    <div class="portfolio-toolbar__hint">
+      @if (showGrid) {
+      <span class="text-muted">Select a holding to update the chart.</span>
+      }
     </div>
   </div>
 
+  @if (showGrid) {
   <div class="row">
     <kendo-grid
       class="stocks-grid"
@@ -67,7 +65,7 @@
       <kendo-grid-column field="day_change" title="Change" media="(min-width: 768px)">
         <ng-template kendoGridCellTemplate let-dataItem>
           <span [ngClass]="{ 'grid-cell-positive': dataItem.day_change > 0, 'grid-cell-negative': dataItem.day_change < 0 }">
-            {{ dataItem.day_change > 0 ? '+' + dataItem.day_change : dataItem.day_change }}
+            {{ dataItem.day_change > 0 ? '↑ +' + dataItem.day_change : dataItem.day_change < 0 ? '↓ ' + dataItem.day_change : '— 0' }}
           </span>
         </ng-template>
       </kendo-grid-column>
@@ -75,7 +73,7 @@
       <kendo-grid-column field="change_pct" title="%Change" media="(min-width: 768px)">
         <ng-template kendoGridCellTemplate let-dataItem>
           <span [ngClass]="{ 'grid-cell-positive': dataItem.change_pct > 0, 'grid-cell-negative': dataItem.change_pct < 0 }">
-            {{ dataItem.change_pct > 0 ? '+' + dataItem.change_pct : dataItem.change_pct }}%
+            {{ dataItem.change_pct > 0 ? '↑ +' + dataItem.change_pct : dataItem.change_pct < 0 ? '↓ ' + dataItem.change_pct : '— 0' }}%
           </span>
         </ng-template>
       </kendo-grid-column>
@@ -151,6 +149,7 @@
       </kendo-grid-column>
     </kendo-grid>
   </div>
+  }
 </div>
 
 <div kendoDialogContainer></div>

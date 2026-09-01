@@ -28,7 +28,7 @@
             ],
             "styles": [
               {
-                "input": "node_modules/@progress/kendo-theme-default/dist/all.css"
+                "input": "node_modules/@progress/kendo-theme-meridian/dist/all.css"
               },
               "src/styles.css"
             ],
@@ -39,7 +39,7 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "5MB",
+                  "maximumWarning": "5.5MB",
                   "maximumError": "7MB"
                 },
                 {
@@ -92,7 +92,7 @@
             ],
             "styles": [
               {
-                "input": "node_modules/@progress/kendo-theme-default/dist/all.css"
+                "input": "node_modules/@progress/kendo-theme-meridian/dist/all.css"
               },
               "src/styles.css"
             ],

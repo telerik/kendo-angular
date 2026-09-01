@@ -1,20 +1,8 @@
-@import '@progress/kendo-theme-default/dist/all.css';
-@import '@progress/kendo-theme-utils/dist/all.css';
+@import '@progress/kendo-theme-meridian/dist/all.css';
 
 :root {
-  --kendo-color-app-surface: #f7fbfb;
-  --kendo-color-on-app-surface: #0b1f23;
-  --kendo-color-surface: #ffffff;
-  --kendo-color-on-surface: #0b1f23;
-  --kendo-color-primary: #127a75;
-  /* Theme utils default for primary-subtle is a pink fallback if unset; align with brand teal */
-  --kendo-color-primary-subtle: #e0f3f2;
-  --kendo-color-primary-hover: #0f6a64;
-  --kendo-color-primary-active: #0d5956;
-  --kendo-color-on-primary: #ffffff;
-  --kendo-color-error: #c0392b;
-  --kendo-font-family-sans: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue',
-    sans-serif;
+  /* Shared translucency hook; components use Meridian surface tokens directly. */
+  --kendo-translucency-base: 28%;
 }
 
 *,
@@ -28,6 +16,6 @@ body {
   min-height: 100vh;
   background: var(--kendo-color-app-surface);
   color: var(--kendo-color-on-app-surface);
-  font-family: var(--kendo-font-family-sans);
-  line-height: 1.5;
+  font-family: var(--kendo-font-family);
+  line-height: var(--kendo-line-height-md);
 }

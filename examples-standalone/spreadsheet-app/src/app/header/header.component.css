@@ -1,5 +1,6 @@
 .k-appbar {
     padding-inline: var(--kendo-spacing-4);
+    position: relative;
 
     @media (max-width: 767.98px) {
         justify-content: center;
@@ -26,9 +27,47 @@
     gap: var(--kendo-spacing-2);
 }
 
+.navigation-toggle {
+    display: none;
+}
+
 .username-logout-container,
 .k-appbar-spacer {
     @media (max-width: 767.98px) {
         display: none;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .logo-nav-container {
+        width: 100%;
+    }
+
+    .navigation-toggle {
+        display: inline-flex;
+    }
+
+    .nav-buttons {
+        display: none;
+        position: absolute;
+        z-index: 2;
+        top: 100%;
+        left: var(--kendo-spacing-4);
+        right: var(--kendo-spacing-4);
+        flex-direction: column;
+        gap: 0;
+        padding: var(--kendo-spacing-2);
+        background-color: var(--kendo-color-surface);
+        border: 1px solid var(--kendo-color-border);
+        border-radius: var(--kendo-border-radius-md);
+        box-shadow: var(--kendo-elevation-2);
+    }
+
+    .nav-buttons.is-open {
+        display: flex;
+    }
+
+    .nav-buttons .k-button {
+        justify-content: flex-start;
     }
 }

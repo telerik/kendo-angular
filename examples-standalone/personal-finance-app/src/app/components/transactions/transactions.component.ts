@@ -1,3 +1,4 @@
+import { KENDO_LAYOUT } from '@progress/kendo-angular-layout';
 import { Component } from '@angular/core';
 import { TransactionsGridComponent } from '../transactions-grid/transactions-grid.component';
 import { TransactionDetailComponent } from './transaction-detail/transaction-detail.component';
@@ -7,7 +8,7 @@ import { MessageService } from '@progress/kendo-angular-l10n';
 
 @Component({
     selector: 'app-transactions',
-    imports: [TransactionsGridComponent, TransactionDetailComponent],
+    imports: [KENDO_LAYOUT, TransactionsGridComponent, TransactionDetailComponent],
     templateUrl: './transactions.component.html',
 })
 export class TransactionsComponent {

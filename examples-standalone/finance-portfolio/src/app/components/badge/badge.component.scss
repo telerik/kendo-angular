@@ -1,13 +1,22 @@
 @use '../../../styles/variables' as *;
 
+:host {
+    position: absolute;
+    z-index: 11;
+    inset-block-start: 50%;
+    inset-inline-start: 50%;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+}
+
 .selected-stock-badge {
     height: $badge-height;
     color: $white;
     padding: $badge-padding;
-    border-radius: 2 * $badge-padding;
+    border-radius: var(--kendo-border-radius-full);
 
     span:first-child {
-        margin-right: 2 * $margin-sm;
+        margin-right: var(--kendo-spacing-2);
     }
 
     &.badge-positive-value {

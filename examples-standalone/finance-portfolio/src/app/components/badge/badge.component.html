@@ -4,4 +4,5 @@
 >
     <span>{{ item.symbol }} </span>
     <span>{{ item.price }}</span>
+    <span>{{ item.change_pct > 0 ? '↑ gain' : item.change_pct < 0 ? '↓ loss' : '— unchanged' }}</span>
 </div>

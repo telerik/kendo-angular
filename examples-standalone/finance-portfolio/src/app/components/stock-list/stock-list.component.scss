@@ -1,12 +1,31 @@
-@use "sass:math";
 @use '../../../styles/variables' as *;
+
+.portfolio-toolbar {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+    align-items: center;
+    gap: var(--kendo-spacing-4);
+    padding: var(--kendo-spacing-4) 0;
+}
+
+.portfolio-toolbar__actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.portfolio-toolbar__hint {
+    color: var(--kendo-color-subtle);
+    font-size: var(--kendo-font-size-sm);
+    text-align: right;
+}
 
 .dropdownlist-add-new {
     padding-left: 0;
     width: auto;
 
     .k-dropdown-wrap {
-        border: 1px solid $border-base;
+        border: var(--kendo-spacing-1px) solid $border-base;
         background: $white;
         color: $text-base;
         padding: $dropownlist-add-new-padding;
@@ -15,20 +34,15 @@
         align-items: center;
 
         .k-select {
-            .k-icon {
+            .k-svg-icon {
                 color: $text-base;
-
-                &.k-i-arrow-s {
-                    display: none;
-                }
             }
+
         }
 
         .k-input {
-            .k-icon {
-                &.k-i-plus {
-                    margin-right: 2 * $margin-sm;
-                }
+            .k-svg-icon {
+                margin-right: var(--kendo-spacing-2);
             }
         }
 
@@ -39,13 +53,25 @@
     }
 }
 
+@media (max-width: 760px) {
+    .portfolio-toolbar {
+        grid-template-columns: 1fr;
+    }
+
+    .portfolio-toolbar__actions,
+    .portfolio-toolbar__hint {
+        justify-content: center;
+        text-align: center;
+    }
+}
+
 .k-dialog {
     .k-header {
         &, .k-icon {
             font-weight: bold;
         }
         .k-icon {
-            font-size: 1.25rem;
+            font-size: var(--kendo-font-size-xl);
         }
     }
     .k-content.k-dialog-content {
@@ -80,7 +106,7 @@
 }
 
 .k-grid {
-    margin-bottom: 100px;
+    margin-bottom: var(--kendo-spacing-24);
     border-width: 0;
 
     td:first-child {
@@ -97,16 +123,14 @@
             font-size: $grid-header-subtitle;
         }
 
-        .k-link > .k-icon.k-i-sort-asc-sm,
-        .k-link > .k-icon.k-i-sort-desc-sm {
+        .k-link > .k-svg-icon {
             margin-left: $grid-sorting-icon-margin;
         }
 
-        .grid-header-subtitle + .k-icon.k-i-sort-asc-sm,
-        .grid-header-subtitle + .k-i-sort-desc-sm {
+        .grid-header-subtitle + .k-svg-icon {
             position: absolute;
             top: 50%;
-            margin-top: - math.div($grid-sorting-icon-right-position, 2);
+            margin-top: calc(var(--kendo-spacing-2\.5) * -1);
             right: $grid-sorting-icon-right-position;
         }
     }

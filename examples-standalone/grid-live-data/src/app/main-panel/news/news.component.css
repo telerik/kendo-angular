@@ -1,11 +1,18 @@
 .news-feed {
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 28px;
-    color: #424242;
-    margin-right: 20px;
+    font-weight: var(--kendo-font-weight-normal);
+    font-size: var(--kendo-font-size-lg);
+    line-height: var(--kendo-line-height-lg);
+    color: var(--kendo-color-on-surface);
+    margin-right: var(--kendo-spacing-5);
 }
 
 .news-img {
-    border-radius: 10px;
+    border-radius: var(--kendo-border-radius-xl);
+}
+
+.news-feed-card__body {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--kendo-spacing-2);
 }

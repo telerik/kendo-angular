@@ -1,22 +1,36 @@
 .container {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 25rem));
     justify-content: center;
-    height: 440px;
-    gap: 100px;
+    gap: var(--kendo-spacing-12);
     width: 100%;
 }
 
 .wrapper {
     display: flex;
     flex-direction: column;
+    gap: var(--kendo-spacing-3);
+}
+
+.wrapper h2 {
+    margin: 0;
+    color: var(--kendo-color-primary-on-surface);
+    font-size: var(--kendo-font-size-lg);
+    font-weight: var(--kendo-font-weight-semibold);
 }
 
 .chat {
-    width: 400px;
+    width: 100%;
+    min-height: 27.5rem;
 }
 
 .prompt {
-    flex-grow: 1;
-    max-width: 400px;
-    width: 400px;
+    width: 100%;
+    min-height: 27.5rem;
+}
+
+@media (max-width: 991.98px) {
+    .container {
+        grid-template-columns: minmax(0, 25rem);
+    }
 }

@@ -4,7 +4,7 @@ export const events = [
     {
         MeetingID: 2,
         TeamID: 1,
-        Title: 'Meeting with customers.',
+        Title: 'Coffee buyer delivery review',
         Description: '',
         StartTimezone: undefined,
         Start: 1370865600000,
@@ -18,7 +18,7 @@ export const events = [
     {
         MeetingID: 3,
         TeamID: 2,
-        Title: 'Guided tour for the investors.',
+        Title: 'Roastery partner warehouse tour',
         Description: '',
         StartTimezone: undefined,
         Start: 1370865600000,
@@ -32,7 +32,7 @@ export const events = [
     {
         MeetingID: 4,
         TeamID: 1,
-        Title: 'Product planning',
+        Title: 'Production batch planning',
         Description: '',
         StartTimezone: undefined,
         Start: 1371006000000,
@@ -46,7 +46,7 @@ export const events = [
     {
         MeetingID: 5,
         TeamID: 3,
-        Title: 'Acquisition discussion',
+        Title: 'Supplier intake review',
         Description: '',
         StartTimezone: undefined,
         Start: 1371211200000,
@@ -60,8 +60,8 @@ export const events = [
     {
         MeetingID: 7,
         TeamID: 1,
-        Title: 'Job Interview - Mathew Stevens',
-        Description: 'Junior Researcher',
+        Title: 'Receiving shift briefing - Mathew Stevens',
+        Description: 'Inbound receiving lead',
         StartTimezone: undefined,
         Start: 1372413600000,
         End: 1372419000000,
@@ -74,8 +74,8 @@ export const events = [
     {
         MeetingID: 8,
         TeamID: 4,
-        Title: 'Job Interview - Mary Smith',
-        Description: 'Accountant',
+        Title: 'Delivery handoff - Mary Smith',
+        Description: 'Delivery coordinator',
         StartTimezone: undefined,
         Start: 1372082400000,
         End: 1372087800000,
@@ -88,8 +88,8 @@ export const events = [
     {
         MeetingID: 9,
         TeamID: 4,
-        Title: 'Job Interview - John Stewart',
-        Description: 'Accountant',
+        Title: 'Inventory count review - John Stewart',
+        Description: 'Delivery coordinator',
         StartTimezone: undefined,
         Start: 1372156200000,
         End: 1372161600000,
@@ -102,8 +102,8 @@ export const events = [
     {
         MeetingID: 10,
         TeamID: 1,
-        Title: 'Job Interview - Laura Bailey',
-        Description: 'Helpdesk',
+        Title: 'Roasting line handoff - Laura Bailey',
+        Description: 'Dispatch coordination',
         StartTimezone: undefined,
         Start: 1372176000000,
         End: 1372181400000,
@@ -116,8 +116,8 @@ export const events = [
     {
         MeetingID: 11,
         TeamID: 4,
-        Title: 'Job Interview - Jenny Baxter',
-        Description: 'Helpdesk',
+        Title: 'Dispatch shift briefing - Jenny Baxter',
+        Description: 'Dispatch coordination',
         StartTimezone: undefined,
         Start: 1372323600000,
         End: 1372329000000,
@@ -130,8 +130,8 @@ export const events = [
     {
         MeetingID: 12,
         TeamID: 2,
-        Title: ' Job Interview - Bernard Atkins',
-        Description: 'Helpdesk',
+        Title: 'Receiving dock briefing - Bernard Atkins',
+        Description: 'Dispatch coordination',
         StartTimezone: undefined,
         Start: 1372258800000,
         End: 1372264200000,
@@ -143,8 +143,8 @@ export const events = [
     },
     {
         MeetingID: 13,
-        TeamID: 5,
-        Title: 'Marketing Meeting',
+        TeamID: 4,
+        Title: 'Coffee shipment planning',
         Description: '',
         StartTimezone: undefined,
         Start: 1370422800000,
@@ -158,7 +158,7 @@ export const events = [
     {
         MeetingID: 14,
         TeamID: 1,
-        Title: 'Phone Sync with NY Office',
+        Title: 'Carrier dispatch sync - North hub',
         Description: '',
         StartTimezone: undefined,
         Start: 1372239000000,
@@ -171,8 +171,8 @@ export const events = [
     },
     {
         MeetingID: 15,
-        TeamID: 5,
-        Title: 'Phone Sync with Boston Office',
+        TeamID: 4,
+        Title: 'Carrier dispatch sync - East hub',
         Description: '',
         StartTimezone: undefined,
         Start: 1372257000000,
@@ -186,7 +186,7 @@ export const events = [
     {
         MeetingID: 16,
         TeamID: 2,
-        Title: 'Short HR Presentation',
+        Title: 'Warehouse safety training',
         Description: '',
         StartTimezone: undefined,
         Start: 1372251600000,
@@ -200,7 +200,7 @@ export const events = [
     {
         MeetingID: 17,
         TeamID: 3,
-        Title: 'Discuss new website designs',
+        Title: 'Packaging line review',
         Description: '',
         StartTimezone: undefined,
         Start: 1372165200000,
@@ -214,7 +214,7 @@ export const events = [
     {
         MeetingID: 18,
         TeamID: 2,
-        Title: 'Status Meeting',
+        Title: 'Inventory status review',
         Description: '',
         StartTimezone: undefined,
         Start: 1370365200000,
@@ -228,7 +228,7 @@ export const events = [
     {
         MeetingID: 19,
         TeamID: 4,
-        Title: 'Evaluations',
+        Title: 'Quality control checks',
         Description: '',
         StartTimezone: undefined,
         Start: 1371114000000,
@@ -241,9 +241,9 @@ export const events = [
     },
     {
         MeetingID: 20,
-        TeamID: 5,
-        Title: 'Job Interview - Bobby Rooney',
-        Description: 'Helpdesk',
+        TeamID: 4,
+        Title: 'Maintenance shift briefing - Bobby Rooney',
+        Description: 'Dispatch coordination',
         StartTimezone: undefined,
         Start: 1370253600000,
         End: 1370259000000,
@@ -256,7 +256,7 @@ export const events = [
     {
         MeetingID: 21,
         TeamID: 3,
-        Title: 'Weekly support meeting',
+        Title: 'Weekly warehouse huddle',
         Description: '',
         StartTimezone: undefined,
         Start: 1370530800000,
@@ -270,7 +270,7 @@ export const events = [
     {
         MeetingID: 22,
         TeamID: 3,
-        Title: 'Performance review',
+        Title: 'Roast line performance review',
         Description: '',
         StartTimezone: undefined,
         Start: 1372428000000,
@@ -284,7 +284,7 @@ export const events = [
     {
         MeetingID: 23,
         TeamID: 1,
-        Title: 'External call',
+        Title: 'Supplier coordination call',
         Description: '',
         StartTimezone: undefined,
         Start: 1371812400000,
@@ -298,8 +298,8 @@ export const events = [
     {
         MeetingID: 24,
         TeamID: 2,
-        Title: 'Job Interview - Larry Thompson',
-        Description: 'Researcher',
+        Title: 'Production shift briefing - Larry Thompson',
+        Description: 'Production shift lead',
         StartTimezone: undefined,
         Start: 1371463200000,
         End: 1371468600000,
@@ -312,7 +312,7 @@ export const events = [
     {
         MeetingID: 25,
         TeamID: 4,
-        Title: 'Marketing meetings',
+        Title: 'Coffee shipment planning',
         Description: '',
         StartTimezone: undefined,
         Start: 1370908800000,
@@ -326,7 +326,7 @@ export const events = [
     {
         MeetingID: 26,
         TeamID: 4,
-        Title: 'External Call',
+        Title: 'Carrier coordination call',
         Description: '',
         StartTimezone: undefined,
         Start: 1370957400000,
@@ -340,7 +340,7 @@ export const events = [
     {
         MeetingID: 27,
         TeamID: 2,
-        Title: 'Monthly sales meeting',
+        Title: 'Monthly order forecast',
         Description: '',
         StartTimezone: undefined,
         Start: 1371657600000,
@@ -354,7 +354,7 @@ export const events = [
     {
         MeetingID: 28,
         TeamID: 1,
-        Title: 'External phone call',
+        Title: 'Supplier phone check-in',
         Description: '',
         StartTimezone: undefined,
         Start: 1371461400000,
@@ -367,8 +367,8 @@ export const events = [
     },
     {
         MeetingID: 29,
-        TeamID: 5,
-        Title: 'Weekly tasks list update',
+        TeamID: 4,
+        Title: 'Weekly receiving checklist',
         Description: '',
         StartTimezone: undefined,
         Start: 1370275200000,
@@ -382,7 +382,7 @@ export const events = [
     {
         MeetingID: 30,
         TeamID: 2,
-        Title: 'HR seminar planning',
+        Title: 'Shift coverage planning',
         Description: '',
         StartTimezone: undefined,
         Start: 1370264400000,
@@ -396,7 +396,7 @@ export const events = [
     {
         MeetingID: 31,
         TeamID: 3,
-        Title: 'Sales phone call',
+        Title: 'Customer delivery call',
         Description: '',
         StartTimezone: undefined,
         Start: 1370354400000,
@@ -410,7 +410,7 @@ export const events = [
     {
         MeetingID: 32,
         TeamID: 3,
-        Title: 'Support phone call',
+        Title: 'Warehouse support call',
         Description: '',
         StartTimezone: undefined,
         Start: 1370340000000,
@@ -424,7 +424,7 @@ export const events = [
     {
         MeetingID: 33,
         TeamID: 1,
-        Title: 'Meeting with Admin team',
+        Title: 'Warehouse operations sync',
         Description: '',
         StartTimezone: undefined,
         Start: 1370440800000,
@@ -437,8 +437,8 @@ export const events = [
     },
     {
         MeetingID: 34,
-        TeamID: 5,
-        Title: 'Website review meeting',
+        TeamID: 4,
+        Title: 'Warehouse workflow review',
         Description: '',
         StartTimezone: undefined,
         Start: 1370442600000,
@@ -452,7 +452,7 @@ export const events = [
     {
         MeetingID: 35,
         TeamID: 2,
-        Title: 'Planning - software updates',
+        Title: 'Inventory system maintenance',
         Description: '',
         StartTimezone: undefined,
         Start: 1370451600000,
@@ -466,7 +466,7 @@ export const events = [
     {
         MeetingID: 36,
         TeamID: 1,
-        Title: 'General Medical Examinations',
+        Title: 'Equipment safety inspection',
         Description: '',
         StartTimezone: undefined,
         Start: 1370476800000,
@@ -480,7 +480,7 @@ export const events = [
     {
         MeetingID: 37,
         TeamID: 2,
-        Title: 'General Medical Examinations',
+        Title: 'Equipment safety inspection',
         Description: '',
         StartTimezone: undefined,
         Start: 1370476800000,
@@ -493,8 +493,8 @@ export const events = [
     },
     {
         MeetingID: 38,
-        TeamID: 5,
-        Title: 'Medical Examination - results',
+        TeamID: 4,
+        Title: 'Equipment inspection follow-up',
         Description: '',
         StartTimezone: undefined,
         Start: 1371686400000,
@@ -508,7 +508,7 @@ export const events = [
     {
         MeetingID: 39,
         TeamID: 4,
-        Title: 'Meeting with customers.',
+        Title: 'Coffee buyer delivery review',
         Description: '',
         StartTimezone: undefined,
         Start: 1591790400000,
@@ -522,7 +522,7 @@ export const events = [
     {
         MeetingID: 40,
         TeamID: 4,
-        Title: 'Guided tour for the investors.',
+        Title: 'Roastery partner warehouse tour',
         Description: '',
         StartTimezone: undefined,
         Start: 1591790400000,
@@ -536,7 +536,7 @@ export const events = [
     {
         MeetingID: 41,
         TeamID: 1,
-        Title: 'Product planning',
+        Title: 'Production batch planning',
         Description: '',
         StartTimezone: undefined,
         Start: 1591920000000,
@@ -550,7 +550,7 @@ export const events = [
     {
         MeetingID: 42,
         TeamID: 3,
-        Title: 'Acquisition discussion',
+        Title: 'Supplier intake review',
         Description: '',
         StartTimezone: undefined,
         Start: 1592136000000,
@@ -564,8 +564,8 @@ export const events = [
     {
         MeetingID: 43,
         TeamID: 4,
-        Title: 'Job Interview - Mathew Stevens',
-        Description: 'Junior Researcher',
+        Title: 'Receiving shift briefing - Mathew Stevens',
+        Description: 'Inbound receiving lead',
         StartTimezone: undefined,
         Start: 1593338400000,
         End: 1593343800000,
@@ -578,8 +578,8 @@ export const events = [
     {
         MeetingID: 44,
         TeamID: 1,
-        Title: 'Job Interview - Mary Smith',
-        Description: 'Accountant',
+        Title: 'Delivery handoff - Mary Smith',
+        Description: 'Delivery coordinator',
         StartTimezone: undefined,
         Start: 1593007200000,
         End: 1593012600000,
@@ -592,8 +592,8 @@ export const events = [
     {
         MeetingID: 45,
         TeamID: 3,
-        Title: 'Job Interview - John Stewart',
-        Description: 'Accountant',
+        Title: 'Inventory count review - John Stewart',
+        Description: 'Delivery coordinator',
         StartTimezone: undefined,
         Start: 1593079200000,
         End: 1593086400000,
@@ -606,8 +606,8 @@ export const events = [
     {
         MeetingID: 46,
         TeamID: 1,
-        Title: 'Job Interview - Laura Bailey',
-        Description: 'Helpdesk',
+        Title: 'Roasting line handoff - Laura Bailey',
+        Description: 'Dispatch coordination',
         StartTimezone: undefined,
         Start: 1593100800000,
         End: 1593106200000,
@@ -620,8 +620,8 @@ export const events = [
     {
         MeetingID: 47,
         TeamID: 4,
-        Title: 'Job Interview - Jenny Baxter',
-        Description: 'Helpdesk',
+        Title: 'Dispatch shift briefing - Jenny Baxter',
+        Description: 'Dispatch coordination',
         StartTimezone: undefined,
         Start: 1593248400000,
         End: 1593253800000,
@@ -634,8 +634,8 @@ export const events = [
     {
         MeetingID: 48,
         TeamID: 2,
-        Title: 'Job Interview - Bernard Atkins',
-        Description: 'Helpdesk',
+        Title: 'Receiving dock briefing - Bernard Atkins',
+        Description: 'Dispatch coordination',
         StartTimezone: undefined,
         Start: 1593183600000,
         End: 1593189000000,
@@ -647,8 +647,8 @@ export const events = [
     },
     {
         MeetingID: 49,
-        TeamID: 5,
-        Title: 'Marketing Meeting',
+        TeamID: 4,
+        Title: 'Coffee shipment planning',
         Description: '',
         StartTimezone: undefined,
         Start: 1591347600000,
@@ -662,7 +662,7 @@ export const events = [
     {
         MeetingID: 50,
         TeamID: 1,
-        Title: 'Phone Sync with NY Office',
+        Title: 'Carrier dispatch sync - North hub',
         Description: '',
         StartTimezone: undefined,
         Start: 1593163800000,
@@ -675,8 +675,8 @@ export const events = [
     },
     {
         MeetingID: 51,
-        TeamID: 5,
-        Title: 'Phone Sync with Boston Office',
+        TeamID: 4,
+        Title: 'Carrier dispatch sync - East hub',
         Description: '',
         StartTimezone: undefined,
         Start: 1593180000000,
@@ -689,8 +689,8 @@ export const events = [
     },
     {
         MeetingID: 52,
-        TeamID: 5,
-        Title: 'Short HR Presentation',
+        TeamID: 4,
+        Title: 'Warehouse safety training',
         Description: '',
         StartTimezone: undefined,
         Start: 1593176400000,
@@ -704,7 +704,7 @@ export const events = [
     {
         MeetingID: 53,
         TeamID: 1,
-        Title: 'Discuss new website designs',
+        Title: 'Packaging line review',
         Description: '',
         StartTimezone: undefined,
         Start: 1593090000000,
@@ -718,7 +718,7 @@ export const events = [
     {
         MeetingID: 54,
         TeamID: 3,
-        Title: 'Status Meeting',
+        Title: 'Inventory status review',
         Description: '',
         StartTimezone: undefined,
         Start: 1591290000000,
@@ -732,7 +732,7 @@ export const events = [
     {
         MeetingID: 55,
         TeamID: 4,
-        Title: 'Evaluations',
+        Title: 'Quality control checks',
         Description: '',
         StartTimezone: undefined,
         Start: 1592038800000,
@@ -746,8 +746,8 @@ export const events = [
     {
         MeetingID: 56,
         TeamID: 1,
-        Title: 'Job Interview - Bobby Rooney',
-        Description: 'Helpdesk',
+        Title: 'Maintenance shift briefing - Bobby Rooney',
+        Description: 'Dispatch coordination',
         StartTimezone: undefined,
         Start: 1591178400000,
         End: 1591183800000,
@@ -760,7 +760,7 @@ export const events = [
     {
         MeetingID: 57,
         TeamID: 2,
-        Title: 'Performance review',
+        Title: 'Roast line performance review',
         Description: '',
         StartTimezone: undefined,
         Start: 1593352800000,
@@ -774,7 +774,7 @@ export const events = [
     {
         MeetingID: 58,
         TeamID: 3,
-        Title: 'External call',
+        Title: 'Supplier coordination call',
         Description: '',
         StartTimezone: undefined,
         Start: 1592737200000,
@@ -788,8 +788,8 @@ export const events = [
     {
         MeetingID: 59,
         TeamID: 2,
-        Title: 'Job Interview - Larry Thompson',
-        Description: 'Researcher',
+        Title: 'Production shift briefing - Larry Thompson',
+        Description: 'Production shift lead',
         StartTimezone: undefined,
         Start: 1592388000000,
         End: 1592393400000,
@@ -801,8 +801,8 @@ export const events = [
     },
     {
         MeetingID: 60,
-        TeamID: 5,
-        Title: 'Marketing meetings',
+        TeamID: 4,
+        Title: 'Coffee shipment planning',
         Description: '',
         StartTimezone: undefined,
         Start: 1591833600000,
@@ -816,7 +816,7 @@ export const events = [
     {
         MeetingID: 61,
         TeamID: 3,
-        Title: 'External Call',
+        Title: 'Carrier coordination call',
         Description: '',
         StartTimezone: undefined,
         Start: 1591882200000,
@@ -830,7 +830,7 @@ export const events = [
     {
         MeetingID: 62,
         TeamID: 3,
-        Title: 'External phone call',
+        Title: 'Supplier phone check-in',
         Description: '',
         StartTimezone: undefined,
         Start: 1592386200000,
@@ -844,7 +844,7 @@ export const events = [
     {
         MeetingID: 63,
         TeamID: 1,
-        Title: 'HR seminar planning',
+        Title: 'Shift coverage planning',
         Description: '',
         StartTimezone: undefined,
         Start: 1591189200000,
@@ -858,7 +858,7 @@ export const events = [
     {
         MeetingID: 64,
         TeamID: 2,
-        Title: 'Sales phone call',
+        Title: 'Customer delivery call',
         Description: '',
         StartTimezone: undefined,
         Start: 1591279200000,
@@ -871,8 +871,8 @@ export const events = [
     },
     {
         MeetingID: 65,
-        TeamID: 5,
-        Title: 'Support phone call',
+        TeamID: 4,
+        Title: 'Warehouse support call',
         Description: '',
         StartTimezone: undefined,
         Start: 1591264800000,
@@ -885,8 +885,8 @@ export const events = [
     },
     {
         MeetingID: 66,
-        TeamID: 5,
-        Title: 'Meeting with Admin team',
+        TeamID: 4,
+        Title: 'Warehouse operations sync',
         Description: '',
         StartTimezone: undefined,
         Start: 1591365600000,
@@ -900,7 +900,7 @@ export const events = [
     {
         MeetingID: 67,
         TeamID: 3,
-        Title: 'Website review meeting',
+        Title: 'Warehouse workflow review',
         Description: '',
         StartTimezone: undefined,
         Start: 1591367400000,
@@ -914,7 +914,7 @@ export const events = [
     {
         MeetingID: 68,
         TeamID: 2,
-        Title: 'Planning - software updates',
+        Title: 'Inventory system maintenance',
         Description: '',
         StartTimezone: undefined,
         Start: 1591376400000,
@@ -928,7 +928,7 @@ export const events = [
     {
         MeetingID: 69,
         TeamID: 3,
-        Title: 'General Medical Examinations',
+        Title: 'Equipment safety inspection',
         Description: '',
         StartTimezone: undefined,
         Start: 1591401600000,
@@ -941,8 +941,8 @@ export const events = [
     },
     {
         MeetingID: 70,
-        TeamID: 5,
-        Title: 'General Medical Examinations',
+        TeamID: 4,
+        Title: 'Equipment safety inspection',
         Description: '',
         StartTimezone: undefined,
         Start: 1591401600000,
@@ -956,7 +956,7 @@ export const events = [
     {
         MeetingID: 71,
         TeamID: 4,
-        Title: 'Medical Examination - results',
+        Title: 'Equipment inspection follow-up',
         Description: '',
         StartTimezone: undefined,
         Start: 1592611200000,

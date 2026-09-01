@@ -1,33 +1,78 @@
+.market-grid-card {
+    min-width: 0;
+}
+
+.market-grid-card kendo-grid {
+    display: block;
+}
+
+.grid-heading {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: var(--kendo-spacing-4);
+    margin-block: var(--kendo-spacing-6) var(--kendo-spacing-3);
+}
+
 .grid-section-title {
-    font-weight: 500;
-    font-size: 24px;
-    color: #626880;
+    font-weight: var(--kendo-font-weight-medium);
+    font-size: var(--kendo-font-size-xl);
+    color: var(--kendo-color-subtle);
+    margin: 0;
 }
 
-.price-down .priceColumn,
-.arrow-down {
-    color: #f31700;
+.grid-section-description {
+    color: var(--kendo-color-subtle);
+    font-size: var(--kendo-font-size-sm);
+    margin: var(--kendo-spacing-1) 0 0;
 }
 
-.price-up .priceColumn,
-.arrow-up {
-    color: #37b400;
+.market-status {
+    color: var(--kendo-color-success-on-surface);
+    font-size: var(--kendo-font-size-sm);
+    font-weight: var(--kendo-font-weight-medium);
+    white-space: nowrap;
+}
+
+.grid-feedback {
+    padding: var(--kendo-spacing-6) 0;
+    color: var(--kendo-color-subtle);
+}
+
+.grid-feedback--error {
+    color: var(--kendo-color-error-on-surface);
+}
+
+.price-down {
+    color: var(--kendo-color-error);
+}
+
+.price-up {
+    color: var(--kendo-color-success);
 }
 
 .coin-logo {
-    height: 22px;
-    width: 22px;
+    height: calc(var(--kendo-icon-size) * 1.375);
+    width: calc(var(--kendo-icon-size) * 1.375);
 }
 .currency {
-    margin: 3px 5px 0px 5px;
-    color: #4b5ffa;
-    font-weight: bold;
+    margin: var(--kendo-spacing-1) var(--kendo-spacing-1\.5) var(--kendo-spacing-0) var(--kendo-spacing-1\.5);
+    color: var(--kendo-color-secondary);
+    font-weight: var(--kendo-font-weight-bold);
 }
 
 .currency-container {
     display: flex;
     align-items: center;
+    gap: var(--kendo-spacing-1);
 }
 .crypto-symbol {
-    color: #959595;
+    color: var(--kendo-color-subtle);
+}
+
+@media (max-width: 575px) {
+    .grid-heading {
+        align-items: start;
+        flex-direction: column;
+    }
 }

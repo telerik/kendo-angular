@@ -1,43 +1,55 @@
-@use '../../../styles/variables' as *;
-
-.k-grid {
-    tbody td {
-        white-space: nowrap;
-        line-height: 20px;
-        padding: 0.4rem 0.4rem;
-    }
-    .grid-price-cell {
-        padding: 4px 12px;
-    }
-
-    .price-up {
-        color: $positive-value;
-    }
-
-    .price-down {
-        color: $negative-value;
-    }
+.virtual-data {
+    display: grid;
+    gap: var(--kendo-spacing-4);
+    padding: var(--kendo-spacing-5);
 }
 
-.price-down,
-.price-up {
-    animation-duration: 700ms;
-    animation-name: blink;
-    animation-iteration-count: 1;
-    animation-direction: alternate;
-    animation-timing-function: ease-in-out;
-}
-@keyframes blink {
-    from {
-        opacity: 1;
-    }
-    to {
-        opacity: 0.4;
-    }
+.virtual-data__header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: var(--kendo-spacing-4);
 }
 
-.back-icon {
-    font-size: 2em;
-    cursor: pointer;
-    outline: none;
+.virtual-data__header h2,
+.virtual-data__header p {
+    margin: 0;
+}
+
+.virtual-data__header h2 {
+    font-size: var(--kendo-font-size-lg);
+    font-weight: var(--kendo-font-weight-semibold);
+}
+
+.virtual-data__header p,
+.virtual-data__status {
+    color: var(--kendo-color-subtle);
+    font-size: var(--kendo-font-size-sm);
+}
+
+.virtual-data__header p {
+    margin-top: var(--kendo-spacing-1);
+}
+
+.virtual-data__status {
+    white-space: nowrap;
+}
+
+.virtual-data__change {
+    font-weight: var(--kendo-font-weight-medium);
+}
+
+.virtual-data__change--up {
+    color: var(--kendo-color-success-on-surface);
+}
+
+.virtual-data__change--down {
+    color: var(--kendo-color-error-on-surface);
+}
+
+@media (max-width: 700px) {
+    .virtual-data__header {
+        align-items: flex-start;
+        flex-direction: column;
+    }
 }

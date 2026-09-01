@@ -7,6 +7,14 @@
   border: none;
 }
 
+.search-prefix-icon {
+  margin-left: var(--kendo-spacing-2\.5);
+}
+
+.profile-file-input {
+  display: none;
+}
+
 .search-expanded-combobox.k-input.k-focus {
   box-shadow: none;
 }
@@ -21,12 +29,11 @@
   padding: 16px;
   gap: 10px;
   height: 76px;
-  background: #ffffff !important;
-  box-shadow:
-    0px 1px 4px rgba(0, 0, 0, 0.05),
-    0px 4px 12px -2px rgba(0, 0, 0, 0.08);
-  border-radius: 85px;
-  margin: 0 120px;
+  background: var(--kendo-color-surface-alt) !important;
+  box-shadow: var(--kendo-elevation-2);
+  border-radius: var(--kendo-border-radius-full);
+  width: min(calc(100% - (2 * var(--kendo-spacing-8))), 1440px);
+  margin: 0 auto;
   flex-wrap: nowrap;
 }
 
@@ -36,7 +43,7 @@
   top: 0;
   z-index: 1000;
   padding-top: 40px;
-  background-color: #fafafa;
+  background-color: var(--kendo-color-app-surface);
   background-image: url('../assets/bg.svg');
   background-repeat: no-repeat;
   background-position: center top;
@@ -46,7 +53,9 @@
 
 /* Page title bar inside the sticky wrapper */
 .sticky-page-header {
-  padding: 16px 120px 0;
+  width: min(calc(100% - (2 * var(--kendo-spacing-8))), 1440px);
+  margin-inline: auto;
+  padding: 16px 0 0;
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
@@ -75,7 +84,7 @@
   font-weight: 600;
   font-size: 42px;
   line-height: 120%;
-  color: var(--kendo-color-on-app-surface, #232a36);
+  color: var(--kendo-color-on-app-surface);
   white-space: nowrap;
 }
 
@@ -83,67 +92,44 @@
   margin: 0;
   font-size: 16px;
   line-height: 150%;
-  color: var(--kendo-color-on-app-surface, #232a36);
+  color: var(--kendo-color-on-app-surface);
 }
 
 /* Main Content Area */
 .app-content {
-  padding: 0 120px;
+  width: min(calc(100% - (2 * var(--kendo-spacing-8))), 1440px);
+  margin-inline: auto;
 }
 
-@media (min-width: 1920px) {
-  .k-appbar {
-    margin: 0 6.25%;
-  }
-
-  .app-content {
-    padding: 0 6.25%;
-  }
-
-  .sticky-page-header {
-    padding: 16px 6.25% 0;
-  }
-}
-
-@media (max-width: 1919px) {
-  .k-appbar {
-    margin: 0 max(40px, calc((100vw - 1680px) / 2));
-  }
-
-  .app-content {
-    padding: 0 max(40px, calc((100vw - 1680px) / 2));
-  }
-
-  .sticky-page-header {
-    padding: 16px max(40px, calc((100vw - 1680px) / 2)) 0;
-  }
-}
-
+/* Standard layout boundaries: 1440 / 1024 / 768 / 390px */
 @media (max-width: 1440px) {
   .k-appbar {
-    margin: 0 32px;
+    width: calc(100% - (2 * var(--kendo-spacing-8)));
   }
 
   .app-content {
-    padding: 0 32px;
+    width: calc(100% - (2 * var(--kendo-spacing-8)));
   }
 
   .sticky-page-header {
-    padding: 16px 32px 0;
+    width: calc(100% - (2 * var(--kendo-spacing-8)));
+    padding: var(--kendo-spacing-4) 0 0;
   }
 }
 
-@media (max-width: 899px) {
+@media (max-width: 1024px) {
   .k-appbar {
-    margin: 0 24px;
+    width: calc(100% - (2 * var(--kendo-spacing-6)));
+    height: 68px;
   }
 
   .app-content {
-    padding: 0 24px;
+    width: calc(100% - (2 * var(--kendo-spacing-6)));
   }
 
   .sticky-page-header {
-    padding: 16px 24px 0;
+    width: calc(100% - (2 * var(--kendo-spacing-6)));
+    padding: var(--kendo-spacing-4) 0 0;
   }
 
   .sticky-page-title {
@@ -151,23 +137,39 @@
   }
 }
 
-@media (min-width: 576px) and (max-width: 899px) {
+@media (max-width: 768px) {
   .k-appbar {
-    height: 68px !important;
-  }
-}
-
-@media (max-width: 575px) {
-  .k-appbar {
-    margin: 0 12px;
+    width: calc(100% - (2 * var(--kendo-spacing-4)));
+    height: 64px;
   }
 
   .app-content {
-    padding: 0 12px;
+    width: calc(100% - (2 * var(--kendo-spacing-4)));
   }
 
   .sticky-page-header {
-    padding: 16px 12px 0;
+    width: calc(100% - (2 * var(--kendo-spacing-4)));
+    padding: var(--kendo-spacing-4) 0 0;
+  }
+
+  .sticky-page-title {
+    font-size: 32px;
+  }
+}
+
+@media (max-width: 390px) {
+  .k-appbar {
+    width: calc(100% - (2 * var(--kendo-spacing-3)));
+    height: 58px;
+  }
+
+  .app-content {
+    width: calc(100% - (2 * var(--kendo-spacing-3)));
+  }
+
+  .sticky-page-header {
+    width: calc(100% - (2 * var(--kendo-spacing-3)));
+    padding: var(--kendo-spacing-4) 0 0;
   }
 
   .sticky-page-title {
@@ -176,12 +178,6 @@
 
   .sticky-page-subtitle {
     font-size: 14px;
-  }
-}
-
-@media (min-width: 360px) and (max-width: 575px) {
-  .k-appbar {
-    height: 58px !important;
   }
 }
 
@@ -300,14 +296,9 @@
 
 /* Opacity Mode - transparent styling */
 .opacity-mode-appbar.k-appbar {
-  background: linear-gradient(
-    179.48deg,
-    rgba(255, 255, 255, 0.2) 0.02%,
-    rgba(255, 255, 255, 0.5) 99.11%
-  ) !important;
-  box-shadow:
-    0px 1px 3px rgba(0, 0, 0, 0.04),
-    0px 2px 6px -1px rgba(0, 0, 0, 0.06);
+  background: color-mix(in srgb, var(--kendo-color-surface-alt) 72%, transparent) !important;
+  box-shadow: var(--kendo-elevation-2);
+  backdrop-filter: blur(calc(var(--kendo-translucency-blur-base) + var(--kendo-translucency-blur-step)));
 }
 
 .opacity-mode .quick-actions-section,
@@ -320,14 +311,9 @@
 .opacity-mode .profile-card,
 .opacity-mode .patient-note-card,
 .opacity-mode .lab-results-card {
-  background: linear-gradient(
-    179.48deg,
-    rgba(255, 255, 255, 0.2) 0.02%,
-    rgba(255, 255, 255, 0.5) 99.11%
-  );
-  box-shadow:
-    0px 1px 3px rgba(0, 0, 0, 0.04),
-    0px 2px 6px -1px rgba(0, 0, 0, 0.06);
+  background: color-mix(in srgb, var(--kendo-color-surface-alt) 72%, transparent);
+  box-shadow: var(--kendo-elevation-1);
+  backdrop-filter: blur(var(--kendo-translucency-blur-base));
 }
 
 /* Profile Dialog Styles */
@@ -482,4 +468,41 @@
   min-width: 68px;
   font-size: 10px;
   color: #4a5666;
+}
+
+.assistant-fab {
+  position: fixed;
+  right: var(--kendo-spacing-6);
+  bottom: var(--kendo-spacing-6);
+  width: 56px;
+  height: 56px;
+  z-index: 1001;
+  box-shadow: var(--kendo-elevation-3);
+}
+
+.assistant-dialog .k-dialog-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--kendo-spacing-3);
+  padding: var(--kendo-spacing-4);
+}
+
+.assistant-dialog kendo-chat {
+  min-height: 420px;
+}
+
+.assistant-disclaimer {
+  margin: 0;
+  padding: var(--kendo-spacing-2);
+  color: var(--kendo-color-warning-on-subtle);
+  background: var(--kendo-color-warning-subtle);
+  border-radius: var(--kendo-border-radius-md);
+  font-size: var(--kendo-font-size-sm);
+}
+
+@media (max-width: 390px) {
+  .assistant-fab {
+    right: var(--kendo-spacing-4);
+    bottom: var(--kendo-spacing-4);
+  }
 }

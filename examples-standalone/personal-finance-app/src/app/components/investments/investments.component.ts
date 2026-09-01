@@ -1,3 +1,4 @@
+import { KENDO_LAYOUT } from '@progress/kendo-angular-layout';
 import { Component, HostListener } from '@angular/core';
 import { KENDO_CHARTS, SeriesLabelsContentArgs } from '@progress/kendo-angular-charts';
 import { MessageService } from '@progress/kendo-angular-l10n';
@@ -11,7 +12,7 @@ import { StockChartComponent } from './stock-chart/stock-chart.component';
 
 @Component({
     selector: 'app-investments',
-    imports: [KENDO_CHARTS, StockChartComponent, CurrencyMoverComponent],
+    imports: [KENDO_LAYOUT, KENDO_CHARTS, StockChartComponent, CurrencyMoverComponent],
     templateUrl: './investments.component.html',
 })
 export class InvestmentsComponent {

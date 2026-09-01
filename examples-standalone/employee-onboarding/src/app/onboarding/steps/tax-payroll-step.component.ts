@@ -8,7 +8,8 @@ import { KENDO_LABELS } from '@progress/kendo-angular-label';
   selector: 'app-tax-payroll-step',
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [ReactiveFormsModule, KENDO_INPUTS, KENDO_LABELS, KENDO_DROPDOWNLIST],
-  templateUrl: './tax-payroll-step.component.html'
+  templateUrl: './tax-payroll-step.component.html',
+  styleUrl: './tax-payroll-step.component.css'
 })
 export class TaxPayrollStepComponent {
   readonly group = input.required<FormGroup>();

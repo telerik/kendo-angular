@@ -1,12 +1,11 @@
+import { KENDO_LAYOUT } from '@progress/kendo-angular-layout';
 import { Component } from '@angular/core';
 import { KENDO_INPUTS } from '@progress/kendo-angular-inputs';
 import { KENDO_LABELS } from '@progress/kendo-angular-label';
-import { KENDO_ICONS, SVGIcon } from '@progress/kendo-angular-icons';
 import { User } from '../../models/user';
 import { cardDetails, user } from '../../data/user-details';
 import { CardDetails } from '../../models/card-details';
 import { KENDO_DATEINPUTS } from '@progress/kendo-angular-dateinputs';
-import { cloudIcon } from '@progress/kendo-svg-icons';
 import { KENDO_DROPDOWNS } from '@progress/kendo-angular-dropdowns';
 import { KENDO_BUTTONS } from '@progress/kendo-angular-buttons';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
@@ -15,12 +14,11 @@ import { CustomMessagesService } from '../../services/custom-messages.service';
 
 @Component({
     selector: 'app-settings',
-    imports: [
+    imports: [KENDO_LAYOUT,
         ReactiveFormsModule,
         KENDO_INPUTS,
         KENDO_LABELS,
         KENDO_DATEINPUTS,
-        KENDO_ICONS,
         KENDO_DROPDOWNS,
         KENDO_BUTTONS,
     ],
@@ -32,7 +30,6 @@ export class SettingsComponent {
     public cardDetails: CardDetails = cardDetails;
     public userForm!: FormGroup;
     public cardForm!: FormGroup;
-    public cloudIcon: SVGIcon = cloudIcon;
     public countries: string[] = [];
     private initialUserFormValues: Partial<User>;
     private initialCardFormValues: Partial<CardDetails>;

@@ -1,4 +1,4 @@
-import { Component, ViewEncapsulation, OnDestroy } from '@angular/core';
+import { Component, ViewEncapsulation, OnDestroy, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { take, filter } from 'rxjs/operators';
 
@@ -14,8 +14,6 @@ import { Subscription } from 'rxjs';
 import { Stock } from '../../models';
 import { StockDataService } from '../../services/stock-data.service';
 import { SVGIcon, plusIcon, trashIcon } from '@progress/kendo-svg-icons';
-import { BadgeComponent } from '../badge/badge.component';
-import { NavigationComponent } from '../navigation/navigation.component';
 import { NumberFormatPipe } from '../../pipes/number-format.pipe';
 
 @Component({
@@ -23,9 +21,11 @@ import { NumberFormatPipe } from '../../pipes/number-format.pipe';
     templateUrl: './stock-list.component.html',
     styleUrls: ['./stock-list.component.scss'],
     encapsulation: ViewEncapsulation.None,
-    imports: [CommonModule, KENDO_GRID, KENDO_DIALOGS, KENDO_DROPDOWNS, KENDO_BUTTONS, KENDO_CHARTS, KENDO_ICONS, BadgeComponent, NavigationComponent, NumberFormatPipe]
+    imports: [CommonModule, KENDO_GRID, KENDO_DIALOGS, KENDO_DROPDOWNS, KENDO_BUTTONS, KENDO_CHARTS, KENDO_ICONS, NumberFormatPipe]
 })
 export class StockListComponent implements OnDestroy {
+    @Input() public showGrid = true;
+
     public trashIcon: SVGIcon = trashIcon;
     public plusIcon: SVGIcon = plusIcon;
     public selectedRows: Array<string> = [];

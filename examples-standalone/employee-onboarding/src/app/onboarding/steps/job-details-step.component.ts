@@ -14,7 +14,8 @@ import {
   selector: 'app-job-details-step',
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [ReactiveFormsModule, KENDO_INPUTS, KENDO_LABELS, KENDO_DATEPICKER, KENDO_DROPDOWNLIST],
-  templateUrl: './job-details-step.component.html'
+  templateUrl: './job-details-step.component.html',
+  styleUrl: './job-details-step.component.css'
 })
 export class JobDetailsStepComponent {
   readonly group = input.required<FormGroup>();

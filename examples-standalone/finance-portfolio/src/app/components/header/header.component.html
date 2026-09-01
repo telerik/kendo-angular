@@ -1,16 +1,17 @@
-@if (router.url !== '/profile') {
-  <nav class="navbar navbar-expand-lg py-3 header">
-    <div class="container d-flex justify-content-between">
-      <div>
-        <h1 class="mb-0 header-title">My Stocks Portfolio</h1>
-        <kendo-dropdownlist [data]="listItems" [style.width.px]="200" [(value)]="selected" (valueChange)="onCurrencyChange($event)">
-          <ng-template kendoDropDownListValueTemplate let-dataItem> Currency in {{ dataItem }} </ng-template>
-        </kendo-dropdownlist>
-      </div>
-      <div class="profile-wrapper d-flex flex-column align-self-center" routerLink="/profile">
-        <div class="profile-image"></div>
-        <div class="text-white-50">Collin Johnson</div>
-      </div>
+<header class="header">
+  <div class="container header-content">
+    <div class="header-copy">
+      <h1 class="mb-0 header-title">My Stocks Portfolio</h1>
     </div>
-  </nav>
-}
+    <div class="header-controls">
+      <kendo-dropdownlist
+        [data]="listItems"
+        [style.width.px]="160"
+        [(value)]="selected"
+        (valueChange)="onCurrencyChange($event)"
+        aria-label="Currency"
+      ></kendo-dropdownlist>
+      <div class="profile-image" role="img" aria-label="User avatar"></div>
+    </div>
+  </div>
+</header>

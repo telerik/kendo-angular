@@ -1,0 +1,32 @@
+:host {
+  display: block;
+}
+
+.not-found {
+  margin: var(--kendo-spacing-16) auto;
+  max-width: 32rem;
+  text-align: center;
+}
+
+.status-code {
+  color: var(--kendo-color-secondary-on-surface);
+  font-size: 3rem;
+  font-weight: var(--kendo-font-weight-semibold);
+  margin-bottom: var(--kendo-spacing-2);
+}
+
+.not-found > p:not(.status-code) {
+  color: var(--kendo-color-subtle);
+  margin-bottom: var(--kendo-spacing-6);
+}
+
+.not-found a {
+  background: var(--kendo-color-primary);
+  border-radius: var(--kendo-border-radius-md);
+  color: var(--kendo-color-on-primary);
+  display: inline-flex;
+  min-height: 2.75rem;
+  align-items: center;
+  padding: 0 var(--kendo-spacing-4);
+  text-decoration: none;
+}

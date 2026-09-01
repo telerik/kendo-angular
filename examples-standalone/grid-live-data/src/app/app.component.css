@@ -1,8 +1,22 @@
 .body {
-    display: flex;
-    font-family: Roboto, sans-serif;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(20rem, 28rem);
+    max-width: calc(var(--kendo-spacing-24) * 25);
+    margin: 0 auto;
+    font-family: var(--kendo-font-family);
 }
 
 .portfolio {
-    margin: 0px 25px;
+    min-width: 0;
+}
+
+grid {
+    display: block;
+    margin-block-start: var(--kendo-spacing-4);
+}
+
+@media (max-width: 991px) {
+    .body {
+        grid-template-columns: minmax(0, 1fr);
+    }
 }

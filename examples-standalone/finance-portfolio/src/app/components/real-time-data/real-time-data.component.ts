@@ -1,94 +1,96 @@
-import { Component, OnInit, ViewEncapsulation, OnDestroy } from '@angular/core';
-import { CommonModule, CurrencyPipe } from '@angular/common';
-import { KENDO_GRID, GridDataResult, PageChangeEvent } from '@progress/kendo-angular-grid';
+import { CommonModule } from '@angular/common';
+import { Component, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
+import { GridDataResult, KENDO_GRID, PageChangeEvent } from '@progress/kendo-angular-grid';
+
 import { StockDataService } from '../../services/stock-data.service';
-import { NavigationComponent } from '../navigation/navigation.component';
+
+interface VirtualStock {
+    id: number;
+    symbol: string;
+    name: string;
+    price: number;
+    change: number;
+    stockExchange: string;
+    timeZone: string;
+    yearHigh: string;
+    yearLow: string;
+    volume: string;
+    marketCap: string;
+}
 
 @Component({
     selector: 'app-real-time-data',
     templateUrl: './real-time-data.component.html',
     styleUrls: ['./real-time-data.component.scss'],
     encapsulation: ViewEncapsulation.None,
-    imports: [CommonModule, KENDO_GRID, CurrencyPipe, NavigationComponent]
+    imports: [CommonModule, KENDO_GRID]
 })
 export class RealTimeDataComponent implements OnInit, OnDestroy {
     public gridView: GridDataResult = { data: [], total: 0 };
-    public data: any[];
-    public pageSize = 48;
+    public readonly pageSize = 48;
     public skip = 0;
-    private interval: any;
 
-    constructor(public service: StockDataService) {
+    private data: VirtualStock[];
+    private updateTimer?: ReturnType<typeof setInterval>;
+
+    constructor(public readonly stockDataService: StockDataService) {
         this.data = this.createRandomData(10000);
-        this.loadProducts();
+        this.loadPage();
     }
 
-    public ngOnInit() {
-        this.interval = setInterval(() => {
-            this.data = this.data.map((item) => {
-                const change = this.getChange();
-                item.change = change;
-                item.price = item.price + change;
-                return item;
+    public ngOnInit(): void {
+        this.updateTimer = setInterval(() => {
+            this.data.forEach((item) => {
+                item.change = this.getChange();
+                item.price += item.change;
             });
+            this.loadPage();
         }, 1500);
     }
 
-    public ngOnDestroy() {
-        clearInterval(this.interval);
+    public ngOnDestroy(): void {
+        if (this.updateTimer) {
+            clearInterval(this.updateTimer);
+        }
     }
 
     public pageChange(event: PageChangeEvent): void {
         this.skip = event.skip;
-        this.loadProducts();
+        this.loadPage();
     }
 
-    private loadProducts(): void {
+    private loadPage(): void {
         this.gridView = {
             data: this.data.slice(this.skip, this.skip + this.pageSize),
             total: this.data.length
         };
     }
 
-    /* Generating example data */
-    private createRandomData(count: number): any[] {
+    private createRandomData(count: number): VirtualStock[] {
         const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-        let lastSymbol = '';
 
-        const createSymbol = () => {
-            lastSymbol = '    '
-                .split('')
-                .map((char) => letters[Math.floor(Math.random() * 26)])
-                .join('');
-            return lastSymbol;
-        };
+        return Array.from({ length: count }, (_, index) => {
+            const symbol = Array.from({ length: 4 }, () => letters[Math.floor(Math.random() * letters.length)]).join('');
+            const price = Math.random() * 100 + 10;
 
-        return Array(count)
-            .fill({})
-            .map((_, idx) => {
-                const price = Math.random() * 100 + 10;
-
-                return {
-                    id: idx + 1,
-                    symbol: createSymbol(),
-                    name: lastSymbol + ' Inc.',
-                    currency: this.service.selectedCurrency,
-                    price,
-                    change: this.getChange(),
-                    stock_exchange_long: 'New York Stock Exchange',
-                    stock_exchange_short: 'NYSE',
-                    timezone: 'EDT',
-                    timezone_name: 'America/New_York',
-                    year_high: (price + price / 3).toFixed(2),
-                    year_low: (price - price / 3).toFixed(2),
-                    volume: (21774241 * Math.random() * 50).toFixed(0),
-                    market_cap: (229956956 * Math.random() * 50).toFixed(0)
-                };
-            });
+            return {
+                id: index + 1,
+                symbol,
+                name: `${symbol} Inc.`,
+                price,
+                change: this.getChange(),
+                stockExchange: 'New York Stock Exchange',
+                timeZone: 'America/New_York',
+                yearHigh: (price + price / 3).toFixed(2),
+                yearLow: (price - price / 3).toFixed(2),
+                volume: (21774241 * Math.random() * 50).toFixed(0),
+                marketCap: (229956956 * Math.random() * 50).toFixed(0)
+            };
+        });
     }
 
-    private getChange = () => {
-        const rnd = Math.random();
-        return rnd > 0.5 ? (rnd > 0.75 ? -Math.random() * 2 : Math.random() * 2) : 0;
-    };
+    private getChange(): number {
+        const random = Math.random();
+        return random > 0.5 ? (random > 0.75 ? -Math.random() * 2 : Math.random() * 2) : 0;
+    }
 }

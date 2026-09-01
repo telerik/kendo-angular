@@ -1,9 +1,13 @@
+.splitter {
+    height: 340px;
+}
+
 .pane-content {
-    padding: 0 10px;
+    padding: 0 var(--kendo-spacing-2\.5);
 }
 h3 {
-    font-size: 1.2em;
-    margin: 10px 0;
+    font-size: var(--kendo-font-size-lg);
+    margin: var(--kendo-spacing-2\.5) 0;
     padding: 0;
 }
 p {

@@ -107,7 +107,8 @@ npm install
 npm start
 ```
 
-Open `http://localhost:4200/`. The default route loads the onboarding wizard.
+Open `http://localhost:4200/`. The default route loads the onboarding wizard. Use
+`/support` for onboarding FAQs and `/not-found` to preview the error page.
 
 ## Demo helpers
 
@@ -159,11 +160,13 @@ Storage key: `employee-onboarding-form-draft-v1` (see `ONBOARDING_STORAGE_KEY`).
 
 ## Project structure (high level)
 
-- `src/app/onboarding/onboarding-wizard.component.*` — shell: stepper, progress bar, navigation, submit, success screen, autosave.
+- `src/app/onboarding/onboarding-wizard.component.*` — shell: stepper, progress bar, navigation, submit, success screen, autosave, and draft status.
 - `src/app/onboarding/steps/` — one component per step (personal, job, tax, equipment, policies, review).
 - `src/app/onboarding/onboarding-storage.service.ts` — load/save/clear draft JSON.
+- `src/app/support/` — help and FAQ page for the onboarding flow.
+- `src/app/not-found/` — route-level 404 error page.
 - `src/app/onboarding/onboarding-options.ts` — shared dropdown/multiselect option lists.
-- `src/styles.css` — Kendo Default theme, theme utils, and app-level CSS variables.
+- `src/styles.css` — Kendo Meridian theme, theme utils, and app-level CSS variables.
 
 ## Security note
 

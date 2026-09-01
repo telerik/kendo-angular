@@ -1,15 +1,30 @@
-<kendo-appbar positionMode="sticky" position="top" themeColor="light">
+<kendo-appbar positionMode="sticky" position="top" themeColor="base">
     <kendo-appbar-section class="logo-nav-container">
         <div class="logo" routerLink="/login">Sample Event</div>
-        <div class="nav-buttons">
+        <button
+            kendoButton
+            class="navigation-toggle"
+            fillMode="clear"
+            themeColor="primary"
+            size="large"
+            type="button"
+            [attr.aria-expanded]="isNavigationOpen"
+            aria-controls="primary-navigation"
+            (click)="toggleNavigation()"
+        >
+            <kendo-svgicon [icon]="menuIcon"></kendo-svgicon>
+            <span>Menu</span>
+        </button>
+        <nav id="primary-navigation" class="nav-buttons" [class.is-open]="isNavigationOpen" aria-label="Primary navigation">
             <button
                 kendoButton
                 themeColor="primary"
                 rounded="medium"
                 fillMode="clear"
-                size="medium"
+                size="large"
                 routerLink="/event-budget"
                 routerLinkActive="active"
+                (click)="closeNavigation()"
                 >Event Budget</button
             >
             <button
@@ -17,9 +32,10 @@
                 themeColor="primary"
                 rounded="medium"
                 fillMode="clear"
-                size="medium"
+                size="large"
                 routerLink="/tickets"
                 routerLinkActive="active"
+                (click)="closeNavigation()"
                 >Tickets</button
             >
             <button
@@ -27,12 +43,13 @@
                 themeColor="primary"
                 rounded="medium"
                 fillMode="clear"
-                size="medium"
+                size="large"
                 routerLink="/speakers"
                 routerLinkActive="active"
+                (click)="closeNavigation()"
                 >Call for Speakers</button
             >
-        </div>
+        </nav>
     </kendo-appbar-section>
 
     <kendo-appbar-spacer></kendo-appbar-spacer>

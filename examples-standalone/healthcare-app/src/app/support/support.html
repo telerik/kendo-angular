@@ -1,0 +1,64 @@
+<section class="support-page">
+  @if (page === 'settings') {
+    <div class="settings-grid">
+      <kendo-card>
+        <kendo-card-body>
+          <h2>Notification preferences</h2>
+          <p>Clinical alerts, appointment changes, and secure messages are delivered through the channels configured by your organization.</p>
+          <button kendoButton themeColor="primary">Manage notifications</button>
+        </kendo-card-body>
+      </kendo-card>
+      <kendo-card>
+        <kendo-card-body>
+          <h2>Display & accessibility</h2>
+          <p>Use the contrast control in the app bar and choose the display options that support your workflow.</p>
+          <button kendoButton>Review display settings</button>
+        </kendo-card-body>
+      </kendo-card>
+      <kendo-card>
+        <kendo-card-body>
+          <h2>Security</h2>
+          <p>Keep your account secure by reviewing active sessions and password requirements.</p>
+          <button kendoButton>Review security</button>
+        </kendo-card-body>
+      </kendo-card>
+    </div>
+  } @else if (page === 'notifications') {
+    <kendo-card class="notification-feed">
+      <kendo-card-body>
+        <article class="feed-item">
+          <kendo-svgicon [icon]="icon"></kendo-svgicon>
+          <div><h2>Critical result review</h2><p>Two results require acknowledgement before the end of the shift.</p><span>12 minutes ago</span></div>
+        </article>
+        <article class="feed-item">
+          <kendo-svgicon [icon]="icon"></kendo-svgicon>
+          <div><h2>Appointment update</h2><p>Isabella Rossi checked in for her 9:30 AM cardiology follow-up.</p><span>35 minutes ago</span></div>
+        </article>
+        <article class="feed-item">
+          <kendo-svgicon [icon]="icon"></kendo-svgicon>
+          <div><h2>Secure message</h2><p>Olivia Parker replied to your request for a medication review.</p><span>1 hour ago</span></div>
+        </article>
+      </kendo-card-body>
+    </kendo-card>
+  } @else if (page === 'help') {
+    <div class="support-empty">
+      <kendo-svgicon [icon]="icon" class="support-empty-icon"></kendo-svgicon>
+      <h2>How can we help?</h2>
+      <p>Find answers for patient records, scheduling, clinical analytics, and workspace access.</p>
+      <div class="support-actions">
+        <button kendoButton themeColor="primary" routerLink="/patients">Open patient directory</button>
+        <button kendoButton routerLink="/schedule">View scheduling guidance</button>
+      </div>
+    </div>
+  } @else {
+    <div class="support-empty">
+      <kendo-svgicon [icon]="icon"></kendo-svgicon>
+      <h2>We couldn't find that page</h2>
+      <p>Return to the clinical dashboard or continue with your patient workflow.</p>
+      <div class="support-actions">
+        <button kendoButton themeColor="primary" routerLink="/">Return to dashboard</button>
+        <button kendoButton routerLink="/patients">Open patient directory</button>
+      </div>
+    </div>
+  }
+</section>

@@ -4,21 +4,17 @@ body {
 }
 
 :root {
-    /* Colors */
+    /* App brand customizations layered over Meridian semantic tokens. */
     --kendo-color-on-app-surface: #3d3d3d;
-    --kendo-color-light: #ebebeb;
-    --kendo-color-on-light: #000000;
+    --kendo-color-base: #ebebeb;
+    --kendo-color-on-base: #000000;
     --kendo-color-success: #37b400;
 
-    /* Typography */
     --kendo-font-family: "Roboto", sans-serif;
-    --kendo-h1-font-size: 42px;
-    --kendo-h2-font-size: 34px;
-    --kendo-h3-font-size: 28px;
-    --kendo-h4-font-size: 21px;
-    --kendo-h5-font-size: 16px;
-    --kendo-h6-font-size: 14px;
-    --kendo-font-size-xl: 18px;
+    --kendo-font-size-xl: 1.125rem;
+    --app-page-heading-size: calc(var(--kendo-font-size-xl) * 2.3333);
+    --app-form-heading-size: calc(var(--kendo-font-size-xl) * 1.8889);
+    --kendo-translucency-base: 25%;
 }
 
 .page-title {
@@ -30,9 +26,15 @@ body {
     background-size: cover;
 }
 
-.k-h1,
-.k-h5 {
+.page-heading,
+.ticket-price {
     margin: 0;
+}
+
+.page-heading {
+    font-size: var(--app-page-heading-size);
+    font-weight: var(--kendo-font-weight-semibold);
+    line-height: var(--kendo-line-height-md);
 }
 
 .k-notification {

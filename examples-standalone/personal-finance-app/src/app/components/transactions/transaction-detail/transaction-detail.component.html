@@ -1,20 +1,20 @@
-<div class="k-d-flex k-d-flex-col k-gap-3">
-    <div class="k-d-flex k-d-flex-col k-gap-0">
+<div class="transaction-details">
+    <div class="detail-field">
         <kendo-label
-            class="k-display-block k-font-size-lg"
+            class="detail-label"
             [for]="merchant"
             [text]="customMsgService.translate('merchant')"
         ></kendo-label>
         <kendo-textbox #merchant [readonly]="true" [value]="transaction.merchant"></kendo-textbox>
     </div>
 
-    <div class="k-d-flex k-d-flex-col k-gap-0">
+    <div class="detail-field">
         <kendo-label
-            class="k-display-block k-font-size-lg"
+            class="detail-label"
             [text]="customMsgService.translate('orderStatus')"
         ></kendo-label>
         <kendo-chip
-            class="k-rounded-lg k-font-size-sm k-text-center"
+            class="detail-chip"
             [style.width.px]="68"
             [style.height.px]="28"
             [themeColor]="getThemeColor()"
@@ -22,9 +22,9 @@
         ></kendo-chip>
     </div>
 
-    <div class="k-d-flex k-d-flex-col k-gap-0">
+    <div class="detail-field">
         <kendo-label
-            class="k-display-block k-font-size-lg"
+            class="detail-label"
             [for]="purchaseTime"
             [text]="customMsgService.translate('time')"
         ></kendo-label>
@@ -36,27 +36,27 @@
         ></kendo-dateinput>
     </div>
 
-    <div class="k-d-flex k-d-flex-col k-gap-0">
+    <div class="detail-field">
         <kendo-label
-            class="k-display-block k-font-size-lg"
+            class="detail-label"
             [for]="customer"
             [text]="customMsgService.translate('customer')"
         ></kendo-label>
         <kendo-textbox #customer [readonly]="true" [value]="'Maria Johnson'"></kendo-textbox>
     </div>
 
-    <div class="k-d-flex k-d-flex-col k-gap-0">
+    <div class="detail-field">
         <kendo-label
-            class="k-display-block k-font-size-lg"
+            class="detail-label"
             [for]="email"
             [text]="customMsgService.translate('email')"
         ></kendo-label>
         <kendo-textbox #email [readonly]="true" [value]="'mariajohnson@email.com'"></kendo-textbox>
     </div>
 
-    <div class="k-d-flex k-d-flex-col k-gap-0">
+    <div class="detail-field">
         <kendo-label
-            class="k-display-block k-font-size-lg"
+            class="detail-label"
             [text]="customMsgService.translate('paymentMethod')"
         ></kendo-label>
         @if(transaction.paymentMethod === 'Credit Card' || transaction.paymentMethod === 'Debit Card') {
@@ -67,7 +67,7 @@
         />
         } @else {
         <kendo-chip
-            class="k-rounded-lg k-font-size-sm k-text-center"
+            class="detail-chip"
             [style.width.px]="transaction.paymentMethod === 'Bank Transfer' ? 84 : 44"
             [style.height.px]="24"
             [themeColor]="'info'"
@@ -77,43 +77,43 @@
         }
     </div>
 
-    <div class="k-d-flex k-d-flex-col k-gap-0">
+    <div class="detail-field">
         <kendo-label
-            class="k-display-block k-font-size-lg"
+            class="detail-label"
             [for]="transactionHash"
             [text]="customMsgService.translate('transactionHash')"
         ></kendo-label>
         <kendo-textbox
             #transactionHash
-            class="k-text-blue"
+            class="detail-link"
             [readonly]="true"
             [value]="transaction.transactionHashFrom ? transaction.transactionHashFrom : ''"
         ></kendo-textbox>
     </div>
 
-    <div class="k-d-flex k-d-flex-col k-gap-0">
+    <div class="detail-field">
         <kendo-label
-            class="k-display-block k-font-size-lg"
+            class="detail-label"
             [for]="from"
             [text]="customMsgService.translate('from')"
         ></kendo-label>
         <kendo-textbox
             #from
-            class="k-text-blue"
+            class="detail-link"
             [readonly]="true"
             [value]="transaction.transactionHashFrom ? transaction.transactionHashFrom : ''"
         ></kendo-textbox>
     </div>
 
-    <div class="k-d-flex k-d-flex-col k-gap-0">
+    <div class="detail-field">
         <kendo-label
-            class="k-display-block k-font-size-lg"
+            class="detail-label"
             [for]="to"
             [text]="customMsgService.translate('to')"
         ></kendo-label>
         <kendo-textbox
             #to
-            class="k-text-blue"
+            class="detail-link"
             [readonly]="true"
             [value]="transaction.transactionHashTo ? transaction.transactionHashTo : ''"
         ></kendo-textbox>
