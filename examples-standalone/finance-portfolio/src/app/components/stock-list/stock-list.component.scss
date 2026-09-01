@@ -1,5 +1,25 @@
 @use '../../../styles/variables' as *;
 
+.portfolio-toolbar {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+    align-items: center;
+    gap: var(--kendo-spacing-4);
+    padding: var(--kendo-spacing-4) 0;
+}
+
+.portfolio-toolbar__actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.portfolio-toolbar__hint {
+    color: var(--kendo-color-subtle);
+    font-size: var(--kendo-font-size-sm);
+    text-align: right;
+}
+
 .dropdownlist-add-new {
     padding-left: 0;
     width: auto;
@@ -17,6 +37,7 @@
             .k-svg-icon {
                 color: $text-base;
             }
+
         }
 
         .k-input {
@@ -29,6 +50,18 @@
             border-color: $hover-bg;
             background-color: $hover-bg;
         }
+    }
+}
+
+@media (max-width: 760px) {
+    .portfolio-toolbar {
+        grid-template-columns: 1fr;
+    }
+
+    .portfolio-toolbar__actions,
+    .portfolio-toolbar__hint {
+        justify-content: center;
+        text-align: center;
     }
 }
 

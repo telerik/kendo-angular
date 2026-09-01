@@ -1,0 +1,47 @@
+<section class="virtual-data" aria-label="Virtualized market data">
+    <header class="virtual-data__header">
+        <div>
+            <h2>Live market data</h2>
+            <p>10,000 simulated securities rendered with row virtualization.</p>
+        </div>
+        <span class="virtual-data__status">Updates every 1.5 seconds</span>
+    </header>
+
+    <kendo-grid
+        [data]="gridView"
+        [skip]="skip"
+        [pageSize]="pageSize"
+        scrollable="virtual"
+        [rowHeight]="40"
+        [height]="600"
+        (pageChange)="pageChange($event)"
+    >
+        <kendo-grid-column field="symbol" [width]="100" title="Symbol" [locked]="true"></kendo-grid-column>
+        <kendo-grid-column field="name" [width]="150" title="Name"></kendo-grid-column>
+        <kendo-grid-column [width]="100" title="Currency">
+            <ng-template kendoGridCellTemplate>{{ stockDataService.selectedCurrency }}</ng-template>
+        </kendo-grid-column>
+        <kendo-grid-column field="price" [width]="110" title="Price">
+            <ng-template kendoGridCellTemplate let-dataItem>
+                {{ dataItem.price | currency: stockDataService.selectedCurrency : 'symbol' : '1.2-2' }}
+            </ng-template>
+        </kendo-grid-column>
+        <kendo-grid-column field="change" [width]="110" title="Change">
+            <ng-template kendoGridCellTemplate let-dataItem>
+                <span
+                    class="virtual-data__change"
+                    [class.virtual-data__change--up]="dataItem.change > 0"
+                    [class.virtual-data__change--down]="dataItem.change < 0"
+                >
+                    {{ dataItem.change > 0 ? '+' : '' }}{{ dataItem.change | number: '1.2-2' }}%
+                </span>
+            </ng-template>
+        </kendo-grid-column>
+        <kendo-grid-column field="stockExchange" [width]="220" title="Stock Exchange"></kendo-grid-column>
+        <kendo-grid-column field="timeZone" [width]="180" title="Time Zone"></kendo-grid-column>
+        <kendo-grid-column field="yearLow" [width]="100" title="Year Low"></kendo-grid-column>
+        <kendo-grid-column field="yearHigh" [width]="100" title="Year High"></kendo-grid-column>
+        <kendo-grid-column field="volume" [width]="140" title="Volume"></kendo-grid-column>
+        <kendo-grid-column field="marketCap" [width]="160" title="Market Cap"></kendo-grid-column>
+    </kendo-grid>
+</section>

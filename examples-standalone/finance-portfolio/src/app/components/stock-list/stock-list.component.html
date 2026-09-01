@@ -1,6 +1,7 @@
 <div class="container">
-  <div class="row py-4 d-flex justify-content-between">
-    <div class="col col-3 d-flex justify-content-start px-0">
+  <div class="portfolio-toolbar">
+    <div class="portfolio-toolbar__actions">
+      @if (showGrid) {
       <kendo-dropdownlist
         kendoDropDownFilter
         appDropDownListPopupSelector
@@ -19,13 +20,19 @@
           Remove
         </button>
       }
+      }
     </div>
 
-    <div class="col-3 ms-auto">
+    <ng-content select="[portfolio-view-switcher]"></ng-content>
+
+    <div class="portfolio-toolbar__hint">
+      @if (showGrid) {
       <span class="text-muted">Select a holding to update the chart.</span>
+      }
     </div>
   </div>
 
+  @if (showGrid) {
   <div class="row">
     <kendo-grid
       class="stocks-grid"
@@ -142,6 +149,7 @@
       </kendo-grid-column>
     </kendo-grid>
   </div>
+  }
 </div>
 
 <div kendoDialogContainer></div>

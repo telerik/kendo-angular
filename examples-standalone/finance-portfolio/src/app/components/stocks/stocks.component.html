@@ -4,6 +4,31 @@
     </kendo-splitter-pane>
     <kendo-splitter-pane>
         <app-badge #selectedStockBadge [item]="stockDataService.selectedStock"></app-badge>
-        <app-stock-list></app-stock-list>
+        <app-stock-list [showGrid]="selectedView === 'results'">
+            <nav portfolio-view-switcher class="portfolio-view-switcher" aria-label="Portfolio data view">
+                <kendo-buttongroup selection="single">
+                    <button
+                        kendoButton
+                        [toggleable]="true"
+                        [selected]="selectedView === 'results'"
+                        (click)="selectView('results')"
+                    >
+                        Result List
+                    </button>
+                    <button
+                        kendoButton
+                        [toggleable]="true"
+                        [selected]="selectedView === 'virtualization'"
+                        (click)="selectView('virtualization')"
+                    >
+                        Data Virtualization
+                    </button>
+                </kendo-buttongroup>
+            </nav>
+        </app-stock-list>
+
+        @if (selectedView === 'virtualization') {
+            <app-real-time-data></app-real-time-data>
+        }
     </kendo-splitter-pane>
 </kendo-splitter>
