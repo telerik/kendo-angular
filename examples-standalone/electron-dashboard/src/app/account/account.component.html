@@ -1,0 +1,55 @@
+<section *ngIf="page === 'login'; else workspacePage" class="access-page">
+  <div class="access-card">
+    <p class="eyebrow">{{ content[page].eyebrow }}</p>
+    <h1>{{ content[page].title }}</h1>
+    <p>{{ content[page].description }}</p>
+    <form (submit)="$event.preventDefault()">
+      <label for="email">Work email</label>
+      <input id="email" kendoTextBox autocomplete="email" type="email" />
+      <label for="password">Password</label>
+      <input id="password" kendoTextBox autocomplete="current-password" type="password" />
+      <a class="forgot-password" routerLink="/help">Forgot password?</a>
+      <button kendoButton themeColor="primary" type="submit">Sign in</button>
+    </form>
+    <p class="support-link">Need access? <a routerLink="/help">Contact support</a></p>
+  </div>
+</section>
+
+<ng-template #workspacePage>
+  <section class="page-heading">
+    <div>
+      <p class="eyebrow">{{ content[page].eyebrow }}</p>
+      <h1>{{ content[page].title }}</h1>
+      <p>{{ content[page].description }}</p>
+    </div>
+  </section>
+
+  <section *ngIf="page === 'profile'" class="content-card">
+    <div class="profile-summary">
+      <span class="profile-avatar" aria-hidden="true">AM</span>
+      <div><h2>Alex Morgan</h2><p>Regional sales manager · North America</p></div>
+    </div>
+    <dl class="details-list"><dt>Email</dt><dd>alex.morgan&#64;example.com</dd><dt>Team</dt><dd>Enterprise sales</dd><dt>Timezone</dt><dd>Eastern time (UTC−05:00)</dd></dl>
+    <button kendoButton themeColor="primary">Edit profile</button>
+  </section>
+
+  <section *ngIf="page === 'settings'" class="content-card settings-list">
+    <div><h2>Notifications</h2><p>Receive a daily pipeline summary by email.</p></div><button kendoButton fillMode="outline">Enabled</button>
+    <div><h2>Default dashboard</h2><p>Open the sales dashboard when you launch the app.</p></div><button kendoButton fillMode="outline">Dashboard</button>
+    <div><h2>Data refresh</h2><p>Refresh sales data every 15 minutes while the app is open.</p></div><button kendoButton fillMode="outline">15 minutes</button>
+  </section>
+
+  <section *ngIf="page === 'help'" class="content-card help-content">
+    <label for="help-search">Search support topics</label>
+    <input id="help-search" kendoTextBox placeholder="Search customer, pipeline, and reporting help" />
+    <h2>Popular topics</h2>
+    <div class="topic-grid"><a href="#customer-directory">Using the customer directory</a><a href="#revenue-forecast">Understanding revenue forecasts</a><a href="#notifications">Managing notifications</a></div>
+    <p>Still need help? <a href="mailto:support&#64;example.com">Email the support team</a> and expect a response within one business day.</p>
+  </section>
+
+  <section *ngIf="page === 'notifications'" class="content-card notification-list">
+    <article><h2>Northwind Traders renewed</h2><p>The $84,000 annual renewal was marked as closed won by Jamie Lee.</p><time datetime="2026-08-26T09:15">Today, 9:15 AM</time></article>
+    <article><h2>Forecast needs review</h2><p>Three enterprise opportunities have a close date within the next seven days.</p><time datetime="2026-08-26T08:30">Today, 8:30 AM</time></article>
+    <article><h2>Customer import completed</h2><p>Twenty-four customer records were added to the directory without conflicts.</p><time datetime="2026-08-25T16:40">Yesterday, 4:40 PM</time></article>
+  </section>
+</ng-template>

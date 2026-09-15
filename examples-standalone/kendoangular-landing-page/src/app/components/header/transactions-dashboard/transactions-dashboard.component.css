@@ -1,12 +1,22 @@
 
+.transactions-dashboard {
+  display: flex;
+  flex-direction: column;
+  padding: var(--kendo-spacing-5);
+  border: 1px solid var(--kendo-color-border);
+  border-radius: var(--kendo-border-radius-lg);
+  background-color: var(--kendo-color-surface-alt);
+  box-shadow: var(--kendo-elevation-1);
+}
+
 .positive-amount {
-  color: #4bb34b;
+  color: var(--kendo-color-success);
   justify-content: flex-end;
   display: flex;
 }
 
 .negative-amount {
-  color: #ff5252;
+  color: var(--kendo-color-error);
   justify-content: flex-end;
   display: flex;
 }
@@ -15,47 +25,51 @@
   justify-content: flex-end;
   align-items: center;
 }
+.country-flag {
+  display: flex;
+  justify-content: center;
+}
 .status-badge {
   display: inline-flex;
-  padding: 4px 8px;
-  border-radius: 4px;
-  font-size: 12px;
+  padding: var(--kendo-spacing-1) var(--kendo-spacing-2);
+  border-radius: var(--kendo-border-radius-sm);
+  font-size: var(--kendo-font-size-sm);
   font-weight: 500;
 }
 
 .status-success {
-  background-color: rgba(75, 179, 75, 0.15);
-  color: #4bb34b;
+  background-color: var(--kendo-color-success-subtle);
+  color: var(--kendo-color-success-on-subtle);
 }
 
 .status-error {
-  background-color: rgba(255, 82, 82, 0.15);
-  color: #ff5252;
+  background-color: var(--kendo-color-error-subtle);
+  color: var(--kendo-color-error-on-subtle);
 }
 
 .status-warning {
-  background-color: rgba(255, 174, 1, 0.15);
-  color: #ffae01;
+  background-color: var(--kendo-color-warning-subtle);
+  color: var(--kendo-color-warning-on-subtle);
 }
 
 .k-grid-header {
-  background-color: #f8f9fa;
+  background-color: var(--kendo-color-surface);
 }
 
 .k-grid tbody tr:hover {
-  background-color: #f5f7fa;
+  background-color: var(--kendo-color-surface-alt);
 }
 
 .k-grid tr.k-selected {
-  background-color: rgba(87, 119, 234, 0.05);
+  background-color: var(--kendo-color-primary-subtle);
 }
 
 .k-pager-numbers .k-link.k-selected {
-  color: #fff;
-  background-color: #5777ea;
+  color: var(--kendo-color-on-primary);
+  background-color: var(--kendo-color-primary);
 }
 .k-header {
-  background-color: #fff;
+  background-color: var(--kendo-color-surface-alt);
 }
 
 .k-table-td.price-column {
@@ -66,18 +80,18 @@
   justify-content: end;
 }
 .k-grid-pager {
-  border-color: var(--kendo-color-border, rgba(0, 0, 0, 0.08));
+  border-color: var(--kendo-color-border);
   border-width: 0px 1px 1px 1px;
-  font-size: 14px;
-  background-color: #fff;
+  font-size: var(--kendo-font-size-md);
+  background-color: var(--kendo-color-surface-alt);
 }
 
 .k-pager-numbers-wrap button {
-  border-radius: 4px;
+  border-radius: var(--kendo-border-radius-sm);
 }
 
 .k-sort-icon {
-  color: #5777EA!important;
+  color: var(--kendo-color-primary) !important;
 }
 .k-master-row,
 .k-table-row {

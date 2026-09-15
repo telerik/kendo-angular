@@ -1,7 +1,11 @@
+.country-column {
+    text-align: center;
+}
+
 .wrapper {
     display: flex;
     box-sizing: border-box;
-    padding-bottom: 30px;
+    padding-bottom: var(--kendo-spacing-7\.5);
     min-height: 420px;
     justify-content: center;
     align-items: center;
@@ -10,7 +14,7 @@
 .components-wrapper {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+    gap: var(--kendo-spacing-5);
     width: 1170px;
     justify-content: center;
     align-items: center;

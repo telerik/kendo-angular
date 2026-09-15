@@ -4,12 +4,9 @@
     border-width: 0;
 
     .k-splitbar {
+        position: relative;
+        background-color: var(--kendo-color-base-emphasis);
         box-shadow: $splitter-bar-boxshadow;
-        background: none;
-    }
-
-    .k-splitbar-draggable-vertical .k-resize-handle {
-        display: none;
     }
 
     .k-pane:not(.k-pane-static) {
@@ -19,4 +16,9 @@
     .k-pane.splitter-upper-pane {
         background-color: $white;
     }
+}
+
+.portfolio-view-switcher {
+    display: flex;
+    justify-content: center;
 }

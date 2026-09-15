@@ -1,0 +1,9 @@
+.editor-wrapper {
+    display: flex;
+    align-items: center;
+    height: 420px;
+}
+
+.editor-wrapper__editor {
+    height: 420px;
+}

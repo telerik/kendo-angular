@@ -1,6 +1,6 @@
 <app-header></app-header>
 <div class="page-title">
-    <h1 class="k-h1">Apply to Speak at Conference</h1>
+    <h1 class="page-heading">Apply to Speak at Conference</h1>
 </div>
 <div class="page-container">
     <form class="k-form k-form-md" [formGroup]="formGroup" (ngSubmit)="submitForm()">
@@ -23,6 +23,9 @@
                         [clearButton]="true"
                     >
                     </kendo-textbox>
+                    @if (formGroup.controls['firstName'].invalid && formGroup.controls['firstName'].touched) {
+                        <kendo-formerror>Enter your first name.</kendo-formerror>
+                    }
                 </kendo-formfield>
                 <kendo-formfield>
                     <kendo-label [for]="lastNameinput">Last Name</kendo-label>
@@ -34,6 +37,9 @@
                         [clearButton]="true"
                     >
                     </kendo-textbox>
+                    @if (formGroup.controls['lastName'].invalid && formGroup.controls['lastName'].touched) {
+                        <kendo-formerror>Enter your last name.</kendo-formerror>
+                    }
                 </kendo-formfield>
             </div>
             <kendo-formfield>
@@ -46,6 +52,9 @@
                     [clearButton]="true"
                 >
                 </kendo-textbox>
+                @if (formGroup.controls['email'].invalid && formGroup.controls['email'].touched) {
+                    <kendo-formerror>Enter a valid email address.</kendo-formerror>
+                }
             </kendo-formfield>
             <kendo-formfield>
                 <kendo-label 
@@ -123,7 +132,8 @@
                 themeColor="primary" 
                 type="submit" 
                 size="large" 
-                style="width: 86px"
+                class="form-submit-button"
+                [disabled]="formGroup.invalid"
             > Apply
             </button>
             <button
@@ -131,7 +141,7 @@
               type="button" 
               (click)="clearForm()" 
               size="large" 
-              style="width: 80px"
+              class="form-clear-button"
             > Clear
             </button>
         </div>

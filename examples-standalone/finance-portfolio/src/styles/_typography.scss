@@ -1,27 +1,33 @@
 h1 {
-    font-size: 2.5rem;
+    font-size: var(--kendo-font-size-xl);
+    font-weight: var(--kendo-font-weight-semibold);
 }
 
 h2 {
-    font-size: 2rem;
+    font-size: var(--kendo-font-size-xl);
+    font-weight: var(--kendo-font-weight-semibold);
 }
 
 h3 {
-    font-size: 1.75rem;
+    font-size: var(--kendo-font-size-lg);
+    font-weight: var(--kendo-font-weight-semibold);
 }
 
 h4 {
-    font-size: 1.75rem;
+    font-size: var(--kendo-font-size-lg);
+    font-weight: var(--kendo-font-weight-semibold);
 }
 
 h5 {
-    font-size: 1.25rem;
+    font-size: var(--kendo-font-size-md);
+    font-weight: var(--kendo-font-weight-semibold);
 }
 
 p {
-    font-size: 1rem;
+    font-size: var(--kendo-font-size);
+    line-height: var(--kendo-line-height);
 }
 
 a {
-    font-size: 1rem;
+    font-size: var(--kendo-font-size);
 }

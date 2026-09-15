@@ -2,7 +2,7 @@
 
 .stock-chart.k-chart {
     .k-selection .k-handle {
-        border: 1px solid $chart-navigation-drag-handle-border;
+        border: var(--kendo-spacing-1px) solid $chart-navigation-drag-handle-border;
         background-color: $chart-navigation-drag-handle-bg;
     }
 }

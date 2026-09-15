@@ -5,69 +5,57 @@
 //Grid
 .customer-photo {
     display: inline-block;
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    background-size: 32px 35px;
-    background-position: center center;
+    width: var(--kendo-spacing-8);
+    height: var(--kendo-spacing-8);
+    border-radius: var(--kendo-border-radius-full);
+    object-fit: cover;
     vertical-align: middle;
-    line-height: 32px;
-    box-shadow: inset 0 0 1px #999, inset 0 0 10px rgba(0, 0, 0, 0.2);
-    margin-left: 5px;
+    box-shadow: inset 0 0 var(--kendo-spacing-1px) var(--kendo-color-border), var(--kendo-elevation-1);
+    margin-left: var(--kendo-spacing-1);
 }
 
 .customer-name {
     display: inline-block;
     vertical-align: middle;
-    line-height: 32px;
-    padding-left: 10px;
+    line-height: var(--kendo-spacing-8);
+    padding-left: var(--kendo-spacing-3);
 }
 
-.red {
-    color: #d9534f;
+.budget-negative {
+    color: var(--kendo-color-error-on-surface);
 }
 
-.text-bold {
-    font-weight: 600;
+.budget-amount {
+    font-weight: var(--kendo-font-weight-semibold);
 }
 
-.badge {
+.status-badge {
     display: inline-block;
-    padding: 0.25em 0.4em;
-    font-size: 75%;
-    font-weight: 700;
+    padding: var(--kendo-spacing-1) var(--kendo-spacing-2);
+    font-size: var(--kendo-font-size-xs);
+    font-weight: var(--kendo-font-weight-bold);
     line-height: 1;
     text-align: center;
     white-space: nowrap;
     vertical-align: baseline;
-    border-radius: 0.25rem;
+    border-radius: var(--kendo-border-radius-sm);
 }
 
-.badge-success {
-    color: #fff;
-    background-color: #28a745;
+.status-badge--success {
+    color: var(--kendo-color-on-success);
+    background-color: var(--kendo-color-success);
 }
 
-.badge-danger {
-    color: #fff;
-    background-color: #dc3545;
+.status-badge--danger {
+    color: var(--kendo-color-on-error);
+    background-color: var(--kendo-color-error);
 }
 
 // Chart
 .chart-tooltip {
     text-align: center;
-    font-size: 15px;
-    font-weight: bold;
-}
-
-// Card
-.employee-photo {
-    display: inline-block;
-    border-radius: 50%;
-    background-size: 38px 41px;
-    background-position: center center;
-    vertical-align: middle;
-    line-height: 32px;
+    font-size: var(--kendo-font-size-sm);
+    font-weight: var(--kendo-font-weight-bold);
 }
 
 .card-opacity {
@@ -77,7 +65,7 @@
 // Scheduler
 kendo-recurrence-frequency-editor .k-edit-label {
     width: unset;
-    margin-right: 10px;
+    margin-right: var(--kendo-spacing-3);
 }
 
 kendo-recurrence-frequency-editor .k-edit-field {
@@ -85,36 +73,33 @@ kendo-recurrence-frequency-editor .k-edit-field {
     float: none;
 }
 
-.k-team-mark {
+.team-mark {
     width: 1em;
     height: 1em;
     display: inline-block;
     vertical-align: middle;
-    margin-right: 8px;
+    margin-right: var(--kendo-spacing-2);
+}
+
+.team-mark--1 {
+    background-color: var(--kendo-color-series-a);
+}
+
+.team-mark--2 {
+    background-color: var(--kendo-color-series-b);
+}
+
+.team-mark--3 {
+    background-color: var(--kendo-color-series-c);
+}
+
+.team-mark--4 {
+    background-color: var(--kendo-color-series-d);
 }
 
 // Header
-.material-bg .k-input,
-.material-bg .k-dropdown-wrap .k-i-arrow-s {
-    color: white;
-}
-
-.material-bg .k-dropdown-wrap {
-    border-color: white;
-}
-
-.material-bg .k-dropdown-wrap.k-state-focused {
-    border-color: #697bcf;
-    border-bottom-width: 2px;
-}
-
-.material-bg .k-dropdown-wrap:hover {
-    border-color: #2942bb;
-    border-bottom-width: 2px;
-}
-
 .k-dropdownlist.k-picker {
-    margin: 5px;
+    margin: var(--kendo-spacing-1);
 }
 
 .daterange-center {

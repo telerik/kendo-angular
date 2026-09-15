@@ -23,27 +23,27 @@ export class ChartsComponent {
             data: [20, 40, 45, 30, 50],
             stack: true,
             name: "on battery",
-            color: "#cc6e38",
+            color: "var(--kendo-color-series-a)",
         },
         {
             type: "column",
             data: [20, 30, 35, 35, 40],
             stack: true,
             name: "on gas",
-            color: "#ef955f",
+            color: "var(--kendo-color-series-b)",
         },
         {
             type: "line",
             data: [30, 38, 40, 32, 42],
             name: "mpg",
-            color: "#ec5e0a",
+            color: "var(--kendo-color-series-c)",
             axis: "mpg",
         },
         {
             type: "line",
             data: [7.8, 6.2, 5.9, 7.4, 5.6],
             name: "l/100 km",
-            color: "#4e4141",
+            color: "var(--kendo-color-series-d)",
             axis: "l100km",
         },
     ];
@@ -64,12 +64,12 @@ export class ChartsComponent {
         {
             name: "mpg",
             title: { text: "miles per gallon" },
-            color: "#ec5e0a",
+            color: "var(--kendo-color-series-c)",
         },
         {
             name: "l100km",
             title: { text: "liters per 100km" },
-            color: "#4e4141",
+            color: "var(--kendo-color-series-d)",
         },
     ];
 

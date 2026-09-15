@@ -1,0 +1,12 @@
+.form-step {
+  display: flex;
+  flex-direction: column;
+  gap: var(--kendo-spacing-4);
+  width: 100%;
+}
+
+.form-step__hint {
+  margin: 0;
+  color: var(--kendo-color-subtle);
+  font-size: var(--kendo-font-size-sm);
+}

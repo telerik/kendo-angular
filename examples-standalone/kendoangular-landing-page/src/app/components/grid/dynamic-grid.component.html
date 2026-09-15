@@ -27,7 +27,7 @@
                     <span class="template">{{ dataItem.value | kendoNumber }}</span>
                 </ng-template>
             </kendo-dropdownlist>
-            <kendo-label class="k-display-block" [for]="slider" text="Refresh rate:"></kendo-label>
+            <kendo-label class="refresh-rate-label" [for]="slider" text="Refresh rate:"></kendo-label>
             <div kendoTooltip position="top" filter=".k-draghandle" [tooltipTemplate]="template">
                 <kendo-slider
                     kendoGridToolbarFocusable
@@ -99,7 +99,7 @@
                 <kendo-sparkline
                     [data]="dataItem.timeline"
                     type="column"
-                    [seriesColors]="['#1274AC']"
+                    [seriesColors]="['var(--kendo-color-series-a)']"
                     [chartArea]="{ background: 'transparent' }"
                     [style.width.%]="100"
                 >

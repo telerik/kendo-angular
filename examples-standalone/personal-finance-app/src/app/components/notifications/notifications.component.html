@@ -1,0 +1,125 @@
+<section
+  class="finance-page notifications-page"
+  aria-labelledby="notifications-title"
+>
+  <div class="page-heading">
+    <div>
+      <p class="eyebrow">{{ customMsgService.translate('inboxAccountUpdates') }}</p>
+      <h1 id="notifications-title">{{ customMsgService.translate('notificationsCenter') }}</h1>
+      <p class="page-lede">
+        {{ customMsgService.translate('notificationsPageLead') }}
+      </p>
+    </div>
+    <button
+      kendoButton
+      fillMode="outline"
+      [disabled]="unreadCount === 0"
+      (click)="markAllRead()"
+    >
+      {{ customMsgService.translate('markAllRead') }}
+    </button>
+  </div>
+  <div class="notification-toolbar">
+    <div
+      class="category-tabs"
+      role="tablist"
+      [attr.aria-label]="customMsgService.translate('notificationCategories')"
+    >
+      @for (category of categories; track category) {
+        <button
+          kendoButton
+          fillMode="flat"
+          role="tab"
+          [attr.aria-selected]="selectedCategory === category"
+          [class.category-active]="selectedCategory === category"
+          (click)="selectCategory(category)"
+        >
+          {{ category }}
+        </button>
+      }
+    </div>
+    <kendo-textbox
+      class="notification-search"
+      [value]="query"
+      (valueChange)="query = $event"
+      [placeholder]="customMsgService.translate('searchNotifications')"
+      [attr.aria-label]="customMsgService.translate('searchNotifications')"
+    ></kendo-textbox>
+  </div>
+  <kendo-card class="notifications-card">
+    <kendo-card-body>
+      <div class="card-heading">
+        <div>
+          <p class="card-kicker">{{ customMsgService.translate('yourInbox') }}</p>
+          <h2>
+            {{ unreadCount }} {{ customMsgService.translate(unreadCount === 1 ? 'unreadNotification' : 'unreadNotifications') }}
+          </h2>
+        </div>
+        <span class="muted-copy">{{ filteredNotifications.length }} {{ customMsgService.translate('shown') }}</span>
+      </div>
+      @if (filteredNotifications.length === 0) {
+        <div class="state-panel" role="status">
+          <span class="state-icon" aria-hidden="true"
+            ><kendo-svgicon [icon]="infoCircleIcon"></kendo-svgicon
+          ></span>
+          <h3>{{ customMsgService.translate('noNotifications') }}</h3>
+          <p>{{ customMsgService.translate('noNotificationsLead') }}</p>
+          <button
+            kendoButton
+            fillMode="outline"
+            (click)="query = ''; selectedCategory = 'All'"
+          >
+            {{ customMsgService.translate('clearFilters') }}
+          </button>
+        </div>
+      } @else {
+        <div class="notification-list">
+          @for (notification of filteredNotifications; track notification.id) {
+            <div
+              class="notification-row"
+              [class.notification-unread]="notification.unread"
+            >
+              <span
+                class="notification-icon"
+                [class.notification-security]="
+                  notification.category === 'Security'
+                "
+                aria-hidden="true"
+                ><kendo-svgicon
+                  [icon]="
+                    notification.category === 'Security'
+                      ? lockIcon
+                      : notification.category === 'Payments'
+                        ? bellIcon
+                        : checkCircleIcon
+                  "
+                ></kendo-svgicon
+              ></span>
+              <div class="notification-copy">
+                <div class="notification-title">
+                  <strong>{{ notification.title }}</strong>
+                  @if (notification.unread) {
+                    <span class="unread-dot" [attr.aria-label]="customMsgService.translate('unread')"></span>
+                  }
+                </div>
+                <span>{{ notification.detail }}</span>
+              </div>
+              <div class="notification-meta">
+                <span>{{ notification.date }}</span>
+                @if (notification.unread) {
+                  <button
+                    kendoButton
+                    fillMode="flat"
+                    (click)="markRead(notification)"
+                  >
+                    {{ customMsgService.translate('markRead') }}
+                  </button>
+                }
+              </div>
+            </div>
+          }
+        </div>
+      }
+    </kendo-card-body>
+  </kendo-card>
+</section>

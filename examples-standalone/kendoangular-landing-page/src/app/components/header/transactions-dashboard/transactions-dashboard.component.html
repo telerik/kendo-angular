@@ -1,6 +1,5 @@
 <div
-    class="k-d-flex k-flex-column k-border k-border-solid k-border-border k-rounded-lg k-bg-surface-alt"
-    style="padding: 20px; box-shadow: 0px 3px 6px 0px rgba(4, 20, 42, 0.06)"
+    class="transactions-dashboard"
 >
     <kendo-grid
         [kendoGridBinding]="gridData"
@@ -34,7 +33,7 @@
 
         <kendo-grid-column field="country" title="Ctry." [width]="54" [columnMenu]="false">
             <ng-template kendoGridCellTemplate let-dataItem>
-                <div style="display: flex; justify-content: center" [innerHTML]="getSafeFlag(dataItem.flag)"></div>
+                <div class="country-flag" [innerHTML]="getSafeFlag(dataItem.flag)"></div>
             </ng-template>
         </kendo-grid-column>
 

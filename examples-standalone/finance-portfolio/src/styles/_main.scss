@@ -2,7 +2,6 @@
 @use './typography';
 @use './variables' as *;
 @use './kendo';
-@use './responsive';
 
 body {
     font-family: $roboto;

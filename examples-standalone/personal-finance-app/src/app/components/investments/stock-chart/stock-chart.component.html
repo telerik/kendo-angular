@@ -3,7 +3,7 @@
     <kendo-tabstrip-tab [title]="item.company" [selected]="i === selected">
         <ng-template kendoTabContent>
             <kendo-stockchart
-                class="k-overflow-hidden"
+                class="stock-chart"
                 [navigator]="{ visible: false, select: { from: from, to: to, mousewheel: false } }"
             >
                 <kendo-chart-title [text]="customMsgService.translate('value')"> </kendo-chart-title>
@@ -16,7 +16,7 @@
                         lowField="low"
                         highField="high"
                         categoryField="date"
-                        color="#008478"
+                        color="var(--kendo-color-series-d)"
                     >
                     </kendo-chart-series-item>
                 </kendo-chart-series>
@@ -27,7 +27,7 @@
                     </kendo-chart-category-axis-item>
                 </kendo-chart-category-axis>
             </kendo-stockchart>
-            <kendo-stockchart class="k-overflow-hidden" (navigatorFilter)="navigatorFilter($event)">
+            <kendo-stockchart class="stock-chart" (navigatorFilter)="navigatorFilter($event)">
                 <kendo-chart-title [text]="customMsgService.translate('volume')"> </kendo-chart-title>
                 <kendo-chart-series>
                     <kendo-chart-series-item
@@ -35,7 +35,7 @@
                         field="volume"
                         categoryField="volume"
                         [data]="item.chartData"
-                        color="#008478"
+                        color="var(--kendo-color-series-d)"
                     >
                         <kendo-chart-series-item-tooltip>
                             <ng-template let-value="value">
@@ -61,7 +61,7 @@
                             [data]="item.chartData"
                             field="close"
                             categoryField="date"
-                            color="#008478"
+                            color="var(--kendo-color-series-d)"
                         >
                         </kendo-chart-navigator-series-item>
                     </kendo-chart-navigator-series>

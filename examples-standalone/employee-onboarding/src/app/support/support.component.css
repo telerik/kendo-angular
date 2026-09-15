@@ -1,0 +1,59 @@
+.support-page {
+  min-height: 100vh;
+  padding: var(--kendo-spacing-6) var(--kendo-spacing-5);
+  background: var(--kendo-color-app-surface);
+}
+
+.support-card {
+  max-width: 44rem;
+  margin-inline: auto;
+}
+
+.support-eyebrow,
+.support-intro {
+  margin: 0;
+  color: var(--kendo-color-subtle);
+  font-size: var(--kendo-font-size-sm);
+}
+
+h1,
+h2 {
+  margin: 0;
+  color: var(--kendo-color-primary);
+  font-weight: var(--kendo-font-weight-semibold);
+}
+
+h1 {
+  margin-top: var(--kendo-spacing-1);
+  font-size: var(--kendo-font-size-xl);
+}
+
+h2 {
+  font-size: var(--kendo-font-size-md);
+}
+
+.support-intro {
+  margin-top: var(--kendo-spacing-2);
+}
+
+.support-faq,
+.support-contact {
+  margin-top: var(--kendo-spacing-6);
+}
+
+.support-faq {
+  display: flex;
+  flex-direction: column;
+  gap: var(--kendo-spacing-2);
+  margin-top: var(--kendo-spacing-3);
+}
+
+.support-contact p {
+  margin: var(--kendo-spacing-2) 0 var(--kendo-spacing-4);
+}
+
+@media (min-width: 48rem) {
+  .support-page {
+    padding: var(--kendo-spacing-6);
+  }
+}

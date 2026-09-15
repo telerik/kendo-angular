@@ -1,24 +1,18 @@
 @for (card of cards; track card) {
   <kendo-card
     (click)="onCardClick(card)"
-    style="border-width: 0px; cursor: pointer; display: table-cell"
+    class="team-card"
     [ngClass]="{ 'card-opacity': card.selected }"
     >
-    <kendo-card-header class="k-hbox">
+    <kendo-card-header class="team-card__header">
       <kendo-avatar
-        width="41px"
-        height="41px"
-            [ngStyle]="{
-                'background-image': fetchAvatar(card),
-                'border-color': setCardColor(card)
-            }"
-        [shape]="'circle'"
-        class="employee-photo"
-        style="border-width: 2px"
-        >
+          [imageSrc]="fetchAvatar(card)"
+      [shape]="'circle'"
+      [ngClass]="'team-card__avatar team-card__avatar--' + card.teamId"
+      >
       </kendo-avatar>
       <div>
-        <p kendoCardTitle [ngStyle]="{ color: setCardColor(card) }">
+        <p kendoCardTitle [ngClass]="'team-card__title team-card__title--' + card.teamId">
           {{ card.fullName }}
         </p>
         <p kendoCardSubtitle>{{ card.jobTitle }}</p>

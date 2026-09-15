@@ -1,7 +1,7 @@
 .content {
-    padding: 20px;
+    padding: var(--kendo-spacing-5);
 }
 .header {
-    padding: 20px 20px 0 20px;
+    padding: var(--kendo-spacing-5) var(--kendo-spacing-5) 0;
     text-align: center;
 }

@@ -1,37 +1,56 @@
-<p class="grid-section-title">Explore the market</p>
-<kendo-grid [kendoGridBinding]="(gridData | async)!" [rowClass]="rowCallback">
-  <kendo-grid-column field="currency" title="Crypto currency">
-    <ng-template kendoGridCellTemplate let-dataItem>
-      <div class="currency-container">
-        <img class="coin-logo" src="assets/coinslogo/{{ dataItem.currency }}.png" alt="coin logo" />
-        <span class="currency">
-          {{ dataItem.currency }}
-        </span>
-        <span class="crypto-symbol"> ({{ dataItem.symbol }}) </span>
-      </div>
-    </ng-template>
-  </kendo-grid-column>
-  <kendo-grid-column field="currentPrice" title="Price">
-    <ng-template kendoGridCellTemplate let-dataItem>
-      <span
-        [@positiveState]="dataItem.currentPrice > prevDataItem.currentPrice ? true : false"
-        [@negativeState]="dataItem.currentPrice < prevDataItem.currentPrice ? true : false"
-        >
-        {{ dataItem.currentPrice | currency }}
-      </span>
-    </ng-template>
-  </kendo-grid-column>
-  <kendo-grid-column class="priceColumn" field="change_24h" title="24h%">
-    <ng-template kendoGridCellTemplate let-dataItem>
-      <span> {{ dataItem.change_24h | number }}% </span>
-      @if (dataItem.change_24h < prevDataItem.change_24h) {
-        <kendo-svg-icon [icon]="downArrowIcon"></kendo-svg-icon>
-      }
-      @if (dataItem.change_24h > prevDataItem.change_24h) {
-        <kendo-svg-icon [icon]="upArrowIcon"></kendo-svg-icon>
-      }
-    </ng-template>
-  </kendo-grid-column>
+<kendo-card class="market-grid-card" width="100%">
+  <kendo-card-header class="grid-heading">
+    <div>
+      <h2 kendoCardTitle class="grid-section-title">Explore the market</h2>
+      <p class="grid-section-description">Live crypto prices refresh every two seconds.</p>
+    </div>
+    <span class="market-status" role="status">Live market data</span>
+  </kendo-card-header>
+  <kendo-card-body>
+    @if (gridData | async; as marketData) {
+      @if (marketData.loading) {
+        <p class="grid-feedback" role="status">Loading market data...</p>
+      } @else if (marketData.error) {
+        <p class="grid-feedback grid-feedback--error" role="alert">Market data is unavailable. Refresh the page to try again.</p>
+      } @else {
+        <kendo-grid [kendoGridBinding]="marketData.data">
+      <kendo-grid-column field="currency" title="Crypto currency">
+        <ng-template kendoGridCellTemplate let-dataItem>
+          <div class="currency-container">
+            <img class="coin-logo" src="assets/coinslogo/{{ dataItem.currency }}.png" [alt]="dataItem.currency + ' logo'" />
+            <span class="currency">
+              {{ dataItem.currency }}
+            </span>
+            <span class="crypto-symbol"> ({{ dataItem.symbol }}) </span>
+          </div>
+        </ng-template>
+      </kendo-grid-column>
+      <kendo-grid-column field="currentPrice" title="Price">
+        <ng-template kendoGridCellTemplate let-dataItem>
+          <span
+            [@positiveState]="priceChangedUp(dataItem)"
+            [@negativeState]="priceChangedDown(dataItem)"
+            >
+            {{ dataItem.currentPrice | currency }}
+          </span>
+        </ng-template>
+      </kendo-grid-column>
+      <kendo-grid-column class="priceColumn" field="change_24h" title="24h%">
+        <ng-template kendoGridCellTemplate let-dataItem>
+          <span [class.price-down]="dataItem.change_24h < 0" [class.price-up]="dataItem.change_24h > 0">
+            @if (dataItem.change_24h < 0) {
+              <kendo-svg-icon [icon]="downArrowIcon" aria-hidden="true"></kendo-svg-icon>
+            } @else if (dataItem.change_24h > 0) {
+              <kendo-svg-icon [icon]="upArrowIcon" aria-hidden="true"></kendo-svg-icon>
+            }
+            {{ dataItem.change_24h > 0 ? '+' : '' }}{{ dataItem.change_24h | number }}%
+          </span>
+        </ng-template>
+      </kendo-grid-column>
 
-  <kendo-grid-column field="volume" title="Market Cap" format="c"> </kendo-grid-column>
-</kendo-grid>
+      <kendo-grid-column field="volume" title="Market Cap" format="c"> </kendo-grid-column>
+        </kendo-grid>
+      }
+    }
+  </kendo-card-body>
+</kendo-card>

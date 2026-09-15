@@ -8,7 +8,8 @@ import { KENDO_CARD } from '@progress/kendo-angular-layout';
   selector: 'app-review-step',
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [ReactiveFormsModule, DatePipe, ButtonComponent, ...KENDO_CARD],
-  templateUrl: './review-step.component.html'
+  templateUrl: './review-step.component.html',
+  styleUrl: './review-step.component.css'
 })
 export class ReviewStepComponent {
   readonly form = input.required<FormGroup>();

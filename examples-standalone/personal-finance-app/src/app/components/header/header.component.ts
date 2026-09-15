@@ -5,7 +5,7 @@ import { KENDO_INPUTS } from '@progress/kendo-angular-inputs';
 import { KENDO_LAYOUT } from '@progress/kendo-angular-layout';
 import { KENDO_BUTTONS } from '@progress/kendo-angular-buttons';
 import { KENDO_DROPDOWNS } from '@progress/kendo-angular-dropdowns';
-import { caretAltDownIcon, searchIcon } from '@progress/kendo-svg-icons';
+import { bellIcon, caretAltDownIcon, searchIcon, userIcon } from '@progress/kendo-svg-icons';
 import { MessageService } from '@progress/kendo-angular-l10n';
 import { IntlService, CldrIntlService } from '@progress/kendo-angular-intl';
 import { CustomMessagesService } from '../../services/custom-messages.service';
@@ -27,6 +27,8 @@ import {
 export class HeaderComponent {
     public searchIcon: SVGIcon = searchIcon;
     public dropDownIcon: SVGIcon = caretAltDownIcon;
+    public bellIcon: SVGIcon = bellIcon;
+    public userIcon: SVGIcon = userIcon;
     public suggestions: string[] = searchSuggestionsEn;
     public selectedLanguage = { locale: 'English', localeId: 'en-US' };
     public customMsgService: CustomMessagesService;

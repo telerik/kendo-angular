@@ -12,7 +12,7 @@ kendo-dateinput {
         &.active {
             font-weight: bold;
             color: black;
-            border-bottom: 3px solid $active-state-base;
+            border-bottom: calc(var(--kendo-spacing-1px) * 3) solid $active-state-base;
         }
     }
 }

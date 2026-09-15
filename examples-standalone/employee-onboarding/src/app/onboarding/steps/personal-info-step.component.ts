@@ -7,7 +7,8 @@ import { KENDO_LABELS } from '@progress/kendo-angular-label';
   selector: 'app-personal-info-step',
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [ReactiveFormsModule, KENDO_INPUTS, KENDO_LABELS],
-  templateUrl: './personal-info-step.component.html'
+  templateUrl: './personal-info-step.component.html',
+  styleUrl: './personal-info-step.component.css'
 })
 export class PersonalInfoStepComponent {
   readonly group = input.required<FormGroup>();

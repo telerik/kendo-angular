@@ -8,7 +8,7 @@
     [modelFields]="modelFields"
     startTime="08:00"
     endTime="17:00"
-    style="height: 600px"
+    class="scheduler"
 >
     <kendo-scheduler-timeline-view></kendo-scheduler-timeline-view>
     <kendo-scheduler-day-view></kendo-scheduler-day-view>
@@ -16,7 +16,7 @@
     <kendo-scheduler-month-view></kendo-scheduler-month-view>
     <kendo-scheduler-agenda-view></kendo-scheduler-agenda-view>
     <ng-template kendoSchedulerToolbarTemplate let-selectedDate="selectedDate">
-        <div style="display: flex; align-items: center; width: 100%">
+        <div class="scheduler__toolbar">
             <div kendoSchedulerToolbarNavigation></div>
             <span class="k-spacer"></span>
             <kendo-dropdownlist
@@ -25,10 +25,10 @@
                 valueField="value"
                 [(value)]="selectedLanguage"
                 (valueChange)="changeLanguage($event)"
-                style="width: 150px; margin-right: 8px"
+                class="scheduler__language-selector"
             >
             </kendo-dropdownlist>
-            <div kendoSchedulerToolbarViewSelector [toolbarWidth]="1200" [responsiveBreakpoint]="600"></div>
+            <div kendoSchedulerToolbarViewSelector></div>
         </div>
     </ng-template>
 </kendo-scheduler>

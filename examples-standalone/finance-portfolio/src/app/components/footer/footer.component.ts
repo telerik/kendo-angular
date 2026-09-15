@@ -1,5 +1,4 @@
 import { Component, ViewEncapsulation } from '@angular/core';
-import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-footer',
@@ -9,5 +8,4 @@ import { Router } from '@angular/router';
 })
 export class FooterComponent {
     public currentYear: number = new Date().getFullYear();
-    constructor(public router: Router) {}
 }

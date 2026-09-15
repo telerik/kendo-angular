@@ -7,10 +7,11 @@ import { DetailComponent } from './detail.component';
 import { SharedModule } from '../shared/shared.module';
 import { ChartsModule } from '@progress/kendo-angular-charts';
 import { IntlModule } from "@progress/kendo-angular-intl";
+import { ButtonsModule } from '@progress/kendo-angular-buttons';
 
 
 @NgModule({
   declarations: [DetailComponent],
-  imports: [CommonModule, SharedModule, ChartsModule,IntlModule, DetailRoutingModule]
+  imports: [CommonModule, SharedModule, ChartsModule, IntlModule, ButtonsModule, DetailRoutingModule]
 })
 export class DetailModule {}

@@ -8,7 +8,7 @@
 .card-title {
   margin: 0;
   font-weight: 600;
-  color: #232A36;
+  color: var(--kendo-color-on-app-surface);
 }
 
 .patient-dropdown {
@@ -16,11 +16,11 @@
 }
 
 .vitals-card {
-  background: #fff;
-  border: 1px solid #E8ECF1;
-  border-radius: 16px;
+  background: var(--kendo-color-surface-alt);
+  border: 1px solid var(--kendo-color-border);
+  border-radius: var(--kendo-border-radius-xl);
   padding: 28px 32px 24px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  box-shadow: var(--kendo-elevation-1);
 }
 
 .vitals-card + .vitals-card {
@@ -40,7 +40,7 @@
 .risk-gauge-label,
 .risk-legend-range {
   font-size: 14px;
-  color: #6B7A8D;
+  color: var(--kendo-color-subtle);
 }
 
 .card-subtitle {
@@ -78,17 +78,17 @@
 .lab-metric-name {
   font-size: 13px;
   font-weight: 600;
-  color: #232A36;
+  color: var(--kendo-color-on-app-surface);
 }
 
 .lab-metric-value {
   font-size: 13px;
   font-weight: 600;
-  color: #232A36;
+  color: var(--kendo-color-on-app-surface);
 }
 
 .lab-metric-value.out-of-range {
-  color: #E65548;
+  color: var(--kendo-color-error);
 }
 
 .lab-range-chart {
@@ -178,21 +178,20 @@
   color: #232A36;
 }
 
-@media (max-width: 1270px) {
+/* Standard layout boundaries: 1440 / 1024 / 768 / 390px */
+@media (max-width: 1024px) {
   .charts-row {
     grid-template-columns: 1fr;
   }
 }
 
-/* 576px – 899px: card padding 16px */
-@media (min-width: 576px) and (max-width: 899px) {
+@media (max-width: 768px) {
   .vitals-card {
     padding: 16px;
   }
 }
 
-/* Below 575px: 12px gaps */
-@media (max-width: 575px) {
+@media (max-width: 390px) {
   .vitals-card {
     padding: 12px;
   }
@@ -206,5 +205,3 @@
     margin-top: 12px;
   }
 }
-
-

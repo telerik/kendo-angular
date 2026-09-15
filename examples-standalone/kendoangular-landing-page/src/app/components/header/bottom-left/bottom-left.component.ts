@@ -193,35 +193,6 @@ export class BottomLeftComponent {
     </defs>
   </svg>`;
 
-    private kendokaHand = `<svg
-    width="17"
-    height="10"
-    viewBox="0 0 17 10"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <g clip-path="url(#clip0_6418_12472)">
-      <path
-        d="M14.244 0.655042C15.0707 0.757362 15.8229 1.18379 16.3353 1.84057C16.8477 2.49735 17.0783 3.33073 16.9765 4.15749L16.7512 5.99925C16.6446 6.8629 16.2293 7.65889 15.582 8.24041C14.9346 8.82193 14.0988 9.14977 13.2287 9.16349L8.25092 9.24575C7.44845 9.25926 6.66441 9.00474 6.02287 8.52249C5.38134 8.04023 4.91893 7.35779 4.70891 6.58318L4.10558 4.35906C3.97686 3.88437 3.96142 3.38608 4.06042 2.90431C4.15942 2.42254 4.37012 1.97073 4.6756 1.58527C4.98108 1.1998 5.37279 0.891433 5.81921 0.684982C6.26562 0.47853 6.75427 0.379757 7.24582 0.396623L13.969 0.629982C14.0608 0.635984 14.1529 0.643392 14.244 0.655042Z"
-        fill="#f42e19"
-      />
-      <path
-        d="M4.84016 6.08372L4.17891 1.42545C4.14218 1.16215 4.01034 0.921411 3.80825 0.748684L3.24125 0.262553C3.09754 0.139277 2.9242 0.0555881 2.73829 0.0197244C2.55238 -0.0161394 2.36033 -0.00293826 2.18108 0.0580357C2.00183 0.11901 1.84156 0.225649 1.71608 0.367435C1.5906 0.509221 1.50422 0.681258 1.46549 0.866592L0.371094 6.08266L4.84016 6.08372Z"
-        fill="#f42e19"
-      />
-    </g>
-    <defs>
-      <clipPath id="clip0_6418_12472">
-        <rect
-          width="16.6289"
-          height="9.24628"
-          fill="white"
-          transform="translate(0.371094)"
-        />
-      </clipPath>
-    </defs>
-  </svg>`;
-
     constructor(private sanitizer: DomSanitizer) {}
 
     public getSanitizedSvg(svg: string): SafeHtml {
@@ -230,10 +201,6 @@ export class BottomLeftComponent {
 
     public getKendokaSvg(): SafeHtml {
         return this.getSanitizedSvg(this.kendokaSvg);
-    }
-
-    public getKendokaHand(): SafeHtml {
-        return this.getSanitizedSvg(this.kendokaHand);
     }
 
     public sliderValue = 7;

@@ -1,29 +1,30 @@
 .my-portfolio-title {
-    font-weight: 500;
-    font-size: 24px;
-    line-height: 30px;
-    color: #626880
+    font-weight: var(--kendo-font-weight-medium);
+    font-size: var(--kendo-font-size-xl);
+    line-height: var(--kendo-line-height-md);
+    color: var(--kendo-color-subtle);
+    margin-block: var(--kendo-spacing-2) var(--kendo-spacing-3);
 }
 
 .container {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-between;
-    padding-bottom: 16px;
+    gap: var(--kendo-spacing-4);
+    padding-bottom: var(--kendo-spacing-4);
 }
 
 .card-title {
-    font-size: 14px;
-    font-weight: 700;
-    line-height: 20px;
-    color: #000000;
+    font-size: var(--kendo-font-size-sm);
+    font-weight: var(--kendo-font-weight-bold);
+    line-height: var(--kendo-line-height-sm);
+    color: var(--kendo-color-on-app-surface);
 }
 
 .card-subtitle.k-card-subtitle {
-    font-size: 12px;
-    line-height: 20px;
-    color: #AEAEAE;
+    font-size: var(--kendo-font-size-xs);
+    line-height: var(--kendo-line-height-sm);
+    color: var(--kendo-color-subtle);
 }
 
 .k-card-header {
@@ -37,29 +38,46 @@
 .price {
     position: absolute;
     right: 0;
-    padding-right: 18px;
+    padding-right: var(--kendo-spacing-4\.5);
 }
 
 .card {
-    flex-shrink: 0.3;
+    flex: 1 1 calc(var(--kendo-spacing-24) * 3);
+    min-width: 0;
 }
 
 .negative {
-    color: #f31700;
+    color: var(--kendo-color-error);
 }
 
 .positive {
-    color: #4B5FFA;
+    color: var(--kendo-color-secondary);
 }
 
 .arrow-up {
-    width: 8px;
-    height: 8px;
-    margin-bottom: 3px;
+    width: calc(var(--kendo-icon-size) * 0.5);
+    height: calc(var(--kendo-icon-size) * 0.5);
+    margin-bottom: var(--kendo-spacing-1);
 }
 
 .arrow-down {
-    width: 8px;
-    height: 8px;
-    margin-bottom: 2px;
+    width: calc(var(--kendo-icon-size) * 0.5);
+    height: calc(var(--kendo-icon-size) * 0.5);
+    margin-bottom: var(--kendo-spacing-0\.5);
+}
+
+.portfolio-card__header {
+    display: flex;
+    align-items: center;
+    gap: var(--kendo-spacing-2);
+}
+
+.portfolio-card__avatar {
+    background-color: transparent;
+}
+
+@media (max-width: 575px) {
+    .card {
+        flex-basis: 100%;
+    }
 }

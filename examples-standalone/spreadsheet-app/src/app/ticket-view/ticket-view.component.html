@@ -1,8 +1,21 @@
 <app-header></app-header>
 <div class="page-title">
-    <h1 class="k-h1">Get Tickets</h1>
+    <h1 class="page-heading">Get Tickets</h1>
 </div>
 <div class="page-container">
+    @if (bookingSubmitted) {
+        <section class="booking-confirmation" aria-labelledby="booking-confirmation-title">
+            <span class="confirmation-icon" aria-hidden="true">✓</span>
+            <h2 id="booking-confirmation-title">Your booking is confirmed</h2>
+            <p>
+                Your selected tickets total <strong>{{ calculateTotalPrice() }} USD</strong>. The event budget has been
+                updated with the booking income.
+            </p>
+            <button kendoButton themeColor="primary" size="large" type="button" (click)="startNewBooking()">
+                Book more tickets
+            </button>
+        </section>
+    } @else {
     <form class="k-form k-form-md" [formGroup]="formGroup" (ngSubmit)="submitForm()">
         <div class="k-messagebox k-messagebox-info">
             This form is just an example.<br />
@@ -17,8 +30,8 @@
                 <kendo-formfield>
                     <kendo-label [for]="package">Full package: all workshops + talks</kendo-label>
                     <div class="input-container">
-                        <h5 class="k-h5">
-                            {{ calculateTicketPrice("fullPackage") }} USD <span class="k-font-weight-normal">x</span>
+                        <h5 class="ticket-price">
+                            {{ calculateTicketPrice("fullPackage") }} USD <span class="ticket-price__multiplier">x</span>
                         </h5>
                         <kendo-numerictextbox
                             #package
@@ -33,9 +46,9 @@
                 <kendo-formfield>
                     <kendo-label [for]="workshop">Workshops: 1st day</kendo-label>
                     <div class="input-container">
-                        <h5 class="k-h5">
+                        <h5 class="ticket-price">
                             {{ calculateTicketPrice("workshopFirstDay") }} USD
-                            <span class="k-font-weight-normal">x</span>
+                            <span class="ticket-price__multiplier">x</span>
                         </h5>
                         <kendo-numerictextbox
                             #workshop
@@ -50,9 +63,9 @@
                 <kendo-formfield>
                     <kendo-label [for]="workshop2">Workshops: 2nd day</kendo-label>
                     <div class="input-container">
-                        <h5 class="k-h5">
+                        <h5 class="ticket-price">
                             {{ calculateTicketPrice("workshopSecondDay") }} USD
-                            <span class="k-font-weight-normal">x</span>
+                            <span class="ticket-price__multiplier">x</span>
                         </h5>
                         <kendo-numerictextbox
                             #workshop2
@@ -67,8 +80,8 @@
                 <kendo-formfield>
                     <kendo-label [for]="talks">Talks only</kendo-label>
                     <div class="input-container">
-                        <h5 class="k-h5">
-                            {{ calculateTicketPrice("talksOnly") }} USD <span class="k-font-weight-normal">x</span>
+                        <h5 class="ticket-price">
+                            {{ calculateTicketPrice("talksOnly") }} USD <span class="ticket-price__multiplier">x</span>
                         </h5>
                         <kendo-numerictextbox
                             #talks
@@ -87,8 +100,8 @@
                 <kendo-formfield>
                     <kendo-label [for]="tickets">Online Talks</kendo-label>
                     <div class="input-container">
-                        <h5 class="k-h5">
-                            {{ calculateTicketPrice("onlineTickets") }} USD <span class="k-font-weight-normal">x</span>
+                        <h5 class="ticket-price">
+                            {{ calculateTicketPrice("onlineTickets") }} USD <span class="ticket-price__multiplier">x</span>
                         </h5>
                         <kendo-numerictextbox
                             #tickets
@@ -105,8 +118,8 @@
             <div class="form-section">
                 <span class="k-form-separator"></span>
                 <div class="total-price">
-                    <h5 class="k-h5">
-                        <span class="k-font-weight-normal">TOTAL:</span> {{ calculateTotalPrice() }} USD
+                    <h5 class="ticket-price">
+                        <span class="ticket-price__multiplier">TOTAL:</span> {{ calculateTotalPrice() }} USD
                     </h5>
                 </div>
             </div>
@@ -119,7 +132,7 @@
                         themeColor="primary"
                         type="submit"
                         size="large"
-                        style="width: 86px"
+                        class="form-submit-button"
                     >
                         Book Now
                     </button>
@@ -129,13 +142,14 @@
                         type="button"
                         (click)="clearForm()"
                         size="large"
-                        style="width: 80px"
+                        class="form-clear-button"
                         >Clear</button
                     >
                 </div>
             </div>
         </fieldset>
     </form>
+    }
 </div>
 
 <ng-template #notificationTemplate>

@@ -1,12 +1,200 @@
-.k-text-blue {
+.overview-page {
+    padding: var(--kendo-spacing-8) var(--kendo-spacing-15) var(--kendo-spacing-2);
+}
+
+.account-snapshot-card {
+    grid-column: span 12;
+    gap: var(--kendo-spacing-5);
+}
+
+.account-snapshot-identity {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    gap: var(--kendo-spacing-3);
+    align-items: center;
+}
+
+.account-snapshot-icon {
+    display: grid;
+    place-items: center;
+    width: var(--kendo-spacing-10);
+    height: var(--kendo-spacing-10);
+    border-radius: var(--kendo-border-radius-full);
+    background-color: var(--kendo-color-info-subtle);
+    color: var(--kendo-color-info-on-subtle);
+}
+
+.account-snapshot-identity > div {
+    display: grid;
+    gap: var(--kendo-spacing-1);
+}
+
+.account-snapshot-detail,
+.account-snapshot-metrics span {
+    color: var(--kendo-color-subtle);
+    font-size: var(--kendo-font-size-sm);
+}
+
+.account-snapshot-status {
+    padding: var(--kendo-spacing-1) var(--kendo-spacing-3);
+    border-radius: var(--kendo-border-radius-full);
+    background-color: var(--kendo-color-success-subtle);
+    color: var(--kendo-color-success-on-subtle);
+    font-size: var(--kendo-font-size-sm);
+    font-weight: var(--kendo-font-weight-medium);
+}
+
+.account-snapshot-metrics {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--kendo-spacing-4);
+}
+
+.account-snapshot-metrics > div {
+    display: grid;
+    gap: var(--kendo-spacing-1);
+    padding-top: var(--kendo-spacing-3);
+    border-top: 1px solid var(--kendo-color-border);
+}
+
+.account-snapshot-metrics strong {
+    color: var(--kendo-color-primary-on-surface);
+    font-size: var(--kendo-font-size-lg);
+}
+
+.page-title {
+    margin-block: 0 var(--kendo-spacing-6);
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.overview-grid {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    gap: var(--kendo-spacing-4);
+    overflow: hidden;
+}
+
+.overview-summary-card {
+    display: flex;
+    grid-column: span 12;
+    width: 100%;
+}
+
+.overview-card {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    gap: var(--kendo-spacing-4);
+    grid-column: span 12;
+}
+
+.overview-card > .k-card-body {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    gap: var(--kendo-spacing-4);
+}
+
+.transactions-card {
+    margin-block-end: var(--kendo-spacing-4);
+}
+
+.card-heading,
+.card-content,
+.budget-content {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+}
+
+.card-heading {
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.card-title {
+    font-weight: var(--kendo-font-weight-medium);
+}
+
+.card-value {
+    font-size: var(--kendo-font-size-xl);
+    font-weight: var(--kendo-font-weight-normal);
+}
+
+.savings-list {
+    gap: var(--kendo-spacing-3);
+}
+
+.budget-content {
+    justify-content: center;
+    gap: var(--kendo-spacing-1);
+}
+
+.accent-value {
     color: var(--kendo-color-series-b);
 }
 
-.k-vertical-separator {
-    width: 50px;
-    border: 1px solid #ffffff;
-    opacity: 20%;
+.budget-summary {
+    display: flex;
+    flex: 1 1 auto;
+    align-items: center;
+    justify-content: center;
+    gap: var(--kendo-spacing-1);
+}
+
+.budget-amount {
+    display: flex;
+    flex-direction: column;
+    text-align: start;
+}
+
+.budget-amount-end {
+    text-align: end;
+}
+
+.amount-value {
+    font-size: var(--kendo-font-size-lg);
+}
+
+.amount-label {
+    font-size: var(--kendo-font-size-md);
+    font-weight: var(--kendo-font-weight-bold);
+}
+
+.budget-divider {
+    width: var(--kendo-spacing-12);
+    border-block-start: 1px solid var(--kendo-color-border);
+    opacity: 0.2;
     transform: rotate(-90deg);
-    border-radius: 3px;
-    align-content: center;
+}
+
+@media (min-width: 64rem) {
+    .overview-grid {
+        gap: var(--kendo-spacing-6);
+    }
+
+    @media (max-width: 30rem) {
+        .account-snapshot-identity {
+            grid-template-columns: auto minmax(0, 1fr);
+        }
+
+        .account-snapshot-status {
+            grid-column: 2;
+            justify-self: start;
+        }
+
+        .account-snapshot-metrics {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    .overview-summary-card {
+        grid-column: span 4;
+    }
+
+    .savings-card,
+    .budget-card {
+        grid-column: span 6;
+    }
 }

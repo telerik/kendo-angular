@@ -47,6 +47,11 @@ export class SpeakerViewComponent {
     }
 
     public submitForm(): void {
+        if (this.formGroup.invalid) {
+            this.formGroup.markAllAsTouched();
+            return;
+        }
+
         this.excelDataService.saveSpeakerData(this.formGroup.value);
         this.notificationService.show({
             content: this.notificationTemplate,
@@ -66,7 +71,7 @@ export class SpeakerViewComponent {
             jobTitle: "",
             companyName: "",
             linkedinProfile: "",
-            speakerType: 1,
+            speakerType: "Talk - Online",
             suggestedTopics: "",
             suggestedDescription: "",
         });

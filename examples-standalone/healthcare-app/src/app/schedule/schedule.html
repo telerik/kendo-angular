@@ -9,7 +9,7 @@
           [editable]="false"
           startTime="07:00"
           endTime="21:00"
-          [style.height.%]="100"
+          class="scheduler"
           (eventClick)="handleEventClick($event)"
         >
           <kendo-scheduler-day-view [eventClass]="eventClass" [eventStyles]="eventStyles">
@@ -55,12 +55,11 @@
               placeholder="Search daily tasks"
               [clearButton]="true"
               rounded="full"
-              [style.height.px]="40"
               class="tasks-search"
               aria-label="Search daily tasks"
             >
               <ng-template kendoTextBoxPrefixTemplate>
-                <kendo-svgicon [icon]="searchIcon" [style.marginLeft.px]="10"></kendo-svgicon>
+                <kendo-svgicon [icon]="searchIcon" class="search-prefix-icon"></kendo-svgicon>
               </ng-template>
             </kendo-textbox>
             <button
@@ -182,7 +181,7 @@
           <kendo-dropdownlist
             [data]="priorities"
             [(ngModel)]="newTaskPriority"
-            [style.width.px]="250"
+            class="priority-select"
             adaptiveMode="auto"
           >
           </kendo-dropdownlist>

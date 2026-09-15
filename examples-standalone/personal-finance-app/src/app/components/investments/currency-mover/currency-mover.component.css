@@ -1,7 +1,42 @@
-.k-text-red {
-    color: #b05768;
+.currency-mover,
+.currency-identity,
+.metric-change {
+    display: flex;
+    align-items: center;
 }
 
-.k-text-green {
-    color: #6f9164;
+.currency-mover {
+    flex-flow: row wrap;
+    justify-content: space-between;
+    gap: var(--kendo-spacing-4);
+}
+
+.currency-identity {
+    gap: var(--kendo-spacing-2);
+}
+
+.currency-label,
+.currency-metric {
+    display: flex;
+    flex-direction: column;
+}
+
+.currency-code,
+.metric-value {
+    font-size: var(--kendo-font-size-lg);
+    font-weight: var(--kendo-font-weight-bold);
+}
+
+.currency-name,
+.metric-change-value {
+    font-size: var(--kendo-font-size-sm);
+    font-weight: var(--kendo-font-weight-normal);
+}
+
+.positive-change {
+    color: var(--kendo-color-success-on-surface);
+}
+
+.negative-change {
+    color: var(--kendo-color-error-on-surface);
 }

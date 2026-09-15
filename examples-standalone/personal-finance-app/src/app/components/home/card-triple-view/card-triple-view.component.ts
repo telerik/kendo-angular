@@ -4,10 +4,11 @@ import { CommonModule } from '@angular/common';
 import { IntlModule, IntlService, NumberFormatOptions } from '@progress/kendo-angular-intl';
 import { CustomMessagesService } from '../../../services/custom-messages.service';
 import { MessageService } from '@progress/kendo-angular-l10n';
+import { KENDO_LAYOUT } from '@progress/kendo-angular-layout';
 
 @Component({
     selector: 'app-card-triple-view',
-    imports: [CommonModule, IntlModule],
+    imports: [CommonModule, IntlModule, KENDO_LAYOUT],
     templateUrl: './card-triple-view.component.html',
     styleUrl: './card-triple-view.component.css',
 })

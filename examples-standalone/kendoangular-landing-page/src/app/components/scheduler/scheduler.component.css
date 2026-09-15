@@ -1,0 +1,14 @@
+.scheduler {
+    height: 600px;
+}
+
+.scheduler__toolbar {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.scheduler__language-selector {
+    width: 150px;
+    margin-right: var(--kendo-spacing-2);
+}

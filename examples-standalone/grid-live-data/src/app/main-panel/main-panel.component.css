@@ -1,89 +1,99 @@
 .right-panel {
-    padding: 10px 32px;
-    width: 370px;
-    background: #f8f9fc;
+    min-width: 0;
+    padding: var(--kendo-spacing-6);
 }
 
 .right-panel-title {
-    font-size: 24px;
-    font-weight: 500;
-    line-height: 30px;
-    color: #626880;
+    font-size: var(--kendo-font-size-xl);
+    font-weight: var(--kendo-font-weight-medium);
+    line-height: var(--kendo-line-height-md);
+    color: var(--kendo-color-subtle);
+    margin-block: var(--kendo-spacing-2) var(--kendo-spacing-3);
 }
 
 .panel-card {
-    line-height: 1;
-    padding: 16px;
-    border-radius: 20px;
-    background: radial-gradient(44.65% 148.96% at 31.52% 49.82%, #4c5ffa 0%, #b5a9ff 100%);
+    line-height: var(--kendo-line-height-xs);
+    padding: var(--kendo-spacing-4);
+    border-radius: var(--kendo-border-radius-xxl);
+    background: radial-gradient(44.65% 148.96% at 31.52% 49.82%, var(--kendo-color-secondary) 0%, var(--kendo-color-tertiary) 100%);
 }
 
 .card-balance-text {
-    font-size: 20px;
-    font-weight: 400;
-    line-height: 28px;
-    color: #ffffff;
+    font-size: var(--kendo-font-size-lg);
+    font-weight: var(--kendo-font-weight-normal);
+    line-height: var(--kendo-line-height-lg);
+    color: var(--kendo-color-on-secondary);
 }
 
 .card-balance-currency {
-    font-size: 42px;
-    font-weight: 700;
-    line-height: 48px;
-    color: #ffffff;
+    font-size: calc(var(--kendo-font-size-xl) * 2.625);
+    font-weight: var(--kendo-font-weight-bold);
+    line-height: var(--kendo-line-height-md);
+    color: var(--kendo-color-on-secondary);
 }
 
 .card-profit-text {
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 20px;
-    color: #ffffff;
+    font-size: var(--kendo-font-size-md);
+    font-weight: var(--kendo-font-weight-normal);
+    line-height: var(--kendo-line-height-sm);
+    color: var(--kendo-color-on-secondary);
 }
 
 .card-profit-currency {
     display: inline-block;
-    font-size: 32px;
-    font-weight: 700;
-    line-height: 36px;
-    color: #ffffff;
+    font-size: calc(var(--kendo-font-size-xl) * 2);
+    font-weight: var(--kendo-font-weight-bold);
+    line-height: var(--kendo-line-height-sm);
+    color: var(--kendo-color-on-secondary);
 }
 
 kendo-chip {
-    color: #ffffff !important;
-    background: rgba(75, 95, 250, 0.5) !important;
-    border-radius: 25px;
+    color: var(--kendo-color-on-secondary) !important;
+    background: color-mix(in srgb, var(--kendo-color-secondary) 50%, transparent) !important;
+    border-radius: var(--kendo-border-radius-full);
     display: inline-block;
     position: relative;
-    left: 120px;
-    top: -10px;
+    left: var(--kendo-spacing-24);
+    top: calc(var(--kendo-spacing-2\.5) * -1);
 }
 
 .symbol {
-    margin: 3px 5px 0px 5px;
-    color: black;
-    font-weight: bold;
+    margin: var(--kendo-spacing-1) var(--kendo-spacing-1\.5) var(--kendo-spacing-0) var(--kendo-spacing-1\.5);
+    color: var(--kendo-color-on-app-surface);
+    font-weight: var(--kendo-font-weight-bold);
 }
 
-.transaction-card, .news-feed-card {
-    border: 0;
-    background-color: inherit;
-}
-
-.transaction-card > .k-card-header {
-    border-width: 0 0 0px;
-    padding: 12px 0px;
-}
-
-.news-feed-card > .k-card-header{
-  padding-left: 0px;
+.card-container {
+    display: grid;
+    gap: var(--kendo-spacing-3);
 }
 
 .k-card-body p {
-    margin-bottom: 5px;
+    margin-bottom: var(--kendo-spacing-1\.5);
 }
 
 .k-card-subtitle {
-    font-size: 16px;
-    font-weight: 300;
-    line-height: 24px;
-    color: #424242;
+    font-size: var(--kendo-font-size-md);
+    font-weight: var(--kendo-font-weight-light);
+    line-height: var(--kendo-line-height-md);
+    color: var(--kendo-color-on-surface);
+}
+
+@media (max-width: 991px) {
+    .right-panel {
+        display: grid;
+        gap: var(--kendo-spacing-4);
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .right-panel > * {
+        min-width: 0;
+    }
+}
+
+@media (max-width: 767px) {
+    .right-panel {
+        grid-template-columns: 1fr;
+        padding: var(--kendo-spacing-4);
+    }
 }

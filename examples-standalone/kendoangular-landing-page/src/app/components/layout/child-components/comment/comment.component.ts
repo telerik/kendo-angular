@@ -3,10 +3,12 @@ import { MyCardComponent, MyComment } from '../comment-actions/comment-actions.c
 import { KENDO_AVATAR } from '@progress/kendo-angular-layout';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { KENDO_BUTTONS } from '@progress/kendo-angular-buttons';
+import { SVGIcon, heartIcon } from '@progress/kendo-svg-icons';
 
 @Component({
     selector: 'post-comment',
-    imports: [KENDO_AVATAR, CommonModule, FormsModule],
+    imports: [KENDO_AVATAR, KENDO_BUTTONS, CommonModule, FormsModule],
     templateUrl: './comment.component.html',
 })
 export class CommentComponent {
@@ -20,12 +22,8 @@ export class CommentComponent {
         }
     }
 
-    public commentHeartIcon(comment: MyComment): string {
-        if (comment && comment.likes > 0) {
-            return 'k-icon k-font-icon k-i-heart';
-        } else {
-            return 'k-icon k-font-icon k-i-heart-outline';
-        }
+    public commentHeartIcon(_comment: MyComment): SVGIcon {
+        return heartIcon;
     }
 
     public postComment(card: MyCardComponent): void {

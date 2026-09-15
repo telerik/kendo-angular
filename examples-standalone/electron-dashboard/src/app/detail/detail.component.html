@@ -1,19 +1,20 @@
-<div class="container">
-    <div class="banner">
-      <h1>Kendo UI for Angular</h1>
-      <p>
-        Build responsive and powerful web applications with Kendo UI for
-        Angular.
-      </p>
-      <a
-        href="https://www.telerik.com/try/kendo-angular-ui"
-        class="try-button"
-        target="_blank"
-        >Try it out</a
-      >
+<section class="page-heading">
+  <div>
+    <p class="eyebrow">Revenue performance</p>
+    <h1>Sales analytics</h1>
+    <p>Quarterly performance with projected revenue based on current activity.</p>
+  </div>
+  <a kendoButton fillMode="outline" routerLink="/home">Back to dashboard</a>
+</section>
+<section class="chart-panel" aria-labelledby="trend-heading">
+  <div class="panel-header">
+    <div>
+      <h2 id="trend-heading">Revenue trend and forecast</h2>
+      <p>Actual sales are shown alongside linear and polynomial projections.</p>
     </div>
+    <span>Updated today</span>
+  </div>
     <kendo-chart
-      [style.width.%]="50"
       [pannable]="{ lock: 'y' }"
       [zoomable]="{ mousewheel: { lock: 'y' } }"
     >
@@ -40,7 +41,7 @@
           name="Trend (POLY)"
           type="polynomialTrendline"
           for="Sales By Quarter"
-          color="red"
+          color="var(--kendo-color-error)"
         >
           <kendo-chart-series-item-trendline [order]="3">
           </kendo-chart-series-item-trendline>
@@ -69,7 +70,4 @@
       </kendo-chart-tooltip>
       <kendo-chart-legend position="bottom"></kendo-chart-legend>
     </kendo-chart>
-    <a class="navigation" routerLink="/">{{
-      "PAGES.DETAIL.BACK_TO_HOME" | translate
-    }}</a>
-</div>
+</section>

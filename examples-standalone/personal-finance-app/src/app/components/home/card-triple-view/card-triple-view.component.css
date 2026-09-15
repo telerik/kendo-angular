@@ -1,7 +1,49 @@
-.k-text-green {
-    color: var(--kendo-color-green);
+:host {
+    align-self: stretch;
 }
 
-.k-text-red {
-    color: var(--kendo-color-red);
+:host kendo-card {
+    flex: 1 1 auto;
+}
+
+.summary-card-content {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: flex-start;
+    justify-content: center;
+    gap: var(--kendo-spacing-5);
+}
+
+.summary-card-heading {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--kendo-spacing-1);
+}
+
+.summary-card-title,
+.summary-card-description {
+    white-space: nowrap;
+}
+
+.summary-card-value {
+    display: flex;
+    align-items: flex-start;
+}
+
+.summary-card-description {
+    font-size: var(--kendo-font-size-md);
+}
+
+.positive-change {
+    color: var(--kendo-color-success-on-surface);
+}
+
+.negative-change {
+    color: var(--kendo-color-error-on-surface);
+}
+
+@media (min-width: 36rem) {
+    .summary-card-content {
+        flex-direction: column;
+    }
 }

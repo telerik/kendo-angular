@@ -1,6 +1,6 @@
 import { Component } from "@angular/core";
-import { ActivatedRoute, RouterLink } from "@angular/router";
-import { SVGIcon, logoutIcon } from "@progress/kendo-svg-icons";
+import { ActivatedRoute, RouterLink, RouterLinkActive } from "@angular/router";
+import { SVGIcon, logoutIcon, menuIcon } from "@progress/kendo-svg-icons";
 import { KENDO_NAVIGATION } from "@progress/kendo-angular-navigation";
 import { KENDO_ICONS } from "@progress/kendo-angular-icons";
 import { KENDO_BUTTONS } from "@progress/kendo-angular-buttons";
@@ -9,6 +9,7 @@ import { KENDO_BUTTONS } from "@progress/kendo-angular-buttons";
     selector: "app-header",
     imports: [
         RouterLink,
+        RouterLinkActive,
         KENDO_BUTTONS,
         KENDO_NAVIGATION,
         KENDO_ICONS
@@ -18,7 +19,9 @@ import { KENDO_BUTTONS } from "@progress/kendo-angular-buttons";
 })
 export class HeaderComponent {
     public logoutIcon: SVGIcon = logoutIcon;
+    public menuIcon: SVGIcon = menuIcon;
     public roleName: string = "User";
+    public isNavigationOpen = false;
 
     constructor(private route: ActivatedRoute) {}
 
@@ -31,5 +34,13 @@ export class HeaderComponent {
                 this.roleName = "User";
             }
         });
+    }
+
+    public toggleNavigation(): void {
+        this.isNavigationOpen = !this.isNavigationOpen;
+    }
+
+    public closeNavigation(): void {
+        this.isNavigationOpen = false;
     }
 }

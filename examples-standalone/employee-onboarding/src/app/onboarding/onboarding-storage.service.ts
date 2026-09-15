@@ -28,12 +28,13 @@ export class OnboardingStorageService {
     }
   }
 
-  save(draft: Omit<OnboardingDraft, 'version'>): void {
+  save(draft: Omit<OnboardingDraft, 'version'>): boolean {
     try {
       const payload: OnboardingDraft = { version: 1, ...draft };
       sessionStorage.setItem(ONBOARDING_STORAGE_KEY, JSON.stringify(payload));
+      return true;
     } catch {
-      /* quota or private mode */
+      return false;
     }
   }
 

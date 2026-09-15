@@ -1,0 +1,115 @@
+<section
+  class="finance-page statements-page"
+  aria-labelledby="statements-title"
+>
+  <div class="page-heading">
+    <div>
+      <p class="eyebrow">{{ customMsgService.translate('documentsChecking') }}</p>
+      <h1 id="statements-title">{{ customMsgService.translate('statements') }}</h1>
+      <p class="page-lede">
+        {{ customMsgService.translate('statementsPageLead') }}
+      </p>
+    </div>
+    <button
+      kendoButton
+      fillMode="outline"
+      [svgIcon]="fileTextIcon"
+      (click)="setAction('Export statement history')"
+    >
+      {{ customMsgService.translate('exportHistory') }}
+    </button>
+  </div>
+  <div class="filter-bar" role="search" [attr.aria-label]="customMsgService.translate('filterStatements')">
+    <div class="filter-field">
+      <label for="statement-period">{{ customMsgService.translate('period') }}</label
+      ><kendo-dropdownlist
+        id="statement-period"
+        [data]="statementPeriods"
+        [value]="selectedPeriod"
+        (valueChange)="selectedPeriod = $event; filterStatements()"
+      ></kendo-dropdownlist>
+    </div>
+    <div class="filter-field filter-search">
+      <label for="statement-search">{{ customMsgService.translate('searchStatements') }}</label
+      ><kendo-textbox
+        id="statement-search"
+        [value]="query"
+        (valueChange)="query = $event; filterStatements()"
+        [placeholder]="customMsgService.translate('searchByPeriodOrAccount')"
+      ></kendo-textbox>
+    </div>
+  </div>
+  @if (actionMessage) {
+    <div class="feedback-banner" role="status">{{ actionMessage }}</div>
+  }
+  <kendo-card class="statement-card">
+    <kendo-card-body>
+      <div class="card-heading">
+        <div>
+          <p class="card-kicker">{{ customMsgService.translate('availableDocuments') }}</p>
+          <h2>{{ filteredStatements.length }} {{ customMsgService.translate('statementsLower') }}</h2>
+        </div>
+        <span class="muted-copy">{{ customMsgService.translate('updatedToday') }}</span>
+      </div>
+      @if (filteredStatements.length === 0) {
+        <div class="state-panel" role="status">
+          <span class="state-icon" aria-hidden="true"
+            ><kendo-svgicon [icon]="infoCircleIcon"></kendo-svgicon
+          ></span>
+          <h3>{{ customMsgService.translate('noStatements') }}</h3>
+          <p>
+            Try a different period or clear the search to see available
+            documents.
+          </p>
+          <button
+            kendoButton
+            fillMode="outline"
+            (click)="
+              query = '';
+              selectedPeriod = statementPeriods[0];
+              filterStatements()
+            "
+          >
+            {{ customMsgService.translate('clearFilters') }}
+          </button>
+        </div>
+      } @else {
+        <div class="statement-list">
+          @for (statement of filteredStatements; track statement.id) {
+            <div class="statement-row">
+              <span class="document-icon" aria-hidden="true"
+                ><kendo-svgicon [icon]="fileTextIcon"></kendo-svgicon
+              ></span>
+              <div class="statement-copy">
+                <strong>{{ statement.period }}</strong
+                ><span
+                  >{{ statement.account }} · {{ customMsgService.translate('issued') }} {{ statement.issued }}</span
+                >
+              </div>
+              <span class="statement-meta"
+                >{{ statement.pages }} {{ customMsgService.translate('pages') }} · {{ statement.size }}</span
+              >
+              <div class="row-actions">
+                <button
+                  kendoButton
+                  fillMode="flat"
+                  [svgIcon]="eyeIcon"
+                  (click)="setAction('Preview ' + statement.period)"
+                >
+                  {{ customMsgService.translate('preview') }}</button
+                ><button
+                  kendoButton
+                  fillMode="outline"
+                  [svgIcon]="downloadIcon"
+                  (click)="setAction('Download ' + statement.period)"
+                >
+                  {{ customMsgService.translate('download') }}
+                </button>
+              </div>
+            </div>
+          }
+        </div>
+      }
+    </kendo-card-body>
+  </kendo-card>
+</section>

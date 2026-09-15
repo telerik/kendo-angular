@@ -1,0 +1,105 @@
+<section class="finance-page profile-page" aria-labelledby="profile-title">
+  <div class="page-heading">
+    <div>
+      <p class="eyebrow">{{ customMsgService.translate('accountPersonalSettings') }}</p>
+      <h1 id="profile-title">{{ customMsgService.translate('userProfile') }}</h1>
+      <p class="page-lede">
+        {{ customMsgService.translate('profilePageLead') }}
+      </p>
+    </div>
+    <button
+      kendoButton
+      themeColor="primary"
+      [svgIcon]="editToolsIcon"
+      (click)="savePreferences()"
+    >
+      {{ customMsgService.translate('savePreferences') }}
+    </button>
+  </div>
+  @if (actionMessage) {
+    <div class="feedback-banner" role="status">{{ actionMessage }}</div>
+  }
+  <div class="profile-layout">
+    <kendo-card class="identity-card"
+      ><kendo-card-body
+        ><div class="identity-header">
+          <kendo-avatar
+            size="large"
+            imageSrc="assets/avatar-image.jpeg"
+          ></kendo-avatar>
+          <div>
+            <h2>Maria Johnson</h2>
+            <p>{{ customMsgService.translate('everydayAccountHolder') }}</p>
+          </div>
+        </div>
+        <div class="verified-line">
+          <kendo-svgicon
+            [icon]="checkCircleIcon"
+            aria-hidden="true"
+          ></kendo-svgicon
+          ><span>{{ customMsgService.translate('identityVerified') }}</span>
+        </div>
+        <dl class="profile-details">
+          <div>
+            <dt>Email</dt>
+            <dd>maria.johnson@example.com</dd>
+          </div>
+          <div>
+            <dt>Phone</dt>
+            <dd>+1 (555) 014-0298</dd>
+          </div>
+          <div>
+            <dt>{{ customMsgService.translate('memberSince') }}</dt>
+            <dd>March 2021</dd>
+          </div>
+        </dl></kendo-card-body
+      ></kendo-card
+    >
+    <kendo-card class="preferences-card"
+      ><kendo-card-body
+        ><div class="card-heading">
+          <div>
+            <p class="card-kicker">{{ customMsgService.translate('communication') }}</p>
+            <h2>{{ customMsgService.translate('notificationPreferences') }}</h2>
+          </div>
+        </div>
+        <div class="preference-row">
+          <div>
+            <strong>{{ customMsgService.translate('securityAlerts') }}</strong>
+            <p>{{ customMsgService.translate('securityAlertsLead') }}</p>
+          </div>
+          <button
+            kendoButton
+            fillMode="flat"
+            [selected]="securityAlerts"
+            [attr.aria-pressed]="securityAlerts"
+            (click)="securityAlerts = !securityAlerts"
+          >
+            {{ customMsgService.translate(securityAlerts ? 'on' : 'off') }}
+          </button>
+        </div>
+        <div class="preference-row">
+          <div>
+            <strong>{{ customMsgService.translate('spendingInsights') }}</strong>
+            <p>{{ customMsgService.translate('spendingInsightsLead') }}</p>
+          </div>
+          <button
+            kendoButton
+            fillMode="flat"
+            [selected]="emailUpdates"
+            [attr.aria-pressed]="emailUpdates"
+            (click)="emailUpdates = !emailUpdates"
+          >
+            {{ customMsgService.translate(emailUpdates ? 'on' : 'off') }}
+          </button>
+        </div>
+        <div class="profile-note">
+          <kendo-svgicon [icon]="userIcon" aria-hidden="true"></kendo-svgicon
+          ><span
+            >{{ customMsgService.translate('profileChangesLocal') }}</span
+          >
+        </div></kendo-card-body
+      ></kendo-card
+    >
+  </div>
+</section>

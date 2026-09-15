@@ -1,5 +1,12 @@
 <div class="planning-page main-content">
   <div class="card-container grid">
+    <header class="page-header">
+      <div>
+        <h1>{{ customMsgService.translate('planning') }}</h1>
+        <p>{{ customMsgService.translate('planningDescription') }}</p>
+      </div>
+      <span class="page-status">{{ customMsgService.translate('lastUpdated') }}</span>
+    </header>
     <h3 class="card-title">{{ customMsgService.translate('teamCalendar') }}</h3>
     <app-card-component class="card-component personal-card" (toggleEvents)="toggleEvents($event)"> </app-card-component>
 
@@ -10,7 +17,7 @@
         [selectedDate]="selectedDate"
         [selectedViewIndex]="1"
         [timezone]="'Etc/UTC'"
-        style="height: 600px"
+        class="planning-scheduler"
         startTime="08:00"
         endTime="19:00"
         [eventStyles]="setEventStyles"
@@ -30,40 +37,40 @@
           <form class="k-form k-form-vertical" [formGroup]="formGroup">
             <fieldset class="k-form-fieldset">
               <kendo-formfield orientation="vertical">
-                <span> Start </span>
+                <span>{{ customMsgService.translate('schedulerStart') }}</span>
                 <kendo-datetimepicker [popupSettings]="{ appendTo: 'root' }" [formControl]="formGroup.get('start')">
                 </kendo-datetimepicker>
               </kendo-formfield>
 
               <kendo-formfield orientation="vertical">
-                <span> End </span>
+                <span>{{ customMsgService.translate('schedulerEnd') }}</span>
                 <kendo-datetimepicker [popupSettings]="{ appendTo: 'root' }" [formControl]="formGroup.get('end')">
                 </kendo-datetimepicker>
               </kendo-formfield>
 
               <kendo-formfield orientation="vertical">
-                <span> Title </span>
-                <kendo-textbox placeholder="Title" [formControl]="formGroup.get('title')"> </kendo-textbox>
+                <span>{{ customMsgService.translate('schedulerTitle') }}</span>
+                <kendo-textbox [placeholder]="customMsgService.translate('schedulerTitle')" [formControl]="formGroup.get('title')"> </kendo-textbox>
               </kendo-formfield>
 
               <kendo-formfield>
-                <span> Description </span>
+                <span>{{ customMsgService.translate('schedulerDescription') }}</span>
                 <kendo-textarea
                   [rows]="2"
-                  placeholder="Add description to the event"
+                  [placeholder]="customMsgService.translate('schedulerDescriptionPlaceholder')"
                   [formControl]="formGroup.get('description')"
                   >
                 </kendo-textarea>
               </kendo-formfield>
 
               <kendo-formfield>
-                <kendo-label class="k-checkbox-label" text="All Day Event">
+                <kendo-label class="k-checkbox-label" [text]="customMsgService.translate('schedulerAllDayEvent')">
                   <input type="checkbox" kendoCheckBox [formControl]="formGroup.get('isAllDay')" />
                 </kendo-label>
               </kendo-formfield>
 
               <kendo-formfield>
-                <span> Team </span>
+                <span>{{ customMsgService.translate('schedulerTeam') }}</span>
                 <kendo-dropdownlist
                   [data]="teams"
                   [valuePrimitive]="true"
@@ -72,12 +79,12 @@
                   [formControl]="formGroup.get('teamID')"
                   >
                   <ng-template kendoDropDownListValueTemplate let-dataItem>
-                    <span class="k-team-mark" [ngStyle]="{ 'background-color': dataItem.teamColor }"></span>&nbsp;{{
+                    <span class="team-mark team-mark--{{ dataItem.teamID }}"></span>&nbsp;{{
                     dataItem?.teamName
                     }}
                   </ng-template>
                   <ng-template kendoDropDownListItemTemplate let-dataItem>
-                    <span class="k-team-mark" [ngStyle]="{ 'background-color': dataItem.teamColor }"></span>
+                    <span class="team-mark team-mark--{{ dataItem.teamID }}"></span>
                     {{ dataItem.teamName }}
                   </ng-template>
                 </kendo-dropdownlist>
@@ -86,7 +93,7 @@
           </form>
 
           <!-- Separate form for recurrence editor -->
-          <form [formGroup]="formGroup" style="margin-top: 35px">
+          <form class="recurrence-form" [formGroup]="formGroup">
             @if (isEditingSeries(editMode)) {
               <div>
                 <kendo-recurrence-editor [formControl]="formGroup.get('recurrenceRule')"> </kendo-recurrence-editor>

@@ -9,7 +9,8 @@ import { ACCESSORY_OPTIONS, LAPTOP_OPTIONS, SOFTWARE_OPTIONS } from '../onboardi
   selector: 'app-equipment-step',
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [ReactiveFormsModule, KENDO_INPUTS, KENDO_LABELS, KENDO_DROPDOWNLIST, KENDO_MULTISELECT],
-  templateUrl: './equipment-step.component.html'
+  templateUrl: './equipment-step.component.html',
+  styleUrl: './equipment-step.component.css'
 })
 export class EquipmentStepComponent {
   readonly group = input.required<FormGroup>();

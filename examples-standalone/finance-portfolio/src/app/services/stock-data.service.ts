@@ -7,7 +7,7 @@ import { SelectionRange } from '@progress/kendo-angular-dateinputs';
 import { MS_PER_MINUTE } from '@progress/kendo-date-math';
 
 // the two collections are mutated directly, simulating an in-memory db data persistence
-import { stocksInPortfolio, uncategorizedStocks, heatmapStocks } from '../data/stocks';
+import { stocksInPortfolio, uncategorizedStocks } from '../data/stocks';
 import { Stock } from '../models/stock';
 import { StockIntervalDetails } from '../models';
 
@@ -46,9 +46,6 @@ export class StockDataService {
         this.data.next(data);
     }
 
-    public getHeatmapStocks(): Array<any> {
-        return heatmapStocks;
-    }
 
     public convertCurrency(dataItem: Stock): any {
         const currency = { GBP: 0.77, EUR: 0.9 };

@@ -1,19 +1,21 @@
 .contact {
-    padding: 8px 14px;
-    margin-bottom: 4px;
-    box-shadow: 0 1px 2px #ccc;
+    padding: var(--kendo-spacing-2) var(--kendo-spacing-3\.5);
+    margin-bottom: var(--kendo-spacing-1);
+    box-shadow: var(--kendo-elevation-1);
+}
+.contact-row {
+    display: flex;
+    align-items: center;
+    gap: var(--kendo-spacing-4);
 }
 .contact h2 {
-    font-size: 1.3em;
+    font-size: var(--kendo-font-size-xl);
     font-weight: normal;
     margin: 0;
 }
 .contact p {
     margin: 0;
-    font-size: 0.8em;
-}
-.k-hstack div {
-    margin-left: 1em;
+    font-size: var(--kendo-font-size-sm);
 }
 .mate-info {
     display: inline-block;
@@ -22,11 +24,11 @@
 .list {
     width: 280px;
     margin: auto;
-    padding: 4px 10px;
-    box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.26), 0 2px 2px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.08);
+    padding: var(--kendo-spacing-1) var(--kendo-spacing-2\.5);
+    box-shadow: var(--kendo-elevation-3);
 }
 .contact-list {
     text-align: center;
-    padding: 4px;
-    font-size: 20px;
+    padding: var(--kendo-spacing-1);
+    font-size: var(--kendo-font-size-lg);
 }

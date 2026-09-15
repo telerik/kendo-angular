@@ -31,12 +31,12 @@ html {
 
 .custom-toolbar {
     width: 100%;
-    height: 41px;
-    background-color: #757575;
+    height: calc(var(--kendo-spacing-10) + var(--kendo-spacing-0\.5));
+    background-color: var(--kendo-color-inverse);
     border-bottom: inset;
     border-bottom-width: 1px;
-    padding: 3px;
-    color: #ffffff;
+    padding: var(--kendo-spacing-1);
+    color: var(--kendo-color-on-inverse);
     flex-shrink: 0;
     display: flex;
     justify-content: space-between;
@@ -44,17 +44,17 @@ html {
 }
 
 .custom-toolbar kendo-avatar {
-    margin-right: 10px;
+    margin-right: var(--kendo-spacing-2\.5);
 }
 
 .mail-box {
     font-weight: bold;
-    font-size: 17px;
-    padding-left: 8px;
+    font-size: var(--kendo-font-size-lg);
+    padding-left: var(--kendo-spacing-2);
 }
 h5 {
-    font-size: 1.25rem !important;
-    font-weight: 500;
+    font-size: var(--kendo-font-size-xl) !important;
+    font-weight: var(--kendo-font-weight-medium);
     margin: 0;
     padding: 0;
 }

@@ -10,15 +10,14 @@ import { images } from '../../resources/images';
 import { CustomMessagesService } from '../../services/custom-messages.service';
 import { KENDO_BUTTONS } from '@progress/kendo-angular-buttons';
 import { KENDO_ICONS } from '@progress/kendo-angular-icons';
-import { KENDO_INPUTS } from '@progress/kendo-angular-inputs';
-import { RatingComponent } from './rating.component';
+import { KENDO_INPUTS, KENDO_RATING } from '@progress/kendo-angular-inputs';
 import { KENDO_CHARTS } from '@progress/kendo-angular-charts';
 import { CommonModule } from '@angular/common';
 
 @Component({
     selector: 'app-team-component',
     templateUrl: './team.component.html',
-    imports: [KENDO_GRID, KENDO_BUTTONS, KENDO_ICONS, KENDO_INPUTS, RatingComponent, KENDO_CHARTS, CommonModule]
+    imports: [KENDO_GRID, KENDO_BUTTONS, KENDO_ICONS, KENDO_INPUTS, KENDO_RATING, KENDO_CHARTS, CommonModule]
 })
 export class TeamComponent implements OnInit {
     @ViewChild(DataBindingDirective) dataBinding?: DataBindingDirective;
@@ -81,7 +80,7 @@ export class TeamComponent implements OnInit {
         const code: string = dataItem.imgId + dataItem.gender;
         const image: any = images;
 
-        return image[code];
+        return this.imageSource(image[code]);
     }
 
     public flagURL(dataItem: any): string {
@@ -89,5 +88,9 @@ export class TeamComponent implements OnInit {
         const image: any = images;
 
         return image[code];
+    }
+
+    private imageSource(value: string): string {
+        return value.startsWith('url(') ? value.slice(5, -2) : value;
     }
 }

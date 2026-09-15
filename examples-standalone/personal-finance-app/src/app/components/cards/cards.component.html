@@ -1,0 +1,69 @@
+<section class="finance-page cards-page" aria-labelledby="cards-title">
+    <div class="page-heading">
+        <div>
+            <p class="eyebrow">{{ customMsgService.translate('paymentsWallet') }}</p>
+            <h1 id="cards-title">{{ customMsgService.translate('cards') }}</h1>
+            <p class="page-lede">{{ customMsgService.translate('cardsPageLead') }}</p>
+        </div>
+        <button kendoButton fillMode="outline" [svgIcon]="refreshIcon"
+            (click)="demoAction(customMsgService.translate('refreshCardData'))">{{ customMsgService.translate('refresh') }}</button>
+    </div>
+    @if (actionMessage) { <div class="feedback-banner" role="status">{{ actionMessage }}</div> }
+    <div class="cards-grid">
+        <kendo-card class="card-visual">
+            <kendo-card-body>
+                <div class="card-visual-top"><span>EVERYDAY</span><span class="card-brand">VISA</span></div>
+                <div class="card-number">•••• &nbsp;•••• &nbsp;•••• &nbsp;4821</div>
+                <div class="card-visual-bottom"><span>MARIA JOHNSON</span><span>09/28</span></div>
+            </kendo-card-body>
+        </kendo-card>
+        <kendo-card class=" card-status-card">
+            <kendo-card-body>
+                <div class="card-heading">
+                    <div>
+                        <p class="card-kicker">{{ customMsgService.translate('primaryCard') }}</p>
+                        <h2>{{ customMsgService.translate('everydayVisa') }}</h2>
+                    </div><span class="status-badge status-success">{{ customMsgService.translate('active') }}</span>
+                </div>
+                <dl class="card-metadata">
+                    <div>
+                        <dt>{{ customMsgService.translate('creditLimit') }}</dt>
+                        <dd>$8,000.00</dd>
+                    </div>
+                    <div>
+                        <dt>{{ customMsgService.translate('availableCredit') }}</dt>
+                        <dd>$5,642.18</dd>
+                    </div>
+                    <div>
+                        <dt>{{ customMsgService.translate('billingCycle') }}</dt>
+                        <dd>{{ customMsgService.translate('daysRemaining') }}</dd>
+                    </div>
+                </dl>
+                <div class="card-actions"><button kendoButton fillMode="outline" [svgIcon]="eyeIcon"
+                        (click)="demoAction(customMsgService.translate('cardDetails'))">{{ customMsgService.translate('viewDetails') }}</button><button kendoButton fillMode="flat"
+                        [svgIcon]="lockIcon" [disabled]="true" aria-describedby="secure-actions-note">{{ customMsgService.translate('lockCard') }}</button>
+                </div>
+                        <p id="secure-actions-note" class="action-note">{{ customMsgService.translate('lockCardUnavailable') }}</p>
+            </kendo-card-body>
+        </kendo-card>
+        <kendo-card class=" card-activity-card">
+            <kendo-card-body>
+                <div class="card-heading">
+                    <div>
+                        <p class="card-kicker">{{ customMsgService.translate('recentPurchases') }}</p>
+                        <h2>{{ customMsgService.translate('cardActivity') }}</h2>
+                    </div><span class="muted-copy">{{ customMsgService.translate('thisMonth') }}</span>
+                </div>
+                <div class="activity-list">
+                    @for (item of activity; track item.id) { <div class="activity-row">
+                        <div class="activity-copy"><strong>{{ item.merchant }}</strong><span>{{ item.date }}</span>
+                        </div>
+                        <div class="activity-amount"><strong>{{ item.amount }}</strong><span class="status-badge"
+                                [class.status-success]="item.status === 'Completed'"
+                                [class.status-warning]="item.status === 'Pending'">{{ item.status }}</span></div>
+                    </div> }
+                </div>
+            </kendo-card-body>
+        </kendo-card>
+    </div>
+</section>

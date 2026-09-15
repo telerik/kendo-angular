@@ -1,20 +1,20 @@
 .box {
-    padding: 4px;
+    padding: var(--kendo-spacing-1);
     text-align: center;
     vertical-align: center;
 }
 .header {
-    background-color: #fae47a;
+    background-color: var(--kendo-color-warning-subtle);
 }
 .nav {
-    background-color: #fbd17f;
+    background-color: var(--kendo-color-warning-subtle-hover);
 }
 .content {
-    background-color: #f5bf8b;
+    background-color: var(--kendo-color-warning-emphasis);
 }
 .toc {
-    background-color: #ebaa79;
+    background-color: var(--kendo-color-warning-hover);
 }
 .footer {
-    background-color: #e39a6a;
+    background-color: var(--kendo-color-warning-active);
 }

@@ -1,5 +1,5 @@
-import { Component, OnDestroy, OnInit } from "@angular/core";
-import { NavigationStart, Router, RouterOutlet } from "@angular/router";
+import { Component, HostListener, OnInit } from "@angular/core";
+import { NavigationEnd, Router, RouterOutlet } from "@angular/router";
 import { MessageService } from "@progress/kendo-angular-l10n";
 import {
   DrawerComponent,
@@ -16,7 +16,7 @@ import { HeaderComponent } from "./header/header.component";
     templateUrl: "./app.component.html",
     imports: [KENDO_LAYOUT, RouterOutlet, HeaderComponent]
 })
-export class AppComponent implements OnInit, OnDestroy {
+export class AppComponent implements OnInit {
   public selected = "Team";
   public items: Array<any> = [];
   public customMsgService: CustomMessagesService;
@@ -29,38 +29,27 @@ export class AppComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     // Update Drawer selected state when change router path
-    this.router.events.subscribe((route: any) => {
-      if (route instanceof NavigationStart) {
-        this.items = this.drawerItems().map((item) => {
-          if (item.path && item.path === route.url) {
-            item.selected = true;
-            return item;
-          } else {
-            item.selected = false;
-            return item;
-          }
-        });
+    this.router.events.subscribe((route) => {
+      if (route instanceof NavigationEnd) {
+        this.items = this.drawerItems(route.urlAfterRedirects);
+        this.selected = this.items.find((item) => item.selected)?.text ?? "";
       }
     });
 
     this.setDrawerConfig();
+    this.items = this.drawerItems(this.router.url);
+    this.selected = this.items.find((item) => item.selected)?.text ?? "";
 
     this.customMsgService.localeChange.subscribe(() => {
-      this.items = this.drawerItems();
+      this.items = this.drawerItems(this.router.url);
     });
 
-    window.addEventListener("resize", () => {
-      this.setDrawerConfig();
-    });
   }
 
-  ngOnDestroy() {
-    window.removeEventListener("resize", () => {});
-  }
-
+  @HostListener("window:resize")
   public setDrawerConfig() {
     const pageWidth = window.innerWidth;
-    if (pageWidth <= 840) {
+    if (pageWidth < 768) {
       this.mode = "overlay";
       this.mini = false;
     } else {
@@ -69,38 +58,38 @@ export class AppComponent implements OnInit, OnDestroy {
     }
   }
 
-  public drawerItems() {
+  public drawerItems(activePath = this.router.url) {
     return [
       {
         text: this.customMsgService.translate("team"),
         svgIcon: gridIcon,
         path: "/",
-        selected: true,
+        selected: activePath === "/",
       },
       {
         text: this.customMsgService.translate("dashboard"),
         svgIcon: chartLineMarkersIcon,
         path: "/dashboard",
-        selected: false,
+        selected: activePath === "/dashboard",
       },
       {
         text: this.customMsgService.translate("planning"),
         svgIcon: calendarIcon,
         path: "/planning",
-        selected: false,
+        selected: activePath === "/planning",
       },
       {
         text: this.customMsgService.translate("profile"),
         svgIcon: userIcon,
         path: "/profile",
-        selected: false,
+        selected: activePath === "/profile",
       },
       { separator: true },
       {
         text: this.customMsgService.translate("info"),
         svgIcon: infoCircleIcon,
         path: "/info",
-        selected: false,
+        selected: activePath === "/info",
       },
     ];
   }
@@ -111,6 +100,5 @@ export class AppComponent implements OnInit, OnDestroy {
 
   public onSelect(ev: DrawerSelectEvent): void {
     this.router.navigate([ev.item.path]);
-    this.selected = ev.item.text;
   }
 }

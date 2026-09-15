@@ -1,0 +1,8 @@
+.portfolio-chart-card {
+    min-width: 0;
+}
+
+.portfolio-chart-card kendo-chart {
+    display: block;
+    width: 100%;
+}
