@@ -126,13 +126,21 @@
 }
 
 :host ::ng-deep .application-footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 4rem;
     padding: var(--kendo-spacing-6) var(--kendo-spacing-15);
-    color: var(--kendo-color-subtle);
-    background-color: var(--kendo-color-inverse);
+    box-sizing: border-box;
+    color: var(--kendo-color-on-primary);
+    text-align: center;
+    background-color: var(--kendo-color-primary);
 }
 
 :host ::ng-deep .footer-copy {
     margin-block: 0;
+    color: inherit;
 }
 
 @media (min-width: 62rem) {

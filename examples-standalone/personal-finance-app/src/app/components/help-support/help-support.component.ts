@@ -4,6 +4,8 @@ import { KENDO_BUTTONS } from '@progress/kendo-angular-buttons';
 import { KENDO_ICONS } from '@progress/kendo-angular-icons';
 import { KENDO_INPUTS } from '@progress/kendo-angular-inputs';
 import { envelopeIcon, infoCircleIcon, questionCircleIcon, searchIcon, SVGIcon } from '@progress/kendo-svg-icons';
+import { MessageService } from '@progress/kendo-angular-l10n';
+import { CustomMessagesService } from '../../services/custom-messages.service';
 
 interface HelpArticle { title: string; detail: string; category: string; }
 
@@ -15,12 +17,17 @@ interface HelpArticle { title: string; detail: string; category: string; }
     styleUrl: './help-support.component.css',
 })
 export class HelpSupportComponent {
+    public customMsgService: CustomMessagesService;
     public query = '';
     public actionMessage = '';
     public searchIcon: SVGIcon = searchIcon;
     public questionCircleIcon: SVGIcon = questionCircleIcon;
     public envelopeIcon: SVGIcon = envelopeIcon;
     public infoCircleIcon: SVGIcon = infoCircleIcon;
+
+    public constructor(public msgService: MessageService) {
+        this.customMsgService = this.msgService as CustomMessagesService;
+    }
     public articles: HelpArticle[] = [
         { title: 'How do I download a statement?', detail: 'Choose Statements from the navigation, then select Download for the period you need.', category: 'Statements' },
         { title: 'How are available balances calculated?', detail: 'Available balance reflects your current balance minus pending holds and payments.', category: 'Accounts' },

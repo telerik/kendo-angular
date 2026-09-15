@@ -5,6 +5,8 @@ import { KENDO_BUTTONS } from '@progress/kendo-angular-buttons';
 import { KENDO_ICONS } from '@progress/kendo-angular-icons';
 import { arrowDownIcon, arrowUpIcon, arrowRotateCcwIcon, downloadIcon, eyeIcon, infoCircleIcon, warningCircleIcon, walletIcon, SVGIcon } from '@progress/kendo-svg-icons';
 import { accountActivity, AccountActivity } from '../../data/finance-pages';
+import { MessageService } from '@progress/kendo-angular-l10n';
+import { CustomMessagesService } from '../../services/custom-messages.service';
 
 @Component({
     selector: 'app-account-detail',
@@ -14,6 +16,7 @@ import { accountActivity, AccountActivity } from '../../data/finance-pages';
     styleUrl: './account-detail.component.css',
 })
 export class AccountDetailComponent implements OnInit {
+    public customMsgService: CustomMessagesService;
     public activity: AccountActivity[] = accountActivity;
     public viewState: 'ready' | 'loading' | 'empty' | 'error' = 'loading';
     public walletIcon: SVGIcon = walletIcon;
@@ -25,6 +28,10 @@ export class AccountDetailComponent implements OnInit {
     public arrowUpIcon: SVGIcon = arrowUpIcon;
     public arrowDownIcon: SVGIcon = arrowDownIcon;
     public balanceVisible = true;
+
+    public constructor(public msgService: MessageService) {
+        this.customMsgService = this.msgService as CustomMessagesService;
+    }
 
     public ngOnInit(): void {
         this.loadActivity();

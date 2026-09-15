@@ -5,6 +5,8 @@ import { KENDO_ICONS } from '@progress/kendo-angular-icons';
 import { KENDO_INPUTS } from '@progress/kendo-angular-inputs';
 import { bellIcon, checkCircleIcon, infoCircleIcon, lockIcon, SVGIcon } from '@progress/kendo-svg-icons';
 import { financeNotifications, FinanceNotification } from '../../data/finance-pages';
+import { MessageService } from '@progress/kendo-angular-l10n';
+import { CustomMessagesService } from '../../services/custom-messages.service';
 
 @Component({
     selector: 'app-notifications',
@@ -14,6 +16,7 @@ import { financeNotifications, FinanceNotification } from '../../data/finance-pa
     styleUrl: './notifications.component.css',
 })
 export class NotificationsComponent {
+    public customMsgService: CustomMessagesService;
     public notifications: FinanceNotification[] = financeNotifications.map((item) => ({ ...item }));
     public categories = ['All', 'Security', 'Payments', 'Insights'];
     public selectedCategory = 'All';
@@ -22,6 +25,10 @@ export class NotificationsComponent {
     public checkCircleIcon: SVGIcon = checkCircleIcon;
     public lockIcon: SVGIcon = lockIcon;
     public infoCircleIcon: SVGIcon = infoCircleIcon;
+
+    public constructor(public msgService: MessageService) {
+        this.customMsgService = this.msgService as CustomMessagesService;
+    }
 
     public get filteredNotifications(): FinanceNotification[] {
         const query = this.query.trim().toLowerCase();

@@ -54,7 +54,6 @@
     "@progress/kendo-licensing": "1.11.0",
     "@progress/kendo-svg-icons": "5.4.0",
     "@progress/kendo-theme-meridian": "14.5.0",
-    "hammerjs": "^2.0.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.15.1"

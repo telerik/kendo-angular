@@ -6,6 +6,8 @@ import { KENDO_ICONS } from '@progress/kendo-angular-icons';
 import { KENDO_INPUTS } from '@progress/kendo-angular-inputs';
 import { downloadIcon, eyeIcon, fileTextIcon, infoCircleIcon, SVGIcon } from '@progress/kendo-svg-icons';
 import { statements, Statement } from '../../data/finance-pages';
+import { MessageService } from '@progress/kendo-angular-l10n';
+import { CustomMessagesService } from '../../services/custom-messages.service';
 
 @Component({
     selector: 'app-statements',
@@ -15,6 +17,7 @@ import { statements, Statement } from '../../data/finance-pages';
     styleUrl: './statements.component.css',
 })
 export class StatementsComponent {
+    public customMsgService: CustomMessagesService;
     public allStatements = statements;
     public filteredStatements: Statement[] = statements;
     public statementPeriods = ['All periods', '2026', '2025'];
@@ -25,6 +28,10 @@ export class StatementsComponent {
     public eyeIcon: SVGIcon = eyeIcon;
     public downloadIcon: SVGIcon = downloadIcon;
     public infoCircleIcon: SVGIcon = infoCircleIcon;
+
+    public constructor(public msgService: MessageService) {
+        this.customMsgService = this.msgService as CustomMessagesService;
+    }
 
     public filterStatements(): void {
         const normalizedQuery = this.query.trim().toLowerCase();

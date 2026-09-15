@@ -8,10 +8,10 @@ import { SpeakerProfile, TicketPrices } from "../models/interfaces";
     providedIn: "root",
 })
 export class ExcelDataService {
-    private data: any[] = spreadSheetJsonData;
+    private data: SheetDescriptor[] = this.cloneData(spreadSheetJsonData);
 
     public getData(): SheetDescriptor[] {
-        return this.data;
+        return this.cloneData(this.data);
     }
 
     public saveTicketData(data: TicketPrices): void {
@@ -48,18 +48,26 @@ export class ExcelDataService {
     }
 
     public saveData(data: SheetDescriptor[]): void {
-        this.data = data;
+        this.data = this.cloneData(data);
     }
 
     public clear(): void {
-        this.data = [...spreadSheetJsonData];
+        this.data = this.cloneData(spreadSheetJsonData);
+    }
+
+    private cloneData(data: SheetDescriptor[]): SheetDescriptor[] {
+        return structuredClone(data);
     }
 
     private updateCellValues(
         cellLocations: { sheetNumber: number; rowNumber: number; cellNumber: number; value: number }[]
     ): void {
         cellLocations.forEach((location) => {
-            this.data[location.sheetNumber].rows[location.rowNumber].cells[location.cellNumber].value += location.value;
+            const cell = this.data[location.sheetNumber]?.rows?.[location.rowNumber]?.cells?.[location.cellNumber];
+
+            if (cell) {
+                cell.value = (typeof cell.value === "number" ? cell.value : 0) + location.value;
+            }
         });
     }
 }

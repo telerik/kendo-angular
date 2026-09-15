@@ -637,6 +637,11 @@ a {
     }
 }
 
+.k-rating-item,
+.k-rating-item.k-selected {
+    color: var(--kendo-color-warning);
+}
+
 @media (min-width: 576px) {
     .profile-page {
         .k-form .k-form-field {

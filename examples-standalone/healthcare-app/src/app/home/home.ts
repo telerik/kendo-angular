@@ -1,16 +1,9 @@
 import { Component, ElementRef, OnInit, OnDestroy, ViewChild, ViewEncapsulation, HostListener, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { NgTemplateOutlet } from '@angular/common';
 import { Router } from '@angular/router';
 import { ChipThemeColor, KENDO_BUTTONS } from '@progress/kendo-angular-buttons';
 import { guid } from '@progress/kendo-angular-common';
-import {
-  ChatSuggestion,
-  KENDO_CONVERSATIONALUI,
-  Message,
-  SendMessageEvent,
-  User,
-} from '@progress/kendo-angular-conversational-ui';
+import { ChatSuggestion, Message, SendMessageEvent, User } from '@progress/kendo-angular-conversational-ui';
 import { KENDO_DIALOG } from '@progress/kendo-angular-dialog';
 import { KENDO_DROPDOWNS } from '@progress/kendo-angular-dropdowns';
 import { KENDO_GRID } from '@progress/kendo-angular-grid';
@@ -19,7 +12,6 @@ import { KENDO_INDICATORS } from '@progress/kendo-angular-indicators';
 import { KENDO_INPUTS } from '@progress/kendo-angular-inputs';
 import { KENDO_LABELS } from '@progress/kendo-angular-label';
 import { KENDO_LAYOUT } from '@progress/kendo-angular-layout';
-import { KENDO_POPUP } from '@progress/kendo-angular-popup';
 import {
   SVGIcon,
   chevronRightIcon,
@@ -46,7 +38,6 @@ import { PageHeaderService } from '../services/page-header.service';
   styleUrls: ['./home.css'],
   imports: [
     FormsModule,
-    NgTemplateOutlet,
     KENDO_BUTTONS,
     KENDO_ICONS,
     KENDO_INDICATORS,
@@ -56,9 +47,6 @@ import { PageHeaderService } from '../services/page-header.service';
     KENDO_DROPDOWNS,
     KENDO_INPUTS,
     KENDO_LABELS,
-    KENDO_POPUP,
-    KENDO_CONVERSATIONALUI,
-    MarkdownPipe,
   ],
 })
 export class HomeComponent implements OnInit, OnDestroy {

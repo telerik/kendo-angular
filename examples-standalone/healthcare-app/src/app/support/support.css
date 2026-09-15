@@ -15,6 +15,19 @@
   box-shadow: var(--kendo-elevation-1);
 }
 
+.notification-feed {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: 1200px;
+  box-sizing: border-box;
+  margin-inline: auto;
+}
+
+.notification-feed > .k-card-body {
+  min-width: 0;
+}
+
 .settings-grid h2,
 .feed-item h2,
 .support-empty h2 {
@@ -34,11 +47,19 @@
   display: flex;
   gap: var(--kendo-spacing-4);
   padding: var(--kendo-spacing-4);
-  border-bottom: 1px solid var(--kendo-color-border);
+  height: 100%;
+  box-sizing: border-box;
 }
 
-.feed-item:last-child {
-  border-bottom: 0;
+.notification-icon {
+  flex: 0 0 32px;
+  width: 32px;
+  height: 32px;
+  color: var(--kendo-color-primary);
+}
+
+.notification-feed > .k-card-body + .k-card-body {
+  border-inline-start: 1px solid var(--kendo-color-border);
 }
 
 .feed-item h2 {
@@ -78,6 +99,16 @@
   gap: var(--kendo-spacing-3);
 }
 
+.demo-action-panel {
+  margin-top: var(--kendo-spacing-4);
+  padding: var(--kendo-spacing-3) var(--kendo-spacing-4);
+  border: 1px solid var(--kendo-color-border-alt);
+  border-radius: var(--kendo-border-radius-md);
+  color: var(--kendo-color-subtle);
+  background: var(--kendo-color-surface-alt);
+  text-align: center;
+}
+
 /* Standard layout boundaries: 1440 / 1024 / 768 / 390px */
 @media (max-width: 1024px) {
   .settings-grid {
@@ -86,6 +117,16 @@
 }
 
 @media (max-width: 768px) {
+  .notification-feed {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .notification-feed > .k-card-body + .k-card-body {
+    border-inline-start: 0;
+    border-block-start: 1px solid var(--kendo-color-border);
+  }
+
   .support-actions {
     flex-direction: column;
     width: 100%;

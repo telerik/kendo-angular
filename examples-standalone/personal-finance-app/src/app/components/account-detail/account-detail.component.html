@@ -1,13 +1,13 @@
 <section class="finance-page account-page" aria-labelledby="account-title">
     <div class="page-heading">
         <div>
-            <p class="eyebrow">Accounts / Everyday Checking</p>
-            <h1 id="account-title">Everyday Checking</h1>
-            <p class="page-lede">A clear view of your available balance, account details, and recent activity.</p>
+            <p class="eyebrow">{{ customMsgService.translate('accountsChecking') }}</p>
+            <h1 id="account-title">{{ customMsgService.translate('everydayChecking') }}</h1>
+            <p class="page-lede">{{ customMsgService.translate('accountPageLead') }}</p>
         </div>
         <div class="heading-actions">
-            <button kendoButton fillMode="outline" [svgIcon]="downloadIcon" routerLink="/statements">View statements</button>
-            <button kendoButton themeColor="primary" [svgIcon]="eyeIcon" routerLink="/transactions">View transactions</button>
+            <button kendoButton fillMode="outline" [svgIcon]="downloadIcon" routerLink="/statements">{{ customMsgService.translate('viewStatements') }}</button>
+            <button kendoButton themeColor="primary" [svgIcon]="eyeIcon" routerLink="/transactions">{{ customMsgService.translate('viewTransactions') }}</button>
         </div>
     </div>
 
@@ -16,18 +16,18 @@
             <kendo-card-body>
             <div class="card-heading">
                 <div>
-                    <p class="card-kicker">Available balance</p>
+                    <p class="card-kicker">{{ customMsgService.translate('availableBalance') }}</p>
                     <h2>{{ balanceVisible ? '$12,480.62' : '••••••••' }}</h2>
                 </div>
                 <span class="icon-disc icon-disc-primary" aria-hidden="true"><kendo-svgicon [icon]="walletIcon"></kendo-svgicon></span>
             </div>
             <div class="balance-meta">
                 <span>Current balance {{ balanceVisible ? '$12,638.42' : '••••••••' }}</span>
-                <span class="status-badge status-success">Available now</span>
+                <span class="status-badge status-success">{{ customMsgService.translate('availableNow') }}</span>
             </div>
             <div class="balance-actions">
-                <button kendoButton fillMode="outline" routerLink="/transactions">View activity</button>
-                <button kendoButton fillMode="flat" [svgIcon]="eyeIcon" [attr.aria-pressed]="!balanceVisible" (click)="balanceVisible = !balanceVisible">{{ balanceVisible ? 'Hide balance' : 'Show balance' }}</button>
+                <button kendoButton fillMode="outline" routerLink="/transactions">{{ customMsgService.translate('viewActivity') }}</button>
+                <button kendoButton fillMode="flat" [svgIcon]="eyeIcon" [attr.aria-pressed]="!balanceVisible" (click)="balanceVisible = !balanceVisible">{{ customMsgService.translate(balanceVisible ? 'hideBalance' : 'showBalance') }}</button>
             </div>
             </kendo-card-body>
         </kendo-card>
@@ -35,13 +35,13 @@
         <kendo-card class=" metadata-card">
             <kendo-card-body>
             <div class="card-heading">
-                <div><p class="card-kicker">Account details</p><h2>At a glance</h2></div>
+                <div><p class="card-kicker">{{ customMsgService.translate('accountDetails') }}</p><h2>{{ customMsgService.translate('atAGlance') }}</h2></div>
             </div>
             <dl class="metadata-list">
-                <div><dt>Account number</dt><dd>•••• 4821</dd></div>
-                <div><dt>Account type</dt><dd>Checking</dd></div>
-                <div><dt>Opened</dt><dd>March 14, 2021</dd></div>
-                <div><dt>Routing number</dt><dd>•••• 0192</dd></div>
+                <div><dt>{{ customMsgService.translate('accountNumber') }}</dt><dd>•••• 4821</dd></div>
+                <div><dt>{{ customMsgService.translate('accountType') }}</dt><dd>{{ customMsgService.translate('checking') }}</dd></div>
+                <div><dt>{{ customMsgService.translate('opened') }}</dt><dd>March 14, 2021</dd></div>
+                <div><dt>{{ customMsgService.translate('routingNumber') }}</dt><dd>•••• 0192</dd></div>
             </dl>
             </kendo-card-body>
         </kendo-card>
@@ -49,19 +49,19 @@
         <kendo-card class=" activity-card">
             <kendo-card-body>
             <div class="card-heading">
-                <div><p class="card-kicker">Recent activity</p><h2>Account activity</h2></div>
-                <button kendoButton fillMode="flat" [svgIcon]="refreshIcon" (click)="loadActivity()">Refresh</button>
+                <div><p class="card-kicker">{{ customMsgService.translate('recentActivity') }}</p><h2>{{ customMsgService.translate('accountActivity') }}</h2></div>
+                <button kendoButton fillMode="flat" [svgIcon]="refreshIcon" (click)="loadActivity()">{{ customMsgService.translate('refresh') }}</button>
             </div>
 
             @if (viewState === 'loading') {
                 <div class="state-panel" role="status" aria-live="polite">
                     <span class="loading-bar"></span><span class="loading-bar loading-bar-short"></span>
-                    <p>Loading recent activity…</p>
+                    <p>{{ customMsgService.translate('loadingRecentActivity') }}</p>
                 </div>
             } @else if (viewState === 'empty') {
-                <div class="state-panel" role="status"><span class="state-icon" aria-hidden="true"><kendo-svgicon [icon]="infoCircleIcon"></kendo-svgicon></span><h3>No activity yet</h3><p>New transactions will appear here once this account is used.</p></div>
+                <div class="state-panel" role="status"><span class="state-icon" aria-hidden="true"><kendo-svgicon [icon]="infoCircleIcon"></kendo-svgicon></span><h3>{{ customMsgService.translate('noActivityYet') }}</h3><p>{{ customMsgService.translate('noActivityLead') }}</p></div>
             } @else if (viewState === 'error') {
-                <div class="state-panel state-error" role="alert"><span class="state-icon" aria-hidden="true"><kendo-svgicon [icon]="warningCircleIcon"></kendo-svgicon></span><h3>Activity is temporarily unavailable</h3><p>We couldn't refresh the activity feed. Try again or check back later.</p><button kendoButton fillMode="outline" [svgIcon]="refreshIcon" (click)="loadActivity()">Try again</button></div>
+                <div class="state-panel state-error" role="alert"><span class="state-icon" aria-hidden="true"><kendo-svgicon [icon]="warningCircleIcon"></kendo-svgicon></span><h3>{{ customMsgService.translate('activityUnavailable') }}</h3><p>{{ customMsgService.translate('activityUnavailableLead') }}</p><button kendoButton fillMode="outline" [svgIcon]="refreshIcon" (click)="loadActivity()">{{ customMsgService.translate('tryAgain') }}</button></div>
             } @else {
                 <div class="activity-list">
                     @for (item of activity; track item.id) {

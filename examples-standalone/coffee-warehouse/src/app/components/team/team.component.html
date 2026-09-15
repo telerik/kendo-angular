@@ -97,12 +97,12 @@
         <kendo-grid-column
           field="rating"
           [title]="customMsgService.translate('rating')"
-          [width]="110"
+          [width]="200"
           [resizable]="false"
           filter="numeric"
           >
           <ng-template kendoGridCellTemplate let-dataItem>
-            <app-kendo-rating [value]="dataItem.rating" [max]="5"></app-kendo-rating>
+            <kendo-rating [value]="dataItem.rating" [itemsCount]="5" [readonly]="true"></kendo-rating>
           </ng-template>
         </kendo-grid-column>
         <kendo-grid-column
@@ -133,7 +133,7 @@
           </kendo-sparkline>
         </ng-template>
       </kendo-grid-column>
-      <kendo-grid-column field="budget" [title]="customMsgService.translate('budget')" [width]="100" filter="numeric">
+      <kendo-grid-column field="budget" [title]="customMsgService.translate('budget')" [width]="150" filter="numeric">
         <ng-template kendoGridCellTemplate let-dataItem>
           <span [ngClass]="{ 'budget-negative budget-amount': dataItem.budget < 0 }"> {{ dataItem.budget | currency }} </span>
         </ng-template>
