@@ -52,6 +52,7 @@
 }
 
 .app-shell__nav {
+    box-sizing: border-box;
     display: flex;
     flex: 0 0 15rem;
     flex-direction: column;
@@ -141,5 +142,16 @@
 
     .app-shell__content {
         padding: var(--kendo-spacing-6) var(--kendo-spacing-4);
+    }
+}
+
+@media (max-height: 600px) {
+    .app-shell__content {
+        padding-top: var(--kendo-spacing-4);
+        padding-bottom: var(--kendo-spacing-4);
+    }
+
+    .app-shell__page-header {
+        margin-bottom: var(--kendo-spacing-4);
     }
 }

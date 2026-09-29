@@ -43,12 +43,12 @@
                 ></kendo-slider>
             </div>
         </ng-template>
-        <kendo-grid-column title="Company" field="company">
+        <kendo-grid-column title="Company" field="company" [width]="180">
             <ng-template kendoGridHeaderTemplate let-column>
                 <strong>{{ column.title }}</strong>
             </ng-template>
         </kendo-grid-column>
-        <kendo-grid-column title="Assets Type" field="assetType">
+        <kendo-grid-column title="Assets Type" field="assetType" [width]="150">
             <ng-template
                 kendoGridFilterMenuTemplate
                 let-column="column"
@@ -79,7 +79,7 @@
                 <span>{{ dataItem.price | kendoNumber : 'c' }}</span>
             </ng-template>
         </kendo-grid-column>
-        <kendo-grid-column title="Price Change" field="change" filter="numeric">
+        <kendo-grid-column title="Price Change" field="change" filter="numeric" [width]="160">
             <ng-template kendoGridHeaderTemplate let-column>
                 <strong>{{ column.title }}</strong>
             </ng-template>

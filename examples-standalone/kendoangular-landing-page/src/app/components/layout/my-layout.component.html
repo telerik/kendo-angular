@@ -1,5 +1,5 @@
-<div class="wrapper">
-    <div class="custom-toolbar">
+<div class="layout-demo">
+    <div class="layout-demo__toolbar">
         <button kendoButton [svgIcon]="layoutSvg" fillMode="flat" (click)="drawer.toggle()">
             <h1 class="mail-box">Drawer component</h1>
         </button>
@@ -10,7 +10,7 @@
         height="32px"
       ></kendo-avatar>
     </div>
-    <kendo-drawer-container class="customClass">
+    <kendo-drawer-container class="layout-demo__drawer">
         <kendo-drawer
             #drawer
             [items]="items"

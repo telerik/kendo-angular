@@ -93,10 +93,6 @@
 .k-sort-icon {
   color: var(--kendo-color-primary) !important;
 }
-.k-master-row,
-.k-table-row {
-    --kendo-line-height: 4px;
-}
 .k-pager-numbers button {
   width: 30px;
 }

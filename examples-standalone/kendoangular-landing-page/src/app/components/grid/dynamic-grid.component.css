@@ -51,8 +51,7 @@
     color: var(--kendo-color-on-error);
 }
 .k-chip {
-    width: 45px;
-    height: 10px;
+    min-width: 45px;
 }
 .k-chip-content {
     justify-content: center;
