@@ -68,10 +68,6 @@ legend {
     color: var(--kendo-color-subtle);
 }
 
-.k-actions {
-    margin-top: var(--kendo-spacing-4);
-}
-
 .dialog-message {
     margin: var(--kendo-spacing-7\.5);
     text-align: center;

@@ -1,9 +1,14 @@
 .grid {
-    display: flex;
-    grid: auto auto / 1fr 1fr;
-    grid-gap: var(--kendo-spacing-10);
-    justify-content: center;
-    align-items: center;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 25rem);
+    gap: var(--kendo-spacing-5);
+    align-items: start;
+}
+
+.grid > *,
+.wrapper,
+.component {
+    min-width: 0;
 }
 
 .wrapper {
@@ -12,10 +17,25 @@
     gap: var(--kendo-spacing-5);
 }
 
-.component {
-    width: 460px;
+.component > p {
+    margin: 0 0 var(--kendo-spacing-2);
 }
 
 .k-daterangepicker {
     justify-content: space-between;
+}
+
+@media (max-width: 995px) {
+    .grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}
+
+@media (max-height: 600px) {
+    .k-animation-container:has(.k-datetimepicker-popup) {
+        max-height: calc(100vh - 300px);
+        max-height: calc(100dvh - 300px);
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
 }

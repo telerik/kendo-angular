@@ -13,9 +13,22 @@
 
 .components-wrapper {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: var(--kendo-spacing-5);
-    width: 1170px;
+    width: 100%;
+    min-width: 0;
     justify-content: center;
     align-items: center;
+}
+
+@media (max-width: 995px) {
+    .components-wrapper {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 640px) {
+    .components-wrapper {
+        grid-template-columns: minmax(0, 1fr);
+    }
 }

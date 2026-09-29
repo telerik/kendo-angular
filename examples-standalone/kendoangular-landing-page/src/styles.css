@@ -4,5 +4,6 @@
     --kendo-translucency-base: 30%;
 }
 body {
+    margin: 0;
     font-family: var(--kendo-font-family);
 }

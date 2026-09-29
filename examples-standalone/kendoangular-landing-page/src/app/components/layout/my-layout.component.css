@@ -1,35 +1,22 @@
-html,
-body,
-#parent,
-my-app,
-.wrapper {
-    margin: 0;
-    padding: 0;
-    border-width: 0;
-    height: 100%;
+.layout-demo {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
 }
 
-html {
-    overflow: hidden;
-}
-
-.customClass {
-    flex: 1;
-    overflow: auto;
+.layout-demo__drawer {
+    flex: 1 1 auto;
+    min-height: 32rem;
+    overflow: visible;
     align-items: stretch;
 }
 
-.wrapper {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
+.layout-demo__drawer .k-drawer-content {
+    overflow: visible;
 }
 
-.customClass .k-drawer-content {
-    overflow: auto;
-}
-
-.custom-toolbar {
+.layout-demo__toolbar {
+    box-sizing: border-box;
     width: 100%;
     height: calc(var(--kendo-spacing-10) + var(--kendo-spacing-0\.5));
     background-color: var(--kendo-color-inverse);
@@ -43,16 +30,16 @@ html {
     align-items: center;
 }
 
-.custom-toolbar kendo-avatar {
+.layout-demo__toolbar kendo-avatar {
     margin-right: var(--kendo-spacing-2\.5);
 }
 
-.mail-box {
+.layout-demo .mail-box {
     font-weight: bold;
     font-size: var(--kendo-font-size-lg);
     padding-left: var(--kendo-spacing-2);
 }
-h5 {
+.layout-demo h5 {
     font-size: var(--kendo-font-size-xl) !important;
     font-weight: var(--kendo-font-weight-medium);
     margin: 0;
