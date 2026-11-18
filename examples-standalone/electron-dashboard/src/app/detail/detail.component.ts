@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { salesByQuarter } from '../shared/data/sales-data';
 
 @Component({
+  standalone: false,
   selector: 'app-detail',
   templateUrl: './detail.component.html',
   styleUrls: ['./detail.component.scss'],

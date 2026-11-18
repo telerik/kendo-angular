@@ -17,8 +17,7 @@
           "./src/tsconfig.spec.json",
           "./e2e/tsconfig.e2e.json",
           "./tsconfig.json"
-        ],
-        "createDefaultProgram": true
+        ]
       },
       "extends": [
         "plugin:@angular-eslint/recommended",
@@ -28,6 +27,7 @@
         "plugin:@angular-eslint/template/process-inline-templates"
       ],
       "rules": {
+        "@angular-eslint/prefer-standalone": 0,
         "@typescript-eslint/no-empty-function": 0,
         "@typescript-eslint/no-explicit-any": 0,
         "@typescript-eslint/no-unsafe-assignment": 0,

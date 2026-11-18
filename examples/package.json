@@ -12,9 +12,6 @@
     "publish-gh-pages": "./bin/publish-gh-pages"
   },
   "private": true,
-  "engines": {
-    "npm": ">=11.16.0"
-  },
   "dependencies": {
     "@angular/animations": "~13.3.12",
     "@angular/common": "~13.3.12",

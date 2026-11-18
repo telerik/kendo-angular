@@ -20,13 +20,14 @@ This Kendo UI for Angular sample project demonstrates how to use [Kendo UI for A
 
 # Setting Up the Project
 
-Bootstrap and package your project with Angular 17 and Electron 27 (Typescript + SASS + Hot Reload) for creating Desktop applications.
+Bootstrap and package your project with Angular 21 and Electron 27 (Typescript + SASS + Hot Reload) for creating Desktop applications.
 
 Currently runs with:
 
-- Angular v17.0.8
+- Angular v21.2.26
 - Electron v27.2.0
-- Kendo Angular 15.1.0
+- Kendo Angular 25.3.0
+- Angular CLI and build tooling v21.2.29, TypeScript v5.9.3, and Jest v30
 
 With this sample, you can:
 
@@ -37,7 +38,9 @@ With this sample, you can:
 
 /!\ Hot reload only pertains to the renderer process. The main electron process is not able to be hot reloaded, only restarted.
 
-/!\ Angular CLI & Electron Builder needs Node 18.10 or later to work correctly.
+/!\ Use Node 20.19+, Node 22.12+, or Node 24+ for Angular 21 tooling. The `.node-version` file selects Node 22.
+
+The renderer retains its NgModule architecture and Zone.js change detection. The custom Webpack configuration is still used for both Electron and browser builds. Electron itself remains on v27.2.0; this Angular migration does not upgrade the desktop runtime.
 
 ## Getting Started
 
