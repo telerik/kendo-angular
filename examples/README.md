@@ -8,6 +8,10 @@ Additional sample applications that cannot use the same workspace are located in
 
 The instructions for getting up and running with each sample project can be found in its `README.md` file in the [`projects` folder](./projects).
 
+## Dependency Maintenance
+
+This workspace remains on Angular 13.3. The `grid-jsdo` example still uses JSDO v6, whose Angular wrapper declares Angular 6 and RxJS 6 peer dependencies. Installing this existing combination requires `npm install --legacy-peer-deps`; this bypass does not establish support for newer Angular versions.
+
 ## Hosted Examples
 
 Currently, the example on [integrating Kendo UI for Angular with Progressive Web Applications](https://telerik.github.io/kendo-angular/integration-pwa) is deployed on GitHub pages.

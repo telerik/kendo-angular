@@ -9,7 +9,7 @@
   "author": "Progress",
   "license": "MIT",
   "dependencies": {
-    "express": "^4.16.4",
-    "ws": "^6.2.1"
+    "express": "^4.20.0",
+    "ws": "^6.2.4"
   }
 }
